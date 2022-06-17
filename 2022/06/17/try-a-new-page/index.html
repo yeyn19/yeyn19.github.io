@@ -29,7 +29,7 @@
 <meta property="og:description" content="缘起今天是考完试的第二天，也是博客上线的第一天。其实我早有写点东西的打算：  不仅是可以记录一下生活，分享一下胡乱折腾的东西，讲讲一些作业有意思的解法，以及分享一下论文的阅读笔记之类的。更重要的是，希望能借着分享的机会，让我对自己写的东西有一些更深邃的认知与认识，毕竟讲出来可以在脑子里留下90%，自己看一遍只能留下30%。 还有一个客观原因，就是我这学期电脑崩了一次，丢失了非常多的代码、报告等信息">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-17T06:10:10.000Z">
-<meta property="article:modified_time" content="2022-06-17T11:17:42.835Z">
+<meta property="article:modified_time" content="2022-06-17T11:24:00.818Z">
 <meta property="article:author" content="叶奕宁">
 <meta name="twitter:card" content="summary">
 
@@ -140,6 +140,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记</a>
 
   </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -181,6 +186,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -219,7 +225,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-17 14:10:10 / 修改时间：19:17:42" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
+              <time title="创建时间：2022-06-17 14:10:10 / 修改时间：19:24:00" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -459,6 +465,31 @@
 
 
   
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
 
 
 
