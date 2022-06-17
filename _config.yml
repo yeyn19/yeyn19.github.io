@@ -8,7 +8,7 @@ subtitle: ''
 description: 'this is descryption'
 keywords:
 author: Yeyn 19
-language: zh-Hanz
+language: zh-CN
 timezone: ''
 
 # URL
@@ -58,15 +58,18 @@ prism_plugin:
   line_number: false # default false
   custom_css:
 
+
 search:
   path: search.xml
   field: post
+  format: html
+  limit: 10000
 
-wordCount:
-  enable: true # 将这个值设置为 true 即可.
-  postWordCount: true
-  min2read: true
-  totalCount: true
+symbols_count_time:
+	symbols: true
+	time: true
+	total_symbols: true
+	total_time: true
 
 feed:
   type: atom
@@ -95,8 +98,14 @@ index_generator:
 
 # Category & Tag
 default_category: uncategorized
-category_map:
-tag_map:
+category_map:  /categories
+tag_map: /tags
+# menu:
+#   home: /
+#   archives: /archives
+#   categories: /categories
+#   tags: /tags
+
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -125,10 +134,13 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
-#theme:  hexo-theme-matery
+#theme: landscape
+theme:  next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repo: https://github.com/yeyn19/my_blogs
+  # example, https://github.com/hexojs/hexojs.github.io
+  branch: master
