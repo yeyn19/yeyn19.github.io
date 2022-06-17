@@ -2,7 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.yynnyy.cn/post/63593.html</loc>
+    <loc>http://www.yynnyy.cn/post/ede8f462.html</loc>
+    
+    <lastmod>2022-06-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/post/ff05b5bf.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -55,10 +64,31 @@
   </url>
 
   
+  <url>
+    <loc>http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2022-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
     <loc>http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-06-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/categories/%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2022-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
