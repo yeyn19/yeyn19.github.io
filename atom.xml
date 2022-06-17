@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-06-17T06:48:15.232Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Yeyn 19</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>try a new page</title>
+    <link href="http://example.com/2022/06/17/try-a-new-page/"/>
+    <id>http://example.com/2022/06/17/try-a-new-page/</id>
+    <published>2022-06-17T06:10:10.000Z</published>
+    <updated>2022-06-17T06:48:15.232Z</updated>
+    
+    <content type="html"><![CDATA[<p>can i find this? 输入中文可以吗</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;can i find this? 输入中文可以吗&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="初始化" scheme="http://example.com/categories/%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    
+    
+    <category term="试试" scheme="http://example.com/tags/%E8%AF%95%E8%AF%95/"/>
+    
+  </entry>
+  
+</feed>
