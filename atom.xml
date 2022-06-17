@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>二三事</title>
+  <title>随缘随笔</title>
   
-  <subtitle>subsub</subtitle>
+  
   <link href="https://yeyn19.github.io/atom.xml" rel="self"/>
   
   <link href="https://yeyn19.github.io/"/>
