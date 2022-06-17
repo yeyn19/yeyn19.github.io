@@ -8,7 +8,7 @@ subtitle: ''
 description: 'this is descryption'
 keywords:
 author: Yeyn 19
-language: en
+language: zh-Hanz
 timezone: ''
 
 # URL
@@ -43,13 +43,41 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+# highlight:
+#   enable: true
+#   line_number: true
+#   auto_detect: false
+#   tab_replace: ''
+#   wrap: true
+#   hljs: false
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
+  enable: false
+prism_plugin:
+  mode: 'preprocess' # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: false # default false
+  custom_css:
+
+search:
+  path: search.xml
+  field: post
+
+wordCount:
+  enable: true # 将这个值设置为 true 即可.
+  postWordCount: true
+  min2read: true
+  totalCount: true
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+hub:
+  content:
+    content_limit: 140
+    content_limit_delim: ' '
+    order_by: -date
+
 prismjs:
   enable: false
   preprocess: true
@@ -98,6 +126,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: landscape
+#theme:  hexo-theme-matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
