@@ -2,7 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://www.yynnyy.cn/ede8f462.html</loc>
+    <loc>http://www.yynnyy.cn/ede8f462</loc>
+    
+    <lastmod>2022-06-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/lib/pdf/web/viewer</loc>
+    
+    <lastmod>2022-06-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/lib/pdf/README</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -38,7 +56,7 @@
   </url>
   
   <url>
-    <loc>http://www.yynnyy.cn/ff05b5bf.html</loc>
+    <loc>http://www.yynnyy.cn/ff05b5bf</loc>
     
     <lastmod>2022-06-17</lastmod>
     

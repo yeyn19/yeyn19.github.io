@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-17T14:18:25.198Z</updated>
+  <updated>2022-06-17T15:02:55.907Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>四子棋大作业</title>
-    <link href="http://www.yynnyy.cn/ede8f462.html"/>
-    <id>http://www.yynnyy.cn/ede8f462.html</id>
+    <link href="http://www.yynnyy.cn/ede8f462"/>
+    <id>http://www.yynnyy.cn/ede8f462</id>
     <published>2022-06-17T13:59:40.000Z</published>
-    <updated>2022-06-17T14:18:25.198Z</updated>
+    <updated>2022-06-17T15:02:55.907Z</updated>
     
-    <content type="html"><![CDATA[<p>待续</p>]]></content>
+    <content type="html"><![CDATA[<p>由于之前数据丢失问题，markdown源码已经不得而知了，就放一个pdf的文件吧…</p><div class="pdfobject-container" data-target="/files/connect_four.pdf" data-height="500px"></div>]]></content>
     
     
     <summary type="html">2021年《人工智能导论》课程屏风四子棋大作业，saiblo天梯第二</summary>
@@ -39,8 +39,8 @@
   
   <entry>
     <title>第一篇博客</title>
-    <link href="http://www.yynnyy.cn/ff05b5bf.html"/>
-    <id>http://www.yynnyy.cn/ff05b5bf.html</id>
+    <link href="http://www.yynnyy.cn/ff05b5bf"/>
+    <id>http://www.yynnyy.cn/ff05b5bf</id>
     <published>2022-06-17T06:10:10.000Z</published>
     <updated>2022-06-17T14:00:37.538Z</updated>
     

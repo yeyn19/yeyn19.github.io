@@ -25,7 +25,7 @@
   <meta name="description" content="为什么写博客？博客写什么？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一篇博客">
-<meta property="og:url" content="http://www.yynnyy.cn/ff05b5bf.html">
+<meta property="og:url" content="http://www.yynnyy.cn/ff05b5bf">
 <meta property="og:site_name" content="随缘随笔">
 <meta property="og:description" content="为什么写博客？博客写什么？">
 <meta property="og:locale" content="zh_CN">
@@ -198,7 +198,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ff05b5bf.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ff05b5bf">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -308,7 +308,7 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/ede8f462.html" rel="next" title="四子棋大作业">
+    <a href="/ede8f462" rel="next" title="四子棋大作业">
       四子棋大作业 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -538,6 +538,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
@@ -557,7 +577,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'yeyn19.github.io',
       owner       : 'yeyn19',
       admin       : ['yeyn19'],
-      id          : 'b01ad7285a8948f8eb7d09cc4e63d3c0',
+      id          : 'f1e2760ac9cc0ec37702d7eca2509fea',
         language: 'zh-CN',
       distractionFreeMode: true
     });

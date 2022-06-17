@@ -194,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ede8f462.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ede8f462">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -208,7 +208,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ede8f462.html" class="post-title-link" itemprop="url">四子棋大作业</a>
+            <a href="/ede8f462" class="post-title-link" itemprop="url">四子棋大作业</a>
         </h2>
 
         <div class="post-meta">
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-17 21:59:40 / 修改时间：22:18:25" itemprop="dateCreated datePublished" datetime="2022-06-17T21:59:40+08:00">2022-06-17</time>
+              <time title="创建时间：2022-06-17 21:59:40 / 修改时间：23:02:55" itemprop="dateCreated datePublished" datetime="2022-06-17T21:59:40+08:00">2022-06-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -237,7 +237,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2</span>
+              <span>41</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,7 +259,7 @@
           <p>2021年《人工智能导论》课程屏风四子棋大作业，saiblo天梯第二</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ede8f462.html">
+              <a class="btn" href="/ede8f462">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -285,7 +285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ff05b5bf.html">
+    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ff05b5bf">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -299,7 +299,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/ff05b5bf.html" class="post-title-link" itemprop="url">第一篇博客</a>
+            <a href="/ff05b5bf" class="post-title-link" itemprop="url">第一篇博客</a>
         </h2>
 
         <div class="post-meta">
@@ -350,7 +350,7 @@
           <p>为什么写博客？博客写什么？</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/ff05b5bf.html">
+              <a class="btn" href="/ff05b5bf">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -592,6 +592,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
