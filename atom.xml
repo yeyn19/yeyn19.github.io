@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://yeyn19.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://yeyn19.github.io/"/>
   <updated>2022-06-17T07:07:07.075Z</updated>
-  <id>http://example.com/</id>
+  <id>https://yeyn19.github.io/</id>
   
   <author>
     <name>Yeyn 19</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>try a new page</title>
-    <link href="http://example.com/2022/06/17/try-a-new-page/"/>
-    <id>http://example.com/2022/06/17/try-a-new-page/</id>
+    <link href="https://yeyn19.github.io/2022/06/17/try-a-new-page/"/>
+    <id>https://yeyn19.github.io/2022/06/17/try-a-new-page/</id>
     <published>2022-06-17T06:10:10.000Z</published>
     <updated>2022-06-17T07:07:07.075Z</updated>
     
@@ -38,10 +38,10 @@ a = 1;
     
     
     
-    <category term="初始化" scheme="http://example.com/categories/%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
+    <category term="初始化" scheme="https://yeyn19.github.io/categories/%E5%88%9D%E5%A7%8B%E5%8C%96/"/>
     
     
-    <category term="试试" scheme="http://example.com/tags/%E8%AF%95%E8%AF%95/"/>
+    <category term="试试" scheme="https://yeyn19.github.io/tags/%E8%AF%95%E8%AF%95/"/>
     
   </entry>
   
