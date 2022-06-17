@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-06-17T06:48:15.232Z</updated>
+  <updated>2022-06-17T07:07:07.075Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,14 +21,18 @@
     <link href="http://example.com/2022/06/17/try-a-new-page/"/>
     <id>http://example.com/2022/06/17/try-a-new-page/</id>
     <published>2022-06-17T06:10:10.000Z</published>
-    <updated>2022-06-17T06:48:15.232Z</updated>
+    <updated>2022-06-17T07:07:07.075Z</updated>
     
-    <content type="html"><![CDATA[<p>can i find this? 输入中文可以吗</p>]]></content>
+    <content type="html"><![CDATA[<p>can i find this? 输入中文可以吗</p><pre class=" language-c++"><code class="language-c++">try this code;a = 1;</code></pre>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;can i find this? 输入中文可以吗&lt;/p&gt;
+&lt;pre class=&quot; language-c++&quot;&gt;&lt;code class=&quot;language-c++&quot;&gt;
+try this code;
+a = 1;
+&lt;/code&gt;&lt;/pre&gt;
 </summary>
       
     
