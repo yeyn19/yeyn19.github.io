@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yeyn19.github.io/first_blog.html</loc>
+    <loc>http://www.yynnyy.cn/first_blog.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://yeyn19.github.io/photos/index.html</loc>
+    <loc>http://www.yynnyy.cn/photos/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://yeyn19.github.io/about/index.html</loc>
+    <loc>http://www.yynnyy.cn/about/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://yeyn19.github.io/categories/index.html</loc>
+    <loc>http://www.yynnyy.cn/categories/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://yeyn19.github.io/tags/index.html</loc>
+    <loc>http://www.yynnyy.cn/tags/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -48,7 +48,7 @@
   
 
   <url>
-    <loc>https://yeyn19.github.io/</loc>
+    <loc>http://www.yynnyy.cn/</loc>
     <lastmod>2022-06-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -58,7 +58,7 @@
 
   
   <url>
-    <loc>https://yeyn19.github.io/categories/%E9%9A%8F%E7%AC%94/</loc>
+    <loc>http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2022-06-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

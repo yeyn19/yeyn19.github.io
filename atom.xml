@@ -3,11 +3,11 @@
   <title>随缘随笔</title>
   
   
-  <link href="https://yeyn19.github.io/atom.xml" rel="self"/>
+  <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
-  <link href="https://yeyn19.github.io/"/>
+  <link href="http://www.yynnyy.cn/"/>
   <updated>2022-06-17T12:05:14.812Z</updated>
-  <id>https://yeyn19.github.io/</id>
+  <id>http://www.yynnyy.cn/</id>
   
   <author>
     <name>叶奕宁</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>第一篇博客</title>
-    <link href="https://yeyn19.github.io/first_blog.html"/>
-    <id>https://yeyn19.github.io/first_blog.html</id>
+    <link href="http://www.yynnyy.cn/first_blog.html"/>
+    <id>http://www.yynnyy.cn/first_blog.html</id>
     <published>2022-06-17T06:10:10.000Z</published>
     <updated>2022-06-17T12:05:14.812Z</updated>
     
@@ -30,7 +30,7 @@
     
     
     
-    <category term="随笔" scheme="https://yeyn19.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
