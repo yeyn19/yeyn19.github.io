@@ -2,7 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.yynnyy.cn/top/index.html</loc>
+    
+    <lastmod>2022-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/tags/index.html</loc>
+    
+    <lastmod>2022-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.yynnyy.cn/about/index.html</loc>
+    
+    <lastmod>2022-06-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/categories/index.html</loc>
     
     <lastmod>2022-06-18</lastmod>
     
@@ -30,15 +57,6 @@
   
   <url>
     <loc>http://www.yynnyy.cn/schedule/index.html</loc>
-    
-    <lastmod>2022-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.yynnyy.cn/top/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
@@ -75,24 +93,6 @@
   
   <url>
     <loc>http://www.yynnyy.cn/lib/pdf/README</loc>
-    
-    <lastmod>2022-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.yynnyy.cn/tags/index.html</loc>
-    
-    <lastmod>2022-06-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.yynnyy.cn/categories/index.html</loc>
     
     <lastmod>2022-06-17</lastmod>
     
