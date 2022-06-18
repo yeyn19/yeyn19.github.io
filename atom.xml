@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-18T05:18:54.423Z</updated>
+  <updated>2022-06-18T16:32:30.967Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>6-18总结</title>
+    <link href="http://www.yynnyy.cn/5e20b515"/>
+    <id>http://www.yynnyy.cn/5e20b515</id>
+    <published>2022-06-18T16:22:43.000Z</published>
+    <updated>2022-06-18T16:32:30.967Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日开发：给博客添加了一个开发记录的功能。</p><p>今日论文：没读。</p><p>今天是618，但今年也没啥想买的：</p><ul><li>显卡，早在5月就买了3060</li><li>电动牙刷，现在这个虽然有点破，但倒也还能用</li><li>Lego，不知道为什么不太想买了</li></ul><p>​    但总之618还是想买点什么，恰逢前两天在b站看到《艾尔登法环》的视频，就买了个游戏来。暑假到了，我打算趁着暑假来玩一玩《艾尔登法环》。</p><p>​    说起来，我需要玩的游戏倒也真不少，《荒野大嫖客》还在电脑里躺着，《枪火重生》只过了前两关，《蔚蓝》和《奥日》的全收集计划刚刚完成了不到$1/3$……《艾尔登法环》倒是先入库了。也许我并不是喜欢玩游戏，而是单纯的喜欢买游戏吧。</p><p>​    不能这样下去了！我打算在正式入职快手之前玩一玩《艾尔登法环》，可能把后续的游戏进度和一些游戏设计方面的感想做出一个 category 放到博客里。</p><p>​    不止这个，再有就是暑假结束了，我打算梳理一些这学期的几门课，不管有没有退课，把上课的体验也作出一个 category 放到博客里，可能在接下来几天会陆续放出吧。</p><p>​    明天是暑假的第一个周天，我也衷心的希望会是暑假论文阅读计划开始的第一天…</p>]]></content>
+    
+    
+    <summary type="html">今日总结</summary>
+    
+    
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="http://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>给hexo添加日历</title>
@@ -44,9 +65,9 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-18T06:36:42.267Z</updated>
+    <updated>2022-06-18T16:32:42.217Z</updated>
     
-    <content type="html"><![CDATA[<p><center><div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;"><div id="calendar" style="width: 600px;height:165px;"></div></div><script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script><script type="text/javascript">  (function(){    function dateFormat(date){      date = new Date(date)      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')    }    let calendarChart = echarts.init(document.getElementById('calendar'));    let endDate = new Date().getTime()    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()    let startDay = Math.ceil(startDate/(24*3600*1000))    let endDay = Math.ceil(endDate/(24*3600*1000))    let commitData = {"2022-06-17":3,"2022-06-18":1}    let seriesData = []    for(let i = startDay;i <= endDay;i++){      let date = i*24*3600*1000      let formatDate = dateFormat(date)      let times = commitData[formatDate] || 0      seriesData.push([formatDate, times])    }    let option = {      title: {        text: "近40周更新",        x: "center"      },      backgroundColor: "#f9f9f9",      tooltip: {        padding: 10,        backgroundColor: "#555",        borderColor: "#777",        borderWidth: 1,        formatter: function(a) {          var b = a.value;          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"        }      },      visualMap: {        show: !1,        showLabel: !0,        min: 0,        max: 4,        calculable: !1,        inRange: {          symbol: "rect",          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]        },        itemWidth: 12,        itemHeight: 12,        orient: "horizontal",        left: "center",        top: 0      },      calendar: [{        top: 50,        left: "center",        range: [dateFormat(startDate), dateFormat(endDate)],        cellSize: [13, 13],        splitLine: {          show: !1        },        name: {          textStyle: {            color: "#3C4858"          }        },        itemStyle: {          borderColor: "#fff",          borderWidth: 2        },        yearLabel: {          show: !1        },        monthLabel: {          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        },        dayLabel: {          formatter: "{start} 1st",          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        }      }],      series: [{        type: "heatmap",        coordinateSystem: "calendar",        calendarIndex: 0,        data: seriesData      }]    };    calendarChart.setOption(option);    let box = document.getElementById("calendar_box")    let child = document.getElementById("calendar")    window.addEventListener('load',function(){        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2    })      })();</script></center></p><table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<p><center><div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;"><div id="calendar" style="width: 600px;height:165px;"></div></div><script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script><script type="text/javascript">  (function(){    function dateFormat(date){      date = new Date(date)      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')    }    let calendarChart = echarts.init(document.getElementById('calendar'));    let endDate = new Date().getTime()    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()    let startDay = Math.ceil(startDate/(24*3600*1000))    let endDay = Math.ceil(endDate/(24*3600*1000))    let commitData = {"2022-06-17":3,"2022-06-19":1}    let seriesData = []    for(let i = startDay;i <= endDay;i++){      let date = i*24*3600*1000      let formatDate = dateFormat(date)      let times = commitData[formatDate] || 0      seriesData.push([formatDate, times])    }    let option = {      title: {        text: "近40周更新",        x: "center"      },      backgroundColor: "#f9f9f9",      tooltip: {        padding: 10,        backgroundColor: "#555",        borderColor: "#777",        borderWidth: 1,        formatter: function(a) {          var b = a.value;          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"        }      },      visualMap: {        show: !1,        showLabel: !0,        min: 0,        max: 4,        calculable: !1,        inRange: {          symbol: "rect",          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]        },        itemWidth: 12,        itemHeight: 12,        orient: "horizontal",        left: "center",        top: 0      },      calendar: [{        top: 50,        left: "center",        range: [dateFormat(startDate), dateFormat(endDate)],        cellSize: [13, 13],        splitLine: {          show: !1        },        name: {          textStyle: {            color: "#3C4858"          }        },        itemStyle: {          borderColor: "#fff",          borderWidth: 2        },        yearLabel: {          show: !1        },        monthLabel: {          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        },        dayLabel: {          formatter: "{start} 1st",          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        }      }],      series: [{        type: "heatmap",        coordinateSystem: "calendar",        calendarIndex: 0,        data: seriesData      }]    };    calendarChart.setOption(option);    let box = document.getElementById("calendar_box")    let child = document.getElementById("calendar")    window.addEventListener('load',function(){        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2    })      })();</script></center></p><table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00F300>😁 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
     
     
       
