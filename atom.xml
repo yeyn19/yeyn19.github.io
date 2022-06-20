@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-19T17:00:32.125Z</updated>
+  <updated>2022-06-20T09:46:56.169Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>OS课程总结</title>
+    <link href="http://www.yynnyy.cn/1a09bd40"/>
+    <id>http://www.yynnyy.cn/1a09bd40</id>
+    <published>2022-06-20T03:41:15.000Z</published>
+    <updated>2022-06-20T09:46:56.169Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    OS课基本是贵系知名专业课了，前有四大原理，后有os、体系结构，构成了大三学期。恰逢昨天OS出分了，就来聊聊OS。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>之前在大伯的课上学到一句话：每门课上下来，最起码你得有一句话能记一辈子，这课就算没白上。因此，我每节课都最少要记住一句话。os课就这句：</p><blockquote><p>操作系统的东西，好多都是先有实现再有理论，看明白实现，理论自然就懂了。</p></blockquote><h2 id="老师"><a href="#老师" class="headerlink" title="老师"></a>老师</h2><p>​    我选的是陈渝老师的课，这学期向勇老师没开课。我们是限选课优先志愿，所以不存在选不上课。当然，老师和老师也有区别，听说向勇老师的理念是“通过提高挂科率增强同学积极性”，所以选的人是寥寥无几，因此陈渝老师这边相对就火一些。</p><p>​    之前听得传闻对这个课的评价都一般，但实际上下来还不错。我已经不是第一次见陈渝老师了，之前的编译原理也是他教。虽然两个课加起来一共就去听了3节，但对他还是有些了解。感觉他是贵系为数不多“比较懂同学们的”老师。之前有节网课说了一句话让我们印象深刻：</p><blockquote><p>能来会议里答题的同学们都很不错，说明大家都在认真听课；当然不来答题的同学们也很不错，能来会议里听课；当然没在会议的同学们也很不错，不来听课就能把这个知识，都学会。</p></blockquote><p>​    只能说，不用签到的老师、支持自学的老师，都是好老师。</p><h2 id="课程"><a href="#课程" class="headerlink" title="课程"></a>课程</h2><ul><li>课程本身还挺硬核的，讲了很多os的知识，知识很多，难度也不小。当然，必修课，你也没得选。</li><li>听说老师上课没有拓展很多，只看PPT的自学效果不错。</li><li>助教团队挺多，都是本科生，比较懂同学们的需求，答疑速度较快。</li></ul><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>40分作rCore业 + 20分期中 + 40分期末，会调分(向上)。</p><p>​    rCore是模仿初版linux实现的一个操作系统,很多结构体和机制都差不多。在写实验角度来看，比起mini-Decaf实验，rCore码量更大，需要手动merge之前代码，体验差一些；但y1s1, 在贵系大作业里算好的了。很多时候，操作系统的东西看代码比上课学理论扎实多了。最起码，我在造机课实现了TLB和页表，但并不知道实际上操作系统再怎么工作，写完lab3就懂了。</p><p>​    期中期末传统艺能，都很难，考的很偏。但是按照排名给分，并且大家分数分布给的挺明白，不至于迷迷瞪瞪最后来个评价等级。</p><p>​    虽然老师第一节课说给分差，但最后给分还行，不知道是不是疫情影响的原因…</p>]]></content>
+    
+    
+    <summary type="html">操作系统课程总结</summary>
+    
+    
+    
+    <category term="课程与作业" scheme="http://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>6-19总结</title>
     <link href="http://www.yynnyy.cn/f857bea1"/>
     <id>http://www.yynnyy.cn/f857bea1</id>
     <published>2022-06-19T16:52:21.000Z</published>
-    <updated>2022-06-19T17:00:32.125Z</updated>
+    <updated>2022-06-19T17:00:47.125Z</updated>
     
     <content type="html"><![CDATA[<p>今天不出所料的没读论文。前两天和快手那边的老师对接，可能后续需要了解一些TVM相关的内容，我后续可能也会读一些相关的论文。我正在犹豫要不要把论文阅读版块分成很多子category，这样也许，会降低可读性，不过到时候再看吧。</p><ul><li><p>今天给博客添加了一个阅读数量排行的功能，网上已有的代码都不能跑，稍微修改适配了一番。但现在其实也有bug，那个结果有时能加载出来，有时不能。经过调试，似乎是post请求随即返回，可能是 leanCloud的接口稳定性bug，加了一个1s的超时重加载大概解决了80%的情况，遂不管之。</p></li><li><p>把评论区改成了可以匿名评论的valine平台</p></li><li><p>今天发现一件怪事：google竟然能搜到我的网站了？？有点奇怪，不知道它是怎么爬到我的内容的。</p></li></ul><p>老头环玩了玩，进度停留在比较前面的阶段。我后面打算进度提高一些以后再总体的评测一下。这个过程也不知道是多久，也许是明天，也许永远也不会来</p><p>今日新闻：BLG输AL了，来自FOFO的最后一波灵车…</p>]]></content>
     
@@ -42,9 +67,9 @@
     <link href="http://www.yynnyy.cn/8618fb6d"/>
     <id>http://www.yynnyy.cn/8618fb6d</id>
     <published>2022-06-19T02:51:12.000Z</published>
-    <updated>2022-06-19T03:13:06.836Z</updated>
+    <updated>2022-06-20T09:48:03.377Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="课程情况"><a href="#课程情况" class="headerlink" title="课程情况"></a>课程情况</h2><p>《现代密码学》这个课程虽然我是大三选的，但其实这是一个大二大三都想选的课程。同时面向计算机系和叉院都开设。</p><p>​    课程容量大概是100人，但当时选课的人却不少，我记得我好像还是从150个人中靠着二志愿“杀出重围的”。一般选课时不好选的课，退课时总也舍不得退。这学期我在退课时本来在纠结退密码学，但最后也没有退。可能就有这方面的原因吧。</p><p>​    我就去线下上了两节课，后面就再也没去过，期末周的时候看了一遍录屏……老师语速不快，并且是那种说话对时间分布比较平均的类型。也就是说，看回放加速1.5倍也会比较友好，我当时打到了1.7倍，应该是没问题。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>​    课程本身覆盖面是比较广的。</p><ul><li>从古典密码开始讲起，一直讲到德军Enigma密码机与波兰数学家与图灵对密码机的破解。</li><li>对称密码体制，feistel结构与SPN结构等等，以及经典的des、aes和对应的差分分析、线性分析等等。</li><li>加密算法体质，讲md5结构、sponge结构，以及对应的生日攻击、后缀攻击等等</li><li>公钥密码体质，这一部分挺有意思的。我之前确实不知道公钥密码的原理，属实是打开眼界了一番。讲了怎么构造有后门的数学难题，在此基础上在应用层讲了rsa、diffle-hellmen、elgmal等等算法</li></ul><p>​    我认为，这个课涉及的面很广，每个面都还有很多值得深入挖掘的地方。这个课用到的内容很基础，但保护的是计算机很底层的安全问题。总体，还是比较建议选这个课的。(相比其他的牛鬼蛇神竞争对手……)</p><h2 id="考核"><a href="#考核" class="headerlink" title="考核"></a>考核</h2><p>2021春季学期，这个课是40分的作业，10分的签到，50分的考试。</p><h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><p>本学期实行了作业改革。</p><ul><li>第一次作业是破解几种古典密码，照着课本拟合就行。</li><li>第二次大作业是设计一种对称密码或者hash函数，5人一组，老师会根据大家的设计结果进行评估，再综合安全性和新颖性给出设计分<ul><li>我们当时设计了基于以太坊的加密算法<code>Scrypt</code>的一个hash函数，结果老师说功耗太大不利于在FPGA运行，被扣了两分，有点阴间…（如果后面有时间，我也许会讲讲我们组的算法设计）</li></ul></li><li>第三次大作业分组不变，是来破解某一组的第二次大作业。虽然听起来很卷，但其实不是，老师会在第三次提交之前给第二次打分，不会因为算法被别的组破解导致第二次大作业稀烂。不过，如果第三次作业没有破解出来，可能你们组第三次作业分会被扣一些<ul><li>我们组运气好，当时的被攻击者的sponge结构f函数不可逆，而且混淆扩散速度比较慢，被我们用数学方法构造出了碰撞…老师给了我们好多分。</li></ul></li></ul><p>听说之前的后两次大作业是实现sha。新版的大作业我更喜欢一些，比起实现，还是创新做着更有动力。</p><h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>考试题挺基础的，大家考的也都不错，以上。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>密码学里需要保密的不是加密算法，而是密钥。</p><h2 id="课程情况"><a href="#课程情况" class="headerlink" title="课程情况"></a>课程情况</h2><p>《现代密码学》这个课程虽然我是大三选的，但其实这是一个大二大三都想选的课程。同时面向计算机系和叉院都开设。</p><p>​    课程容量大概是100人，但当时选课的人却不少，我记得我好像还是从150个人中靠着二志愿“杀出重围的”。一般选课时不好选的课，退课时总也舍不得退。这学期我在退课时本来在纠结退密码学，但最后也没有退。可能就有这方面的原因吧。</p><p>​    我就去线下上了两节课，后面就再也没去过，期末周的时候看了一遍录屏……老师语速不快，并且是那种说话对时间分布比较平均的类型。也就是说，看回放加速1.5倍也会比较友好，我当时打到了1.7倍，应该是没问题。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>​    课程本身覆盖面是比较广的。</p><ul><li>从古典密码开始讲起，一直讲到德军Enigma密码机与波兰数学家与图灵对密码机的破解。</li><li>对称密码体制，feistel结构与SPN结构等等，以及经典的des、aes和对应的差分分析、线性分析等等。</li><li>加密算法体质，讲md5结构、sponge结构，以及对应的生日攻击、后缀攻击等等</li><li>公钥密码体质，这一部分挺有意思的。我之前确实不知道公钥密码的原理，属实是打开眼界了一番。讲了怎么构造有后门的数学难题，在此基础上在应用层讲了rsa、diffle-hellmen、elgmal等等算法</li></ul><p>​    我认为，这个课涉及的面很广，每个面都还有很多值得深入挖掘的地方。这个课用到的内容很基础，但保护的是计算机很底层的安全问题。总体，还是比较建议选这个课的。(相比其他的牛鬼蛇神竞争对手……)</p><h2 id="考核"><a href="#考核" class="headerlink" title="考核"></a>考核</h2><p>2021春季学期，这个课是40分的作业，10分的签到，50分的考试。</p><h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><p>本学期实行了作业改革。</p><ul><li>第一次作业是破解几种古典密码，照着课本拟合就行。</li><li>第二次大作业是设计一种对称密码或者hash函数，5人一组，老师会根据大家的设计结果进行评估，再综合安全性和新颖性给出设计分<ul><li>我们当时设计了基于以太坊的加密算法<code>Scrypt</code>的一个hash函数，结果老师说功耗太大不利于在FPGA运行，被扣了两分，有点阴间…（如果后面有时间，我也许会讲讲我们组的算法设计）</li></ul></li><li>第三次大作业分组不变，是来破解某一组的第二次大作业。虽然听起来很卷，但其实不是，老师会在第三次提交之前给第二次打分，不会因为算法被别的组破解导致第二次大作业稀烂。不过，如果第三次作业没有破解出来，可能你们组第三次作业分会被扣一些<ul><li>我们组运气好，当时的被攻击者的sponge结构f函数不可逆，而且混淆扩散速度比较慢，被我们用数学方法构造出了碰撞…老师给了我们好多分。</li></ul></li></ul><p>听说之前的后两次大作业是实现sha。新版的大作业我更喜欢一些，比起实现，还是创新做着更有动力。</p><h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>考试题挺基础的，大家考的也都不错，以上。</p>]]></content>
     
     
     <summary type="html">对于现代密码学课程的看法，上课的体验</summary>
@@ -100,9 +125,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
@@ -111,9 +136,9 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-19T17:00:41.921Z</updated>
+    <updated>2022-06-20T09:48:12.338Z</updated>
     
-    <content type="html"><![CDATA[<p><center><div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;"><div id="calendar" style="width: 600px;height:165px;"></div></div><script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script><script type="text/javascript">  (function(){    function dateFormat(date){      date = new Date(date)      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')    }    let calendarChart = echarts.init(document.getElementById('calendar'));    let endDate = new Date().getTime()    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()    let startDay = Math.ceil(startDate/(24*3600*1000))    let endDay = Math.ceil(endDate/(24*3600*1000))    let commitData = {"2022-06-17":3,"2022-06-20":1}    let seriesData = []    for(let i = startDay;i <= endDay;i++){      let date = i*24*3600*1000      let formatDate = dateFormat(date)      let times = commitData[formatDate] || 0      seriesData.push([formatDate, times])    }    let option = {      title: {        text: "近40周更新",        x: "center"      },      backgroundColor: "#f9f9f9",      tooltip: {        padding: 10,        backgroundColor: "#555",        borderColor: "#777",        borderWidth: 1,        formatter: function(a) {          var b = a.value;          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"        }      },      visualMap: {        show: !1,        showLabel: !0,        min: 0,        max: 4,        calculable: !1,        inRange: {          symbol: "rect",          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]        },        itemWidth: 12,        itemHeight: 12,        orient: "horizontal",        left: "center",        top: 0      },      calendar: [{        top: 50,        left: "center",        range: [dateFormat(startDate), dateFormat(endDate)],        cellSize: [13, 13],        splitLine: {          show: !1        },        name: {          textStyle: {            color: "#3C4858"          }        },        itemStyle: {          borderColor: "#fff",          borderWidth: 2        },        yearLabel: {          show: !1        },        monthLabel: {          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        },        dayLabel: {          formatter: "{start} 1st",          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        }      }],      series: [{        type: "heatmap",        coordinateSystem: "calendar",        calendarIndex: 0,        data: seriesData      }]    };    calendarChart.setOption(option);    let box = document.getElementById("calendar_box")    let child = document.getElementById("calendar")    window.addEventListener('load',function(){        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2    })      })();</script></center></p><table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#00F500>😁 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<p><center><div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;"><div id="calendar" style="width: 600px;height:165px;"></div></div><script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script><script type="text/javascript">  (function(){    function dateFormat(date){      date = new Date(date)      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')    }    let calendarChart = echarts.init(document.getElementById('calendar'));    let endDate = new Date().getTime()    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()    let startDay = Math.ceil(startDate/(24*3600*1000))    let endDay = Math.ceil(endDate/(24*3600*1000))    let commitData = {"2022-06-17":3,"2022-06-20":1}    let seriesData = []    for(let i = startDay;i <= endDay;i++){      let date = i*24*3600*1000      let formatDate = dateFormat(date)      let times = commitData[formatDate] || 0      seriesData.push([formatDate, times])    }    let option = {      title: {        text: "近40周更新",        x: "center"      },      backgroundColor: "#f9f9f9",      tooltip: {        padding: 10,        backgroundColor: "#555",        borderColor: "#777",        borderWidth: 1,        formatter: function(a) {          var b = a.value;          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"        }      },      visualMap: {        show: !1,        showLabel: !0,        min: 0,        max: 4,        calculable: !1,        inRange: {          symbol: "rect",          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]        },        itemWidth: 12,        itemHeight: 12,        orient: "horizontal",        left: "center",        top: 0      },      calendar: [{        top: 50,        left: "center",        range: [dateFormat(startDate), dateFormat(endDate)],        cellSize: [13, 13],        splitLine: {          show: !1        },        name: {          textStyle: {            color: "#3C4858"          }        },        itemStyle: {          borderColor: "#fff",          borderWidth: 2        },        yearLabel: {          show: !1        },        monthLabel: {          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        },        dayLabel: {          formatter: "{start} 1st",          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        }      }],      series: [{        type: "heatmap",        coordinateSystem: "calendar",        calendarIndex: 0,        data: seriesData      }]    };    calendarChart.setOption(option);    let box = document.getElementById("calendar_box")    let child = document.getElementById("calendar")    window.addEventListener('load',function(){        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2    })      })();</script></center></p><table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#00DF00>😁😁 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
     
     
       
@@ -146,9 +171,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
