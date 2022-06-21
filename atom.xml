@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-21T01:54:56.765Z</updated>
+  <updated>2022-06-21T02:13:01.955Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -17,24 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《体系结构cache测量实验》</title>
+    <link href="http://www.yynnyy.cn/d49e0552"/>
+    <id>http://www.yynnyy.cn/d49e0552</id>
+    <published>2022-06-21T02:00:47.000Z</published>
+    <updated>2022-06-21T02:13:01.955Z</updated>
+    
+    <content type="html"><![CDATA[<p>体系结构课的评测见这里：<a href="/1e98a428.html" title="《计算机系统结构》课程总结">《计算机系统结构》课程总结</a></p><p>这次实验的要求是通过侧信道方法测量：</p><ul><li>cache size</li><li>cache line size</li><li>cache相联度</li><li>cache替换方法(选做) </li></ul><p>​    当时觉得好神奇。后来在网安课上学到了 <code>flush-flush,prime-probe</code>等侧信道方法，又一次感觉这次实验很有意思。我觉得所谓实验，不应该是实现、复现xx方法，而应该是针对某个特定的问题，设计自己的方法，又通过结果去验证方法的正确性、分析设计的优缺点，进而去改进。这就像是一个小的科研训练，锻炼我们实际的解决问题的能力。</p><p>​    其中，我觉得比较有意思的最后一个测量。当时我构造很多按照4B地址对齐的数据，为了保证它们可以对应到一个set里，然后通过构造不同的访问方式，提前计算不同替换方法下预计的缺失率，进而通过缺失率大小，估计用的时间，再实际测量用的时间。最后拟合出很多条”假设缺失率-时间“曲线，最接近直线的一条就是测量出的替换方法。</p><p>由于当时的报告由于不可逆因素没了，我就放一个pdf在这里…</p><div class="pdfobject-container" data-target="/files/体系结构第一次实验报告.pdf" data-height="500px"></div>]]></content>
+    
+    
+    <summary type="html">体系结构cache测量实验与我的解法</summary>
+    
+    
+    
+    <category term="课程与作业" scheme="http://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>《计算机系统结构》课程总结</title>
     <link href="http://www.yynnyy.cn/1e98a428"/>
     <id>http://www.yynnyy.cn/1e98a428</id>
     <published>2022-06-21T01:27:09.000Z</published>
-    <updated>2022-06-21T01:54:56.765Z</updated>
+    <updated>2022-06-21T02:02:05.143Z</updated>
     
-    <content type="html"><![CDATA[<p>​        </p><p>​    之前对这个课的印象就是：</p><blockquote><p>后半学期每节课只有6个人去</p></blockquote><p>​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏也就没有拟合过上课内容。考试前一天晚上熬夜拟合了所有的PPT，做了往届题就往上怼了。但最后考试难度还行，只能说逃过一劫。</p><p>​    这个课有个午餐会，和老师吃了一顿饭，老师在课上猛批了一下子人工智能，安利了一波做编译和做体系结构。后面和快手小学期的老师聊，发现行情和他说的倒也大差不差。总之，这个老师比较喜欢夹带私货，人还挺好的，爱好多，上课也认真。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>一个方案、一种架构、一种机制，如果给人以简洁美、线条美、层次美，那么它注定就是好的。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>这个课给我的感觉像是”大合集“，里面的讲的大多数内容之前都学过：</p><ul><li>基础知识部分，讲了编码方式：汇编小学期讲过 X86,mips,造机学过riscv32编码</li><li>huffman编码：新生研讨课讲过</li><li>讲cache原理：造机课讲过，而且实现了一遍</li><li>讲流水线：<ul><li>普通流水线：造机课讲过，而且实现了一遍</li><li>多功能流水线和调度：这个是新活，猛画自动机</li></ul></li><li>讲令牌环与tomasulo，硬件指令级并行：这个是新活，好神奇，学完以后感觉”怎么造机的时候不知道，要不然实现一遍肯定很好玩“</li><li>循环展开与软件指令级并行：编原讲过一些编译优化，但没讲循环展开。循环以后感觉”没我想的那么复杂“。</li></ul><blockquote><p>上学期mini-decaf我开了一个编译优化分支瞎搞，当时循环展开我想的是：有些确定性的循环可以直接预计算完，这个是循环展开……</p></blockquote><h2 id="课程评分"><a href="#课程评分" class="headerlink" title="课程评分"></a>课程评分</h2><p>55分考试 + 15分大作业 + 10分小作业  + 5分书面作业 + 10分雨课堂</p><ul><li>大作业是三选一：tomasulo实现、分支预测软件卷性能、树莓派实现硬件tomasulo。都还行，”硬件“实验也没有造机硬，我选的是软件实现tomasulo，大概长这样。</li></ul><p><img src="../files/images/toma_front.png"></p><ul><li><p>小作业是cache测量，通过一些侧信道观察方法，找到一些电脑本机的cache配置。这个实验我觉得很有意思，虽然实际执行起来好像同学们有很多歧义，我打算写一个blog讲讲这个实验。</p></li><li><p>书面作业对着PPT和课本拟合一下就行</p></li><li>这学期考试挺简单，基本都是基础的内容。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>​        </p><p>​    之前对这个课的印象就是：</p><blockquote><p>后半学期每节课只有6个人去</p></blockquote><p>​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏也就没有拟合过上课内容。考试前一天晚上熬夜拟合了所有的PPT，做了往届题就往上怼了。但最后考试难度还行，只能说逃过一劫。</p><p>​    这个课有个午餐会，和老师吃了一顿饭，老师在课上猛批了一下子人工智能，安利了一波做编译和做体系结构。后面和快手小学期的老师聊，发现行情和他说的倒也大差不差。总之，这个老师比较喜欢夹带私货，人还挺好的，爱好多，上课也认真。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>一个方案、一种架构、一种机制，如果给人以简洁美、线条美、层次美，那么它注定就是好的。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>这个课给我的感觉像是”大合集“，里面的讲的大多数内容之前都学过：</p><ul><li>基础知识部分，讲了编码方式：汇编小学期讲过 X86,mips,造机学过riscv32编码</li><li>huffman编码：新生研讨课讲过</li><li>讲cache原理：造机课讲过，而且实现了一遍</li><li>讲流水线：<ul><li>普通流水线：造机课讲过，而且实现了一遍</li><li>多功能流水线和调度：这个是新活，猛画自动机</li></ul></li><li>讲令牌环与tomasulo，硬件指令级并行：这个是新活，好神奇，学完以后感觉”怎么造机的时候不知道，要不然实现一遍肯定很好玩“</li><li>循环展开与软件指令级并行：编原讲过一些编译优化，但没讲循环展开。循环以后感觉”没我想的那么复杂“。</li></ul><blockquote><p>上学期mini-decaf我开了一个编译优化分支瞎搞，当时循环展开我想的是：有些确定性的循环可以直接预计算完，这个是循环展开……</p></blockquote><h2 id="课程评分"><a href="#课程评分" class="headerlink" title="课程评分"></a>课程评分</h2><p>55分考试 + 15分大作业 + 10分小作业  + 5分书面作业 + 10分雨课堂</p><ul><li>大作业是三选一：tomasulo实现、分支预测软件卷性能、树莓派实现硬件tomasulo。都还行，”硬件“实验也没有造机硬，我选的是软件实现tomasulo，大概长这样。</li></ul><p><img src="../files/images/toma_front.png"></p><ul><li><p>小作业是cache测量，通过一些侧信道观察方法，找到一些电脑本机的cache配置。这个实验我觉得很有意思，虽然实际执行起来好像同学们有很多歧义，我打算写一个blog讲讲这个实验。</p>  <a href="/undefined.html" title="《体系结构cache测量实验》">《体系结构cache测量实验》</a></li><li><p>书面作业对着PPT和课本拟合一下就行</p></li><li>这学期考试挺简单，基本都是基础的内容。</li></ul>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;​        &lt;/p&gt;
-&lt;p&gt;​    之前对这个课的印象就是：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;后半学期每节课只有6个人去&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏</summary>
-      
+    <summary type="html">大三下第二个专业课</summary>
     
     
     
@@ -194,9 +209,9 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-21T01:55:22.588Z</updated>
+    <updated>2022-06-21T02:13:06.770Z</updated>
     
-    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00E800>😁 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00DB00>😁😁 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
     
     
       
@@ -260,9 +275,9 @@
     <link href="http://www.yynnyy.cn/ff05b5bf"/>
     <id>http://www.yynnyy.cn/ff05b5bf</id>
     <published>2022-06-17T06:10:10.000Z</published>
-    <updated>2022-06-17T15:41:50.146Z</updated>
+    <updated>2022-06-21T02:06:14.949Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>今天是考完试的第二天，也是博客上线的第一天。其实我早有写点东西的打算：</p><ul><li>不仅是可以记录一下生活，分享一下胡乱折腾的东西，讲讲一些作业有意思的解法，以及分享一下论文的阅读笔记之类的。更重要的是，希望能借着分享的机会，让我对自己写的东西有一些更深邃的认知与认识，毕竟讲出来可以在脑子里留下90%，自己看一遍只能留下30%。</li><li>还有一个客观原因，就是我这学期电脑崩了一次，丢失了非常多的代码、报告等信息，而且我之前也没有给mac做过时间机器……这件事让我感觉到在备份一些东西的重要性。</li></ul><p>我暂时给博客起了个名字叫做”随缘随笔”，随笔是内容，随缘是状态。在后面我会定期或者不定期维护更新，如果看到有一些相关的评论，我也会快速回复。</p><h2 id="博客内容"><a href="#博客内容" class="headerlink" title="博客内容"></a>博客内容</h2><p>在博客中，我目前想到写这几方面的内容：</p><ul><li>论文阅读笔记</li><li>一些作业的有趣解法</li><li>我喜欢的照片</li><li>一些日记</li><li>随笔：随笔的内容会比较杂乱，比如说这一篇。在随笔中，我可能会分享一些最近看到的有趣的事、有趣的游戏、有趣的电影等等。</li></ul><p>后面如果想到有什么好玩的、值得写一写的东西，我也会更新到博客上。</p><h2 id="暑假计划"><a href="#暑假计划" class="headerlink" title="暑假计划"></a>暑假计划</h2><p>博客内容是一个大的计划，正好现在期末考试完，暑假到了。我在这个暑假打算先试运行一下博客，看能不能对自己有一些督促的作用。 目前，我对于暑假的博客更新大概有四个计划：</p><ul><li><p>首先是我打算在暑假保持高深度、高质量的论文阅读，大约都是NLG方向的论文，我打算借着这个平台分享一些自己论文的阅读笔记，这个部分我打算放在一个名为“论文阅读笔记”的目录里。</p></li><li><p>另一方面，随着最后一门OS课考试结束，我大学的GPA时代也算是彻底结束了。之前的几年里，我还是在很多大作业中投入了不少的精力的。我打算趁着这个暑假把一些我觉得有趣的作业和我的实现细节分享出来。后面，如果我发现了什么有意思的东西，我也会分享出来。这一部分，我打算放在名为“作业”的目录里。</p></li><li>我有一个相机，也会不定期的做些摄影，我也有打算把我自己喜欢的一些照片(不一定是我的作品)放出来，可能会再加一点自己的点评。这一部分，我暂时还没有想好是做成一个目录，还是专门做一个板块。可能后面随着博客的完善，会在更晚的时候更新。</li><li>暑假阶段，我可能回去快手做小学期，做一些可能和机器学习相关的任务，我打算记录一下这段时间的经历，放到一个名为“小学期”的目录里。</li></ul><h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><p>博客本身的技术简单，基于 <code>hexo</code>和<code>next-theme</code>简单完成了markdown的编辑功能，后面接入了<code>gitalk</code>的评论。在后面，可能会根据实际的运营情况看看是不是要加上一些功能。</p><p>开发记录：<a href="/fa20dd9d.html" title="hexo折腾记">hexo折腾记</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>今天是考完试的第二天，也是博客上线的第一天。其实我早有写点东西的打算：</p><ul><li>不仅是可以记录一下生活，分享一下胡乱折腾的东西，讲讲一些作业有意思的解法，以及分享一下论文的阅读笔记之类的。更重要的是，希望能借着分享的机会，让我对自己写的东西有一些更深邃的认知与认识，毕竟讲出来可以在脑子里留下90%，自己看一遍只能留下30%。</li><li>还有一个客观原因，就是我这学期电脑崩了一次，丢失了非常多的代码、报告等信息，而且我之前也没有给mac做过时间机器……这件事让我感觉到在备份一些东西的重要性。</li></ul><p>我暂时给博客起了个名字叫做”随缘随笔”，随笔是内容，随缘是状态。在后面我会定期或者不定期维护更新，如果看到有一些相关的评论，我也会快速回复。</p><h2 id="博客内容"><a href="#博客内容" class="headerlink" title="博客内容"></a>博客内容</h2><p>在博客中，我目前想到写这几方面的内容：</p><ul><li>论文阅读笔记</li><li>一些作业的有趣解法</li><li>我喜欢的照片</li><li>一些日记</li><li>随笔：随笔的内容会比较杂乱，比如说这一篇。在随笔中，我可能会分享一些最近看到的有趣的事、有趣的游戏、有趣的电影等等。</li></ul><p>后面如果想到有什么好玩的、值得写一写的东西，我也会更新到博客上。</p><h2 id="暑假计划"><a href="#暑假计划" class="headerlink" title="暑假计划"></a>暑假计划</h2><p>博客内容是一个大的计划，正好现在期末考试完，暑假到了。我在这个暑假打算先试运行一下博客，看能不能对自己有一些督促的作用。 目前，我对于暑假的博客更新大概有四个计划：</p><ul><li><p>首先是我打算在暑假保持高深度、高质量的论文阅读，大约都是NLG方向的论文，我打算借着这个平台分享一些自己论文的阅读笔记，这个部分我打算放在一个名为“论文阅读笔记”的目录里。</p></li><li><p>另一方面，随着最后一门OS课考试结束，我大学的GPA时代也算是彻底结束了。之前的几年里，我还是在很多大作业中投入了不少的精力的。我打算趁着这个暑假把一些我觉得有趣的作业和我的实现细节分享出来。后面，如果我发现了什么有意思的东西，我也会分享出来。这一部分，我打算放在名为“作业”的目录里。</p></li><li>我有一个相机，也会不定期的做些摄影，我也有打算把我自己喜欢的一些照片(不一定是我的作品)放出来，可能会再加一点自己的点评。这一部分，我暂时还没有想好是做成一个目录，还是专门做一个板块。可能后面随着博客的完善，会在更晚的时候更新。</li><li>暑假阶段，我可能回去快手做小学期，做一些可能和机器学习相关的任务，我打算记录一下这段时间的经历，放到一个名为“小学期”的目录里。</li></ul><h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><p>博客本身的技术简单，基于 <code>hexo</code>和<code>next-theme</code>简单完成了markdown的编辑功能，后面接入了<code>gitalk</code>的评论。在后面，可能会根据实际的运营情况看看是不是要加上一些功能。</p><p>开发记录：<a href="/fa20dd9d.html" title="hexo折腾记">hexo折腾记</a></p><p>开发记录：<a href="/c344b452.html" title="给hexo添加日历">给hexo添加日历</a></p>]]></content>
     
     
     <summary type="html">为什么写博客？博客写什么？</summary>
