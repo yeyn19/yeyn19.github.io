@@ -237,7 +237,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-21 00:17:22" itemprop="dateModified" datetime="2022-06-21T00:17:22+08:00">2022-06-21</time>
+                <time title="修改时间：2022-06-21 09:55:22" itemprop="dateModified" datetime="2022-06-21T09:55:22+08:00">2022-06-21</time>
               </span>
 
           
@@ -267,7 +267,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>501</span>
+              <span>89</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -287,122 +287,152 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><center>
-
-<div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;">
-<div id="calendar" style="width: 600px;height:165px;"></div>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script>
-<script type="text/javascript">
-  (function(){
-    function dateFormat(date){
-      date = new Date(date)
-      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')
-    }
-    let calendarChart = echarts.init(document.getElementById('calendar'));
-    let endDate = new Date().getTime()
-    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()
-    let startDay = Math.ceil(startDate/(24*3600*1000))
-    let endDay = Math.ceil(endDate/(24*3600*1000))
-
-    let commitData = {"2022-06-17":3,"2022-06-21":1}
-    let seriesData = []
-
-    for(let i = startDay;i <= endDay;i++){
-      let date = i*24*3600*1000
-      let formatDate = dateFormat(date)
-      let times = commitData[formatDate] || 0
-      seriesData.push([formatDate, times])
-    }
-    let option = {
-      title: {
-        text: "近40周更新",
-        x: "center"
-      },
-      backgroundColor: "#f9f9f9",
-      tooltip: {
-        padding: 10,
-        backgroundColor: "#555",
-        borderColor: "#777",
-        borderWidth: 1,
-        formatter: function(a) {
-          var b = a.value;
-          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"
-        }
-      },
-      visualMap: {
-        show: !1,
-        showLabel: !0,
-        min: 0,
-        max: 4,
-        calculable: !1,
-        inRange: {
-          symbol: "rect",
-          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]
-        },
-        itemWidth: 12,
-        itemHeight: 12,
-        orient: "horizontal",
-        left: "center",
-        top: 0
-      },
-      calendar: [{
-        top: 50,
-        left: "center",
-        range: [dateFormat(startDate), dateFormat(endDate)],
-        cellSize: [13, 13],
-        splitLine: {
-          show: !1
-        },
-        name: {
-          textStyle: {
-            color: "#3C4858"
-          }
-        },
-        itemStyle: {
-          borderColor: "#fff",
-          borderWidth: 2
-        },
-        yearLabel: {
-          show: !1
-        },
-        monthLabel: {
-          nameMap: "cn",
-          fontSize: 11,
-          color: "#3C4858"
-        },
-        dayLabel: {
-          formatter: "{start} 1st",
-          nameMap: "cn",
-          fontSize: 11,
-          color: "#3C4858"
-        }
-      }],
-      series: [{
-        type: "heatmap",
-        coordinateSystem: "calendar",
-        calendarIndex: 0,
-        data: seriesData
-      }]
-    };
-
-    calendarChart.setOption(option);
-
-    let box = document.getElementById("calendar_box")
-    let child = document.getElementById("calendar")
-    window.addEventListener('load',function(){
-        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2
-    })
-    
-  })();
-</script>
-
-</center></p>
-<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr>
+          <table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr>
 <tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr>
 <tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr>
-<tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
+<tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00E800>😁 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
 <tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/1e98a428">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁">
+      <meta itemprop="description" content="高效率工作，低效率生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/1e98a428" class="post-title-link" itemprop="url">《计算机系统结构》课程总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-21 09:27:09 / 修改时间：09:54:56" itemprop="dateCreated datePublished" datetime="2022-06-21T09:27:09+08:00">2022-06-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">课程与作业</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/1e98a428" class="post-meta-item leancloud_visitors" data-flag-title="《计算机系统结构》课程总结" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/1e98a428#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/1e98a428" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>874</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>​        </p>
+<p>​    之前对这个课的印象就是：</p>
+<blockquote>
+<p>后半学期每节课只有6个人去</p>
+</blockquote>
+<p>​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏也就没有拟合过上课内容。考试前一天晚上熬夜拟合了所有的PPT，做了往届题就往上怼了。但最后考试难度还行，只能说逃过一劫。</p>
+<p>​    这个课有个午餐会，和老师吃了一顿饭，老师在课上猛批了一下子人工智能，安利了一波做编译和做体系结构。后面和快手小学期的老师聊，发现行情和他说的倒也大差不差。总之，这个老师比较喜欢夹带私货，人还挺好的，爱好多，上课也认真。</p>
+<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>一个方案、一种架构、一种机制，如果给人以简洁美、线条美、层次美，那么它注定就是好的。</p>
+<h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>这个课给我的感觉像是”大合集“，里面的讲的大多数内容之前都学过：</p>
+<ul>
+<li>基础知识部分，讲了编码方式：汇编小学期讲过 X86,mips,造机学过riscv32编码</li>
+<li>huffman编码：新生研讨课讲过</li>
+<li>讲cache原理：造机课讲过，而且实现了一遍</li>
+<li>讲流水线：<ul>
+<li>普通流水线：造机课讲过，而且实现了一遍</li>
+<li>多功能流水线和调度：这个是新活，猛画自动机</li>
+</ul>
+</li>
+<li>讲令牌环与tomasulo，硬件指令级并行：这个是新活，好神奇，学完以后感觉”怎么造机的时候不知道，要不然实现一遍肯定很好玩“</li>
+<li>循环展开与软件指令级并行：编原讲过一些编译优化，但没讲循环展开。循环以后感觉”没我想的那么复杂“。</li>
+</ul>
+<blockquote>
+<p>上学期mini-decaf我开了一个编译优化分支瞎搞，当时循环展开我想的是：有些确定性的循环可以直接预计算完，这个是循环展开……</p>
+</blockquote>
+<h2 id="课程评分"><a href="#课程评分" class="headerlink" title="课程评分"></a>课程评分</h2><p>55分考试 + 15分大作业 + 10分小作业  + 5分书面作业 + 10分雨课堂</p>
+<ul>
+<li>大作业是三选一：tomasulo实现、分支预测软件卷性能、树莓派实现硬件tomasulo。都还行，”硬件“实验也没有造机硬，我选的是软件实现tomasulo，大概长这样。</li>
+</ul>
+<p><img src="../files/images/toma_front.png"></p>
+<ul>
+<li><p>小作业是cache测量，通过一些侧信道观察方法，找到一些电脑本机的cache配置。这个实验我觉得很有意思，虽然实际执行起来好像同学们有很多歧义，我打算写一个blog讲讲这个实验。</p>
+</li>
+<li><p>书面作业对着PPT和课本拟合一下就行</p>
+</li>
+<li>这学期考试挺简单，基本都是基础的内容。</li>
+</ul>
+
       
     </div>
 
@@ -454,7 +484,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-21 00:16:10" itemprop="dateModified" datetime="2022-06-21T00:16:10+08:00">2022-06-21</time>
+                <time title="修改时间：2022-06-21 09:24:51" itemprop="dateModified" datetime="2022-06-21T09:24:51+08:00">2022-06-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -513,7 +543,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>尝试用diffusion model实现细粒度的可控文本生成，首次尝试文本领域用连续 diffusion model。</p>
+          <p>这篇其实是讲 diffusion model 的原理</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/75bfb84b">
@@ -1347,121 +1377,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.yynnyy.cn/ff05b5bf">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/ava.JPG">
-      <meta itemprop="name" content="叶奕宁">
-      <meta itemprop="description" content="高效率工作，低效率生活">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随缘随笔">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ff05b5bf" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-06-17 14:10:10 / 修改时间：23:41:50" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/ff05b5bf" class="post-meta-item leancloud_visitors" data-flag-title="第一篇博客" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ff05b5bf#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ff05b5bf" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>为什么写博客？博客写什么？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ff05b5bf">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1532,7 +1452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1545,7 +1465,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1587,7 +1507,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">13k</span>
+    <span title="站点总字数">14k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

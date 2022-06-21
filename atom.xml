@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-20T16:16:10.647Z</updated>
+  <updated>2022-06-21T01:54:56.765Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -17,16 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>《计算机系统结构》课程总结</title>
+    <link href="http://www.yynnyy.cn/1e98a428"/>
+    <id>http://www.yynnyy.cn/1e98a428</id>
+    <published>2022-06-21T01:27:09.000Z</published>
+    <updated>2022-06-21T01:54:56.765Z</updated>
+    
+    <content type="html"><![CDATA[<p>​        </p><p>​    之前对这个课的印象就是：</p><blockquote><p>后半学期每节课只有6个人去</p></blockquote><p>​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏也就没有拟合过上课内容。考试前一天晚上熬夜拟合了所有的PPT，做了往届题就往上怼了。但最后考试难度还行，只能说逃过一劫。</p><p>​    这个课有个午餐会，和老师吃了一顿饭，老师在课上猛批了一下子人工智能，安利了一波做编译和做体系结构。后面和快手小学期的老师聊，发现行情和他说的倒也大差不差。总之，这个老师比较喜欢夹带私货，人还挺好的，爱好多，上课也认真。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>一个方案、一种架构、一种机制，如果给人以简洁美、线条美、层次美，那么它注定就是好的。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>这个课给我的感觉像是”大合集“，里面的讲的大多数内容之前都学过：</p><ul><li>基础知识部分，讲了编码方式：汇编小学期讲过 X86,mips,造机学过riscv32编码</li><li>huffman编码：新生研讨课讲过</li><li>讲cache原理：造机课讲过，而且实现了一遍</li><li>讲流水线：<ul><li>普通流水线：造机课讲过，而且实现了一遍</li><li>多功能流水线和调度：这个是新活，猛画自动机</li></ul></li><li>讲令牌环与tomasulo，硬件指令级并行：这个是新活，好神奇，学完以后感觉”怎么造机的时候不知道，要不然实现一遍肯定很好玩“</li><li>循环展开与软件指令级并行：编原讲过一些编译优化，但没讲循环展开。循环以后感觉”没我想的那么复杂“。</li></ul><blockquote><p>上学期mini-decaf我开了一个编译优化分支瞎搞，当时循环展开我想的是：有些确定性的循环可以直接预计算完，这个是循环展开……</p></blockquote><h2 id="课程评分"><a href="#课程评分" class="headerlink" title="课程评分"></a>课程评分</h2><p>55分考试 + 15分大作业 + 10分小作业  + 5分书面作业 + 10分雨课堂</p><ul><li>大作业是三选一：tomasulo实现、分支预测软件卷性能、树莓派实现硬件tomasulo。都还行，”硬件“实验也没有造机硬，我选的是软件实现tomasulo，大概长这样。</li></ul><p><img src="../files/images/toma_front.png"></p><ul><li><p>小作业是cache测量，通过一些侧信道观察方法，找到一些电脑本机的cache配置。这个实验我觉得很有意思，虽然实际执行起来好像同学们有很多歧义，我打算写一个blog讲讲这个实验。</p></li><li><p>书面作业对着PPT和课本拟合一下就行</p></li><li>这学期考试挺简单，基本都是基础的内容。</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;​        &lt;/p&gt;
+&lt;p&gt;​    之前对这个课的印象就是：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;后半学期每节课只有6个人去&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;​    后面实际上下来感觉没有说的这么阴间。感觉还是挺对不起老师的。就去过两节，由于没有录屏</summary>
+      
+    
+    
+    
+    <category term="课程与作业" scheme="http://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/"/>
+    
+    
+    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>论文阅读:Diffusion-LM Improves Controllable Text Generation(1)</title>
     <link href="http://www.yynnyy.cn/75bfb84b"/>
     <id>http://www.yynnyy.cn/75bfb84b</id>
     <published>2022-06-20T15:17:08.000Z</published>
-    <updated>2022-06-20T16:16:10.647Z</updated>
+    <updated>2022-06-21T01:24:51.893Z</updated>
     
     <content type="html"><![CDATA[<p>​    今天更新博客的第一篇论文阅读笔记，是<code>prefix tuning</code>作者 <code>Xiang Lisa Li</code>的新作。尝试在可控文本生成领域中引入在图像领域很火的 diffusion model 的方法。这篇文章不是第一篇文本做 diffusion model的（大家都从ViT尝到甜头了，领域迁移非常快…），但是第一篇引入连续 diffusion model做文本的。</p><p>​    这篇文章需要比较多的前置知识，我打算分两期介绍。这是第一期，介绍 diffusion model。因此准确来说，这篇博客应该是</p><blockquote><p>Denoising Diffusion Probabilistic Model</p></blockquote><p>的论文阅读笔记</p><h2 id="Diffusion-model-总体"><a href="#Diffusion-model-总体" class="headerlink" title="Diffusion model 总体"></a>Diffusion model 总体</h2><p><img src="../files/images/diffusion_model/对比.png"></p><p>​    上面图中的几兄弟在paraphrase等可控文本生成任务中用的都挺多，我后面有机会可能都会讲讲，最起码 flow-based models我这几天应该会安排一篇。</p><p>​    扩散模型的思路是有点类似VAE，但又不太一样。效果是不是最好不知道，但它在上面几兄弟中是最新的。它定义了两个过程：扩散过程和去噪过程。前者是把一个对象通过逐步添加高斯噪声，最后变成一个完全随机的分布。后者则是通过一个训练好的去噪模型把一个随机变量逐渐去噪，最后返回到原对象。最近比较火的图像生成模型大体上都是用了 diffusion model的思路。</p><p>​    虽然diffusion model提出的比较早(2020年)，但是火起来好像也就是2022年。文本领域的diffusion model更是刚刚起步，还有很多可以提升的空间。</p><h2 id="Diffusion-model的原理"><a href="#Diffusion-model的原理" class="headerlink" title="Diffusion model的原理"></a>Diffusion model的原理</h2><p>它的原理很简单，但公式的推导过程却比较复杂。基本用到了以下几方面的知识：</p><ul><li><p>马尔科夫链</p></li><li><p>贝叶斯公式</p></li><li><p>参数重整化：把一个$x \in N(\mu,\sigma)$的分布变成$z \in N(0,1), x = \sigma z + \mu$.这么做的原因是我们在采样x的时候往往还会和别的过程同步进行，需要一起算loss，$\mu,\sigma$是模型的输出，如果直接采样的话，loss就会被detach。通过重整化，我们把z视为常量，可以让导数图正确传播。</p></li><li><p>KL散度。经典的分布差异的表示，之前在</p><blockquote><p>Learning Disentangled Textual Representations via Statistical Measures of Similarity</p></blockquote><ul><li>分享过MI熵、KL散度、维因斯坦距离、fisher-rao距离、Sinkhorn Divergence、Jeffrey Divergence等方法，这里不再赘述</li><li>需要注意，这里用到了高斯分布下kl散度的化简方法(显然这个散度不对称)：</li></ul><script type="math/tex; mode=display">KL(P_1,P_2) = \log(\frac{\sigma_2}{\sigma_1}) + \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2\sigma_2^2} - 0.5</script></li></ul><p>中间推导全部略过，从结果来看：</p><p><img src="../files/images/diffusion_model/规律.png"></p><p>这个告诉我们，只要随机选取一个时间t，选取一个随机数，我们就能对参数模型</p><script type="math/tex; mode=display">z_\theta(\text{某一个输入}x_t,\text{时间t}) = \text{x对应的输出}x_{t-1}</script><p>进行优化。最终训练过程如图：</p><p><img src="../files/images/diffusion_model/process.png"></p><p>这里有几个细节，需要注意一下：</p><ul><li>对于每次采样，它不是把$t=0,1,…$全部采样一遍算loss，而是取一个随机的t。原因是这样可以”稳定训练过程“</li><li>在infer过程中，最后一次的随机变量z=0,也就是说去噪的最后一步不能添加噪声。</li><li>公式里面的 $\alpha<em>t = 1 - \beta_t, \overline{\alpha_t} = \prod</em>{i \leq t}\alpha_i$.其中$\beta_t$要递增的选取，并且趋近于1，这样才能保证多次加噪完的$x_T$会变成一个随机分布 $X_T \in N(0,1)$</li></ul><h2 id="Diffusion-model-的分析"><a href="#Diffusion-model-的分析" class="headerlink" title="Diffusion model 的分析"></a>Diffusion model 的分析</h2><p>我们来对比一下 diffusion model 和VAE。可以看出：</p><ul><li>VAE需要一个专门的先验网络来对x生成随机变量z，在infer时扔掉这个网络；而扩散模型的加噪过程是确定的、无参的，不需要一个专门的加噪网络。</li><li>diffusion model 每一步的隐变量都和原来的$X_0$是同一维度的，同时需要多步采样(可能多达1000步)才能把完全随机变量恢复到原来的 $X_0$</li></ul><p>个人总结了一下，diffusion model 有以下的优点：</p><ul><li>由于去噪的过程是多步的，我们可以在这个多步的过程中实现更好的、更粒度的控制</li><li>效果会比传统VAE更好。</li><li>它可以更好的handle从类似于”半抽象“的过程恢复，不需要要求去噪的起点一定是随机噪声</li></ul><p>但是，他也有以下的缺点：</p><ul><li>太慢了，1000步？而且作者说步数少了训练会出问题？今年好多论文都是<ul><li>怎么提升采样效率</li><li>通过降低图像尺寸改善速度</li></ul></li><li>训练过程不稳定，估计不好训。这个对于实际开题的问题很大，毕竟不是每个人都是deep mind调参神（</li><li>噪声的隐空间不编码任何有效信息，只是单纯的噪声。</li></ul><h2 id="个人点评"><a href="#个人点评" class="headerlink" title="个人点评"></a>个人点评</h2><ul><li><p>从NLP的角度出发，diffusion model首先需要handle 词语 -&gt; word embedding 的问题。</p><ul><li>一个显然的方法是借鉴VQVAE的思路，把中间变量clap成最接近的word embedding。可能带来的新问题是：直接转变噪声过程，会导致扩散模型那个不等式不再成立？？这个可能得实际训训看结果怎么样</li></ul></li><li><p>这个扩散模型有点问题：只能从随机噪声变成一个”有某种控制信息下的一段文本“。但我们很多需求是平行预料的，比如 style transfer，这就回到了刚才说的缺点，我们得想办法在隐空间中编码信息：比如语义信息等。</p><ul><li>我似乎看到今年CVPR有类似的工作？</li></ul><blockquote><p><a href="https://arxiv.org/pdf/2111.15640.pdf">https://arxiv.org/pdf/2111.15640.pdf</a></p></blockquote><ul><li>DALLE-2 里面有个 CLIP-Image encoder也是在干这件事？我应该会在近期读一下dalle-2的论文，写一个阅读笔记，那篇里面再聊吧</li></ul></li><li><p>慢的问题，可能在NLP更严重。大概率，diffusion model里面的原子模块得用 transformer，两两叠加是不是直接凉凉……</p></li><li><p>我在思考能不能在长文本中引入 diffusion model，这个好像会对每一句都搞得不错，和 plan 生成、文本检索一起叠buff，可能能整个大的……这个可能也得后面再试。</p></li></ul>]]></content>
     
     
-    <summary type="html">尝试用diffusion model实现细粒度的可控文本生成，首次尝试文本领域用连续 diffusion model。</summary>
+    <summary type="html">这篇其实是讲 diffusion model 的原理</summary>
     
     
     
@@ -36,6 +69,8 @@
     <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="可控文本生成" scheme="http://www.yynnyy.cn/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/"/>
+    
+    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
     
   </entry>
   
@@ -159,17 +194,14 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-20T16:17:22.064Z</updated>
+    <updated>2022-06-21T01:55:22.588Z</updated>
     
-    <content type="html"><![CDATA[<p><center><div id="calendar_box" style="width:100%;overflow-x:auto;overflow-y:hidden;"><div id="calendar" style="width: 600px;height:165px;"></div></div><script src="https://cdn.jsdelivr.net/npm/echarts@4.8.0/dist/echarts.min.js"></script><script type="text/javascript">  (function(){    function dateFormat(date){      date = new Date(date)      return date.getFullYear() + '-' + (date.getMonth() + 1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0')    }    let calendarChart = echarts.init(document.getElementById('calendar'));    let endDate = new Date().getTime()    let startDate = new Date(endDate - 40*7*24*3600*1000).getTime()    let startDay = Math.ceil(startDate/(24*3600*1000))    let endDay = Math.ceil(endDate/(24*3600*1000))    let commitData = {"2022-06-17":3,"2022-06-21":1}    let seriesData = []    for(let i = startDay;i <= endDay;i++){      let date = i*24*3600*1000      let formatDate = dateFormat(date)      let times = commitData[formatDate] || 0      seriesData.push([formatDate, times])    }    let option = {      title: {        text: "近40周更新",        x: "center"      },      backgroundColor: "#f9f9f9",      tooltip: {        padding: 10,        backgroundColor: "#555",        borderColor: "#777",        borderWidth: 1,        formatter: function(a) {          var b = a.value;          return '<div style="font-size: 14px;">' + b[0] + "：" + b[1] + "</div>"        }      },      visualMap: {        show: !1,        showLabel: !0,        min: 0,        max: 4,        calculable: !1,        inRange: {          symbol: "rect",          color: ["#ebedf0", "#c6e48b", "#7bc96f", "#239a3b", "#196127"]        },        itemWidth: 12,        itemHeight: 12,        orient: "horizontal",        left: "center",        top: 0      },      calendar: [{        top: 50,        left: "center",        range: [dateFormat(startDate), dateFormat(endDate)],        cellSize: [13, 13],        splitLine: {          show: !1        },        name: {          textStyle: {            color: "#3C4858"          }        },        itemStyle: {          borderColor: "#fff",          borderWidth: 2        },        yearLabel: {          show: !1        },        monthLabel: {          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        },        dayLabel: {          formatter: "{start} 1st",          nameMap: "cn",          fontSize: 11,          color: "#3C4858"        }      }],      series: [{        type: "heatmap",        coordinateSystem: "calendar",        calendarIndex: 0,        data: seriesData      }]    };    calendarChart.setOption(option);    let box = document.getElementById("calendar_box")    let child = document.getElementById("calendar")    window.addEventListener('load',function(){        box.scrollLeft = (child.clientWidth - box.clientWidth) / 2    })      })();</script></center></p><table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D200>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00E800>😁 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;&lt;center&gt;
-
-&lt;div id=&quot;calendar_box&quot; style=&quot;width:100%;overflow-x:auto;overflow-y:hidden;&quot;&gt;
-&lt;div id=&quot;calendar&quot; style=&quot;width: 600px;height:165</summary>
+    <summary type="html">&lt;table style=&#39;text-align:center&#39;&gt;&lt;tr &gt; &lt;td colspan=&#39;7&#39;&gt;2022年六月&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日 &lt;/td&gt;&lt;td&gt; 星期一 &lt;/td&gt;&lt;td&gt; 星期二  &lt;/td&gt;&lt;td&gt; 星期三 &lt;/td&gt;&lt;td&gt; 星期</summary>
       
     
     
