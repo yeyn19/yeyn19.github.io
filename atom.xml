@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-21T15:45:18.399Z</updated>
+  <updated>2022-06-22T15:41:05.937Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>6-22总结</title>
+    <link href="http://www.yynnyy.cn/74dfedb8"/>
+    <id>http://www.yynnyy.cn/74dfedb8</id>
+    <published>2022-06-22T15:35:12.000Z</published>
+    <updated>2022-06-22T15:41:05.937Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天摆了一天，玩了一段时间老头环，看了两场比赛：</p><ul><li>dk打gen.g：dk输了，虽然Nuguri换回来了，但感觉总体运营在细节上还是有差距，可能是因为新队员还需要磨合。第一把dk尝试了上半区为主的打法，canyon一直在帮上路，下路选出抗压英雄。结果由于下路劣势过大，并且上中野也没有打出应有的压制力，被拿下了。第二把dk更是兵败如山倒，前期阵容前期劣。</li><li>blg打tes: 今天blg换出新请来的援兵icon，算了一下blg现在基本凑出王炸组合了。结果每个选手虽然都挺强，但打起架来还是游兵散勇没有配合，基本被tes无伤拿下，反倒是wayward打出不少亮眼操作。</li></ul>]]></content>
+    
+    
+    <summary type="html">今日总结</summary>
+    
+    
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="http://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>6-20-21总结</title>
     <link href="http://www.yynnyy.cn/f5d3b3af"/>
     <id>http://www.yynnyy.cn/f5d3b3af</id>
     <published>2022-06-21T15:31:14.000Z</published>
-    <updated>2022-06-21T15:45:18.399Z</updated>
+    <updated>2022-06-22T15:30:32.074Z</updated>
     
-    <content type="html"><![CDATA[<pre><code>首先，有点泪目，由于各种各样的原因，这两天都没完老头环，玩游戏之前总会遇到各种各样的“有件事”。不知道能不能在小学期开始之前炼个几级出来。虽然没打，但我竟然看了两集攻略视频，我觉得我已经完全掌握了这个游戏（最近两天只发了一篇论文阅读笔记，但其实读了不少论文，最少4篇，都是关于diffusion model的，我正在思考下一篇工作要不要做一下diffusion model相关的，感觉这个领域还有很多可以深挖的点。另外，今天还研读了一下博弈论经典的纳什均衡问题。思考了囚徒困境、讨价还价问题、时间代价的讨价还价、贴现因子等等情况。感觉好有意思，竟然可以在”所有人都是理性“的条件下推出恒定的结论，而且结论好优美。说起这个，下学期我是有打算去旁听一下《经济学原理》,这个课里面好像有很多博弈论的知识，希望在这个课上可以更深度地了解这方面的知识。</code></pre><p>​    最后，今日吃到金枪鱼面包，很好吃。想这个想了一年多了，结果早上竟然一次都没起来，最后终于吃到还是在暑假，有点泪目。以上。</p>]]></content>
+    <content type="html"><![CDATA[<p>​    首先，有点泪目，由于各种各样的原因，这两天都没完老头环，玩游戏之前总会遇到各种各样的“有件事”。不知道能不能在小学期开始之前炼个几级出来。虽然没打，但我竟然看了两集攻略视频，我觉得我已经完全掌握了这个游戏（<br>​    最近两天只发了一篇论文阅读笔记，但其实读了不少论文，最少4篇，都是关于diffusion model的，我正在思考下一篇工作要不要做一下diffusion model相关的，感觉这个领域还有很多可以深挖的点。<br>​    另外，今天还研读了一下博弈论经典的纳什均衡问题。思考了囚徒困境、讨价还价问题、时间代价的讨价还价、贴现因子等等情况。感觉好有意思，竟然可以在”所有人都是理性“的条件下推出恒定的结论，而且结论好优美。说起这个，下学期我是有打算去旁听一下《经济学原理》,这个课里面好像有很多博弈论的知识，希望在这个课上可以更深度地了解这方面的知识。</p><p>​    最后，今日吃到金枪鱼面包，很好吃。想这个想了一年多了，结果早上竟然一次都没起来，最后终于吃到还是在暑假，有点泪目。以上。</p>]]></content>
     
     
     <summary type="html">关于最近两天</summary>
@@ -219,9 +240,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
@@ -230,9 +251,9 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-21T15:45:51.355Z</updated>
+    <updated>2022-06-22T15:41:21.912Z</updated>
     
-    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></table>]]></content>
     
     
       
@@ -262,9 +283,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
