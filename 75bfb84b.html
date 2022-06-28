@@ -354,7 +354,7 @@ z_\theta(\text{某一个输入}x_t,\text{时间t}) = \text{x对应的输出}x_{t
 <ul>
 <li>对于每次采样，它不是把$t=0,1,…$全部采样一遍算loss，而是取一个随机的t。原因是这样可以”稳定训练过程“</li>
 <li>在infer过程中，最后一次的随机变量z=0,也就是说去噪的最后一步不能添加噪声。</li>
-<li>公式里面的 $\alpha<em>t = 1 - \beta_t, \overline{\alpha_t} = \prod</em>{i \leq t}\alpha_i$.其中$\beta_t$要递增的选取，并且趋近于1，这样才能保证多次加噪完的$x_T$会变成一个随机分布 $X_T \in N(0,1)$</li>
+<li>公式里面的 $\alpha_t = 1 - \beta_t, \overline{\alpha_t} = \prod_{i \leq t}\alpha_i$.其中$\beta_t$要递增的选取，并且趋近于1，这样才能保证多次加噪完的$x_T$会变成一个随机分布 $X_T \in N(0,1)$</li>
 </ul>
 <h2 id="Diffusion-model-的分析"><a href="#Diffusion-model-的分析" class="headerlink" title="Diffusion model 的分析"></a>Diffusion model 的分析</h2><p>我们来对比一下 diffusion model 和VAE。可以看出：</p>
 <ul>

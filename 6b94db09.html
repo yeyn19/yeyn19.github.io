@@ -316,7 +316,7 @@ dx = f(x,t)dt + g(x,t)dw</script><p>可以认为是一个原始分布$P_x(0)$随
 <p>下面观察几种已有方法：</p>
 <p>观察传统SMLD的扩散公式：</p>
 <script type="math/tex; mode=display">
-x_i = x_{i-1} + \sqrt{\sigma_i^2 - \sigma_{i-1}^2} z_{i-1},\quad i = 1,2..N</script><p>如果考虑连续形式，将 $x<em>i = x(t_i),x</em>{i-1} = x(t<em>{i-1}), t</em>{i-1} \to t_i$时，通过求导和逼近，可以有：</p>
+x_i = x_{i-1} + \sqrt{\sigma_i^2 - \sigma_{i-1}^2} z_{i-1},\quad i = 1,2..N</script><p>如果考虑连续形式，将 $x_i = x(t_i),x_{i-1} = x(t_{i-1}), t_{i-1} \to t_i$时，通过求导和逼近，可以有：</p>
 <script type="math/tex; mode=display">
 dx = \sqrt{\frac{d[\sigma^2(t)]}{dt}}dw</script><p>这是一个一届的近似，这是一个非常简单的sde方程。有如下特征：</p>
 <ul>
