@@ -8,7 +8,7 @@
       <link href="/76d8b942.html"/>
       <url>/76d8b942.html</url>
       
-        <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收市行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li>14:00: 校园巴士</li><li>16:00-16:30 高铁</li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收拾行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li>14:00: 校园巴士</li><li>16:00-16:30 高铁</li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
       
       
       <categories>
@@ -45,11 +45,11 @@
       
         <tags>
             
+            <tag> 随笔 </tag>
+            
             <tag> 计算机 </tag>
             
             <tag> 大三下 </tag>
-            
-            <tag> 随笔 </tag>
             
         </tags>
       
@@ -465,7 +465,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00CC00>😁😁 </td><td>30 </td></table>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td><td>30 </td></table><table id='1' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td></tr><tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><table id='2' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年八月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td></tr><tr><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td></tr><tr><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td></tr><tr><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td></tr><tr><td>28 </td><td>29 </td><td>30 </td><td>31 </td></table><script type="text/javascript">    var now_id = 2;    var max_id = 2;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       

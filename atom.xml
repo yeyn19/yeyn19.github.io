@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-29T15:54:51.170Z</updated>
+  <updated>2022-06-29T16:08:49.882Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.yynnyy.cn/76d8b942"/>
     <id>http://www.yynnyy.cn/76d8b942</id>
     <published>2022-06-29T15:44:54.000Z</published>
-    <updated>2022-06-29T15:54:51.170Z</updated>
+    <updated>2022-06-29T16:08:49.882Z</updated>
     
-    <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收市行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li>14:00: 校园巴士</li><li>16:00-16:30 高铁</li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收拾行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li>14:00: 校园巴士</li><li>16:00-16:30 高铁</li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
     
     
     <summary type="html">今日总结，与读论文</summary>
@@ -54,11 +54,11 @@
     <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
+    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
-    
-    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -113,7 +113,7 @@
     <link href="http://www.yynnyy.cn/26e7c21f"/>
     <id>http://www.yynnyy.cn/26e7c21f</id>
     <published>2022-06-27T16:32:34.000Z</published>
-    <updated>2022-06-27T16:46:57.659Z</updated>
+    <updated>2022-06-29T16:27:44.374Z</updated>
     
     <content type="html"><![CDATA[<p>今天是快手小学期的第一天，感觉和我想象的差距还是蛮大的，日程如下：</p><ul><li>11.00-12.00：开营仪式，请了几个学长分享快手的情况。期间被hr打电话改材料，签协议。</li><li>12.00-16.00: 中间陆陆续续拉了4个群，发了一些自己的自我介绍，然后选组长之类的社交工作</li><li>16:00-16.30: 和负责老师开会聊了聊，拉了两个群，发现被调剂到了另一个项目</li><li>19:00-20:00 和负责学姐开会聊了聊，拉了一个群。</li></ul><p>​    快手的行政系统还是比较复杂的。比如我们的小学期项目，来自计算机系和软件学院的同学们被分到了8个大组。每个大组大概7-8个人，然后有一个负责的hr学长。另一方面，对于项目来说，大概每个项目有3-4个同学，这个和大组的分配基本是正交的。</p><p>​    在评价体系上，我们需要出勤打卡，写工作日报、工作周报，拿到个人分。另一方面，需要进行一些大组上的组间评比，拿到大祖分。一整套体系下来需要做的、需要了解的东西很多，需要认识的人也很多，需要开的会也很多。整体感觉上这个体系非常严谨，只能说，剩余价值直接给榨干。</p><p>​    虽然安排上工作时间是9:00-19:00，但从开会等情况来看，大家还是会加班到比较晚……可能这就是科技公司吧。我主要来做一些编译优化方面的工作，负责我的学长和学姐都是清华的，比较了解我系的课程设置，这点上还是比较赞的。不知道后面项目做起来会不会比较有意思。</p><p>​    另：今天学会新词，qua。互联网公司的项目一般按季度为一个周期，大家都把这个叫做qua。”上个qua大家做了……“</p>]]></content>
     
@@ -136,7 +136,7 @@
     <link href="http://www.yynnyy.cn/8090c9ab"/>
     <id>http://www.yynnyy.cn/8090c9ab</id>
     <published>2022-06-26T15:56:58.000Z</published>
-    <updated>2022-06-26T16:03:39.304Z</updated>
+    <updated>2022-06-29T16:27:23.980Z</updated>
     
     <content type="html"><![CDATA[<p>​    最近几天生病了，有点低烧，精神状态不佳，博客停更了几天，但今天病好了。所以后面几天应该会继续更新 diffusion model相关的文章。最近又看了一些相关的论文，感觉这个方向可以做的事情还有很多。</p><p>​    这几天玩了一些老头环，感觉这个游戏的内容还是非常丰富的，每一块地图都有很多的隐藏，我打算明天写一个老头环体验的第一期。</p><p>​    最近观赛：</p><ul><li>dk输给了t1：感觉nuguri打的还可以，但canyon怎么开始犯病了…</li><li>rng输给了v5：rng也没什么失误，经典蓝色方必胜。dream虽然是小将，但没怎么犯病，期待rookie的回归。我只能说，常规赛的v5，永远的战神</li><li>blg输给了edg：只能说，游兵散勇，亦有差距。blg已经是东部战区倒数第三了，能不能支棱一下呀，uzi之前直播说blg该换教练了，话说是不是除了教练基本都换过一轮了……流水的队员，铁打的刘青松，我真的哭死。</li></ul>]]></content>
     
@@ -410,14 +410,16 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-29T15:54:53.248Z</updated>
+    <updated>2022-06-29T17:08:16.829Z</updated>
     
-    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00CC00>😁😁 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td><td>30 </td></table><table id='1' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td></tr><tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><table id='2' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年八月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td></tr><tr><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td></tr><tr><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td></tr><tr><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td></tr><tr><td>28 </td><td>29 </td><td>30 </td><td>31 </td></table><script type="text/javascript">    var now_id = 2;    var max_id = 2;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
     
     
       
       
-    <summary type="html">&lt;table style=&#39;text-align:center&#39;&gt;&lt;tr &gt; &lt;td colspan=&#39;7&#39;&gt;2022年六月&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日 &lt;/td&gt;&lt;td&gt; 星期一 &lt;/td&gt;&lt;td&gt; 星期二  &lt;/td&gt;&lt;td&gt; 星期三 &lt;/td&gt;&lt;td&gt; 星期</summary>
+    <summary type="html">&lt;table id=&#39;0&#39; hidden=&#39;hidden&#39; style=&#39;text-align:center&#39;&gt;&lt;tr&gt; &lt;td&gt;
+        &lt;form action=&quot;&quot;&gt;
+            &lt;input type=&quot;button&quot; value=&quot;上月&quot; oncli</summary>
       
     
     
