@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>6-29总结</title>
+      <link href="/76d8b942.html"/>
+      <url>/76d8b942.html</url>
+      
+        <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>`DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收市行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li><p>14:00: 校园巴士</p></li><li><p>16:00-16:30 高铁</p></li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>大三下学期总结</title>
       <link href="/3784f7a3.html"/>
       <url>/3784f7a3.html</url>
@@ -440,7 +465,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00D700>😁 </td><td>30 </td></table>]]></content>
+        <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00CC00>😁😁 </td><td>30 </td></table>]]></content>
       
       
       

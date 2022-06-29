@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-29T03:33:11.230Z</updated>
+  <updated>2022-06-29T15:52:41.466Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>6-29总结</title>
+    <link href="http://www.yynnyy.cn/76d8b942"/>
+    <id>http://www.yynnyy.cn/76d8b942</id>
+    <published>2022-06-29T15:44:54.000Z</published>
+    <updated>2022-06-29T15:52:41.466Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天发现宝藏up主李沐，他有很多论文讲解视频，理解很深刻，讲得很好。今天看了他的：</p><ul><li>pathways论文讲解：讲如何将训练分布到多个tpu pod上</li><li>GPT，GPT2，GPT3系列讲解：有趣的是，带入了历史，从研究者的角度分析为什么做这个、怎么写能发成果</li><li>CLIP论文讲解：讲了CLIP模型的出现，基石是什么(已有方法已经很好)，clip为什么能火(数据规模更大)。思考很独到，很多纯method以外的收获。</li></ul><p>同时，今日研读<code>`DDIM</code>论文，明天和<code>ANALYTIC-DPM</code>一起和大家做论文分享。以及我突然想起来<code>Lisa Xiang</code>那篇的坑还没填完，这几天填一下。</p><p>另，明天就要返乡了，今日收市行李，累。</p><p>另，明天很忙：</p><ul><li>9:00-10:00 科研组会</li><li>10:30-12:00 职场沟通力课程</li><li>13:30 - 15:00 论文分享会</li><li><p>14:00: 校园巴士</p></li><li><p>16:00-16:30 高铁</p></li><li>19:00- 20:00 小学期组会</li><li>20:00-21:00 MLC课程学习会</li></ul>]]></content>
+    
+    
+    <summary type="html">今日总结，与读论文</summary>
+    
+    
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="http://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>大三下学期总结</title>
@@ -389,9 +410,9 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-29T03:33:14.012Z</updated>
+    <updated>2022-06-29T15:52:46.704Z</updated>
     
-    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00D700>😁 </td><td>30 </td></table>]]></content>
+    <content type="html"><![CDATA[<table style='text-align:center'><tr > <td colspan='7'>2022年六月</td></tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F400>😁 </td></tr><tr> <td bgcolor=#00D900>😁😁 </td> <td bgcolor=#009C00>😁😁😁 </td> <td bgcolor=#00D100>😁😁😁 </td> <td bgcolor=#00F800>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00>😁😁 </td><td>27 </td> <td bgcolor=#00BC00>😁😁😁 </td> <td bgcolor=#00CC00>😁😁 </td><td>30 </td></table>]]></content>
     
     
       
@@ -447,27 +468,6 @@
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>第一篇博客</title>
-    <link href="http://www.yynnyy.cn/ff05b5bf"/>
-    <id>http://www.yynnyy.cn/ff05b5bf</id>
-    <published>2022-06-17T06:10:10.000Z</published>
-    <updated>2022-06-21T02:06:14.949Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>今天是考完试的第二天，也是博客上线的第一天。其实我早有写点东西的打算：</p><ul><li>不仅是可以记录一下生活，分享一下胡乱折腾的东西，讲讲一些作业有意思的解法，以及分享一下论文的阅读笔记之类的。更重要的是，希望能借着分享的机会，让我对自己写的东西有一些更深邃的认知与认识，毕竟讲出来可以在脑子里留下90%，自己看一遍只能留下30%。</li><li>还有一个客观原因，就是我这学期电脑崩了一次，丢失了非常多的代码、报告等信息，而且我之前也没有给mac做过时间机器……这件事让我感觉到在备份一些东西的重要性。</li></ul><p>我暂时给博客起了个名字叫做”随缘随笔”，随笔是内容，随缘是状态。在后面我会定期或者不定期维护更新，如果看到有一些相关的评论，我也会快速回复。</p><h2 id="博客内容"><a href="#博客内容" class="headerlink" title="博客内容"></a>博客内容</h2><p>在博客中，我目前想到写这几方面的内容：</p><ul><li>论文阅读笔记</li><li>一些作业的有趣解法</li><li>我喜欢的照片</li><li>一些日记</li><li>随笔：随笔的内容会比较杂乱，比如说这一篇。在随笔中，我可能会分享一些最近看到的有趣的事、有趣的游戏、有趣的电影等等。</li></ul><p>后面如果想到有什么好玩的、值得写一写的东西，我也会更新到博客上。</p><h2 id="暑假计划"><a href="#暑假计划" class="headerlink" title="暑假计划"></a>暑假计划</h2><p>博客内容是一个大的计划，正好现在期末考试完，暑假到了。我在这个暑假打算先试运行一下博客，看能不能对自己有一些督促的作用。 目前，我对于暑假的博客更新大概有四个计划：</p><ul><li><p>首先是我打算在暑假保持高深度、高质量的论文阅读，大约都是NLG方向的论文，我打算借着这个平台分享一些自己论文的阅读笔记，这个部分我打算放在一个名为“论文阅读笔记”的目录里。</p></li><li><p>另一方面，随着最后一门OS课考试结束，我大学的GPA时代也算是彻底结束了。之前的几年里，我还是在很多大作业中投入了不少的精力的。我打算趁着这个暑假把一些我觉得有趣的作业和我的实现细节分享出来。后面，如果我发现了什么有意思的东西，我也会分享出来。这一部分，我打算放在名为“作业”的目录里。</p></li><li>我有一个相机，也会不定期的做些摄影，我也有打算把我自己喜欢的一些照片(不一定是我的作品)放出来，可能会再加一点自己的点评。这一部分，我暂时还没有想好是做成一个目录，还是专门做一个板块。可能后面随着博客的完善，会在更晚的时候更新。</li><li>暑假阶段，我可能回去快手做小学期，做一些可能和机器学习相关的任务，我打算记录一下这段时间的经历，放到一个名为“小学期”的目录里。</li></ul><h2 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h2><p>博客本身的技术简单，基于 <code>hexo</code>和<code>next-theme</code>简单完成了markdown的编辑功能，后面接入了<code>gitalk</code>的评论。在后面，可能会根据实际的运营情况看看是不是要加上一些功能。</p><p>开发记录：<a href="/fa20dd9d.html" title="hexo折腾记">hexo折腾记</a></p><p>开发记录：<a href="/c344b452.html" title="给hexo添加日历">给hexo添加日历</a></p>]]></content>
-    
-    
-    <summary type="html">为什么写博客？博客写什么？</summary>
-    
-    
-    
-    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
