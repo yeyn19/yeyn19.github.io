@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-06-30T03:10:15.020Z</updated>
+  <updated>2022-07-01T03:59:22.933Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读-The Deep Learning Compiler: A Comprehensive Survey</title>
+    <link href="http://www.yynnyy.cn/f3519427"/>
+    <id>http://www.yynnyy.cn/f3519427</id>
+    <published>2022-07-01T03:56:35.000Z</published>
+    <updated>2022-07-01T03:59:22.933Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    这是我读的第一篇深度学习编译方向的论文，是一篇survey工作。由于是第一篇，那基本上就得逐字逐句慢慢看了，又因为是survey，那二三十页是跑不了了。因此我为了加深印象，干脆就同步更新一下笔记，就当做”把论文翻成中文“了。</p>]]></content>
+    
+    
+    <summary type="html">深度学习编译方向的一篇survey</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="http://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="深度学习编译" scheme="http://www.yynnyy.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
   
   <entry>
     <title>给hexo添加近期文章与更新情况换月</title>
@@ -33,9 +58,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
@@ -282,9 +307,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
-    
     <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
     
   </entry>
   
@@ -332,9 +357,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
-    
     <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
     
   </entry>
   
@@ -378,9 +403,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
-    
     <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
     
   </entry>
   
@@ -422,9 +447,9 @@
     <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
     
     
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
@@ -433,44 +458,20 @@
     <link href="http://www.yynnyy.cn/85a03951"/>
     <id>http://www.yynnyy.cn/85a03951</id>
     <published>2022-06-18T04:50:39.000Z</published>
-    <updated>2022-06-30T03:10:50.448Z</updated>
+    <updated>2022-07-01T03:59:32.108Z</updated>
     
-    <content type="html"><![CDATA[<table id='0' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b></b>😁 </td></table><script type="text/javascript">    var now_id = 0;    var max_id = 0;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+    <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b></b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#00FC00><b></b>😁 </td><td>2 </td></tr><tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
     
     
       
       
-    <summary type="html">&lt;table id=&#39;0&#39; style=&#39;text-align:center&#39;&gt;&lt;tr&gt; &lt;td&gt;
+    <summary type="html">&lt;table id=&#39;0&#39; hidden=&#39;hidden&#39; style=&#39;text-align:center&#39;&gt;&lt;tr&gt; &lt;td&gt;
         &lt;form action=&quot;&quot;&gt;
-            &lt;input type=&quot;button&quot; value=&quot;上月&quot; onclick=&quot;tips(-1)&quot;&gt;
- </summary>
+            &lt;input type=&quot;button&quot; value=&quot;上月&quot; oncli</summary>
       
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>hexo折腾记</title>
-    <link href="http://www.yynnyy.cn/fa20dd9d"/>
-    <id>http://www.yynnyy.cn/fa20dd9d</id>
-    <published>2022-06-17T15:04:21.000Z</published>
-    <updated>2022-06-17T17:23:33.923Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天卡发了半天hexo建站，还是遇到了不少bug，网上已有的教程大多是针对老版本的<code>hexo</code>和<code>Next</code>来说的，新版本的开发还是有一些新的trick。我在开发中大概遇到了这些问题：</p><h4 id="字数统计插件"><a href="#字数统计插件" class="headerlink" title="字数统计插件"></a>字数统计插件</h4><p>使用了 <code>hexo-symbols-count-time</code>字数统计插件，其中中文占两个字符，每分钟阅读速度275。<br>发现所有的文章都显示<code>预计时间1min</code>，还以为是bug，找了好久最终原因竟然是：</p><ul><li>所有$\leq 1 min$他都会显示约1min，是因为我前面的文章太短了…</li></ul><h4 id="访问量统计"><a href="#访问量统计" class="headerlink" title="访问量统计"></a>访问量统计</h4><p>使用 <code>不蒜子</code> 的访问量统计工具，但是显示全是0。最后发现问题竟然是：</p><ul><li>本地 <code>localhost</code> 不获取访问量，需要上 <code>deploy</code> 才能正确显示…</li><li>以及那个接口今年已经炸了，需要换个mirror: <code>//cdn.jsdelivr.net/npm/busuanzi@2.3.0</code>, 全文搜索 <code>busuanzi-count</code> 替换即可</li></ul><h4 id="引用静态文件"><a href="#引用静态文件" class="headerlink" title="引用静态文件"></a>引用静态文件</h4><p>发现使用 hash地址作为url以后所有的静态文件都不能引用了？</p><ul><li>最后发现好像是路径地址计算的问题：所有的引用都要从<code>./source</code>作为地址的起点进行计算，同时<code>./_posts</code>文件夹似乎会被忽略？？最终解决办法是在<code>source</code>下新建了<code>./source/file</code>文件夹，把静态变量放到里面，再渲染</li></ul><h4 id="相关文章推荐"><a href="#相关文章推荐" class="headerlink" title="相关文章推荐"></a>相关文章推荐</h4><p>这个是最蠢的…我用 <code>hexo-related-popular-posts</code> 库来实现相关文章推荐的功能，发现不管怎么样都推荐不了相关文章：</p><ul><li>结果是他的推荐算法是根据tags的相关性来的，但是我那会只有一篇博客，所以算不出来相关文章，组建就被<code>disbale</code>了…</li></ul>]]></content>
-    
-    
-    <summary type="html">用hexo建站都有哪些trick？</summary>
-    
-    
-    
-    <category term="开发记录" scheme="http://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"/>
-    
-    
-    <category term="探索" scheme="http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
-    
-    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
