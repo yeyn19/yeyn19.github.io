@@ -31,13 +31,16 @@
 <meta property="og:site_name" content="随缘随笔">
 <meta property="og:description" content="深度学习编译方向的一篇survey">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/framework.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/compiler_architecture.png">
 <meta property="article:published_time" content="2022-07-01T03:56:35.000Z">
-<meta property="article:modified_time" content="2022-07-01T04:34:45.448Z">
+<meta property="article:modified_time" content="2022-07-01T07:21:46.458Z">
 <meta property="article:author" content="叶奕宁">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="深度学习编译">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/framework.png">
 
 <link rel="canonical" href="http://www.yynnyy.cn/f3519427.html">
 
@@ -235,7 +238,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：12:34:45" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
+              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：15:21:46" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -274,14 +277,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>710</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
             <div class="post-description">深度学习编译方向的一篇survey</div>
 
@@ -331,9 +334,63 @@
 <li>归纳了前端、多层IR、后端级别的优化方法</li>
 <li>分裂归纳了已有的DL编译器</li>
 <li>定量对比了不同编译器在CNN的效率提升（end-to-end和单层粒度下）</li>
-<li>提出了DL编译器的未来方向： dynamic shape and pre-/post-processing, advanced auto-tuning, polyhedral model, subgraph partition- ing, quantization, unified optimizations, differentiable programming and privacy protection</li>
+<li>提出了DL编译器的未来方向： dynamic shape and pre-/post-processing, advanced auto-tuning, polyhedral model, subgraph partitioning, quantization, unified optimizations, differentiable programming and privacy protection</li>
 </ul>
-<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p><img src="../files/images/DL_compiler_survey/framework.png"></p>
+<h3 id="DL框架对比"><a href="#DL框架对比" class="headerlink" title="DL框架对比"></a>DL框架对比</h3><ul>
+<li>tensorflow：其他语言支持最广泛：C ++, Python, Java, Go, R, and Haskell。TensorFlow Lite为Android设计。Keria作为tensorflow的前端。eager-mode类似pytorch的动态计算图</li>
+<li>keria：高层神经网络库，快速构建model。兼容scikit-learn等库。由于过度封装，增加算子、获取底层信息很难。</li>
+<li>Pytorch：动态框架，按行执行。合并了Caffe2。FastAI 是pytorch的高层封装，借鉴了keria。</li>
+<li>Caffe/Caffe2,MXNet,CNTK,PaddlePaddle略过</li>
+<li>ONNX：别的框架模型可以转换成ONNX模型，以便于交互（使用pytorchAPI）。</li>
+</ul>
+<h3 id="深度学习硬件"><a href="#深度学习硬件" class="headerlink" title="深度学习硬件"></a>深度学习硬件</h3><ul>
+<li>General-purpose Hardware：类似NVIDIA-GPU。同时上层有cuDNN等支持，软硬件联合开发。</li>
+<li><p>Dedicated Hardware：A100，cloud service provider（google TPU）等等</p>
+<ul>
+<li>TPU包含：<ul>
+<li>Matrix Multiplier Unit (MXU), </li>
+<li>Unified Buffer (UB),</li>
+<li>and Activation Unit (AU)</li>
+</ul>
+</li>
+<li>TPU由host硬件 进行CISC指令集的驱动</li>
+<li>TPU可以直接把矩阵视为单元，而不是vector或者标量集</li>
+</ul>
+</li>
+<li><p>Neuromorphic Hardware：IBM’s TrueNorth and Intel’s Loihi.</p>
+<ul>
+<li>神经元可以同时存储和处理数据，存储区和运算区在一起，没有专门存储区。</li>
+<li>距离大规模应用很遥远</li>
+<li>探索rapid, life-long learning。</li>
+</ul>
+</li>
+</ul>
+<h3 id="FPGA"><a href="#FPGA" class="headerlink" title="FPGA"></a>FPGA</h3><p>cpu/gpu泛用性强，但是费电；AISC省电，但是转为某任务设计。编程FPGA是一个折中，把模型部署在FPGA上。</p>
+<p>High-Level Synthesis (HLS) programming model帮助用户编辑FPGA，不用写很多verilog。</p>
+<p>FGPA应用的问题：</p>
+<ul>
+<li>AI模型用框架描述，而不是c/c++</li>
+<li>DL特有的优化方式很难推广到FPGA</li>
+</ul>
+<p>hardware-specific code generator：输入DL模型，输出HLS/verilog/VHDL代码，再编译成bitstream烧录:</p>
+<ul>
+<li>The processor architecture:目标FPGA和正常处理器类似。</li>
+<li>The streaming architecture：目标FPGA是个流水线。快，瓶颈是FPGA内的memory不够</li>
+</ul>
+<h2 id="正常DL编译器结构"><a href="#正常DL编译器结构" class="headerlink" title="正常DL编译器结构"></a>正常DL编译器结构</h2><p><img src="../files/images/DL_compiler_survey/compiler_architecture.png"></p>
+<p>正常编译器分为前端和后端。中间由IR联系起来，IR分为多个层次(multi-level IR)。</p>
+<p>前端基于高层IR做硬件无关的优化；后端基于低层IR，做硬件专有的优化、代码生成、编译。</p>
+<ul>
+<li><p>High-level IR: 定义计算和控制流，硬件无关。目标是得到程序的控制流和数据依赖性，提供图级别的优化。</p>
+</li>
+<li><p>Low-level IR:足够细粒度。需要支持后端的第三方工具链。</p>
+</li>
+<li><p>前端： 从node-level，block-level, dataflow-level优化模型，生成 graph-IR.</p>
+</li>
+<li>后端：输入high-level IR,输出 low-level IR。 可以直接把high-level IR转成LLVM IR等第三方工具链支持输入做优化，也可以通过已有的硬件结构、模型结构做自己的特殊优化</li>
+</ul>
+
     </div>
 
     
@@ -441,7 +498,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%B8%B8DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">正常DL编译器结构</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -548,12 +605,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">24k</span>
+    <span title="站点总字数">26k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">22 分钟</span>
+    <span title="站点阅读时长">23 分钟</span>
 </div>
 
 <i class="fa fa-user-md"></i>
