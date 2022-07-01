@@ -8,7 +8,7 @@
       <link href="/f3519427.html"/>
       <url>/f3519427.html</url>
       
-        <content type="html"><![CDATA[<p>​    这是我读的第一篇深度学习编译方向的论文，是一篇survey工作。由于是第一篇，那基本上就得逐字逐句慢慢看了，又因为是survey，那二三十页是跑不了了。因此我为了加深印象，干脆就同步更新一下笔记，就当做”把论文翻成中文“了。</p>]]></content>
+        <content type="html"><![CDATA[<p>​    这是我读的第一篇深度学习编译方向的论文，是一篇survey工作。由于是第一篇，那基本上就得逐字逐句慢慢看了，又因为是survey，那二三十页是跑不了了。因此我为了加深印象，干脆就同步更新一下笔记，就当做”把论文翻成中文“了。</p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul><li>学术界提出了XLA, TVM等深度学习编译技术</li><li>DL compiler输入模型，输出适用于不同平台的、优化后的代码</li><li>本篇工作聚焦于multi-level IR，前后端的优化技术。</li><li>提出了对这些技术的作者的点评，未来的改进方向</li><li>这是第一篇深度学习优化的综述文章</li></ul><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>DL硬件分类：</p><ul><li>软硬件联合设计的 general-prupose 硬件<ul><li>线性代数库BLAS支持DL运算</li><li>还有MKL-DNN，cuDNN等专门的加速库</li><li>还有TensorRT等加速库</li></ul></li><li>专为DL设计的硬件<ul><li>类似的加速库</li></ul></li><li>从生物脑科学获得灵感的神经元硬件</li></ul><p>库的更新经常赶不上硬件更新的速度，因此很难利用好DL硬件的算力</p><p>DL编译器</p><ul><li>优化 模型定义-&gt; 实现代码 这一过程</li><li><p>算子合并、层合并等方法</p></li><li><p>是层次性的。</p></li></ul><p>本篇工作的贡献：</p><ul><li>归纳了前端、多层IR、后端级别的优化方法</li><li>分裂归纳了已有的DL编译器</li><li>定量对比了不同编译器在CNN的效率提升（end-to-end和单层粒度下）</li><li>提出了DL编译器的未来方向： dynamic shape and pre-/post-processing, advanced auto-tuning, polyhedral model, subgraph partition- ing, quantization, unified optimizations, differentiable programming and privacy protection</li></ul><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2>]]></content>
       
       
       <categories>
@@ -157,9 +157,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -369,9 +369,9 @@
       
         <tags>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
             <tag> 可控文本生成 </tag>
             
@@ -521,7 +521,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b></b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#00FC00><b></b>😁 </td><td>2 </td></tr><tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b></b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#00EC00><b></b>😁 </td><td>2 </td></tr><tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
