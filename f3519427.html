@@ -33,8 +33,10 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/framework.png">
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/compiler_architecture.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/hardware_optimization.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/分类.png">
 <meta property="article:published_time" content="2022-07-01T03:56:35.000Z">
-<meta property="article:modified_time" content="2022-07-01T09:10:52.777Z">
+<meta property="article:modified_time" content="2022-07-01T10:05:03.947Z">
 <meta property="article:author" content="叶奕宁">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
@@ -238,7 +240,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：17:10:52" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
+              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：18:05:03" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,14 +279,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.5k</span>
+              <span>6.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>6 分钟</span>
             </span>
             <div class="post-description">深度学习编译方向的一篇survey</div>
 
@@ -485,7 +487,93 @@
 </ul>
 </li>
 </ul>
-<h3 id="后端的优化"><a href="#后端的优化" class="headerlink" title="后端的优化"></a>后端的优化</h3>
+<h3 id="后端的优化"><a href="#后端的优化" class="headerlink" title="后端的优化"></a>后端的优化</h3><h4 id="Hardware-specific-Optimization"><a href="#Hardware-specific-Optimization" class="headerlink" title="Hardware-specific Optimization"></a>Hardware-specific Optimization</h4><p><img src="../files/images/DL_compiler_survey/hardware_optimization.png"></p>
+<p>一种方式是编译到 LLVM IR，另一种方式是定义自己的优化方式，用模型的信息。举5个例子：</p>
+<ul>
+<li>Hardware intrinsic mapping：编译成硬件已经优化过的一些kernel。</li>
+<li>Memory allocation and fetching：针对硬件上不同存储的延迟不同做优化</li>
+<li><p>Memory latency hiding：等内存延迟的时候干别的，好多硬件自己实现了，但TPU没有。TVM通过虚拟线程解决这事</p>
+</li>
+<li><p>Loop oriented optimizations：Halide和LLVM实现过了。</p>
+<ul>
+<li>Loop fusion: 把多个边界一样、没有依赖的循环放到一起</li>
+<li>Sliding windows：直到需要数据时再计算</li>
+<li>Tiling：把一个循环拆成多重循环，更好的局部性</li>
+<li>Loop reordering：重新排列循环顺序。让空间局部的循环们放在一起</li>
+<li>Loop unrolling：循环展开，更好地做指令级并行。</li>
+</ul>
+</li>
+<li><p>Parallelization：更好的支持线程级并行等，提高硬件利用率。需要额外的、模型的知识，更难开发。</p>
+</li>
+</ul>
+<h4 id="Auto-tuning"><a href="#Auto-tuning" class="headerlink" title="Auto-tuning"></a>Auto-tuning</h4><p>由于各种优化很多，搜索空间很大，需要自动搜索优化方式。TVM, TC,XLA都支持这个。包含四个要素：</p>
+<ul>
+<li>Parameterization：搜索参数时需要知道的一些已有参数<ul>
+<li>Data and target：tensor的形状，GPU上各个memory的延迟、大小</li>
+<li>Optimization options：优化方法有什么，对应什么超参。TC，XLA支持把超参参数化，比如batch_size。</li>
+</ul>
+</li>
+<li>Cost model：评价优化方法的模型<ul>
+<li>Black-box model：只关心运行时间，对内部情况不关心。TC采用</li>
+<li>ML-based cost model:  用ML模型衡量现在情况有多好。TVM，XLA采用</li>
+<li>Pre-defined cost model:预先定义好。搜索更快，但是定义很难，和DL model有关。</li>
+</ul>
+</li>
+<li>Searching technique：如何搜索<ul>
+<li>Initialization and searching space determination：随机/特定初始化。TVM允许用户决定搜索空间</li>
+<li>Genetic algorithm (GA) ：类似蚁群算法，TC采用</li>
+<li>Simulated annealing algorithm (SA)：模拟退火。TVM采用</li>
+<li>Reinforcement learning (RL): Chameleon采用（基于TVM开发）</li>
+</ul>
+</li>
+<li><p>Acceleration：如何加速搜索过程</p>
+<ul>
+<li>Parallelization：</li>
+<li><p>Configuration reuse：复用上次的结果，如果某些局部的参数和上次一样。</p>
+<h4 id="Optimized-Kernel-Libraries"><a href="#Optimized-Kernel-Libraries" class="headerlink" title="Optimized Kernel Libraries"></a>Optimized Kernel Libraries</h4></li>
+</ul>
+</li>
+</ul>
+<p>硬件预定义好了一些快速的计算库(比如cuDNN)。后端可以调用这些库</p>
+<ul>
+<li>调用库带来巨大的性能提升</li>
+<li>但调用库需要符合库的调用约定，可能破坏最佳控制流</li>
+<li>库函数对编译器是黑盒，可能影响优化，不能做operator fusion等。</li>
+</ul>
+<h2 id="已有编译器的分类"><a href="#已有编译器的分类" class="headerlink" title="已有编译器的分类"></a>已有编译器的分类</h2><p>通过上面已经讲过的不同方面的优化方法，可以梳理、归纳、分类一下现在比较火的DL编译器。总体结果如下图：</p>
+<p><img src="../files/images/DL_compiler_survey/分类.png"></p>
+<h2 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h2><p>这一部分评测了一下已有的一些编译器的性能，具体实验就略过了，对学习DL编译优化知识没什么帮助。</p>
+<h2 id="结论和未来方向"><a href="#结论和未来方向" class="headerlink" title="结论和未来方向"></a>结论和未来方向</h2><p>这一部分归纳梳理了一下DL编译未来的发展空间：</p>
+<ul>
+<li>Dynamic shape and pre/post processing：<ul>
+<li>一方面类似NLP，只有运行时才能知道输入的形状。另一方面，模型结构本身可能也会变化。</li>
+<li>随着模型增大，模型的加载时间可能成为瓶颈。已有还没有触及</li>
+</ul>
+</li>
+<li>Advanced auto-tuning：受限于时间，现有优化都是在找一些局部最优。但局部最优的组合大概率不是全局最优<ul>
+<li>目前ML方法还有潜力，可以考虑在auto-tuning中进一步应用，而不只是cost model。</li>
+</ul>
+</li>
+<li>Polyhedral model：在auto-tuning中引入多面体模型<ul>
+<li>可以复用之前结果</li>
+<li>可以减少搜索空间</li>
+<li>挑战是如何在稀疏情况下应用之。</li>
+</ul>
+</li>
+<li>Subgraph partitioning：把计算图拆分成不同子图。可以把不同子图分布并行到异质的设备上。</li>
+<li>Quantization：增强量子化可以在编译时进一步提升优化的空间，挑战是：<ul>
+<li>如何简单的增量开发</li>
+<li>量子化操作如何和其他的优化步骤交互。</li>
+</ul>
+</li>
+<li><p>Unified optimizations：如何同时采用不同编译器的优化，已由编译器大多聚焦于一些方面的优化。MLIR通过dialect某种程度上可以复用不同编译器的优化。</p>
+</li>
+<li><p>Differentiable programming：让编译器支持可微程序</p>
+</li>
+<li>Privacy protection：能不能在中间输出层加噪音，保护隐私。</li>
+<li>Training support：已有编译方法专注于部署。</li>
+</ul>
+
     </div>
 
     
@@ -593,7 +681,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.</span> <span class="nav-text">DL编译器结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DL编译器的关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#High-level-IR"><span class="nav-number">4.1.</span> <span class="nav-text">High-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#High-level-IR%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">4.1.1.</span> <span class="nav-text">High-level IR计算图的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-IR-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">Graph-IR 的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Low-level-IR"><span class="nav-number">4.2.</span> <span class="nav-text">Low-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-number">4.2.2.</span> <span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.3.</span> <span class="nav-text">前端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-level-optimizations"><span class="nav-number">4.3.1.</span> <span class="nav-text">Node-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block-level-optimizations"><span class="nav-number">4.3.2.</span> <span class="nav-text">Block-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataflow-level-optimizations"><span class="nav-number">4.3.3.</span> <span class="nav-text">Dataflow-level optimizations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.4.</span> <span class="nav-text">后端的优化</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.</span> <span class="nav-text">DL编译器结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DL编译器的关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#High-level-IR"><span class="nav-number">4.1.</span> <span class="nav-text">High-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#High-level-IR%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">4.1.1.</span> <span class="nav-text">High-level IR计算图的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-IR-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">Graph-IR 的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Low-level-IR"><span class="nav-number">4.2.</span> <span class="nav-text">Low-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-number">4.2.2.</span> <span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.3.</span> <span class="nav-text">前端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-level-optimizations"><span class="nav-number">4.3.1.</span> <span class="nav-text">Node-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block-level-optimizations"><span class="nav-number">4.3.2.</span> <span class="nav-text">Block-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataflow-level-optimizations"><span class="nav-number">4.3.3.</span> <span class="nav-text">Dataflow-level optimizations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.4.</span> <span class="nav-text">后端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-specific-Optimization"><span class="nav-number">4.4.1.</span> <span class="nav-text">Hardware-specific Optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-tuning"><span class="nav-number">4.4.2.</span> <span class="nav-text">Auto-tuning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optimized-Kernel-Libraries"><span class="nav-number">4.4.3.</span> <span class="nav-text">Optimized Kernel Libraries</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">已有编译器的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">6.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%92%8C%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="nav-number">7.</span> <span class="nav-text">结论和未来方向</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -700,12 +788,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">28k</span>
+    <span title="站点总字数">30k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">26 分钟</span>
+    <span title="站点阅读时长">27 分钟</span>
 </div>
 
 <i class="fa fa-user-md"></i>
