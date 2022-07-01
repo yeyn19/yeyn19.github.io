@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/framework.png">
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DL_compiler_survey/compiler_architecture.png">
 <meta property="article:published_time" content="2022-07-01T03:56:35.000Z">
-<meta property="article:modified_time" content="2022-07-01T07:21:46.458Z">
+<meta property="article:modified_time" content="2022-07-01T08:07:37.139Z">
 <meta property="article:author" content="叶奕宁">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
@@ -238,7 +238,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：15:21:46" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
+              <time title="创建时间：2022-07-01 11:56:35 / 修改时间：16:07:37" itemprop="dateCreated datePublished" datetime="2022-07-01T11:56:35+08:00">2022-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -277,14 +277,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>3 分钟</span>
             </span>
             <div class="post-description">深度学习编译方向的一篇survey</div>
 
@@ -304,7 +304,7 @@
 <li>DL compiler输入模型，输出适用于不同平台的、优化后的代码</li>
 <li>本篇工作聚焦于multi-level IR，前后端的优化技术。</li>
 <li>提出了对这些技术的作者的点评，未来的改进方向</li>
-<li>这是第一篇深度学习优化的综述文章</li>
+<li>这是第一篇深度学习编译优化的综述文章</li>
 </ul>
 <h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>DL硬件分类：</p>
 <ul>
@@ -378,7 +378,7 @@
 <li>The processor architecture:目标FPGA和正常处理器类似。</li>
 <li>The streaming architecture：目标FPGA是个流水线。快，瓶颈是FPGA内的memory不够</li>
 </ul>
-<h2 id="正常DL编译器结构"><a href="#正常DL编译器结构" class="headerlink" title="正常DL编译器结构"></a>正常DL编译器结构</h2><p><img src="../files/images/DL_compiler_survey/compiler_architecture.png"></p>
+<h3 id="DL编译器结构"><a href="#DL编译器结构" class="headerlink" title="DL编译器结构"></a>DL编译器结构</h3><p><img src="../files/images/DL_compiler_survey/compiler_architecture.png"></p>
 <p>正常编译器分为前端和后端。中间由IR联系起来，IR分为多个层次(multi-level IR)。</p>
 <p>前端基于高层IR做硬件无关的优化；后端基于低层IR，做硬件专有的优化、代码生成、编译。</p>
 <ul>
@@ -390,6 +390,44 @@
 </li>
 <li>后端：输入high-level IR,输出 low-level IR。 可以直接把high-level IR转成LLVM IR等第三方工具链支持输入做优化，也可以通过已有的硬件结构、模型结构做自己的特殊优化</li>
 </ul>
+<h2 id="DL编译器的关键因素"><a href="#DL编译器的关键因素" class="headerlink" title="DL编译器的关键因素"></a>DL编译器的关键因素</h2><h3 id="High-level-IR"><a href="#High-level-IR" class="headerlink" title="High-level IR"></a>High-level IR</h3><h4 id="High-level-IR计算图的表示"><a href="#High-level-IR计算图的表示" class="headerlink" title="High-level IR计算图的表示"></a>High-level IR计算图的表示</h4><p>图的表示法不同，优化方向也不同：</p>
+<ul>
+<li>DAG图：有向无环图，点表示算子，边表示tensor。可以快速分析数据依赖。优点是方便优化，缺点是图上的节点、边语义不明确</li>
+<li>Let-binding-based IR：对每一个变量”let“建立节点，语义明确。它对每一个let都算结果，建立一个map。每个表示通过查表找到结果</li>
+</ul>
+<p>TVM等方法借鉴两种表示，博才两家之长。</p>
+<p>tensor计算的表示法：</p>
+<ul>
+<li>Function-based：Glow, nGraph and XLA采用，提供一些封装的算子。tensor计算视为一种函数</li>
+<li>lambda expression: 用lambda函数表达，不需要声明新函数。TVM采用此方法，需要先计算输出的形状。</li>
+<li>Einstein notation：比lambda表达式更简单。算子需要相关联，可交换，方便并行化。</li>
+</ul>
+<h4 id="Graph-IR-的实现"><a href="#Graph-IR-的实现" class="headerlink" title="Graph-IR 的实现"></a>Graph-IR 的实现</h4><p>数据(tensor)的表示:</p>
+<ul>
+<li><p>Placeholder:标记tensor的shape，有这个就有shape。</p>
+</li>
+<li><p>Unknown (Dynamic) shape representation：允许某一维的大小未知</p>
+</li>
+<li>Data layout：逻辑地址到内存分片的映射。<ul>
+<li>TVM and Glow把获取data layer作为一个专门的算子，这样不需要专门实现这个方法，更方便优化。</li>
+<li>XLA把这个视为后端硬件的一个约束</li>
+<li>Relay and MLIR要求tensor在type中描述layout</li>
+</ul>
+</li>
+<li>Bound inference：推断迭代器的上下界。TVM中iterator建立一个dag图，点代表迭代器，边代表运算。根节点的shapes of placeholders被确定，就能递归处理。</li>
+</ul>
+<p>graph-IR需要支持很多算子：代数算子、tensor算子、control flow算子。举例子：</p>
+<ul>
+<li>broadcast：放宽一般算子对形状的依赖性。</li>
+<li>control flow:if或者while</li>
+<li>Derivative：自动求导。</li>
+<li>Customized operators：自定义算符。<ul>
+<li>Glow中定义算符需要实现多层的封装</li>
+<li>TVM、TC只需实现一个implementation</li>
+</ul>
+</li>
+</ul>
+<p>不同编译器有不同的 graph-IR 实现，但有一定的相似之处。需要注意，graph-IR一定要是硬件无关的。</p>
 
     </div>
 
@@ -498,7 +536,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AD%A3%E5%B8%B8DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">正常DL编译器结构</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.</span> <span class="nav-text">DL编译器结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DL编译器的关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#High-level-IR"><span class="nav-number">4.1.</span> <span class="nav-text">High-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#High-level-IR%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">4.1.1.</span> <span class="nav-text">High-level IR计算图的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-IR-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">Graph-IR 的实现</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -605,12 +643,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">26k</span>
+    <span title="站点总字数">27k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">23 分钟</span>
+    <span title="站点阅读时长">24 分钟</span>
 </div>
 
 <i class="fa fa-user-md"></i>
