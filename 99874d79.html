@@ -41,12 +41,16 @@
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/cost.png">
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/occ.png">
 <meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/normal.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/end-to-end.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/time.png">
+<meta property="og:image" content="http://www.yynnyy.cn/files/images/DietCode/runtime.png">
 <meta property="article:published_time" content="2022-07-02T04:10:24.000Z">
-<meta property="article:modified_time" content="2022-07-02T07:26:09.598Z">
+<meta property="article:modified_time" content="2022-07-02T07:40:18.286Z">
 <meta property="article:author" content="叶奕宁">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="深度学习编译">
+<meta property="article:tag" content="TVM">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://www.yynnyy.cn/files/images/DietCode/input.png">
 
@@ -246,7 +250,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-02 12:10:24 / 修改时间：15:26:09" itemprop="dateCreated datePublished" datetime="2022-07-02T12:10:24+08:00">2022-07-02</time>
+              <time title="创建时间：2022-07-02 12:10:24 / 修改时间：15:40:18" itemprop="dateCreated datePublished" datetime="2022-07-02T12:10:24+08:00">2022-07-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -285,14 +289,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4.3k</span>
+              <span>5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>4 分钟</span>
+              <span>5 分钟</span>
             </span>
             <div class="post-description">陈天奇在MLSys的新作，提出一种形状动态的auto-scheduler方法，速度和效果都很好。</div>
 
@@ -448,6 +452,34 @@ P : \text{complete program } \\
 vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正比的，因此越高越好。用argmax    </p>
 <p>来对与特定的形状S派发一组micro-kernel的排列M，这个可以遍历。结束以后，我们把$<S,vote(S)>$做成一颗决策树，在运行时通过决策树决定M即可。</p>
 <p>​    </p>
+<h2 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION"></a>EVALUATION</h2><p>这一部分就不详细讲了。简单说一下，就是测试BERT模型的表现，baseline是：</p>
+<ul>
+<li>vendor: cuDNN</li>
+<li>Auto-scheduler: Ansor</li>
+<li>dynamic code generation: Nimble。进一步优化Ansor，计算最大形状，然后应用在所有形状上</li>
+</ul>
+<p>评测指标，全都是越小越好：</p>
+<ul>
+<li>end-to-end latency on the entire model, measured as msec。</li>
+<li>the runtime cost of the generated tensor programs on a single operator, measured as μsec and averaged over 100 runs。</li>
+<li>the total auto-scheduling time used, measured as hours</li>
+</ul>
+<p><img src="../files/images/DietCode/end-to-end.png"></p>
+<p>上面这个图可以看出，对于不同的输入维度，DietCode的效果基本最好。同时和vendor的差距小，但是vendor需要人工大码量、长时间的开发。</p>
+<p><img src="../files/images/DietCode/time.png"></p>
+<p>上面这个图是编译时间，虚线代表理论推导，实际根本不可行。可以看出，DietCode非常快。</p>
+<p><img src="../files/images/DietCode/runtime.png"></p>
+<p>上面这个图是指选定某种结构以后，真正的跑的速度。更快。作者测试了dense层(一个动态量)，batchmatmul层(2个动态量)，效果都更好。</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li>其实我之前也不知道这种“动态形状”的输入是怎么规划的。但我确实感觉到动态形状的支持应该是必要的，基本所有的NLP问题都需要这个。</li>
+<li>看作者的意思，这个功能现在已经上TVM了，我在想这个是不是和操作系统一样：</li>
+</ul>
+<blockquote>
+<p>先有实现，后有理论</p>
+</blockquote>
+<ul>
+<li>后续我可能会继续调研一些TVM的原理，感觉还是挺神奇的。</li>
+</ul>
 
     </div>
 
@@ -481,6 +513,7 @@ vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正�
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
               <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/" rel="tag"><i class="fa fa-tag"></i> 深度学习编译</a>
+              <a href="/tags/TVM/" rel="tag"><i class="fa fa-tag"></i> TVM</a>
           </div>
 
         
@@ -556,7 +589,7 @@ vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E6%9C%89auto-scheduler%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">3.1.</span> <span class="nav-text">现有auto-scheduler工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6tensor%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.2.</span> <span class="nav-text">动态形状tensor的程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%96%B0%E7%9A%84auto-scheduler%E6%A1%86%E6%9E%B6"><span class="nav-number">3.3.</span> <span class="nav-text">为什么需要新的auto-scheduler框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DietCode%E5%8E%9F%E7%90%86%E3%80%81%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DietCode原理、关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape-Generic-Search-Space"><span class="nav-number">4.1.</span> <span class="nav-text">Shape-Generic Search Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model"><span class="nav-number">4.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joint-Learning-with-DietCode"><span class="nav-number">4.3.</span> <span class="nav-text">Joint Learning with DietCode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-number">5.</span> <span class="nav-text">实现细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#local-padding"><span class="nav-number">5.1.</span> <span class="nav-text">local padding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model 具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-Dispatching"><span class="nav-number">5.3.</span> <span class="nav-text">Automatic Dispatching</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E6%9C%89auto-scheduler%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">3.1.</span> <span class="nav-text">现有auto-scheduler工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6tensor%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.2.</span> <span class="nav-text">动态形状tensor的程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%96%B0%E7%9A%84auto-scheduler%E6%A1%86%E6%9E%B6"><span class="nav-number">3.3.</span> <span class="nav-text">为什么需要新的auto-scheduler框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DietCode%E5%8E%9F%E7%90%86%E3%80%81%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DietCode原理、关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape-Generic-Search-Space"><span class="nav-number">4.1.</span> <span class="nav-text">Shape-Generic Search Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model"><span class="nav-number">4.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joint-Learning-with-DietCode"><span class="nav-number">4.3.</span> <span class="nav-text">Joint Learning with DietCode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-number">5.</span> <span class="nav-text">实现细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#local-padding"><span class="nav-number">5.1.</span> <span class="nav-text">local padding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model 具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-Dispatching"><span class="nav-number">5.3.</span> <span class="nav-text">Automatic Dispatching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EVALUATION"><span class="nav-number">6.</span> <span class="nav-text">EVALUATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -583,7 +616,7 @@ vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正�
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -663,12 +696,12 @@ vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">37k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">34 分钟</span>
 </div>
 
 <i class="fa fa-user-md"></i>
