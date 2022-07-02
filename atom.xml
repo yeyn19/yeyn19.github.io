@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-07-02T07:40:18.286Z</updated>
+  <updated>2022-07-02T10:09:14.448Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>论文阅读[精读]-DENOISING DIFFUSION IMPLICIT MODELS</title>
+    <link href="http://www.yynnyy.cn/93d2057b"/>
+    <id>http://www.yynnyy.cn/93d2057b</id>
+    <published>2022-07-02T08:31:06.000Z</published>
+    <updated>2022-07-02T10:09:14.448Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天读了一篇编译，接下来回到老本行，来一篇diffusion model。这篇工作很有名，有点碰瓷DDPM的意思，其中“IMPLICIT”的意思是隐含。和DDPM的“probabilistic”相比，意思是减少随机性，加速采样。作者自己在AI Time上有个报告，好挺好的。</p><blockquote><p><a href="https://www.bilibili.com/video/BV1M44y1B7bp?spm_id_from=333.999.0.0&amp;vd_source=8d8e22a2686676c4db7b7429ce8a2e98">宋佳铭DDIM报告</a></p></blockquote><p>这篇工作和别的diffusion model工作一样，比较数学，很多推导我就不详细写了，可以从附录里看。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>大概意思就是：</p><ul><li>GAN很好，但今年的DDPM也不差</li></ul><blockquote><p>21年有一篇OpenAI的 BEAT GANS，用了DDIM，关注度很高，意思就是DDPM真的比GAN好</p></blockquote><ul><li><p>DDPM的问题是慢</p><ul><li>在CIFAR-10做32x32要20h</li><li>在CIFAR-10做256x256要1000h</li></ul></li><li><p>本文解决这个问题,通过一个非马尔科夫的过程</p></li></ul><h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><p>作者先讲了一般的DDPM是怎么搞的，这个叙述方式挺好的，讲讲重点</p><p>有一个公式：</p><script type="math/tex; mode=display">q(x_{1:T} | x_0) := \prod_{t=1}^T q(x_t |x_{t-1}) \\q(x_t |x_{t-1}) := N(\sqrt{\frac{\alpha_t}{\alpha_{t-1}} } x_{t-1},(1- \frac{\alpha_t}{\alpha_{t-1}})I)</script><p>也就是说，正常的DDPM是一个马尔科夫过程，想要从$X_0$得到后面，需要一步一步加噪声。这个噪声是一个高斯分布，其均值和$X_{t-1}$有关，是sample出来的。</p><p>反向的公式是：</p><script type="math/tex; mode=display">q(x_{t−1}|x_t,x_0) = N(x_{t−1};μ_t(x_t,x_0),\hat{\beta_t} I),</script><p>其中 </p><script type="math/tex; mode=display">\text{均值:} \mu_t(x_t,x_0) = \frac{ \sqrt{ \overline{\alpha_{t-1}} }\beta_t }{1 - \overline{\alpha_{t}}} x_0 + \frac{\sqrt{\alpha_t} (1 - \overline{\alpha_{t-1}} )}{1 - \overline{\alpha_{t}}} x_t \\\text{方差:} \hat{\beta_t} = \frac{1 - \overline{\alpha_{t-1}}}{1 - \overline{\alpha_{t}}}\beta_t</script><p>另一方面，由于这个高斯分布的传递性，我们可以把$x_t$视为单位高斯分布和$x_0$的线性叠加：</p><script type="math/tex; mode=display">x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon, \quad \epsilon \sim N(0,I)</script><p>我们在训练时我们想要让 $\log p_\theta(x_0) \to \log q(x_0)$，也就是说，我们想要优化：</p><script type="math/tex; mode=display">L_{t-1} = E_q [ \frac{1}{2\sigma^2} || \mu_t(x_t,x_0) - \mu_\theta(x_t,t)||^2]</script><p>其中</p><ul><li><p>左边是实际马尔科夫链对$x_{t-1}$的估计，可计算</p></li><li><p>右边是我们的去噪模型$\theta$对$x_{t-1}$的估计，可计算</p></li></ul><p>这里我们套入上面$x_t$的公式，看做$x_t,\epsilon$的函数，进行一波化简，最终得到</p><script type="math/tex; mode=display">L_{t-1} = C * \frac{1}{2\sigma^2} || \epsilon - \mu_\theta(\sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t},t)||^2</script><p>忽略常数C，同时对所有的L进行优化：</p><script type="math/tex; mode=display">L_{\text{simple}} = \sum_{t=1}^T L_t</script><p>就能学出DDPM模型了</p><h2 id="VARIATIONAL-INFERENCE-FOR-NON-MARKOVIAN-FORWARD-PROCESSES"><a href="#VARIATIONAL-INFERENCE-FOR-NON-MARKOVIAN-FORWARD-PROCESSES" class="headerlink" title="VARIATIONAL INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES"></a>VARIATIONAL INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES</h2><p><img src="../files/images/DDIM/compare.png"></p><p>上面全是DDPM的数学推导。接下来，作者讲了他的贡献。它发现：</p><ul><li>DDPM中的loss$L_\lambda$只依赖于$q(x_t|x_0)$，和$q(x_{1:T} |x_0)$无关。这样符合边缘分布的可能性有很多，作者选取了一个非马尔科夫的过程</li></ul><script type="math/tex; mode=display">q_\sigma(x_{1:T} |x_0) := q(x_{T} |x_0) \prod_{t=2}^T q_\sigma (x_{t−1} |x_t , x_0 ) \\q_\sigma (x_{t−1} |x_t , x_0 ) = N \left( \sqrt{\alpha_{t-1}}x_0 + \sqrt{1 - \alpha_{t-1} - \sigma^2_t} \times \frac{x_t - \sqrt{\alpha_t}x_0}{\sqrt{1-\alpha_t}}  , \sigma_t^2 I\right)</script><p>接下来，对于 $x_0 \sim q(x_0) , \epsilon_t \sim N (0, I)$我们可以获取其对应的$X_t$，由</p><script type="math/tex; mode=display">x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon_t</script><p>如果我们有一个对$\epsilon_t$的预测器$\epsilon_\theta^{(t)}(x_t)$输入不含$X_0$。我们可以用他来预测$X_0$：</p><script type="math/tex; mode=display">f^{(t)}(x_t) := (x_t − \sqrt{1 − \alpha_t} · \epsilon^{(t)}(x_t))/\sqrt{\alpha_t}</script><p>由此，这个去噪的过程可以看做：</p><script type="math/tex; mode=display">p_\theta^{(t)}(x_{t-1} | x_t) = q_\sigma (x_{t−1} |x_t , f^{(t)}(x_t) )</script><p>式子右边只和$x_t,\epsilon$有关</p><p>作者接下来证明了这个算法的train过程用到的loss和DDPM是等价的(差一个常数)。<strong>也就是说，训好的DDPM模型可以认为是训好的DDIM模型</strong></p><h2 id="sample"><a href="#sample" class="headerlink" title="sample"></a>sample</h2><p>这个模型是怎么infer的呢？</p><p><img src="../files/images/DDIM/infer.png"></p><p>进一步展开、化简刚才的$p_\theta^{(t)}(x_{t-1} | x_t)$，我们可以得到</p><p><img src="../files/images/DDIM/form2.png"></p><p><img src="../files/images/DDIM/form.png"></p><p>这个式子里面只有最右边的部分是带有随机成分的。而且当</p><script type="math/tex; mode=display">\sigma_t = \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 − \alpha_{t}/\alpha_{t-1}}</script><p>时退化为DDPM</p><p>如果我们取$\sigma_t = 0$。式子有确定性的输出，这个模型称作DDIM。</p><h3 id="ACCELERATED-GENERATION-PROCESSES"><a href="#ACCELERATED-GENERATION-PROCESSES" class="headerlink" title="ACCELERATED GENERATION PROCESSES"></a>ACCELERATED GENERATION PROCESSES</h3><p>说完了采样，那么加速在哪呢？</p><p>作者证明了：</p><ul><li>上面的逆过程不需要从$T,T-1,…,1,0$一路下降，其实选取一个递减的子集也是可以的！</li></ul><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验部分，作者实际上选取了：</p><script type="math/tex; mode=display">\sigma_t = \eta \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 − \alpha_{t}/\alpha_{t-1}}</script><p>其中$\eta$是超参，0代表是DDIM，1代表是DDPM。另一个变量是选取的子集S的大小($|S|=1000$代表没有简化)，跑了这个图：</p><p><img src="../files/images/DDIM/re.png"></p><p>可以看出，DDIM在步数少的时候表现最好。最下面那个$\hat\sigma$代表原始的DDPM祖先采样。可以看出，衰减非常明显</p><p>作者还提到了这个方法的另一个优势：</p><ul><li>由于确定性的增加，相同的初始噪声映射到基本相同的结果。可以方便做图片的修改。</li></ul><p><img src="../files/images/DDIM/change.png"></p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>虽然证明和数学过程很复杂，但结论却是惊人的简单：同样的DDPM，换一个采样方法，就能加速50倍</li><li>这个感觉是对上面论文ODE的一种是实现？作者在论文里也用一小节说了这事。</li></ul><a href="/6b94db09.html" title="论文阅读-SCORE-BASED-GENERATIVE-MODELING-THROUGH-STOCHASTIC-DIFFERENTIAL-EQUATIONS">论文阅读-SCORE-BASED-GENERATIVE-MODELING-THROUGH-STOCHASTIC-DIFFERENTIAL-EQUATIONS</a><ul><li>有个后文 DPM-Solver，10步就能媲美DDPM-1000步，过两天笔记整上</li></ul>]]></content>
+    
+    
+    <summary type="html">这篇是DDIM，21年的ICLR，把DDPM的速度提升了50倍，基本不影响效果。</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="http://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+  </entry>
   
   <entry>
     <title>论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS</title>
@@ -175,11 +200,11 @@
     <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -223,9 +248,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
-    
     <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
     
   </entry>
   
@@ -391,21 +416,21 @@
     <link href="http://www.yynnyy.cn/75bfb84b"/>
     <id>http://www.yynnyy.cn/75bfb84b</id>
     <published>2022-06-20T15:17:08.000Z</published>
-    <updated>2022-06-21T01:24:51.893Z</updated>
+    <updated>2022-07-02T08:31:44.592Z</updated>
     
     <content type="html"><![CDATA[<p>​    今天更新博客的第一篇论文阅读笔记，是<code>prefix tuning</code>作者 <code>Xiang Lisa Li</code>的新作。尝试在可控文本生成领域中引入在图像领域很火的 diffusion model 的方法。这篇文章不是第一篇文本做 diffusion model的（大家都从ViT尝到甜头了，领域迁移非常快…），但是第一篇引入连续 diffusion model做文本的。</p><p>​    这篇文章需要比较多的前置知识，我打算分两期介绍。这是第一期，介绍 diffusion model。因此准确来说，这篇博客应该是</p><blockquote><p>Denoising Diffusion Probabilistic Model</p></blockquote><p>的论文阅读笔记</p><h2 id="Diffusion-model-总体"><a href="#Diffusion-model-总体" class="headerlink" title="Diffusion model 总体"></a>Diffusion model 总体</h2><p><img src="../files/images/diffusion_model/对比.png"></p><p>​    上面图中的几兄弟在paraphrase等可控文本生成任务中用的都挺多，我后面有机会可能都会讲讲，最起码 flow-based models我这几天应该会安排一篇。</p><p>​    扩散模型的思路是有点类似VAE，但又不太一样。效果是不是最好不知道，但它在上面几兄弟中是最新的。它定义了两个过程：扩散过程和去噪过程。前者是把一个对象通过逐步添加高斯噪声，最后变成一个完全随机的分布。后者则是通过一个训练好的去噪模型把一个随机变量逐渐去噪，最后返回到原对象。最近比较火的图像生成模型大体上都是用了 diffusion model的思路。</p><p>​    虽然diffusion model提出的比较早(2020年)，但是火起来好像也就是2022年。文本领域的diffusion model更是刚刚起步，还有很多可以提升的空间。</p><h2 id="Diffusion-model的原理"><a href="#Diffusion-model的原理" class="headerlink" title="Diffusion model的原理"></a>Diffusion model的原理</h2><p>它的原理很简单，但公式的推导过程却比较复杂。基本用到了以下几方面的知识：</p><ul><li><p>马尔科夫链</p></li><li><p>贝叶斯公式</p></li><li><p>参数重整化：把一个$x \in N(\mu,\sigma)$的分布变成$z \in N(0,1), x = \sigma z + \mu$.这么做的原因是我们在采样x的时候往往还会和别的过程同步进行，需要一起算loss，$\mu,\sigma$是模型的输出，如果直接采样的话，loss就会被detach。通过重整化，我们把z视为常量，可以让导数图正确传播。</p></li><li><p>KL散度。经典的分布差异的表示，之前在</p><blockquote><p>Learning Disentangled Textual Representations via Statistical Measures of Similarity</p></blockquote><ul><li>分享过MI熵、KL散度、维因斯坦距离、fisher-rao距离、Sinkhorn Divergence、Jeffrey Divergence等方法，这里不再赘述</li><li>需要注意，这里用到了高斯分布下kl散度的化简方法(显然这个散度不对称)：</li></ul><script type="math/tex; mode=display">KL(P_1,P_2) = \log(\frac{\sigma_2}{\sigma_1}) + \frac{\sigma_1^2 + (\mu_1 - \mu_2)^2}{2\sigma_2^2} - 0.5</script></li></ul><p>中间推导全部略过，从结果来看：</p><p><img src="../files/images/diffusion_model/规律.png"></p><p>这个告诉我们，只要随机选取一个时间t，选取一个随机数，我们就能对参数模型</p><script type="math/tex; mode=display">z_\theta(\text{某一个输入}x_t,\text{时间t}) = \text{x对应的输出}x_{t-1}</script><p>进行优化。最终训练过程如图：</p><p><img src="../files/images/diffusion_model/process.png"></p><p>这里有几个细节，需要注意一下：</p><ul><li>对于每次采样，它不是把$t=0,1,…$全部采样一遍算loss，而是取一个随机的t。原因是这样可以”稳定训练过程“</li><li>在infer过程中，最后一次的随机变量z=0,也就是说去噪的最后一步不能添加噪声。</li><li>公式里面的 $\alpha_t = 1 - \beta_t, \overline{\alpha_t} = \prod_{i \leq t}\alpha_i$.其中$\beta_t$要递增的选取，并且趋近于1，这样才能保证多次加噪完的$x_T$会变成一个随机分布 $X_T \in N(0,1)$</li></ul><h2 id="Diffusion-model-的分析"><a href="#Diffusion-model-的分析" class="headerlink" title="Diffusion model 的分析"></a>Diffusion model 的分析</h2><p>我们来对比一下 diffusion model 和VAE。可以看出：</p><ul><li>VAE需要一个专门的先验网络来对x生成随机变量z，在infer时扔掉这个网络；而扩散模型的加噪过程是确定的、无参的，不需要一个专门的加噪网络。</li><li>diffusion model 每一步的隐变量都和原来的$X_0$是同一维度的，同时需要多步采样(可能多达1000步)才能把完全随机变量恢复到原来的 $X_0$</li></ul><p>个人总结了一下，diffusion model 有以下的优点：</p><ul><li>由于去噪的过程是多步的，我们可以在这个多步的过程中实现更好的、更粒度的控制</li><li>效果会比传统VAE更好。</li><li>它可以更好的handle从类似于”半抽象“的过程恢复，不需要要求去噪的起点一定是随机噪声</li></ul><p>但是，他也有以下的缺点：</p><ul><li>太慢了，1000步？而且作者说步数少了训练会出问题？今年好多论文都是<ul><li>怎么提升采样效率</li><li>通过降低图像尺寸改善速度</li></ul></li><li>训练过程不稳定，估计不好训。这个对于实际开题的问题很大，毕竟不是每个人都是deep mind调参神（</li><li>噪声的隐空间不编码任何有效信息，只是单纯的噪声。</li></ul><h2 id="个人点评"><a href="#个人点评" class="headerlink" title="个人点评"></a>个人点评</h2><ul><li><p>从NLP的角度出发，diffusion model首先需要handle 词语 -&gt; word embedding 的问题。</p><ul><li>一个显然的方法是借鉴VQVAE的思路，把中间变量clap成最接近的word embedding。可能带来的新问题是：直接转变噪声过程，会导致扩散模型那个不等式不再成立？？这个可能得实际训训看结果怎么样</li></ul></li><li><p>这个扩散模型有点问题：只能从随机噪声变成一个”有某种控制信息下的一段文本“。但我们很多需求是平行预料的，比如 style transfer，这就回到了刚才说的缺点，我们得想办法在隐空间中编码信息：比如语义信息等。</p><ul><li>我似乎看到今年CVPR有类似的工作？</li></ul><blockquote><p><a href="https://arxiv.org/pdf/2111.15640.pdf">https://arxiv.org/pdf/2111.15640.pdf</a></p></blockquote><ul><li>DALLE-2 里面有个 CLIP-Image encoder也是在干这件事？我应该会在近期读一下dalle-2的论文，写一个阅读笔记，那篇里面再聊吧</li></ul></li><li><p>慢的问题，可能在NLP更严重。大概率，diffusion model里面的原子模块得用 transformer，两两叠加是不是直接凉凉……</p></li><li><p>我在思考能不能在长文本中引入 diffusion model，这个好像会对每一句都搞得不错，和 plan 生成、文本检索一起叠buff，可能能整个大的……这个可能也得后面再试。</p></li></ul>]]></content>
     
     
-    <summary type="html">这篇其实是讲 diffusion model 的原理</summary>
+    <summary type="html">这篇其实是讲 diffusion model 的原理Denoising Diffusion Probabilistic Model</summary>
     
     
     
     <category term="论文阅读笔记" scheme="http://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
-    
     <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
     
     <category term="可控文本生成" scheme="http://www.yynnyy.cn/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/"/>
     
@@ -454,31 +479,6 @@
     
     
     <category term="日记" scheme="http://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>《现代密码学》课程总结</title>
-    <link href="http://www.yynnyy.cn/8618fb6d"/>
-    <id>http://www.yynnyy.cn/8618fb6d</id>
-    <published>2022-06-19T02:51:12.000Z</published>
-    <updated>2022-06-20T09:48:03.377Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>密码学里需要保密的不是加密算法，而是密钥。</p><h2 id="课程情况"><a href="#课程情况" class="headerlink" title="课程情况"></a>课程情况</h2><p>《现代密码学》这个课程虽然我是大三选的，但其实这是一个大二大三都想选的课程。同时面向计算机系和叉院都开设。</p><p>​    课程容量大概是100人，但当时选课的人却不少，我记得我好像还是从150个人中靠着二志愿“杀出重围的”。一般选课时不好选的课，退课时总也舍不得退。这学期我在退课时本来在纠结退密码学，但最后也没有退。可能就有这方面的原因吧。</p><p>​    我就去线下上了两节课，后面就再也没去过，期末周的时候看了一遍录屏……老师语速不快，并且是那种说话对时间分布比较平均的类型。也就是说，看回放加速1.5倍也会比较友好，我当时打到了1.7倍，应该是没问题。</p><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>​    课程本身覆盖面是比较广的。</p><ul><li>从古典密码开始讲起，一直讲到德军Enigma密码机与波兰数学家与图灵对密码机的破解。</li><li>对称密码体制，feistel结构与SPN结构等等，以及经典的des、aes和对应的差分分析、线性分析等等。</li><li>加密算法体质，讲md5结构、sponge结构，以及对应的生日攻击、后缀攻击等等</li><li>公钥密码体质，这一部分挺有意思的。我之前确实不知道公钥密码的原理，属实是打开眼界了一番。讲了怎么构造有后门的数学难题，在此基础上在应用层讲了rsa、diffle-hellmen、elgmal等等算法</li></ul><p>​    我认为，这个课涉及的面很广，每个面都还有很多值得深入挖掘的地方。这个课用到的内容很基础，但保护的是计算机很底层的安全问题。总体，还是比较建议选这个课的。(相比其他的牛鬼蛇神竞争对手……)</p><h2 id="考核"><a href="#考核" class="headerlink" title="考核"></a>考核</h2><p>2021春季学期，这个课是40分的作业，10分的签到，50分的考试。</p><h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><p>本学期实行了作业改革。</p><ul><li>第一次作业是破解几种古典密码，照着课本拟合就行。</li><li>第二次大作业是设计一种对称密码或者hash函数，5人一组，老师会根据大家的设计结果进行评估，再综合安全性和新颖性给出设计分<ul><li>我们当时设计了基于以太坊的加密算法<code>Scrypt</code>的一个hash函数，结果老师说功耗太大不利于在FPGA运行，被扣了两分，有点阴间…（如果后面有时间，我也许会讲讲我们组的算法设计）</li></ul></li><li>第三次大作业分组不变，是来破解某一组的第二次大作业。虽然听起来很卷，但其实不是，老师会在第三次提交之前给第二次打分，不会因为算法被别的组破解导致第二次大作业稀烂。不过，如果第三次作业没有破解出来，可能你们组第三次作业分会被扣一些<ul><li>我们组运气好，当时的被攻击者的sponge结构f函数不可逆，而且混淆扩散速度比较慢，被我们用数学方法构造出了碰撞…老师给了我们好多分。</li></ul></li></ul><p>听说之前的后两次大作业是实现sha。新版的大作业我更喜欢一些，比起实现，还是创新做着更有动力。</p><h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>考试题挺基础的，大家考的也都不错，以上。</p>]]></content>
-    
-    
-    <summary type="html">对于现代密码学课程的看法，上课的体验</summary>
-    
-    
-    
-    <category term="课程与作业" scheme="http://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
-    
-    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
     
   </entry>
   
