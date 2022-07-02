@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>http://www.yynnyy.cn/88c48877</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>http://www.yynnyy.cn/93d2057b</loc>
     
     <lastmod>2022-07-02</lastmod>
@@ -349,6 +358,13 @@
   </url>
   
   <url>
+    <loc>http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -370,21 +386,7 @@
   </url>
   
   <url>
-    <loc>http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2022-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/</loc>
-    <lastmod>2022-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -398,7 +400,7 @@
   </url>
   
   <url>
-    <loc>http://www.yynnyy.cn/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/</loc>
+    <loc>http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -420,6 +422,13 @@
   
   <url>
     <loc>http://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/</loc>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.yynnyy.cn/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
