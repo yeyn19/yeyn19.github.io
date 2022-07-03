@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-07-02T15:41:23.431Z</updated>
+  <updated>2022-07-03T15:47:07.756Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -17,13 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>7-3总结</title>
+    <link href="http://www.yynnyy.cn/2eb383c3"/>
+    <id>http://www.yynnyy.cn/2eb383c3</id>
+    <published>2022-07-03T15:44:02.000Z</published>
+    <updated>2022-07-03T15:47:07.756Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天基本啥也没干，摆了一天。看了一下B站一个up主</p><blockquote><p><a href="https://space.bilibili.com/8065464/?spm_id_from=333.999.0.0">引力子G</a></p></blockquote><p>他转发一些中文字幕版的youtube科普视频。近日了解了一些级数和混沌、分型的知识。</p><p>另外，近日和朋友一起玩《双人成行》，剧情好长，超值。另，现在steam夏促双人成行4折。</p>]]></content>
+    
+    
+    <summary type="html">今日摆烂</summary>
+    
+    
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="http://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>7-2总结</title>
     <link href="http://www.yynnyy.cn/88c48877"/>
     <id>http://www.yynnyy.cn/88c48877</id>
     <published>2022-07-02T15:38:57.000Z</published>
-    <updated>2022-07-02T15:41:23.431Z</updated>
+    <updated>2022-07-03T15:44:29.131Z</updated>
     
-    <content type="html"><![CDATA[<p>今天读了两篇论文，写了两个笔记，但明天还有更多要读，只能说重量级。</p><p>今天被拉到了一个新群，可能新的锅又要来了。</p><p>今日观赛：</p><ul><li>FPX打JDG：无法想象，fpx竟然赢了。我的SUMMIT，新上单新气象</li><li>WBG打TES：达到12点都没结束，只能说今天管泽元输麻了，新一嘉宾当麻了。连坐9个小时。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今天读了两篇论文，写了两个笔记，但明天还有更多要读，只能说重量级。</p><p>今天被拉到了一个新群，可能新的锅又要来了。</p><p>今日观赛：</p><ul><li>FPX打JDG：无法想象，fpx竟然赢了。我的SUMMIT，新上单新气象</li><li>WBG打TES：达到12点都没结束，只能说今天管泽元输麻了。新一嘉宾当麻了，连坐9个小时。最后还是让tes赢了。</li></ul>]]></content>
     
     
     <summary type="html">今日总结</summary>
@@ -221,11 +242,11 @@
     <category term="随笔" scheme="http://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
+    
+    <category term="随笔" scheme="http://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -454,31 +475,6 @@
     <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="可控文本生成" scheme="http://www.yynnyy.cn/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OS课程总结</title>
-    <link href="http://www.yynnyy.cn/1a09bd40"/>
-    <id>http://www.yynnyy.cn/1a09bd40</id>
-    <published>2022-06-20T03:41:15.000Z</published>
-    <updated>2022-06-20T09:48:17.937Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    OS课基本是贵系知名专业课了，前有四大原理，后有os、体系结构，构成了大三学期。恰逢昨天OS出分了，就来聊聊OS。</p><h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>之前在大伯的课上学到一句话：每门课上下来，最起码你得有一句话能记一辈子，这课就算没白上。因此，我每节课都最少要记住一句话。os课就这句：</p><blockquote><p>操作系统的东西，好多都是先有实现再有理论，看明白实现，理论自然就懂了。</p></blockquote><h2 id="老师"><a href="#老师" class="headerlink" title="老师"></a>老师</h2><p>​    我选的是陈渝老师的课，这学期向勇老师没开课。我们是限选课优先志愿，所以不存在选不上课。当然，老师和老师也有区别，听说向勇老师的理念是“通过提高挂科率增强同学积极性”，所以选的人是寥寥无几，因此陈渝老师这边相对就火一些。</p><p>​    之前听得传闻对这个课的评价都一般，但实际上下来还不错。我已经不是第一次见陈渝老师了，之前的编译原理也是他教。虽然两个课加起来一共就去听了3节，但对他还是有些了解。感觉他是贵系为数不多“比较懂同学们的”老师。之前有节网课说了一句话让我们印象深刻：</p><blockquote><p>能来会议里答题的同学们都很不错，说明大家都在认真听课；当然不来答题的同学们也很不错，能来会议里听课；当然没在会议的同学们也很不错，不来听课就能把这个知识，都学会。</p></blockquote><p>​    只能说，不用签到的老师、支持自学的老师，都是好老师。</p><h2 id="课程"><a href="#课程" class="headerlink" title="课程"></a>课程</h2><ul><li>课程本身还挺硬核的，讲了很多os的知识，知识很多，难度也不小。当然，必修课，你也没得选。</li><li>听说老师上课没有拓展很多，只看PPT的自学效果不错。</li><li>助教团队挺多，都是本科生，比较懂同学们的需求，答疑速度较快。</li></ul><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>40分作rCore业 + 20分期中 + 40分期末，会调分(向上)。</p><p>​    rCore是模仿初版linux实现的一个操作系统,很多结构体和机制都差不多。在写实验角度来看，比起mini-Decaf实验，rCore码量更大，需要手动merge之前代码，体验差一些；但y1s1, 在贵系大作业里算好的了。很多时候，操作系统的东西看代码比上课学理论扎实多了。最起码，我在造机课实现了TLB和页表，但并不知道实际上操作系统再怎么工作，写完lab3就懂了。</p><p>​    期中期末传统艺能，都很难，考的很偏。但是按照排名给分，并且大家分数分布给的挺明白，不至于迷迷瞪瞪最后来个评价等级。</p><p>​    虽然老师第一节课说给分差，但最后给分还行，不知道是不是疫情影响的原因…</p>]]></content>
-    
-    
-    <summary type="html">操作系统课程总结</summary>
-    
-    
-    
-    <category term="课程与作业" scheme="http://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/"/>
-    
-    
-    <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="课程总结" scheme="http://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
-    
-    <category term="大三下" scheme="http://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/"/>
     
   </entry>
   
