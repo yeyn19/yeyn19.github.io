@@ -6,7 +6,7 @@
   <link href="http://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="http://www.yynnyy.cn/"/>
-  <updated>2022-07-04T06:51:40.698Z</updated>
+  <updated>2022-07-04T07:37:47.372Z</updated>
   <id>http://www.yynnyy.cn/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="http://www.yynnyy.cn/39e1c917"/>
     <id>http://www.yynnyy.cn/39e1c917</id>
     <published>2022-07-04T06:09:03.000Z</published>
-    <updated>2022-07-04T06:51:40.698Z</updated>
+    <updated>2022-07-04T07:37:47.372Z</updated>
     
-    <content type="html"><![CDATA[<p>上次读了陈天奇关于auto-tuner中使用动态形状的论文，这篇论文是解决利用硬件信息的。本篇工作重新思考了图、算子、模型粒度下的优化方式，打算更好的在auto-tuner中利用硬件信息，达到vendor library相似的效果。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="../files/images/BOLT/compare_with_lib.png"></p><p>作者首先点出来一个事实，那就是现在的两种常用方法：auto-scheduler和vendor library的效果差的很远，如上图差了5倍。作者寻找原因：</p><ul><li>auto-tuner没有考虑硬件信息，硬件不透明，导致不能利用很多硬件原生的加速</li><li>vendor library考虑硬件实现，虽然拓展性更差，但效果会更好</li></ul><p>作者还提到，不仅是效果，编译时间也差的很多：ResNet-50在NVIDIA GPU需要编译7天。作者提到一个可能的解决办法是通过特别的数据库来更好的利用cache信息。但这种方法并不长远，因为模型的动态性和输入的动态性让cache很难得到高效地利用。</p><p>本文想要弥补这两种方法的gap。观察到一个事实：现有的vendor library有一个模板化的趋势(templated)</p><ul><li>NVIDIA CUTLASS：给出一些模板，不对具体的函数负责，比较好的扩展性。</li><li>Intel OneDNN (Intel) ，AMD ROCm：类似的特性</li></ul><p>作者提出了BOLT，代码已经merge到TVM：</p><ul><li>首先，用vendor library支持的模板来搜索优化模板，利用hardware-native performance，生成tensor program</li><li>接下来，通过排列模板进行计算图优化</li><li>可以用hardware-native performance来同时进行图级别和算子级别的优化</li><li>也可以通过符合提出的设计原则的模型来进行模型级别的优化</li></ul><p>作者的主要贡献：</p><ul><li>结合templated vendor library和auto-tuner来弥补前面的表现差异</li><li>提出persistent kernel fusion，</li><li>提出寻找模板参数的方法，可以直接生成常规的vendor library代码</li><li>总结了三个系统友好的设计理念</li><li>详细评测了BOLT的效果，远超SOTA</li></ul><h2 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h2>]]></content>
+    <content type="html"><![CDATA[<p>上次读了陈天奇关于auto-tuner中使用动态形状的论文，这篇论文是解决利用硬件信息的。本篇工作重新思考了图、算子、模型粒度下的优化方式，打算更好的在auto-tuner中利用硬件信息，达到vendor library相似的效果。</p><p>说实话，感觉编译方面的论文都有点，啰嗦，就持续地说好多遍同样的东西……</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="../files/images/BOLT/compare_with_lib.png"></p><p>作者首先点出来一个事实，那就是现在的两种常用方法：auto-scheduler和vendor library的效果差的很远，如上图差了5倍。作者寻找原因：</p><ul><li>auto-tuner没有考虑硬件信息，硬件不透明，导致不能利用很多硬件原生的加速</li><li>vendor library考虑硬件实现，虽然拓展性更差，但效果会更好</li></ul><p>作者还提到，不仅是效果，编译时间也差的很多：ResNet-50在NVIDIA GPU需要编译7天。作者提到一个可能的解决办法是通过特别的数据库来更好的利用cache信息。但这种方法并不长远，因为模型的动态性和输入的动态性让cache很难得到高效地利用。</p><p>本文想要弥补这两种方法的gap。观察到一个事实：现有的vendor library有一个模板化的趋势(templated)</p><ul><li>NVIDIA CUTLASS：给出一些模板，不对具体的函数负责，比较好的扩展性。</li><li>Intel OneDNN (Intel) ，AMD ROCm：类似的特性</li></ul><p>作者提出了BOLT，代码已经merge到TVM：</p><ul><li>首先，用vendor library支持的模板来搜索优化模板，利用hardware-native performance，生成tensor program</li><li>接下来，通过排列模板进行计算图优化</li><li>可以用hardware-native performance来同时进行图级别和算子级别的优化</li><li>也可以通过符合提出的设计原则的模型来进行模型级别的优化</li></ul><p>作者的主要贡献：</p><ul><li>结合templated vendor library和auto-tuner来弥补前面的表现差异</li><li>提出persistent kernel fusion，</li><li>提出寻找模板参数的方法，可以直接生成常规的vendor library代码</li><li>总结了三个系统友好的设计理念</li><li>详细评测了BOLT的效果，远超SOTA</li></ul><h2 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h2><h3 id="Auto-tuners-have-a-performance-gap"><a href="#Auto-tuners-have-a-performance-gap" class="headerlink" title="Auto-tuners have a performance gap"></a>Auto-tuners have a performance gap</h3><p>一方面，Auto-tuner达不到硬件原生的表现。因为比如NVIDIA特殊的硬件结构，tensor核心，FP16加速机制是Ansor达不到的,因为对于auto-tuner来说硬件是不透明的。</p><p>另一方面，Auto-tuner编译速度慢。一种解决办法是利用cache，重复使用前面的tuning log。对于静态的模型，效果不错。但对于动态模型、动态输入，只有运行时才能获取真正的工作流，效果不好。本文的Bolt方法可以减少编译时间。</p><h3 id="The-emerging-trend-Templated-libraries"><a href="#The-emerging-trend-Templated-libraries" class="headerlink" title="The emerging trend: Templated libraries"></a>The emerging trend: Templated libraries</h3><p><img src="../files/images/BOLT/template.png"></p><p>作者提到一些模板化的vendor library可以方便的实现新函数，实现新模板。这些templated libraries可以考虑硬件的实现，达到硬件透明的auto-tuner达不到的效果。</p><ul><li>CUTLASS：NVIDIA的templated library。给每个GEMM（矩阵乘）的CUDA model的每一个layer都做了c++的模板。带入正确的参数( tile size, data type等)，就可以实现电压、安培架构、优化FP优化、混精度计算等要求。</li></ul><p>上图的例子是在计算$C = A · B$,C是绿色。例子表明CUTLASS可以自动利用起局部的cache(容量更小但是更快)</p><h3 id="Bolt-The-best-of-both-worlds"><a href="#Bolt-The-best-of-both-worlds" class="headerlink" title="Bolt: The best of both worlds"></a><strong>Bolt</strong>: The best of both worlds</h3><p>新的模板化vendor library提供下列特性：</p><ul><li>可重复利用的达到硬件原生性能的primitives</li><li>对于不同的输入格式，可以很方便的参数化</li><li>更好的进行auto-tuning search</li><li>基础类可以很好地自定义、扩展、封装成更复杂的实现，进一步提高搜索效果</li></ul><p>这些特性带来下面的编译器设计：</p><ul><li>更轻量化，更好的考虑硬件的实现</li><li>可以直接利用上面的templated library</li></ul><p><strong>图级别</strong>：Bolt可以更好的进行operator fusion。提出了 <em>persistent kernel fusion</em> 的方法，原有的auto-tuner可以实现更深层次的fusion，但得出的算子不被cuDNN支持，但Bolt的可以。扩展了graph-optimization的方向。</p><p><strong>算子级别</strong>：原生的templated library太底层，并且需要集成到模型中。Bolt通过设计一个 light-weight performance profiler来自动的进行模板参数的搜索。可以在缩减搜索时间的同时，让生成的tensor code达到硬件原生的性能。</p><p><strong>模型级别</strong>： 符合设计理念的模型可以被更好的优化。</p><h2 id="BOLT-DESIGN"><a href="#BOLT-DESIGN" class="headerlink" title="BOLT DESIGN"></a>BOLT DESIGN</h2><p><img src="../files/images/BOLT/workflow.png"></p>]]></content>
     
     
     <summary type="html">MLSys的论文，讲了如何在auto-tuners中更好的利用硬件的信息</summary>
@@ -102,9 +102,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
     <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
@@ -315,9 +315,9 @@
     
     <category term="计算机" scheme="http://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
-    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
     <category term="diffusion model" scheme="http://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="人工智能" scheme="http://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
