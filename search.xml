@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE</title>
+      <link href="/39e1c917.html"/>
+      <url>/39e1c917.html</url>
+      
+        <content type="html"><![CDATA[<p>上次读了陈天奇关于auto-tuner中使用动态形状的论文，这篇论文是解决利用硬件信息的。本篇工作重新思考了图、算子、模型粒度下的优化方式，打算更好的在auto-tuner中利用硬件信息，达到vendor library相似的效果。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="../files/images/BOLT/compare_with_lib.png"></p><p>作者首先点出来一个事实，那就是现在的两种常用方法：auto-scheduler和vendor library的效果差的很远，如上图差了5倍。作者寻找原因：</p><ul><li>auto-tuner没有考虑硬件信息，硬件不透明，导致不能利用很多硬件原生的加速</li><li>vendor library考虑硬件实现，虽然拓展性更差，但效果会更好</li></ul><p>作者还提到，不仅是效果，编译时间也差的很多：ResNet-50在NVIDIA GPU需要编译7天。作者提到一个可能的解决办法是通过特别的数据库来更好的利用cache信息。但这种方法并不长远，因为模型的动态性和输入的动态性让cache很难得到高效地利用。</p><p>本文想要弥补这两种方法的gap。观察到一个事实：现有的vendor library有一个模板化的趋势(templated)</p><ul><li>NVIDIA CUTLASS：给出一些模板，不对具体的函数负责，比较好的扩展性。</li><li>Intel OneDNN (Intel) ，AMD ROCm：类似的特性</li></ul><p>作者提出了BOLT，代码已经merge到TVM：</p><ul><li>首先，用vendor library支持的模板来搜索优化模板，利用hardware-native performance，生成tensor program</li><li>接下来，通过排列模板进行计算图优化</li><li>可以用hardware-native performance来同时进行图级别和算子级别的优化</li><li>也可以通过符合提出的设计原则的模型来进行模型级别的优化</li></ul><p>作者的主要贡献：</p><ul><li>结合templated vendor library和auto-tuner来弥补前面的表现差异</li><li>提出persistent kernel fusion，</li><li>提出寻找模板参数的方法，可以直接生成常规的vendor library代码</li><li>总结了三个系统友好的设计理念</li><li>详细评测了BOLT的效果，远超SOTA</li></ul><h2 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 人工智能 </tag>
+            
+            <tag> 深度学习编译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>7-3总结</title>
       <link href="/2eb383c3.html"/>
       <url>/2eb383c3.html</url>
@@ -72,9 +101,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -321,9 +350,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -336,7 +365,7 @@
       <link href="/26e7c21f.html"/>
       <url>/26e7c21f.html</url>
       
-        <content type="html"><![CDATA[<p>今天是快手小学期的第一天，感觉和我想象的差距还是蛮大的，日程如下：</p><ul><li>11.00-12.00：开营仪式，请了几个学长分享快手的情况。期间被hr打电话改材料，签协议。</li><li>12.00-16.00: 中间陆陆续续拉了4个群，发了一些自己的自我介绍，然后选组长之类的社交工作</li><li>16:00-16.30: 和负责老师开会聊了聊，拉了两个群，发现被调剂到了另一个项目</li><li>19:00-20:00 和负责学姐开会聊了聊，拉了一个群。</li></ul><p>​    快手的行政系统还是比较复杂的。比如我们的小学期项目，来自计算机系和软件学院的同学们被分到了8个大组。每个大组大概7-8个人，然后有一个负责的hr学长。另一方面，对于项目来说，大概每个项目有3-4个同学，这个和大组的分配基本是正交的。</p><p>​    在评价体系上，我们需要出勤打卡，写工作日报、工作周报，拿到个人分。另一方面，需要进行一些大组上的组间评比，拿到大祖分。一整套体系下来需要做的、需要了解的东西很多，需要认识的人也很多，需要开的会也很多。整体感觉上这个体系非常严谨，只能说，剩余价值直接给榨干。</p><p>​    虽然安排上工作时间是9:00-19:00，但从开会等情况来看，大家还是会加班到比较晚……可能这就是科技公司吧。我主要来做一些编译优化方面的工作，负责我的学长和学姐都是清华的，比较了解我系的课程设置，这点上还是比较赞的。不知道后面项目做起来会不会比较有意思。</p><p>​    另：今天学会新词，qua。互联网公司的项目一般按季度为一个周期，大家都把这个叫做qua。”上个qua大家做了……“</p>]]></content>
+        <content type="html"><![CDATA[<p>今天是快手小学期的第一天，感觉和我想象的差距还是蛮大的，日程如下：</p><ul><li>11.00-12.00：开营仪式，请了几个学长分享快手的情况。期间被hr打电话改材料，签协议。</li><li>12.00-16.00: 中间陆陆续续拉了4个群，发了一些自己的自我介绍，然后选组长之类的社交工作</li><li>16:00-16.30: 和负责老师开会聊了聊，拉了两个群，发现被调剂到了另一个项目</li><li>19:00-20:00 和负责学姐开会聊了聊，拉了一个群。</li></ul><p>​    快手的行政系统还是比较复杂的。比如我们的小学期项目，来自计算机系和软件学院的同学们被分到了8个大组。每个大组大概7-8个人，然后有一个负责的hr学长。另一方面，对于项目来说，大概每个项目有3-4个同学，这个和大组的分配基本是正交的。</p><p>​    在评价体系上，我们需要出勤打卡，写工作日报、工作周报，拿到个人分。另一方面，需要进行一些大组上的组间评比，拿到大组分。一整套体系下来需要做的、需要了解的东西很多，需要认识的人也很多，需要开的会也很多。整体感觉上这个体系非常严谨，只能说，剩余价值直接给榨干。</p><p>​    虽然安排上工作时间是9:00-19:00，但从开会等情况来看，大家还是会加班到比较晚……可能这就是科技公司吧。工作内容方面我就不说了，负责我的学长和学姐都是清华的，比较了解我系的课程设置，这点上还是比较赞的。不知道后面项目做起来会不会比较有意思。</p><p>​    另：今天学会新词，qua。互联网公司的项目一般按季度为一个周期，大家都把这个叫做qua。”上个qua大家做了……“</p>]]></content>
       
       
       <categories>
@@ -349,8 +378,6 @@
         <tags>
             
             <tag> 日记 </tag>
-            
-            <tag> 快手小学期 </tag>
             
         </tags>
       
@@ -533,9 +560,9 @@
       
         <tags>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
             <tag> 可控文本生成 </tag>
             
@@ -685,7 +712,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>开摆: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b></b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>开摆: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b></b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#00E700><b></b>😁 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr><tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
