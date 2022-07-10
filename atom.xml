@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2022-07-10T14:13:45.992Z</updated>
+  <updated>2022-07-10T16:04:39.408Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,12 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>7-10总结</title>
+    <link href="https://www.yynnyy.cn/820d904c"/>
+    <id>https://www.yynnyy.cn/820d904c</id>
+    <published>2022-07-10T15:30:21.000Z</published>
+    <updated>2022-07-10T16:04:39.408Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日研读一篇编译论文，两篇AI论文，今日吃到妈妈做的蛋挞。</p><p>后天回北医三院看牙，canyon保佑。</p><span id="more"></span><p>今日观赛：</p><ul><li>EDG打V5：edg纯纯的打不过，感觉今天V5有冠军相呀，不过春季赛也是这么想的，关键时刻还得看ppgod！<ul><li>波比+岩雀+烈娜塔也太狠了吧：一个封路，一个恶意收购，接波比锤走c位，对面直接暴毙呀</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今日研读一篇编译论文，两篇AI论文，今日吃到妈妈做的蛋挞。&lt;/p&gt;
+&lt;p&gt;后天回北医三院看牙，canyon保佑。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>论文阅读[粗读]-APOLLO: AUTOMATIC PARTITION-BASED OPERATOR FUSION THROUGH LAYER BY LAYER OPTIMIZATION</title>
     <link href="https://www.yynnyy.cn/cacd892d"/>
     <id>https://www.yynnyy.cn/cacd892d</id>
     <published>2022-07-10T13:40:45.000Z</published>
-    <updated>2022-07-10T14:13:45.992Z</updated>
+    <updated>2022-07-10T16:54:24.749Z</updated>
     
+    <content type="html"><![CDATA[<p>今天来读一篇MLSys的文章，作者提出了JIT的APOLLO框架，可以同时考虑 memory- /compute-bound 的算子优化，比XLA，TensorFlow原生要快不少。</p><blockquote><p>JIT(just-in-time)：和AOT相对，是指边运行边编译，不能支持某些编译优化方法。</p></blockquote><span id="more"></span><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这部分说了目前fusion技术面临了三个问题：</p><ul><li>现有的图编译器只考虑了memory-bound op的优化，对于compute-bound op，只是分发到不同的kernel，不做fusion。因此fusion的搜索空间是不完全的</li><li>对于循环loop fusion来说：不同层次的编译器之间存才</li><li>stitching融合技术，把没有依赖的不同算子放到同一个kernel来同时计算，提高硬件的并行性。这种技术对于自定义算子的支持非常差</li></ul><p>本文提出APOLLO框架，把sub-graph进一步看成很多micro-graph，在这个过程中同时考虑memory- /compute-bound 的算子fusion。划分的规则取消了上游图编译器的依赖，规则符合下游编译器的需要。可以符合一个多面体模型，同时也可以扩大规模。</p><blockquote><p> APOLLO := Automatic Partition-based Operator fusion framework through Layer by Layer Optimization</p></blockquote><ul><li>首先，用一个<em>polyhedral loop fusion</em>算法让micro-graph内部的算子fusion，并且让有依赖管的数据在更快的local memory里</li><li>接下里用一个<em>memory stitching</em>算法让micro-graph之间的算子fusion，弥补前面polyhedral算法的劣势</li><li>最后，由一个top layer把前两步的结果组合在一起，更好的利用硬件的并行性。</li></ul><p>APOLLO可以把每一步中间生成的IR传给下一步。本文的贡献总结为：</p><ul><li>扩大了fusion 的搜索空间，考虑更多种op</li><li>通过operator-level优化器反向反馈结果，可以进行更大规模的fusion</li><li>同时考虑数据的局部性、并行性，效果更好</li><li>展现了JIT compilation的水平</li></ul><p>待续</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天来读一篇MLSys的文章，作者提出了JIT的APOLLO框架，可以同时考虑 memory- /compute-bound 的算子优化，比XLA，TensorFlow原生要快不少。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;JIT(just-in-time)：和AOT相对，是指边运行边编译，不能支持某些编译优化方法。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -63,12 +92,17 @@
     <link href="https://www.yynnyy.cn/8ac3dc8d"/>
     <id>https://www.yynnyy.cn/8ac3dc8d</id>
     <published>2022-07-09T15:54:17.000Z</published>
-    <updated>2022-07-09T16:10:11.502Z</updated>
+    <updated>2022-07-10T16:12:44.351Z</updated>
     
-    <content type="html"><![CDATA[<p>突然发现好几天没写总结了，今天写一个。</p><p>最近几天其实还挺摆的，尤其是快手那边，可以说是毫无进展，连进度同步都推迟了……好消息是我做决定了，</p><ul><li>明天我上午就起床，先搞一篇编译的工作，不能再这样下去了！</li><li>明天下午也要肝，搞点Diffusion model看一下</li></ul><p>今日看李沐老师的DALL.E 2论文阅读，我直接送出今年第二个一键三连……别猜了，第一个是《多 啦 Agent》</p><p>昨天出了这学期的绩点，不出意外的满绩…话说我有点好像这学期满绩的有多少人，info9排名只能看并列名次来着……只能说，贵系，懂得都懂</p><p>前天被防空警报吵醒，特此记录</p><p>近几日观赛：</p><ul><li>今天BLG打WBG：blg怎么也开始排列组合了，fofo换下去上来can有用，但是crisp和大bin老师融入的问题是不是要解决一下。can只能说出道即院长，未来可期。<ul><li>话说回来，WBG是不是也就能打打blg这种队了……</li></ul></li><li>今天TES打RNG：打的好呀tes，我只能说，蓝色方。wayward这波纳尔反counter单杀剑姬确实帅，牛子哥直接原形毕露，大bin附体。</li><li>昨天T1打GEN.G：T1竟然红色方逆袭赢了。这波是，ruler艾希远程支援——没事选啥艾希呀，都t4多少版本了也不想想。大飞老师确实明显，我能接受被chovy压刀，但你总不能，冰女被阿卡丽压刀吧，我真的哭死……</li><li>昨天LNG打JDG：泪目了，多久没见到369c了。说实话，ALE这肉墩有点拉胯，救一下呀，一个赛季了（</li><li>前天DRX打DK：第一把canyon选出卑尔维斯，属于是想赢了，结果关键团没打过，捡不到虚空珊瑚，输了情有可原……但第二把DK怎么摆烂了，虽然红色方是劣势，但不能摆烂呀……<ul><li>管泽元说，队伍关键是不能每一路都出问题，DK看一下呀。</li><li>BeryL爆锤老东家，第一把直接木木MVP，不谈了。原来你真的还会选我。</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>突然发现好几天没写总结了，今天写一个。</p><p>最近几天其实还挺摆的，尤其是快手那边，可以说是毫无进展，连进度同步都推迟了……好消息是我做决定了，</p><ul><li>明天我上午就起床，先搞一篇编译的工作，不能再这样下去了！</li><li>明天下午也要肝，搞点Diffusion model看一下</li></ul><span id="more"></span><p>今日看李沐老师的DALL.E 2论文阅读，我直接送出今年第二个一键三连……别猜了，第一个是《多 啦 Agent》</p><p>昨天出了这学期的绩点，不出意外的满绩…话说我有点好像这学期满绩的有多少人，info9排名只能看并列名次来着……只能说，贵系，懂得都懂</p><p>前天被防空警报吵醒，特此记录</p><p>近几日观赛：</p><ul><li>今天BLG打WBG：blg怎么也开始排列组合了，fofo换下去上来can有用，但是crisp和大bin老师融入的问题是不是要解决一下。can只能说出道即院长，未来可期。<ul><li>话说回来，WBG是不是也就能打打blg这种队了……</li></ul></li><li>今天TES打RNG：打的好呀tes，我只能说，蓝色方。wayward这波纳尔反counter单杀剑姬确实帅，牛子哥直接原形毕露，大bin附体。</li><li>昨天T1打GEN.G：T1竟然红色方逆袭赢了。这波是，ruler艾希远程支援——没事选啥艾希呀，都t4多少版本了也不想想。大飞老师确实明显，我能接受被chovy压刀，但你总不能，冰女被阿卡丽压刀吧，我真的哭死……</li><li>昨天LNG打JDG：泪目了，多久没见到369c了。说实话，ALE这肉墩有点拉胯，救一下呀，一个赛季了（</li><li>前天DRX打DK：第一把canyon选出卑尔维斯，属于是想赢了，结果关键团没打过，捡不到虚空珊瑚，输了情有可原……但第二把DK怎么摆烂了，虽然红色方是劣势，但不能摆烂呀……<ul><li>管泽元说，队伍关键是不能每一路都出问题，DK看一下呀。</li><li>BeryL爆锤老东家，第一把直接木木MVP，不谈了。原来你真的还会选我。</li></ul></li></ul>]]></content>
     
     
-    <summary type="html">最近几天</summary>
+    <summary type="html">&lt;p&gt;突然发现好几天没写总结了，今天写一个。&lt;/p&gt;
+&lt;p&gt;最近几天其实还挺摆的，尤其是快手那边，可以说是毫无进展，连进度同步都推迟了……好消息是我做决定了，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;明天我上午就起床，先搞一篇编译的工作，不能再这样下去了！&lt;/li&gt;
+&lt;li&gt;明天下午也要肝，搞点Diffusion model看一下&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
@@ -89,13 +123,13 @@
     <content type="html"><![CDATA[<p>这篇文章是讲机器翻译的，准确来说，是解码策略。作者提到已有很多评测machine translation的方法，但已有的解码大多没有同时考虑这些方法。</p><p>本文提出的MBR方法可以：</p><ul><li>根据特定的metric，解码出得分更高的候选</li><li>通过特定的loss函数，把语法树考虑进统计语言模型</li></ul>]]></content>
     
     
-      
-      
     <summary type="html">&lt;p&gt;这篇文章是讲机器翻译的，准确来说，是解码策略。作者提到已有很多评测machine translation的方法，但已有的解码大多没有同时考虑这些方法。&lt;/p&gt;
 &lt;p&gt;本文提出的MBR方法可以：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;根据特定的metric，解码出得分更高的候选&lt;/li&gt;</summary>
-      
+&lt;li&gt;根据特定的metric，解码出得分更高的候选&lt;/li&gt;
+&lt;li&gt;通过特定的loss函数，把语法树考虑进统计语言模型&lt;/li&gt;
+&lt;/ul&gt;
+</summary>
     
     
     
@@ -113,12 +147,17 @@
     <link href="https://www.yynnyy.cn/88eeb90b"/>
     <id>https://www.yynnyy.cn/88eeb90b</id>
     <published>2022-07-07T06:41:06.000Z</published>
-    <updated>2022-07-09T08:39:31.260Z</updated>
+    <updated>2022-07-10T16:16:55.739Z</updated>
     
-    <content type="html"><![CDATA[<p>之前我们聊了</p><ul><li>DDPM的原理 <a href="/75bfb84b.html" title="DDPM笔记">DDPM笔记</a></li><li>也聊了 score based models 原理 <a href="/593c50eb.html" title="博客阅读笔记">博客阅读笔记</a></li></ul><p>今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。</p><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul><li>可控文本生成是一个重要的任务</li><li>已有的方法对粗粒度的控制尚可(情感)，但对细粒度的控制效果不好(句法树)</li><li>本文设计了一个非自回归的、连续的diffusion model来解决这个问题</li><li>去噪过程中的多个中间量可以指导可控的文本生成过程</li><li>在6个可控生成任务中，Diffusion-LM模型大幅战胜了SOTA</li></ul><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>自回归的语言模型的生成能力很强，但可控性很弱。如果想做可控的生成：</p><ul><li>直观方法是做有监督的训练，但这样需要每个任务炼一个模型，成本高。</li><li>plug-and-play的方法，冻住模型。但此类方法效果差，难以实现细粒度的控制</li></ul><p>传统的连续diffusion model不适用于文本，因为word是离散的。本文通过添加一个embedding步骤和一个rounding步骤解决这个问题。同时，本文通过一种可控的gradient update指导模型可以平衡fluency和controllable两种属性。</p><p>本文在6个可控任务中大幅战胜plug-and-play SOTA，同时战胜了fine-tune的方法。甚至，在不用classifier的情况下和自回归的模型有的一拼。</p><h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Diffusion Models for Text： 已有方法都是在离散的空间做这件事，提到的论文我也看了，有时间给大家写一篇笔记。本文用了连续的方法来做。</p><p>Autoregressive and Non-autoregressive LMs： 已有的模型大多是是从左到右训练的，但是对于infilling等任务来说，这限制了模型的发挥。这个问题，有一些解决方法。本文的diffusion model是classifier指导的，所以可以看到句子的全部。</p><p>Plug-and-Play Controllable Generation：冻结模型，训一个类似分类器的东西。已有方法大多基于自回归模型：</p><ul><li>FUDGE：通过对生成质量的估计来reweight LM prediction</li><li>GeDi, DExperts： 通过fine—tune一个小的LM来reweight LM prediction<ul><li>GeDi的论文没准后面也写个笔记</li></ul></li></ul><p>PPLM方法和本文最接近，通过一个分类器做梯度上升。但由于是自回归的，只能从左到右，不能实现细粒度的控制。</p><h2 id="Problem-Statement-and-Background"><a href="#Problem-Statement-and-Background" class="headerlink" title="Problem Statement and Background"></a>Problem Statement and Background</h2><h3 id="Generative-Models-and-Controllable-Generation-for-Text"><a href="#Generative-Models-and-Controllable-Generation-for-Text" class="headerlink" title="Generative Models and Controllable Generation for Text"></a>Generative Models and Controllable Generation for Text</h3><p>如何在控制条件c的情况下生成w，最大化$P(w|c)$.由于</p><script type="math/tex; mode=display">\begin{aligned}P(w|c) & = \frac{P(w)\times P(c|w)}{P(c)} \\& \propto P(w)\times P(c|w)\end{aligned}</script><p>如果对w的生成求导：</p><script type="math/tex; mode=display">\bigtriangledown_w \log P(w|c)  = \bigtriangledown_w \log P(w)+ \bigtriangledown_w \log P(c|w)</script><p>可以发现，右边是正常模型的输出的梯度，后面是某个分类器的输出的梯度。这个其实就是经典的在图像领域做可控生成的diffusion model的方法</p><h3 id="Autoregressive-Language-Models"><a href="#Autoregressive-Language-Models" class="headerlink" title="Autoregressive Language Models"></a>Autoregressive Language Models</h3><script type="math/tex; mode=display">P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{<i})</script><p>这是一个经典的从左到右的解码过程。一般大家都是用一个transformer结构来做$P_{lm}(w)$</p><h3 id="Diffusion-Models-for-Continuous-Domains"><a href="#Diffusion-Models-for-Continuous-Domains" class="headerlink" title="Diffusion Models for Continuous Domains"></a>Diffusion Models for Continuous Domains</h3><p>这一部分是DDPM的子集，可以参考</p><ul><li><a href="/75bfb84b.html" title="DDPM笔记">DDPM笔记</a></li><li><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">what are diffusion models</a></li></ul><p>结论是：</p><script type="math/tex; mode=display">\mathcal{L}_{simple} = \sum_{t=1}^T \mathop{\mathbb{E}} \limits_{q(x_t| x_0)} || \mu_\theta(x_t,t) - \hat{\mu}(x_t,x_0)||^2 \\ \hat{\mu}(x_t,x_0) = \text{mean} [q(x_{t−1}|x_0, x_t)]</script><p>大概就是估计模型对每一个$x_{t-1}$都做估计，把估计和实际值的偏差叠加在一起。所谓的”mean”是指后面来自一个高斯分布，这个是期望</p><h2 id="Diffusion-LM-Continuous-Diffusion-Language-Modeling"><a href="#Diffusion-LM-Continuous-Diffusion-Language-Modeling" class="headerlink" title="Diffusion-LM: Continuous Diffusion Language Modeling"></a>Diffusion-LM: Continuous Diffusion Language Modeling</h2><p><img src="../files/images/Diffusion-LM/structure.png"></p><p>其实这一部分开始才是本文的方法：</p><ul><li>首先用一个EMB层把离散的word映射到连续空间</li><li>定义一个端到端的training objectives</li><li>定义一个rounding method再把生成的连续向量映射回word</li><li>同时，为了rounding的效果，提出了专门的训练策略</li></ul><h3 id="End-to-end-Training"><a href="#End-to-end-Training" class="headerlink" title="End-to-end Training"></a>End-to-end Training</h3><script type="math/tex; mode=display">EMB(w) = [EMB(w_1), . . . , EMB(w_n)] \in R^{nd}.</script><p>是一个词向量映射，把n个word映射成n个d维向量，这个是可学习的。</p><p>接下来把</p><script type="math/tex; mode=display">q_\phi (x_0|w) = \mathcal{N} (EMB(w), \sigma_0I)</script><p>视做diffusion process的第一步(其实$\phi$就是embedding层模型……)</p><p>此外，添加rounding过程</p><script type="math/tex; mode=display">p_\theta(w | x_0) = \sum^n_{i=1} p_\theta(w_i | x_i)</script><p>$p_\theta(w_i | x_i)$就是一个经典的softmax变换。</p><p>最后：</p><script type="math/tex; mode=display">\begin{aligned}\mathcal{L}_{vlb}(x_0) & = \mathbb{E}{(x_0\sim p_{data})}  [\log p_\theta (x_0 )] \\& = \mathop{\mathbb{E}}\limits_{x_{1:T}|x_0} \left[ \log \frac{P_\theta(x_T | x_0)}{P_\theta (x_T)} + \sum_{t=2}^T \log \frac{q(x_{t−1}|x_0, x_t)}{P_\theta(x_{t-1} | x_t)}  -\log P_\theta(x_{0} | x_1) \right]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}\mathcal{L}_{vlb}^{e2e}(w) & = \mathop{\mathbb{E}}\limits_{x_0|w}\left[\mathcal{L}_{vlb}(x_0) +\log q_\phi(x_0 | w) - \log p_\theta(w | x_0) \right] \\& = \mathop{\mathbb{E}}\limits_{x_{0:T}|w} \left[ \mathcal{L}_{simple}(x_0) + ||EMB(w)−\mu_\theta (x_1 ,1) ||^2 -\log p_\theta(w | x_0) \right]\end{aligned}</script><p>这是一个端到端的训练loss。只需要给出很多w，用DDPM的算法，就可以慢慢让模型学习了。作者也发现，这样模型和embedding一起学出来，最后word embedding也可以表现出一定的聚合性</p><p><img src="../files/images/Diffusion-LM/embedding.png"></p><h3 id="Reducing-Rounding-Errors"><a href="#Reducing-Rounding-Errors" class="headerlink" title="Reducing Rounding Errors"></a>Reducing Rounding Errors</h3><p>rounding的过程其实是对每一个位置选取最接近的embedding。</p><p>作者提到，如果像一般的DDPM那样用模型预测$p_\theta(x_{t−1} | x_t) $的均值，会导致输入长度很短的时候效果很差(图像领域没出问题，因为最短也是32x32)。</p><p>解决办法是用模型直接预测$x_0$. </p><script type="math/tex; mode=display">\mathcal{L}_{x0-simple}^{e2e}(x_0) = \sum_{t=1}^T \mathbb{E}_{x_t} ||f_\theta(x_t,t) - x_0||^2\\f_\theta(x_t,t) \to x_0</script><p>这里有点怪：换模型的目标好像会影响sample方法？还是说同样是预测$x_{t-1}$，但是把$x_0$视为$x_{t-1},x_t$的线性组合</p><p>这样模型可以很快发现$x_0$的每一个位置都应该对应某个word的embedding。</p><p>同时，修改原来的sample方法：</p><script type="math/tex; mode=display">x_{t−1} =\sqrt{\overline{\alpha}}f_\theta(x_t,t)+ \sqrt{1- \overline{\alpha}} \epsilon \\\overline{\alpha} = \sum_{s=0}^t (1 -\beta_t) ,\quad \epsilon \sim \mathcal{N}(0,I)</script><p>(能成立是因为连续的高斯采样等价于从最开始只做一次高斯采样)</p><p>上面的方法随着t的递减，逐渐从随机噪声恢复成一个无噪音的数据</p><p>如果希望模型可以显式地对齐某个embedding，可以在每一步都加一个clamp。取和$f_\theta(x_t,t)$最接近的word embedding</p><script type="math/tex; mode=display">x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \overline{\alpha}} \epsilon</script><p>同时作者也提到，对于t很大时做clamp是一个负优化，因为这时<script type="math/tex">f_\theta(x_t,t)</script>还没有对应到某些embedding，因此选取clamp的开始时间是一个超参。</p><h2 id="Decoding-and-Controllable-Generation-with-Diffusion-LM"><a href="#Decoding-and-Controllable-Generation-with-Diffusion-LM" class="headerlink" title="Decoding and Controllable Generation with Diffusion-LM"></a>Decoding and Controllable Generation with Diffusion-LM</h2><h3 id="Controllable-Text-Generation"><a href="#Controllable-Text-Generation" class="headerlink" title="Controllable Text Generation"></a>Controllable Text Generation</h3><p>正如前面提到的：</p><script type="math/tex; mode=display">\bigtriangledown_{x_{t-1}} \log P(x_{t-1}|x_t,c)  = \bigtriangledown_{x_{t-1}} \log P(x_{t-1} | x_t)+ \bigtriangledown_{x_{t-1}} \log P(c|x_{t-1})</script><p>其中式子右边的第一项是Diffusion-LM的输出。右边是一种分类器的输出。如果对于目标任务，我们在目标数据集训练一个分类器，在sample时每一步都根据这个输出做更新，那么最终就会生成符合条件c的结果。</p><p>同时作者为了细粒度的控制”可控性“，定义一个超参$\lambda$来平衡流畅度和控制程度</p><script type="math/tex; mode=display"> p(x_{t−1} | x_t, c) = \lambda \log P(x_{t-1} | x_t)+\log P(c|x_{t-1})</script><p>作为最终用来指导梯度的东西。作者提到每次得到$x_t$之后：</p><ul><li>sample $x_{t-1}$</li><li><p>再做三轮Adagrad更新</p></li><li><p>把sample步骤从2000步变成200步来加速</p></li></ul><p>这个方法我理解类似于之前微分方程那篇文章提到的PC更新方式</p><h3 id="Minimum-Bayes-Risk-Decoding"><a href="#Minimum-Bayes-Risk-Decoding" class="headerlink" title="Minimum Bayes Risk Decoding"></a>Minimum Bayes Risk Decoding</h3><p>这个方法可以得到一个高质量的结果。作者用下面的最小化risk函数：</p><script type="math/tex; mode=display">\hat{w} = \mathop{\text{argmin}}_{w \in S} \sum_{w' \in S} \frac{1}{|S|} \mathcal{L}_{bleu}(w,w')</script><p>这种方法可以参考 <a href="/f1fcbd7.html" title="MBR解码博客">MBR解码博客</a></p><h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><p>作者在很多个任务上使用了Diffusion-LM方法：</p><ul><li>classifier-guided</li><li>classifier-free：不需要分类器，比如说句子长度。只要最开始的初始化向量变成需要长度即可(控制率显然是100%)</li></ul><p>Diffusion model里面的内部解码层作者使用了一个非常传统的transformer结构，80M参数，可以说是很少:</p><ul><li>步骤T = 2000</li><li>词向量维度 d = 16-128</li><li>句长n=64</li></ul><p><img src="../files/images/Diffusion-LM/example.png"></p><p>输入就像上图input所示：通过分类器来在解码中每一次去噪都提供梯度</p><h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p><img src="../files/images/Diffusion-LM/result.png"></p><p>主要结果就如上图所示。</p><ul><li>基本上把SOTA得分翻倍了，但这个SOTA是指plug-and-play的方法</li><li>在Syntax Tree， Syntax Spans任务上，甚至比fine-tune的模型效果还好</li></ul><p><img src="../files/images/Diffusion-LM/compose.png"></p><p>同时作者也做了综合的控制实验，比如说同时限定两个条件。可以看出，效果很好，方法就是单纯的把控制的梯度转换成两个classifier梯度的综合。</p><p><img src="../files/images/Diffusion-LM/infilling.png"></p><p>在infilling任务中，Diffusion-LM在没有做额外训练的情况下就表现很好</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这篇工作很新颖，很有启发，我觉得可以做的点还有以下两个方面：</p><ul><li>这个方法好像不能实现平行的转换，只能”根据某些控制生成特定的句子“。像之前DALL.E都是可以把特定的句子翻译成对应的图像。</li><li>感觉短文本领域，只有更加平行，才能更加泛用。不过在长文本领域，可能这种没有平行的生成会更好，但作者并没有测试。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>之前我们聊了</p><ul><li>DDPM的原理 <a href="/75bfb84b.html" title="DDPM笔记">DDPM笔记</a></li><li>也聊了 score based models 原理 <a href="/593c50eb.html" title="博客阅读笔记">博客阅读笔记</a></li></ul><p>今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。</p><span id="more"></span><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul><li>可控文本生成是一个重要的任务</li><li>已有的方法对粗粒度的控制尚可(情感)，但对细粒度的控制效果不好(句法树)</li><li>本文设计了一个非自回归的、连续的diffusion model来解决这个问题</li><li>去噪过程中的多个中间量可以指导可控的文本生成过程</li><li>在6个可控生成任务中，Diffusion-LM模型大幅战胜了SOTA</li></ul><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>自回归的语言模型的生成能力很强，但可控性很弱。如果想做可控的生成：</p><ul><li>直观方法是做有监督的训练，但这样需要每个任务炼一个模型，成本高。</li><li>plug-and-play的方法，冻住模型。但此类方法效果差，难以实现细粒度的控制</li></ul><p>传统的连续diffusion model不适用于文本，因为word是离散的。本文通过添加一个embedding步骤和一个rounding步骤解决这个问题。同时，本文通过一种可控的gradient update指导模型可以平衡fluency和controllable两种属性。</p><p>本文在6个可控任务中大幅战胜plug-and-play SOTA，同时战胜了fine-tune的方法。甚至，在不用classifier的情况下和自回归的模型有的一拼。</p><h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Diffusion Models for Text： 已有方法都是在离散的空间做这件事，提到的论文我也看了，有时间给大家写一篇笔记。本文用了连续的方法来做。</p><p>Autoregressive and Non-autoregressive LMs： 已有的模型大多是是从左到右训练的，但是对于infilling等任务来说，这限制了模型的发挥。这个问题，有一些解决方法。本文的diffusion model是classifier指导的，所以可以看到句子的全部。</p><p>Plug-and-Play Controllable Generation：冻结模型，训一个类似分类器的东西。已有方法大多基于自回归模型：</p><ul><li>FUDGE：通过对生成质量的估计来reweight LM prediction</li><li>GeDi, DExperts： 通过fine—tune一个小的LM来reweight LM prediction<ul><li>GeDi的论文没准后面也写个笔记</li></ul></li></ul><p>PPLM方法和本文最接近，通过一个分类器做梯度上升。但由于是自回归的，只能从左到右，不能实现细粒度的控制。</p><h2 id="Problem-Statement-and-Background"><a href="#Problem-Statement-and-Background" class="headerlink" title="Problem Statement and Background"></a>Problem Statement and Background</h2><h3 id="Generative-Models-and-Controllable-Generation-for-Text"><a href="#Generative-Models-and-Controllable-Generation-for-Text" class="headerlink" title="Generative Models and Controllable Generation for Text"></a>Generative Models and Controllable Generation for Text</h3><p>如何在控制条件c的情况下生成w，最大化$P(w|c)$.由于</p><script type="math/tex; mode=display">\begin{aligned}P(w|c) & = \frac{P(w)\times P(c|w)}{P(c)} \\& \propto P(w)\times P(c|w)\end{aligned}</script><p>如果对w的生成求导：</p><script type="math/tex; mode=display">\bigtriangledown_w \log P(w|c)  = \bigtriangledown_w \log P(w)+ \bigtriangledown_w \log P(c|w)</script><p>可以发现，右边是正常模型的输出的梯度，后面是某个分类器的输出的梯度。这个其实就是经典的在图像领域做可控生成的diffusion model的方法</p><h3 id="Autoregressive-Language-Models"><a href="#Autoregressive-Language-Models" class="headerlink" title="Autoregressive Language Models"></a>Autoregressive Language Models</h3><script type="math/tex; mode=display">P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{<i})</script><p>这是一个经典的从左到右的解码过程。一般大家都是用一个transformer结构来做$P_{lm}(w)$</p><h3 id="Diffusion-Models-for-Continuous-Domains"><a href="#Diffusion-Models-for-Continuous-Domains" class="headerlink" title="Diffusion Models for Continuous Domains"></a>Diffusion Models for Continuous Domains</h3><p>这一部分是DDPM的子集，可以参考</p><ul><li><a href="/75bfb84b.html" title="DDPM笔记">DDPM笔记</a></li><li><a href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">what are diffusion models</a></li></ul><p>结论是：</p><script type="math/tex; mode=display">\mathcal{L}_{simple} = \sum_{t=1}^T \mathop{\mathbb{E}} \limits_{q(x_t| x_0)} || \mu_\theta(x_t,t) - \hat{\mu}(x_t,x_0)||^2 \\ \hat{\mu}(x_t,x_0) = \text{mean} [q(x_{t−1}|x_0, x_t)]</script><p>大概就是估计模型对每一个$x_{t-1}$都做估计，把估计和实际值的偏差叠加在一起。所谓的”mean”是指后面来自一个高斯分布，这个是期望</p><h2 id="Diffusion-LM-Continuous-Diffusion-Language-Modeling"><a href="#Diffusion-LM-Continuous-Diffusion-Language-Modeling" class="headerlink" title="Diffusion-LM: Continuous Diffusion Language Modeling"></a>Diffusion-LM: Continuous Diffusion Language Modeling</h2><p><img src="../files/images/Diffusion-LM/structure.png"></p><p>其实这一部分开始才是本文的方法：</p><ul><li>首先用一个EMB层把离散的word映射到连续空间</li><li>定义一个端到端的training objectives</li><li>定义一个rounding method再把生成的连续向量映射回word</li><li>同时，为了rounding的效果，提出了专门的训练策略</li></ul><h3 id="End-to-end-Training"><a href="#End-to-end-Training" class="headerlink" title="End-to-end Training"></a>End-to-end Training</h3><script type="math/tex; mode=display">EMB(w) = [EMB(w_1), . . . , EMB(w_n)] \in R^{nd}.</script><p>是一个词向量映射，把n个word映射成n个d维向量，这个是可学习的。</p><p>接下来把</p><script type="math/tex; mode=display">q_\phi (x_0|w) = \mathcal{N} (EMB(w), \sigma_0I)</script><p>视做diffusion process的第一步(其实$\phi$就是embedding层模型……)</p><p>此外，添加rounding过程</p><script type="math/tex; mode=display">p_\theta(w | x_0) = \sum^n_{i=1} p_\theta(w_i | x_i)</script><p>$p_\theta(w_i | x_i)$就是一个经典的softmax变换。</p><p>最后：</p><script type="math/tex; mode=display">\begin{aligned}\mathcal{L}_{vlb}(x_0) & = \mathbb{E}{(x_0\sim p_{data})}  [\log p_\theta (x_0 )] \\& = \mathop{\mathbb{E}}\limits_{x_{1:T}|x_0} \left[ \log \frac{P_\theta(x_T | x_0)}{P_\theta (x_T)} + \sum_{t=2}^T \log \frac{q(x_{t−1}|x_0, x_t)}{P_\theta(x_{t-1} | x_t)}  -\log P_\theta(x_{0} | x_1) \right]\end{aligned}</script><script type="math/tex; mode=display">\begin{aligned}\mathcal{L}_{vlb}^{e2e}(w) & = \mathop{\mathbb{E}}\limits_{x_0|w}\left[\mathcal{L}_{vlb}(x_0) +\log q_\phi(x_0 | w) - \log p_\theta(w | x_0) \right] \\& = \mathop{\mathbb{E}}\limits_{x_{0:T}|w} \left[ \mathcal{L}_{simple}(x_0) + ||EMB(w)−\mu_\theta (x_1 ,1) ||^2 -\log p_\theta(w | x_0) \right]\end{aligned}</script><p>这是一个端到端的训练loss。只需要给出很多w，用DDPM的算法，就可以慢慢让模型学习了。作者也发现，这样模型和embedding一起学出来，最后word embedding也可以表现出一定的聚合性</p><p><img src="../files/images/Diffusion-LM/embedding.png"></p><h3 id="Reducing-Rounding-Errors"><a href="#Reducing-Rounding-Errors" class="headerlink" title="Reducing Rounding Errors"></a>Reducing Rounding Errors</h3><p>rounding的过程其实是对每一个位置选取最接近的embedding。</p><p>作者提到，如果像一般的DDPM那样用模型预测$p_\theta(x_{t−1} | x_t) $的均值，会导致输入长度很短的时候效果很差(图像领域没出问题，因为最短也是32x32)。</p><p>解决办法是用模型直接预测$x_0$. </p><script type="math/tex; mode=display">\mathcal{L}_{x0-simple}^{e2e}(x_0) = \sum_{t=1}^T \mathbb{E}_{x_t} ||f_\theta(x_t,t) - x_0||^2\\f_\theta(x_t,t) \to x_0</script><p>这里有点怪：换模型的目标好像会影响sample方法？还是说同样是预测$x_{t-1}$，但是把$x_0$视为$x_{t-1},x_t$的线性组合</p><p>这样模型可以很快发现$x_0$的每一个位置都应该对应某个word的embedding。</p><p>同时，修改原来的sample方法：</p><script type="math/tex; mode=display">x_{t−1} =\sqrt{\overline{\alpha}}f_\theta(x_t,t)+ \sqrt{1- \overline{\alpha}} \epsilon \\\overline{\alpha} = \sum_{s=0}^t (1 -\beta_t) ,\quad \epsilon \sim \mathcal{N}(0,I)</script><p>(能成立是因为连续的高斯采样等价于从最开始只做一次高斯采样)</p><p>上面的方法随着t的递减，逐渐从随机噪声恢复成一个无噪音的数据</p><p>如果希望模型可以显式地对齐某个embedding，可以在每一步都加一个clamp。取和$f_\theta(x_t,t)$最接近的word embedding</p><script type="math/tex; mode=display">x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \overline{\alpha}} \epsilon</script><p>同时作者也提到，对于t很大时做clamp是一个负优化，因为这时<script type="math/tex">f_\theta(x_t,t)</script>还没有对应到某些embedding，因此选取clamp的开始时间是一个超参。</p><h2 id="Decoding-and-Controllable-Generation-with-Diffusion-LM"><a href="#Decoding-and-Controllable-Generation-with-Diffusion-LM" class="headerlink" title="Decoding and Controllable Generation with Diffusion-LM"></a>Decoding and Controllable Generation with Diffusion-LM</h2><h3 id="Controllable-Text-Generation"><a href="#Controllable-Text-Generation" class="headerlink" title="Controllable Text Generation"></a>Controllable Text Generation</h3><p>正如前面提到的：</p><script type="math/tex; mode=display">\bigtriangledown_{x_{t-1}} \log P(x_{t-1}|x_t,c)  = \bigtriangledown_{x_{t-1}} \log P(x_{t-1} | x_t)+ \bigtriangledown_{x_{t-1}} \log P(c|x_{t-1})</script><p>其中式子右边的第一项是Diffusion-LM的输出。右边是一种分类器的输出。如果对于目标任务，我们在目标数据集训练一个分类器，在sample时每一步都根据这个输出做更新，那么最终就会生成符合条件c的结果。</p><p>同时作者为了细粒度的控制”可控性“，定义一个超参$\lambda$来平衡流畅度和控制程度</p><script type="math/tex; mode=display"> p(x_{t−1} | x_t, c) = \lambda \log P(x_{t-1} | x_t)+\log P(c|x_{t-1})</script><p>作为最终用来指导梯度的东西。作者提到每次得到$x_t$之后：</p><ul><li>sample $x_{t-1}$</li><li><p>再做三轮Adagrad更新</p></li><li><p>把sample步骤从2000步变成200步来加速</p></li></ul><p>这个方法我理解类似于之前微分方程那篇文章提到的PC更新方式</p><h3 id="Minimum-Bayes-Risk-Decoding"><a href="#Minimum-Bayes-Risk-Decoding" class="headerlink" title="Minimum Bayes Risk Decoding"></a>Minimum Bayes Risk Decoding</h3><p>这个方法可以得到一个高质量的结果。作者用下面的最小化risk函数：</p><script type="math/tex; mode=display">\hat{w} = \mathop{\text{argmin}}_{w \in S} \sum_{w' \in S} \frac{1}{|S|} \mathcal{L}_{bleu}(w,w')</script><p>这种方法可以参考 <a href="/f1fcbd7.html" title="MBR解码博客">MBR解码博客</a></p><h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><p>作者在很多个任务上使用了Diffusion-LM方法：</p><ul><li>classifier-guided</li><li>classifier-free：不需要分类器，比如说句子长度。只要最开始的初始化向量变成需要长度即可(控制率显然是100%)</li></ul><p>Diffusion model里面的内部解码层作者使用了一个非常传统的transformer结构，80M参数，可以说是很少:</p><ul><li>步骤T = 2000</li><li>词向量维度 d = 16-128</li><li>句长n=64</li></ul><p><img src="../files/images/Diffusion-LM/example.png"></p><p>输入就像上图input所示：通过分类器来在解码中每一次去噪都提供梯度</p><h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p><img src="../files/images/Diffusion-LM/result.png"></p><p>主要结果就如上图所示。</p><ul><li>基本上把SOTA得分翻倍了，但这个SOTA是指plug-and-play的方法</li><li>在Syntax Tree， Syntax Spans任务上，甚至比fine-tune的模型效果还好</li></ul><p><img src="../files/images/Diffusion-LM/compose.png"></p><p>同时作者也做了综合的控制实验，比如说同时限定两个条件。可以看出，效果很好，方法就是单纯的把控制的梯度转换成两个classifier梯度的综合。</p><p><img src="../files/images/Diffusion-LM/infilling.png"></p><p>在infilling任务中，Diffusion-LM在没有做额外训练的情况下就表现很好</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这篇工作很新颖，很有启发，我觉得可以做的点还有以下两个方面：</p><ul><li>这个方法好像不能实现平行的转换，只能”根据某些控制生成特定的句子“。像之前DALL.E都是可以把特定的句子翻译成对应的图像。</li><li>感觉短文本领域，只有更加平行，才能更加泛用。不过在长文本领域，可能这种没有平行的生成会更好，但作者并没有测试。</li></ul>]]></content>
     
     
-    <summary type="html">本体</summary>
+    <summary type="html">&lt;p&gt;之前我们聊了&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;DDPM的原理 &lt;a href=&quot;/75bfb84b.html&quot; title=&quot;DDPM笔记&quot;&gt;DDPM笔记&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;也聊了 score based models 原理 &lt;a href=&quot;/593c50eb.html&quot; title=&quot;博客阅读笔记&quot;&gt;博客阅读笔记&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。&lt;/p&gt;</summary>
     
     
     
@@ -140,12 +179,13 @@
     <link href="https://www.yynnyy.cn/4d63b6f9"/>
     <id>https://www.yynnyy.cn/4d63b6f9</id>
     <published>2022-07-05T13:24:10.000Z</published>
-    <updated>2022-07-05T13:27:04.993Z</updated>
+    <updated>2022-07-10T16:12:51.748Z</updated>
     
-    <content type="html"><![CDATA[<p>今天和几个老朋友一起吃了个饭，聊了聊不同学校的最近都是什么情况，挺开心的。</p><p>另外，今天开了暑假的第一次论文分享，讲了关于repetition的论文，收获良多。</p><p>最后，今日观赛：</p><ul><li>AL打WBG：第一把没看，wbg赢了。但后两把AL竟然把wbg赢了？？最近怎么都是怪局，edg病毒这是把wbg也感染了吗…</li><li>预报：周五，t1打gen.g</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今天和几个老朋友一起吃了个饭，聊了聊不同学校的最近都是什么情况，挺开心的。</p><p>另外，今天开了暑假的第一次论文分享，讲了关于repetition的论文，收获良多。</p><span id="more"></span><p>最后，今日观赛：</p><ul><li>AL打WBG：第一把没看，wbg赢了。但后两把AL竟然把wbg赢了？？最近怎么都是怪局，edg病毒这是把wbg也感染了吗…</li><li>预报：周五，t1打gen.g</li></ul>]]></content>
     
     
-    <summary type="html">今日会友</summary>
+    <summary type="html">&lt;p&gt;今天和几个老朋友一起吃了个饭，聊了聊不同学校的最近都是什么情况，挺开心的。&lt;/p&gt;
+&lt;p&gt;另外，今天开了暑假的第一次论文分享，讲了关于repetition的论文，收获良多。&lt;/p&gt;</summary>
     
     
     
@@ -161,12 +201,12 @@
     <link href="https://www.yynnyy.cn/eb14bd4d"/>
     <id>https://www.yynnyy.cn/eb14bd4d</id>
     <published>2022-07-04T15:38:14.000Z</published>
-    <updated>2022-07-04T15:41:58.174Z</updated>
+    <updated>2022-07-10T16:13:00.112Z</updated>
     
-    <content type="html"><![CDATA[<p>昨天晚上失眠了，呆到了4点多才睡着，感觉蝉鸣好刺耳。不知道是不是咖啡的原因，确实有几天没喝咖啡了……这波是抗药性衰退</p><p>今天读了一篇论文，然后又喝了几杯马黛茶。</p><p>今日观赛：</p><ul><li><p>TT打BLG：TT今天换了三个人，还包括春季赛在dk，夏季赛被Nuguri卷过来的Hoya，确实挺c。赢BLG不意外，关键是感觉crisp真的融入了……</p></li><li><p>OMG打EDG：只能说黑色对标大哥易主了。edg输了，经典卫冕冠军，厉害呀shanji哥</p></li></ul>]]></content>
+    <content type="html"><![CDATA[<p>昨天晚上失眠了，呆到了4点多才睡着，感觉蝉鸣好刺耳。不知道是不是咖啡的原因，确实有几天没喝咖啡了……这波是抗药性衰退</p><span id="more"></span><p>今天读了一篇论文，然后又喝了几杯马黛茶。</p><p>今日观赛：</p><ul><li><p>TT打BLG：TT今天换了三个人，还包括春季赛在dk，夏季赛被Nuguri卷过来的Hoya，确实挺c。赢BLG不意外，关键是感觉crisp真的融入了……</p></li><li><p>OMG打EDG：只能说黑色对标大哥易主了。edg输了，经典卫冕冠军，厉害呀shanji哥</p></li></ul>]]></content>
     
     
-    <summary type="html">今日失眠</summary>
+    <summary type="html">&lt;p&gt;昨天晚上失眠了，呆到了4点多才睡着，感觉蝉鸣好刺耳。不知道是不是咖啡的原因，确实有几天没喝咖啡了……这波是抗药性衰退&lt;/p&gt;</summary>
     
     
     
@@ -182,7 +222,7 @@
     <link href="https://www.yynnyy.cn/39e1c917"/>
     <id>https://www.yynnyy.cn/39e1c917</id>
     <published>2022-07-04T06:09:03.000Z</published>
-    <updated>2022-07-04T08:51:53.546Z</updated>
+    <updated>2022-07-10T16:16:05.080Z</updated>
     
     <content type="html"><![CDATA[<p>上次读了陈天奇关于auto-tuner中使用动态形状的论文，这篇论文是解决利用硬件信息的。本篇工作重新思考了图、算子、模型粒度下的优化方式，打算更好的在auto-tuner中利用硬件信息，达到vendor library相似的效果。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="../files/images/BOLT/compare_with_lib.png"></p><p>作者首先点出来一个事实，那就是现在的两种常用方法：auto-scheduler和vendor library的效果差的很远，如上图差了5倍。作者寻找原因：</p><ul><li>auto-tuner没有考虑硬件信息，硬件不透明，导致不能利用很多硬件原生的加速</li><li>vendor library考虑硬件实现，虽然拓展性更差，但效果会更好</li></ul><p>作者还提到，不仅是效果，编译时间也差的很多：ResNet-50在NVIDIA GPU需要编译7天。作者提到一个可能的解决办法是通过特别的数据库来更好的利用cache信息。但这种方法并不长远，因为模型的动态性和输入的动态性让cache很难得到高效地利用。</p><p>本文想要弥补这两种方法的gap。观察到一个事实：现有的vendor library有一个模板化的趋势(templated)</p><ul><li>NVIDIA CUTLASS：给出一些模板，不对具体的函数负责，比较好的扩展性。</li><li>Intel OneDNN (Intel) ，AMD ROCm：类似的特性</li></ul><p>作者提出了BOLT，代码已经merge到TVM：</p><ul><li>首先，用vendor library支持的模板来搜索优化模板，利用hardware-native performance，生成tensor program</li><li>接下来，通过排列模板进行计算图优化</li><li>可以用hardware-native performance来同时进行图级别和算子级别的优化</li><li>也可以通过符合提出的设计原则的模型来进行模型级别的优化</li></ul><p>作者的主要贡献：</p><ul><li>结合templated vendor library和auto-tuner来弥补前面的表现差异</li><li>提出persistent kernel fusion，</li><li>提出寻找模板参数的方法，可以直接生成常规的vendor library代码</li><li>总结了三个系统友好的设计理念</li><li>详细评测了BOLT的效果，远超SOTA</li></ul><h2 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h2><h3 id="Auto-tuners-have-a-performance-gap"><a href="#Auto-tuners-have-a-performance-gap" class="headerlink" title="Auto-tuners have a performance gap"></a>Auto-tuners have a performance gap</h3><p>一方面，Auto-tuner达不到硬件原生的表现。因为比如NVIDIA特殊的硬件结构，tensor核心，FP16加速机制是Ansor达不到的,因为对于auto-tuner来说硬件是不透明的。</p><p>另一方面，Auto-tuner编译速度慢。一种解决办法是利用cache，重复使用前面的tuning log。对于静态的模型，效果不错。但对于动态模型、动态输入，只有运行时才能获取真正的工作流，效果不好。本文的Bolt方法可以减少编译时间。</p><h3 id="The-emerging-trend-Templated-libraries"><a href="#The-emerging-trend-Templated-libraries" class="headerlink" title="The emerging trend: Templated libraries"></a>The emerging trend: Templated libraries</h3><p><img src="../files/images/BOLT/template.png"></p><p>作者提到一些模板化的vendor library可以方便的实现新函数，实现新模板。这些templated libraries可以考虑硬件的实现，达到硬件透明的auto-tuner达不到的效果。</p><ul><li>CUTLASS：NVIDIA的templated library。给每个GEMM（矩阵乘）的CUDA model的每一个layer都做了c++的模板。带入正确的参数( tile size, data type等)，就可以实现电压、安培架构、优化FP优化、混精度计算等要求。</li></ul><p>上图的例子是在计算$C = A · B$,C是绿色。例子表明CUTLASS可以自动利用起局部的cache(容量更小但是更快)</p><h3 id="Bolt-The-best-of-both-worlds"><a href="#Bolt-The-best-of-both-worlds" class="headerlink" title="Bolt: The best of both worlds"></a><strong>Bolt</strong>: The best of both worlds</h3><p>新的模板化vendor library提供下列特性：</p><ul><li>可重复利用的达到硬件原生性能的primitives</li><li>对于不同的输入格式，可以很方便的参数化</li><li>更好的进行auto-tuning search</li><li>基础类可以很好地自定义、扩展、封装成更复杂的实现，进一步提高搜索效果</li></ul><p>这些特性带来下面的编译器设计：</p><ul><li>更轻量化，更好的考虑硬件的实现</li><li>可以直接利用上面的templated library</li></ul><p><strong>图级别</strong>：Bolt可以更好的进行operator fusion。提出了 <em>persistent kernel fusion</em> 的方法，原有的auto-tuner可以实现更深层次的fusion，但得出的算子不被cuDNN支持，但Bolt的可以。扩展了graph-optimization的方向。</p><p><strong>算子级别</strong>：原生的templated library太底层，并且需要集成到模型中。Bolt通过设计一个 light-weight performance profiler来自动的进行模板参数的搜索。可以在缩减搜索时间的同时，让生成的tensor code达到硬件原生的性能。</p><p><strong>模型级别</strong>： 符合设计理念的模型可以被更好的优化。</p><h2 id="BOLT-DESIGN"><a href="#BOLT-DESIGN" class="headerlink" title="BOLT DESIGN"></a>BOLT DESIGN</h2><p><img src="../files/images/BOLT/workflow.png"></p><p>整个Bolt工作流如上图：</p><ul><li>对于一个特定的框架的模型，先通过TVM的前端生成一个relay graph</li><li>接下里，调用deep fusion对graph做优化</li><li>再接下来，同时用TVM和Bolt的templated library参数搜索对两种子图做优化</li><li>最后，把生成的tensor code编译到一起</li></ul><h3 id="Enabling-deeper-operator-fusion"><a href="#Enabling-deeper-operator-fusion" class="headerlink" title="Enabling deeper operator fusion"></a>Enabling deeper operator fusion</h3><p>这一部分讲了如何做复杂的op fusion：</p><ul><li>可以减少内存读取的时间损失</li><li>可以减少部署延迟，对于小的batchsize</li><li>增加的可优化的空间</li></ul><p>作者提到，Bolt第一步是先用CUDLASS自带的epilogue fusion方法优化一次，然后在此基础上继续优化。</p><p><img src="../files/images/BOLT/fusion.png"></p><h4 id="Persistent-kernel-GEMM-Conv-fusion"><a href="#Persistent-kernel-GEMM-Conv-fusion" class="headerlink" title="Persistent kernel (GEMM/Conv) fusion"></a><em>Persistent kernel (GEMM/Conv) fusion</em></h4><p>这一部分的大体逻辑是如果做更深层的fusion，上一轮的运算结果可以存在寄存器或者shared memory里，更快。</p><script type="math/tex; mode=display">D_0 = \alpha_0 A_0 W_0 + \beta_0 C_0 \\D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如果合成一个算子，如上图。就能减少运算，</p><p><strong>Key property: Threadblock residence</strong>：管家在于算GEMM2的时候可以不用从global memory读取前面的输出。 作者提到一种 <em>threadblock residence</em>，如果GEMM2和GEMM1对应的threadblock有相同的memory(shared memory或register files)。没有一致性的话，又要去global memory取数据，等于白优化。</p><blockquote><p>查了一下：好像thread是cuda里的变成概念，可以硬件并行化。然后不同thread组成了叫block的概念。我理解大概是比如矩阵运算的时候会做很多的并行，然后这一堆”线程“就放在一个快里，共享一堆内存。</p></blockquote><p><img src="../files/images/BOLT/presis.png"></p><p>后面作者分别讲了在register file级别和shared memory 级别这种一致性怎么保持，这一块读了半天都没读懂，实在是专业不对口……大概就是作者修改了一些CUDLASS的代码来保持这种连续操作的存储一致性，没动本身计算的接口。</p><blockquote><p>大家可以看原论文(5-6页)来自己理解一下: <a href="https://proceedings.mlsys.org/paper/2022/hash/38b3eff8baf56627478ec76a704e9b52-Abstract.html">原论文</a></p></blockquote><p>总结一下，这种deeper fusion可以对连续的GEMM和CONV操作进行合并，通过实现persistent kernel templates</p><h3 id="Automating-templated-code-generation"><a href="#Automating-templated-code-generation" class="headerlink" title="Automating templated code generation"></a>Automating templated code generation</h3><h4 id="Challenges-in-code-generation"><a href="#Challenges-in-code-generation" class="headerlink" title="Challenges in code generation"></a><em>Challenges in code generation</em></h4><p>作者提到，templated library只提供一部分算子函数，不提供模型的端到端的、函数化的支持。已有的BYOC方法可以最大化的引入TVM等。但不能解决所有问题：</p><ul><li>templated library本身不能跑，需要实际的参数。Bolt构建了一个light-weight hardware-native performance profiler，可以针对实际工作流搜索模板的最佳参数。</li><li>BYOC把library看做黑箱，编译时用hook链接，这不利于自定义和增量开发。Bolt把函数看做白盒，可以直接生成符合lib规范的函数</li></ul><blockquote><p>注1：BYOC作者有个<a href="https://www.bilibili.com/video/BV1r54y1W7Zk?spm_id_from=333.337.search-card.all.click&amp;vd_source=8d8e22a2686676c4db7b7429ce8a2e98">介绍视频</a>,大概就是可以让你支持多个编译器后端。在Bolt中就是引入CUDLASS库到TVM里</p><p>注2：hook。大概就是编译时把这个函数看做一个指针直接指，后面把指针链接到对应的库函数。因此对编译器来说这个函数是黑箱的。</p></blockquote><h4 id="Light-weight-performance-profiler"><a href="#Light-weight-performance-profiler" class="headerlink" title="Light-weight performance profiler"></a><em>Light-weight performance profiler</em></h4><ul><li>传统的自动调优器，通过生成样本并测量其速度来推断 Cost model，这需要大量的搜索空间和较长的调优时间。BOLT 通过将耗时的样例程序生成与性能测量分离，并通过有效利用硬件细节进行加速，大大减少了搜索时间。</li><li>CUTLASS 模板中与性能相关的参数包括 threadblock、warp 和 instruction shapes、swizzling functor和stage 等。</li><li>BOLT 采用白盒方法， 根据 GPU 架构以及特定于每个硬件的调优指南确定它们的可能值。</li><li>对于每一个GPU架构，BOLT 都会产生数十个最佳参数组合，并通过初始化模板生成对应的示例程序。这些样例程序可通过给定的不同输入跨模型和工作负载重用。不需要用户提供额外的信息</li><li>在运行时，BOLT 可以通过调用带有具体输入的预生成示例程序来分析性能。</li></ul><h4 id="Templated-code-generation"><a href="#Templated-code-generation" class="headerlink" title="Templated code generation"></a><em>Templated code generation</em></h4><p>传统的BYOC不能支持模板化的库函数。Bolt通过搜出的参数先生成一波函数。其中，用到了以下优化：</p><ul><li>Layout transformation：对于CONV操作，CUTLASS只支持NHWC内存布局，但所有的pytorch模型都是NCHW布局。BOLT先都转成NCHW，全优化完再都转回NHWC。</li><li>Kernel padding： 传统CUTLASS支持各种大小的kernel，但是表现差挺多的。Bolt自动用alignment 8，并且提前申请内存。</li></ul><h3 id="Designing-system-friendly-models"><a href="#Designing-system-friendly-models" class="headerlink" title="Designing system-friendly models"></a>Designing system-friendly models</h3><p>作者提出了以下三个设计原则，我觉得用“设计原则”不太合适，感觉更像是”with Bolt，你可以怎么样“：</p><ul><li><p>Exploring different activation functions with epilogue fusion：由于Bolt尝试epilogue fusion，因此用什么激活函数对速度不敏感。</p></li><li><p>Deepening models with 1×1 Convs：由于Bolt有deep fusion，你加一大堆 1x1 Convs可以提高准确率，而且模型基本不会变慢</p></li><li>Aligning tensor shapes to use GPUs more efficiently：尽量让用到的tensor的形状是对齐的。</li></ul><h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>这一部分还是简略说</p><p><img src="../files/images/BOLT/eva.png"></p><p>结论就是：</p><ul><li>Bolt跑的更快</li><li>Bolt编译更快</li></ul><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>同样是解决 auto-tuner和vendor library效果差距的文章，这篇是另外一个角度。</li><li>感觉vendor library也不是吃干饭的，上次说它扩展性不好，这次人家就有templated library搞出来了…</li><li>auto-tuner利用硬件信息我觉得是很必要的，这是上次综述文章里讲到的backend应该干的活。但我在想这一部分是不是还是得硬件开发上那边支持，毕竟写硬件的人最懂硬件怎么跑得快w</li><li>说实话，感觉编译方面的论文都有点，啰嗦，就持续地说好多遍同样的东西……</li></ul>]]></content>
     
@@ -200,6 +240,8 @@
     
     <category term="深度学习编译" scheme="https://www.yynnyy.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/"/>
     
+    <category term="TVM" scheme="https://www.yynnyy.cn/tags/TVM/"/>
+    
   </entry>
   
   <entry>
@@ -207,12 +249,16 @@
     <link href="https://www.yynnyy.cn/2eb383c3"/>
     <id>https://www.yynnyy.cn/2eb383c3</id>
     <published>2022-07-03T15:44:02.000Z</published>
-    <updated>2022-07-03T15:50:07.397Z</updated>
+    <updated>2022-07-10T16:13:08.578Z</updated>
     
-    <content type="html"><![CDATA[<p>今天基本啥也没干，摆了一天。看了关注了B站up主</p><blockquote><p><a href="https://space.bilibili.com/8065464/?spm_id_from=333.999.0.0">引力子G</a></p></blockquote><p>他转发一些中文字幕版的youtube科普视频。近日了解了一些级数和混沌、分型的知识。</p><p>近日和朋友一起玩《双人成行》，剧情好长，超值。另，现在steam夏促双人成行4折。</p><p>另外，今天看了爱死机第三季，感觉脑洞很大，很好看。我想到一个脑洞：</p><ul><li>有一个机器人叫pangu，负责在中文和英文之间添加空格。通过这一个简单的任务，它逐渐学会了不同的语言，他变得越来越智能。它开始创造自己的语言，它开始认为自己是”开天辟地“的盘古。最终，它”活了“。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今天基本啥也没干，摆了一天。看了关注了B站up主</p><blockquote><p><a href="https://space.bilibili.com/8065464/?spm_id_from=333.999.0.0">引力子G</a></p></blockquote><p>他转发一些中文字幕版的youtube科普视频。近日了解了一些级数和混沌、分型的知识。</p><span id="more"></span><p>近日和朋友一起玩《双人成行》，剧情好长，超值。另，现在steam夏促双人成行4折。</p><p>另外，今天看了爱死机第三季，感觉脑洞很大，很好看。我想到一个脑洞：</p><ul><li>有一个机器人叫pangu，负责在中文和英文之间添加空格。通过这一个简单的任务，它逐渐学会了不同的语言，他变得越来越智能。它开始创造自己的语言，它开始认为自己是”开天辟地“的盘古。最终，它”活了“。</li></ul>]]></content>
     
     
-    <summary type="html">今日摆烂</summary>
+    <summary type="html">&lt;p&gt;今天基本啥也没干，摆了一天。看了关注了B站up主&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://space.bilibili.com/8065464/?spm_id_from=333.999.0.0&quot;&gt;引力子G&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;他转发一些中文字幕版的youtube科普视频。近日了解了一些级数和混沌、分型的知识。&lt;/p&gt;</summary>
     
     
     
@@ -228,12 +274,13 @@
     <link href="https://www.yynnyy.cn/88c48877"/>
     <id>https://www.yynnyy.cn/88c48877</id>
     <published>2022-07-02T15:38:57.000Z</published>
-    <updated>2022-07-03T15:44:29.131Z</updated>
+    <updated>2022-07-10T16:13:44.555Z</updated>
     
-    <content type="html"><![CDATA[<p>今天读了两篇论文，写了两个笔记，但明天还有更多要读，只能说重量级。</p><p>今天被拉到了一个新群，可能新的锅又要来了。</p><p>今日观赛：</p><ul><li>FPX打JDG：无法想象，fpx竟然赢了。我的SUMMIT，新上单新气象</li><li>WBG打TES：达到12点都没结束，只能说今天管泽元输麻了。新一嘉宾当麻了，连坐9个小时。最后还是让tes赢了。</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今天读了两篇论文，写了两个笔记，但明天还有更多要读，只能说重量级。</p><p>今天被拉到了一个新群，可能新的锅又要来了。</p><span id="more"></span><p>今日观赛：</p><ul><li>FPX打JDG：无法想象，fpx竟然赢了。我的SUMMIT，新上单新气象</li><li>WBG打TES：达到12点都没结束，只能说今天管泽元输麻了。新一嘉宾当麻了，连坐9个小时。最后还是让tes赢了。</li></ul>]]></content>
     
     
-    <summary type="html">今日总结</summary>
+    <summary type="html">&lt;p&gt;今天读了两篇论文，写了两个笔记，但明天还有更多要读，只能说重量级。&lt;/p&gt;
+&lt;p&gt;今天被拉到了一个新群，可能新的锅又要来了。&lt;/p&gt;</summary>
     
     
     
@@ -454,31 +501,6 @@
     
     
     <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读-SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</title>
-    <link href="https://www.yynnyy.cn/6b94db09"/>
-    <id>https://www.yynnyy.cn/6b94db09</id>
-    <published>2022-06-28T13:31:46.000Z</published>
-    <updated>2022-06-28T14:25:17.120Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="SDE-与-ODE"><a href="#SDE-与-ODE" class="headerlink" title="SDE 与 ODE"></a>SDE 与 ODE</h2><h3 id="SDE"><a href="#SDE" class="headerlink" title="SDE"></a>SDE</h3><p>sde是随机微分方程，可以理解成一个加噪声的过程：</p><script type="math/tex; mode=display">dx = f(x,t)dt + g(x,t)dw</script><p>可以认为是一个原始分布$P_x(0)$随着时间的推移进行变化。同时dw是一个布朗运动的过程，g是scale函数。每一个是时间概率也会加上一个布朗噪声。</p><p>对于一个确定的初始分布，这个扩散过程最终会把x的分布变成一个和初始分布无关的量。</p><p>下面观察几种已有方法：</p><p>观察传统SMLD的扩散公式：</p><script type="math/tex; mode=display">x_i = x_{i-1} + \sqrt{\sigma_i^2 - \sigma_{i-1}^2} z_{i-1},\quad i = 1,2..N</script><p>如果考虑连续形式，将 $x_i = x(t_i),x_{i-1} = x(t_{i-1}), t_{i-1} \to t_i$时，通过求导和逼近，可以有：</p><script type="math/tex; mode=display">dx = \sqrt{\frac{d[\sigma^2(t)]}{dt}}dw</script><p>这是一个一届的近似，这是一个非常简单的sde方程。有如下特征：</p><ul><li>方差趋近于无穷</li></ul><p>另一方面，对于DDPM模型的公式：</p><script type="math/tex; mode=display">x_i =  \sqrt{1 - \beta_i} x_{i-1} + \sqrt{\beta_i}z_{i-1},\quad i = 1,2..N</script><p>同样有等价的SDE方程：</p><script type="math/tex; mode=display">dx = -\frac{1}{2}\beta(t)xdt + \sqrt{\beta(t)}dw</script><p>这个方程的方差趋向于1.</p><h3 id="ODE"><a href="#ODE" class="headerlink" title="ODE"></a>ODE</h3><p>所谓的ode，就是想让这个扩散过程和随机变量z无关。</p><h2 id="解SDE"><a href="#解SDE" class="headerlink" title="解SDE"></a>解SDE</h2><p>对于一个SDE，有一个对应的解：</p><script type="math/tex; mode=display">dx = [f(x,t) - g^2(t)\bigtriangledown_x \log p_t(x)]dt + g(t)d\hat{w}</script><p>如果忽略上面方程中dw的项，逆过程就会和随机变量无关，是ode。然而，这样采样效果会变差。</p><p>也就是说：</p><ul><li><p>一方面，SDE的逆扩散也是SDE。</p></li><li><p>另一方面，如果我们有了一个网络去拟合$\bigtriangledown_x \log p_t(x)$，那么我们就可以通过上面的公式把一个随机分布恢复去噪成$P_0$</p></li></ul><p>对于SMLD和DDPM，作者证明了论文中给出的解法都是符合上面的通解公式的。其中DDPM的<em>ancestral sampling</em>是通解公式的一种一阶近似。</p><p>作者还给出了一种效果更好的去噪方法：PC</p><p><img src="../files/images/diffusion_model/pc.png"></p><p>可以看出:</p><ul><li>原始的 SMLD只有红色部分</li><li>原始的DDPM只有蓝色部分(这个和原始的ancestral sampling是一阶近似)。</li></ul><p>​    总体而言，这个PC方法相当于是在离散时间下先走按照原来的导数方向走一步概率。由于时间粒度太粗，这个实际SDE解有变差，因此再用多步的Langevin dynamics纠正这个偏差。也就是：预测-纠正</p><p>​    作者通过实验证明了这种带纠正的方法PC同时提升了SMLD和DDPM的效果。注意：计算量增加了</p><h2 id="可控生成"><a href="#可控生成" class="headerlink" title="可控生成"></a>可控生成</h2><p>也就是在给定y下预测$P_t(x(t)| y)$。y可以是标签，也可以是一个遮罩。由于：</p><script type="math/tex; mode=display">P_t(x(t)| y) \propto P_t(x) \times P_t(y|x(t))</script><p>可以发现:</p><script type="math/tex; mode=display">\bigtriangledown_x\log P_t(x(t)| y) = \bigtriangledown_x\log P_t(x(t)) + \bigtriangledown_x\log P_t(y | x(t))</script><ul><li>左边是不考虑y的正常 score model输出，</li><li>右边是一个额外的分类器的输出。这个分类器需要对每一个时间t能有输出，因此可以先把训练集中数据做出不同t下的噪声形式，再训练分类器。</li></ul><p>生成时，我们将上面的公式作为score带入SDE的通解就可以进行可控地生成了。</p><p><img src="../files/images/diffusion_model/label.png"></p><p><img src="../files/images/diffusion_model/mask.png"></p><h2 id="总结与点评"><a href="#总结与点评" class="headerlink" title="总结与点评"></a>总结与点评</h2><p>​    总体而言，这篇论文读着很”爽“，让我感觉”不愧是outstanding paper“，”ICLR亦有差距“。这篇文章比较详细地给出了DDPM的数学背景，并且联系起了score-based model和DDPM。 另一方面，作者提出的PC方法简单易用，又真的可以极大提高效果，good。</p><p>我在想，既然这些DDPM、SLMD方法都是对于SDE方程的一阶近似解，那么：</p><ul><li>一阶近似解有无数种，哪种最好？</li><li>有没有更高阶逼近的解？</li></ul><p>另外，我也在思考：</p><ul><li>想要用在文本生成领域中，还有什么可以借鉴的地方？</li></ul>]]></content>
-    
-    
-    <summary type="html">这是21年的ICLR的outstanding paper，约等于最佳论文。论文统一了上期讲的score-based model方法和diffusion model方法，进行了非常多的理论推导。证明了DDPM方法和SDE解的一致性，同时提出用ODE来去噪，结论非常漂亮。</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
