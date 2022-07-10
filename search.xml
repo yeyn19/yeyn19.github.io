@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>论文阅读[粗读]-APOLLO: AUTOMATIC PARTITION-BASED OPERATOR FUSION THROUGH LAYER BY LAYER OPTIMIZATION</title>
+      <link href="/cacd892d.html"/>
+      <url>/cacd892d.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 深度学习编译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读[精读]-ANALYTIC-DPM: AN ANALYTIC ESTIMATE OF THE OPTIMAL REVERSE VARIANCE IN DIFFUSION PROBABILISTIC MODELS</title>
       <link href="/babb0879.html"/>
       <url>/babb0879.html</url>
@@ -22,9 +43,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -103,9 +124,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
             <tag> 可控文本生成 </tag>
             
@@ -263,9 +284,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -404,9 +425,9 @@
       
         <tags>
             
-            <tag> 计算机 </tag>
-            
             <tag> 探索 </tag>
+            
+            <tag> 计算机 </tag>
             
         </tags>
       
@@ -456,11 +477,11 @@
       
         <tags>
             
+            <tag> 随笔 </tag>
+            
             <tag> 计算机 </tag>
             
             <tag> 大三下 </tag>
-            
-            <tag> 随笔 </tag>
             
         </tags>
       
@@ -512,9 +533,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
         </tags>
       
@@ -695,9 +716,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> 课程总结 </tag>
-            
             <tag> 大三下 </tag>
+            
+            <tag> 课程总结 </tag>
             
         </tags>
       
@@ -722,9 +743,9 @@
       
         <tags>
             
-            <tag> diffusion model </tag>
-            
             <tag> 人工智能 </tag>
+            
+            <tag> diffusion model </tag>
             
             <tag> 可控文本生成 </tag>
             
@@ -753,9 +774,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> 课程总结 </tag>
-            
             <tag> 大三下 </tag>
+            
+            <tag> 课程总结 </tag>
             
         </tags>
       
@@ -807,9 +828,9 @@
             
             <tag> 计算机 </tag>
             
-            <tag> 课程总结 </tag>
-            
             <tag> 大三下 </tag>
+            
+            <tag> 课程总结 </tag>
             
         </tags>
       
@@ -859,9 +880,9 @@
       
         <tags>
             
-            <tag> 计算机 </tag>
-            
             <tag> 探索 </tag>
+            
+            <tag> 计算机 </tag>
             
         </tags>
       
@@ -874,7 +895,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b></b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FB00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#009D00><b></b>😁 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b></b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FB00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#009D00><b></b>😁😁 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
@@ -899,9 +920,9 @@
       
         <tags>
             
-            <tag> 计算机 </tag>
-            
             <tag> 探索 </tag>
+            
+            <tag> 计算机 </tag>
             
         </tags>
       
