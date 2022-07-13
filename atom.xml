@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2022-07-13T14:49:05.271Z</updated>
+  <updated>2022-07-13T15:40:00.128Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,18 +17,41 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>论文阅读[精读]-TORCH.FX: PRACTICAL PROGRAM CAPTURE AND TRANSFORMATION FOR DEEP LEARNING IN PYTHON </title>
+    <link href="https://www.yynnyy.cn/824812d3"/>
+    <id>https://www.yynnyy.cn/824812d3</id>
+    <published>2022-07-13T14:55:26.000Z</published>
+    <updated>2022-07-13T15:40:00.128Z</updated>
+    
+    <content type="html"><![CDATA[<p>我理解这篇论文就是torch.fx的论文，作者是站在设计torch.fx的角度思考“我们为什么要这么做”，把他们的一系列实现整理成了论文发了出来。正好之前经常用torch.fx也不知道后面发生了什么，来看看。</p><span id="more"></span><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>摘要部分就是说很多python框架虽然使用eager execution提升了易用性，但是在真实的落地场景中，用户其实希望对模型做性能优化，可视化，分析和硬件调优。为了满足这个gap，作者设计了Torch.fx，一个纯python的程序捕捉和变换的库。</p><blockquote><p>Eager execution:其实就是define-by-run，可以让用户直接用high-level编程语言去定义计算图，可自动进行求导，进而训练和预测。非常方便开发</p></blockquote><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>先区分了以下两种模式：</p><ul><li>define-and-run：早期的架构，定义很多API。用户来操作这些api去构建一些图的IR，进而框架去进行图优化、算子融合等编译优化。问题在于，用户需要同时懂host language和一种运行时的domain-Specific的语言，后者尝尝很麻烦。比如python的pdb debug系统。</li><li>define-by-run（eager mode）：PyTorch或者TensorFlow eager等支持的。直接去翻译高层语言，去支持自动求导等过程，方便开发。但这时，就只能用一些 just-in-time的编译方法，而不是ahead-of-time里有的很多算子融合等技术，因此效果不如上面的好。</li></ul><p>事实上，只是使用已知的计算图的一些IR结构就能方便的做一些图优化的手段。想要使用上他们，就需要一个eager mode框架也可以去捕捉程序结构，进而获取上面的信息。</p><p>其实，TorchScript通过捕捉python程序所有的AST是可以做这件事的。但问题在于，它捕捉所有的程序，cost太大，其实我们只需要捕捉计算图(nn.module)。因为优化手段基本上都局限在DAG图的范围内，因此这个捕捉手段是可以化简的。</p><p>因此作者实现了torch.fx,聚焦于dag图的表示，设计了一系列用户接口来让图满足这种格式，同时对各种图优化进行了支持</p><ul><li>分析了图优化之于AI的重要性</li><li>实现了纯python的满足上述条件的库</li><li>一个只有6条指令的IR，便于表示dag图</li><li>可以进行图变化，进而生成优化后的代码返回给host language</li><li>分析了torch.fx的使用实例</li></ul><h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>这一部分，提出了eager-mode的程序需要的几个要素</p><h3 id="Capturing-Program-Structure"><a href="#Capturing-Program-Structure" class="headerlink" title="Capturing Program Structure"></a>Capturing Program Structure</h3>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;我理解这篇论文就是torch.fx的论文，作者是站在设计torch.fx的角度思考“我们为什么要这么做”，把他们的一系列实现整理成了论文发了出来。正好之前经常用torch.fx也不知道后面发生了什么，来看看。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="深度学习编译" scheme="https://www.yynnyy.cn/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>7-13总结</title>
     <link href="https://www.yynnyy.cn/b3e58ad1"/>
     <id>https://www.yynnyy.cn/b3e58ad1</id>
     <published>2022-07-13T14:43:17.000Z</published>
-    <updated>2022-07-13T14:49:05.271Z</updated>
+    <updated>2022-07-13T14:57:43.484Z</updated>
     
-    <content type="html"><![CDATA[<p>今日读两篇论文，遗憾的是，没有编译方面的。</p><p>明天就要进度同步了，show me your work! 不能这样下去了，现在就赶w</p><p>据了解，今日时隔一个月召开组会，有感觉到了上进的气息。</p><span id="more"></span><p>今日观赛：</p><ul><li>BLG打LGD：BLG第一把红色方被锤烂第二把火速把ICON太回饮水机后连下两城。但BIN满血刀妹想单杀纳尔被塔里反杀只能说，失智攻击。估计这周饭堂稳了。BLG换了个二队ad感觉还没有doggo打的好呀……那个人还会回来吗（</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>今日读两篇论文，遗憾的是，没有编译方面的。</p><p>明天就要进度同步了，show me your work! 不能这样下去了，现在就赶w</p><p>据了解，今日时隔一个月召开组会，又感觉到了上进的气息。</p><span id="more"></span><p>今日观赛：</p><ul><li>BLG打LGD：BLG第一把红色方被锤烂第二把火速把ICON太回饮水机后连下两城。但BIN满血刀妹想单杀纳尔被塔里反杀只能说，失智攻击。估计这周饭堂稳了。BLG换了个二队ad感觉还没有doggo打的好呀……那个人还会回来吗（</li></ul>]]></content>
     
     
     <summary type="html">&lt;p&gt;今日读两篇论文，遗憾的是，没有编译方面的。&lt;/p&gt;
 &lt;p&gt;明天就要进度同步了，show me your work! 不能这样下去了，现在就赶w&lt;/p&gt;
-&lt;p&gt;据了解，今日时隔一个月召开组会，有感觉到了上进的气息。&lt;/p&gt;</summary>
+&lt;p&gt;据了解，今日时隔一个月召开组会，又感觉到了上进的气息。&lt;/p&gt;</summary>
     
     
     
@@ -475,31 +498,6 @@
     
     
     <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[粗读]-MVP: Multi-task Supervised Pre-training for Natural Language Generation</title>
-    <link href="https://www.yynnyy.cn/1256e99b"/>
-    <id>https://www.yynnyy.cn/1256e99b</id>
-    <published>2022-07-01T13:21:52.000Z</published>
-    <updated>2022-07-02T05:14:00.544Z</updated>
-    
-    <content type="html"><![CDATA[<p>​    今天看了个又臭又长的survey，回到老本行看个好玩的论文洗洗脑。这篇论文是人大做的，一作是个硕一的学生，看看人家w。这篇文章说的贡献是：拓展了有监督预训练到NLG生成任务中，并且击败了基线BART，同时在多个数据集达到了SOTA。</p><p>​    正好前两天刚看了GPT3，这个感觉有点“碰瓷”的意思，来读一读。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>主要就是表示，本文探索两个问题：</p><ul><li>有监督预训练如何解决NLG问题</li><li>有监督预训练能不能繁华到更多任务上</li></ul><h2 id="有监督预训练？"><a href="#有监督预训练？" class="headerlink" title="有监督预训练？"></a>有监督预训练？</h2><p>大家都知道无监督预训练就是收集一些人类语料$Y = x_1,x_2,…x_N$，做一些自回归任务，比如GPT：</p><script type="math/tex; mode=display">\log P(x_1,x_2...x_N) = \log p(x0) \sum_{i=1}^N \log(x_i | x_{i-1})</script><p>​    做这种马尔科夫链的自回归，然后期望随着PPL的降低，模型可以“学会怎么说话”，生成流畅的、符合人类说话习惯的语料。对于理解模型，就是可以“理解语句的含义”。</p><p>​    所谓有监督预训练，就是说提前收集一些已有任务的数据集。数据集的特点是有标注，比如摘要任务是$(Y,summary)$。如果收集了大量的、来自不同预训练任务的有标注语料的话，就可以定义一种输入方式，可以把不同的语料和标注一起喂到模型里，继续进行auto-regressive的训练。</p><p>​    具体到本模型MVP，就是比如 summerization：$(Y,X)$，输入是</p><script type="math/tex; mode=display">summary: \quad Y \quad[sep] \quad X</script><p>其他任务也是有一些前缀。</p><p>具体来说，作者归纳了4大类NLG任务，收集了一共60GB的有监督语料，对比：</p><ul><li>GPT用570GB无监督语料</li><li>BART用了160GB无监督语料</li></ul><h2 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h2><p>​    模型结构是什么呢？作者说和BART是一样的。不仅如此，作者甚至是从BART-large初始化了权重。然后用60GB有监督语料接着训练。</p><p>​    说实话，我觉得”用BART初始化“是这个有监督预训练成功的关键因素……</p><h2 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h2><p>作者提到了两种方式：</p><ul><li>full tuning：就是MVP拿过来，做fine-tune</li><li>Parameter-Efficient Tuning Performance：把backbone模型冻结，然后加上soft-prompt进行训练</li></ul><p>作者进行了很多任务的评测，结论是：比BART好。然后和SOTA比，也有提升。</p><p>重点是作者还做了一个泛化测试：</p><ul><li>用训练时没见过的paraphrase、style transfer任务做测试，效果也比SOTA好。</li></ul><h2 id="我的评价"><a href="#我的评价" class="headerlink" title="我的评价"></a>我的评价</h2><ul><li><p>我在想一个问题：他找的60GB有监督语料里面有没有后面测试用的数据集呢？</p><ul><li>作者说跳过了一些训练任务，专门来评测。但据我所知，很多生成任务的数据集构建都是取材于别的生成任务，也就是说：即使没有标签重合，但很可能有数据重合</li><li>好吧无监督预训练也被喷这个事……不追究这个了</li></ul></li><li><p>比BART是不是显而易见的？</p><ul><li>用BART参数初始化，当然得被BART好了…不然不是负优化</li><li>最后战胜SOTA是很好，但这个是”有监督预训练“的功效吗？我感觉这个方法更像是”大号的fine-tune“</li></ul></li><li>不过本篇工作有一个很重要的点：<strong>大规模的搞数据集上的auto-regressive也是有用的</strong>。之前的fine-tune都是对输出算loss，现在这个相当于把loss传播到输入也算。</li><li>泛化性能为什么也有提升？感觉这个是后面探索空间最大的一个点。我个人观点：<ul><li>用”超越SOTA“作为”泛化性能强“是否有点不公平。对别的模型来说所有任务都是”泛化“。我觉得更合理的s实验是”新任务中MVP战胜SOTA的幅度和老任务一样“</li></ul></li></ul>]]></content>
-    
-    
-    <summary type="html">有监督预训练，在绝大多数任务上击败基线BART，在11个数据集达到SOTA</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   

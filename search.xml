@@ -4,11 +4,38 @@
   
     
     <entry>
+      <title>论文阅读[精读]-TORCH.FX: PRACTICAL PROGRAM CAPTURE AND TRANSFORMATION FOR DEEP LEARNING IN PYTHON </title>
+      <link href="/824812d3.html"/>
+      <url>/824812d3.html</url>
+      
+        <content type="html"><![CDATA[<p>我理解这篇论文就是torch.fx的论文，作者是站在设计torch.fx的角度思考“我们为什么要这么做”，把他们的一系列实现整理成了论文发了出来。正好之前经常用torch.fx也不知道后面发生了什么，来看看。</p><span id="more"></span><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>摘要部分就是说很多python框架虽然使用eager execution提升了易用性，但是在真实的落地场景中，用户其实希望对模型做性能优化，可视化，分析和硬件调优。为了满足这个gap，作者设计了Torch.fx，一个纯python的程序捕捉和变换的库。</p><blockquote><p>Eager execution:其实就是define-by-run，可以让用户直接用high-level编程语言去定义计算图，可自动进行求导，进而训练和预测。非常方便开发</p></blockquote><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>先区分了以下两种模式：</p><ul><li>define-and-run：早期的架构，定义很多API。用户来操作这些api去构建一些图的IR，进而框架去进行图优化、算子融合等编译优化。问题在于，用户需要同时懂host language和一种运行时的domain-Specific的语言，后者尝尝很麻烦。比如python的pdb debug系统。</li><li>define-by-run（eager mode）：PyTorch或者TensorFlow eager等支持的。直接去翻译高层语言，去支持自动求导等过程，方便开发。但这时，就只能用一些 just-in-time的编译方法，而不是ahead-of-time里有的很多算子融合等技术，因此效果不如上面的好。</li></ul><p>事实上，只是使用已知的计算图的一些IR结构就能方便的做一些图优化的手段。想要使用上他们，就需要一个eager mode框架也可以去捕捉程序结构，进而获取上面的信息。</p><p>其实，TorchScript通过捕捉python程序所有的AST是可以做这件事的。但问题在于，它捕捉所有的程序，cost太大，其实我们只需要捕捉计算图(nn.module)。因为优化手段基本上都局限在DAG图的范围内，因此这个捕捉手段是可以化简的。</p><p>因此作者实现了torch.fx,聚焦于dag图的表示，设计了一系列用户接口来让图满足这种格式，同时对各种图优化进行了支持</p><ul><li>分析了图优化之于AI的重要性</li><li>实现了纯python的满足上述条件的库</li><li>一个只有6条指令的IR，便于表示dag图</li><li>可以进行图变化，进而生成优化后的代码返回给host language</li><li>分析了torch.fx的使用实例</li></ul><h2 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h2><p>这一部分，提出了eager-mode的程序需要的几个要素</p><h3 id="Capturing-Program-Structure"><a href="#Capturing-Program-Structure" class="headerlink" title="Capturing Program Structure"></a>Capturing Program Structure</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> 深度学习编译 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>7-13总结</title>
       <link href="/b3e58ad1.html"/>
       <url>/b3e58ad1.html</url>
       
-        <content type="html"><![CDATA[<p>今日读两篇论文，遗憾的是，没有编译方面的。</p><p>明天就要进度同步了，show me your work! 不能这样下去了，现在就赶w</p><p>据了解，今日时隔一个月召开组会，有感觉到了上进的气息。</p><span id="more"></span><p>今日观赛：</p><ul><li>BLG打LGD：BLG第一把红色方被锤烂第二把火速把ICON太回饮水机后连下两城。但BIN满血刀妹想单杀纳尔被塔里反杀只能说，失智攻击。估计这周饭堂稳了。BLG换了个二队ad感觉还没有doggo打的好呀……那个人还会回来吗（</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>今日读两篇论文，遗憾的是，没有编译方面的。</p><p>明天就要进度同步了，show me your work! 不能这样下去了，现在就赶w</p><p>据了解，今日时隔一个月召开组会，又感觉到了上进的气息。</p><span id="more"></span><p>今日观赛：</p><ul><li>BLG打LGD：BLG第一把红色方被锤烂第二把火速把ICON太回饮水机后连下两城。但BIN满血刀妹想单杀纳尔被塔里反杀只能说，失智攻击。估计这周饭堂稳了。BLG换了个二队ad感觉还没有doggo打的好呀……那个人还会回来吗（</li></ul>]]></content>
       
       
       <categories>
@@ -1053,7 +1080,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td> <td bgcolor=#00F800><b>开心: </b>😁 </td> <td bgcolor=#00A000><b>干活: </b>😁😁😁 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td> <td bgcolor=#00F800><b>开心: </b>😁 </td> <td bgcolor=#008B00><b>干活: </b>😁😁😁😁 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
