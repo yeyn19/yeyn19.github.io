@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>论文阅读[粗读]-GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models</title>
+      <link href="/b41d6ff9.html"/>
+      <url>/b41d6ff9.html</url>
+      
+        <content type="html"><![CDATA[<p>这篇工作其实就是有名的DALL.E 2的模型结构，只是规模是3.5B。本篇工作是第一个用diffusion model来做text2image任务的。</p><span id="more"></span><p><img src="../files/images/GLIDE/author.png"></p><p>作者是财大气粗的OpenAI，这几个联合一作都是重量级：</p><ul><li>Alex Nichol：DALL.E 2(unCLIP)作者</li><li>Prafulla Dhariwal：GPT3作者，ADM作者</li><li>Aditya Ramesh：DALL.E作者</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机 </tag>
+            
+            <tag> diffusion model </tag>
+            
+            <tag> 人工智能 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>7-12总结</title>
+      <link href="/15928165.html"/>
+      <url>/15928165.html</url>
+      
+        <content type="html"><![CDATA[<p>今天去北医三院看牙，来回单程只需要40min的高铁，倒是很快。应该是最后一次根管治疗，再观察一段时间就可以做牙冠了。</p><span id="more"></span><p>另外，今天第一次去猫咖，见到了各种猫：英短蓝猫、英短蓝白、各种颜色的美短、布偶猫、豹纹猫、埃及法老毛、德文卷毛猫、矮脚猫、橘猫……一天撸了一年的猫。感觉猫咖的形式很好，后面可能还能去。</p><p>另外，今天去吃巴奴，之前认识的服务员小姐姐现在升级成了红衣，物是人非了。</p><p>今日观赛：</p><ul><li>TES打OMG：omg蓝色方赢了一把，able萨米拉吃恶意收购打队友叠了S，闪现进场转4个。后两把属于是Tian表演局。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 论文阅读笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 日记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读[粗读]-THE CORA TENSOR COMPILER: COMPILATION FOR RAGGED TENSORS WITH MINIMAL PADDING</title>
       <link href="/b0f88437.html"/>
       <url>/b0f88437.html</url>
@@ -945,7 +999,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td> <td bgcolor=#00F800><b></b>😁 </td> <td bgcolor=#00F900><b></b>😁 </td><td>14 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
