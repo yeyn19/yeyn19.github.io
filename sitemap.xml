@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/b3e58ad1</loc>
+    
+    <lastmod>2022-07-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/99193096</loc>
     
     <lastmod>2022-07-13</lastmod>
@@ -563,6 +572,13 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-07-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2022-07-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -571,13 +587,6 @@
   
   <url>
     <loc>https://www.yynnyy.cn/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2022-07-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2022-07-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
