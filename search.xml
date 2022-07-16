@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>运行30天情况</title>
+      <link href="/980d63fc.html"/>
+      <url>/980d63fc.html</url>
+      
+        <content type="html"><![CDATA[<p>从6.16日到现在，正好过去了1个月的时间。在过去一个月中，一共更新了45篇，有效输出15篇，共7万字。</p><p>论文阅读笔记方面，这一套流程实际感受下来就是</p><span id="more"></span><ul><li>好像有一股力量在监督你把今天的论文读了。</li></ul><p>不得不承认，找到好的论文是最重要的，但找到以后提起精神读下去也很重要。从这一个月的感受来看，反馈比较正面，后天应该可以一直坚持下去。</p><p>另一方面，现在是暑假阶段，因此课程方面的内容没有更新，可能还得等开学以后再观察课程笔记的反馈情况。</p><p>最后，赛事观察方面，感觉还是停留在“吐槽”的阶段，不过这样也挺好，毕竟本身也没有bp、意识的基础和水平。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 随笔 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 随笔 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>论文阅读[粗读]-ON THE UTILITY OF GRADIENT COMPRESSION IN DISTRIBUTED TRAINING SYSTEMS</title>
       <link href="/a9f8b29.html"/>
       <url>/a9f8b29.html</url>
@@ -1109,7 +1134,7 @@
       <link href="/85a03951.html"/>
       <url>/85a03951.html</url>
       
-        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td> <td bgcolor=#00F800><b>开心: </b>😁 </td> <td bgcolor=#008B00><b>干活: </b>😁😁😁😁 </td> <td bgcolor=#00AE00><b></b>😁 </td><td>15 </td><td>16 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
+        <content type="html"><![CDATA[<table id='0' hidden='hidden' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年六月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr><tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr><tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F400><b></b>😁 </td></tr><tr> <td bgcolor=#00D900><b></b>😁😁 </td> <td bgcolor=#009C00><b></b>😁😁😁 </td> <td bgcolor=#00D100><b></b>😁😁😁 </td> <td bgcolor=#00F800><b></b>😁 </td><td>23 </td><td>24 </td><td>25 </td></tr><tr> <td bgcolor=#00BF00><b>生病: </b>😁😁 </td><td>27 </td> <td bgcolor=#00BC00><b>失望: </b>😁😁😁 </td> <td bgcolor=#00CC00><b>努力: </b>😁😁 </td> <td bgcolor=#00F500><b>失眠: </b>😁 </td></table><table id='1' style='text-align:center'><tr> <td>        <form action="">            <input type="button" value="上月" onclick="tips(-1)">        </form>    </td>    <td colspan='5'>2022年七月</td> <td>        <form action="">            <input type="button" value="下月" onclick="tips(1)">        </form>    </td>    </tr><tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td> <td bgcolor=#008B00><b>累: </b>😁😁😁 </td> <td bgcolor=#008B00><b>忐忑: </b>😁😁😁 </td></tr><tr> <td bgcolor=#00F700><b>开摆: </b>😁 </td> <td bgcolor=#008B00><b>失眠: </b>😁😁 </td> <td bgcolor=#00FA00><b>开心: </b>😁 </td><td>6 </td> <td bgcolor=#008B00><b></b>😁 </td><td>8 </td> <td bgcolor=#00E900><b>工作: </b>😁😁 </td></tr><tr> <td bgcolor=#008B00><b>平淡: </b>😁😁😁 </td> <td bgcolor=#00C100><b></b>😁 </td> <td bgcolor=#00F800><b>开心: </b>😁 </td> <td bgcolor=#008B00><b>干活: </b>😁😁😁😁 </td> <td bgcolor=#00AE00><b></b>😁 </td><td>15 </td> <td bgcolor=#00F800><b></b>😁 </td></tr><tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr><tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr><tr><td>31 </td></table><script type="text/javascript">    var now_id = 1;    var max_id = 1;    function tips(num){        document.getElementById(now_id).hidden = "hidden";        now_id += num;        if (now_id > max_id) {now_id = max_id;}        if (now_id < 0) {now_id = 0;}        document.getElementById(now_id).hidden = "";    }</script>]]></content>
       
       
       
