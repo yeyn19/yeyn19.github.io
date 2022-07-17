@@ -24,17 +24,29 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔">
-<meta property="og:url" content="https://www.yynnyy.cn/archives/page/5/index.html">
+  <meta name="description" content="这篇讲了一种借鉴Discrete Diffusion model来建模一个order-agnostic autoregressive模型的方法，在text8数据集取得不错的效果。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[粗读]-AUTOREGRESSIVE DIFFUSION MODELS">
+<meta property="og:url" content="https://www.yynnyy.cn/4a98dda1">
 <meta property="og:site_name" content="随缘随笔">
-<meta property="og:description" content="高效率工作，低效率生活">
+<meta property="og:description" content="这篇讲了一种借鉴Discrete Diffusion model来建模一个order-agnostic autoregressive模型的方法，在text8数据集取得不错的效果。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/author.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/equ.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/algo.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/dp.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/result.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ARDM/example.png">
+<meta property="article:published_time" content="2022-07-17T05:55:03.000Z">
+<meta property="article:modified_time" content="2022-07-17T06:36:06.333Z">
 <meta property="article:author" content="叶奕宁">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="diffusion model">
+<meta property="article:tag" content="人工智能">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/ARDM/author.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/archives/page/5/">
+<link rel="canonical" href="https://www.yynnyy.cn/4a98dda1.html">
 
 
 <script id="page-configurations">
@@ -42,12 +54,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 随缘随笔</title>
+  <title>论文阅读[粗读]-AUTOREGRESSIVE DIFFUSION MODELS | 随缘随笔</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -208,180 +220,211 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/4a98dda1">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁">
+      <meta itemprop="description" content="高效率工作，低效率生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[粗读]-AUTOREGRESSIVE DIFFUSION MODELS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-17 13:55:03 / 修改时间：14:36:06" itemprop="dateCreated datePublished" datetime="2022-07-17T13:55:03+08:00">2022-07-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4a98dda1" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-AUTOREGRESSIVE DIFFUSION MODELS" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 47 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4a98dda1#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4a98dda1" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>184</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-19T10:51:12+08:00"
-              content="2022-06-19">
-          06-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/8618fb6d" itemprop="url">
-            <span itemprop="name">《现代密码学》课程总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-19T00:22:43+08:00"
-              content="2022-06-19">
-          06-19
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/5e20b515" itemprop="url">
-            <span itemprop="name">6-18总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-18T13:01:50+08:00"
-              content="2022-06-18">
-          06-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/c344b452" itemprop="url">
-            <span itemprop="name">给hexo添加日历</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-18T12:50:39+08:00"
-              content="2022-06-18">
-          06-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/85a03951" itemprop="url">
-            <span itemprop="name">最近更新(置顶)</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-17T23:04:21+08:00"
-              content="2022-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/fa20dd9d" itemprop="url">
-            <span itemprop="name">hexo折腾记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-17T21:59:40+08:00"
-              content="2022-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/ede8f462" itemprop="url">
-            <span itemprop="name">四子棋大作业</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-17T14:10:10+08:00"
-              content="2022-06-17">
-          06-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/ff05b5bf" itemprop="url">
-            <span itemprop="name">第一篇博客</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>这篇讲了一种借鉴Discrete Diffusion model来建模一个order-agnostic autoregressive模型的方法，在text8数据集取得不错的效果。</p>
+<span id="more"></span>
+<p><img src="../files/images/ARDM/author.png"></p>
+<p>这篇论文发表在ICLR22上，作者来自google brain。</p>
+<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>首先梳理几个概念</p>
+<h3 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a>ARM</h3><p>自回归数据集里的每句话:</p>
+<script type="math/tex; mode=display">
+\log p(x) = \sum_{t=1}^D \log p(x_t | x_{<t})</script><p>用一个上三角矩阵把每句话mask住做D次predict就能算出模型对本次数据的loss</p>
+<h3 id="Order-Agnostic-ARMs"><a href="#Order-Agnostic-ARMs" class="headerlink" title="Order Agnostic ARMs"></a>Order Agnostic ARMs</h3><p>XLNet采用这个结构，就是说模型不是从左到右预测的，而是按照任何一个顺序都可以:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log p(x)  & = \log \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \sum_{t=1}^D p(x_{\sigma(t)} | x_{\sigma(<t)})\\
+& \geq \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \sum_{t=1}^D \log p(x_{\sigma(t)} | x_{\sigma(<t)})
+\end{aligned}</script><p>这个公式里，$\sigma$是对$1,2,…D$的一个重排。大概就是给定一个重排，按照这个重排的前一部分信息，生成剩下的每一个位置$\sigma(t)$的量。</p>
+<p>式子中的不等式来自杰森不等式</p>
+<blockquote>
+<p>从左到右可以看做一种特定的重排。上面式子相当于对所有重排的总的loss的期望，训练时任选一个重排就行</p>
+</blockquote>
+<h3 id="Discrete-Diffusion"><a href="#Discrete-Diffusion" class="headerlink" title="Discrete Diffusion"></a>Discrete Diffusion</h3><p>这里引用的是21年的论文,大概就是把MLM视为某种diffusion model，是文本领域diffusion model的一种解法</p>
+<h2 id="AUTOREGRESSIVE-DIFFUSION-MODELS"><a href="#AUTOREGRESSIVE-DIFFUSION-MODELS" class="headerlink" title="AUTOREGRESSIVE DIFFUSION MODELS"></a>AUTOREGRESSIVE DIFFUSION MODELS</h2><h3 id="method"><a href="#method" class="headerlink" title="method"></a>method</h3><p>这一部分讲本文的方法</p>
+<p>上来就是loss的公式计算，作者用了不同的推导方式：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\log p(x)  & \geq \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \sum_{t=1}^D \log p(x_{\sigma(t)} | x_{\sigma(<t)}) \\
+& = \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} D \times \mathbb{E}_{t \sim \mathcal{U}(1,2,..D)} \log p(x_{\sigma(t)} | x_{\sigma(<t)}) \\
+& = D \times \mathbb{E}_{t \sim \mathcal{U}(1,2,..D)} \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \frac{1}{D-t+1} \sum_{k\in \sigma(> t)} \log p(x_{k} | x_{\sigma(<t)})
+\end{aligned}</script><p>这个公式有几个特点：</p>
+<ul>
+<li>他进一步考虑了XLNet中没有考虑的时间t</li>
+<li>他把”重排中剩下位置“当成了”很多个原子的生成过程的并行“的形式</li>
+</ul>
+<p>具体而言他定义了：</p>
+<p><img src="../files/images/ARDM/equ.png"></p>
+<p>上面的式子就比较好理解了：$\mathcal{L}_t$的计算只和$t,\sigma$有关，可以视为把句子mask住一些位置，然后预测剩下的每一个位置的loss之和(BERT loss之和)，再加上一个正则量</p>
+<p>具体训练中，作者直接使用transformer结构，然后就直接用下面的算法进行训练和预测：</p>
+<p><img src="../files/images/ARDM/algo.png"></p>
+<p>其中：</p>
+<ul>
+<li>m是一个布尔向量，代表重排$\sigma$的前t-1个位置是1</li>
+<li>m是一个布尔向量，代表重排$\sigma$的第t个位置是1</li>
+<li>$\bigodot$是指和布尔向量乘，布尔0位置置为0</li>
+<li>$\mathcal{C}$是一个cat分布，代表以$f(m\bigodot n)$的概率分别取K(词表大小)个值中的一个</li>
+</ul>
+<p>对于NLP而言，可以直接设定一个词表K外的词K+1代表MASK，word embedding为a,然后就能在代码上比较统一:</p>
+<script type="math/tex; mode=display">
+\text{mask}(x,m) = m \bigodot x + (1-m)\bigodot a</script><h3 id="PARALLELIZED-ARDMS"><a href="#PARALLELIZED-ARDMS" class="headerlink" title="PARALLELIZED ARDMS"></a>PARALLELIZED ARDMS</h3><p>这一部分，作者分析了上面公式中的并行性的特点带来更快的解码速度。因为如果有t个位置的结果以后，解码剩下的位置都是并行的，</p>
+<p>如果假设$L_{t,t+k} = \sum_{i=1}^k\mathcal{L}_{t+i} \approx k \mathcal{L}_t$,视为解码所需要的代价</p>
+<p>那么用一个动态规划算法，就能算出使得代价最小的并行化解码方法(固定解码步骤$c$)。下图就是把一个20步的解码只用5步来完成</p>
+<p><img src="../files/images/ARDM/dp.png"></p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>这一部分作者，用bpc的NLL loss来对比了作者的方法OA-ARDM,和之前的离散diffusion方法$D3PM-*$</p>
+<p><img src="../files/images/ARDM/result.png"></p>
+<ul>
+<li>可以看到主试验的结果基本完胜 Austin 21的方法。</li>
+<li>另一方面就是新的结果由于比较好的并行性，只用20步的解码就可以达到之前大概250步的结果</li>
+<li>实验用的数据集是text8，解码的例子如下：</li>
+</ul>
+<p><img src="../files/images/ARDM/example.png"></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/99193096.html" rel="bookmark">论文阅读[粗读]-Diffusion models beat gans on image synthesis</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b41d6ff9.html" rel="bookmark">论文阅读[粗读]-GLIDE: Towards Photorealistic Image Generation and Editing with Text-Guided Diffusion Models</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/babb0879.html" rel="bookmark">论文阅读[精读]-ANALYTIC-DPM: AN ANALYTIC ESTIMATE OF THE OPTIMAL REVERSE VARIANCE IN DIFFUSION PROBABILISTIC MODELS</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88eeb90b.html" rel="bookmark">论文阅读[精读]-Diffusion-LM Improves Controllable Text Generation(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/93d2057b.html" rel="bookmark">论文阅读[精读]-DENOISING DIFFUSION IMPLICIT MODELS</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/diffusion-model/" rel="tag"><i class="fa fa-tag"></i> diffusion model</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/980d63fc" rel="prev" title="运行30天情况">
+      <i class="fa fa-chevron-left"></i> 运行30天情况
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -432,6 +475,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.</span> <span class="nav-text">background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARM"><span class="nav-number">1.1.</span> <span class="nav-text">ARM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Order-Agnostic-ARMs"><span class="nav-number">1.2.</span> <span class="nav-text">Order Agnostic ARMs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discrete-Diffusion"><span class="nav-number">1.3.</span> <span class="nav-text">Discrete Diffusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AUTOREGRESSIVE-DIFFUSION-MODELS"><span class="nav-number">2.</span> <span class="nav-text">AUTOREGRESSIVE DIFFUSION MODELS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">2.1.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PARALLELIZED-ARDMS"><span class="nav-number">2.2.</span> <span class="nav-text">PARALLELIZED ARDMS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -788,6 +832,61 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
