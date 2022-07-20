@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2022-07-18T14:15:23.420Z</updated>
+  <updated>2022-07-20T08:46:58.153Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>7-20总结</title>
+    <link href="https://www.yynnyy.cn/c8297af"/>
+    <id>https://www.yynnyy.cn/c8297af</id>
+    <published>2022-07-20T08:23:12.000Z</published>
+    <updated>2022-07-20T08:46:58.153Z</updated>
+    
+    <content type="html"><![CDATA[<p>今日阅读了IDDPM论文的官方开源代码，收获良多，主要学到以下几点新知识：</p><span id="more"></span><p>抽象类:</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod <span class="comment">#支持抽象类和抽象方法</span></span><br><span class="line"></span><br><span class="line">声明<span class="keyword">class</span>时继承ABC</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">xxx</span>(<span class="title class_ inherited__">ABC</span>):</span><br><span class="line"><span class="meta">  @abstractmethod </span><span class="comment">#用修饰符说明是抽象方法</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">yyy</span>():</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">xxx_sun</span>(<span class="title class_ inherited__">xxx</span>):</span><br><span class="line">  <span class="comment">#子类继承抽象类的话</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">yyy</span>(): <span class="comment">#必须要实现每一个抽象方法</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br></pre></td></tr></table></figure></div><p>枚举器：</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> enum</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ModelMeanType</span>(enum.Enum):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    继承一个枚举类基类的话</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    PREVIOUS_X = enum.auto()  <span class="comment">#在里面声明一些名词</span></span><br><span class="line">    START_X = enum.auto()  <span class="comment">#enum.auto() 自动推断用什么作为枚举元(string,int之类的)</span></span><br><span class="line">    EPSILON = enum.auto()  <span class="comment">#</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_pr</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self == ModelMeanType.PREVIOUS_X <span class="comment">#可以声明一些判别函数</span></span><br><span class="line">      </span><br><span class="line">target = &#123;</span><br><span class="line">   ModelMeanType.PREVIOUS_X: self.q_posterior_mean_variance(</span><br><span class="line">   x_start=x_start, x_t=x_t, t=t</span><br><span class="line">   )[<span class="number">0</span>],</span><br><span class="line">   ModelMeanType.START_X: x_start,</span><br><span class="line">   ModelMeanType.EPSILON: noise,</span><br><span class="line">&#125;[self.model_mean_type]</span><br><span class="line"><span class="comment">#后文可以直接用类似于一个Switch的方法，给不同的type声明不同的结果，然后按枚举器实际结果判别</span></span><br></pre></td></tr></table></figure></div><p>字典式参数parser：</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">create_argparser</span>():</span><br><span class="line">    defaults = <span class="built_in">dict</span>( <span class="comment">#主函数中声明字典</span></span><br><span class="line">        data_dir=<span class="string">&quot;&quot;</span>,</span><br><span class="line">        schedule_sampler=<span class="string">&quot;uniform&quot;</span>,</span><br><span class="line">        lr=<span class="number">1e-4</span>,</span><br><span class="line">    )</span><br><span class="line">    defaults.update(model_and_diffusion_defaults()) <span class="comment">#字典dict可以很方便的添加新元素</span></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    add_dict_to_argparser(parser, defaults)</span><br><span class="line">    <span class="keyword">return</span> parser</span><br><span class="line">  </span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">add_dict_to_argparser</span>(<span class="params">parser, default_dict</span>):</span><br><span class="line">  <span class="comment">#add函数中把字典里所有元素进行遍历，一个一个加入argparser中</span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> default_dict.items():</span><br><span class="line">        v_type = <span class="built_in">type</span>(v)</span><br><span class="line">        <span class="keyword">if</span> v <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            v_type = <span class="built_in">str</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">isinstance</span>(v, <span class="built_in">bool</span>):</span><br><span class="line">            v_type = str2bool</span><br><span class="line">        parser.add_argument(<span class="string">f&quot;--<span class="subst">&#123;k&#125;</span>&quot;</span>, default=v, <span class="built_in">type</span>=v_type)</span><br></pre></td></tr></table></figure></div><p>函数传参单*与双*，他们都可以匹配参数个数、名字不确定的情况。</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">*args</span>): <span class="comment">#单*相当于把后面的内容解析成tuple</span></span><br><span class="line">   <span class="comment">#函数内部看做一个一个传进来的参数</span></span><br><span class="line">    <span class="built_in">print</span>(args)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        </span><br><span class="line">func(*[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])<span class="comment">#如果在调用时传参前面加*，代表解一层递归，再传参</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;======&quot;</span>)</span><br><span class="line">func([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">======</span><br><span class="line">([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></div><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">**kwargs</span>): <span class="comment">#双星**代表把后面的看做一个dict</span></span><br><span class="line">    <span class="built_in">print</span>(kwargs)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line"></span><br><span class="line">func(**&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>:<span class="string">&#x27;888888&#x27;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;======&quot;</span>)</span><br><span class="line">func(name=<span class="string">&#x27;Spade_&#x27;</span>, number=<span class="string">&#x27;888888&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>: <span class="string">&#x27;888888&#x27;</span>&#125;</span><br><span class="line">name Spade_</span><br><span class="line">number <span class="number">888888</span></span><br><span class="line">======</span><br><span class="line">&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>: <span class="string">&#x27;888888&#x27;</span>&#125;</span><br><span class="line">name Spade_</span><br><span class="line">number <span class="number">888888</span></span><br></pre></td></tr></table></figure></div><p>如果函数声明中有个单独的*，就是一个分隔符，而不是参数，代表后面的参数在调用时都要以$x=100$这种形式写：</p><div class="highlight-wrap"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_keyvalue</span>(<span class="params">a,b,*,x,y=<span class="number">2</span>,z=<span class="number">3</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(a,b,x,y,z)... </span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):  File &quot;&quot;, line 1, in TypeError: test_keyvalue() takes 2 positional arguments but 5 were given</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>,y=<span class="number">4</span>,z=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 1 2 3 4 5</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 1 2 3 2 3</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>,z=<span class="number">8</span>,y=<span class="number">9</span>)</span><br><span class="line"><span class="comment"># 1 2 3 9 8</span></span><br><span class="line">test_keyvalue(x=<span class="number">3</span>,z=<span class="number">8</span>,y=<span class="number">9</span>,a=<span class="number">3</span>,b=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 3 5 3 9 8</span></span><br></pre></td></tr></table></figure></div>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今日阅读了IDDPM论文的官方开源代码，收获良多，主要学到以下几点新知识：&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+    <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="探索" scheme="https://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>7-18总结</title>
     <link href="https://www.yynnyy.cn/b1e2de2b"/>
     <id>https://www.yynnyy.cn/b1e2de2b</id>
     <published>2022-07-18T14:12:19.000Z</published>
-    <updated>2022-07-18T14:15:23.420Z</updated>
+    <updated>2022-07-18T14:15:33.068Z</updated>
     
     <content type="html"><![CDATA[<p>今天晚上出门了一趟，看了看夜景</p><ul><li>天色很黑。感觉北京的天空都被各种高楼的装饰灯打亮了，没有了晚上的感觉</li><li>路边有很多排挡，还有摆在外面的桌子，和小摊。记得小时候都是这样，后面北京都把小摊撤了，生活气息淡了。</li></ul>]]></content>
     
@@ -59,9 +84,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -106,9 +131,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -224,9 +249,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -249,9 +274,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -361,9 +386,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -446,9 +471,9 @@
     <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="diffusion model" scheme="https://www.yynnyy.cn/tags/diffusion-model/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
@@ -468,27 +493,6 @@
     
     <summary type="html">&lt;p&gt;今天和几个老朋友一起吃了个饭，聊了聊不同学校的最近都是什么情况，挺开心的。&lt;/p&gt;
 &lt;p&gt;另外，今天开了暑假的第一次论文分享，讲了关于repetition的论文，收获良多。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>7-4总结</title>
-    <link href="https://www.yynnyy.cn/eb14bd4d"/>
-    <id>https://www.yynnyy.cn/eb14bd4d</id>
-    <published>2022-07-04T15:38:14.000Z</published>
-    <updated>2022-07-10T16:13:00.112Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天晚上失眠了，呆到了4点多才睡着，感觉蝉鸣好刺耳。不知道是不是咖啡的原因，确实有几天没喝咖啡了……这波是抗药性衰退</p><span id="more"></span><p>今天读了一篇论文，然后又喝了几杯马黛茶。</p><p>今日观赛：</p><ul><li><p>TT打BLG：TT今天换了三个人，还包括春季赛在dk，夏季赛被Nuguri卷过来的Hoya，确实挺c。赢BLG不意外，关键是感觉crisp真的融入了……</p></li><li><p>OMG打EDG：只能说黑色对标大哥易主了。edg输了，经典卫冕冠军，厉害呀shanji哥</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;昨天晚上失眠了，呆到了4点多才睡着，感觉蝉鸣好刺耳。不知道是不是咖啡的原因，确实有几天没喝咖啡了……这波是抗药性衰退&lt;/p&gt;</summary>
     
     
     
