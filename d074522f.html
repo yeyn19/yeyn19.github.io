@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[精读]-Let’s Verify Step by Step">
+<meta property="og:url" content="https://www.yynnyy.cn/d074522f">
+<meta property="og:site_name" content="随缘随笔">
+<meta property="og:description" content="今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/result.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/authors.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/step.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/mathMix.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/ablation.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/verify/OOD.png">
+<meta property="article:published_time" content="2023-07-05T06:17:54.000Z">
+<meta property="article:modified_time" content="2023-09-23T00:52:29.357Z">
+<meta property="article:author" content="叶奕宁">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="Reasoning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/verify/result.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/d074522f.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[精读]-Let’s Verify Step by Step | 随缘随笔</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-top">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>热门文章</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记</a>
+
+  </li>
+        <li class="menu-item menu-item-message">
+
+    <a href="/%E7%95%99%E8%A8%80/" rel="section"><i class="fa fa-comment fa-fw"></i>向我留言</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/d074522f">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁">
+      <meta itemprop="description" content="高效率工作，低效率生活">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[精读]-Let’s Verify Step by Step
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-05 14:17:54" itemprop="dateCreated datePublished" datetime="2023-07-05T14:17:54+08:00">2023-07-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/d074522f" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-Let’s Verify Step by Step" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/d074522f#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/d074522f" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4</p>
+<p><img src="../files/images/verify/result.png" style="zoom:33%;"></p>
+<span id="more"></span>
+<p>作者团队来自openAI。其实openAI今年也没发几篇论文，我基本上都看了。今天正好分享一下这篇吧，以后有机会把别的也讲讲。</p>
+<p><img src="../files/images/verify/authors.png"></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这篇论文里讲到了相对的两个概念：过程监督和结果监督。</p>
+<p>对于一个经典的对齐场景(和人对齐)来说。正常的RLHF其实是需要人类先标注样本组谁比谁更好，由此训练一个reward model，这个打分的对象是针对样本而言，换句话说就是只有生成完全结束以后，才能打出一个分数。作者认为这种打分就是结果打分。</p>
+<p>相对的，是不是还可以进行过程监督呢？比如给每句话都打一个分数，是不是就比结果判断要更准确呢？</p>
+<p>听起来挺合理，但是对齐场景这个不太好实现，毕竟我们也不知道到哪里可以算是一个”step”</p>
+<p>作者另辟蹊径，找了一个好判断的场景：数学题。作者把解决一个问题需要多步推导的每一个步骤视为一个step，由此进行了一波人工标注。</p>
+<p><img src="../files/images/verify/step.png"></p>
+<p>总体而言，</p>
+<ul>
+<li>由过程监督的数据训练出来的打分模型和由结果监督的数据训练出来的打分模型，在learning-from-best-of-N实验中差异巨大，过程监督效果更好</li>
+<li>持续的打分、对抗、打分过程可以加速收敛</li>
+<li>作者开源了带有过程标注打分的数据集</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="说明与预处理"><a href="#说明与预处理" class="headerlink" title="说明与预处理"></a>说明与预处理</h3><p>作者把两种模型分别称为ORM(outcome)、PRM(process)。</p>
+<p>所有的训练使用不同大小的原始GPT4模型进行(而不是RLHF版本的GPT4)。</p>
+<blockquote>
+<p>large model就是完全体GPT4。而小号模型是一个用了1/200训练资源的小号GPT4</p>
+</blockquote>
+<p>作者把生成数学题答案的模型称为generator。所有的generator是不优化自己参数的，因为本论文聚焦于对比过程打分和结果打分。</p>
+<blockquote>
+<p>其实有了这个模型，是可以由此进行一个多步的RL训练的。参考之前的trlx库的实现</p>
+</blockquote>
+<p>在所有的实验开始之前，作者先对所有模型在一个叫做mathMix的充满数学题和解答的数据集(1.5B)进行了一波finetune</p>
+<p><img src="../files/images/verify/mathMix.png"></p>
+<p>👆🏻数据组成是这样的。不幸的是这个数据集没开源，只能参考一下。</p>
+<p>接下来，作者从Math数据集选了个测试集，和上面的finetune数据集去重了一下，保证没有交集。</p>
+<p>对于generator，作者为了保证模型生成的答案是一行一行的。作者找了Math数据集的训练集，让里面的解答都是一行一行的形式，在上面微调了一下。这样generator的输出就永远是一行一行的了。</p>
+<p>最终正式开始实验</p>
+<h3 id="PRM800K数据集"><a href="#PRM800K数据集" class="headerlink" title="PRM800K数据集"></a>PRM800K数据集</h3><p>这一个环节，作者要制作训练数据集。假设已经有了一个generator。</p>
+<p>首先让generator对问题生成一些多步的解答，然后作者要人工标注员来标注中间打分。对于每一个中间过程分为三类：</p>
+<ul>
+<li>positive：对的过程，对解答有帮助</li>
+<li>negative：错的过程</li>
+<li>Neutral：对的过程，但是对解答没啥帮助</li>
+</ul>
+<p>作者提到了一个提高训练效率的trick：convincing wrong-answer 。</p>
+<blockquote>
+<p>convincing wrong-answer ：PRM模型打分很高，但最终把答案做错的case。</p>
+</blockquote>
+<p>作者优先喂给human这个case来打分，相当于把数据集生活过程和PRM model耦合了，这会带来bias，但不知道严不严重。</p>
+<p>因此总体的过程是一个多步的：generator生成一波、标一波、训个PRM、找出convincing wrong-answer再标、再重训PRM、再找…看作者的仓库，这个过程整个持续了10轮。</p>
+<blockquote>
+<p>折磨标注员……</p>
+</blockquote>
+<h3 id="PRM-and-ORM"><a href="#PRM-and-ORM" class="headerlink" title="PRM and ORM"></a>PRM and ORM</h3><p>接下来作者讲解PRM和ORM都是怎么训练的</p>
+<ul>
+<li>ORM和RLHF的reward model训法很像：</li>
+</ul>
+<p>首先对于基础模型，最后的hidden_state后加一个linear(n,2) + softmax映射到2分类概率，然后对于语句的所有位置都有个概率，作者希望所有位置都要优化都有loss，和最终解答本身的类型一致。在测试时，作者选择EOS token位置的分类概率作为最终的得分。</p>
+<blockquote>
+<p>作者提到了假阳问题：过程错了，但有的时候结果不会错，负负得正了。这个bias是ORM方法本身没法解决的</p>
+</blockquote>
+<ul>
+<li>PRM训练方式有所不同：作者只关注第一次出现错误的step位置，后面的step只能都丢掉，因为第一次错误以后后面的步骤就没法判断了。因此数据全是一些step，前面全是positive、netrual，最后一个negative</li>
+</ul>
+<p>同样的模型结构，但是每行文本作者只计算最后一个token的分类概率算loss。</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="大模型实验"><a href="#大模型实验" class="headerlink" title="大模型实验"></a>大模型实验</h3><p>作者先做了一个大模型的实验，即两个完全体GPT4分别作为generator和监督模型，所有的方法都是对抗攻击的形式。有以下几个变体</p>
+<ul>
+<li>ORM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li>
+<li>PRM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li>
+</ul>
+<blockquote>
+<p>PRM怎么给一道题的得分呢？作者说到对于每个step，都能做三分类。如果negative概率&gt;20%就算这个step错，否则就算对。第一次输出”错”时结束。因此评价两个解答可以用 “对”标签的总数量</p>
+</blockquote>
+<ul>
+<li>majority voting：生成多个解答，选择数量最多的相同答案作为答案</li>
+</ul>
+<p>测试时作者只检查答案是否正确，由此就跑出来了首页的图：</p>
+<ul>
+<li>PRM &gt; ORM $\approx$ major</li>
+<li>PRM和ORM的差距随着采样次数的增多被进一步拉大</li>
+</ul>
+<blockquote>
+<p>一道题用GPT4采样1860次，只能说：this is openAI</p>
+</blockquote>
+<p>以上实验都是展现OpenAI雄厚财力和资本，后面是openAI研究员敏锐思路的展现。</p>
+<h3 id="小规模对比实验"><a href="#小规模对比实验" class="headerlink" title="小规模对比实验"></a>小规模对比实验</h3><p>作者谈到，上面的实验对ORM并不公平，因为：</p>
+<ul>
+<li>构造训练数据时是针对PRM做了对抗的制作，因此数据集肯定对训练PRM有利，并且没做出正确答案的题目的数量更多，对ORM来说标签不平衡</li>
+<li>训练ORM时判断标签用的是自动化检查，检测答案对不对，因此有假阳。对ORM训练不利</li>
+</ul>
+<p>怎么做出公平的实验呢？作者说：用大模型监督小模型。作者把上一节训出来的完全体GPT4-PRM称为PRM-large,由此做消融实验</p>
+<h4 id="PRM-vs-ORM"><a href="#PRM-vs-ORM" class="headerlink" title="PRM vs ORM"></a>PRM vs ORM</h4><p>作者现在用小模型做generator，生成一堆答案，用PRM-large给出三种标签：</p>
+<ul>
+<li>PRM-large给出的过程标签：和大模型实验方法相同</li>
+<li>PRM-large给出的结果标签</li>
+</ul>
+<blockquote>
+<p>PRM-large怎么给结果标签？作者说方法是：当且仅当所有step都打出”对”标签</p>
+</blockquote>
+<ul>
+<li>自动化answer检查给出的结果标签</li>
+</ul>
+<p>拿到这些标签，就当是人标的，训练一个小号的PRM-small、ORM-small，然后用小号的generator-small做best-of-n实验对抗rm-small</p>
+<p><img src="../files/images/verify/ablation.png"></p>
+<p>由此，作者跑出来两个图：</p>
+<ul>
+<li>左边的图横轴是训练PRM-large用的一道题用generator采样的样本数，纵坐标是正确率。</li>
+</ul>
+<blockquote>
+<p>采样的样本数越多，越容易作为对比看出来一道题的答案的泛化性，另一方面也要消耗更多的标注资源</p>
+</blockquote>
+<ul>
+<li>右边的图横轴是“一道题sample多少个样本”(测试资源消耗)，纵坐标是正确率。</li>
+</ul>
+<p>可以看出来，大模型试验得到的性质在严谨的消融实验中仍然保留</p>
+<blockquote>
+<p>不过这里也可以看到，用小generator以后，这效果直接腰斩了。比如N=10时，大号是68%，小号是22%，可以说是天壤之别。插一句：难道这也是emergent ability?</p>
+</blockquote>
+<h4 id="Active-Learning"><a href="#Active-Learning" class="headerlink" title="Active Learning"></a>Active Learning</h4><p>这一部分作者去消融上面提到的选数据的问题。首先训一个小PRM，每道题一条数据。然后给generator生成的每道题1000条数据打分，选出来一些数据：</p>
+<ul>
+<li>80%是convincing wrong-answer</li>
+<li>20%是剩下的最convincing的答案</li>
+</ul>
+<p>挑出来这些数据的子集，再训练新的RM-small，由此做出来的上面的图左(横轴是挑选的训练数据规模)</p>
+<ul>
+<li><p>这个场景叫做active learning: 因为所有数据都是小reward model认为 convincing的，并且80%都是错的。和真正标注PRM800K时的比例一致。</p>
+</li>
+<li><p>没有用这个挑选trick，而是随机挑选同样大小的数据集，就是阴性对照。</p>
+</li>
+</ul>
+<p>对比图做的两条线，作者说：active learning方法有2.6倍的数据效率，即仅用1/2.6的训练数据就能得到传统收集方法的效果</p>
+<h2 id="OOD"><a href="#OOD" class="headerlink" title="OOD"></a>OOD</h2><p>数据外分布测试：作者尝试了Math以外的数据集(和PRM、ORM的训练数据不一致)</p>
+<p><img src="../files/images/verify/OOD.png"></p>
+<p>可以发现数据规律和前面的实验一致</p>
+<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>这一部分作者谈了一些思考</p>
+<blockquote>
+<p>Credit Assignment：这个概念是强化学习、多智能体博弈里的。是说如果一个智能体发现别的智能体都干得很好，自己做了就是多做多错，那最后干脆就学着不干活了。</p>
+</blockquote>
+<p>一方面，PRM能减少Credit Assignment问题，因为即使做错了题目，最起码前面一些step是对的，换句话说，能区分出来错是错在哪。</p>
+<p>相比之下，ORM只能看到对或者错，如果数据里错的&gt;对的，那最后就学着不干活了。换句话说，这种情况下，ORM的错误标签基本没有有效、的可以学习的信息</p>
+<p>另一方面，RPM能指导对齐领域的发展。嗯，我感觉still a long way to go……</p>
+<p>最后，作者还谈到测试集、预训练集重合的问题。作者说没法完全保证不重合，只能说做了去重。嗯，好像也没啥别的办法了</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li>很好的工作，方法好、思路好、结果好，我们都相信过程监督&gt;结果监督，但他们第一个标完数据做了一篇工作出来。而且，discussion部分谈到的”惰性”、”有效信息”的观点我很喜欢，感觉科研思路又被拓展了一个方向</li>
+<li>类比人学习的方法论：我们有接受到过程监督吗？其实玩LOL，老输老赢就是结果监督。如果你下去自己复盘、或者找同学复盘，就是过程监督，看起来我们早就在这样做了</li>
+</ul>
+<blockquote>
+<p>但是人可以自我复盘，模型可以吗？reflexion方式？</p>
+</blockquote>
+<ul>
+<li>GPT4真强啊，Math数据集都打到快80%……我自己能做出来50%吗……</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8622e2d1.html" rel="bookmark">论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a3a406b2.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6a73db61.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(上)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/de3f5273.html" rel="bookmark">从Flowformer探讨Attention的线性复杂度</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/Reasoning/" rel="tag"><i class="fa fa-tag"></i> Reasoning</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/abce9d24" rel="prev" title="论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation">
+      <i class="fa fa-chevron-left"></i> 论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/1c5cf63c" rel="next" title="论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models">
+      论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E%E4%B8%8E%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">2.1.</span> <span class="nav-text">说明与预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PRM800K%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.2.</span> <span class="nav-text">PRM800K数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PRM-and-ORM"><span class="nav-number">2.3.</span> <span class="nav-text">PRM and ORM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%A7%E6%A8%A1%E5%9E%8B%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.1.</span> <span class="nav-text">大模型实验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E8%A7%84%E6%A8%A1%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.2.</span> <span class="nav-text">小规模对比实验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#PRM-vs-ORM"><span class="nav-number">3.2.1.</span> <span class="nav-text">PRM vs ORM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Active-Learning"><span class="nav-number">3.2.2.</span> <span class="nav-text">Active Learning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OOD"><span class="nav-number">4.</span> <span class="nav-text">OOD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Discussion"><span class="nav-number">5.</span> <span class="nav-text">Discussion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">115</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/6a73db61" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(上)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(上)</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/de3f5273" title="从Flowformer探讨Attention的线性复杂度" target="_blank">从Flowformer探讨Attention的线性复杂度</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/6dd69a39" title="论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning" target="_blank">论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/1c5cf63c" title="论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models" target="_blank">论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/d074522f" title="论文阅读[精读]-Let’s Verify Step by Step" target="_blank">论文阅读[精读]-Let’s Verify Step by Step</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/abce9d24" title="论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation" target="_blank">论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/feddc200" title="论文阅读[精读]-RRHF: Rank Responses to Align Language Models with Human Feedback without tears" target="_blank">论文阅读[精读]-RRHF: Rank Responses to Align Language Models with Human Feedback without tears</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+<font color="#FFFFFF">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">178k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:42</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
