@@ -3,22 +3,29 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle: ''
-description: 'this is descryption'
+title: 随缘随笔
+subtitle: 
+description: '高效率工作，低效率生活'
 keywords:
-author: Yeyn 19
+author: 叶奕宁
 language: zh-CN
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
-permalink: :year/:month/:day/:title/
+#url: http://example.com
+#url: https://yeyn19.github.io
+url: https://www.yynnyy.cn
+#permalink: :year/:month/:day/:title/
+#permalink: :title.html
+permalink: :abbrlink.html
+abbrlink:
+  alg: crc32  # 算法：crc16(default) and crc32
+  rep: hex    # 进制：dec(default) and hex
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
-  trailing_html: true # Set to false to remove trailing '.html' from permalinks
+  trailing_html: false # Set to false to remove trailing '.html' from permalinks
 
 # Directory
 source_dir: source
@@ -29,6 +36,9 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+
+nofollow:
+    enable: true
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -43,15 +53,15 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-# highlight:
-#   enable: true
-#   line_number: true
-#   auto_detect: false
-#   tab_replace: ''
-#   wrap: true
-#   hljs: false
 highlight:
-  enable: false
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+# highlight:
+#   enable: false
 prism_plugin:
   mode: 'preprocess' # realtime/preprocess
   theme: 'tomorrow'
@@ -66,20 +76,22 @@ search:
   limit: 10000
 
 symbols_count_time:
-	symbols: true
-	time: true
-	total_symbols: true
-	total_time: true
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: false
 
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
-hub:
-  content:
-    content_limit: 140
-    content_limit_delim: ' '
-    order_by: -date
+
+# feed:
+#   type: atom
+#   path: atom.xml
+#   limit: 20
+# hub:
+#   content:
+#     content_limit: 140
+#     content_limit_delim: ' '
+#     order_by: -date
 
 prismjs:
   enable: false
@@ -106,6 +118,19 @@ tag_map: /tags
 #   categories: /categories
 #   tags: /tags
 
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
+
+baidu_url_submit:
+  count: 50 ## 提交最新的5个链接
+  host: https://www.yynnyy.cn ## 在百度站长平台中注册的域名
+  token: SZ2OHOHsvi2tZ2dv ## 请注意这是您的秘钥， 请不要发布在公众仓库里!
+  path: baidu_urls.txt ## 文本文档的地址， 新链接会保存在此文本文档里
+  # xz_appid: 'xxxxxx' ## 你的熊掌号 appid
+  # xz_token: 'xxxxxx' ## 你的熊掌号 token
+  # xz_count: 10 ## 从所有的提交的数据当中选取最新的10条,该数量跟你的熊掌号而定
 
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
@@ -140,7 +165,10 @@ theme:  next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
-  repo: https://github.com/yeyn19/my_blogs
+  - type: 'git'
+    repo: git@github.com:yeyn19/yeyn19.github.io.git
   # example, https://github.com/hexojs/hexojs.github.io
-  branch: master
+    branch: master
+  - type: baidu_url_submitter
+
+
