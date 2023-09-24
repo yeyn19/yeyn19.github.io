@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN,en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -28,7 +28,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE">
 <meta property="og:url" content="https://www.yynnyy.cn/39e1c917">
-<meta property="og:site_name" content="随缘随笔">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
 <meta property="og:description" content="MLSys的论文，讲了如何在auto-tuners中更好的利用硬件的信息">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/compare_with_lib.png">
@@ -39,9 +39,9 @@
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/eva.png">
 <meta property="article:published_time" content="2022-07-04T06:09:03.000Z">
 <meta property="article:modified_time" content="2023-09-23T00:52:29.356Z">
-<meta property="article:author" content="叶奕宁">
-<meta property="article:tag" content="计算机">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="计算机">
 <meta property="article:tag" content="深度学习编译">
 <meta property="article:tag" content="TVM">
 <meta name="twitter:card" content="summary">
@@ -60,7 +60,7 @@
   };
 </script>
 
-  <title>论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE | 随缘随笔</title>
+  <title>论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -109,7 +109,7 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -130,7 +130,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">随缘随笔</h1>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -149,31 +149,31 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
 
   </li>
         <li class="menu-item menu-item-about">
 
-    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
 
   </li>
-        <li class="menu-item menu-item-top">
+        <li class="menu-item menu-item-top-viewed">
 
-    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>热门文章</a>
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
 
   </li>
-        <li class="menu-item menu-item-message">
+        <li class="menu-item menu-item-switchlanguage">
 
-    <a href="/%E7%95%99%E8%A8%80/" rel="section"><i class="fa fa-comment fa-fw"></i>向我留言</a>
+    <a href="/en" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
 
   </li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
         </a>
       </li>
   </ul>
@@ -230,12 +230,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
-      <meta itemprop="name" content="叶奕宁">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
       <meta itemprop="description" content="高效率工作，低效率生活">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随缘随笔">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -455,10 +455,10 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
       <div class="popular-posts-title"><a href="/99874d79.html" rel="bookmark">论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b0f88437.html" rel="bookmark">论文阅读[粗读]-THE CORA TENSOR COMPILER: COMPILATION FOR RAGGED TENSORS WITH MINIMAL PADDING</a></div>
+      <div class="popular-posts-title"><a href="/f3519427.html" rel="bookmark">论文阅读[精读]-The Deep Learning Compiler: A Comprehensive Survey</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f3519427.html" rel="bookmark">论文阅读[精读]-The Deep Learning Compiler: A Comprehensive Survey</a></div>
+      <div class="popular-posts-title"><a href="/b0f88437.html" rel="bookmark">论文阅读[粗读]-THE CORA TENSOR COMPILER: COMPILATION FOR RAGGED TENSORS WITH MINIMAL PADDING</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a3a406b2.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a></div>
@@ -469,8 +469,8 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
               <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
               <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/" rel="tag"><i class="fa fa-tag"></i> 深度学习编译</a>
               <a href="/tags/TVM/" rel="tag"><i class="fa fa-tag"></i> TVM</a>
           </div>
@@ -557,8 +557,8 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="叶奕宁" src="/images/ava.JPG">
-  <p class="site-author-name" itemprop="name">叶奕宁</p>
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
   <div class="site-description" itemprop="description">高效率工作，低效率生活</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -589,6 +589,12 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
       <span class="links-of-author-item">
         <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
       </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
   </div>
 
 
@@ -597,7 +603,7 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
     <div class="links-of-blogroll-title">
       <!-- modify icon to fire by szw -->
       <i class="fa fa-history fa-" aria-hidden="true"></i>
-      近期文章
+      近期文章(Recent Update)
     </div>
     <ul class="links-of-blogroll-list">
       
@@ -661,6 +667,24 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
     <footer class="footer">
       <div class="footer-inner">
         
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/39e1c917" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/39e1c917" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
 
         
 <font color="#FFFFFF">
@@ -672,7 +696,7 @@ D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如�
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">叶奕宁</span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
@@ -985,7 +1009,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
       meta       : guest,
       pageSize   : '10' || 10,
       visitor    : true,
-      lang       : 'zh-cn' || 'zh-cn',
+      lang       : 'en,zh-cn' || 'zh-cn',
       path       : location.pathname,
       recordIP   : false,
       serverURLs : ''
