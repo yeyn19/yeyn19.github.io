@@ -46,24 +46,6 @@
     lang   : 'en'
   };
 </script>
-<script type="text/javascript">
-    // Wait for the page to load first
-    var _prevOnload = window.onload;
-    window.onload = function() {
-        var switchLang = document.getElementById("menu").getElementsByClassName("menu-item-switchlanguage")[0].childNodes[1];
-            var href = window.location.href;
-            var indexOfEn = href.toLowerCase().indexOf('/en/');
-            if(indexOfEn !== -1) {
-
-                // switchLang.href = href.replace('/en/', '/');
-                switchLang.href = href.replace("/en/", "/tags/English");
-            }
-            else {
-                // switchLang.href = href.replace(/(^http[s]?:\/\/[a-z0-9.]*[:?0-9]*\/)(.*)/i, '$1en/$2');
-                switchLang.href = href.replace("/en/", "/tags/English");
-            }
-    }
-</script>
 
   <title>Archive | 随缘随笔 <br> Insights Flow</title>
   
@@ -174,7 +156,7 @@
   </li>
         <li class="menu-item menu-item-switchlanguage">
 
-    <a href="/en" rel="section"><i class="fa fa-language fa-fw"></i>简体中文</a>
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>简体中文</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -369,7 +351,7 @@
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -405,10 +387,6 @@
         </li>
       
         <li class="recent_posts_li">
-          <a href="/0" title target="_blank"></a>
-        </li>
-      
-        <li class="recent_posts_li">
           <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
@@ -438,6 +416,10 @@
       
         <li class="recent_posts_li">
           <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
         </li>
       
     </ul>
