@@ -40,8 +40,8 @@
 <meta property="article:published_time" content="2023-07-23T02:27:52.000Z">
 <meta property="article:modified_time" content="2023-09-23T00:52:29.352Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="预训练模型">
 <meta property="article:tag" content="多模态">
 <meta name="twitter:card" content="summary">
@@ -58,6 +58,24 @@
     isPost : true,
     lang   : 'en'
   };
+</script>
+<script type="text/javascript">
+    // Wait for the page to load first
+    var _prevOnload = window.onload;
+    window.onload = function() {
+        var switchLang = document.getElementById("menu").getElementsByClassName("menu-item-switchlanguage")[0].childNodes[1];
+            var href = window.location.href;
+            var indexOfEn = href.toLowerCase().indexOf('/en/');
+            if(indexOfEn !== -1) {
+
+                // switchLang.href = href.replace('/en/', '/');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+            else {
+                // switchLang.href = href.replace(/(^http[s]?:\/\/[a-z0-9.]*[:?0-9]*\/)(.*)/i, '$1en/$2');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+    }
 </script>
 
   <title>论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning | 随缘随笔 <br> Insights Flow</title>
@@ -391,7 +409,7 @@ F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对
       <div class="popular-posts-title"><a href="/cf5a0a9e.html" rel="bookmark">论文阅读[精读]-Language Is Not All You Need: Aligning Perception with Language Models</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a3a406b2.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a></div>
@@ -402,8 +420,8 @@ F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 预训练模型</a>
               <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag"><i class="fa fa-tag"></i> 多模态</a>
           </div>
@@ -546,6 +564,10 @@ F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对
         </li>
       
         <li class="recent_posts_li">
+          <a href="/0" title target="_blank"></a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
@@ -575,10 +597,6 @@ F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对
       
         <li class="recent_posts_li">
           <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
         </li>
       
     </ul>
@@ -634,12 +652,12 @@ F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">182k</span>
+    <span title="Symbols count total">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:46</span>
+    <span title="Reading time total">2:47</span>
 </div>
 
 <i class="fa fa-user-md"></i>

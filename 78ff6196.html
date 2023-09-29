@@ -45,8 +45,8 @@
 <meta property="article:published_time" content="2023-03-14T01:44:17.000Z">
 <meta property="article:modified_time" content="2023-09-25T11:57:12.890Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="tool-learning">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.yynnyy.cn/files/images/toolformer/intro.png">
@@ -62,6 +62,24 @@
     isPost : true,
     lang   : 'zh-CN'
   };
+</script>
+<script type="text/javascript">
+    // Wait for the page to load first
+    var _prevOnload = window.onload;
+    window.onload = function() {
+        var switchLang = document.getElementById("menu").getElementsByClassName("menu-item-switchlanguage")[0].childNodes[1];
+            var href = window.location.href;
+            var indexOfEn = href.toLowerCase().indexOf('/en/');
+            if(indexOfEn !== -1) {
+
+                // switchLang.href = href.replace('/en/', '/');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+            else {
+                // switchLang.href = href.replace(/(^http[s]?:\/\/[a-z0-9.]*[:?0-9]*\/)(.*)/i, '$1en/$2');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+    }
 </script>
 
   <title>论文阅读[粗读]-Toolformer: Language Models Can Teach Themselves to Use Tools | 随缘随笔 <br> Insights Flow</title>
@@ -414,7 +432,7 @@ L_i^- - L_i^+ \geq \tau_f</script><p>就认为是有效的工具调用，保留�
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/660d5dc5.html" rel="bookmark">论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS</a></div>
@@ -434,8 +452,8 @@ L_i^- - L_i^+ \geq \tau_f</script><p>就认为是有效的工具调用，保留�
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/tool-learning/" rel="tag"><i class="fa fa-tag"></i> tool-learning</a>
           </div>
 
@@ -577,6 +595,10 @@ L_i^- - L_i^+ \geq \tau_f</script><p>就认为是有效的工具调用，保留�
         </li>
       
         <li class="recent_posts_li">
+          <a href="/0" title target="_blank"></a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
@@ -606,10 +628,6 @@ L_i^- - L_i^+ \geq \tau_f</script><p>就认为是有效的工具调用，保留�
       
         <li class="recent_posts_li">
           <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
         </li>
       
     </ul>
@@ -665,12 +683,12 @@ L_i^- - L_i^+ \geq \tau_f</script><p>就认为是有效的工具调用，保留�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">182k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:46</span>
+    <span title="站点阅读时长">2:47</span>
 </div>
 
 <i class="fa fa-user-md"></i>

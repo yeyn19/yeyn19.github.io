@@ -46,6 +46,24 @@
     lang   : 'zh-CN'
   };
 </script>
+<script type="text/javascript">
+    // Wait for the page to load first
+    var _prevOnload = window.onload;
+    window.onload = function() {
+        var switchLang = document.getElementById("menu").getElementsByClassName("menu-item-switchlanguage")[0].childNodes[1];
+            var href = window.location.href;
+            var indexOfEn = href.toLowerCase().indexOf('/en/');
+            if(indexOfEn !== -1) {
+
+                // switchLang.href = href.replace('/en/', '/');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+            else {
+                // switchLang.href = href.replace(/(^http[s]?:\/\/[a-z0-9.]*[:?0-9]*\/)(.*)/i, '$1en/$2');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+    }
+</script>
 
   <title>标签: transformer结构探索 | 随缘随笔 <br> Insights Flow</title>
   
@@ -402,6 +420,10 @@
         </li>
       
         <li class="recent_posts_li">
+          <a href="/0" title target="_blank"></a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
@@ -431,10 +453,6 @@
       
         <li class="recent_posts_li">
           <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
         </li>
       
     </ul>
@@ -490,12 +508,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">182k</span>
+    <span title="站点总字数">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:46</span>
+    <span title="站点阅读时长">2:47</span>
 </div>
 
 <i class="fa fa-user-md"></i>

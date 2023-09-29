@@ -41,8 +41,8 @@
 <meta property="article:modified_time" content="2023-09-23T00:52:29.357Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="diffusion model">
-<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="文本生成">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.yynnyy.cn/files/images/SSD_LM/authors.png">
@@ -58,6 +58,24 @@
     isPost : true,
     lang   : 'en'
   };
+</script>
+<script type="text/javascript">
+    // Wait for the page to load first
+    var _prevOnload = window.onload;
+    window.onload = function() {
+        var switchLang = document.getElementById("menu").getElementsByClassName("menu-item-switchlanguage")[0].childNodes[1];
+            var href = window.location.href;
+            var indexOfEn = href.toLowerCase().indexOf('/en/');
+            if(indexOfEn !== -1) {
+
+                // switchLang.href = href.replace('/en/', '/');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+            else {
+                // switchLang.href = href.replace(/(^http[s]?:\/\/[a-z0-9.]*[:?0-9]*\/)(.*)/i, '$1en/$2');
+                switchLang.href = href.replace("/en/", "/tags/English");
+            }
+    }
 </script>
 
   <title>论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control | 随缘随笔 <br> Insights Flow</title>
@@ -411,7 +429,7 @@
   <div class="popular-posts-header">Related Posts</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
@@ -432,8 +450,8 @@
           
           <div class="post-tags">
               <a href="/tags/diffusion-model/" rel="tag"><i class="fa fa-tag"></i> diffusion model</a>
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
               <a href="/tags/%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/" rel="tag"><i class="fa fa-tag"></i> 文本生成</a>
           </div>
 
@@ -575,6 +593,10 @@
         </li>
       
         <li class="recent_posts_li">
+          <a href="/0" title target="_blank"></a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
@@ -604,10 +626,6 @@
       
         <li class="recent_posts_li">
           <a href="/3efac350" title="本科毕业感想" target="_blank">本科毕业感想</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f68f4e16" title="论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture" target="_blank">论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</a>
         </li>
       
     </ul>
@@ -663,12 +681,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="Symbols count total">182k</span>
+    <span title="Symbols count total">183k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:46</span>
+    <span title="Reading time total">2:47</span>
 </div>
 
 <i class="fa fa-user-md"></i>
