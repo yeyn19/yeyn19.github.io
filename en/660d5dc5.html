@@ -39,12 +39,13 @@
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/ToolLLM/DFSDT.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/ToolLLM/ans_anno_performance.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/ToolLLM/tooleval.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/ToolLLM/retrieve.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/ToolLLM/result.png">
 <meta property="article:published_time" content="2023-09-25T11:54:33.000Z">
-<meta property="article:modified_time" content="2023-09-29T01:53:44.284Z">
+<meta property="article:modified_time" content="2023-09-29T02:01:54.140Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="计算机">
 <meta property="article:tag" content="tool-learning">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://www.yynnyy.cn/files/images/ToolLLM/performance.png">
@@ -258,7 +259,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-09-29 09:53:44" itemprop="dateModified" datetime="2023-09-29T09:53:44+08:00">2023-09-29</time>
+                <time title="Modified: 2023-09-29 10:01:54" itemprop="dateModified" datetime="2023-09-29T10:01:54+08:00">2023-09-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -297,7 +298,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>4.4k</span>
+              <span>4.6k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -395,9 +396,13 @@
 <p>因为这几个问题其实都是动态的，对于每个query的情况各不相同。我们的主要评判方法是模型评测，由此诞生了ToolEval</p>
 <p><img src="../files/images/ToolLLM/tooleval.png" style="zoom:50%;"></p>
 <p>我们是由人标注了一波数据，然后在上面评判拟合的prompt，用一个和人工具有最高一致性的方案。最终得到了一个相对比较稳定鲁棒的评测方法</p>
-<h3 id="tool-retrieve-system"><a href="#tool-retrieve-system" class="headerlink" title="tool-retrieve system"></a>tool-retrieve system</h3><p>其实还有个重要的问题是，RapidAPI有16000个API，模型不可能在context里全部看到，我们必须帮模型去化简难度。由此我们就加了一个retrieve的模型。把所有的工具描述的ada embedding都搞出来，然后用BERT去拟合。实际测试时就直接用embedding来相似度匹配，准确率还是很高的</p>
+<h3 id="tool-retrieve-system"><a href="#tool-retrieve-system" class="headerlink" title="tool-retrieve system"></a>tool-retrieve system</h3><p>其实还有个重要的问题是，RapidAPI有16000个API，模型不可能在context里全部看到，我们必须帮模型去化简难度。由此我们就加了一个retrieve的模型，分别把query和API-doc编码成为向量。训练时由query自带的一些relative API作为正例，随机采样一些其他API作为负例来做对比学习，和Sentence-BERT一致。实际测试时就直接用embedding来相似度匹配，准确率还是很高的</p>
+<p>作为Baseline方法，我们也对比了ada-embedding直接把所有的工具描述的ada embedding都搞出来算相似度、以及BM25经典方案。</p>
+<p><img src="../files/images/ToolLLM/retrieve.png"></p>
+<p>其实ada embedding直接做效果也挺好，但还是比不过我们寻模型的方法。</p>
 <h3 id="model-training"><a href="#model-training" class="headerlink" title="model training"></a>model training</h3><p>最后，就是我们拿我们的生成出来的大约20万的query-answer对去训练Llama，使其掌握RapidAPI的能力。</p>
 <p><img src="../files/images/ToolLLM/result.png"></p>
+<p>另外，我们在训练时发现，其实效果达到最大值附近，需要用到的数据并不多。也许工具学习任务和RLHF任务类似，反而需要小而精的数据保证。</p>
 <h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这篇论文可以说是之前一个开源项目的二期成果，之前我们做了一个BMTools工具包，手动实现了一些工具比如Google-Search等。后来我们发现，线性地去实现工具其实是很低效、很工程的事情。最好是可以把语言模型直接去对接到工业界、学术界已有的工具平台，最终找到了RapidAPI这个平台。</p>
 <p>大模型使用工具是一个很大的话题，找到通用性的工具调用方法更是很难的课题。思考人学习工具的方法论，很多老师傅”言传身教”的所谓经验都是很难用语言去表示的。目前的预言模型主要是基于语言去训练，对于这种更加抽象的能力是否掌握仍是未知数。</p>
 <p>我们在探索中也发现，对话场景下表现相似的ChatGPT、Claude、Llama2，到了工具场景，能力却变得天差地别。这种区别，一方面说明了工具能力也许是比语言能力更困难的能力，另一方面也许揭示出来：ChatGPT，尤其是ChatGPT-function，可能已经在这个领域从预训练模型的角度做出了一定的探索。</p>
@@ -431,8 +436,8 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
               <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
               <a href="/tags/tool-learning/" rel="tag"><i class="fa fa-tag"></i> tool-learning</a>
           </div>
 
