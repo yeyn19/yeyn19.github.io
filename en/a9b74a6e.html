@@ -24,21 +24,22 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天Arxiv足足有110篇论文，扫描一遍确实要很长时间 Tool-Augmented Reward Modeling作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具) 感觉是一个有意思的问题，是工具学习的另一个新颖地场景  Represen">
+  <meta name="description" content="今天Arxiv足足有110篇论文，扫描一遍确实要很长时间 Language Models Represent Space and Time作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法 LeCun说的”世界模型”就在Llama2里？  Tool-Augmented Reward Modeling作者探索了如何通过工具调用增强RLHF中的reward">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/en/a9b74a6e">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天Arxiv足足有110篇论文，扫描一遍确实要很长时间 Tool-Augmented Reward Modeling作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具) 感觉是一个有意思的问题，是工具学习的另一个新颖地场景  Represen">
+<meta property="og:description" content="今天Arxiv足足有110篇论文，扫描一遍确实要很长时间 Language Models Represent Space and Time作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法 LeCun说的”世界模型”就在Llama2里？  Tool-Augmented Reward Modeling作者探索了如何通过工具调用增强RLHF中的reward">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-03/space-and-time.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-03/Tool-RM.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-03/representing-engineering.png">
 <meta property="article:published_time" content="2023-10-04T00:49:22.000Z">
-<meta property="article:modified_time" content="2023-10-05T03:51:37.791Z">
+<meta property="article:modified_time" content="2023-10-05T05:42:21.806Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-03/Tool-RM.png">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-03/space-and-time.png">
 
 <link rel="canonical" href="https://www.yynnyy.cn/en/a9b74a6e.html">
 
@@ -254,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2023-10-05 11:51:37" itemprop="dateModified" datetime="2023-10-05T11:51:37+08:00">2023-10-05</time>
+                <time title="Modified: 2023-10-05 13:42:21" itemprop="dateModified" datetime="2023-10-05T13:42:21+08:00">2023-10-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -293,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>366</span>
+              <span>472</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -314,6 +315,9 @@
 
       
         <p>今天Arxiv足足有110篇论文，扫描一遍确实要很长时间</p>
+<h2 id="Language-Models-Represent-Space-and-Time"><a href="#Language-Models-Represent-Space-and-Time" class="headerlink" title="Language Models Represent Space and Time"></a>Language Models Represent Space and Time</h2><p>作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法</p>
+<p>LeCun说的”世界模型”就在Llama2里？</p>
+<p><img src="../../files/images/arxiv-insights/2023-10-03/space-and-time.png"></p>
 <h2 id="Tool-Augmented-Reward-Modeling"><a href="#Tool-Augmented-Reward-Modeling" class="headerlink" title="Tool-Augmented Reward Modeling"></a>Tool-Augmented Reward Modeling</h2><p>作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具)</p>
 <p>感觉是一个有意思的问题，是工具学习的另一个新颖地场景</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-03/Tool-RM.png"></p>
@@ -430,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tool-Augmented-Reward-Modeling"><span class="nav-number">1.</span> <span class="nav-text">Tool-Augmented Reward Modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency"><span class="nav-number">2.</span> <span class="nav-text">Representation Engineering: A Top-Down Approach to AI Transparency</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Models-Represent-Space-and-Time"><span class="nav-number">1.</span> <span class="nav-text">Language Models Represent Space and Time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tool-Augmented-Reward-Modeling"><span class="nav-number">2.</span> <span class="nav-text">Tool-Augmented Reward Modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency"><span class="nav-number">3.</span> <span class="nav-text">Representation Engineering: A Top-Down Approach to AI Transparency</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
