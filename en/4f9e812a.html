@@ -24,17 +24,17 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="How FaR Are Large Language Models From Agents with Theory-of-Mind?Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(t">
+  <meta name="description" content="今天两篇有趣的论文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-06-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/en/4f9e812a">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="How FaR Are Large Language Models From Agents with Theory-of-Mind?Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(t">
+<meta property="og:description" content="今天两篇有趣的论文">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-06/T4D.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-06/predictable-scaling.png">
 <meta property="article:published_time" content="2023-10-06T07:51:10.000Z">
-<meta property="article:modified_time" content="2023-10-06T08:08:57.245Z">
+<meta property="article:modified_time" content="2023-10-10T05:07:31.367Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -246,10 +246,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2023-10-06 15:51:10 / Modified: 16:08:57" itemprop="dateCreated datePublished" datetime="2023-10-06T15:51:10+08:00">2023-10-06</time>
+              <time title="Created: 2023-10-06 15:51:10" itemprop="dateCreated datePublished" datetime="2023-10-06T15:51:10+08:00">2023-10-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2023-10-10 13:07:31" itemprop="dateModified" datetime="2023-10-10T13:07:31+08:00">2023-10-10</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -287,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>517</span>
+              <span>526</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
@@ -307,7 +313,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind"><a href="#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind" class="headerlink" title="How FaR Are Large Language Models From Agents with Theory-of-Mind?"></a>How FaR Are Large Language Models From Agents with Theory-of-Mind?</h2><p>Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。</p>
+        <p>今天两篇有趣的论文</p>
+<span id="more"></span>
+<h2 id="How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind"><a href="#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind" class="headerlink" title="How FaR Are Large Language Models From Agents with Theory-of-Mind?"></a>How FaR Are Large Language Models From Agents with Theory-of-Mind?</h2><p>Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。</p>
 <p>另外，作者也提出了一套<em>Foresee and Reflect</em> (FaR)框架去做这个任务并提升了模型的性能。</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-06/T4D.png"></p>
 <h2 id="Unlock-Predictable-Scaling-from-Emergent-Abilities"><a href="#Unlock-Predictable-Scaling-from-Emergent-Abilities" class="headerlink" title="Unlock Predictable Scaling from Emergent Abilities"></a>Unlock Predictable Scaling from Emergent Abilities</h2><p>我们实验室的论文，瞄准了jason wei代言的emergent ability现象，作者说明小模型在”缓慢上升”区间的表现是可以被准确预测的，只要提高测试清晰度。</p>
@@ -329,13 +337,13 @@
       <div class="popular-posts-title"><a href="/3179c33f.html" rel="bookmark">Arxiv Insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/830e2ead.html" rel="bookmark">2023-10-10-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/be95daa7.html" rel="bookmark">2023-10-09-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4f9e812a.html" rel="bookmark">2023-10-06-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a4a93a29.html" rel="bookmark">2023-10-05-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4b6b5117.html" rel="bookmark">2023-10-04-insights</a></div>
     </li>
   </ul>
 
@@ -355,7 +363,10 @@
     <a href="/a4a93a29" rel="prev" title="2023-10-05-insights">
       <i class="fa fa-chevron-left"></i> 2023-10-05-insights
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/be95daa7" rel="next" title="2023-10-09-insights">
+      2023-10-09-insights <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -434,7 +445,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">125</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -477,6 +488,14 @@
       
       
         <li class="recent_posts_li">
+          <a href="/830e2ead" title="2023-10-10-insights" target="_blank">2023-10-10-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/be95daa7" title="2023-10-09-insights" target="_blank">2023-10-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4f9e812a" title="2023-10-06-insights" target="_blank">2023-10-06-insights</a>
         </li>
       
@@ -506,14 +525,6 @@
       
         <li class="recent_posts_li">
           <a href="/d2c6faf" title="2023-09-29-insights" target="_blank">2023-09-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/660d5dc5" title="论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS" target="_blank">论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
         </li>
       
     </ul>
@@ -574,7 +585,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">2:55</span>
+    <span title="Reading time total">2:56</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-10-06T08:08:57.245Z</updated>
+  <updated>2023-10-10T05:48:41.107Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,22 +17,67 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2023-10-10-insights</title>
+    <link href="https://www.yynnyy.cn/830e2ead"/>
+    <id>https://www.yynnyy.cn/830e2ead</id>
+    <published>2023-10-10T04:57:19.000Z</published>
+    <updated>2023-10-10T05:48:41.107Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv</p><h2 id="NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning"><a href="#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning" class="headerlink" title="NEFTune: Noisy Embeddings Improve Instruction Finetuning"></a>NEFTune: Noisy Embeddings Improve Instruction Finetuning</h2><p>作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？</p><p><img src="../../files/images/arxiv-insights/2023-10-10/noise-finetune.png"></p><p>感觉这里面肯定隐藏着更深层次的原因</p><h2 id="FireAct-Toward-Language-Agent-Fine-tuning"><a href="#FireAct-Toward-Language-Agent-Fine-tuning" class="headerlink" title="FireAct: Toward Language Agent Fine-tuning"></a>FireAct: Toward Language Agent Fine-tuning</h2><p>作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升</p><p><img src="../../files/images/arxiv-insights/2023-10-10/FIREACT.png"></p><h2 id="EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling"><a href="#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling" class="headerlink" title="EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling"></a>EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling</h2><p>作者目标直指crossentropy loss，发现换掉这个，表现猛涨</p><p>具体来说作者选择用earth mover distance来表征损失，有点像之前的维因斯坦GAN。</p><p><img src="../../files/images/arxiv-insights/2023-10-10/DEMD.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv&lt;/p&gt;
+&lt;h2 id=&quot;NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning&quot;&gt;&lt;a href=&quot;#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning&quot; class=&quot;headerlink&quot; title=&quot;NEFTune: Noisy Embeddings Improve Instruction Finetuning&quot;&gt;&lt;/a&gt;NEFTune: Noisy Embeddings Improve Instruction Finetuning&lt;/h2&gt;&lt;p&gt;作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-10/noise-finetune.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;感觉这里面肯定隐藏着更深层次的原因&lt;/p&gt;
+&lt;h2 id=&quot;FireAct-Toward-Language-Agent-Fine-tuning&quot;&gt;&lt;a href=&quot;#FireAct-Toward-Language-Agent-Fine-tuning&quot; class=&quot;headerlink&quot; title=&quot;FireAct: Toward Language Agent Fine-tuning&quot;&gt;&lt;/a&gt;FireAct: Toward Language Agent Fine-tuning&lt;/h2&gt;&lt;p&gt;作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-10/FIREACT.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling&quot;&gt;&lt;a href=&quot;#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling&quot; class=&quot;headerlink&quot; title=&quot;EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling&quot;&gt;&lt;/a&gt;EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling&lt;/h2&gt;&lt;p&gt;作者目标直指crossentropy loss，发现换掉这个，表现猛涨&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023-10-09-insights</title>
+    <link href="https://www.yynnyy.cn/be95daa7"/>
+    <id>https://www.yynnyy.cn/be95daa7</id>
+    <published>2023-10-09T15:23:49.000Z</published>
+    <updated>2023-10-10T05:07:40.411Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天的论文看了看，好像都差那么点意思。</p><p>有一篇叫做Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models看起来还不错，讲的是通过tree search时间换效果。</p><p>最近这类论文好多呀……</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天的论文看了看，好像都差那么点意思。&lt;/p&gt;
+&lt;p&gt;有一篇叫做Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models看起来还不错，讲的是通过tree search时间换效果。&lt;/p&gt;
+&lt;p&gt;最近这类论文好多呀……&lt;/p&gt;
+</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2023-10-06-insights</title>
     <link href="https://www.yynnyy.cn/4f9e812a"/>
     <id>https://www.yynnyy.cn/4f9e812a</id>
     <published>2023-10-06T07:51:10.000Z</published>
-    <updated>2023-10-06T08:08:57.245Z</updated>
+    <updated>2023-10-10T05:07:31.367Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind"><a href="#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind" class="headerlink" title="How FaR Are Large Language Models From Agents with Theory-of-Mind?"></a>How FaR Are Large Language Models From Agents with Theory-of-Mind?</h2><p>Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。</p><p>另外，作者也提出了一套<em>Foresee and Reflect</em> (FaR)框架去做这个任务并提升了模型的性能。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/T4D.png"></p><h2 id="Unlock-Predictable-Scaling-from-Emergent-Abilities"><a href="#Unlock-Predictable-Scaling-from-Emergent-Abilities" class="headerlink" title="Unlock Predictable Scaling from Emergent Abilities"></a>Unlock Predictable Scaling from Emergent Abilities</h2><p>我们实验室的论文，瞄准了jason wei代言的emergent ability现象，作者说明小模型在”缓慢上升”区间的表现是可以被准确预测的，只要提高测试清晰度。</p><p>另外，通过新的测试方法，可以以接近99.95%的准确率预测模型的表现。所谓的”emergent ability”是因为其表现不能用经典的scaling law曲线去控制，由此作者对emergent ability做出了一套新的诠释。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/predictable-scaling.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind"><a href="#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind" class="headerlink" title="How FaR Are Large Language Models From Agents with Theory-of-Mind?"></a>How FaR Are Large Language Models From Agents with Theory-of-Mind?</h2><p>Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。</p><p>另外，作者也提出了一套<em>Foresee and Reflect</em> (FaR)框架去做这个任务并提升了模型的性能。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/T4D.png"></p><h2 id="Unlock-Predictable-Scaling-from-Emergent-Abilities"><a href="#Unlock-Predictable-Scaling-from-Emergent-Abilities" class="headerlink" title="Unlock Predictable Scaling from Emergent Abilities"></a>Unlock Predictable Scaling from Emergent Abilities</h2><p>我们实验室的论文，瞄准了jason wei代言的emergent ability现象，作者说明小模型在”缓慢上升”区间的表现是可以被准确预测的，只要提高测试清晰度。</p><p>另外，通过新的测试方法，可以以接近99.95%的准确率预测模型的表现。所谓的”emergent ability”是因为其表现不能用经典的scaling law曲线去控制，由此作者对emergent ability做出了一套新的诠释。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/predictable-scaling.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind&quot;&gt;&lt;a href=&quot;#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind&quot; class=&quot;headerlink&quot; title=&quot;How FaR Are Large Language Models From Agents with Theory-of-Mind?&quot;&gt;&lt;/a&gt;How FaR Are Large Language Models From Agents with Theory-of-Mind?&lt;/h2&gt;&lt;p&gt;Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。&lt;/p&gt;
-&lt;p&gt;另外，作者也提出了一套&lt;em&gt;Foresee and Reflect&lt;/em&gt; (FaR)框架去做这个任务并提升了模型的性能。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-06/T4D.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Unlock-Predictable-Scaling-from-Emergent-Abilities&quot;&gt;&lt;a href=&quot;#Unlock-Predictable-Scaling-from-Emergent-Abilities&quot; class=&quot;headerlink&quot; title=&quot;Unlock Predictable Scaling from Emergent Abilities&quot;&gt;&lt;/a&gt;Unlock Predictable Scaling from Emergent Abilities&lt;/h2&gt;&lt;p&gt;我们实验室的论文，瞄准了jason wei代言的emergent ability现象，作者说明小模型在”缓慢上升”区间的表现是可以被准确预测的，只要提高测试清晰度。&lt;/p&gt;
-&lt;p&gt;另外，通过新的测试方法，可以以接近99.95%的准确率预测模型的表现。所谓的”emergent ability”是因为其表现不能用经典的scaling law曲线去控制，由此作者对emergent ability做出了一套新的诠释。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-06/predictable-scaling.png&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -48,18 +93,12 @@
     <link href="https://www.yynnyy.cn/a4a93a29"/>
     <id>https://www.yynnyy.cn/a4a93a29</id>
     <published>2023-10-05T03:30:24.000Z</published>
-    <updated>2023-10-05T03:58:54.276Z</updated>
+    <updated>2023-10-10T05:07:24.346Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation"><a href="#Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation" class="headerlink" title="Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation"></a>Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</h2><p>之前有一篇”take a deep breathe”的论文，可以让模型自己优化下游任务的prompt。这次这篇多递归了一层，可以自己evolve “prompt-evolver”。</p><p>是个case study的论文，这个问题很有意思。</p><p><img src="../../files/images/arxiv-insights/2023-10-05/seed-prompt.png"></p><h2 id="Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models"><a href="#Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models" class="headerlink" title="Kosmos-G: Generating Images in Context with Multimodal Large Language Models"></a>Kosmos-G: Generating Images in Context with Multimodal Large Language Models</h2><p>作者探讨了一个很有意思的问题，现在的text2image基本都是从文本到图片。但是生成图片的时候就只有文本吗？能不能把图片文本联合作为一个输入去生成图片？</p><p>其实很多ControlNet之类的任务，天生就可以被这种方式表示出来</p><p><img src="../../files/images/arxiv-insights/2023-10-05/KOSMOS-G.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation"><a href="#Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation" class="headerlink" title="Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation"></a>Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</h2><p>之前有一篇”take a deep breathe”的论文，可以让模型自己优化下游任务的prompt。这次这篇多递归了一层，可以自己evolve “prompt-evolver”。</p><p>是个case study的论文，这个问题很有意思。</p><p><img src="../../files/images/arxiv-insights/2023-10-05/seed-prompt.png"></p><h2 id="Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models"><a href="#Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models" class="headerlink" title="Kosmos-G: Generating Images in Context with Multimodal Large Language Models"></a>Kosmos-G: Generating Images in Context with Multimodal Large Language Models</h2><p>作者探讨了一个很有意思的问题，现在的text2image基本都是从文本到图片。但是生成图片的时候就只有文本吗？能不能把图片文本联合作为一个输入去生成图片？</p><p>其实很多ControlNet之类的任务，天生就可以被这种方式表示出来</p><p><img src="../../files/images/arxiv-insights/2023-10-05/KOSMOS-G.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation&quot;&gt;&lt;a href=&quot;#Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation&quot; class=&quot;headerlink&quot; title=&quot;Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation&quot;&gt;&lt;/a&gt;Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation&lt;/h2&gt;&lt;p&gt;之前有一篇”take a deep breathe”的论文，可以让模型自己优化下游任务的prompt。这次这篇多递归了一层，可以自己evolve “prompt-evolver”。&lt;/p&gt;
-&lt;p&gt;是个case study的论文，这个问题很有意思。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-05/seed-prompt.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models&quot;&gt;&lt;a href=&quot;#Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;Kosmos-G: Generating Images in Context with Multimodal Large Language Models&quot;&gt;&lt;/a&gt;Kosmos-G: Generating Images in Context with Multimodal Large Language Models&lt;/h2&gt;&lt;p&gt;作者探讨了一个很有意思的问题，现在的text2image基本都是从文本到图片。但是生成图片的时候就只有文本吗？能不能把图片文本联合作为一个输入去生成图片？&lt;/p&gt;
-&lt;p&gt;其实很多ControlNet之类的任务，天生就可以被这种方式表示出来&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-05/KOSMOS-G.png&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -75,20 +114,12 @@
     <link href="https://www.yynnyy.cn/4b6b5117"/>
     <id>https://www.yynnyy.cn/4b6b5117</id>
     <published>2023-10-05T03:01:09.000Z</published>
-    <updated>2023-10-05T03:51:37.791Z</updated>
+    <updated>2023-10-10T05:07:19.050Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Think-before-you-speak-Training-Language-Models-With-Pause-Tokens"><a href="#Think-before-you-speak-Training-Language-Models-With-Pause-Tokens" class="headerlink" title="Think before you speak: Training Language Models With Pause Tokens"></a>Think before you speak: Training Language Models With Pause Tokens</h2><p>很有意思的文章，作者认为：在模型生成比较困难的地方，加上一些pause token，会不会让模型训练地更好？</p><p>在C4上训了100M到1B的模型，发现在下游任务(尤其是推理任务)上，取得了很大的提升。引发了对于auto-regressive manner很多的思考</p><p><img src="../../files/images/arxiv-insights/2023-10-04/think-before.png"></p><h2 id="Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet"><a href="#Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet" class="headerlink" title="Large Language Models Cannot Self-Correct Reasoning Yet"></a>Large Language Models Cannot Self-Correct Reasoning Yet</h2><p>Google Deepmind的论文，是一篇分析性文章。作者探索了self-correct类的技术，发现目前的模型没有外界反馈，基本上不可能做self-correct</p><blockquote><p>想起来小时候考试：老师每次对着我说”这个题再看看？”，最后都改错了……原来是缺少外界反馈呀</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-04/cannot-self-correct.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Think-before-you-speak-Training-Language-Models-With-Pause-Tokens"><a href="#Think-before-you-speak-Training-Language-Models-With-Pause-Tokens" class="headerlink" title="Think before you speak: Training Language Models With Pause Tokens"></a>Think before you speak: Training Language Models With Pause Tokens</h2><p>很有意思的文章，作者认为：在模型生成比较困难的地方，加上一些pause token，会不会让模型训练地更好？</p><p>在C4上训了100M到1B的模型，发现在下游任务(尤其是推理任务)上，取得了很大的提升。引发了对于auto-regressive manner很多的思考</p><p><img src="../../files/images/arxiv-insights/2023-10-04/think-before.png"></p><h2 id="Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet"><a href="#Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet" class="headerlink" title="Large Language Models Cannot Self-Correct Reasoning Yet"></a>Large Language Models Cannot Self-Correct Reasoning Yet</h2><p>Google Deepmind的论文，是一篇分析性文章。作者探索了self-correct类的技术，发现目前的模型没有外界反馈，基本上不可能做self-correct</p><blockquote><p>想起来小时候考试：老师每次对着我说”这个题再看看？”，最后都改错了……原来是缺少外界反馈呀</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-04/cannot-self-correct.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Think-before-you-speak-Training-Language-Models-With-Pause-Tokens&quot;&gt;&lt;a href=&quot;#Think-before-you-speak-Training-Language-Models-With-Pause-Tokens&quot; class=&quot;headerlink&quot; title=&quot;Think before you speak: Training Language Models With Pause Tokens&quot;&gt;&lt;/a&gt;Think before you speak: Training Language Models With Pause Tokens&lt;/h2&gt;&lt;p&gt;很有意思的文章，作者认为：在模型生成比较困难的地方，加上一些pause token，会不会让模型训练地更好？&lt;/p&gt;
-&lt;p&gt;在C4上训了100M到1B的模型，发现在下游任务(尤其是推理任务)上，取得了很大的提升。引发了对于auto-regressive manner很多的思考&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-04/think-before.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet&quot;&gt;&lt;a href=&quot;#Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet&quot; class=&quot;headerlink&quot; title=&quot;Large Language Models Cannot Self-Correct Reasoning Yet&quot;&gt;&lt;/a&gt;Large Language Models Cannot Self-Correct Reasoning Yet&lt;/h2&gt;&lt;p&gt;Google Deepmind的论文，是一篇分析性文章。作者探索了self-correct类的技术，发现目前的模型没有外界反馈，基本上不可能做self-correct&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;想起来小时候考试：老师每次对着我说”这个题再看看？”，最后都改错了……原来是缺少外界反馈呀&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-04/cannot-self-correct.png&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -104,19 +135,12 @@
     <link href="https://www.yynnyy.cn/a9b74a6e"/>
     <id>https://www.yynnyy.cn/a9b74a6e</id>
     <published>2023-10-04T00:49:22.000Z</published>
-    <updated>2023-10-05T05:42:21.806Z</updated>
+    <updated>2023-10-10T05:07:08.403Z</updated>
     
-    <content type="html"><![CDATA[<p>今天Arxiv足足有110篇论文，扫描一遍确实要很长时间</p><h2 id="Language-Models-Represent-Space-and-Time"><a href="#Language-Models-Represent-Space-and-Time" class="headerlink" title="Language Models Represent Space and Time"></a>Language Models Represent Space and Time</h2><p>作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法</p><p>LeCun说的”世界模型”就在Llama2里？</p><p><img src="../../files/images/arxiv-insights/2023-10-03/space-and-time.png"></p><h2 id="Tool-Augmented-Reward-Modeling"><a href="#Tool-Augmented-Reward-Modeling" class="headerlink" title="Tool-Augmented Reward Modeling"></a>Tool-Augmented Reward Modeling</h2><p>作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具)</p><p>感觉是一个有意思的问题，是工具学习的另一个新颖地场景</p><p><img src="../../files/images/arxiv-insights/2023-10-03/Tool-RM.png"></p><h2 id="Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency"><a href="#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency" class="headerlink" title="Representation Engineering: A Top-Down Approach to AI Transparency"></a>Representation Engineering: A Top-Down Approach to AI Transparency</h2><p>多所大学的联名综述。讲了最近几年model representation表现出来一种涌现的可解释性。接下来作者探讨了能不能通过自顶向下的方式来做模型的可解释性。</p><p>探讨了一个非常有意思、非常重要的话题，文章也写得很好。</p><p>具体地我打算读完论文后写在阅读笔记里</p><p><img src="../../files/images/arxiv-insights/2023-10-03/representing-engineering.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天Arxiv足足有110篇论文，扫描一遍确实要很长时间</p><span id="more"></span><h2 id="Language-Models-Represent-Space-and-Time"><a href="#Language-Models-Represent-Space-and-Time" class="headerlink" title="Language Models Represent Space and Time"></a>Language Models Represent Space and Time</h2><p>作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法</p><p>LeCun说的”世界模型”就在Llama2里？</p><p><img src="../../files/images/arxiv-insights/2023-10-03/space-and-time.png"></p><h2 id="Tool-Augmented-Reward-Modeling"><a href="#Tool-Augmented-Reward-Modeling" class="headerlink" title="Tool-Augmented Reward Modeling"></a>Tool-Augmented Reward Modeling</h2><p>作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具)</p><p>感觉是一个有意思的问题，是工具学习的另一个新颖地场景</p><p><img src="../../files/images/arxiv-insights/2023-10-03/Tool-RM.png"></p><h2 id="Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency"><a href="#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency" class="headerlink" title="Representation Engineering: A Top-Down Approach to AI Transparency"></a>Representation Engineering: A Top-Down Approach to AI Transparency</h2><p>多所大学的联名综述。讲了最近几年model representation表现出来一种涌现的可解释性。接下来作者探讨了能不能通过自顶向下的方式来做模型的可解释性。</p><p>探讨了一个非常有意思、非常重要的话题，文章也写得很好。</p><p>具体地我打算读完论文后写在阅读笔记里</p><p><img src="../../files/images/arxiv-insights/2023-10-03/representing-engineering.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;今天Arxiv足足有110篇论文，扫描一遍确实要很长时间&lt;/p&gt;
-&lt;h2 id=&quot;Language-Models-Represent-Space-and-Time&quot;&gt;&lt;a href=&quot;#Language-Models-Represent-Space-and-Time&quot; class=&quot;headerlink&quot; title=&quot;Language Models Represent Space and Time&quot;&gt;&lt;/a&gt;Language Models Represent Space and Time&lt;/h2&gt;&lt;p&gt;作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法&lt;/p&gt;
-&lt;p&gt;LeCun说的”世界模型”就在Llama2里？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-03/space-and-time.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Tool-Augmented-Reward-Modeling&quot;&gt;&lt;a href=&quot;#Tool-Augmented-Reward-Modeling&quot; class=&quot;headerlink&quot; title=&quot;Tool-Augmented Reward Modeling&quot;&gt;&lt;/a&gt;Tool-Augmented Reward Modeling&lt;/h2&gt;&lt;p&gt;作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具)&lt;/p&gt;
-&lt;p&gt;感觉是一个有意思的问题，是工具学习的另一个新颖地场景&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-03/Tool-RM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency&quot;&gt;&lt;a href=&quot;#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency&quot; class=&quot;headerlink&quot; title=&quot;Representation Engineering: A Top-Down Approach to AI Transparency&quot;&gt;&lt;/a&gt;Representation Engineering: A Top-Down Approach to AI Transparency&lt;/h2&gt;</summary>
+    <summary type="html">&lt;p&gt;今天Arxiv足足有110篇论文，扫描一遍确实要很长时间&lt;/p&gt;</summary>
     
     
     
@@ -132,21 +156,12 @@
     <link href="https://www.yynnyy.cn/46752150"/>
     <id>https://www.yynnyy.cn/46752150</id>
     <published>2023-10-03T00:57:42.000Z</published>
-    <updated>2023-10-05T05:05:33.659Z</updated>
+    <updated>2023-10-10T05:07:01.515Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Efficient-Streaming-Language-Models-with-Attention-Sinks"><a href="#Efficient-Streaming-Language-Models-with-Attention-Sinks" class="headerlink" title="Efficient Streaming Language Models with Attention Sinks"></a>Efficient Streaming Language Models with Attention Sinks</h2><p>这篇我计划更新成阅读笔记。作者发现了Llama2等LLM attention中的bias现象，主要取决于最前面的4个token。于是作者发现只要每次在sliding windows上都拼上最前面4个token的情况，就能在无限长文本上每次都获得全局的文本信息。从而达到流式处理的效果。</p><p><img src="../../files/images/arxiv-insights/2023-10-02/StreamingLLM.png"></p><h2 id="ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving"><a href="#ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving" class="headerlink" title="ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving"></a>ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving</h2><p>推一推清华黄民烈老师在工具学习领域的作品，让LLM可以通过写代码工具来做多步调用进而完成数学问题推理。然后用一个类似STaR方法的两阶段训练方式来训练模型：</p><ul><li>首先是保留做对的trace</li><li>然后是对于做错的trace，用一个老师模型去correct，然后再扔进数据集</li></ul><p>是第一篇开源的在MATH数据集上超过50% acc 的模型</p><p><img src="../../files/images/arxiv-insights/2023-10-02/ToRA.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Efficient-Streaming-Language-Models-with-Attention-Sinks"><a href="#Efficient-Streaming-Language-Models-with-Attention-Sinks" class="headerlink" title="Efficient Streaming Language Models with Attention Sinks"></a>Efficient Streaming Language Models with Attention Sinks</h2><p>这篇我计划更新成阅读笔记。作者发现了Llama2等LLM attention中的bias现象，主要取决于最前面的4个token。于是作者发现只要每次在sliding windows上都拼上最前面4个token的情况，就能在无限长文本上每次都获得全局的文本信息。从而达到流式处理的效果。</p><p><img src="../../files/images/arxiv-insights/2023-10-02/StreamingLLM.png"></p><h2 id="ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving"><a href="#ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving" class="headerlink" title="ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving"></a>ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving</h2><p>推一推清华黄民烈老师在工具学习领域的作品，让LLM可以通过写代码工具来做多步调用进而完成数学问题推理。然后用一个类似STaR方法的两阶段训练方式来训练模型：</p><ul><li>首先是保留做对的trace</li><li>然后是对于做错的trace，用一个老师模型去correct，然后再扔进数据集</li></ul><p>是第一篇开源的在MATH数据集上超过50% acc 的模型</p><p><img src="../../files/images/arxiv-insights/2023-10-02/ToRA.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Efficient-Streaming-Language-Models-with-Attention-Sinks&quot;&gt;&lt;a href=&quot;#Efficient-Streaming-Language-Models-with-Attention-Sinks&quot; class=&quot;headerlink&quot; title=&quot;Efficient Streaming Language Models with Attention Sinks&quot;&gt;&lt;/a&gt;Efficient Streaming Language Models with Attention Sinks&lt;/h2&gt;&lt;p&gt;这篇我计划更新成阅读笔记。作者发现了Llama2等LLM attention中的bias现象，主要取决于最前面的4个token。于是作者发现只要每次在sliding windows上都拼上最前面4个token的情况，就能在无限长文本上每次都获得全局的文本信息。从而达到流式处理的效果。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-02/StreamingLLM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving&quot;&gt;&lt;a href=&quot;#ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving&quot; class=&quot;headerlink&quot; title=&quot;ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving&quot;&gt;&lt;/a&gt;ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving&lt;/h2&gt;&lt;p&gt;推一推清华黄民烈老师在工具学习领域的作品，让LLM可以通过写代码工具来做多步调用进而完成数学问题推理。然后用一个类似STaR方法的两阶段训练方式来训练模型：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先是保留做对的trace&lt;/li&gt;
-&lt;li&gt;然后是对于做错的trace，用一个老师模型去correct，然后再扔进数据集&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;是第一篇开源的在MATH数据集上超过50% acc 的模型&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-02/ToRA.png&quot;&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -162,19 +177,12 @@
     <link href="https://www.yynnyy.cn/13a1e3c6"/>
     <id>https://www.yynnyy.cn/13a1e3c6</id>
     <published>2023-10-01T04:01:12.000Z</published>
-    <updated>2023-10-01T12:06:55.958Z</updated>
+    <updated>2023-10-10T05:06:31.156Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox"><a href="#Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox" class="headerlink" title="Identifying the Risks of LM Agents with an LM-Emulated Sandbox"></a><a href="https://arxiv.org/abs/2309.15817">Identifying the Risks of LM Agents with an LM-Emulated Sandbox</a></h2><p><img src="../../files/images/arxiv-insights/2023-09-28/Identifying-the-Risks.png"></p><p>东京大学等机构的研究。作者发现现在的AI-Agent技术基本上都离不开工具调用，但是随着规模逐渐增大、语言模型越来越强，测试的成本越来越高，带来的实际物理影响也越来越大。作者的思路是在工具执行前加一个中间层(ToolEmu)，模拟一下工具执行的结果(而不是真正执行)，这样成本就变低了很多。作者测试了一下发现召回率挺高，68.8%的ToolEmu错误会导致真正的工具调用错误。同时作者还发现即使最强的AI-Agent，也会有23.9%的工具调用是错误的，说明AI-Agent仍需努力呀。</p><p>引用了我们的文章，赢！</p><hr><p>Research from University of Tokyo, etc. Reveals that present AI-Agent technology fundamentally relies on tool usage. However, as the scale gradually increases and language models become more bigger, the cost and real-world of tool impart of testing AI-Agent grows. The authors propose adding an intermediate layer (ToolEmu) before tool execution to simulate the outcomes (rather than actual execution), substantially reducing the cost. </p><p>Testing revealed a high recall rate, with 68.8% of ToolEmu errors leading to actual tool invocation errors. The authors also found that even the most potent AI-Agents make errors in 23.9% of tool invocations, indicating a need for further AI-Agent enhancement.</p><p>(And they cited our article, ToolLLM and BMTools)</p><h2 id="Jointly-Training-Large-Autoregressive-Multimodal-Models"><a href="#Jointly-Training-Large-Autoregressive-Multimodal-Models" class="headerlink" title="Jointly Training Large Autoregressive Multimodal Models"></a><a href="https://arxiv.org/abs/2309.15564">Jointly Training Large Autoregressive Multimodal Models</a></h2><p>来自Meta AI的研究团队第一次探索了通过Joint Autoregressive Mixture可以使用同一个模型去同时生成图片、文本两个模态输出的模型。创新性很强。</p><p>GPT-4V的下一步？</p><hr><p>A research team from Meta AI has, for the first time, explored utilizing Joint Autoregressive Mixture to enable a <strong>single model</strong> to concurrently generate both image and text modal outputs. This represents a significant innovation in the field.</p><p>The next generation of GPT-4V?</p><p><img src="../../files/images/arxiv-insights/2023-09-28/JAM.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox"><a href="#Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox" class="headerlink" title="Identifying the Risks of LM Agents with an LM-Emulated Sandbox"></a><a href="https://arxiv.org/abs/2309.15817">Identifying the Risks of LM Agents with an LM-Emulated Sandbox</a></h2><p><img src="../../files/images/arxiv-insights/2023-09-28/Identifying-the-Risks.png"></p><p>东京大学等机构的研究。作者发现现在的AI-Agent技术基本上都离不开工具调用，但是随着规模逐渐增大、语言模型越来越强，测试的成本越来越高，带来的实际物理影响也越来越大。作者的思路是在工具执行前加一个中间层(ToolEmu)，模拟一下工具执行的结果(而不是真正执行)，这样成本就变低了很多。作者测试了一下发现召回率挺高，68.8%的ToolEmu错误会导致真正的工具调用错误。同时作者还发现即使最强的AI-Agent，也会有23.9%的工具调用是错误的，说明AI-Agent仍需努力呀。</p><p>引用了我们的文章，赢！</p><hr><p>Research from University of Tokyo, etc. Reveals that present AI-Agent technology fundamentally relies on tool usage. However, as the scale gradually increases and language models become more bigger, the cost and real-world of tool impart of testing AI-Agent grows. The authors propose adding an intermediate layer (ToolEmu) before tool execution to simulate the outcomes (rather than actual execution), substantially reducing the cost. </p><p>Testing revealed a high recall rate, with 68.8% of ToolEmu errors leading to actual tool invocation errors. The authors also found that even the most potent AI-Agents make errors in 23.9% of tool invocations, indicating a need for further AI-Agent enhancement.</p><p>(And they cited our article, ToolLLM and BMTools)</p><h2 id="Jointly-Training-Large-Autoregressive-Multimodal-Models"><a href="#Jointly-Training-Large-Autoregressive-Multimodal-Models" class="headerlink" title="Jointly Training Large Autoregressive Multimodal Models"></a><a href="https://arxiv.org/abs/2309.15564">Jointly Training Large Autoregressive Multimodal Models</a></h2><p>来自Meta AI的研究团队第一次探索了通过Joint Autoregressive Mixture可以使用同一个模型去同时生成图片、文本两个模态输出的模型。创新性很强。</p><p>GPT-4V的下一步？</p><hr><p>A research team from Meta AI has, for the first time, explored utilizing Joint Autoregressive Mixture to enable a <strong>single model</strong> to concurrently generate both image and text modal outputs. This represents a significant innovation in the field.</p><p>The next generation of GPT-4V?</p><p><img src="../../files/images/arxiv-insights/2023-09-28/JAM.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox&quot;&gt;&lt;a href=&quot;#Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox&quot; class=&quot;headerlink&quot; title=&quot;Identifying the Risks of LM Agents with an LM-Emulated Sandbox&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2309.15817&quot;&gt;Identifying the Risks of LM Agents with an LM-Emulated Sandbox&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-09-28/Identifying-the-Risks.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;东京大学等机构的研究。作者发现现在的AI-Agent技术基本上都离不开工具调用，但是随着规模逐渐增大、语言模型越来越强，测试的成本越来越高，带来的实际物理影响也越来越大。作者的思路是在工具执行前加一个中间层(ToolEmu)，模拟一下工具执行的结果(而不是真正执行)，这样成本就变低了很多。作者测试了一下发现召回率挺高，68.8%的ToolEmu错误会导致真正的工具调用错误。同时作者还发现即使最强的AI-Agent，也会有23.9%的工具调用是错误的，说明AI-Agent仍需努力呀。&lt;/p&gt;
-&lt;p&gt;引用了我们的文章，赢！&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Research from University of Tokyo, etc. Reveals that present AI-Agent technology fundamentally relies on tool usage. However, as the scale gradually increases and language models become more bigger, the cost and real-world of tool impart of testing AI-Agent grows. The authors propose adding an intermediate layer (ToolEmu) before tool execution to simulate the outcomes (rather than actual execution), substantially reducing the cost. &lt;/p&gt;
-&lt;p&gt;Testing revealed a high recall rate, with 68.8% of ToolEmu errors leading to actual tool invocation errors. The authors also found that even the most potent AI-Agents make errors in 23.9% of tool invocations, indicating a need for further AI-Agent enhancement.&lt;/p&gt;
-&lt;p&gt;(And they cited our article, ToolLLM and BMTools)&lt;/p&gt;
-&lt;h2 id=&quot;Jointly-Training-Large-Autoregressive-Multimodal-Models&quot;&gt;&lt;a href=&quot;#Jointly-Training-Large-Autoregressive-Multimodal-Models&quot; class=&quot;headerlink&quot; title=&quot;Jointly Training Large Autoregressive Multimodal Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2309.15564&quot;&gt;Jointly Training Large Autoregressive Multimodal Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;来自Meta AI的研究团队第一次探索了通过Joint Autoregressive Mixture可以使用同一个模型去同时生成图片、文本两个模态输出的模型。创新性很强。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -216,19 +224,12 @@
     <link href="https://www.yynnyy.cn/d2c6faf"/>
     <id>https://www.yynnyy.cn/d2c6faf</id>
     <published>2023-09-29T09:07:25.000Z</published>
-    <updated>2023-10-01T04:34:38.591Z</updated>
+    <updated>2023-10-10T05:06:44.321Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Effective-Long-Context-Scaling-of-Foundation-Models"><a href="#Effective-Long-Context-Scaling-of-Foundation-Models" class="headerlink" title="Effective Long-Context Scaling of Foundation Models"></a>Effective Long-Context Scaling of Foundation Models</h2><p>Meta AI新研究，尝试了long seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。</p><hr><p>New research in Meta AI, which has explored various variants of long sequence length and found that: Llama2, after training, can surpass turbo-16k on long sample benchmarks. The authors discovered that long sample models do not require a large amount of long sample data during the pre-training phase. </p><p>Fine-tuning with a small amount of data after is sufficient.</p><h2 id="Demystifying-CLIP-Data"><a href="#Demystifying-CLIP-Data" class="headerlink" title="Demystifying CLIP Data"></a>Demystifying CLIP Data</h2><p>FAIR, Meta AI的作品。作者认为几年前OpenAI CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8% &gt; 68.3%)。</p><p>另外，作者做了scale实验，用1B数据打到了72.4%；同时如果模型大小也跟着scale，最高能到ViT-H的80.5%。</p><p>最重要的是，开源！Meta AI is all you need</p><hr><p>Another work by FAIR, Meta AI. The authors believe that a few years ago, the OpenAI CLIP model was a fully data-engineering project, its capabilities stemming from an close-sourced 400M dataset. In this paper, the authors introduced MetaCLIP. It is entirely focused on data, with no additional tricks used. Various comparative experiments were conducted with the same scale of data, outperforming CLIP (70.8% &gt; 68.3%).</p><p>Additionally, the authors conducted scaling experiments, achieving 72.4% with 1B data. And if the model size is scaled as well, it can reach up to 80.5% with ViT-H.</p><p>Most importantly, it is open-source! Meta AI is all you need.</p><h2 id="AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model"><a href="#AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model" class="headerlink" title="AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model"></a>AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model</h2><p>还是Meta……作者训了一个高效、可扩展的多模态编码器，把2亿图片、220万音频、50万IMU序列、2800万视频都扔进去训练，然后都和Llama2-70B对齐，相当于同时让Llama2可以读懂多模态了，但是只能输出text。</p><p>作者刷了一堆榜，基本全是SOTA。</p><p>插一句，难道GPT-4V就是这么搞的吗？然后用上一篇Demystifying CLIP Data里整了一堆闭源的超级数据工程……</p><hr><p>Yet another Meta AI research have trained an efficient and scalable multimodal encoder. The training utilized 200 million images, 2.2 million audio files, 500 thousand IMU sequences, and 28 million videos. All of these data were aligned with Llama2-70B, essentially enabling Llama2 to understand multimodal data( though it can only output text)</p><p>The authors archived SOTAs on various leaderboards, primarily achieving state-of-the-art results.</p><p>BTW,  I have some questions: If this is the approach taken for GPT-4V? and refers to the use of a significant amount of closed-sourced super data-engineering as discussed in the previous mentioned paper(Demystifying CLIP Data) ?</p><h2 id="我的思考-My-insights"><a href="#我的思考-My-insights" class="headerlink" title="我的思考(My insights)"></a>我的思考(My insights)</h2><p>现在Meta已经这么强了吗……我基本上看眼缘挑，挑出来的竟然全是Meta的论文，感觉他们的focus确实好。OpenAI率先闭源，开源界又有Meta这个猛虎，我辈高校科研人员仍需努力呀</p><hr><p>Is Meta already that strong now? Basically, by just picking the Arxiv papers today that caught my eye, it turns out they are all from Meta. Their focus is indeed good. </p><p>With closed OpenAI taking the lead in and the open-source community having the “tiger” as Meta. Me, and the academic research community from universities, still need to work harder.</p>]]></content>
+    <content type="html"><![CDATA[<p>今天三篇有趣的论文</p><span id="more"></span><h2 id="Effective-Long-Context-Scaling-of-Foundation-Models"><a href="#Effective-Long-Context-Scaling-of-Foundation-Models" class="headerlink" title="Effective Long-Context Scaling of Foundation Models"></a>Effective Long-Context Scaling of Foundation Models</h2><p>Meta AI新研究，尝试了long seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。</p><hr><p>New research in Meta AI, which has explored various variants of long sequence length and found that: Llama2, after training, can surpass turbo-16k on long sample benchmarks. The authors discovered that long sample models do not require a large amount of long sample data during the pre-training phase. </p><p>Fine-tuning with a small amount of data after is sufficient.</p><h2 id="Demystifying-CLIP-Data"><a href="#Demystifying-CLIP-Data" class="headerlink" title="Demystifying CLIP Data"></a>Demystifying CLIP Data</h2><p>FAIR, Meta AI的作品。作者认为几年前OpenAI CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8% &gt; 68.3%)。</p><p>另外，作者做了scale实验，用1B数据打到了72.4%；同时如果模型大小也跟着scale，最高能到ViT-H的80.5%。</p><p>最重要的是，开源！Meta AI is all you need</p><hr><p>Another work by FAIR, Meta AI. The authors believe that a few years ago, the OpenAI CLIP model was a fully data-engineering project, its capabilities stemming from an close-sourced 400M dataset. In this paper, the authors introduced MetaCLIP. It is entirely focused on data, with no additional tricks used. Various comparative experiments were conducted with the same scale of data, outperforming CLIP (70.8% &gt; 68.3%).</p><p>Additionally, the authors conducted scaling experiments, achieving 72.4% with 1B data. And if the model size is scaled as well, it can reach up to 80.5% with ViT-H.</p><p>Most importantly, it is open-source! Meta AI is all you need.</p><h2 id="AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model"><a href="#AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model" class="headerlink" title="AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model"></a>AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model</h2><p>还是Meta……作者训了一个高效、可扩展的多模态编码器，把2亿图片、220万音频、50万IMU序列、2800万视频都扔进去训练，然后都和Llama2-70B对齐，相当于同时让Llama2可以读懂多模态了，但是只能输出text。</p><p>作者刷了一堆榜，基本全是SOTA。</p><p>插一句，难道GPT-4V就是这么搞的吗？然后用上一篇Demystifying CLIP Data里整了一堆闭源的超级数据工程……</p><hr><p>Yet another Meta AI research have trained an efficient and scalable multimodal encoder. The training utilized 200 million images, 2.2 million audio files, 500 thousand IMU sequences, and 28 million videos. All of these data were aligned with Llama2-70B, essentially enabling Llama2 to understand multimodal data( though it can only output text)</p><p>The authors archived SOTAs on various leaderboards, primarily achieving state-of-the-art results.</p><p>BTW,  I have some questions: If this is the approach taken for GPT-4V? and refers to the use of a significant amount of closed-sourced super data-engineering as discussed in the previous mentioned paper(Demystifying CLIP Data) ?</p><h2 id="我的思考-My-insights"><a href="#我的思考-My-insights" class="headerlink" title="我的思考(My insights)"></a>我的思考(My insights)</h2><p>现在Meta已经这么强了吗……我基本上看眼缘挑，挑出来的竟然全是Meta的论文，感觉他们的focus确实好。OpenAI率先闭源，开源界又有Meta这个猛虎，我辈高校科研人员仍需努力呀</p><hr><p>Is Meta already that strong now? Basically, by just picking the Arxiv papers today that caught my eye, it turns out they are all from Meta. Their focus is indeed good. </p><p>With closed OpenAI taking the lead in and the open-source community having the “tiger” as Meta. Me, and the academic research community from universities, still need to work harder.</p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Effective-Long-Context-Scaling-of-Foundation-Models&quot;&gt;&lt;a href=&quot;#Effective-Long-Context-Scaling-of-Foundation-Models&quot; class=&quot;headerlink&quot; title=&quot;Effective Long-Context Scaling of Foundation Models&quot;&gt;&lt;/a&gt;Effective Long-Context Scaling of Foundation Models&lt;/h2&gt;&lt;p&gt;Meta AI新研究，尝试了long seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;New research in Meta AI, which has explored various variants of long sequence length and found that: Llama2, after training, can surpass turbo-16k on long sample benchmarks. The authors discovered that long sample models do not require a large amount of long sample data during the pre-training phase. &lt;/p&gt;
-&lt;p&gt;Fine-tuning with a small amount of data after is sufficient.&lt;/p&gt;
-&lt;h2 id=&quot;Demystifying-CLIP-Data&quot;&gt;&lt;a href=&quot;#Demystifying-CLIP-Data&quot; class=&quot;headerlink&quot; title=&quot;Demystifying CLIP Data&quot;&gt;&lt;/a&gt;Demystifying CLIP Data&lt;/h2&gt;&lt;p&gt;FAIR, Meta AI的作品。作者认为几年前OpenAI CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8% &amp;gt; 68.3%)。&lt;/p&gt;
-&lt;p&gt;另外，作者做了scale实验，用1B数据打到了72.4%；同时如果模型大小也跟着scale，最高能到ViT-H的80.5%。&lt;/p&gt;
-&lt;p&gt;最重要的是，开源！Meta AI is all you need&lt;/p&gt;
-&lt;hr&gt;</summary>
+    <summary type="html">&lt;p&gt;今天三篇有趣的论文&lt;/p&gt;</summary>
     
     
     
@@ -482,9 +483,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
@@ -512,56 +513,6 @@
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[精读]-RRHF: Rank Responses to Align Language Models with Human Feedback without tears</title>
-    <link href="https://www.yynnyy.cn/feddc200"/>
-    <id>https://www.yynnyy.cn/feddc200</id>
-    <published>2023-05-10T03:10:49.000Z</published>
-    <updated>2023-09-29T09:28:09.203Z</updated>
-    
-    <content type="html"><![CDATA[<p>论文介绍了一个非常简单的RLHF中PPO的替代品，昨天听了作者的报告，今天来仔细读读。我认为它的思路和calibration有一定的关系。</p><p><img src="../files/images/RRHF/intro.png"></p><span id="more"></span><p>作者来自清华和达摩院</p><p><img src="../files/images/RRHF/authors.png"></p><h2 id="introdution"><a href="#introdution" class="headerlink" title="introdution"></a>introdution</h2><p>作者在introduction阶段主要介绍了一下传统的RLHF框架的过程，之前的博客也有讲过 <a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">论文阅读-粗读-强化学习和RLHF中的PPO算法</a>。PPO算法虽然好，但有个巨大的问题，需要很多个模型放在一起：</p><ul><li>首先预训练模型的参数作为ref_model要存一份，计算全局的KL散度</li><li>每次更新参数时old_model要存一份，计算PPO内KL散度</li><li>训练的模型得有一份</li><li>计算Value的model也得有一份，这个可以和训练的模型共享参数</li><li>更新参数时的EMA model又得有一份</li></ul><p>这意味着什么呢？加入我们训练一个7B的LLaMA，按16位half精度存储，加载时大约需要14G显存。上面的模型只有训练model需要算梯度，那么显存就要翻倍，我们就当valuemodel共享参数不需要占显存。最后总体就要5倍，也就是70GB显存。这还不算前向时batch 带来的开销。</p><p>假如只使用40GB显存的A100，甚至不能放到一张卡上。</p><p>另一方面，PPO需要调很多的超参，$\alpha, \beta,\gamma,\lambda$等等，而且这些超参都很敏感，总体而言，PPO的训练还是很难的。</p><p>再有，PPO要求采集到的数据只能来自模型自己，甚至还必须要是top1解码出来的，如果用sample，可能训练就会崩溃。</p><p>因此作者提出了一种更省空间、需要训练的模型和需要调的超参都很少，并且在很多模型上做了实验</p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>那么这个方法是什么呢？作者称为RRHF(rank responses to align human feedback)。具体的改进是这样</p><p>RLHF的前两步SFT、rewardmodel train不改变，因此我们已经有一个一个rewardmodel</p><p>对于第三步，正常按照actor-critic的算法，我们需要一个value model，但这种manner其实破坏了语言模型的对称性，因为value基本都是从小到大的，就像是围棋某一局棋的胜率预测分布。但语言其实一个一个token就基本齐次的关系。再有就是value model和费空间</p><p>因此作者要去掉这一部分，但是又要和reward model形成一个训练对抗的关系，因此作者希望模型可以输出一个伪的reward。这里作者直接让model在输出输出next token logits的同时，用所有有效位置的log prob的平均值代表reward，保证在[0,1]范围内</p><script type="math/tex; mode=display">p_i = \frac{\sum_t \log P_{\pi}(y_{i,t}| x, y_{i,<t}) }{||y_{i}||}</script><p>如果每次来的不是一个数据，而是一个数据对的话，reward model可以先给所有candidate一个得分$r_i$，然后模型对于所有candidate也会输出$p_i$</p><p>对于每个真实的偏序关系，作者定义一个loss</p><script type="math/tex; mode=display">\mathcal{L}_{\text{rank}} = \sum_{r_i < r_j} max(0,p_i - p_j)</script><p>也就是说希望模型输出的”reward”也可以满足这个偏序关系，但这里为什么要用0 clamp，似乎没有解释。作者只是说借鉴了</p><blockquote><p> BRIO: Bringing Order to Abstractive Summarization</p></blockquote><p>另外，为了保证模型不炼崩，作者还引入了一个SFT loss，就是找到每组candidate里评分最高的</p><script type="math/tex; mode=display">i' = \underset{i}{ \arg \max}(r_i)</script><p>然后直接搞个crossentropy loss</p><script type="math/tex; mode=display">\mathcal{L}_{ft} = - \sum_t \log P_\pi (y_{i',t} | x,y_{i', <t} )</script><p>最后的总体loss是加和，甚至没有加权重</p><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{\text{rank}} + \mathcal{L}_{ft}</script><p>作者提到有试过给rank loss加权重，但加了都比不加效果更差</p><p>作者后面讨论了这种方法和传统RLHF的步骤的联系</p><ul><li>对比SFT：可以认为RRHF可以推导出SFT，只要把candidate固定，同时每组只有一个数据</li><li>对比rewardmodel train: 本方法让模型的logprob代表reward，而不是EOS token过linear</li><li>对比PPO：RRHF可以使用任何模型生成candidate</li></ul><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>作者尝试了RLHF数据集，用以下几个模型做candidate</p><ul><li>LLaMA 7B</li><li>Alpaca: llama+instruction-tuning</li><li>AlpacaSFT: ALpaca+sft</li></ul><p>然后生成candidate时有不同的变种</p><p><img src="../files/images/RRHF/candi.png"></p><p>这个是指作者在训练RRHF时，每组都有6个candidate，$\rho_1,..,\rho_6$他们的来源不同</p><ul><li>左边的四个candiate是模型自己生成的，右边的两个来源于数据集自带的好坏pair</li><li>由于不限制采样方法，作者使用了beam-search和一个更强的叫diverse beam-search的算法</li></ul><p>作者报告了reward model的得分。reward model是一个开源社区训练好的6B GPTJ</p><p><img src="../files/images/RRHF/results.png"></p><p>上面的图最上面的$\emptyset$代表不训练，中间PPO是用PPO训练，下面的setting和对应图里面的解码方法。其实还是有很多好玩的点的：</p><ul><li>Alpaca不训练就比数据集中good response的平均值还要好</li><li>LLama直接跑PPO或者RRHF都会导致PPL爆炸</li><li>RRHF和PPO效果不相上下</li></ul><p>作者还对比了不同的解码方法</p><p><img src="../files/images/RRHF/decode.png"></p><p>可以发现BP和DP的效果差距不大。另外，这个方法也是可以迭代做的</p><blockquote><p>原始RRHF是可以先用原模型生成一堆candidate，然后算完reward，把rewardmodel delete掉，再直接跑训练，这个称为一轮</p><p>第一轮训完，可以递归地做这件事。注意从第二轮开始可能就也得加kl了</p></blockquote><p>作者把多轮训练的版本叫做 IP-1，IP-2…可以发现，持续的训练会导致reward进一步的衰减</p><p>另外，只有D的setting，也就是纯用model自己生成的数据效果也不错。</p><p>另外一个有趣的点是，有一个领域叫做learn from Best-of-N,大概就是采样N个数据，直接拿最好的来finetune，那么这个和RRHF有啥关系呢？其实去掉rankloss就是learn from Best-of-N。其实从上面的图可以大概看出来，因为训练完以后的reward大概相当于训练前所有candidate的平均reward</p><p>因此作者做了这个对比实验</p><p><img src="../files/images/RRHF/rank_loss.png"></p><p>发现这个rank loss其实是很重要的</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>这个方法感觉有点像蒸馏，因为候选candidate里还有别的模型出的infer。不知道换chatGPT的会不会违反用户协议</li><li>感觉这个思路和pretrain loss更接近，毕竟也是按token一视同仁的优化，就相当于变了个学习率？</li><li>还有从calibration的角度理解的话，这个相当于显式地把calibration的偏序关系和实际reward的偏序关系定义进了训练任务中</li><li>如果引入一些对比学习领域的思路，也许直接avg log prob是不是不在一个隐空间中？也许可以试试加一个linear？</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;论文介绍了一个非常简单的RLHF中PPO的替代品，昨天听了作者的报告，今天来仔细读读。我认为它的思路和calibration有一定的关系。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../files/images/RRHF/intro.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="强化学习" scheme="https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-5-6总结</title>
-    <link href="https://www.yynnyy.cn/db37895b"/>
-    <id>https://www.yynnyy.cn/db37895b</id>
-    <published>2023-05-06T15:45:32.000Z</published>
-    <updated>2023-09-23T00:52:29.345Z</updated>
-    
-    <content type="html"><![CDATA[<p>好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。</p><blockquote><p>千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错</p></blockquote><span id="more"></span><p>五一假期刚刚过完，今年学校放五一假期时间很长，具体我体感不太清楚，但似乎最少放了五天假，比起前几年疫情时期把五一、十一假期取消的离谱操作，可以说是充满了温馨。依我来看，这恐怕是西芹上台以来，做的最大的一件好事了。假期虽然长，朋友圈的足迹也基本踏破了大江南北、天南海北，但我并没有做什么，除了大吃大喝了几顿……好吧，无论有没有假期我都会出去大吃大喝，没什么所谓仪式感。仔细想来，和”劳动节“关系最大的事情可能就是把家里的马桶修好了，四舍五入也算是劳动了。</p><p>假期的生活和最近一两个月的生活其实都差不多，按部就班，一眼望到底：毕设、科研、街舞、LPL……来回周转，好像也没什么值得专门说的。最近和做强化学习的许哲华老师交流了一下，倒不是说有多么受益良多，主要是发现许老师的生活好多彩：弹唱、舞蹈、摄影、滑雪、调酒……这样恐怕才是破折号青年吧。我发自内心喜爱这样的生活，但好像又没有勇气把这些事情做起来。常言道万事开头难，做一万件事的开头就更是一万倍的困难，希望我不要望洋兴叹一辈子吧。</p><p>生活挺单调，但倒是挺幸福快乐的。最近感觉自己的街舞初窥门径，基本每天晚上8:30-10:00去舞房和队员们联系一个多小时，买了一顶大佬跳舞时都喜欢带的帽子，一个人练习的时候也逐渐知道自己该练什么内容。我相信这是个好的开始，嗯，SFT阶段结束进入RLHF阶段…？说到这方面，我最近还真有了点把街舞和LLM联系起来的哲学思考，等再多跳跳、多学学再分享给大家吧。</p><p>……刚才读了读自己写的东西，怎么有种意识流的感觉，上了四年大学，写作能力已经退化到”毫无技巧、全是感情“的地步了吗。可恶，终究还是不行吗？算了，就这样吧。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
