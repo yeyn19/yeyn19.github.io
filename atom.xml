@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-10-12T02:17:06.702Z</updated>
+  <updated>2023-10-13T02:31:53.967Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023-10-13-insights</title>
+    <link href="https://www.yynnyy.cn/683995ae"/>
+    <id>https://www.yynnyy.cn/683995ae</id>
+    <published>2023-10-13T02:20:03.000Z</published>
+    <updated>2023-10-13T02:31:53.967Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><a href="#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent" class="headerlink" title="Do pretrained Transformers Really Learn In-context by Gradient Descent?"></a><a href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers Really Learn In-context by Gradient Descent?</a></h2><p>之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。</p><p>作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。</p><p><img src="../../files/images/arxiv-insights/2023-10-13/GD.png"></p><h2 id="Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><a href="#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens" class="headerlink" title="Context Compression for Auto-regressive Transformers with Sentinel Tokens"></a><a href="https://arxiv.org/abs/2310.08152">Context Compression for Auto-regressive Transformers with Sentinel Tokens</a></h2><p>作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p><p><img src="../../files/images/arxiv-insights/2023-10-13/sentinel-token.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent&quot;&gt;&lt;a href=&quot;#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent&quot; class=&quot;headerlink&quot; title=&quot;Do pretrained Transformers Really Learn In-context by Gradient Descent?&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.08540&quot;&gt;Do pretrained Transformers Really Learn In-context by Gradient Descent?&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。&lt;/p&gt;
+&lt;p&gt;作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-13/GD.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens&quot;&gt;&lt;a href=&quot;#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens&quot; class=&quot;headerlink&quot; title=&quot;Context Compression for Auto-regressive Transformers with Sentinel Tokens&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.08152&quot;&gt;Context Compression for Auto-regressive Transformers with Sentinel Tokens&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-13/sentinel-token.png&quot;&gt;&lt;/p&gt;
+</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2023-10-12-insights</title>
@@ -480,37 +506,6 @@
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="Reasoning" scheme="https://www.yynnyy.cn/tags/Reasoning/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation</title>
-    <link href="https://www.yynnyy.cn/abce9d24"/>
-    <id>https://www.yynnyy.cn/abce9d24</id>
-    <published>2023-06-30T02:33:22.000Z</published>
-    <updated>2023-09-23T00:52:29.352Z</updated>
-    
-    <content type="html"><![CDATA[<p>如何仅用1000步训练(0.01%资源)就将一个在2k context长度上训练的预训练模型的上下文窗口拓展到32k</p><blockquote><p>我其实不想讲这篇，因为我觉得苏剑林老师肯定会讲，并且讲的比我好，但是感觉这个方法还是很有研究价值的，因此分享给大家……</p></blockquote><p><img src="../files/images/position_interpolation/method.png"></p><span id="more"></span><p>作者团队是meta AI的田渊栋团队，他们之前做过挺多有意思的工作的</p><p><img src="../files/images/position_interpolation/authors.png"></p><h2 id="ROPE"><a href="#ROPE" class="headerlink" title="ROPE"></a>ROPE</h2><p>这篇工作重点解决ROPE位置编码的预训练模型的问题，那么就先讲讲ROPE。具体可以看这篇</p><blockquote><p> <a href="https://kexue.fm/archives/8265">博采众长的旋转位置编码</a>，写的比我写的好多了</p></blockquote><p>简单来说，ROPE有如下特点：</p><ul><li>不需要训练位置编码的参数</li><li>使用绝对位置编码的形式，就可以实现相对位置编码的效果。因此可以和FlashAttention等技术拼接来提高训练效率</li><li>理论上具有推广性，并不局限在整数”位置”</li></ul><p><img src="../files/images/position_interpolation/ROPE.png" style="zoom: 25%;" ></p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>在本篇工作中，作者主要探索了怎么把一个ROPE训练的在2k，4k，8k的模型拓展到32k context window的场景。</p><p><img src="../files/images/position_interpolation/difference.png" ></p><p>作者提到传统的ROPE算法在超出最大距离后，误差值就会爆炸，因此直接推广的效果一定是很差的，因此作者绕过了推广的限制：</p><blockquote><p> 外推不行，能不能内插？</p></blockquote><p>答案是可以。</p><script type="math/tex; mode=display">f'(x,m) = f(x, m \frac{L}{L'})</script><p>其中x是word embedding，m是位置。对于一个超过之前最大距离L的样本(距离为L’),通过内推将所有位置映射回L区间，每个位置都不再是整数。通过这种方式在长样本区间训练1000步，就能很好的应用到长样本上</p><p>作者用一堆数学证明这个的正确性，我没看懂，就不讲了。大家感兴趣可以自己看一看</p><p>接下来的实验部分都很简单，就是报告了一下效果。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>这篇论文的方法巨简单，但是效果很好、也很高效</li><li>我们可以思考一下：为什么这种方法可以work？我觉得主要是因为ROPE算法是一个推广的算法，本身就能拓展到非整数位置。理论上这类算法都可以这样拓展，比如BERT使用的那个基于cosine函数的绝对位置编码？</li><li>如果fine-tune时跑1000步就能这么好的话，那么在预训练阶段直接就加入这个内推过程是不是就更好呢？</li><li>如果从抽象的角度理解：看long text是一种看短text自然推广出的能力？</li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;如何仅用1000步训练(0.01%资源)就将一个在2k context长度上训练的预训练模型的上下文窗口拓展到32k&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我其实不想讲这篇，因为我觉得苏剑林老师肯定会讲，并且讲的比我好，但是感觉这个方法还是很有研究价值的，因此分享给大家……&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../files/images/position_interpolation/method.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
-    <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
     
   </entry>
   
