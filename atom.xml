@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-10-18T03:31:45.031Z</updated>
+  <updated>2023-10-01T12:06:52.897Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,334 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>2023-10-18-insights</title>
-    <link href="https://www.yynnyy.cn/90d96e59"/>
-    <id>https://www.yynnyy.cn/90d96e59</id>
-    <published>2023-10-18T02:46:37.000Z</published>
-    <updated>2023-10-18T03:31:45.031Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天论文不多，只有83篇，其中3篇感觉挺好玩。(其实还有几篇也挺有意思，但是每天最多三篇，只能优中选优了)</p><h2 id="BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models"><a href="#BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models" class="headerlink" title="BitNet: Scaling 1-bit Transformers for Large Language Models"></a><a href="https://arxiv.org/abs/2310.11453">BitNet: Scaling 1-bit Transformers for Large Language Models</a></h2><p>Furu Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1 bit呢？</p><p>他们训了一系列模型，发现随着模型越来越大，和16bit的差距越来越小，同时和16位模型的表现越来越接近。</p><p><img src="../../files/images/arxiv-insights/2023-10-18/BitNet.png"></p><span id="more"></span><h2 id="CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth"><a href="#CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth" class="headerlink" title="CoTFormer: More Tokens With Attention Make Up For Less Depth"></a><a href="https://arxiv.org/pdf/2310.10845.pdf">CoTFormer: More Tokens With Attention Make Up For Less Depth</a></h2><p>作者发现了一个有趣的观点：做CoT类似于增加计算资源，和换用一个更deep的transformer有类似之处。由此，作者提出了一个自带CoT结构的transformer，发现训完以后做推理任务的表现更好。</p><p><img src="../../files/images/arxiv-insights/2023-10-18/CoTFormer.png"></p><h2 id="Large-Language-Model-Unlearning"><a href="#Large-Language-Model-Unlearning" class="headerlink" title="Large Language Model Unlearning"></a><a href="https://arxiv.org/pdf/2310.10683.pdf">Large Language Model Unlearning</a></h2><p>字节的论文，作者尝试能不能只使用负例(harmless样本)做对齐，让模型忘记去回答这种问题，发现</p><ul><li>效率更高，需要的计算资源更少</li><li>可解释性更好</li><li>在研究了harmless样本问题以后针对性优化效果很明显</li></ul><p>感觉是一个很”大厂”的需求……</p><p><img src="../../files/images/arxiv-insights/2023-10-18/unlearning.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天论文不多，只有83篇，其中3篇感觉挺好玩。(其实还有几篇也挺有意思，但是每天最多三篇，只能优中选优了)&lt;/p&gt;
-&lt;h2 id=&quot;BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models&quot;&gt;&lt;a href=&quot;#BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;BitNet: Scaling 1-bit Transformers for Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.11453&quot;&gt;BitNet: Scaling 1-bit Transformers for Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Furu Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1 bit呢？&lt;/p&gt;
-&lt;p&gt;他们训了一系列模型，发现随着模型越来越大，和16bit的差距越来越小，同时和16位模型的表现越来越接近。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-18/BitNet.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-17-insights</title>
-    <link href="https://www.yynnyy.cn/61d235d4"/>
-    <id>https://www.yynnyy.cn/61d235d4</id>
-    <published>2023-10-17T07:58:30.000Z</published>
-    <updated>2023-10-18T03:48:37.467Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天135篇论文，重量级。EMNLP的余波还在。很多论文我不太感兴趣，分享两篇有趣论文</p><h2 id="FiLM-Fill-in-Language-Models-for-Any-Order-Generation"><a href="#FiLM-Fill-in-Language-Models-for-Any-Order-Generation" class="headerlink" title="FiLM: Fill-in Language Models for Any-Order Generation"></a><a href="https://arxiv.org/pdf/2310.09930.pdf">FiLM: Fill-in Language Models for Any-Order Generation</a></h2><p>Yejin Choi的论文，不知道是不是打算发在COML上:)</p><p>这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。</p><blockquote><p>有点像是去年比较火的Diffusion-LM的感觉？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-17/FiLM.png"></p><h2 id="Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts"><a href="#Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts" class="headerlink" title="Merging Experts into One: Improving Computational Efficiency of Mixture of Experts"></a><a href="https://arxiv.org/pdf/2310.09832.pdf">Merging Experts into One: Improving Computational Efficiency of Mixture of Experts</a></h2><p>作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging Experts into One的办法。</p><p>计算资源省了几倍，效果甚至还涨了($83.3\% &gt; 82.6\%$)</p><p><img src="../../files/images/arxiv-insights/2023-10-17/MEO.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天135篇论文，重量级。EMNLP的余波还在。很多论文我不太感兴趣，分享两篇有趣论文&lt;/p&gt;
-&lt;h2 id=&quot;FiLM-Fill-in-Language-Models-for-Any-Order-Generation&quot;&gt;&lt;a href=&quot;#FiLM-Fill-in-Language-Models-for-Any-Order-Generation&quot; class=&quot;headerlink&quot; title=&quot;FiLM: Fill-in Language Models for Any-Order Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2310.09930.pdf&quot;&gt;FiLM: Fill-in Language Models for Any-Order Generation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Yejin Choi的论文，不知道是不是打算发在COML上:)&lt;/p&gt;
-&lt;p&gt;这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;有点像是去年比较火的Diffusion-LM的感觉？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-17/FiLM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts&quot;&gt;&lt;a href=&quot;#Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts&quot; class=&quot;headerlink&quot; title=&quot;Merging Experts into One: Improving Computational Efficiency of Mixture of Experts&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2310.09832.pdf&quot;&gt;Merging Experts into One: Improving Computational Efficiency of Mixture of Experts&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging Experts into One的办法。&lt;/p&gt;
-&lt;p&gt;计算资源省了几倍，效果甚至还涨了($83.3&#92;% &amp;gt; 82.6&#92;%$)&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-17/MEO.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-16-insights</title>
-    <link href="https://www.yynnyy.cn/8e105eea"/>
-    <id>https://www.yynnyy.cn/8e105eea</id>
-    <published>2023-10-16T05:37:34.000Z</published>
-    <updated>2023-10-16T05:44:26.061Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天看下来，感觉都不太有意思。过两天估计大批的ICLR投稿就要来了，压力拉满。</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天看下来，感觉都不太有意思。过两天估计大批的ICLR投稿就要来了，压力拉满。&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-13-insights</title>
-    <link href="https://www.yynnyy.cn/683995ae"/>
-    <id>https://www.yynnyy.cn/683995ae</id>
-    <published>2023-10-13T02:20:03.000Z</published>
-    <updated>2023-10-13T02:31:53.967Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><a href="#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent" class="headerlink" title="Do pretrained Transformers Really Learn In-context by Gradient Descent?"></a><a href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers Really Learn In-context by Gradient Descent?</a></h2><p>之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。</p><p>作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。</p><p><img src="../../files/images/arxiv-insights/2023-10-13/GD.png"></p><h2 id="Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><a href="#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens" class="headerlink" title="Context Compression for Auto-regressive Transformers with Sentinel Tokens"></a><a href="https://arxiv.org/abs/2310.08152">Context Compression for Auto-regressive Transformers with Sentinel Tokens</a></h2><p>作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p><p><img src="../../files/images/arxiv-insights/2023-10-13/sentinel-token.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent&quot;&gt;&lt;a href=&quot;#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent&quot; class=&quot;headerlink&quot; title=&quot;Do pretrained Transformers Really Learn In-context by Gradient Descent?&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.08540&quot;&gt;Do pretrained Transformers Really Learn In-context by Gradient Descent?&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。&lt;/p&gt;
-&lt;p&gt;作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-13/GD.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens&quot;&gt;&lt;a href=&quot;#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens&quot; class=&quot;headerlink&quot; title=&quot;Context Compression for Auto-regressive Transformers with Sentinel Tokens&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.08152&quot;&gt;Context Compression for Auto-regressive Transformers with Sentinel Tokens&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-13/sentinel-token.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-12-insights</title>
-    <link href="https://www.yynnyy.cn/87fbfe90"/>
-    <id>https://www.yynnyy.cn/87fbfe90</id>
-    <published>2023-10-12T02:01:24.000Z</published>
-    <updated>2023-10-12T02:17:06.702Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models"><a href="#The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models" class="headerlink" title="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models"></a>The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models</h2><p>比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT的激活情况非常相似。用一个简单的分类模型输入GPT2的激活情况，通过简单的训练，就可以预测出人脑的激活情况(尤其在层数高的attentionLayer)。说明了预训练模型的认知结构和人脑的认知结构有一定的相似性。</p><h2 id="Online-Speculative-Decoding"><a href="#Online-Speculative-Decoding" class="headerlink" title="Online Speculative Decoding"></a>Online Speculative Decoding</h2><p>在投机推理的场景，都是由小模型生成样本，由大模型决定是否采用。在实际应用中，user query往往来源于一个同质化的分布，小模型错的地方也有相似性。作者发现目前系统的效率很低，因为小模型是固定的。因此想要做在线的部署，对于错误的预测都记录下来，当做一个训练数据。每当数据集超过阈值，就更新一波小模型。</p><p>通过这种方法，让小模型的部署时接受率从10%提升到了65%。非常有意思的观点。</p><p><img src="../../files/images/arxiv-insights/2023-10-12/online.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models&quot;&gt;&lt;a href=&quot;#The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models&quot;&gt;&lt;/a&gt;The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models&lt;/h2&gt;&lt;p&gt;比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT的激活情况非常相似。用一个简单的分类模型输入GPT2的激活情况，通过简单的训练，就可以预测出人脑的激活情况(尤其在层数高的attentionLayer)。说明了预训练模型的认知结构和人脑的认知结构有一定的相似性。&lt;/p&gt;
-&lt;h2 id=&quot;Online-Speculative-Decoding&quot;&gt;&lt;a href=&quot;#Online-Speculative-Decoding&quot; class=&quot;headerlink&quot; title=&quot;Online Speculative Decoding&quot;&gt;&lt;/a&gt;Online Speculative Decoding&lt;/h2&gt;&lt;p&gt;在投机推理的场景，都是由小模型生成样本，由大模型决定是否采用。在实际应用中，user query往往来源于一个同质化的分布，小模型错的地方也有相似性。作者发现目前系统的效率很低，因为小模型是固定的。因此想要做在线的部署，对于错误的预测都记录下来，当做一个训练数据。每当数据集超过阈值，就更新一波小模型。&lt;/p&gt;
-&lt;p&gt;通过这种方法，让小模型的部署时接受率从10%提升到了65%。非常有意思的观点。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-12/online.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-11-insights</title>
-    <link href="https://www.yynnyy.cn/6ccc4593"/>
-    <id>https://www.yynnyy.cn/6ccc4593</id>
-    <published>2023-10-11T05:29:39.000Z</published>
-    <updated>2023-10-11T06:01:12.091Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天论文也不少，找了三篇研究的问题比较有意思的。</p><h2 id="Humans-and-language-models-diverge-when-predicting-repeating-text"><a href="#Humans-and-language-models-diverge-when-predicting-repeating-text" class="headerlink" title="Humans and language models diverge when predicting repeating text"></a>Humans and language models diverge when predicting repeating text</h2><p>LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？</p><p>作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内部，发现是什么导致了这种现象。挺有意思的一篇实验论文</p><p><img src="../../files/images/arxiv-insights/2023-10-11/diverge.png"></p><span id="more"></span><h2 id="Text-Embeddings-Reveal-Almost-As-Much-As-Text"><a href="#Text-Embeddings-Reveal-Almost-As-Much-As-Text" class="headerlink" title="Text Embeddings Reveal (Almost) As Much As Text"></a>Text Embeddings Reveal (Almost) As Much As Text</h2><p>EMNLP的论文。大家都知道dense embedding含有原始输入的信息，但是具体含有多少信息？作者尝试了一个反向训练的办法，从dense embedding反向解码输入，发现基本上32 token的embedding都可以无损解码出来。(即使dense embedding不是通过reconstruction进行训练的)</p><blockquote><p>language modeling is compression?</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-11/much.png"></p><h2 id="SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues"><a href="#SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues" class="headerlink" title="SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"></a>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</h2><p>和之前微软的那篇CodePlan有点像，也是在多文件场景下做code refine。作者爬了很多github issue和pull request的代码修改对，做了一个benchmark，看模型在多文件修改场景下的表现。</p><blockquote><p>单文件下表现很好的模型，在多文件场景下都原形毕露了……</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-11/swe.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天论文也不少，找了三篇研究的问题比较有意思的。&lt;/p&gt;
-&lt;h2 id=&quot;Humans-and-language-models-diverge-when-predicting-repeating-text&quot;&gt;&lt;a href=&quot;#Humans-and-language-models-diverge-when-predicting-repeating-text&quot; class=&quot;headerlink&quot; title=&quot;Humans and language models diverge when predicting repeating text&quot;&gt;&lt;/a&gt;Humans and language models diverge when predicting repeating text&lt;/h2&gt;&lt;p&gt;LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？&lt;/p&gt;
-&lt;p&gt;作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内部，发现是什么导致了这种现象。挺有意思的一篇实验论文&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-11/diverge.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-10-insights</title>
-    <link href="https://www.yynnyy.cn/830e2ead"/>
-    <id>https://www.yynnyy.cn/830e2ead</id>
-    <published>2023-10-10T04:57:19.000Z</published>
-    <updated>2023-10-10T05:48:41.107Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv</p><h2 id="NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning"><a href="#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning" class="headerlink" title="NEFTune: Noisy Embeddings Improve Instruction Finetuning"></a>NEFTune: Noisy Embeddings Improve Instruction Finetuning</h2><p>作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？</p><p><img src="../../files/images/arxiv-insights/2023-10-10/noise-finetune.png"></p><p>感觉这里面肯定隐藏着更深层次的原因</p><h2 id="FireAct-Toward-Language-Agent-Fine-tuning"><a href="#FireAct-Toward-Language-Agent-Fine-tuning" class="headerlink" title="FireAct: Toward Language Agent Fine-tuning"></a>FireAct: Toward Language Agent Fine-tuning</h2><p>作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升</p><p><img src="../../files/images/arxiv-insights/2023-10-10/FIREACT.png"></p><h2 id="EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling"><a href="#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling" class="headerlink" title="EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling"></a>EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling</h2><p>作者目标直指crossentropy loss，发现换掉这个，表现猛涨</p><p>具体来说作者选择用earth mover distance来表征损失，有点像之前的维因斯坦GAN。</p><p><img src="../../files/images/arxiv-insights/2023-10-10/DEMD.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv&lt;/p&gt;
-&lt;h2 id=&quot;NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning&quot;&gt;&lt;a href=&quot;#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning&quot; class=&quot;headerlink&quot; title=&quot;NEFTune: Noisy Embeddings Improve Instruction Finetuning&quot;&gt;&lt;/a&gt;NEFTune: Noisy Embeddings Improve Instruction Finetuning&lt;/h2&gt;&lt;p&gt;作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-10/noise-finetune.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;感觉这里面肯定隐藏着更深层次的原因&lt;/p&gt;
-&lt;h2 id=&quot;FireAct-Toward-Language-Agent-Fine-tuning&quot;&gt;&lt;a href=&quot;#FireAct-Toward-Language-Agent-Fine-tuning&quot; class=&quot;headerlink&quot; title=&quot;FireAct: Toward Language Agent Fine-tuning&quot;&gt;&lt;/a&gt;FireAct: Toward Language Agent Fine-tuning&lt;/h2&gt;&lt;p&gt;作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-10/FIREACT.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling&quot;&gt;&lt;a href=&quot;#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling&quot; class=&quot;headerlink&quot; title=&quot;EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling&quot;&gt;&lt;/a&gt;EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling&lt;/h2&gt;&lt;p&gt;作者目标直指crossentropy loss，发现换掉这个，表现猛涨&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-09-insights</title>
-    <link href="https://www.yynnyy.cn/be95daa7"/>
-    <id>https://www.yynnyy.cn/be95daa7</id>
-    <published>2023-10-09T15:23:49.000Z</published>
-    <updated>2023-10-10T05:07:40.411Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天的论文看了看，好像都差那么点意思。</p><p>有一篇叫做Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models看起来还不错，讲的是通过tree search时间换效果。</p><p>最近这类论文好多呀……</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天的论文看了看，好像都差那么点意思。&lt;/p&gt;
-&lt;p&gt;有一篇叫做Language Agent Tree Search Unifies Reasoning Acting and Planning in Language Models看起来还不错，讲的是通过tree search时间换效果。&lt;/p&gt;
-&lt;p&gt;最近这类论文好多呀……&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-06-insights</title>
-    <link href="https://www.yynnyy.cn/4f9e812a"/>
-    <id>https://www.yynnyy.cn/4f9e812a</id>
-    <published>2023-10-06T07:51:10.000Z</published>
-    <updated>2023-10-10T05:07:31.367Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind"><a href="#How-FaR-Are-Large-Language-Models-From-Agents-with-Theory-of-Mind" class="headerlink" title="How FaR Are Large Language Models From Agents with Theory-of-Mind?"></a>How FaR Are Large Language Models From Agents with Theory-of-Mind?</h2><p>Google Deepmind和CMU的联合作品，作者认为：Thinking is for Doing。现在的推理任务只是让模型从上下文中推测一些知识和结论，然而实际人类在作出这些推理以后，会去影响他下一步的决策。因此作者在已有的推理数据集基础上，制作了一个T4D(thinking for doing)数据集来观察Agent模型是否可以做出正确地决策。</p><p>另外，作者也提出了一套<em>Foresee and Reflect</em> (FaR)框架去做这个任务并提升了模型的性能。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/T4D.png"></p><h2 id="Unlock-Predictable-Scaling-from-Emergent-Abilities"><a href="#Unlock-Predictable-Scaling-from-Emergent-Abilities" class="headerlink" title="Unlock Predictable Scaling from Emergent Abilities"></a>Unlock Predictable Scaling from Emergent Abilities</h2><p>我们实验室的论文，瞄准了jason wei代言的emergent ability现象，作者说明小模型在”缓慢上升”区间的表现是可以被准确预测的，只要提高测试清晰度。</p><p>另外，通过新的测试方法，可以以接近99.95%的准确率预测模型的表现。所谓的”emergent ability”是因为其表现不能用经典的scaling law曲线去控制，由此作者对emergent ability做出了一套新的诠释。</p><p><img src="../../files/images/arxiv-insights/2023-10-06/predictable-scaling.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-05-insights</title>
-    <link href="https://www.yynnyy.cn/a4a93a29"/>
-    <id>https://www.yynnyy.cn/a4a93a29</id>
-    <published>2023-10-05T03:30:24.000Z</published>
-    <updated>2023-10-10T05:07:24.346Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation"><a href="#Self-Taught-Optimizer-STOP-Recursively-Self-Improving-Code-Generation" class="headerlink" title="Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation"></a>Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation</h2><p>之前有一篇”take a deep breathe”的论文，可以让模型自己优化下游任务的prompt。这次这篇多递归了一层，可以自己evolve “prompt-evolver”。</p><p>是个case study的论文，这个问题很有意思。</p><p><img src="../../files/images/arxiv-insights/2023-10-05/seed-prompt.png"></p><h2 id="Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models"><a href="#Kosmos-G-Generating-Images-in-Context-with-Multimodal-Large-Language-Models" class="headerlink" title="Kosmos-G: Generating Images in Context with Multimodal Large Language Models"></a>Kosmos-G: Generating Images in Context with Multimodal Large Language Models</h2><p>作者探讨了一个很有意思的问题，现在的text2image基本都是从文本到图片。但是生成图片的时候就只有文本吗？能不能把图片文本联合作为一个输入去生成图片？</p><p>其实很多ControlNet之类的任务，天生就可以被这种方式表示出来</p><p><img src="../../files/images/arxiv-insights/2023-10-05/KOSMOS-G.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-04-insights</title>
-    <link href="https://www.yynnyy.cn/4b6b5117"/>
-    <id>https://www.yynnyy.cn/4b6b5117</id>
-    <published>2023-10-05T03:01:09.000Z</published>
-    <updated>2023-10-10T05:07:19.050Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Think-before-you-speak-Training-Language-Models-With-Pause-Tokens"><a href="#Think-before-you-speak-Training-Language-Models-With-Pause-Tokens" class="headerlink" title="Think before you speak: Training Language Models With Pause Tokens"></a>Think before you speak: Training Language Models With Pause Tokens</h2><p>很有意思的文章，作者认为：在模型生成比较困难的地方，加上一些pause token，会不会让模型训练地更好？</p><p>在C4上训了100M到1B的模型，发现在下游任务(尤其是推理任务)上，取得了很大的提升。引发了对于auto-regressive manner很多的思考</p><p><img src="../../files/images/arxiv-insights/2023-10-04/think-before.png"></p><h2 id="Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet"><a href="#Large-Language-Models-Cannot-Self-Correct-Reasoning-Yet" class="headerlink" title="Large Language Models Cannot Self-Correct Reasoning Yet"></a>Large Language Models Cannot Self-Correct Reasoning Yet</h2><p>Google Deepmind的论文，是一篇分析性文章。作者探索了self-correct类的技术，发现目前的模型没有外界反馈，基本上不可能做self-correct</p><blockquote><p>想起来小时候考试：老师每次对着我说”这个题再看看？”，最后都改错了……原来是缺少外界反馈呀</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-04/cannot-self-correct.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-03-insights</title>
-    <link href="https://www.yynnyy.cn/a9b74a6e"/>
-    <id>https://www.yynnyy.cn/a9b74a6e</id>
-    <published>2023-10-04T00:49:22.000Z</published>
-    <updated>2023-10-10T05:07:08.403Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天Arxiv足足有110篇论文，扫描一遍确实要很长时间</p><span id="more"></span><h2 id="Language-Models-Represent-Space-and-Time"><a href="#Language-Models-Represent-Space-and-Time" class="headerlink" title="Language Models Represent Space and Time"></a>Language Models Represent Space and Time</h2><p>作者发现预言模型不是随机鹦鹉，而是真的学到了时间和位置的信息？具体应该是做了一些PCA降维的方法</p><p>LeCun说的”世界模型”就在Llama2里？</p><p><img src="../../files/images/arxiv-insights/2023-10-03/space-and-time.png"></p><h2 id="Tool-Augmented-Reward-Modeling"><a href="#Tool-Augmented-Reward-Modeling" class="headerlink" title="Tool-Augmented Reward Modeling"></a>Tool-Augmented Reward Modeling</h2><p>作者探索了如何通过工具调用增强RLHF中的reward model。这里指的是RM可以通过工具调用增强事实性等能力，进而获得更好的reward modeling能力。(而不是target model调用工具)</p><p>感觉是一个有意思的问题，是工具学习的另一个新颖地场景</p><p><img src="../../files/images/arxiv-insights/2023-10-03/Tool-RM.png"></p><h2 id="Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency"><a href="#Representation-Engineering-A-Top-Down-Approach-to-AI-Transparency" class="headerlink" title="Representation Engineering: A Top-Down Approach to AI Transparency"></a>Representation Engineering: A Top-Down Approach to AI Transparency</h2><p>多所大学的联名综述。讲了最近几年model representation表现出来一种涌现的可解释性。接下来作者探讨了能不能通过自顶向下的方式来做模型的可解释性。</p><p>探讨了一个非常有意思、非常重要的话题，文章也写得很好。</p><p>具体地我打算读完论文后写在阅读笔记里</p><p><img src="../../files/images/arxiv-insights/2023-10-03/representing-engineering.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天Arxiv足足有110篇论文，扫描一遍确实要很长时间&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-10-02-insights</title>
-    <link href="https://www.yynnyy.cn/46752150"/>
-    <id>https://www.yynnyy.cn/46752150</id>
-    <published>2023-10-03T00:57:42.000Z</published>
-    <updated>2023-10-10T05:07:01.515Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Efficient-Streaming-Language-Models-with-Attention-Sinks"><a href="#Efficient-Streaming-Language-Models-with-Attention-Sinks" class="headerlink" title="Efficient Streaming Language Models with Attention Sinks"></a>Efficient Streaming Language Models with Attention Sinks</h2><p>这篇我计划更新成阅读笔记。作者发现了Llama2等LLM attention中的bias现象，主要取决于最前面的4个token。于是作者发现只要每次在sliding windows上都拼上最前面4个token的情况，就能在无限长文本上每次都获得全局的文本信息。从而达到流式处理的效果。</p><p><img src="../../files/images/arxiv-insights/2023-10-02/StreamingLLM.png"></p><h2 id="ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving"><a href="#ToRA-A-Tool-Integrated-Reasoning-Agent-for-Mathematical-Problem-Solving" class="headerlink" title="ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving"></a>ToRA: A Tool-Integrated Reasoning Agent for Mathematical Problem Solving</h2><p>推一推清华黄民烈老师在工具学习领域的作品，让LLM可以通过写代码工具来做多步调用进而完成数学问题推理。然后用一个类似STaR方法的两阶段训练方式来训练模型：</p><ul><li>首先是保留做对的trace</li><li>然后是对于做错的trace，用一个老师模型去correct，然后再扔进数据集</li></ul><p>是第一篇开源的在MATH数据集上超过50% acc 的模型</p><p><img src="../../files/images/arxiv-insights/2023-10-02/ToRA.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-09-28-insights</title>
-    <link href="https://www.yynnyy.cn/13a1e3c6"/>
-    <id>https://www.yynnyy.cn/13a1e3c6</id>
-    <published>2023-10-01T04:01:12.000Z</published>
-    <updated>2023-10-10T05:06:31.156Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天两篇有趣的论文</p><span id="more"></span><h2 id="Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox"><a href="#Identifying-the-Risks-of-LM-Agents-with-an-LM-Emulated-Sandbox" class="headerlink" title="Identifying the Risks of LM Agents with an LM-Emulated Sandbox"></a><a href="https://arxiv.org/abs/2309.15817">Identifying the Risks of LM Agents with an LM-Emulated Sandbox</a></h2><p><img src="../../files/images/arxiv-insights/2023-09-28/Identifying-the-Risks.png"></p><p>东京大学等机构的研究。作者发现现在的AI-Agent技术基本上都离不开工具调用，但是随着规模逐渐增大、语言模型越来越强，测试的成本越来越高，带来的实际物理影响也越来越大。作者的思路是在工具执行前加一个中间层(ToolEmu)，模拟一下工具执行的结果(而不是真正执行)，这样成本就变低了很多。作者测试了一下发现召回率挺高，68.8%的ToolEmu错误会导致真正的工具调用错误。同时作者还发现即使最强的AI-Agent，也会有23.9%的工具调用是错误的，说明AI-Agent仍需努力呀。</p><p>引用了我们的文章，赢！</p><hr><p>Research from University of Tokyo, etc. Reveals that present AI-Agent technology fundamentally relies on tool usage. However, as the scale gradually increases and language models become more bigger, the cost and real-world of tool impart of testing AI-Agent grows. The authors propose adding an intermediate layer (ToolEmu) before tool execution to simulate the outcomes (rather than actual execution), substantially reducing the cost. </p><p>Testing revealed a high recall rate, with 68.8% of ToolEmu errors leading to actual tool invocation errors. The authors also found that even the most potent AI-Agents make errors in 23.9% of tool invocations, indicating a need for further AI-Agent enhancement.</p><p>(And they cited our article, ToolLLM and BMTools)</p><h2 id="Jointly-Training-Large-Autoregressive-Multimodal-Models"><a href="#Jointly-Training-Large-Autoregressive-Multimodal-Models" class="headerlink" title="Jointly Training Large Autoregressive Multimodal Models"></a><a href="https://arxiv.org/abs/2309.15564">Jointly Training Large Autoregressive Multimodal Models</a></h2><p>来自Meta AI的研究团队第一次探索了通过Joint Autoregressive Mixture可以使用同一个模型去同时生成图片、文本两个模态输出的模型。创新性很强。</p><p>GPT-4V的下一步？</p><hr><p>A research team from Meta AI has, for the first time, explored utilizing Joint Autoregressive Mixture to enable a <strong>single model</strong> to concurrently generate both image and text modal outputs. This represents a significant innovation in the field.</p><p>The next generation of GPT-4V?</p><p><img src="../../files/images/arxiv-insights/2023-09-28/JAM.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天两篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
   
   <entry>
     <title>2023-09-29总结</title>
@@ -367,27 +39,6 @@
     
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>2023-09-29-insights</title>
-    <link href="https://www.yynnyy.cn/d2c6faf"/>
-    <id>https://www.yynnyy.cn/d2c6faf</id>
-    <published>2023-09-29T09:07:25.000Z</published>
-    <updated>2023-10-10T05:06:44.321Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天三篇有趣的论文</p><span id="more"></span><h2 id="Effective-Long-Context-Scaling-of-Foundation-Models"><a href="#Effective-Long-Context-Scaling-of-Foundation-Models" class="headerlink" title="Effective Long-Context Scaling of Foundation Models"></a>Effective Long-Context Scaling of Foundation Models</h2><p>Meta AI新研究，尝试了long seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。</p><hr><p>New research in Meta AI, which has explored various variants of long sequence length and found that: Llama2, after training, can surpass turbo-16k on long sample benchmarks. The authors discovered that long sample models do not require a large amount of long sample data during the pre-training phase. </p><p>Fine-tuning with a small amount of data after is sufficient.</p><h2 id="Demystifying-CLIP-Data"><a href="#Demystifying-CLIP-Data" class="headerlink" title="Demystifying CLIP Data"></a>Demystifying CLIP Data</h2><p>FAIR, Meta AI的作品。作者认为几年前OpenAI CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8% &gt; 68.3%)。</p><p>另外，作者做了scale实验，用1B数据打到了72.4%；同时如果模型大小也跟着scale，最高能到ViT-H的80.5%。</p><p>最重要的是，开源！Meta AI is all you need</p><hr><p>Another work by FAIR, Meta AI. The authors believe that a few years ago, the OpenAI CLIP model was a fully data-engineering project, its capabilities stemming from an close-sourced 400M dataset. In this paper, the authors introduced MetaCLIP. It is entirely focused on data, with no additional tricks used. Various comparative experiments were conducted with the same scale of data, outperforming CLIP (70.8% &gt; 68.3%).</p><p>Additionally, the authors conducted scaling experiments, achieving 72.4% with 1B data. And if the model size is scaled as well, it can reach up to 80.5% with ViT-H.</p><p>Most importantly, it is open-source! Meta AI is all you need.</p><h2 id="AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model"><a href="#AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model" class="headerlink" title="AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model"></a>AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model</h2><p>还是Meta……作者训了一个高效、可扩展的多模态编码器，把2亿图片、220万音频、50万IMU序列、2800万视频都扔进去训练，然后都和Llama2-70B对齐，相当于同时让Llama2可以读懂多模态了，但是只能输出text。</p><p>作者刷了一堆榜，基本全是SOTA。</p><p>插一句，难道GPT-4V就是这么搞的吗？然后用上一篇Demystifying CLIP Data里整了一堆闭源的超级数据工程……</p><hr><p>Yet another Meta AI research have trained an efficient and scalable multimodal encoder. The training utilized 200 million images, 2.2 million audio files, 500 thousand IMU sequences, and 28 million videos. All of these data were aligned with Llama2-70B, essentially enabling Llama2 to understand multimodal data( though it can only output text)</p><p>The authors archived SOTAs on various leaderboards, primarily achieving state-of-the-art results.</p><p>BTW,  I have some questions: If this is the approach taken for GPT-4V? and refers to the use of a significant amount of closed-sourced super data-engineering as discussed in the previous mentioned paper(Demystifying CLIP Data) ?</p><h2 id="我的思考-My-insights"><a href="#我的思考-My-insights" class="headerlink" title="我的思考(My insights)"></a>我的思考(My insights)</h2><p>现在Meta已经这么强了吗……我基本上看眼缘挑，挑出来的竟然全是Meta的论文，感觉他们的focus确实好。OpenAI率先闭源，开源界又有Meta这个猛虎，我辈高校科研人员仍需努力呀</p><hr><p>Is Meta already that strong now? Basically, by just picking the Arxiv papers today that caught my eye, it turns out they are all from Meta. Their focus is indeed good. </p><p>With closed OpenAI taking the lead in and the open-source community having the “tiger” as Meta. Me, and the academic research community from universities, still need to work harder.</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天三篇有趣的论文&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
     
   </entry>
   
@@ -500,6 +151,406 @@
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning</title>
+    <link href="https://www.yynnyy.cn/6dd69a39"/>
+    <id>https://www.yynnyy.cn/6dd69a39</id>
+    <published>2023-07-23T02:27:52.000Z</published>
+    <updated>2023-09-23T00:52:29.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？</p><p><img src="../files/images/meta_transformer/intro.png" style="zoom: 33%;" ></p><span id="more"></span><p>论文作者来自香港中文大学，笑死，一看题目我还以为Meta AI的新作。论文的一作我搜了搜，好像没有什么我见过的文章</p><p><img src="../files/images/meta_transformer/authors.png" style="zoom: 33%;" ></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者在文章里讲到，多模态领域的一个重要问题是如何把模态对齐。而transformer架构其实是对模态不敏感的，只要进来embedding就能跑。那么作者就想到，能不能把各种模态的数据都扔进一个embedding空间，来做实现多模态编码呢？</p><p>其实，这个思路和CLIP是一样的，但是他们的解决方式不一样。CLIP是要找到很多image-text pair数据来做对比学习。但本文，是想要对齐多达12个模态，肯定找不到pair数据了。</p><p>另一个解决办法是像之前的imageBind一样，把所有模态的数据都对齐到一个模态(图像)，化简数据难度。</p><p>作者和上面的思路都不一样，他这里想要不用模态数据，但是没讲为什么？</p><p>大家肯定要问：不用pair数据，怎么做模态对齐任务？你说得对，这就是本文的一个故布迷阵，他只做了单模态任务，没做模态对齐任务。</p><p>总之，本文的贡献就是：尝试用统一的encoder，不用pair数据来做多模态表示。</p><p><img src="../files/images/meta_transformer/compare_to_previous_method.png" style="zoom: 50%;" ></p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>这一部分，作者首先假设所有模态都应该享有一个公共的语义空间(这里的语义是泛指，不是指语言模态)。因此作者就想要找到一个多模态的编码方式</p><script type="math/tex; mode=display">\hat{y} = F(x,\theta^*), \theta^* = \arg \min[\mathcal{L}(y,\hat{y})]</script><p>其中x是原始输入，$\hat{y}$是模型输出，y是真实标签。总体而言就是传统finetune的方式</p><p>作者设计了一个三阶段的流程</p><script type="math/tex; mode=display">F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对于不同模态分开设计的</p><ul><li>text模态就是wordpiece+wordembedding</li><li>图片模态是ViT那套patch划分，再过一个conv层</li><li>视频模态是变成多个图片</li><li>……</li></ul><p>总之，最后所有输入都能变成二位的embedding，注意：作者压平了维度，所有模态都和text一样了</p><p>接下来是encoder，作者想要用一个encoder接收所有：meta_transformer</p><p>最后是一个任务独立的head，每个任务都不一样，和BERT迁移到下游任务的方式一样</p><p>总体架构如下所示</p><p><img src="../files/images/meta_transformer/arch.png" style="zoom: 50%;" ></p><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>首先作者的encoder是在LAION-2B上训练的ViT(并不是abstract提到的没用pair数据)，然后text模态用CLIP text word embedding初始化</p><p>接下来，作者在各个模态的任务上都做了些实验</p><p><img src="../files/images/meta_transformer/text.png" style="zoom: 50%;" ></p><p><img src="../files/images/meta_transformer/image.png" style="zoom: 50%;" ></p><p>这里放上text和image模态的结果。模型名字里最右下角的T和F分别是指encoder是Tune还是Freeze</p><ul><li>总体而言，结果不是很好，尤其是encoder freeze的情况下。可以理解，encoder freeze就相当于只有embedding和linear</li><li>话说是不是应该放个没有encoder的bias study</li></ul><p>最后，这篇文章没有analysis，放上所有实验的结果就跑路了</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>我其实不太喜欢这篇文章的思路，我认为：如果方法中设计了什么变化，就需要说出来为什么要这么设计，同时实验中要有结果支撑”这个设计的优势是什么”。否则的话按照奥卡姆剃刀原则，就不应该有这个设计。但是本文似乎没讲清楚”不用pair数据”、”要freeze encoder”的意义和目的是什么</p></li><li><p>当然，本文探索的这个问题很有意思，结果也挺有意思：当你在一个模态训了一个大encoder，锁住以后在另一个模态上加一个encoder强行对齐，竟然也能做？</p></li></ul><blockquote><p>我觉得这里面藏着更深的道理：另外之前image bind所有模态对齐到一个模态的结果也挺好，以及最开始类似flamingo的思路就用一个crossattention就能很轻松的连接多个模态，以及versitle Diffusion也是做到了类似的事情。</p><p>这是否说明transformer结构天然地将信息分解为了模态相关的和模态独立的两个部分，所以两个模态的transformer拼接时就会很容易呢？</p><p>我们是不是有机会让GPT4甚至不调参就能接到各个模态上去？</p></blockquote><ul><li>多模态领域发展真快呀，大家似乎都在试图剔除之前方法里的很多数据依赖和模型依赖，不知道最终能剔除到什么地步？</li><li>最后，模态间生成任务大家做的似乎都不是很好、要不就是干脆没做。我觉得多模态的终点就是把模型对齐到”脑波”模态，让我们和模型可以互相理解对方在想什么，是不是可解释性就来了？</li></ul><blockquote><p>脑机接口，但是没有脑机？</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/meta_transformer/intro.png&quot; style=&quot;zoom: 33%;&quot; &gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models</title>
+    <link href="https://www.yynnyy.cn/1c5cf63c"/>
+    <id>https://www.yynnyy.cn/1c5cf63c</id>
+    <published>2023-07-20T02:13:11.000Z</published>
+    <updated>2023-09-23T00:52:29.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。</p><p><img src="../files/images/retentive_network/performance.png"></p><span id="more"></span><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者团队来自清华，竟然是同学</p><p><img src="../files/images/retentive_network/authors.png"></p><p>作者在这个地方主要讲到了一个”不可能三角”：性能、训练并行性、低的inference成本</p><p><img src="../files/images/retentive_network/triangle.png" style="zoom:25%;" ></p><p><img src="../files/images/retentive_network/complexity.png" style="zoom:50%;" ></p><p>性能比较好理解。</p><p>训练并行性主要分两种：数据并行和训练并行，RNN当然可以数据并行，就是开一个很大的batch size。主要问题RNN的下一个状态依赖于上一个状态，因此算第i个位置时，必须把前面&lt;i的位置全算完。相比之下，auto-regressive transformer按照causal mask的形式，只需要一次前向，就能把所有位置的hidden state算出来，因此比如seq_length是2048时，就要快2000倍</p><p>推理成本主要是针对时间说的，</p><ul><li>正常的transformer做矩阵运算，n-&gt;d的映射需要复杂度$O(n^2d)$做矩阵运算, 因此一次前向总体复杂度大概是$n^2d+nd^2$算上multi-head attention的版本，平均一个token是$O(n)$</li><li>而对于RNN来说，$h<em>t = f(Ux_t + Wh</em>{t-1})$其中由于x和h都是一维的，因此最后的复杂度是$O(nd^2)$就比transformer，平均一个token需要占$O(1)$</li></ul><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><blockquote><p>这一部分默认读者对tranformer的计算方式很了解</p></blockquote><p>那么作者是怎么在持有transformer特性的基础上，利用起RNN的推理成本的特性呢？作者也想要用一个RNN的形式</p><h3 id="retention算子"><a href="#retention算子" class="headerlink" title="retention算子"></a>retention算子</h3><script type="math/tex; mode=display">s_n = A s_{n-1} + K^T_n v_n \\o_n = Q_ns_n = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m)</script><p>其中$A \in \mathcal{R}^{d<em>d},K_n,v_n,s_n,Q_n \in \mathcal{R}^{1</em>d}$。V就是每个单词的词向量，s就相当于RNN里面的中间向量，而o就是RNN里面的输出向量。上面的下面那行是说最后总体o计算可以变换成一个累加的形式</p><p>Q、K可以类比transformer里的query、key的作用，计算也是一致的</p><script type="math/tex; mode=display">Q = XW_Q, K = XW_K</script><p>这里看起来就是一个传统的RNN，但是如果我们假设计算时使用的A矩阵可以满足</p><script type="math/tex; mode=display">A = \Lambda (\lambda e^{i\theta}) \Lambda^{-1}</script><p>另外，我们假设$\lambda$是标量</p><script type="math/tex; mode=display">\begin{aligned}o_n & = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m) \\& = \sum_{m=1}^n (Q_n  \Lambda^{n-m} (\lambda e^{i\theta}) \Lambda^{-(n-m)}  K_m^Tv_m) \\& = \sum_{m=1}^n \lambda^{n-m} (Q_n e^{in\theta}) (K_m e^{im\theta}) V_m\end{aligned}</script><p>这样一下这个加和的形式看起来变成了矩阵乘的形式，而且如果把$\lambda$看做一个类似mask矩阵的东西，其实用类似transformer的大号的矩阵乘就能把所有位置都算出来，具体算法的形式类似这样</p><p><img src="../files/images/retentive_network/algo.png" style="zoom:50%;" ></p><p>上面的和下面的两种算法的结果是完全相等的</p><p>接下来作者讲了几个优化</p><h3 id="chunk"><a href="#chunk" class="headerlink" title="chunk"></a>chunk</h3><p>首先是，如果seq length很长，上面的化简算法里的矩阵维度就太高了，想要把里面的分块计算(chunk)，之前有爆料GPT4之类的模型也大概是这个思路化简的。</p><p><img src="../files/images/retentive_network/chunk.png" style="zoom:50%;" ></p><p>所以块内inner-chunk就是直接按上面的算法，块间需要按照RNN的形式Autoregressive计算。换句话说，这里节省占用空间，但是需要每块先后的算，算是一个权衡吧</p><h3 id="multi-head"><a href="#multi-head" class="headerlink" title="multi-head"></a>multi-head</h3><p>其次，作者类比multihead attention，搞了一个multihead retention</p><p><img src="../files/images/retentive_network/gate.png" style="zoom:50%;" ></p><p>其实本质上也是在化简矩阵维度，先分成多个head，每个head使用不同的衰减系数$\lambda$，然后在每个head算完以后都给这个head做一个linear变换</p><p>之所以用group_norm，是因为每个head的衰减系数不一样，也就是说绝对值会有点区别</p><p><img src="../files/images/retentive_network/code.png" style="zoom:50%;" ></p><h3 id="retentive-network"><a href="#retentive-network" class="headerlink" title="retentive network"></a>retentive network</h3><p>在retention算子说完以后，整体的网络就和transformer一致，只是attention算子变成了retention算子</p><script type="math/tex; mode=display">Y^l = MSR(LN(X^l)) + X^l \\X^{l+1} = FFN(LN(Y^l)) + Y^l</script><p>总体而言</p><ul><li><p>他训练时使用矩阵化简的形式，可以一次算出来所有位置</p></li><li><p>推理时使用矩阵化简前那个RNN的形式，因此推理的时间和空间复杂度都很低</p></li></ul><blockquote><p>神奇的数学</p></blockquote><h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分很详尽，基本都是在证明RetNet性能强、速度快、占用低。</p><p><img src="../files/images/retentive_network/size.png" style="zoom:50%;" ></p><p>作者做了scale实验，发现RetNet的scale增长更快。感觉还挺有意思的，难道说运用了Recurrent的方式，真的能进一步增强模型的表征能力？</p><p><img src="../files/images/retentive_network/inhenced.png" style="zoom:50%;" ></p><p>另外作者还和一些最近的改进transformer工作做了PPL对比，说明他的效果是真的好，而不是只比”香草”好</p><p>这些实验应该不是本篇工作主要focus的点，这里就跳过了。做的还是很好的，大家可以自己读一读原文。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>其实我们可以想想，这个方法在生活第n个token时，前面所有的状态仅由一个hidden dim维的向量决定，用来生成下一个hidden state。这个学习任务比起Autoregressive transformer需要同时看到前面所有位置的hidden state信息，学习任务可以说是更简单。</p></li><li><p>从这个角度出发，估计训练效率更高，但其实表示能力应该更弱才对。然后，传统的RNN其实都是类似这个形式，所以我其实比较好奇两个问题：</p><ul><li>经典的RNN结构在相同的训练量下，和RetNet比是不是效果基本相同呢？</li><li>不知道后面有没有人尝试训一下30B、70B的版本？另外，这个6.7B的版本应该过的总token数是100B token，LLaMA 6.7B的训练量是1.0T，差一个数量级。不知道能不能和LLaMA比，因为LLaMA也是带了各种transformer变体。我理解这种看到flatten former state的形式，在更难得任务上可能会撞到瓶颈</li></ul></li><li><p>最后，作者没有提到两个优势</p><ul><li>那就是按照现在这个chunk训练、RNN推理的模式，其实是不受到最大seq length影响的，因此天生就能搞到巨长的最大长度</li></ul><blockquote><p>听说Claude 2那个100k的版本就是 低层优化+硬训 的，不知道anthropic看到这篇会不会直接出手</p></blockquote><ul><li>再就是，这套方法不需要position embedding，我一直觉得transformer引入各种position embedding变体不够优雅，这个看起来舒服多了</li></ul></li><li><p>最后吐槽一句，现在的论文名字真得起的大一点，昨天看到一个：copy is all you need，今天看到一个 a sucessor to transformer。还是得这样的才能显眼</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/retentive_network/performance.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[精读]-Let’s Verify Step by Step</title>
+    <link href="https://www.yynnyy.cn/d074522f"/>
+    <id>https://www.yynnyy.cn/d074522f</id>
+    <published>2023-07-05T06:17:54.000Z</published>
+    <updated>2023-09-23T00:52:29.357Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4</p><p><img src="../files/images/verify/result.png" style="zoom:33%;" ></p><span id="more"></span><p>作者团队来自openAI。其实openAI今年也没发几篇论文，我基本上都看了。今天正好分享一下这篇吧，以后有机会把别的也讲讲。</p><p><img src="../files/images/verify/authors.png" ></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这篇论文里讲到了相对的两个概念：过程监督和结果监督。</p><p>对于一个经典的对齐场景(和人对齐)来说。正常的RLHF其实是需要人类先标注样本组谁比谁更好，由此训练一个reward model，这个打分的对象是针对样本而言，换句话说就是只有生成完全结束以后，才能打出一个分数。作者认为这种打分就是结果打分。</p><p>相对的，是不是还可以进行过程监督呢？比如给每句话都打一个分数，是不是就比结果判断要更准确呢？</p><p>听起来挺合理，但是对齐场景这个不太好实现，毕竟我们也不知道到哪里可以算是一个”step”</p><p>作者另辟蹊径，找了一个好判断的场景：数学题。作者把解决一个问题需要多步推导的每一个步骤视为一个step，由此进行了一波人工标注。</p><p><img src="../files/images/verify/step.png" ></p><p>总体而言，</p><ul><li>由过程监督的数据训练出来的打分模型和由结果监督的数据训练出来的打分模型，在learning-from-best-of-N实验中差异巨大，过程监督效果更好</li><li>持续的打分、对抗、打分过程可以加速收敛</li><li>作者开源了带有过程标注打分的数据集</li></ul><h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="说明与预处理"><a href="#说明与预处理" class="headerlink" title="说明与预处理"></a>说明与预处理</h3><p>作者把两种模型分别称为ORM(outcome)、PRM(process)。</p><p>所有的训练使用不同大小的原始GPT4模型进行(而不是RLHF版本的GPT4)。</p><blockquote><p>large model就是完全体GPT4。而小号模型是一个用了1/200训练资源的小号GPT4</p></blockquote><p>作者把生成数学题答案的模型称为generator。所有的generator是不优化自己参数的，因为本论文聚焦于对比过程打分和结果打分。</p><blockquote><p>其实有了这个模型，是可以由此进行一个多步的RL训练的。参考之前的trlx库的实现</p></blockquote><p>在所有的实验开始之前，作者先对所有模型在一个叫做mathMix的充满数学题和解答的数据集(1.5B)进行了一波finetune</p><p><img src="../files/images/verify/mathMix.png" ></p><p>👆🏻数据组成是这样的。不幸的是这个数据集没开源，只能参考一下。</p><p>接下来，作者从Math数据集选了个测试集，和上面的finetune数据集去重了一下，保证没有交集。</p><p>对于generator，作者为了保证模型生成的答案是一行一行的。作者找了Math数据集的训练集，让里面的解答都是一行一行的形式，在上面微调了一下。这样generator的输出就永远是一行一行的了。</p><p>最终正式开始实验</p><h3 id="PRM800K数据集"><a href="#PRM800K数据集" class="headerlink" title="PRM800K数据集"></a>PRM800K数据集</h3><p>这一个环节，作者要制作训练数据集。假设已经有了一个generator。</p><p>首先让generator对问题生成一些多步的解答，然后作者要人工标注员来标注中间打分。对于每一个中间过程分为三类：</p><ul><li>positive：对的过程，对解答有帮助</li><li>negative：错的过程</li><li>Neutral：对的过程，但是对解答没啥帮助</li></ul><p>作者提到了一个提高训练效率的trick：convincing wrong-answer 。</p><blockquote><p>convincing wrong-answer ：PRM模型打分很高，但最终把答案做错的case。</p></blockquote><p>作者优先喂给human这个case来打分，相当于把数据集生活过程和PRM model耦合了，这会带来bias，但不知道严不严重。</p><p>因此总体的过程是一个多步的：generator生成一波、标一波、训个PRM、找出convincing wrong-answer再标、再重训PRM、再找…看作者的仓库，这个过程整个持续了10轮。</p><blockquote><p>折磨标注员……</p></blockquote><h3 id="PRM-and-ORM"><a href="#PRM-and-ORM" class="headerlink" title="PRM and ORM"></a>PRM and ORM</h3><p>接下来作者讲解PRM和ORM都是怎么训练的</p><ul><li>ORM和RLHF的reward model训法很像：</li></ul><p>首先对于基础模型，最后的hidden_state后加一个linear(n,2) + softmax映射到2分类概率，然后对于语句的所有位置都有个概率，作者希望所有位置都要优化都有loss，和最终解答本身的类型一致。在测试时，作者选择EOS token位置的分类概率作为最终的得分。</p><blockquote><p>作者提到了假阳问题：过程错了，但有的时候结果不会错，负负得正了。这个bias是ORM方法本身没法解决的</p></blockquote><ul><li>PRM训练方式有所不同：作者只关注第一次出现错误的step位置，后面的step只能都丢掉，因为第一次错误以后后面的步骤就没法判断了。因此数据全是一些step，前面全是positive、netrual，最后一个negative</li></ul><p>同样的模型结构，但是每行文本作者只计算最后一个token的分类概率算loss。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="大模型实验"><a href="#大模型实验" class="headerlink" title="大模型实验"></a>大模型实验</h3><p>作者先做了一个大模型的实验，即两个完全体GPT4分别作为generator和监督模型，所有的方法都是对抗攻击的形式。有以下几个变体</p><ul><li>ORM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li><li>PRM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li></ul><blockquote><p>PRM怎么给一道题的得分呢？作者说到对于每个step，都能做三分类。如果negative概率&gt;20%就算这个step错，否则就算对。第一次输出”错”时结束。因此评价两个解答可以用 “对”标签的总数量</p></blockquote><ul><li>majority voting：生成多个解答，选择数量最多的相同答案作为答案</li></ul><p>测试时作者只检查答案是否正确，由此就跑出来了首页的图：</p><ul><li>PRM &gt; ORM $\approx$ major</li><li>PRM和ORM的差距随着采样次数的增多被进一步拉大</li></ul><blockquote><p>一道题用GPT4采样1860次，只能说：this is openAI</p></blockquote><p>以上实验都是展现OpenAI雄厚财力和资本，后面是openAI研究员敏锐思路的展现。</p><h3 id="小规模对比实验"><a href="#小规模对比实验" class="headerlink" title="小规模对比实验"></a>小规模对比实验</h3><p>作者谈到，上面的实验对ORM并不公平，因为：</p><ul><li>构造训练数据时是针对PRM做了对抗的制作，因此数据集肯定对训练PRM有利，并且没做出正确答案的题目的数量更多，对ORM来说标签不平衡</li><li>训练ORM时判断标签用的是自动化检查，检测答案对不对，因此有假阳。对ORM训练不利</li></ul><p>怎么做出公平的实验呢？作者说：用大模型监督小模型。作者把上一节训出来的完全体GPT4-PRM称为PRM-large,由此做消融实验</p><h4 id="PRM-vs-ORM"><a href="#PRM-vs-ORM" class="headerlink" title="PRM vs ORM"></a>PRM vs ORM</h4><p>作者现在用小模型做generator，生成一堆答案，用PRM-large给出三种标签：</p><ul><li>PRM-large给出的过程标签：和大模型实验方法相同</li><li>PRM-large给出的结果标签</li></ul><blockquote><p>PRM-large怎么给结果标签？作者说方法是：当且仅当所有step都打出”对”标签</p></blockquote><ul><li>自动化answer检查给出的结果标签</li></ul><p>拿到这些标签，就当是人标的，训练一个小号的PRM-small、ORM-small，然后用小号的generator-small做best-of-n实验对抗rm-small</p><p><img src="../files/images/verify/ablation.png" ></p><p>由此，作者跑出来两个图：</p><ul><li>左边的图横轴是训练PRM-large用的一道题用generator采样的样本数，纵坐标是正确率。</li></ul><blockquote><p>采样的样本数越多，越容易作为对比看出来一道题的答案的泛化性，另一方面也要消耗更多的标注资源</p></blockquote><ul><li>右边的图横轴是“一道题sample多少个样本”(测试资源消耗)，纵坐标是正确率。</li></ul><p>可以看出来，大模型试验得到的性质在严谨的消融实验中仍然保留</p><blockquote><p>不过这里也可以看到，用小generator以后，这效果直接腰斩了。比如N=10时，大号是68%，小号是22%，可以说是天壤之别。插一句：难道这也是emergent ability?</p></blockquote><h4 id="Active-Learning"><a href="#Active-Learning" class="headerlink" title="Active Learning"></a>Active Learning</h4><p>这一部分作者去消融上面提到的选数据的问题。首先训一个小PRM，每道题一条数据。然后给generator生成的每道题1000条数据打分，选出来一些数据：</p><ul><li>80%是convincing wrong-answer</li><li>20%是剩下的最convincing的答案</li></ul><p>挑出来这些数据的子集，再训练新的RM-small，由此做出来的上面的图左(横轴是挑选的训练数据规模)</p><ul><li><p>这个场景叫做active learning: 因为所有数据都是小reward model认为 convincing的，并且80%都是错的。和真正标注PRM800K时的比例一致。</p></li><li><p>没有用这个挑选trick，而是随机挑选同样大小的数据集，就是阴性对照。</p></li></ul><p>对比图做的两条线，作者说：active learning方法有2.6倍的数据效率，即仅用1/2.6的训练数据就能得到传统收集方法的效果</p><h2 id="OOD"><a href="#OOD" class="headerlink" title="OOD"></a>OOD</h2><p>数据外分布测试：作者尝试了Math以外的数据集(和PRM、ORM的训练数据不一致)</p><p><img src="../files/images/verify/OOD.png" ></p><p>可以发现数据规律和前面的实验一致</p><h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>这一部分作者谈了一些思考</p><blockquote><p>Credit Assignment：这个概念是强化学习、多智能体博弈里的。是说如果一个智能体发现别的智能体都干得很好，自己做了就是多做多错，那最后干脆就学着不干活了。</p></blockquote><p>一方面，PRM能减少Credit Assignment问题，因为即使做错了题目，最起码前面一些step是对的，换句话说，能区分出来错是错在哪。</p><p>相比之下，ORM只能看到对或者错，如果数据里错的&gt;对的，那最后就学着不干活了。换句话说，这种情况下，ORM的错误标签基本没有有效、的可以学习的信息</p><p>另一方面，RPM能指导对齐领域的发展。嗯，我感觉still a long way to go……</p><p>最后，作者还谈到测试集、预训练集重合的问题。作者说没法完全保证不重合，只能说做了去重。嗯，好像也没啥别的办法了</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>很好的工作，方法好、思路好、结果好，我们都相信过程监督&gt;结果监督，但他们第一个标完数据做了一篇工作出来。而且，discussion部分谈到的”惰性”、”有效信息”的观点我很喜欢，感觉科研思路又被拓展了一个方向</li><li>类比人学习的方法论：我们有接受到过程监督吗？其实玩LOL，老输老赢就是结果监督。如果你下去自己复盘、或者找同学复盘，就是过程监督，看起来我们早就在这样做了</li></ul><blockquote><p>但是人可以自我复盘，模型可以吗？reflexion方式？</p></blockquote><ul><li>GPT4真强啊，Math数据集都打到快80%……我自己能做出来50%吗……</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/verify/result.png&quot; style=&quot;zoom:33%;&quot; &gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="Reasoning" scheme="https://www.yynnyy.cn/tags/Reasoning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation</title>
+    <link href="https://www.yynnyy.cn/abce9d24"/>
+    <id>https://www.yynnyy.cn/abce9d24</id>
+    <published>2023-06-30T02:33:22.000Z</published>
+    <updated>2023-09-23T00:52:29.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>如何仅用1000步训练(0.01%资源)就将一个在2k context长度上训练的预训练模型的上下文窗口拓展到32k</p><blockquote><p>我其实不想讲这篇，因为我觉得苏剑林老师肯定会讲，并且讲的比我好，但是感觉这个方法还是很有研究价值的，因此分享给大家……</p></blockquote><p><img src="../files/images/position_interpolation/method.png"></p><span id="more"></span><p>作者团队是meta AI的田渊栋团队，他们之前做过挺多有意思的工作的</p><p><img src="../files/images/position_interpolation/authors.png"></p><h2 id="ROPE"><a href="#ROPE" class="headerlink" title="ROPE"></a>ROPE</h2><p>这篇工作重点解决ROPE位置编码的预训练模型的问题，那么就先讲讲ROPE。具体可以看这篇</p><blockquote><p> <a href="https://kexue.fm/archives/8265">博采众长的旋转位置编码</a>，写的比我写的好多了</p></blockquote><p>简单来说，ROPE有如下特点：</p><ul><li>不需要训练位置编码的参数</li><li>使用绝对位置编码的形式，就可以实现相对位置编码的效果。因此可以和FlashAttention等技术拼接来提高训练效率</li><li>理论上具有推广性，并不局限在整数”位置”</li></ul><p><img src="../files/images/position_interpolation/ROPE.png" style="zoom: 25%;" ></p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>在本篇工作中，作者主要探索了怎么把一个ROPE训练的在2k，4k，8k的模型拓展到32k context window的场景。</p><p><img src="../files/images/position_interpolation/difference.png" ></p><p>作者提到传统的ROPE算法在超出最大距离后，误差值就会爆炸，因此直接推广的效果一定是很差的，因此作者绕过了推广的限制：</p><blockquote><p> 外推不行，能不能内插？</p></blockquote><p>答案是可以。</p><script type="math/tex; mode=display">f'(x,m) = f(x, m \frac{L}{L'})</script><p>其中x是word embedding，m是位置。对于一个超过之前最大距离L的样本(距离为L’),通过内推将所有位置映射回L区间，每个位置都不再是整数。通过这种方式在长样本区间训练1000步，就能很好的应用到长样本上</p><p>作者用一堆数学证明这个的正确性，我没看懂，就不讲了。大家感兴趣可以自己看一看</p><p>接下来的实验部分都很简单，就是报告了一下效果。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>这篇论文的方法巨简单，但是效果很好、也很高效</li><li>我们可以思考一下：为什么这种方法可以work？我觉得主要是因为ROPE算法是一个推广的算法，本身就能拓展到非整数位置。理论上这类算法都可以这样拓展，比如BERT使用的那个基于cosine函数的绝对位置编码？</li><li>如果fine-tune时跑1000步就能这么好的话，那么在预训练阶段直接就加入这个内推过程是不是就更好呢？</li><li>如果从抽象的角度理解：看long text是一种看短text自然推广出的能力？</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;如何仅用1000步训练(0.01%资源)就将一个在2k context长度上训练的预训练模型的上下文窗口拓展到32k&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我其实不想讲这篇，因为我觉得苏剑林老师肯定会讲，并且讲的比我好，但是感觉这个方法还是很有研究价值的，因此分享给大家……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/position_interpolation/method.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>本科毕业感想</title>
+    <link href="https://www.yynnyy.cn/3efac350"/>
+    <id>https://www.yynnyy.cn/3efac350</id>
+    <published>2023-06-28T02:50:12.000Z</published>
+    <updated>2023-09-23T00:52:29.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>不知不觉就毕业了。</p><p><img src="../files/images/毕业感想/IMG_1177.jpeg" style="zoom: 25%;" ></p><span id="more"></span><p>其实我是个没有啥仪式感的人，毕业的典礼等活动重点安排在了6.23-6.26，当时真的是很忙的几天，我最开始觉得很烦、耽误我科研。</p><p><img src="../files/images/毕业感想/安排.png"></p><p>但后来流程走下来觉得也挺好，似乎对华子有了点归属感。好笑的是，直到毕业才感到一点归属感。在这一点上，华子做的挺失败的，我来华子这几年确实也没培养出多少归属感：</p><ul><li>从新生训练营来开始，到军训时打散班级来分成“排”，班级凝聚力的重要环节就这样丧失了。</li><li>军训结束大一期间大家因为分流的压力，有一种隐隐的竞争关系，其实也没什么凝聚力可言。</li><li>分流结束本以为会好点，结果来了贵系这边就是三把火：<ul><li>首先是把分流同学都分到一个班，和原本的院系同学基本不互通</li><li>然后是强制要求换宿舍，闹得分过来和分过去的同学很折腾、不换宿舍但要换舍友的同学很反感</li><li>最后是通知，软院那边本来一直都有辅导员通知选课时间之类的，来了这边直接没人通知靠自己发现、偷偷抢水课。我差点没选上课，算是让我对贵系的氛围有了初步的体验</li></ul></li></ul><blockquote><p>说个好玩的，之前在树洞看到同学吐槽“贵系的同学压迫感很强”，感觉能在这种地方存活的同学，压迫感应该都挺强的吧……</p></blockquote><ul><li>几年就基本摆了，我连任了三届团支书(我不太想当，但因为别人都不想当)，活动也没办几个，班级荣誉不复大一的荣光，连续三年没评上甲团。班级氛围也就那样：见不到人、说不上话、只有少数一些同学给个面子捧捧场。做为班委，我也没什么成就感，估计同学也没有收获感。但听说别的院系还有同学直接质疑班委的活动组织，想想看还是感谢同学们高抬贵手。所谓人比人气死人，我们隔壁的95班就荣誉等身，一路拿到北京市优秀班集体，看来我确实没啥管理的天分</li><li>到最后几天，楼长一直在催着收拾宿舍、离校、给下届同学腾地方，有一种“自己已经成了累赘”的微妙感觉</li></ul><p>除了班级氛围，院系的氛围也大差不差：一汪死水。不只是班级工作难以开展，学生会工作也是难以开展。当时开学代会换届，选代表的事情，基本上消息逐级传递，每一级都是ddl战士，每一级留给后一级的时间就更少，同学问我”为什么时间这么赶”，我只能和维特根斯坦一样笑笑，可能这就是宇宙万法的源头吧。也不怪学生会，学校决策层其实也是这样：逐级传递、逐级丢包……从班级到院系到学校，荣誉感基本都没有建立起来：之前坐出租车听着司机师傅一直说”华子和日本合作当汉奸“之类的，我也没什么维护学校荣誉感的愤怒，反而有种看乐子的局外人感觉；毕业典礼上西芹关于地外生命的讲话同学也是笑笑骂骂，总之没多少感动。</p><blockquote><p>仔细想想，可能还是在软院那一年生活最顺心。 </p></blockquote><p>院系氛围虽然很一般，但自己的小圈子还是挺快乐的。大学几年认识的人虽然不多，但相处挺愉快的。看来人文关怀不能指望院系，还得下放到个人。自己变化还是挺大的，可能比起高中时情商提高了不少，虽然高中时期的我也许、可能更适合贵系的氛围..? 最后一个学期更是加入街舞社认识了很多其他院系的同学，这是最让我感觉到贵系古怪的地方：我总觉得和街舞社同学交流似乎有某种理解壁障，和本系同学说话就没有，难道是真的”鬼系把人变成鬼”？</p><p>好像说跑题了，说回我自己的学业。可能和大多数人不同，我自己对于专业还是很感兴趣的，也真心希望可以在大学期间学到最多的、最好是不同领域的知识。我其实还是选了不少有趣的课的：</p><ul><li>专业内的基本上我软硬件都有涉猎，各个研究所的课都上过</li><li>专业外的基本上也是很多好玩的：解刨、西方音乐史、现代舞、拉丁语、相声、意大利语、围棋……</li></ul><p>因此，我个人的学习体验也还是不错的，大学几年的知识收获是人生中最多的几年。我在高中毕业时其实很担心自己不会编程会不会跟不上、或者上完大学也学不懂。后来发现也都能跟上，而且真的能学会好多知识。知识的海洋真的是深不见底呀。</p><blockquote><p>很多人说贵系的课太卷、太大量。前几天和叉院的同学交流，觉得这个说法是有道理的。而且这其实是恶性循环，你卷他也卷。重点是学校的评价机制就是这个基于rank的GPA机制。听说外国很多高校因为亚裔卷的问题已经把亚裔的排名拿出来单独计算了，不和别的国家同学一起计算。其实今年零字班和书院同学一起卷名额，可能也会变成这样了。这也不能说是贵系的问题，只能说贵系的课因为比较容易在客观区分表现好坏，因此把这个问题放大了。</p></blockquote><p>我自己对于大学的重心其实也是有变化的，基本上前两年是以可能成绩为主，或者说重心放到课上学的知识，有时间也愿意了解一些拓展的内容。后面就转向科研为主了，重点了解NLP方向的最新论文、代码方法之类的。不知道这对不对，感觉学校应该是希望本科期间重点学习课内知识。</p><blockquote><p>和知识交流总是比和人交流更轻松，毕竟我不需要说话反馈，只需要看它表演就行了。</p></blockquote><p>总而言之，不管什么方式、不管学到什么，最终都是走到了本科的最后，都在大礼堂前扔个帽子、笑一下、拍个照。昨天打车出校园，一边回望校门，一边听着司机师傅骂清华，心情还是很复杂的：有“永别了牢笼”的解脱感，有”回家就不能以毕业季未为由继续摆”的沉闷感，有“暂失室友、npy”的惜别、有“本科生活一去不复返”的感慨、还有”未来的宿舍、室友、生活会是什么样”的期待……没有拽词，这些感觉当时真的都有，很难描述。之前初中、高中毕业的感觉都没有这么复杂，看来是真的长大了呀。</p><p>之前听过一个说法：忆往昔说明人生差不多走到顶峰了，上升期的人总是向前看。不过对我而言，”后面”是清华本科，”前面”是清华读研，其实也没理由伤感的。前几天和室友唱歌唱了我很喜欢的《平凡的一天》，就拿这里面的一句歌词收尾吧：</p><blockquote><p>从不考虑明天应该，去哪里；因为今夜的风，太和煦。</p></blockquote><p>好神奇好复杂呀，不知道人工智能，能不能体验到我现在的感情</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;不知不觉就毕业了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/毕业感想/IMG_1177.jpeg&quot; style=&quot;zoom: 25%;&quot; &gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Self-Supervised Learning from Images with a Joint-Embedding Predictive Architecture</title>
+    <link href="https://www.yynnyy.cn/f68f4e16"/>
+    <id>https://www.yynnyy.cn/f68f4e16</id>
+    <published>2023-06-16T02:54:47.000Z</published>
+    <updated>2023-09-23T00:52:29.353Z</updated>
+    
+    <content type="html"><![CDATA[<p>好长时间没写论文阅读笔记了，今天读一下LeCun讲了一年的”世界模型”：新的训练范式、训练快、参数少(0.6B)、效果好、方法简单、概念明确。</p><p>我在讲解时会说一些我的思路，因此我里面提到的一些优点、缺点有一些不是论文里说的是我自己的观点，完整故事逻辑大家可以去看原论文，论文写得很好。</p><p><img src="../files/images/I_JEPA/performance.png"></p><span id="more"></span><p>作者团队就是LeCun团队</p><p><img src="../files/images/I_JEPA/authors.png"></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>自监督学习一直是实现通用人工智能的关键。</p><blockquote><p> 我的理解：</p><p>1.所有的自监督学习方法都是建立在数据的基础上，更多数据，更多智能。</p><p>2.”无监督”数据其实并不是真正的无监督。举个例子，文本都是一段一段的，前文后文有关系，所以我们可以开发auto-regressive。CLIP中选用了互联网(图像-文本)对也是天然含有相关性的。自监督学习其实是在挖掘数据中这种通用的、数据天然包含的、自相关的关系。</p></blockquote><p>作者在这篇文章中主要讲了一种新的自监督学习的架构，因此对标的是之前的几种训练范式，作者在这里首先归纳了已有的几种训练范式</p><p><img src="../files/images/I_JEPA/arch.png"></p><p>所有的范式都需要找到相关的数据 x,y。</p><ul><li>这里的相关可以是：x、y是同一张图片，但可能x是被mask一部分信息的</li><li>也可以是x、y是不同模态的描述同一信息的数据</li></ul><h3 id="编码式"><a href="#编码式" class="headerlink" title="编码式"></a>编码式</h3><p>首先是Join-Embedding Architecture,用两个编码器分别给相关的x,y进行编码，然后通过编码$s_x,s_y$之间相似度来计算loss</p><p>这种编码方式的优势是训练比较快，但是有个主要的问题就是representation collapse,如果编码器永远输出0，那么相似度肯定一直是0，阁下又将如何应对？为了解决这个问题，有一些工作从各种地方减少之</p><ul><li>对比学习：前几年大火的对比学习在正样本的基础上，再引入负样本，在正正样本相似度大的基础上，让正负样本之间的相似度尽可能小。</li><li>non-contrastive loss：尽量减小信息熵，这个领域我没了解过</li><li>聚类：把相似的物体天生聚类到一起，这个可以视为对比学习的一种特殊形式？</li></ul><p>另外，作为经验规律，除了mask之外，还要做各种各样的数据增强来获取正样本，这个工作很dirty，但是对这类方法的最终效果非常重要。不优雅。</p><h3 id="生成式"><a href="#生成式" class="headerlink" title="生成式"></a>生成式</h3><p>另外一大类方法是生成式，将x编码后的结果用一个解码器解码回y，然后在obj粒度计算相似度。其实GPT可以视为这类方法，如果x是上文，y是最后一个单词，z是空的话。</p><p>这种方法天生没有collapse的问题，因为$s_x$是可训练的，但y永远是锁定的。不过这类方法带来另外的问题是过于关注局部细节，这会导致大量的训练资源浪费在不重要的地方。因此训练速度一般也很慢，质量也无法保证(支持的例子可以看diffusion系列的工作)</p><ul><li>对于图像，80%的像素其实都是没啥信息的，换句话说是不可预测的，但模型并不能区分哪里是不可预测的，而且这个loss对于所有像素一视同仁。</li><li>进一步看，对于文本模态，可以用之前笔记提到的数据集天然随机性解释，crosseentropy loss有下限。</li></ul><p>这个问题没法显式地解决，因为”无监督“这个条件本身就代表无法预测。</p><h3 id="JEPA"><a href="#JEPA" class="headerlink" title="JEPA"></a>JEPA</h3><p>作者想到了另外的办法，能不能结合上面的范式，利用双方的优点呢？</p><p>作者认为，可以做生成，但计算loss要在representation维度。这个可以天生避免上面说的无效信息问题：因为编码器在训练过程中对于x和y都可以自动忽略无效信息</p><p>不过，和编码式结构一样，这种方法仍然面临塌缩问题。</p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>具体来看，作者本篇工作聚焦于图像模态，这样设计I-JEPA工作流程图</p><p><img src="../files/images/I_JEPA/method.png"></p><p>首先对于一张完整的图片，采样一部分作为context，这是可见的已知信息，然后剩下的部分mask掉，接着用一个编码器编码context得到patch embedding。</p><p>编码完以后将需要预测的部分换成 [MASK] token，然后扔进解码器获取解码到的这些patch的embedding。最后对mask位置的真实像素用一个编码器编码，将预测的编码与真实的编码计算L2 loss</p><p><img src="../files/images/I_JEPA/mask.png"></p><p>在实际训练中，作者先</p><ul><li>给一个图片随机采样了4个面积占比(0.15-0.2)、长宽比(0.75-1.5)的长方形块作为targets，</li><li>接着sample了一个面积占比(0.85-1.0)的大长方形块作为context</li><li>最后将context中和target交集的部分删去，保证不包含target的信息</li></ul><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p><img src="../files/images/I_JEPA/result.png"></p><p>在实现细节中，作者需要三个模型：context-encoder、decoder、target-encoder。这三个模型都是可训练的、然后都用ViT架构。作者提到了一个训练trick：target-encoder在参数更新时使用EMA移动平均来更新，评价指数0.996……</p><p>使用16个A100用时72h就完成了训练。</p><p>在分类任务上，作者对比了锁参encoder然后加一个linear分类头fine-tune的结果，发现效果很好(左图)</p><p>接着，作者尝试了当训练数据只有1%是的效果，发现比起其他模型，效果下降更少，说明泛化能力更强</p><p><img src="../files/images/I_JEPA/transfer.png"></p><p>然后作者还测试了迁移能力</p><blockquote><p>迁移是指：训练使用imageNet，因此imageNet测试集和训练集是一个数据分布。如果在别的分类任务上测试，数据分布不同，就需要模型有迁移能力</p></blockquote><p>同样是分类任务，和1%数据的分类任务，发现I-JEPA的性能依旧稳定</p><h3 id="scalability"><a href="#scalability" class="headerlink" title="scalability"></a>scalability</h3><ul><li>作者测试了模型规模的影响，发现模型越大，效果越好，和transformer的特性一致</li><li>测试了训练数据规模的影响，发现训练数据更多，也会使得模型效果更好</li></ul><p><img src="../files/images/I_JEPA/dataset.png"></p><h3 id="消融实验"><a href="#消融实验" class="headerlink" title="消融实验"></a>消融实验</h3><p><img src="../files/images/I_JEPA/mask_method.png"></p><p>作者尝试了不同的mask方法，发现这一套mask的效果最好。我感觉不只是最好的问题，其实这个方法好像对于mask方式非常的敏感，差一点效果会天差地别。(54.2&gt;&gt;15.5)。</p><p><img src="../files/images/I_JEPA/loss_dimension.png"></p><p>最后，作者还说了之前提到的用像素粒度还是representation粒度计算loss的实验，发现用pixel计算相似度(抛弃target-encoder部分)，会导致效果显著下降。不知道是不是因为绝大多数的训练资源花在了计算没有意义、不可预测的信息上。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>作者在提到几种范式的时候，说他们都能用energy-based model的理论去解释。记得之前经典diffusion算法火的时候就有一批研究者和energy-model联系在一起了。我一直没看过这个理论，找个机会读读、讲讲energy-model吧</li><li>这一套讲故事的逻辑看起来很像T5：先说BERT编码模型xxx，接着说GPT模型xxx。最后来了个”看到一部分上下文基础上，预测剩下的部分”的prefix model</li></ul><blockquote><p>从这里出发，可以思考两个问题：</p><p>1.为什么后来的NLP还是decoder-only占了上风呢？</p><p>2.按作者的说法，NLP是在物体模态做loss。这种办法的主要问题是模态迁移能力比较差。</p></blockquote><ul><li><p>LeCun之前一直在推的”世界模型”理论，主要是认为GPT这一套不可解释，不能通向真正的智能。需要让模型有两个能力</p><ul><li>在多个模态间迁移，真正观察整个世界的能力</li><li>可以真正做逻辑推理的架构(auto-regressive transformer架构没有显式地给逻辑推理留出空间)</li></ul><p>这套JEPA方法上是通过观察世界的一部分信息，去预测剩下部分的语义信息(而不是预测剩下部分)。故事上讲得通，但我没想清楚为什么这会给逻辑推理留出空间？？</p></li><li><p>最后，我们可以简单展望一下</p><ul><li>首先这个方法不受模态限制，只是这篇聚焦于图像模态(Image-based JEPA)，后面显然有多模态版本的。联系一下几周前meta发的那个ImageBind一个模态看所有模态的论文。</li><li>另外，作者没细说那个mask的问题。我个人感觉，如果图像模态都对于mask方式这么敏感的话，其他模态想调试好估计挺难的。</li></ul><blockquote><p>不过这也符合人类学习的方式：顺序很重要、有效信息很重要？</p></blockquote><ul><li>再就是，作者这种三个参与训练的模型的方式，感觉有点不优雅，就像PPO一样？</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;好长时间没写论文阅读笔记了，今天读一下LeCun讲了一年的”世界模型”：新的训练范式、训练快、参数少(0.6B)、效果好、方法简单、概念明确。&lt;/p&gt;
+&lt;p&gt;我在讲解时会说一些我的思路，因此我里面提到的一些优点、缺点有一些不是论文里说的是我自己的观点，完整故事逻辑大家可以去看原论文，论文写得很好。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/I_JEPA/performance.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[精读]-RRHF: Rank Responses to Align Language Models with Human Feedback without tears</title>
+    <link href="https://www.yynnyy.cn/feddc200"/>
+    <id>https://www.yynnyy.cn/feddc200</id>
+    <published>2023-05-10T03:10:49.000Z</published>
+    <updated>2023-09-29T09:28:09.203Z</updated>
+    
+    <content type="html"><![CDATA[<p>论文介绍了一个非常简单的RLHF中PPO的替代品，昨天听了作者的报告，今天来仔细读读。我认为它的思路和calibration有一定的关系。</p><p><img src="../files/images/RRHF/intro.png"></p><span id="more"></span><p>作者来自清华和达摩院</p><p><img src="../files/images/RRHF/authors.png"></p><h2 id="introdution"><a href="#introdution" class="headerlink" title="introdution"></a>introdution</h2><p>作者在introduction阶段主要介绍了一下传统的RLHF框架的过程，之前的博客也有讲过 <a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">论文阅读-粗读-强化学习和RLHF中的PPO算法</a>。PPO算法虽然好，但有个巨大的问题，需要很多个模型放在一起：</p><ul><li>首先预训练模型的参数作为ref_model要存一份，计算全局的KL散度</li><li>每次更新参数时old_model要存一份，计算PPO内KL散度</li><li>训练的模型得有一份</li><li>计算Value的model也得有一份，这个可以和训练的模型共享参数</li><li>更新参数时的EMA model又得有一份</li></ul><p>这意味着什么呢？加入我们训练一个7B的LLaMA，按16位half精度存储，加载时大约需要14G显存。上面的模型只有训练model需要算梯度，那么显存就要翻倍，我们就当valuemodel共享参数不需要占显存。最后总体就要5倍，也就是70GB显存。这还不算前向时batch 带来的开销。</p><p>假如只使用40GB显存的A100，甚至不能放到一张卡上。</p><p>另一方面，PPO需要调很多的超参，$\alpha, \beta,\gamma,\lambda$等等，而且这些超参都很敏感，总体而言，PPO的训练还是很难的。</p><p>再有，PPO要求采集到的数据只能来自模型自己，甚至还必须要是top1解码出来的，如果用sample，可能训练就会崩溃。</p><p>因此作者提出了一种更省空间、需要训练的模型和需要调的超参都很少，并且在很多模型上做了实验</p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>那么这个方法是什么呢？作者称为RRHF(rank responses to align human feedback)。具体的改进是这样</p><p>RLHF的前两步SFT、rewardmodel train不改变，因此我们已经有一个一个rewardmodel</p><p>对于第三步，正常按照actor-critic的算法，我们需要一个value model，但这种manner其实破坏了语言模型的对称性，因为value基本都是从小到大的，就像是围棋某一局棋的胜率预测分布。但语言其实一个一个token就基本齐次的关系。再有就是value model和费空间</p><p>因此作者要去掉这一部分，但是又要和reward model形成一个训练对抗的关系，因此作者希望模型可以输出一个伪的reward。这里作者直接让model在输出输出next token logits的同时，用所有有效位置的log prob的平均值代表reward，保证在[0,1]范围内</p><script type="math/tex; mode=display">p_i = \frac{\sum_t \log P_{\pi}(y_{i,t}| x, y_{i,<t}) }{||y_{i}||}</script><p>如果每次来的不是一个数据，而是一个数据对的话，reward model可以先给所有candidate一个得分$r_i$，然后模型对于所有candidate也会输出$p_i$</p><p>对于每个真实的偏序关系，作者定义一个loss</p><script type="math/tex; mode=display">\mathcal{L}_{\text{rank}} = \sum_{r_i < r_j} max(0,p_i - p_j)</script><p>也就是说希望模型输出的”reward”也可以满足这个偏序关系，但这里为什么要用0 clamp，似乎没有解释。作者只是说借鉴了</p><blockquote><p> BRIO: Bringing Order to Abstractive Summarization</p></blockquote><p>另外，为了保证模型不炼崩，作者还引入了一个SFT loss，就是找到每组candidate里评分最高的</p><script type="math/tex; mode=display">i' = \underset{i}{ \arg \max}(r_i)</script><p>然后直接搞个crossentropy loss</p><script type="math/tex; mode=display">\mathcal{L}_{ft} = - \sum_t \log P_\pi (y_{i',t} | x,y_{i', <t} )</script><p>最后的总体loss是加和，甚至没有加权重</p><script type="math/tex; mode=display">\mathcal{L} = \mathcal{L}_{\text{rank}} + \mathcal{L}_{ft}</script><p>作者提到有试过给rank loss加权重，但加了都比不加效果更差</p><p>作者后面讨论了这种方法和传统RLHF的步骤的联系</p><ul><li>对比SFT：可以认为RRHF可以推导出SFT，只要把candidate固定，同时每组只有一个数据</li><li>对比rewardmodel train: 本方法让模型的logprob代表reward，而不是EOS token过linear</li><li>对比PPO：RRHF可以使用任何模型生成candidate</li></ul><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>作者尝试了RLHF数据集，用以下几个模型做candidate</p><ul><li>LLaMA 7B</li><li>Alpaca: llama+instruction-tuning</li><li>AlpacaSFT: ALpaca+sft</li></ul><p>然后生成candidate时有不同的变种</p><p><img src="../files/images/RRHF/candi.png"></p><p>这个是指作者在训练RRHF时，每组都有6个candidate，$\rho_1,..,\rho_6$他们的来源不同</p><ul><li>左边的四个candiate是模型自己生成的，右边的两个来源于数据集自带的好坏pair</li><li>由于不限制采样方法，作者使用了beam-search和一个更强的叫diverse beam-search的算法</li></ul><p>作者报告了reward model的得分。reward model是一个开源社区训练好的6B GPTJ</p><p><img src="../files/images/RRHF/results.png"></p><p>上面的图最上面的$\emptyset$代表不训练，中间PPO是用PPO训练，下面的setting和对应图里面的解码方法。其实还是有很多好玩的点的：</p><ul><li>Alpaca不训练就比数据集中good response的平均值还要好</li><li>LLama直接跑PPO或者RRHF都会导致PPL爆炸</li><li>RRHF和PPO效果不相上下</li></ul><p>作者还对比了不同的解码方法</p><p><img src="../files/images/RRHF/decode.png"></p><p>可以发现BP和DP的效果差距不大。另外，这个方法也是可以迭代做的</p><blockquote><p>原始RRHF是可以先用原模型生成一堆candidate，然后算完reward，把rewardmodel delete掉，再直接跑训练，这个称为一轮</p><p>第一轮训完，可以递归地做这件事。注意从第二轮开始可能就也得加kl了</p></blockquote><p>作者把多轮训练的版本叫做 IP-1，IP-2…可以发现，持续的训练会导致reward进一步的衰减</p><p>另外，只有D的setting，也就是纯用model自己生成的数据效果也不错。</p><p>另外一个有趣的点是，有一个领域叫做learn from Best-of-N,大概就是采样N个数据，直接拿最好的来finetune，那么这个和RRHF有啥关系呢？其实去掉rankloss就是learn from Best-of-N。其实从上面的图可以大概看出来，因为训练完以后的reward大概相当于训练前所有candidate的平均reward</p><p>因此作者做了这个对比实验</p><p><img src="../files/images/RRHF/rank_loss.png"></p><p>发现这个rank loss其实是很重要的</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li>这个方法感觉有点像蒸馏，因为候选candidate里还有别的模型出的infer。不知道换chatGPT的会不会违反用户协议</li><li>感觉这个思路和pretrain loss更接近，毕竟也是按token一视同仁的优化，就相当于变了个学习率？</li><li>还有从calibration的角度理解的话，这个相当于显式地把calibration的偏序关系和实际reward的偏序关系定义进了训练任务中</li><li>如果引入一些对比学习领域的思路，也许直接avg log prob是不是不在一个隐空间中？也许可以试试加一个linear？</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;论文介绍了一个非常简单的RLHF中PPO的替代品，昨天听了作者的报告，今天来仔细读读。我认为它的思路和calibration有一定的关系。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/RRHF/intro.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="强化学习" scheme="https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023-5-6总结</title>
+    <link href="https://www.yynnyy.cn/db37895b"/>
+    <id>https://www.yynnyy.cn/db37895b</id>
+    <published>2023-05-06T15:45:32.000Z</published>
+    <updated>2023-09-23T00:52:29.345Z</updated>
+    
+    <content type="html"><![CDATA[<p>好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。</p><blockquote><p>千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错</p></blockquote><span id="more"></span><p>五一假期刚刚过完，今年学校放五一假期时间很长，具体我体感不太清楚，但似乎最少放了五天假，比起前几年疫情时期把五一、十一假期取消的离谱操作，可以说是充满了温馨。依我来看，这恐怕是西芹上台以来，做的最大的一件好事了。假期虽然长，朋友圈的足迹也基本踏破了大江南北、天南海北，但我并没有做什么，除了大吃大喝了几顿……好吧，无论有没有假期我都会出去大吃大喝，没什么所谓仪式感。仔细想来，和”劳动节“关系最大的事情可能就是把家里的马桶修好了，四舍五入也算是劳动了。</p><p>假期的生活和最近一两个月的生活其实都差不多，按部就班，一眼望到底：毕设、科研、街舞、LPL……来回周转，好像也没什么值得专门说的。最近和做强化学习的许哲华老师交流了一下，倒不是说有多么受益良多，主要是发现许老师的生活好多彩：弹唱、舞蹈、摄影、滑雪、调酒……这样恐怕才是破折号青年吧。我发自内心喜爱这样的生活，但好像又没有勇气把这些事情做起来。常言道万事开头难，做一万件事的开头就更是一万倍的困难，希望我不要望洋兴叹一辈子吧。</p><p>生活挺单调，但倒是挺幸福快乐的。最近感觉自己的街舞初窥门径，基本每天晚上8:30-10:00去舞房和队员们联系一个多小时，买了一顶大佬跳舞时都喜欢带的帽子，一个人练习的时候也逐渐知道自己该练什么内容。我相信这是个好的开始，嗯，SFT阶段结束进入RLHF阶段…？说到这方面，我最近还真有了点把街舞和LLM联系起来的哲学思考，等再多跳跳、多学学再分享给大家吧。</p><p>……刚才读了读自己写的东西，怎么有种意识流的感觉，上了四年大学，写作能力已经退化到”毫无技巧、全是感情“的地步了吗。可恶，终究还是不行吗？算了，就这样吧。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Are Emergent Abilities of Large Language Models a Mirage?</title>
+    <link href="https://www.yynnyy.cn/f1e00e18"/>
+    <id>https://www.yynnyy.cn/f1e00e18</id>
+    <published>2023-05-05T06:36:22.000Z</published>
+    <updated>2023-09-29T09:27:11.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天看论文解释了emergent ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。</p><p><img src="../files/images/emergent_ability_isnt_mirage/reason.png"></p><span id="more"></span><p>作者来自斯坦福大学</p><p><img src="../files/images/emergent_ability_isnt_mirage/authors.png"></p><h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p>其实这篇论文也没什么所谓的方法，都是基于一个假设。</p><p>我们之前也聊过emergent ability的博客： <a href="/9ece5113.html" title="大模型的Emergent-Abilities和最优传输">大模型的Emergent-Abilities和最优传输</a>。里面说到其实crossentropy loss是随着模型(指数)大小线性下降，符合power-law的。</p><p>作者就从这里出发，提到：我们现在的主流测试函数和loss不是线性关系，具体而言，主流有几种测试score:</p><script type="math/tex; mode=display">\text{Multiple Choice Grade} \overset{\text{def}}{=} \left\{ \begin{aligned}& 1, \text{if highest probability mass on correct option} \\& 0, \text{otherwise}\end{aligned} \right.</script><script type="math/tex; mode=display">\text{Exact String Match} \overset{\text{def}}{=} \left\{ \begin{aligned}& 1, \text{if output string exactly matches target string} \\& 0, \text{otherwise}\end{aligned} \right.</script><p>但我们的loss之前解释过</p><script type="math/tex; mode=display">\mathcal{L}_{CE}(N) = - \log P_N(a_j | a_{i<j}) \propto \text{model-size}</script><p>那么对于一个单独的token，其正确的概率大概是</p><script type="math/tex; mode=display">p(\text{single token correct}) = e^{-\mathcal{L}_{CE}(N)}</script><p>Accuracy-Lc可以视为二项分布，连续L个token都猜对 。string match也是一个意思</p><script type="math/tex; mode=display">P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L</script><p>因此如果以模型大小为轴，看起来，再加上非常离散的采样方式，看起来就是emergent ability</p><p>由此作者提出了现在emergent ability的三个原因：</p><ul><li>选取的metric和model size不是线性的，而且选取的模型size太稀疏了(GPT-3 family就4个size)</li><li>测试数据集太小，有偏差</li><li>无论什么score，增加target string length都会使得表现下降</li></ul><p>下面作者做了几个实验</p><p><img src="../files/images/emergent_ability_isnt_mirage/exp.png"></p><p>解释下这几个图，作者在GPT3 family的API上做了实验：</p><ul><li>图中的列从左到右代表三个不同的任务：Mathematical Model, 2-Integer 2-Digit Multiplication Task, 2- Integer 4-Digit Addition Task</li><li>图的行上下对照是不同的metric，上面是acc。下面是token edit distance，代表错误答案最少修改几个token就能做对。这个score可以近似看做和log model size 成正比，去掉了L的影响：</li></ul><script type="math/tex; mode=display">\text{Token Edit Distance}(N) ≈ L \left(1 − p_N (\text{single token correct})\right) = L(1 − \exp(N/c)^α)</script><p>从图中可以看到，换成了好的score之后，emergent ability的现象基本就消失了</p><p>接下来作者探索了是不是增加测试集大小，普通的score也能看起来好很多</p><p><img src="../files/images/emergent_ability_isnt_mirage/test_size.png"></p><p>发现看起来确实好了很多，不过这里有个小细节</p><blockquote><p>我戴上赛文眼镜以后，发现这个图的纵坐标变成指数坐标系了？上面图的纵坐标是线性坐标系？</p></blockquote><p><img src="../files/images/emergent_ability_isnt_mirage/big_bench.png"></p><p>作者还尝试了在big-bench上测试LaMDA一系列的模型，发现出现emergent ability的绝大多数都是这种非线性metric的</p><p>最后，作者在CV领域用卷积网络”复现“了emergent ability。它定义了一种非线性score</p><blockquote><p>如果连续K个样本都分类正确，就算正确。K=1时就是图片分类accuracy</p></blockquote><p><img src="../files/images/emergent_ability_isnt_mirage/cv.png"></p><p>用MNIST数据集做实验，然后稀疏采样了model-size，形成最右侧的图。看起来和最左边GPT3在NLP领域的emergent ability看起来一模一样。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>我比较认可作者的思路，但这并不是说之前讨论emergent ability就没有意义了。我由此想到了几个问题。</p><p>首先，我们在实际应用中，确实就是要用这种类似二项分布的accuracy。而且这个长度L很可能会更大，几十、几百、几千。所谓量变引起质变，这其实对预训练模型领域而言是个很好的现象：虽然模型指数增长，per token loss线性下降；但loss线性下降，对应的是metric的级数级别的的提高。所以pertoken优化的前景仍然广阔。</p><p>其次，现在的主流metric如果是如此的非线性，那用他来衡量模型的强度显然是很不合理的。虽然不合理，但是确实符合实际应用场景的。这里面就衍生出了一个bias：有没有什么更好的衡量办法呢？</p><p>最后，现在的模型训练显然都是在做NCE、crossentropy loss，这个loss训练很稳定。但这篇文章其实揭示了另一个方面：这种per token的训练和下游任务某种程度上是有偏差的。这接着聊就是老生常谈的teacher-force bias和explosure bias。但其实我们从另一个角度思考一下，现在大火的RLHF其实就是跳出了这个怪圈，从generation级别进行优化，进而得出了很好的实际应用效果。我觉得，也许未来在pertoken的预训练基础上，还能发掘出更多per-generation级别的优化方式。如果设想的再张狂一些，把级别再次拉大，奖励变得更稀疏，是不是就和我们人类对自身的优化方式更像了呢？</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;前两天看论文解释了emergent ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/emergent_ability_isnt_mirage/reason.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>大模型的Emergent-Abilities和最优传输</title>
+    <link href="https://www.yynnyy.cn/9ece5113"/>
+    <id>https://www.yynnyy.cn/9ece5113</id>
+    <published>2023-04-15T06:35:27.000Z</published>
+    <updated>2023-09-23T00:52:29.350Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前看了阿西莫夫的小说《最后的问题》，里面讲到了宇宙里最令人绝望的定律”熵增定律“。今天讲讲人工智能领域最让人绝望的规律”emergent abilities“，在结合最优传输说说我对这个现象的理解，最后聊几个有趣的话题。参考：</p><blockquote><p>Emergent Abilities of Large Language Models</p><p>Can LLMs Critique and Iterate on Their Own Outputs?</p><p>压缩下一个token通向超过人类的智能</p></blockquote><span id="more"></span><p><img src="../files/images/emergent_ability/authors.png"></p><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>所谓的emergent ability，就是说大模型的很多能力不是随着规模一蹴而就的，而是当到达一定程度以后，突然间”爆发“出来的，就像是诺奖得主Philip Anderson说的</p><blockquote><p>Emergence is when quantitative changes in a system result in qualitative changes in behavior.</p></blockquote><p>这种现象是不符合scaling-law的，也没有什么合理的解释。</p><p>这个现象其实之前大家都有一个模糊的认知：</p><ul><li><p>prompt、few-shot-prompt方法为什么只对很大的模型有效？</p></li><li><p>类似toolformer为什么只有6B模型才效果好？</p></li><li>instruction tuning类的方法对于&lt;10B的模型是负作用？</li></ul><p>在Google research的这篇文章中，作者详细探讨了这种现象。这是一篇分析性文章，我最喜欢读分析性文章了，读起来能感觉到一种人类智能(而不是人工智能)的魅力。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>作者一共做了两大类的实验。</p><h3 id="few-shot-prompt"><a href="#few-shot-prompt" class="headerlink" title="few-shot prompt"></a>few-shot prompt</h3><p>这类是说对每一个任务，给一些样例输入输出对作为prompt，然后执行任务。具体来说，作者统计BIG-Bench，truthfulQA，Grounded conceptual mappings和MMLU等场景，有一种充斥着工作量的美。</p><p>最后得到了这张图</p><p><img src="../files/images/emergent_ability/result.png"></p><p>这个图里面每个都是一种任务，纵坐标是metric值，横坐标是FLOP。</p><blockquote><p>FLOP是训练资源的表示，基本上正比于花的钱。模型size大，同样的前向就FLOP多。训练看的语料多，需要的FLOP也多。类似Chinchilla的论文里面详细探讨了同样FLOP下扩大size、提高看的token数量谁更赚。这是一个开放性的领域，不在本博客的讨论范围。</p></blockquote><p>然后红色虚线是随机猜测的结果，剩下的是几个经典模型的不同版本的结果。</p><p>从图中我们可以看到，基本上FLOP小的时候，模型在很多任务上都处于一种随机猜测、甚至不如随机猜测的水平。</p><p>但当训练规模增大到一定程度以后，表现突然就”涌现“了，变得很好。这就是emergence现象。</p><h3 id="Augmented-Prompting-Strategies"><a href="#Augmented-Prompting-Strategies" class="headerlink" title="Augmented Prompting Strategies"></a>Augmented Prompting Strategies</h3><p>除了最简单的few-shot prompt方法以外，学界还有一些进阶的效果增强方法</p><p><img src="../files/images/emergent_ability/result2.png"></p><ul><li>chain of thought(CoT)是说模型在做数学题的时候自己先生成一些思考、生成一些中间步骤，再一点点做</li><li>inistruction tuning是说模型要做一些参数更新，使得可以更好的follow人类指令。这个需要提前做出一些instruction的数据集</li><li>scratchpad是一种tool learning的方法。和CoT类似，也是生成中间步骤，但这个”中间步骤“是可以和tool交互的，比如写了python代码就可以真的执行</li><li>calibration是说模型在回答完问题以后，自己对这次回答评价一下。比如说可以用这个回答是不是”True”的token概率表示。一个牛的模型，它自己的回答信心和实际的正确率是强相关的。</li></ul><p>从图中的结果我们可以看到</p><ul><li>对于垃圾小模型而言，这些进阶方法不仅没用，还是副作用</li><li>当训练大到一定程度以后，突然间这些方法就变得特别好使</li></ul><p>这就是emergent ability</p><p><img src="../files/images/emergent_ability/threshold.png"></p><p>这里作者还详细给出了每个实验产生emergent的阈值是多少。</p><blockquote><p>这里可以看到，tool learning方法是scratchpad的阈值比别的方法低几个数量级。这也许侧面说明使用工具是大模型的下一步方向？</p></blockquote><p>在这篇文章中，作者也探讨了emergent的原因。目前没有什么公认的原因，作者给出几点猜测和验证方法：</p><ul><li>也许和训练数据集memorization有关。这一点也许可以参考之前另一篇论文。大概说的是随着模型规模增大，模型记住只见过一次的数据的概率会增大(最多能到大概5%)，这可能和模型规模增大以后的稀疏性有关，这是另一个研究领域了。</li><li>可以尝试任务拆分，观察随着规模增大，子任务的效果有没有emergent，以及主任务emergent和子任务的关系</li></ul><p>这些都是很好的研究方法，我个人也对这个问题很感兴趣。我认为，理解大模型emergent的原因和逻辑，也许是我们找到四两拨千斤，用更小的资源实现更大智能的关键。毕竟，扩大训练规模肯定会撞到硬件瓶颈，撞到瓶颈以后还没有”emergent“出来的能力就寄了。</p><blockquote><p>1.值得一提的是，目前BIG-bench还有巨多任务至今模型也没emergent出来</p><p>2.另外，目前的国产大模型据我观察，都没有达到emergent的阈值。也许真的和训练数据有关，more code data is more intelligent?</p></blockquote><p>此外，作者在附录中也做了cross-entropy loss和规模的关系</p><p><img src="../files/images/emergent_ability/loss.png"></p><p>可以看到，cross-entropy-loss还是比较符合scaling-law。但performance为什么会emergence，就不好说了。</p><h2 id="我的理解"><a href="#我的理解" class="headerlink" title="我的理解"></a>我的理解</h2><p>以下内容是我对于emergence的一点学术理解，没有正确性保证。</p><p>之前看了一篇文章，是讲最优传输的。举个例子，如果你要传100个token，每个token都是从256的词表里的，一个朴素的方式是用8位2进制数来存储一个token，对方打表恢复。最终需要 $8*100=800$个token</p><p>大模型(auto-regressive类型)是在做什么事情呢，其实是在压缩这个长度。举个例子，假如两边都有这个模型权重，然后模型输入前缀以后，是要给next-token概率分布的。</p><p>假如现在模型的平均cross-entropy loss是3，什么意思呢？</p><script type="math/tex; mode=display">\text{cross-entropy} = - \log \text{soft-max} (\text{hidden-state}(x_i,x_{<i}))</script><script type="math/tex; mode=display">\text{soft-max}(x_i) = \frac{e^{h(x_i)}}{\sum_{j \in \text{vocab}} e^{h(x_j)}}</script><p>如果把softmax以后的logits当做模型的真实输出的话，相当于有个概率分布，其中真实的那个token $x_i$占了总体[0,1]区间的$\frac{1}{e^3} \simeq 0.05$的比例。这是什么意思呢？</p><p>假如说我们用一个二分查找的方式来存储token：从0.5出发，小了就变成0.75，大了就变成0.25这种，直到这个数字落到对应token对应的区域内。这个比例说明，二分查找大约需要3次就能落到正确的位置里。最后比如走的是”左右左“就能编码成”010“</p><p><strong>换句话说，一个token大约只需要3位就能传输</strong>。这比起之前的8位就优化太多了。</p><blockquote><p>用这个角度，我们其实还可以大概预判模型的初始cross-entropy loss。比如一个n分类问题(标签平均分布)，如果没啥意外的话，初始loss 大概就是 $\log n$</p></blockquote><p>所以说，模型的Autoregressive训练任务(cross-entropy或者ppl)，其实就是在显示地进行模型对于数据集压缩率。没有所谓的”世界知识“学习的过程。</p><p>那么模型为什么能得到”世界知识“呢？我们先入为主的引入一个归纳偏置：只有本身理解世界知识，才能更好地压缩token。举个例子</p><blockquote><p>”中国的首都是北京“这个串，如果你提前知道这个知识，最起码”北京”这个词的logits肯定很大，很简单就能压缩。</p></blockquote><p>那么？压缩率有没有上限呢？有！因为数据集本身就是不确定的。比如说上面那句话，”首都”这个词上帝来了也预测不出来，谁知道你这里是要说”首都“还是”国旗“、”主席“或者什么其他别的词。这个例子也说明，只有更多的上下文，才能更好、更优的建模后文的token。</p><p><img src="../files/images/emergent_ability/logits.jpeg"></p><p>用博客里的图就是上面那张：一个代表加法的串，只有结果是确定的，输入谁来了也预测不了。所以说我们的模型压缩是有上限的，这个上限和数据集有关，和模型、方法无关。</p><p>某种意义上，这个和密码学是相反的</p><blockquote><p>密码学研究怎么编码数据让别人猜不出来，LLM研究怎么编码数据自己可以更好的猜出来。</p></blockquote><p><strong>但这和emergence现象有什么关系呢？</strong></p><p>我们思考一下，假如”你现在假装是大模型“，你该怎么提高数据压缩率？</p><ul><li>最简单的方法先记住一些pattern，把一些词联系起来：比如”混元形意“后面大概率跟着”太极门“；”松果弹抖”后面大概率跟着“闪电鞭“。这个过程其实可以理解成”学会了世界知识“。</li><li>这个时候loss降一些了，但cross-entropy还要求你降，咋办？这个时候模型就必须找点别的办法了：比如逻辑推理。这在代码串里尤其有用，你只靠世界知识显然没法压缩代码数据。必须得学会一定的推理才可以。</li><li>想学会推理，是个随机事件。我们想想人是怎么学会推理的？你大概率也说不清楚，这是智能的一个附加产物。但对于transformer结构来说，最起码有一些点可以确定，如果模型层数少，那肯定不能实现推理，因为没有足够的空间去计算。</li></ul><blockquote><p>参考自动机理论：没有栈的只能做有限状态自动机DFA的任务；一个栈就能做下推自动机PDA；含有两个栈就能执行图灵机turing machine任务。计算能力上限和空间关系很大。</p></blockquote><p>所以说我们对这个现象有一些理解：推理能力来源于预训练任务的数据压缩要求，一个必要条件是模型大小不能太小。换句话说，随着模型规模的扩大，到某个阈值，突然间就有能力做推理了，然后一下就emergence了。</p><p>为什么prompt方法会在大模型变得有效，也是一样的：prompt是添加token总数，对于推理模型，更多的上下文就相当于是给推理malloc空间，当然就有助于做任务了。而对于小模型，开多少空间都没法推理，所以prompt当然也没用了。</p><ul><li><strong>但为什么压缩率是scaling-law呢？</strong> 这不冲突。因为cross-entropy loss $\propto$ 压缩率。压缩率其实不是一个线性关系，你想象一下: entropy 从3降到2是提升50%，但从2降到1是提升100%。<strong>压缩率线性下降其实就是对应能力的指数提升</strong>。</li></ul><p>接下来聊聊一个更哲学的话题：<strong>意识是怎么诞生的？通过这个“数据压缩”任务有可能诞生意识吗？</strong></p><blockquote><p>先叠个甲，我不懂哲学，里面用到的词我都是采取词本身的意思，我不知道会不会和哲学里某些已有定义冲突。</p></blockquote><p>这个问题我们可能得回到上个世纪人工智能“符号主义”、”逻辑主义“的一些理论，希望通过模拟人的行为达到真正的智能。但其实我个人不抱太大希望，因为学习模式是不同的：</p><ul><li>人是自顶向下的。我们虽然也是从世界经验中学习，但自己也说不好意识是怎么诞生的。而且驱动行为一般都是先有意志，再有行为。</li><li>LLM是数据建模，是自底向上的。是通过压缩大量的相似数据，总结出一些规律”推理、世界知识”，从而更好的压缩后面没见过的新数据。这个观点可以被认为是“泛化性”(generalization)。</li><li>意识的诞生对于数据压缩有没有帮助呢？我认为，如果答案是有，那意识有可能诞生。当然，意识本身是没有seq-length的，我觉得有长度上限的”意识“其实就是CoT那种推理。</li></ul><p>这衍生出来另一个问题，我们假设上一个问题的答案是”有“，那么就要实现一些”意识“的必要条件，比如无限的推理空间。想象一下，“人的思考是没有边际的”，这句话等价于说”意识不受到长度、空间的限制“。</p><p>这就是靠现在的seq-length架构肯定没办法，有一个想法其实就是接近CoT的：我们能不能在压缩数据的过程中额外开一些空间让模型在中间推理呢？举个例子，模型可以自由决定在压缩数据的某一个位置进入CoT模式，然后进行一些思考，接下来的token压缩就会变得更简单。通过这种”类似tool learning“的方式，其实实现了类似于”意识“的东西。我正在做一些类似的工作，感觉还是挺有意思的。</p><p>最后一个问题：<strong>”推理“的下一步是什么？</strong></p><ul><li>由于训练任务的特性，模型必须想一些额外的办法去进一步提升压缩率</li></ul><blockquote><p>LLM: 谁懂呀家人们，我都想办法学会推理了，虾头cross-entropy还在那一个劲找optimizer搞我。</p></blockquote><ul><li>这个问题没有答案？也许LLM想到的下一个办法，是人类也想不到的呢？<ul><li>我的一点理解：现在的Autoregressive还是受限于从左到右的pattern，这个归纳偏置不一定只是人大多数时候的思考方式，但不一定就是对的。类似 self-correct、reflection等论文都谈到了让模型多次输出的可能性。这种建模是一种另外的方式，也许还有更多的方式。总之，想要让模型做得更好，一个劲用optimizer push模型是一方面，提升模型的表示能力的上限是另一方面。</li><li>这个研究方向，也许可以参考 meta learning研究领域？</li></ul></li></ul><p>以上。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;之前看了阿西莫夫的小说《最后的问题》，里面讲到了宇宙里最令人绝望的定律”熵增定律“。今天讲讲人工智能领域最让人绝望的规律”emergent abilities“，在结合最优传输说说我对这个现象的理解，最后聊几个有趣的话题。参考：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Emergent Abilities of Large Language Models&lt;/p&gt;
+&lt;p&gt;Can LLMs Critique and Iterate on Their Own Outputs?&lt;/p&gt;
+&lt;p&gt;压缩下一个token通向超过人类的智能&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Generative Agents: Interactive Simulacra of Human Behavior</title>
+    <link href="https://www.yynnyy.cn/4a3bcbdb"/>
+    <id>https://www.yynnyy.cn/4a3bcbdb</id>
+    <published>2023-04-12T05:52:40.000Z</published>
+    <updated>2023-09-23T00:52:29.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天讲一篇很有意思的论文，如果让25个GPT假装NPC在游戏里自由生活、交流、发展会怎么样呢？</p><p><img src="../files/images/Generative_Agents/intro.png"></p><span id="more"></span><p><img src="../files/images/Generative_Agents/authors.png"></p><p>作者团队来自斯坦福和google research。其中percy liang是stanford AI的代表人物，他挂名的论文一般质量都很高。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>整个introduction的写法大概相当于一个简单版的论文原文，这种写作手法其实是比较少见的，可能是这篇论文的格式瞄准的是nature子刊类，需要让外行也能看懂论文的内容。</p><p>introduction中，作者谈到想要真实地模拟出NPC的行为，大概需要有一个比较好的记忆模块，可以去进行长期的记忆。在此基础之上，作者额外设计了三个模块：记忆模块、反思模块、交互模块。</p><p>作者进行了对比实验，发现任何一个模块都对于结果非常重要。同时作者也做了一个社会实验，告诉其中一个模型要举行情人节派对，最后所有NPC都通过交谈得知了这件事情，每个人都决定自己要不要参加、或者因为什么事情不会出席。NPC社会衍生出了非常类似于人类社会的关系。</p><p>另外，我想额外说几件事情：</p><ul><li>搭建这样一个平台框架是一个很复杂的工程问题，作者其实为了这件事情应该是写了非常多的代码</li><li>prompt设计估计也比想象中麻烦</li><li>作者没有开源代码</li><li>作者在后文提到，即使这样一个平台，没有训练只是做实验，在ChatGPT现在打1折的情况下，仍然花了几千刀来完成实验。可见money is all you need</li></ul><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>下面我们来看看具体作者怎么创造了这么一个GPT的世界呢？</p><h3 id="world"><a href="#world" class="headerlink" title="world"></a>world</h3><p><img src="../files/images/Generative_Agents/world.png"></p><p>作者首先设定了一个世界，里面有各种各样的场所，还有各种各样的对象可以交互，交互方式就是自然语言。</p><p>同时世界中有各种各样的人，每个人由一段prompt定义，比如说John：</p><blockquote><p>John Lin is a pharmacy shopkeeper at the Willow Market and Pharmacy who loves to help people. He is always looking for ways to make the process of getting medication easier for his customers; John Lin is living with his wife, Mei Lin, who is a college professor, and son, Eddy Lin, who is a student studying music theory; John Lin loves his family very much; John Lin has known the old couple next-door, Sam Moore and Jennifer Moore, for a few years; John Lin thinks Sam Moore is a kind and nice man; John Lin knows his neighbor, Yuriko Yamamoto, well; John Lin knows of his neighbors, Tamara Taylor and Carmen Ortiz, but has not met them before; John Lin and Tom Moreno are colleagues at The Willows Market and Pharmacy; John Lin and Tom Moreno are friends and like to discuss local politics together; John Lin knows the Moreno family somewhat well — the husband Tom Moreno and the wife Jane Moreno.</p></blockquote><p>GPT接受这个prompt作为人设开始活动</p><h3 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h3><p><img src="../files/images/Generative_Agents/memory.png"></p><p>仅仅是GPT的32768的seqlength显然是不够的，作者需要一个记忆模块。记忆模块存储了过去智能体经历的所有事件。事件包括时间地点人物内容对话等等。每当模型发生一个新的事件，就把事件记录到记忆模块里。</p><h3 id="retrieve"><a href="#retrieve" class="headerlink" title="retrieve"></a>retrieve</h3><p>为了让模型可以想起过去发生的事件，作者定义了一个专门搜索模块retrieve模块。</p><p><img src="../files/images/Generative_Agents/retrieve.png"></p><p>对于一个搜索的输入，对所有记忆中的事件都有三个部分的得分：</p><ul><li>时间得分：发生在最近的事件分数高。作者提到是一个底数为0.99的指数衰减算法</li><li>重要性得分：重要的事件分数高。这一部分是在事件发生时让模型自己打分。作者提到模型自己打的分挺好的，比如没啥意义的吃早饭就打1分，找暗恋对象去约会就打8分。</li></ul><blockquote><p>On the scale of 1 to 10, where 1 is purely mundane (e.g., brushing teeth, making bed) and 10 is extremely poignant (e.g., a break up, college acceptance), rate the likely poignancy of the following piece of memory.</p><p>Memory: buying groceries at The Willows Market and Pharmacy<br> Rating: <fill in></p></blockquote><ul><li>相关性得分：和query相关的分数高。这里作者直接找了另一个LLM去编码句子向量，然后算cosine相似度。</li></ul><p>最终得分是三个得分的加权平均。模型每次遇到不知道的问题或者需要查看记忆的时候就调用这个retrieve模块。</p><h3 id="reflection"><a href="#reflection" class="headerlink" title="reflection"></a>reflection</h3><p>仅仅是记忆和搜索，并不能让模型自己总结世界知识。作者希望模型可以在生活中自己总结出一些结论，这就是reflection模块。</p><p><img src="../files/images/Generative_Agents/reflection.png"></p><p>这一部分作者采用自顶向下的模式，每天进行一到两次reflection。每次reflection时输入最近的100个事件，然后通过prompt询问我们可以通过这些时间发现什么问题。要发现三个问题。</p><p>接下来，对于发现的问题，作者用retrieve模块搜索相关事件，然后让模型通过结果来回答问题。</p><blockquote><p>Statements about Klaus Mueller</p><ol><li>Klaus Mueller is writing a research paper</li><li><p>Klaus Mueller enjoys reading a book</p><p>on gentrification</p></li><li><p>Klaus Mueller is conversing with Ayesha Khan about exercising […]</p><p>What 5 high-level insights can you infer from the above statements? (example format: insight (because of 1, 5, 3))</p></li></ol></blockquote><p>最终整体的reflection过程会当做一个事件存储到memory系统里。也就是说，随着生活的进行，模型会对于世界有更多的了解，比如说自己的邻居沉迷科研，或者xxx每天要花很长时间浇花之类的。最后NPC的对话会越来越精确，也能发现趣味相投的朋友。</p><h3 id="plan和交互"><a href="#plan和交互" class="headerlink" title="plan和交互"></a>plan和交互</h3><p><img src="../files/images/Generative_Agents/plan.png"></p><p>有了记忆模块，模型最后是怎么和世界交互的呢？</p><p>作者定义了一个自顶向下的plan过程。每天先通过prompt生成当天的计划，大概分为5-8个部分。</p><blockquote><p>Name: Eddy Lin (age: 19)<br> Innate traits: friendly, outgoing, hospitable<br> Eddy Lin is a student at Oak Hill College studying music theory and composition. He loves to explore different musical styles and is always looking for ways to expand his knowledge. Eddy Lin is working on a composition project for his college class. He is also taking classes to learn more about music<br> theory. Eddy Lin is excited about the new composition he is working on but he wants to dedicate more hours in the day to work on it in the coming days On Tuesday February 12, Eddy </p><p>1) woke up and completed the morning routine at 7:00 am,<br>2)  [. . . ]</p><ol><li><p>got ready to sleep around 10 pm.</p><p>Today is Wednesday February 13. Here is Eddy’s plan today in broad strokes: 1)</p></li></ol></blockquote><p>接下来对于生成的每个部分，再生成更详细的计划。</p><blockquote><p> 4:00 pm: grab a light snack, such as a piece of fruit, a granola bar, or some nuts. </p><p>4:05 pm: take a short walk around his workspace</p><p> […] </p><p>4:50 pm: take a few minutes to clean up his workspace. </p></blockquote><p>接下来作者就会让模型真的去开始这一天，通过生成的今日计划。随着计划的进行，模型会遇到别的人，比如说都在餐厅吃饭之类的。或者遇到某些世界事件，比如在修路走不了。</p><p>对于这种，作者定义为observation，是一段自然语言描述，比如下面这样：</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> John Lin’s status: John is back home early from work.<br> Observation: John saw Eddy taking a short walk around his workplace.<br>Summary of relevant context from John’s memory: Eddy Lin is John’s Lin’s son. Eddy Lin has been working on a music composition for his class. Eddy Lin likes to walk around the garden when he is thinking about or listening to music.<br> Should John react to the observation, and if so, what would be an appropriate reaction?</p></blockquote><p>接下来作者让模型自己决定要不要去和别的NPC交互一下，比如下文就是选择去说话。</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> John Lin’s status: John is back home early from work.<br> Observation: John saw Eddy taking a short walk around his workplace.<br> Summary of relevant context from John’s memory: Eddy Lin is John’s Lin’s son. Eddy Lin has been working on a music composition for his class. Eddy Lin likes to walk around the garden when he is thinking about or listening to music.<br> John is asking Eddy about his music composition project. </p><p>What would he say to Eddy?</p></blockquote><p>另外的模型也用同样的方式回答：</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> Eddy Lin’s status: Eddy is taking a short walk around his workplace.<br> Observation: John is initiating a conversation with Eddy.<br> Summary of relevant context from Eddy’s memory: Jonn Lin is Eddy Lin’s father. John Lin is caring and is interested to learn more about Eddy Lin’s school work. John Lin knows that Eddy Lin is working on a music composition.<br> Here is the dialogue history:<br> John: Hey Eddy, how’s the music composition project for your class coming along?<br> How would Eddy respond to John?</p></blockquote><p>同时，作者也允许模型在通过交互以后修改自己本来做好的plan:</p><blockquote><p>[Agent’s Summary Description]<br> Eddy Lin is currently in The Lin family’s house:</p><p>Eddy Lin’s bedroom: desk) that has Mei and John Lin’s<br> bedroom, Eddy Lin’s bedroom, common room, kitchen, bathroom, and garden.</p><p>Eddy Lin knows of the following areas: The Lin family’s house, Johnson Park, Harvey Oak Supply Store, The Willows Market and Pharmacy, Hobbs Cafe, The Rose and Crown Pub.</p><p>* Prefer to stay in the current area if the activity can be done there.<br> Eddy Lin is planning to take a short walk around his workspace. Which area should Eddy Lin go to?</p></blockquote><p>通过上述的所有模块，作者最终让智能体可以在小世界自由的生活、交谈、理解、反思。</p><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>这一部分作者做了两个实验。</p><p>首先是相似性实验，作者让human在模型同样的处境下选response。和模型自己的response掺杂在一起，然后让别的human打分看看局的哪个好(打分人不知道哪个是human写的)。</p><p><img src="../files/images/Generative_Agents/clone.png"></p><p>最后发现，其实模型自己生成的response比human写的还要好，尤其是在有所有模块的情况下。</p><p><img src="../files/images/Generative_Agents/party.png"></p><p>另外，作者还做了个社会实验：通过修改某个NPC的行为，让它想要开个情人节派对。最后通过NPC的对话传播，最终12个人得知了情况，决定来参加。模型们自己讨论了派对时间地点，最终成功举办了派对。细思恐极呀。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>现在模型都能无监督自己生活了，这会不会有伦理问题呀w</p></li><li><p>期待一手未来的游戏，难道GTA6里面的NPC要变成真正的智能NPC、决定自己的行程和发展了吗？</p></li><li><p>25个ChatGPT跑了2天的模拟人生，就花了几千刀的token钱，还是在打1折的情况下。哎</p></li><li><p>作者说还有很多的改进空间，感觉提到的改进空间大多数都是需要少更多钱才能做的。</p></li><li><p>我自己挺看好这个方向的，而且我觉得肯定很多做心理学、社会学的人会对这个很感兴趣，比如说</p><ul><li>真正的human和24个ChatGPT生活会怎么样？</li><li>10个人和15个ChatGPT生活两天后投票谁是AI，能不能选出真正的人？</li></ul></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天讲一篇很有意思的论文，如果让25个GPT假装NPC在游戏里自由生活、交流、发展会怎么样呢？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/Generative_Agents/intro.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-强化学习和RLHF中的PPO算法</title>
+    <link href="https://www.yynnyy.cn/5d2d4022"/>
+    <id>https://www.yynnyy.cn/5d2d4022</id>
+    <published>2023-04-11T02:45:02.000Z</published>
+    <updated>2023-09-23T00:52:29.356Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天讲讲强化学习里的经典算法PPO，也是现在Gym库里默认的强化学习算法，最后再讲讲RLHF中的PPO算法是怎么算的。参考</p><blockquote><p>Proximal Policy Optimization Algorithms</p><p>Trust Region Policy Optimization</p><p>A (Long) peek into Reinforcement Learning</p></blockquote><span id="more"></span><p><img src="../files/images/PPO/authors.png"></p><p>这是2017年的论文，作者团队是openAI。讲PPO，必须先说明一大堆前置知识。我先简单说说前置知识，不保证正确。</p><h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>强化学习领域就是让智能体agent和环境e一直交互，最终强化智能体。</p><p>强化学习的一次交互为多个state，action链式连接。</p><p>强化学习优化的对象叫做return。环境对于每个action给出的反馈叫做reward。return是所有未来state的reward指数衰减</p><script type="math/tex; mode=display">return_i = \sum_{t=i}^T \gamma^{t-i} Reward_t</script><ul><li>return是个未来函数，只有跑完后面才知道前面的reward。我们只能用模型模拟或者求期望</li><li>在很多情况下，环境也不能给出密集的reward，很有可能只有交互结束才能给一个reward(比如下棋)，这个领域叫sparse reward</li><li>$\gamma$是时间衰减函数，说明未来的收益要衰减。这是因为未来有不确定性，所以未来的回报没有现在的重要。至于为什么用指数衰减，这是未了后面的数学推导更简单</li></ul><p>强化学习分为两大类方法，基于动作的policy method和基于评估的value method</p><h3 id="value-method"><a href="#value-method" class="headerlink" title="value method"></a>value method</h3><p>这是指用一个模型来拟合value。要知道value，要先知道Q(s,a)</p><p>Q(s,a)是衡量模型在状态s做出动作a到底好不好，值就等于未来状态return。$Q<em>\pi(s_t,a) = return</em>{t+1}$</p><p>Q(s,a)包含动作a，不好。把a积分掉(或者离散情况下就是$\sum$)以后得到$V<em>\pi(S) = \sum</em>{a} \pi(a|s)Q(s,a)$</p><p>另外，$\text{Adavantage}_{a} = Q(s,a) - V(s)$专门表示采取动作a带来了多少额外收益</p><p>经典的Q-learning用模型去学习Q(s,a)，怎么学？通过贝尔曼方程，根据Q的定义</p><script type="math/tex; mode=display">V(S_t) = R_{t+1} + \gamma V(S_{t+1}) \\...\\V(S_{T-1}) = R_T</script><script type="math/tex; mode=display">Q^*(s_t,a_t) = R_t + \gamma \max_{a\in A} Q^*(s_{t+1},a)</script><ul><li>$Q^<em>$是指最好的Q，就是说$s_t$采取动作$a_t$以后最好的结果就是$Q^</em>(s_t,a_t)$了</li></ul><p>这衍生出了TD-error(temporal difference):等式右边的V估计更准确，因为右边计算用到了真实的回报$R_{t+1}$。通过这个归纳偏置就可以学习$Q^*$了:</p><ul><li><p>用一个模型拟合$Q_\theta(s_t,a_t)$</p></li><li><p>在状态$s<em>t$中通过$\epsilon-\text{greedy}$采样一个动作。采样方法是指有$\epsilon$概率采取一个随机动作，剩下的时候按照$Q</em>\theta(s_t,a_t)$最大的$a_t$采取动作</p></li><li>执行$a<em>t$，进入$s</em>{t+1}$并得到回报$R_t$</li><li>对于$Q<em>\theta(s_t,a_t)$的更好的估计是$R_t + \gamma \max</em>{a\in A} Q<em>\theta(s</em>{t+1},a)$。用做target，然后用mse loss优化就行</li></ul><p>Q-learning里的最经典的算法叫做deep-Q Network，大概做了几个改进:</p><ul><li>经验重放：就是说实际在环境里跑交互太慢了，我可以提前跑，跑完把状态转移对$(s<em>t,a_t,s</em>{t+1},R_t)$存下来，然后再多次更新、多次利用</li><li>periodically update target，就是我算loss的时候那个target里的$Q^*$不用现在的参数，而是用一段时间之前的参数，每隔一段时间同步一次。这是为了减小loss尖峰带来的影响，让训练更稳定</li></ul><h3 id="policy-method"><a href="#policy-method" class="headerlink" title="policy method"></a>policy method</h3><p>前面提到Q-learning等方法学习Q，然后采取动作是用$\epsilon-\text{greedy}$解码。这里的思路是说我不学Q，我学习一个agent $\pi(a|s_t)$输入一个状态，我返回在这个状态下做所有动作的概率分布。</p><p>优化的目标当然就是让好的动作概率更大，坏的动作概率小</p><script type="math/tex; mode=display">\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a| s)Q_{\pi(s,a)} \right)</script><p>经典的REINFORCE算法就是一大堆数学推导，最后使得</p><script type="math/tex; mode=display">\Delta \mathcal{J}(\theta) = \mathbb{E}_{\pi \theta} \left[ \Delta \ln \pi(a|s) Q_\pi(s,a) \right]</script><p>$\Delta \mathcal{J}(\theta) $是$\theta$的函数，可以看做loss，用梯度上升来做参数更新</p><p>很优雅，用了log换元。但是上面的式子要求期望，还是有两个$\sum$，显然没法直接算。一个简单的方法就是用蒙特卡洛近似，就是在环境里跑完一大堆状态转移，然后倒着算回来所有的$Q_\pi(s,a)$(这里视为这个是数字，和$\theta$无关，是一个近似)。再拿上面的式子就能训练$\pi$ 了</p><p>上面的reinforce算法有个问题：上面的梯度受到环境影响大，方差大不稳定，要找个东西减小方差，这叫做baseline方法。</p><p>一个思路就是用上面提到的advantage$=Q(s,a) - V(s)$代替Q(s,a)。</p><h3 id="actor-critic"><a href="#actor-critic" class="headerlink" title="actor-critic"></a>actor-critic</h3><p>上面说我们蒙特卡洛模拟，然后反着求Q，这个Q的估计显然是不准确的，有解决办法吗？我们搞ai就是working is all you need：我们用另一个模型拟合$V_\theta(S)$。这种两个模型的方法就是actor-critic。一个演员采取行动，一个裁判进行打分。</p><p>经典的actor-critic是用另一个模型来拟合$Q(s,a)$。Q的参数更新就用上面讲到的Q-learning里的temporal difference (TD-error)，然后$\pi$的参数更新用模型输出的Q来算$\mathcal{J}(\theta)$。注意这里要把Q的输出的梯度detach掉，就是不要反向传播到Q的参数里。</p><p>这种双模型的方法是现在RL的最常用的方法。简单区分几种方法，来自知乎：</p><blockquote><p>actor就好比是你，critic就好比你妈。你做一件事情，比如抓蜜蜂，结果被蜇疼了，下次你再抓蜜蜂的概率就减小了，这个就是policy gradient。你刚手伸出去要去抓蜜蜂，你妈就说，别抓，十有八九会被蜇疼。你听了后停止了抓蜜蜂，并且下次抓蜜蜂的概率减小了，这个就是actor-critic。你每次看见蜜蜂的时候都问你妈，抓蜜蜂好还是不抓蜜蜂好？你妈说不抓蜜蜂好，通常你听你妈的话就不抓蜜蜂了，偶尔心情不好的时候（以$\epsilon$的概率）还要去抓蜜蜂，这个就是Q-learning。那么妈妈是怎么知道抓蜜蜂会疼的？当然她也是抓过蜜蜂的（Q-value update）</p></blockquote><h2 id="PPO"><a href="#PPO" class="headerlink" title="PPO"></a>PPO</h2><p>下面正式开始PPO讲解。PPO基于更早的一个叫TRPO(trust region)的算法。可以理解成一个actor-critic方法，大概做了几个改进。</p><p>Trust region是一篇数学很多的论文，大概讲的事情是</p><script type="math/tex; mode=display">\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a| s)A_t \right)</script><p>上面的估计是很不稳定的，要想办法用另一个让它变稳定：用一个叫做的方法，可以用另一个分布来估计原始的分布。</p><script type="math/tex; mode=display">\mathcal{J}(\theta) \sim \mathbb{E}_{\sim \pi_{\theta_{old}}} \left[ \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}A_t \right]</script><p>这样这个分布的采用使用$\theta_{old}$就在数学上成立了。然后训练时我们每隔一段时间更新一次$\theta$，在这段时间内用之前跑出来的状态转移对进行训练就行。极大地提高了训练效率。</p><p>我们希望两个分布不要差太远，这是因为上式可以一阶等价于$\mathcal{J}(\theta)$，因此需要分布很接近才行。因此可以再给loss加一个KL散度惩罚。</p><script type="math/tex; mode=display">\mathbb{E}_t \left[ \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}A_t - KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·| s_t))  \right]</script><p>这就是论文里说的代理训练目标</p><p>PPO把这个分式重新命名了一下</p><script type="math/tex; mode=display">r_t(\theta) = \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}</script><p>把TRPO中的loss称为 $L^{CPI} = \mathbb{E} \left[ r_t(\theta) A_t  \right]$ </p><p>然后提出了两个变体</p><script type="math/tex; mode=display">L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta, 1-\epsilon, 1+ \epsilon)A_t ) \right]</script><script type="math/tex; mode=display">L^{KLPEN} = \mathbb{E}_t \left[ r_t(\theta) A_t - \beta KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·| s_t))  \right]</script><p>这两个变体都能使得训练更稳定。其中变体二的超参数$\beta$是自适应的:</p><ul><li>$\beta \rightarrow \frac{\beta}{2}$ 如果 $本次KL/1.5 &gt; 平均KL $</li><li>$\beta \rightarrow 2\beta$ 如果 $本次KL*1.5 &lt; 平均KL $</li></ul><p>除此之外，模型的更新就和actor-critic方法没什么别的区别了。</p><ul><li><p>它使用了经验重放，交互用的链可以更新多次(4 epoch)再同步参数$\theta_{old}$</p></li><li><p>他的更新用的不是Q,而是Advantage $A_t$，这是为了减少方差，稳定训练。</p></li></ul><script type="math/tex; mode=display">A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda \gamma)^{T-t+1} \delta_{T-1}\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)</script><script type="math/tex; mode=display">\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)</script><ul><li>其中$V(s)$是需要训练的第二个模型。然后训练流程是先用$\pi$跑完一整轮，得到$V(s_1),…V(s_T)$再倒过来算出所有的$A_t$，再把$A_t$拿过来训练$\pi$</li><li>V的值同样通过TD-error的mse-loss进行更新$V_\text{target}$注意计算要用到那个慢更新的优化，用的是一段时间以前的参数算的V</li></ul><h2 id="RLHF中的PPO"><a href="#RLHF中的PPO" class="headerlink" title="RLHF中的PPO"></a>RLHF中的PPO</h2><p>上面讲完了PPO，那RLHF中的PPO又是怎么算的呢？这一部分我是根据代码阅读的结果来讲的，实际上可能每边都有每边的实现，我讲其中一种。</p><p>RLHF算法分3个大块：SFT，reward model training, RLHF。我这里讲最后一个部分，也就是说我们已经有了一个reward model可以给任何一个(query, response)对输出一个 $r \in [-1,1]$的讲理，越高说明越好越符合人的期望输出。这个就是假的”环境”，可以给反馈</p><h3 id="what-is-model"><a href="#what-is-model" class="headerlink" title="what is model"></a>what is model</h3><p>首先，PPO明显是需要两个模型policy model， value model。怎么实现呢？</p><ul><li>policy model其实就是语言模型自己，我们把一次response生成的每个token生成视为一个状态转移，然后action就是对应的token t。</li><li>value model这里和语言模型是共享参数的，我们在最后语言模型的hidden state层后面加一个 model_dim -&gt; 1的映射（正常是 model_dim-&gt;vocab_size-&gt;softmax映射到词表），所以所有的状态下都有一个float的输出，把这个当做$V(s_t)$</li><li>至于两个模型要不要共享参数，是个实验问题。我只能说，如果不共享参数的话，首先需要存两份，然后每次交互都要跑两次前向，反向传播也是，这个在尤其是大模型场景下，对算力的消耗是多很多的。</li></ul><p>我们需要记载一个最开始的模型的参数，这个开始是指原始的LLM语言模型的参数$\pi_{start}$，这是为了让RLHF阶段的更新不要太多，不要丢失语言模型原本的语言、推理能力</p><h3 id="advantage"><a href="#advantage" class="headerlink" title="advantage"></a>advantage</h3><p>然后就是reward的计算</p><ul><li>对于正常的token，除了最后一个token以外，reward就是引入模型分布和原始分布的KL散度$KL(\pi<em>\theta(r|q), \pi</em>{\theta_{start}}(r|q))$</li><li>对于最后一个token，额外引入最终response的reward，就是reward和KL散度的和。</li></ul><p>KL散度怎么算？其实就是$\log P(·|s)$的差值。其实就是你的模型的输出logit $[seq-length, vocab-size]$。过完log-softmax层，然后把你实际取的token的对应位置的值取出来，得到一个 logprobs $[seq-length,float]$。把现在的参数$\theta$和之前参数$\theta_{start}$的对应logprobs都取出来，然后直接做减法就行，得出来seq-length长度的序列，就是对应每个位置的KL散度reward</p><p>有了所有未知的reward以后，就可以用PPO的方法倒过来算出所有位置的advantage $A<em>t$，注意这里的$A_t$计算需要用到Value-old输出$V</em>{old}(s_t)$而不是现在的$\theta$的输出，这是为了训练更稳定</p><script type="math/tex; mode=display">A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda \gamma)^{T-t+1} \delta_{T-1}</script><script type="math/tex; mode=display">\delta_t = r_t + \gamma V_{old}(s_{t+1})  - V_{old}(s_t)</script><h3 id="value-model-loss"><a href="#value-model-loss" class="headerlink" title="value model loss"></a>value model loss</h3><p>接下来计算Value的loss，使用$loss_{V} = ||V(s_t) - A(s_t)||^2$作为loss，这里可以进行一下clip使得更新不要太大</p><script type="math/tex; mode=display">loss_{V-clip} = ||clip(V(s_t), V_{old}-\epsilon_1, V_{old}+\epsilon_1 ) - A(s_t)||^2</script><script type="math/tex; mode=display">loss_{V} = \frac{loss_{V} + loss_{V-clip}}{2}</script><h3 id="policy-model-loss"><a href="#policy-model-loss" class="headerlink" title="policy model loss"></a>policy model loss</h3><p>接下来计算policy的梯度。首先是openAI定义的那个$r_t(\theta)$。因为是除法，相当于lo概率的减法再e指数。直接用之前算KL时那个log-softmax的输出减法再指数就行，得出来也是seq-length长度的链。</p><script type="math/tex; mode=display">L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta, 1-\epsilon_2, 1+ \epsilon_2)A_t ) \right]</script><script type="math/tex; mode=display">loss_{pg} = - L^{CLIP}</script><p>然后要注意！这里的L本来按policy gradient算法是要最大化的，所以在AI框架实现中最后要取个符号作为loss(或者就直接用负的，然后换成$\max$)</p><p>最终得到最终的优化目标</p><script type="math/tex; mode=display">loss = loss_{pg} + \alpha · loss_{V}</script><h3 id="训练框架"><a href="#训练框架" class="headerlink" title="训练框架"></a>训练框架</h3><ul><li>1.初始化模型$\theta$，用一个预训练LLM来初始化。同时初始化value model,其实就是加个linear层。</li><li>2.用现在的$\theta$跑一堆response数据。query就是采样自你的query数据集</li><li>3.把repsonse送进reward model打分。注意reward model要锁参，然后这里记得detach。</li><li>4.存下来2，3出来的 (query,response,reward)对，记录现在的$\theta$为$\theta_{old}$</li><li>5.对4的数据做几个epoch的更新(比如4个)，每个epoch<ul><li>按上述方法算出 $loss_{pg}, loss_V$</li><li>不管是不是分离的policy、value model，反正进行梯度更新</li></ul></li><li>6.删除刚才的跑出来的数据集4，节省空间。回到2</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天讲讲强化学习里的经典算法PPO，也是现在Gym库里默认的强化学习算法，最后再讲讲RLHF中的PPO算法是怎么算的。参考&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Proximal Policy Optimization Algorithms&lt;/p&gt;
+&lt;p&gt;Trust Region Policy Optimization&lt;/p&gt;
+&lt;p&gt;A (Long) peek into Reinforcement Learning&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="强化学习" scheme="https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning</title>
+    <link href="https://www.yynnyy.cn/8622e2d1"/>
+    <id>https://www.yynnyy.cn/8622e2d1</id>
+    <published>2023-03-20T03:45:21.000Z</published>
+    <updated>2023-09-23T00:52:29.352Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？</p><p><img src="../files/images/STaR/intro.png"></p><span id="more"></span><p>作者团队来自stanford和google，</p><p><img src="../files/images/STaR/authors.png"></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>introduction是一个很经典的论文写作套路。</p><p>作者首先讲了讲做题这个领域。在做题领域，大模型直接做表现基本很差，few-shot版本也很差。(这里的few-shot是指只有 问题-答案 对的情况)。最近有一类方法叫chain-of-thought(CoT)，让模型think step by step，先生成一些思考链再做题，就能极大提高准确率。</p><p>这里作者就来思考：既然模型可以自己创造思考链，那能不能提高模型“创造思考链”的能力呢？</p><p>于是提出了所谓的self-taught reasoner。最后总结了一下贡献：</p><ul><li>提出了一个简单的提高模型能力的方法。（无需检测生成的思考链是否正确）</li><li>提出了让模型对着答案学的方法</li><li>在很多数据集上做了详细地实验</li><li>是首次提出让LLM自己提升自己的方法</li></ul><p><img src="../files/images/STaR/method.png"></p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>那么是什么方法呢？这里要按照是否让模型自我提高分出两类方法。</p><p><img src="../files/images/STaR/algo.png"></p><h3 id="STaR-Without-Rationalization"><a href="#STaR-Without-Rationalization" class="headerlink" title="STaR Without Rationalization"></a>STaR Without Rationalization</h3><p>这个方法就是algorithm里没有蓝字的部分</p><p>假设我们已经有了CoT，然后接下来就是把CoT转换成自动的过程：</p><ul><li><p>先让人生成一些CoT，然后按照in-context的方式拼在前面</p></li><li><p>对于数据集里的所有数据，都可以生成一个CoT再做</p></li><li>对于生成的所有CoT，如果做出了答案，说明是“好的CoT”。将对应的(问题-CoT-ans)返回给模型进行训练</li><li>持续这个过程</li></ul><p>这里之所以省掉了人类的大量的CoT标注。其实是有个偏置信息在里面：“生成正确的答案的CoT比正常的CoT质量高”。</p><p>这里其实就是和单步reward的RL有一些相似的观点在里面：不管过程是怎么做出来的，如果最后做对了，就认为过程里的所有步骤都是好的。</p><h3 id="Rationalization"><a href="#Rationalization" class="headerlink" title="Rationalization"></a>Rationalization</h3><p>作者又思考了上面算法的问题：这里其实是没有引入额外知识的，只是在激发模型本身理解问题、思考问题的能力。换句话说，如果模型不能再生成新的数据了，上面算法的上限就到了。</p><p>那么怎么引入额外信息呢？就是要关注聚焦于没做出来的题目，一个思路是让人标CoT，这个显然太“贵“了。作者提出的方法就是rationalization。</p><ul><li>对于做不出来的题目，同时喂给模型问题和答案，让模型在看到问题和答案的情况下生成CoT。</li><li>然后认为这个CoT就是好的CoT，拿来训练模型</li></ul><p>这里其实也是有一个偏置信息在里面：”看到答案的情况下，模型生成的CoT会比之前更好“。</p><p>上面两种方法的结合，就是STaR。</p><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>作者在三个场景测试了STaR：</p><ul><li>多位数加法，这个里面的CoT其实就是scratchpad</li><li>CommonsenseQA(CQA)：这个任务是一些根据尝试回答问题。基本上CoT就是自己说一说问题里对应的常识</li><li>Grade School Math (GSM8K)：全是高中数学题</li></ul><p>和toolformer类似，作者也选用GPT-J 8B作为训练的基础模型</p><p><img src="../files/images/STaR/CQA_result.png"></p><p>可以看到，</p><ul><li>对于CQA任务来说,STaR+8B模型就能达到finetune+175B的效果。</li><li><p>另一个关键点是，即使没有左脚踩右脚，仅仅通过自己生成CoT的方式，效果也很不错</p></li><li><p>注意，这里说的fine-tune指的是直接生成答案。</p></li></ul><p>上面的结果可以看出来，在训练中加入CoT是可以让模型更轻松理解题目、提高效果的。作者也做了case study，发现模型经过训练可以生成更合理的reason，做出原来做不出来的题目。</p><p><img src="../files/images/STaR/more_reasonable.png"></p><p>另外几个实验场景也有类似的结果。</p><p>对于数学题，作者还有另外的发现</p><p><img src="../files/images/STaR/steps.png"></p><p>作者罗列了答案的解题步骤的计算步骤和模型生成的解题目步骤的计算步骤，发现</p><ul><li>计算步骤数量比较接近</li><li>数量不同时，一般是模型的步骤更少。作者在这里做了case study，发现其实是模型找到了另外的、比正确答案更好的解法。有点神奇……</li></ul><blockquote><p>作者额外提到了一点，这个方法想要有效必须模型本身够强。同样的方法在GPT-2就没有效果。</p></blockquote><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>感觉他toolformer类似，都是通过一个已有标注的数据集开始，让模型自己去”看着答案给步骤“。这样相当于对答案做reverse-engineer，让模型自己生成符合自己习惯的办法。</p></li><li><p>也许对于强的模型来说，学简单的例子没什么用处，in-context足以。只有自己做不出来的”困难例子“，才需要模型想办法去学习。</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/STaR/intro.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="Reasoning" scheme="https://www.yynnyy.cn/tags/Reasoning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>3-17总结</title>
+    <link href="https://www.yynnyy.cn/4e410eb8"/>
+    <id>https://www.yynnyy.cn/4e410eb8</id>
+    <published>2023-03-17T13:34:29.000Z</published>
+    <updated>2023-09-23T00:52:29.346Z</updated>
+    
+    <content type="html"><![CDATA[<p>转眼又是一周过去了，时间过得越来越快了。今天被同学提醒：开学已经第四周了，感觉好像才开学一样。</p><span id="more"></span><p>记得之前听过一个说法：人对时间的感知是按$\log$分布的，最开始4-8天的体验和8-16天的体验感知是相同的。这样算下来我本科都读到第四年了，可能最后一学期的体验都没有新生入学开学第一周来得多。这个说法还是有些道理的，毕竟见到一个之前没见到的新事物的概率，大概就是一个负二项分布吧。</p><p>话虽然这么说，但这周还是过得挺快乐的。今天参加了popping的考团，过几天就是团员了。不只是新成员，老团员也都跳了自己的free-style。比起老团员，我的技术不能说帮臭，只能说烂成一团。不过所谓近朱者赤，想必过一年、过几年，我也能和大家一样强吧。</p><p>我的生活平淡如水，但这周世界上倒也发生了不少大事：GPT4、office-copilot……和人的时间感知正好相反，怎么感觉科学的发展是e指数的：蒸汽时代用了75年，电气时代用了50年，互联网用了20年，大模型从transformer诞生到现在只用了5年，模型与数据规模的增长更是超出了e指数的速度。今天实验室也讨论了新形势、 新技术，感觉未来的研究生涯会过得很充实、很有参与感。</p><p>你说得对，但是周末又到了，明天是贵系的学生节。想起之前在学生节参与的节目——每当想起这些事，就觉得自己仿佛更年轻了，又和本科生涯连接了起来(现在虽没毕业，但自我感知和本科已经没什么关系了)。今年虽然没节目，但倒是把我的电子琴借了出去。这算什么，黑默丁格吗？我死了，但我的淘炮台还在输出？</p><p>毕业倒计时一百天了，看往年朋友圈，大家毕业100天的时候都是樱花开放；今年没等到樱花，倒是等来了沙尘暴。我不算喜欢樱花，也不算讨厌沙尘暴。就是这样吧，反正都比毕设中期答辩好。</p><p>好吧，毕设中期答辩就要来了。所以我的答辩怎么样了呢？我只能说，我不好说。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;转眼又是一周过去了，时间过得越来越快了。今天被同学提醒：开学已经第四周了，感觉好像才开学一样。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>GPT4技术报告解读:应用报告</title>
+    <link href="https://www.yynnyy.cn/1a72430d"/>
+    <id>https://www.yynnyy.cn/1a72430d</id>
+    <published>2023-03-15T05:25:20.000Z</published>
+    <updated>2023-09-23T00:52:29.349Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天openAI发布了GPT-4。直接把PaLM卷到开放API了，相信google是真的被卷麻了。</p><p>GPT4附赠了一个98页的报告(没有论文)，报告前面是性能和应用报告，中间是一些附录，最后是技术报告。我就按顺序来给大家讲讲，先讲应用报告。相信很多公众号大概都吹了一波GPT4，我希望我的讲解可以更深入一些，把问题、难点和领域更多地呈现给大家。</p><p><img src="../files/images/GPT4/exam_score.png"></p><span id="more"></span><p>作者团队来自openAI，比较神奇的是前面没写作者。报告里把贡献名单放到了最后，足足有3页，按照职能划分。一般的电影里的名单都很长，但大家都不会看完，但这次大家都看得很仔细，试图通过人员分布来发现openAI技术投入的侧重点。值得深思</p><p><img src="../files/images/GPT4/authors.png"></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>整个应用报告部分其实没有什么技术，有点像是发布会吹牛逼部分的文字版，带有非常多的实验与结果。总体而言，GPT4比GPT3的区别可以总结为以下几点：</p><ul><li>GPT4支持KOSMOS类的图片输入</li><li>GPT4有更好的多语言能力</li><li>GPT4比GPT3.5有更好的事实能力，并且极大地提高了”安全性“</li><li>在简单问题上，GPT4和GPT3.5区别不大，只有问题复杂性达到一定地步以后，才能拉开差距</li></ul><p>除此之外，关于，模型细节，报告没有任何提供细节，只说了这样一段话：</p><blockquote><p>This report focuses on the capabilities, limitations, and safety properties of GPT-4. GPT-4 is a Transformer-style model [33] pre-trained to predict the next token in a document, using both publicly available data (such as internet data) and data licensed from third-party providers. The model was then fine-tuned using Reinforcement Learning from Human Feedback (RLHF) [34]. Given both the competitive landscape and the safety implications of large-scale models like GPT-4, this report contains no further details about the architecture (including model size), hardware, training compute, dataset construction, training method, or similar.</p></blockquote><p>我为大家提取一下关键点：</p><ul><li>transofmer-based，但没说一定是transformer结构。</li></ul><blockquote><p>关于这一点，如果读了最近很多论文linearAttn等等，就会发现什么都能和transformer-based扯上关系，连CNN四舍五入也算transformer。所以这个说了等于没说，也不知道openAI做了什么优化使得大模型训练表现得稳定而且优异。</p></blockquote><ul><li>基础模型按照auto-regressive方式训练：嗯，唯一的关键点就是，一次生成一个token</li></ul><blockquote><p>这一点上，虽然报告没说，但我们得知GPT4 的sequence-length打到了32768，比之前3.5提高了4倍。在这一点上，如何节省显存，如何构造寻找真正符合长度的、好的训练数据，都是很难、很值得研究的方向。</p></blockquote><ul><li>没提训练数据的任何信息，也没提代码数据的来源</li><li>没提模型规模，和模型结构</li><li>pretrain结束以后，使用了RLHF。但RLHF的过程、数据规模没提</li></ul><p>模型规模一直是大家期待的一个点，之前有人说大到1000B，也有人说小到10B，结果最后一点没提。</p><h2 id="Predictable-Scaling"><a href="#Predictable-Scaling" class="headerlink" title="Predictable Scaling"></a>Predictable Scaling</h2><h3 id="power-law"><a href="#power-law" class="headerlink" title="power-law"></a>power-law</h3><p>这一部分很有意思，作者提到经典的大模型训练很难调参，因为经典的一次run就已经开销非常大了。GPT4开发出了一种基于power-law的方法可以在低至10000倍的训练时间下，就很吻合地预测出最终在下游任务上的表现。使用如下公式：</p><script type="math/tex; mode=display">L(C) = a C^b + c</script><p>对于复杂的pass@k之类的指标，使用更复杂的拟合等式：</p><script type="math/tex; mode=display">\mathbb{E}_p[\log (\text{pass-rate}(C))] = a * C^{-k}</script><p>大概是用前面ckpt的测试结果拟合a、b、c，不知道之前大家有没有做个这件事情。</p><p><img src="../files/images/GPT4/1_10000.png"></p><p>我相信openAI内部一定是尝试了transformer的各种变体，对于各个任务做了这么一个工作流，然后每个变体都试了试，拟合一个最终loss，最后决定了具体使用怎样的模型结构、训练超参。</p><p>另外，这个拟合结果这么好，足以说明transformer真的是非常符合power-law的，以及现在的所有模型还都没有撞到性能墙，可以继续扩大规模、扩大epoch地训练下去。</p><h3 id="Inverse-Scaling-Prize"><a href="#Inverse-Scaling-Prize" class="headerlink" title="Inverse Scaling Prize"></a><strong>Inverse Scaling Prize</strong></h3><p>这一部分，作者还额外提到了一个任务类型：探索一个随着模型大小增长，表现越来越差的任务。</p><p><img src="../files/images/GPT4/inverse_scale.png"></p><p>之前有一类工作专门找到了这样的数据集，作者提到：GPT4在这里表现出了相反的情况，效果打到了100%。这里我想提两个关键点</p><ul><li>首先这个”相反趋势“不是首创的，我记得之前PaLM里面好像就提过这个事情，说到了”U型”的趋势</li><li>最起码在这里的语境下，表明GPT4不是一个”小模型“，之前10B的论断可能不太准确。</li></ul><h2 id="capability"><a href="#capability" class="headerlink" title="capability"></a>capability</h2><p>这一部分，作者系统性地吹了一波GPT4的表现，我就找一些比较好的实验来说一下吧。</p><h3 id="exam-result-amp-academic-benchmark"><a href="#exam-result-amp-academic-benchmark" class="headerlink" title="exam result &amp; academic benchmark"></a>exam result &amp; academic benchmark</h3><p>这里包含三个实验，</p><ul><li>作者首先在比较有名的人类考试里召集实验者和GPT4，GPT3.5进行了笔试，发现GPT4基本可以排在前10%，而3.5只能排在后10%。</li><li>后者，academic benchmark就是指传统的score。作者发现GPT4在几条样本few-shot的情况下，基本可以战胜所有对任务做了额外优化的训练方法</li><li>对于RLHF的性能，由于训练是human，评测也只能human。作者说基于GPT4的RLHF比ChatGPT的版本，人类有70%的概率觉得更好。</li></ul><p><img src="../files/images/GPT4/benchmark.png"></p><h3 id="多语言"><a href="#多语言" class="headerlink" title="多语言"></a>多语言</h3><p>为了评测多语言性能，作者把认可度比较高的MMLU多类别选择题数据集翻译成了26种语言，并且输入给GPT4进行学习。发现在这些语言上做的都非常好。</p><blockquote><p> 这其实是一个很神奇的地方，我们虽然不知道数据集情况，但可以想见某些小语种的数据一定不是很多。但模型随着某种语言(英语)的学习，竟然就能表现出很好的泛化到多语言的能力。这是不是说明人类的语言内在的相关性其实是很好把握的？</p><p>另一个思考的层面是，这个实验没有做GPT3.5以及PaLM等的版本，不知道这种“对于多语言的理解泛化能力”是不是和in-context learning能力类似，是随着模型基础性能的提升才“突然地”激增出来的。这也是值得我们探索的问题。</p></blockquote><p><img src="../files/images/GPT4/multi.png"></p><p>这里可以看出一个趋势，对于大模型来说，传统的academic score其实并不能说明什么，大家已经刷的很高了，而且score高和human prefer其实没有很大的相关性。最后主试验还是要通过”在human exam上比较排名“的方式，某种程度上已经说明了评测领域的不足和缺陷。</p><p>想必openAI也注意到了这一点，专门提到他们开源了所有测试的代码(OpenAI Evals)，已经GPT4在每条数据上的结果，来帮助大家对自己的模型进行评测，后续也会完善这个框架。估计评测的问题应该会吸引更多的关注吧。</p><h3 id="图像"><a href="#图像" class="headerlink" title="图像"></a>图像</h3><p>这就是作者的另一个卖点，输入图像。其实用Autoregressive做图像输入，openAI早有先见。最开始的DALL.E 1,就是把pixel表示直接通过Autoregressive输出来实现图像生成的。</p><p>作者虽然没有提具体的细节，但现在主流的方法PaLM-E等都是用一个专门的图像编码器来编码图像，然后作为”token embedding”注入到sequence里面去的，不知道openAI是不是在自己DALL.E 2那个不开源的超级text2image数据集上整了个新的图像编码器。但看起来能力确实很强。</p><p><img src="../files/images/GPT4/visual.png"></p><p>不只是输入，在这里我还是觉得以后可以像versatile diffusion一样做出图像模态的输出来，直接套一个类似DALL.E 2的unCLIP prior模型大概就能有模有样。我甚至怀疑，他们已经做了，只是效果不尽如人意，或者“存在潜在的偏见和风险”，所以没有放出来。</p><p>另一方面，关于这种图像输入的模式，不知道是谁先发明的。虽然Kosmos说他们是 the first step，但我们从GPT4技术报告可以看到：<strong>其实GPT4早在去年8月份就已经训练完成了</strong>。</p><blockquote><p> 走向多模态、通用性，才是未来大模型的发展方向呀。</p></blockquote><h2 id="limitation"><a href="#limitation" class="headerlink" title="limitation"></a>limitation</h2><p>这一部分，作者分析了事实性错误、幻觉现象、偏见、危险内容等等信息，大致得出了两个结论：</p><ul><li>GPT4的安全性比GPT3.5大大提升</li><li>但是GPT4也没有“很安全”，大家谨慎使用</li></ul><p><img src="../files/images/GPT4/factual.png"></p><p>上面这种图我不是想说score的高低，我只是想吐槽：什么时候chatgpt都有v2,v2,v3,v4了，我怎么我感觉我火星了……</p><p>作者在MMLU做了一个很有意思的自检测实验：</p><blockquote><p>模型自己认为置信度高的回答，很可能最终的置信度就是真的很高。</p></blockquote><p>这个结论比较符合之前的研究结果。某种意义上，这说明模型自身对于所谓“安全性”是有一定认知的。但作者走的更进一步，也检测了RLHF后的模型，发现这种偏序关系基本消失了。</p><blockquote><p>我认为，也许RLHF或者类似的方法，更重要的是通过模型参数一些小小的迭代，激发出来模型对于自身输出回答的可靠性的认知。所以RLHF模型自己丧失了偏序能力。这也许侧面说明，我们有可能通过更简单的方法，比如prompt等，达到RLHF的效果（当然，RLHF的单步RL假设已经够简单了……</p></blockquote><p><img src="../files/images/GPT4/believe.png"></p><p>最后作者总结了文章的贡献，并且很自信的说了一句：</p><blockquote><p>Though there remains much work to be done, GPT-4 represents a significant step towards broadly useful and safely deployed AI systems.</p></blockquote><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>一篇看下来，感觉最大的震撼是：openAI的一切基本都是自己的，而且所有层面都是领先的</p><ul><li>自己提出的Autoregressive训练方法</li><li>自己研发的高效训练平台</li><li>自己制作的闭源数据集</li><li>自己创造的评测框架</li><li>自己聘用的人工评测、安全性评估专家团队</li></ul><p>回过头想想，之前GPT1被BERT迎头痛击以后，openAI还是没有放弃Autoregressive，一直在迭代版本，不知道积累了多少idea和失败的实验经验，几年下来，已经和我们形成了技术壁垒了。98页的报告其实说了很多，但也什么都没说。我们想要赶上，最起码得在最少一个层面做出自己的突破呀。</p><p>当然，我们也有一些自己的优势，比如最起码，我们不用饱受“安全性、偏见”的困扰。也许对我们来说，只用技术报告最后一句话的前半句更合适一些：</p><blockquote><p> There remains much work to be done</p></blockquote><p>是机遇，也是挑战，可能挑战更多一些。与君共勉。</p><p><del>以上内容由GPT4生成(bushi</del></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天openAI发布了GPT-4。直接把PaLM卷到开放API了，相信google是真的被卷麻了。&lt;/p&gt;
+&lt;p&gt;GPT4附赠了一个98页的报告(没有论文)，报告前面是性能和应用报告，中间是一些附录，最后是技术报告。我就按顺序来给大家讲讲，先讲应用报告。相信很多公众号大概都吹了一波GPT4，我希望我的讲解可以更深入一些，把问题、难点和领域更多地呈现给大家。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/GPT4/exam_score.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
