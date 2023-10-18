@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-10-16T05:44:26.061Z</updated>
+  <updated>2023-10-18T03:31:45.031Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2023-10-18-insights</title>
+    <link href="https://www.yynnyy.cn/90d96e59"/>
+    <id>https://www.yynnyy.cn/90d96e59</id>
+    <published>2023-10-18T02:46:37.000Z</published>
+    <updated>2023-10-18T03:31:45.031Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天论文不多，只有83篇，其中3篇感觉挺好玩。(其实还有几篇也挺有意思，但是每天最多三篇，只能优中选优了)</p><h2 id="BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models"><a href="#BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models" class="headerlink" title="BitNet: Scaling 1-bit Transformers for Large Language Models"></a><a href="https://arxiv.org/abs/2310.11453">BitNet: Scaling 1-bit Transformers for Large Language Models</a></h2><p>Furu Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1 bit呢？</p><p>他们训了一系列模型，发现随着模型越来越大，和16bit的差距越来越小，同时和16位模型的表现越来越接近。</p><p><img src="../../files/images/arxiv-insights/2023-10-18/BitNet.png"></p><span id="more"></span><h2 id="CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth"><a href="#CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth" class="headerlink" title="CoTFormer: More Tokens With Attention Make Up For Less Depth"></a><a href="https://arxiv.org/pdf/2310.10845.pdf">CoTFormer: More Tokens With Attention Make Up For Less Depth</a></h2><p>作者发现了一个有趣的观点：做CoT类似于增加计算资源，和换用一个更deep的transformer有类似之处。由此，作者提出了一个自带CoT结构的transformer，发现训完以后做推理任务的表现更好。</p><p><img src="../../files/images/arxiv-insights/2023-10-18/CoTFormer.png"></p><h2 id="Large-Language-Model-Unlearning"><a href="#Large-Language-Model-Unlearning" class="headerlink" title="Large Language Model Unlearning"></a><a href="https://arxiv.org/pdf/2310.10683.pdf">Large Language Model Unlearning</a></h2><p>字节的论文，作者尝试能不能只使用负例(harmless样本)做对齐，让模型忘记去回答这种问题，发现</p><ul><li>效率更高，需要的计算资源更少</li><li>可解释性更好</li><li>在研究了harmless样本问题以后针对性优化效果很明显</li></ul><p>感觉是一个很”大厂”的需求……</p><p><img src="../../files/images/arxiv-insights/2023-10-18/unlearning.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天论文不多，只有83篇，其中3篇感觉挺好玩。(其实还有几篇也挺有意思，但是每天最多三篇，只能优中选优了)&lt;/p&gt;
+&lt;h2 id=&quot;BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models&quot;&gt;&lt;a href=&quot;#BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;BitNet: Scaling 1-bit Transformers for Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/abs/2310.11453&quot;&gt;BitNet: Scaling 1-bit Transformers for Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Furu Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1 bit呢？&lt;/p&gt;
+&lt;p&gt;他们训了一系列模型，发现随着模型越来越大，和16bit的差距越来越小，同时和16位模型的表现越来越接近。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-18/BitNet.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023-10-17-insights</title>
+    <link href="https://www.yynnyy.cn/61d235d4"/>
+    <id>https://www.yynnyy.cn/61d235d4</id>
+    <published>2023-10-17T07:58:30.000Z</published>
+    <updated>2023-10-18T03:48:37.467Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天135篇论文，重量级。EMNLP的余波还在。很多论文我不太感兴趣，分享两篇有趣论文</p><h2 id="FiLM-Fill-in-Language-Models-for-Any-Order-Generation"><a href="#FiLM-Fill-in-Language-Models-for-Any-Order-Generation" class="headerlink" title="FiLM: Fill-in Language Models for Any-Order Generation"></a><a href="https://arxiv.org/pdf/2310.09930.pdf">FiLM: Fill-in Language Models for Any-Order Generation</a></h2><p>Yejin Choi的论文，不知道是不是打算发在COML上:)</p><p>这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。</p><blockquote><p>有点像是去年比较火的Diffusion-LM的感觉？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-10-17/FiLM.png"></p><h2 id="Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts"><a href="#Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts" class="headerlink" title="Merging Experts into One: Improving Computational Efficiency of Mixture of Experts"></a><a href="https://arxiv.org/pdf/2310.09832.pdf">Merging Experts into One: Improving Computational Efficiency of Mixture of Experts</a></h2><p>作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging Experts into One的办法。</p><p>计算资源省了几倍，效果甚至还涨了($83.3\% &gt; 82.6\%$)</p><p><img src="../../files/images/arxiv-insights/2023-10-17/MEO.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天135篇论文，重量级。EMNLP的余波还在。很多论文我不太感兴趣，分享两篇有趣论文&lt;/p&gt;
+&lt;h2 id=&quot;FiLM-Fill-in-Language-Models-for-Any-Order-Generation&quot;&gt;&lt;a href=&quot;#FiLM-Fill-in-Language-Models-for-Any-Order-Generation&quot; class=&quot;headerlink&quot; title=&quot;FiLM: Fill-in Language Models for Any-Order Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2310.09930.pdf&quot;&gt;FiLM: Fill-in Language Models for Any-Order Generation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Yejin Choi的论文，不知道是不是打算发在COML上:)&lt;/p&gt;
+&lt;p&gt;这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有点像是去年比较火的Diffusion-LM的感觉？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-17/FiLM.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts&quot;&gt;&lt;a href=&quot;#Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts&quot; class=&quot;headerlink&quot; title=&quot;Merging Experts into One: Improving Computational Efficiency of Mixture of Experts&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2310.09832.pdf&quot;&gt;Merging Experts into One: Improving Computational Efficiency of Mixture of Experts&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging Experts into One的办法。&lt;/p&gt;
+&lt;p&gt;计算资源省了几倍，效果甚至还涨了($83.3&#92;% &amp;gt; 82.6&#92;%$)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-10-17/MEO.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2023-10-16-insights</title>
@@ -444,62 +498,6 @@
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning</title>
-    <link href="https://www.yynnyy.cn/6dd69a39"/>
-    <id>https://www.yynnyy.cn/6dd69a39</id>
-    <published>2023-07-23T02:27:52.000Z</published>
-    <updated>2023-09-23T00:52:29.352Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？</p><p><img src="../files/images/meta_transformer/intro.png" style="zoom: 33%;" ></p><span id="more"></span><p>论文作者来自香港中文大学，笑死，一看题目我还以为Meta AI的新作。论文的一作我搜了搜，好像没有什么我见过的文章</p><p><img src="../files/images/meta_transformer/authors.png" style="zoom: 33%;" ></p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者在文章里讲到，多模态领域的一个重要问题是如何把模态对齐。而transformer架构其实是对模态不敏感的，只要进来embedding就能跑。那么作者就想到，能不能把各种模态的数据都扔进一个embedding空间，来做实现多模态编码呢？</p><p>其实，这个思路和CLIP是一样的，但是他们的解决方式不一样。CLIP是要找到很多image-text pair数据来做对比学习。但本文，是想要对齐多达12个模态，肯定找不到pair数据了。</p><p>另一个解决办法是像之前的imageBind一样，把所有模态的数据都对齐到一个模态(图像)，化简数据难度。</p><p>作者和上面的思路都不一样，他这里想要不用模态数据，但是没讲为什么？</p><p>大家肯定要问：不用pair数据，怎么做模态对齐任务？你说得对，这就是本文的一个故布迷阵，他只做了单模态任务，没做模态对齐任务。</p><p>总之，本文的贡献就是：尝试用统一的encoder，不用pair数据来做多模态表示。</p><p><img src="../files/images/meta_transformer/compare_to_previous_method.png" style="zoom: 50%;" ></p><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>这一部分，作者首先假设所有模态都应该享有一个公共的语义空间(这里的语义是泛指，不是指语言模态)。因此作者就想要找到一个多模态的编码方式</p><script type="math/tex; mode=display">\hat{y} = F(x,\theta^*), \theta^* = \arg \min[\mathcal{L}(y,\hat{y})]</script><p>其中x是原始输入，$\hat{y}$是模型输出，y是真实标签。总体而言就是传统finetune的方式</p><p>作者设计了一个三阶段的流程</p><script type="math/tex; mode=display">F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对于不同模态分开设计的</p><ul><li>text模态就是wordpiece+wordembedding</li><li>图片模态是ViT那套patch划分，再过一个conv层</li><li>视频模态是变成多个图片</li><li>……</li></ul><p>总之，最后所有输入都能变成二位的embedding，注意：作者压平了维度，所有模态都和text一样了</p><p>接下来是encoder，作者想要用一个encoder接收所有：meta_transformer</p><p>最后是一个任务独立的head，每个任务都不一样，和BERT迁移到下游任务的方式一样</p><p>总体架构如下所示</p><p><img src="../files/images/meta_transformer/arch.png" style="zoom: 50%;" ></p><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>首先作者的encoder是在LAION-2B上训练的ViT(并不是abstract提到的没用pair数据)，然后text模态用CLIP text word embedding初始化</p><p>接下来，作者在各个模态的任务上都做了些实验</p><p><img src="../files/images/meta_transformer/text.png" style="zoom: 50%;" ></p><p><img src="../files/images/meta_transformer/image.png" style="zoom: 50%;" ></p><p>这里放上text和image模态的结果。模型名字里最右下角的T和F分别是指encoder是Tune还是Freeze</p><ul><li>总体而言，结果不是很好，尤其是encoder freeze的情况下。可以理解，encoder freeze就相当于只有embedding和linear</li><li>话说是不是应该放个没有encoder的bias study</li></ul><p>最后，这篇文章没有analysis，放上所有实验的结果就跑路了</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>我其实不太喜欢这篇文章的思路，我认为：如果方法中设计了什么变化，就需要说出来为什么要这么设计，同时实验中要有结果支撑”这个设计的优势是什么”。否则的话按照奥卡姆剃刀原则，就不应该有这个设计。但是本文似乎没讲清楚”不用pair数据”、”要freeze encoder”的意义和目的是什么</p></li><li><p>当然，本文探索的这个问题很有意思，结果也挺有意思：当你在一个模态训了一个大encoder，锁住以后在另一个模态上加一个encoder强行对齐，竟然也能做？</p></li></ul><blockquote><p>我觉得这里面藏着更深的道理：另外之前image bind所有模态对齐到一个模态的结果也挺好，以及最开始类似flamingo的思路就用一个crossattention就能很轻松的连接多个模态，以及versitle Diffusion也是做到了类似的事情。</p><p>这是否说明transformer结构天然地将信息分解为了模态相关的和模态独立的两个部分，所以两个模态的transformer拼接时就会很容易呢？</p><p>我们是不是有机会让GPT4甚至不调参就能接到各个模态上去？</p></blockquote><ul><li>多模态领域发展真快呀，大家似乎都在试图剔除之前方法里的很多数据依赖和模型依赖，不知道最终能剔除到什么地步？</li><li>最后，模态间生成任务大家做的似乎都不是很好、要不就是干脆没做。我觉得多模态的终点就是把模型对齐到”脑波”模态，让我们和模型可以互相理解对方在想什么，是不是可解释性就来了？</li></ul><blockquote><p>脑机接口，但是没有脑机？</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../files/images/meta_transformer/intro.png&quot; style=&quot;zoom: 33%;&quot; &gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models</title>
-    <link href="https://www.yynnyy.cn/1c5cf63c"/>
-    <id>https://www.yynnyy.cn/1c5cf63c</id>
-    <published>2023-07-20T02:13:11.000Z</published>
-    <updated>2023-09-23T00:52:29.352Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。</p><p><img src="../files/images/retentive_network/performance.png"></p><span id="more"></span><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者团队来自清华，竟然是同学</p><p><img src="../files/images/retentive_network/authors.png"></p><p>作者在这个地方主要讲到了一个”不可能三角”：性能、训练并行性、低的inference成本</p><p><img src="../files/images/retentive_network/triangle.png" style="zoom:25%;" ></p><p><img src="../files/images/retentive_network/complexity.png" style="zoom:50%;" ></p><p>性能比较好理解。</p><p>训练并行性主要分两种：数据并行和训练并行，RNN当然可以数据并行，就是开一个很大的batch size。主要问题RNN的下一个状态依赖于上一个状态，因此算第i个位置时，必须把前面&lt;i的位置全算完。相比之下，auto-regressive transformer按照causal mask的形式，只需要一次前向，就能把所有位置的hidden state算出来，因此比如seq_length是2048时，就要快2000倍</p><p>推理成本主要是针对时间说的，</p><ul><li>正常的transformer做矩阵运算，n-&gt;d的映射需要复杂度$O(n^2d)$做矩阵运算, 因此一次前向总体复杂度大概是$n^2d+nd^2$算上multi-head attention的版本，平均一个token是$O(n)$</li><li>而对于RNN来说，$h<em>t = f(Ux_t + Wh</em>{t-1})$其中由于x和h都是一维的，因此最后的复杂度是$O(nd^2)$就比transformer，平均一个token需要占$O(1)$</li></ul><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><blockquote><p>这一部分默认读者对tranformer的计算方式很了解</p></blockquote><p>那么作者是怎么在持有transformer特性的基础上，利用起RNN的推理成本的特性呢？作者也想要用一个RNN的形式</p><h3 id="retention算子"><a href="#retention算子" class="headerlink" title="retention算子"></a>retention算子</h3><script type="math/tex; mode=display">s_n = A s_{n-1} + K^T_n v_n \\o_n = Q_ns_n = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m)</script><p>其中$A \in \mathcal{R}^{d<em>d},K_n,v_n,s_n,Q_n \in \mathcal{R}^{1</em>d}$。V就是每个单词的词向量，s就相当于RNN里面的中间向量，而o就是RNN里面的输出向量。上面的下面那行是说最后总体o计算可以变换成一个累加的形式</p><p>Q、K可以类比transformer里的query、key的作用，计算也是一致的</p><script type="math/tex; mode=display">Q = XW_Q, K = XW_K</script><p>这里看起来就是一个传统的RNN，但是如果我们假设计算时使用的A矩阵可以满足</p><script type="math/tex; mode=display">A = \Lambda (\lambda e^{i\theta}) \Lambda^{-1}</script><p>另外，我们假设$\lambda$是标量</p><script type="math/tex; mode=display">\begin{aligned}o_n & = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m) \\& = \sum_{m=1}^n (Q_n  \Lambda^{n-m} (\lambda e^{i\theta}) \Lambda^{-(n-m)}  K_m^Tv_m) \\& = \sum_{m=1}^n \lambda^{n-m} (Q_n e^{in\theta}) (K_m e^{im\theta}) V_m\end{aligned}</script><p>这样一下这个加和的形式看起来变成了矩阵乘的形式，而且如果把$\lambda$看做一个类似mask矩阵的东西，其实用类似transformer的大号的矩阵乘就能把所有位置都算出来，具体算法的形式类似这样</p><p><img src="../files/images/retentive_network/algo.png" style="zoom:50%;" ></p><p>上面的和下面的两种算法的结果是完全相等的</p><p>接下来作者讲了几个优化</p><h3 id="chunk"><a href="#chunk" class="headerlink" title="chunk"></a>chunk</h3><p>首先是，如果seq length很长，上面的化简算法里的矩阵维度就太高了，想要把里面的分块计算(chunk)，之前有爆料GPT4之类的模型也大概是这个思路化简的。</p><p><img src="../files/images/retentive_network/chunk.png" style="zoom:50%;" ></p><p>所以块内inner-chunk就是直接按上面的算法，块间需要按照RNN的形式Autoregressive计算。换句话说，这里节省占用空间，但是需要每块先后的算，算是一个权衡吧</p><h3 id="multi-head"><a href="#multi-head" class="headerlink" title="multi-head"></a>multi-head</h3><p>其次，作者类比multihead attention，搞了一个multihead retention</p><p><img src="../files/images/retentive_network/gate.png" style="zoom:50%;" ></p><p>其实本质上也是在化简矩阵维度，先分成多个head，每个head使用不同的衰减系数$\lambda$，然后在每个head算完以后都给这个head做一个linear变换</p><p>之所以用group_norm，是因为每个head的衰减系数不一样，也就是说绝对值会有点区别</p><p><img src="../files/images/retentive_network/code.png" style="zoom:50%;" ></p><h3 id="retentive-network"><a href="#retentive-network" class="headerlink" title="retentive network"></a>retentive network</h3><p>在retention算子说完以后，整体的网络就和transformer一致，只是attention算子变成了retention算子</p><script type="math/tex; mode=display">Y^l = MSR(LN(X^l)) + X^l \\X^{l+1} = FFN(LN(Y^l)) + Y^l</script><p>总体而言</p><ul><li><p>他训练时使用矩阵化简的形式，可以一次算出来所有位置</p></li><li><p>推理时使用矩阵化简前那个RNN的形式，因此推理的时间和空间复杂度都很低</p></li></ul><blockquote><p>神奇的数学</p></blockquote><h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分很详尽，基本都是在证明RetNet性能强、速度快、占用低。</p><p><img src="../files/images/retentive_network/size.png" style="zoom:50%;" ></p><p>作者做了scale实验，发现RetNet的scale增长更快。感觉还挺有意思的，难道说运用了Recurrent的方式，真的能进一步增强模型的表征能力？</p><p><img src="../files/images/retentive_network/inhenced.png" style="zoom:50%;" ></p><p>另外作者还和一些最近的改进transformer工作做了PPL对比，说明他的效果是真的好，而不是只比”香草”好</p><p>这些实验应该不是本篇工作主要focus的点，这里就跳过了。做的还是很好的，大家可以自己读一读原文。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>其实我们可以想想，这个方法在生活第n个token时，前面所有的状态仅由一个hidden dim维的向量决定，用来生成下一个hidden state。这个学习任务比起Autoregressive transformer需要同时看到前面所有位置的hidden state信息，学习任务可以说是更简单。</p></li><li><p>从这个角度出发，估计训练效率更高，但其实表示能力应该更弱才对。然后，传统的RNN其实都是类似这个形式，所以我其实比较好奇两个问题：</p><ul><li>经典的RNN结构在相同的训练量下，和RetNet比是不是效果基本相同呢？</li><li>不知道后面有没有人尝试训一下30B、70B的版本？另外，这个6.7B的版本应该过的总token数是100B token，LLaMA 6.7B的训练量是1.0T，差一个数量级。不知道能不能和LLaMA比，因为LLaMA也是带了各种transformer变体。我理解这种看到flatten former state的形式，在更难得任务上可能会撞到瓶颈</li></ul></li><li><p>最后，作者没有提到两个优势</p><ul><li>那就是按照现在这个chunk训练、RNN推理的模式，其实是不受到最大seq length影响的，因此天生就能搞到巨长的最大长度</li></ul><blockquote><p>听说Claude 2那个100k的版本就是 低层优化+硬训 的，不知道anthropic看到这篇会不会直接出手</p></blockquote><ul><li>再就是，这套方法不需要position embedding，我一直觉得transformer引入各种position embedding变体不够优雅，这个看起来舒服多了</li></ul></li><li><p>最后吐槽一句，现在的论文名字真得起的大一点，昨天看到一个：copy is all you need，今天看到一个 a sucessor to transformer。还是得这样的才能显眼</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../files/images/retentive_network/performance.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
-    
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
     <category term="transformer结构探索" scheme="https://www.yynnyy.cn/tags/transformer%E7%BB%93%E6%9E%84%E6%8E%A2%E7%B4%A2/"/>
     
