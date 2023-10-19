@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN,en">
+<html lang="zh-CN,en,default">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -24,27 +24,16 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。 从影响力上，他是你应该第二个知道的大模型(第一个是GPT)，前两天刚被人用C重写了一遍；从评测结果上，其效果超过ChatGPT-0301 笔记比较长，因为我在讲解时把正文和附录揉在一起，力求讲清楚所有技术细节和创新点。   除了safety的部分，我确实不懂这个方向……">
+  <meta name="description" content="一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(上)">
 <meta property="og:url" content="https://www.yynnyy.cn/6a73db61">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。 从影响力上，他是你应该第二个知道的大模型(第一个是GPT)，前两天刚被人用C重写了一遍；从评测结果上，其效果超过ChatGPT-0301 笔记比较长，因为我在讲解时把正文和附录揉在一起，力求讲清楚所有技术细节和创新点。   除了safety的部分，我确实不懂这个方向……">
+<meta property="og:description" content="一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/llama2.jpeg">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/authors.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/llama_1_author.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/data.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/hours.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/loss1.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/loss.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/seq_length.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/GQA.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/compare_wtih_open_source.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/compare_with_close_source.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/LLaMA2/math.png">
 <meta property="article:published_time" content="2023-07-31T04:07:38.000Z">
-<meta property="article:modified_time" content="2023-09-29T09:28:10.879Z">
+<meta property="article:modified_time" content="2023-10-18T06:14:21.566Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="计算机">
 <meta property="article:tag" content="人工智能">
@@ -266,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-29 17:28:10" itemprop="dateModified" datetime="2023-09-29T17:28:10+08:00">2023-09-29</time>
+                <time title="修改时间：2023-10-18 14:14:21" itemprop="dateModified" datetime="2023-10-18T14:14:21+08:00">2023-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -305,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,6 +303,7 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>2 分钟</span>
             </span>
+            <div class="post-description">一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。</div>
 
 
         </div>
@@ -325,15 +315,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>一直等李沐老师的视频没等到，那今天我就来为大家讲讲目前最强的开源模型：LLaMA 2。</p>
-<p>从影响力上，他是你应该第二个知道的大模型(第一个是GPT)，前两天刚被人用C重写了一遍；从评测结果上，其效果超过ChatGPT-0301</p>
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <img src="/../../files/images/LLaMA2/llama2.jpeg" itemprop="contentUrl">
+        </div>
+        <p>从影响力上，他是你应该第二个知道的大模型(第一个是GPT)，前两天刚被人用C重写了一遍；从评测结果上，其效果超过ChatGPT-0301</p>
 <p>笔记比较长，因为我在讲解时把正文和附录揉在一起，力求讲清楚所有技术细节和创新点。</p>
 <blockquote>
 <p> 除了safety的部分，我确实不懂这个方向……</p>
 </blockquote>
-<p><img src="../files/images/LLaMA2/llama2.jpeg" style="zoom:50%;"></p>
-<span id="more"></span>
-<p><img src="../files/images/LLaMA2/authors.png"></p>
+<p><img src="../../files/images/LLaMA2/authors.png"></p>
 <p>从论文里可以看到三个小细节：</p>
 <p>首先在大小写上，作者把这个模型叫做”Llama 2”，但是在1代时描述是LLaMA，现在的开源社区都是用”LLaMA”来称呼，不知道后面大家会不会改</p>
 <p>其次，这个作者团队延续了一代里的Meta，但是GenAI又是什么东西？</p>
@@ -341,7 +331,7 @@
 <p>GenAI其实也是Meta的部门，是小扎专门为生成式AI成立的研究所，这篇论文可以看做他们打响影响力的开山之作。</p>
 </blockquote>
 <p>最后，LLaMA一代里的元老已经没了，这是被优化掉了？</p>
-<p><img src="../files/images/LLaMA2/llama_1_author.png"></p>
+<p><img src="../../files/images/LLaMA2/llama_1_author.png"></p>
 <p>仔细看，他们还在附录里，但作者列表直接查无此人，这就是大公司内部的斗争吗……</p>
 <blockquote>
 <p>ChrisMarra,ChayaNayak,JacquelinePan,GeorgeOrlin,EdwardDowling,EstebanArcaute,Philom- ena Lobo, Eleonora Presani, and Logan Kerr, who provided helpful product and technical organiza- tion support.</p>
@@ -350,9 +340,9 @@
 <h2 id="预训练阶段"><a href="#预训练阶段" class="headerlink" title="预训练阶段"></a>预训练阶段</h2><p>所有版本的模型都训练了2T的token量</p>
 <p>tokenizer和一代一样，都是vocab_size=32k的BPE模型。数字单独用token，然后不能解码的UTF-8一个byte一个</p>
 <p>值得一提的是，这次dataset不开源了，屠龙者终成恶龙？</p>
-<p><img src="../files/images/LLaMA2/data.png"></p>
+<p><img src="../../files/images/LLaMA2/data.png"></p>
 <p>作者在两个超算平台上训练，用了大概2000GPU，训练了3.3M A100-80GB hour的训练量完成了训练……</p>
-<p><img src="../files/images/LLaMA2/hours.png"></p>
+<p><img src="../../files/images/LLaMA2/hours.png"></p>
 <table>
 <tr>
   <td><img src="../files/images/LLaMA2/loss1.png" align="left" style="zoom:35%;"></td>
@@ -381,10 +371,10 @@
 <blockquote>
 <p>值得一题的是，最近的新方法可以把2k的LLM通过finetune基本无伤拓展到16k、32k量级，参考笔记： <a href="/abce9d24.html" title="论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation">ROPE长度内插延拓</a></p>
 </blockquote>
-<p><img src="../files/images/LLaMA2/seq_length.png" style="zoom:35%;"></p>
+<p><img src="../../files/images/LLaMA2/seq_length.png" style="zoom:35%;"></p>
 <p>作者通过150B token训练量的对比实验，发现训练4k length带来了更好的效果</p>
 <h3 id="group-attention"><a href="#group-attention" class="headerlink" title="group-attention"></a>group-attention</h3><p>作者在34B和70B的模型上使用了group-attention技术。这个技术是指，正常的attention要在每个head分别用不同K Q V矩阵把hidden state的某个部分做变换。为了节省参数，可以然后K V变换阵共享参数，作者使用的版本是8个Q阵对应一组K V阵的参数</p>
-<p><img src="../files/images/LLaMA2/GQA.png" style="zoom:50%;"></p>
+<p><img src="../../files/images/LLaMA2/GQA.png" style="zoom:50%;"></p>
 <p>作者通过相同的实验，发现GQA确实不咋影响效果</p>
 <p>MHA是multi-head attention就是原始版本，很好理解。但是表格里面的MQA又是什么东西？</p>
 <p>其实MQA是group attention的一种特殊情况，就是所有head的key value是相同的，区别只有Q</p>
@@ -393,7 +383,7 @@
 </blockquote>
 <h3 id="预训练评测"><a href="#预训练评测" class="headerlink" title="预训练评测"></a>预训练评测</h3><p>接下来，作者评测了预训练模型的效果</p>
 <p>首先作者和一些开源的模型做了比较</p>
-<p><img src="../files/images/LLaMA2/compare_wtih_open_source.png" style="zoom:50%;"></p>
+<p><img src="../../files/images/LLaMA2/compare_wtih_open_source.png" style="zoom:50%;"></p>
 <p>这里面可以看出，Llama 2比Llama 1好很多</p>
 <ul>
 <li>在数学能力上，小模型的数学能力基本翻了好几倍。</li>
@@ -401,7 +391,7 @@
 </ul>
 <p>基本可以认为，在任何场景下，Llama 2都是现在最强的开源模型</p>
 <p>接下来，作者还和闭源模型做了比较</p>
-<p><img src="../files/images/LLaMA2/compare_with_close_source.png" style="zoom:50%;"></p>
+<p><img src="../../files/images/LLaMA2/compare_with_close_source.png" style="zoom:50%;"></p>
 <p>这次发现，LLama 2的基础能力基本上是最差的……好消息是，和GPT-3.5差不多？</p>
 <p>除了代码能力(humanEval)，看起来Llama2的代码能力确实不行</p>
 <blockquote>
@@ -409,7 +399,7 @@
 <p>另外，GPT4这个GSM8K直接干到92也太猛了……</p>
 </blockquote>
 <p>其实作者做的每一个数值，都是一堆实验的，比如上面说的数学能力，就是下面这两个数学题数据集的平均数</p>
-<p><img src="../files/images/LLaMA2/math.png" style="zoom:50%;"></p>
+<p><img src="../../files/images/LLaMA2/math.png" style="zoom:50%;"></p>
 <p>其中这个”MATH”，就是之前我们讲 <a href="/d074522f.html" title="论文阅读[精读]-Let’s Verify Step by Step">Let’s-Verify-Step-by-Step</a>时使用的那个测试数据集</p>
 <blockquote>
 <p>当时打到了78%</p>
