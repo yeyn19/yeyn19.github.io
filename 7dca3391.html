@@ -24,30 +24,22 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？">
+  <meta name="description" content="Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch少见的中国论文，来自阿里巴巴。 作者发现了delta tuning中，甚至可以大幅的将系数变成0，并且不影响效果(下图左所示，90\%变成0都不咋影响)，有点神奇……作者由此将 WizardLM和 WizardLM M">
 <meta property="og:type" content="article">
-<meta property="og:title" content="论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning">
-<meta property="og:url" content="https://www.yynnyy.cn/8622e2d1">
+<meta property="og:title" content="2023-11-07-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/7dca3391">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？">
+<meta property="og:description" content="Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch少见的中国论文，来自阿里巴巴。 作者发现了delta tuning中，甚至可以大幅的将系数变成0，并且不影响效果(下图左所示，90\%变成0都不咋影响)，有点神奇……作者由此将 WizardLM和 WizardLM M">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/intro.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/authors.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/method.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/algo.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/CQA_result.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/more_reasonable.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/STaR/steps.png">
-<meta property="article:published_time" content="2023-03-20T03:45:21.000Z">
-<meta property="article:modified_time" content="2023-09-23T00:52:29.352Z">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/DARE.png">
+<meta property="article:published_time" content="2023-11-08T03:02:25.000Z">
+<meta property="article:modified_time" content="2023-11-08T03:38:44.495Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="计算机">
-<meta property="article:tag" content="人工智能">
-<meta property="article:tag" content="Reasoning">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/STaR/intro.png">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/DARE.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/8622e2d1.html">
+<link rel="canonical" href="https://www.yynnyy.cn/7dca3391.html">
 
 
 <script id="page-configurations">
@@ -60,7 +52,7 @@
   };
 </script>
 
-  <title>论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning | 随缘随笔 <br> Insights Flow</title>
+  <title>2023-11-07-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -231,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/8622e2d1">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/7dca3391">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -244,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning
+          2023-11-07-insights
         </h1>
 
         <div class="post-meta">
@@ -253,28 +245,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-03-20 11:45:21" itemprop="dateCreated datePublished" datetime="2023-03-20T11:45:21+08:00">2023-03-20</time>
+              <time title="创建时间：2023-11-08 11:02:25 / 修改时间：11:38:44" itemprop="dateCreated datePublished" datetime="2023-11-08T11:02:25+08:00">2023-11-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/8622e2d1" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning" title="阅读次数">
+            <span id="/7dca3391" class="post-meta-item leancloud_visitors" data-flag-title="2023-11-07-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -289,8 +275,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/8622e2d1#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/8622e2d1" itemprop="commentCount"></span>
+    <a title="valine" href="/7dca3391#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/7dca3391" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -300,14 +286,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>418</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
 
@@ -320,80 +306,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？</p>
-<p><img src="../files/images/STaR/intro.png"></p>
-<span id="more"></span>
-<p>作者团队来自stanford和google，</p>
-<p><img src="../files/images/STaR/authors.png"></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>introduction是一个很经典的论文写作套路。</p>
-<p>作者首先讲了讲做题这个领域。在做题领域，大模型直接做表现基本很差，few-shot版本也很差。(这里的few-shot是指只有 问题-答案 对的情况)。最近有一类方法叫chain-of-thought(CoT)，让模型think step by step，先生成一些思考链再做题，就能极大提高准确率。</p>
-<p>这里作者就来思考：既然模型可以自己创造思考链，那能不能提高模型“创造思考链”的能力呢？</p>
-<p>于是提出了所谓的self-taught reasoner。最后总结了一下贡献：</p>
-<ul>
-<li>提出了一个简单的提高模型能力的方法。（无需检测生成的思考链是否正确）</li>
-<li>提出了让模型对着答案学的方法</li>
-<li>在很多数据集上做了详细地实验</li>
-<li>是首次提出让LLM自己提升自己的方法</li>
-</ul>
-<p><img src="../files/images/STaR/method.png"></p>
-<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>那么是什么方法呢？这里要按照是否让模型自我提高分出两类方法。</p>
-<p><img src="../files/images/STaR/algo.png"></p>
-<h3 id="STaR-Without-Rationalization"><a href="#STaR-Without-Rationalization" class="headerlink" title="STaR Without Rationalization"></a>STaR Without Rationalization</h3><p>这个方法就是algorithm里没有蓝字的部分</p>
-<p>假设我们已经有了CoT，然后接下来就是把CoT转换成自动的过程：</p>
-<ul>
-<li><p>先让人生成一些CoT，然后按照in-context的方式拼在前面</p>
-</li>
-<li><p>对于数据集里的所有数据，都可以生成一个CoT再做</p>
-</li>
-<li>对于生成的所有CoT，如果做出了答案，说明是“好的CoT”。将对应的(问题-CoT-ans)返回给模型进行训练</li>
-<li>持续这个过程</li>
-</ul>
-<p>这里之所以省掉了人类的大量的CoT标注。其实是有个偏置信息在里面：“生成正确的答案的CoT比正常的CoT质量高”。</p>
-<p>这里其实就是和单步reward的RL有一些相似的观点在里面：不管过程是怎么做出来的，如果最后做对了，就认为过程里的所有步骤都是好的。</p>
-<h3 id="Rationalization"><a href="#Rationalization" class="headerlink" title="Rationalization"></a>Rationalization</h3><p>作者又思考了上面算法的问题：这里其实是没有引入额外知识的，只是在激发模型本身理解问题、思考问题的能力。换句话说，如果模型不能再生成新的数据了，上面算法的上限就到了。</p>
-<p>那么怎么引入额外信息呢？就是要关注聚焦于没做出来的题目，一个思路是让人标CoT，这个显然太“贵“了。作者提出的方法就是rationalization。</p>
-<ul>
-<li>对于做不出来的题目，同时喂给模型问题和答案，让模型在看到问题和答案的情况下生成CoT。</li>
-<li>然后认为这个CoT就是好的CoT，拿来训练模型</li>
-</ul>
-<p>这里其实也是有一个偏置信息在里面：”看到答案的情况下，模型生成的CoT会比之前更好“。</p>
-<p>上面两种方法的结合，就是STaR。</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>作者在三个场景测试了STaR：</p>
-<ul>
-<li>多位数加法，这个里面的CoT其实就是scratchpad</li>
-<li>CommonsenseQA(CQA)：这个任务是一些根据尝试回答问题。基本上CoT就是自己说一说问题里对应的常识</li>
-<li>Grade School Math (GSM8K)：全是高中数学题</li>
-</ul>
-<p>和toolformer类似，作者也选用GPT-J 8B作为训练的基础模型</p>
-<p><img src="../files/images/STaR/CQA_result.png"></p>
-<p>可以看到，</p>
-<ul>
-<li>对于CQA任务来说,STaR+8B模型就能达到finetune+175B的效果。</li>
-<li><p>另一个关键点是，即使没有左脚踩右脚，仅仅通过自己生成CoT的方式，效果也很不错</p>
-</li>
-<li><p>注意，这里说的fine-tune指的是直接生成答案。</p>
-</li>
-</ul>
-<p>上面的结果可以看出来，在训练中加入CoT是可以让模型更轻松理解题目、提高效果的。作者也做了case study，发现模型经过训练可以生成更合理的reason，做出原来做不出来的题目。</p>
-<p><img src="../files/images/STaR/more_reasonable.png"></p>
-<p>另外几个实验场景也有类似的结果。</p>
-<p>对于数学题，作者还有另外的发现</p>
-<p><img src="../files/images/STaR/steps.png"></p>
-<p>作者罗列了答案的解题步骤的计算步骤和模型生成的解题目步骤的计算步骤，发现</p>
-<ul>
-<li>计算步骤数量比较接近</li>
-<li>数量不同时，一般是模型的步骤更少。作者在这里做了case study，发现其实是模型找到了另外的、比正确答案更好的解法。有点神奇……</li>
-</ul>
-<blockquote>
-<p>作者额外提到了一点，这个方法想要有效必须模型本身够强。同样的方法在GPT-2就没有效果。</p>
-</blockquote>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
-<li><p>感觉他toolformer类似，都是通过一个已有标注的数据集开始，让模型自己去”看着答案给步骤“。这样相当于对答案做reverse-engineer，让模型自己生成符合自己习惯的办法。</p>
-</li>
-<li><p>也许对于强的模型来说，学简单的例子没什么用处，in-context足以。只有自己做不出来的”困难例子“，才需要模型想办法去学习。</p>
-</li>
-</ul>
-
+        <h2 id="Language-Models-are-Super-Mario-Absorbing-Abilities-from-Homologous-Models-as-a-Free-Lunch"><a href="#Language-Models-are-Super-Mario-Absorbing-Abilities-from-Homologous-Models-as-a-Free-Lunch" class="headerlink" title="Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.03099.pdf">Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch</a></h2><p>少见的中国论文，来自阿里巴巴。</p>
+<p>作者发现了delta tuning中，甚至可以大幅的将系数变成0，并且不影响效果(下图左所示，90\%变成0都不咋影响)，有点神奇……作者由此将 WizardLM和 WizardLM Math Code Alpaca蒸馏到一起，发现WizardLM的GSM8K zero-shot甚至比WizardLM Math还高</p>
+<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/DARE.png"></p>
+<h2 id="p-Laplacian-Transformer"><a href="#p-Laplacian-Transformer" class="headerlink" title="p-Laplacian Transformer"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.03235.pdf"><em>p</em>-Laplacian Transformer</a></h2><p>这是一篇对transformer结构做改进的论文。神奇的是，四个作者都姓Nguyen，这就是家族论文？</p>
+<p>作者搞了一大堆我也卡不太懂的数学推导，最后推出来一个结构，在image任务上比DeiT牛，在text上比普通softmax牛。不过这种论文在实现的时候就是水分很多，具体怎么样可能还要时间检验……这里先列上</p>
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -403,19 +321,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d074522f.html" rel="bookmark">论文阅读[精读]-Let’s Verify Step by Step</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/660d5dc5.html" rel="bookmark">论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a3a406b2.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6a73db61.html" rel="bookmark">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(上)</a></div>
+      <div class="popular-posts-title"><a href="/3179c33f.html" rel="bookmark">Arxiv Insights</a></div>
     </li>
   </ul>
 
@@ -423,25 +332,13 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
-              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
-              <a href="/tags/Reasoning/" rel="tag"><i class="fa fa-tag"></i> Reasoning</a>
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
           </div>
 
         
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/4e410eb8" rel="prev" title="3-17总结">
-      <i class="fa fa-chevron-left"></i> 3-17总结
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/5d2d4022" rel="next" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">
-      论文阅读[粗读]-强化学习和RLHF中的PPO算法 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -504,7 +401,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STaR-Without-Rationalization"><span class="nav-number">2.1.</span> <span class="nav-text">STaR Without Rationalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rationalization"><span class="nav-number">2.2.</span> <span class="nav-text">Rationalization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Models-are-Super-Mario-Absorbing-Abilities-from-Homologous-Models-as-a-Free-Lunch"><span class="nav-number">1.</span> <span class="nav-text">Language Models are Super Mario: Absorbing Abilities from Homologous Models as a Free Lunch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#p-Laplacian-Transformer"><span class="nav-number">2.</span> <span class="nav-text">p-Laplacian Transformer</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -628,11 +525,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/8622e2d1" selected>
+        <option value="zh-CN" data-href="/7dca3391" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/8622e2d1" selected>
+        <option value="en" data-href="/en/7dca3391" selected>
           English
         </option>
       
