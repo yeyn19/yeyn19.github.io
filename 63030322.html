@@ -24,22 +24,23 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今日观赛：  BLG打RNG：虽然是纯纯的打不过，但呼吸哥还是给了些机会，估计是有点想证明自己。  另外，今日阅读了IDDPM论文的官方开源代码，收获良多，主要学到以下几点新知识：">
+  <meta name="description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48% T">
 <meta property="og:type" content="article">
-<meta property="og:title" content="7-20总结">
-<meta property="og:url" content="https://www.yynnyy.cn/c8297af">
+<meta property="og:title" content="2023-11-09-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/63030322">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今日观赛：  BLG打RNG：虽然是纯纯的打不过，但呼吸哥还是给了些机会，估计是有点想证明自己。  另外，今日阅读了IDDPM论文的官方开源代码，收获良多，主要学到以下几点新知识：">
+<meta property="og:description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48% T">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-20T08:23:12.000Z">
-<meta property="article:modified_time" content="2023-09-23T00:52:29.347Z">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/teal.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/circuit.png">
+<meta property="article:published_time" content="2023-11-09T03:15:29.000Z">
+<meta property="article:modified_time" content="2023-11-09T04:09:30.283Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="探索">
-<meta property="article:tag" content="diffusion model">
-<meta property="article:tag" content="日记">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/teal.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/c8297af.html">
+<link rel="canonical" href="https://www.yynnyy.cn/63030322.html">
 
 
 <script id="page-configurations">
@@ -52,7 +53,7 @@
   };
 </script>
 
-  <title>7-20总结 | 随缘随笔 <br> Insights Flow</title>
+  <title>2023-11-09-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -223,7 +224,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/c8297af">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/63030322">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -236,7 +237,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          7-20总结
+          2023-11-09-insights
         </h1>
 
         <div class="post-meta">
@@ -245,28 +246,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-07-20 16:23:12" itemprop="dateCreated datePublished" datetime="2022-07-20T16:23:12+08:00">2022-07-20</time>
+              <time title="创建时间：2023-11-09 11:15:29 / 修改时间：12:09:30" itemprop="dateCreated datePublished" datetime="2023-11-09T11:15:29+08:00">2023-11-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/c8297af" class="post-meta-item leancloud_visitors" data-flag-title="7-20总结" title="阅读次数">
+            <span id="/63030322" class="post-meta-item leancloud_visitors" data-flag-title="2023-11-09-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -281,8 +276,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/c8297af#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/c8297af" itemprop="commentCount"></span>
+    <a title="valine" href="/63030322#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/63030322" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -292,14 +287,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.5k</span>
+              <span>494</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
 
@@ -312,24 +307,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今日观赛：</p>
-<ul>
-<li>BLG打RNG：虽然是纯纯的打不过，但呼吸哥还是给了些机会，估计是有点想证明自己。</li>
-</ul>
-<p>另外，今日阅读了IDDPM论文的官方开源代码，收获良多，主要学到以下几点新知识：</p>
-<span id="more"></span>
-<p>抽象类:</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> abc <span class="keyword">import</span> ABC, abstractmethod <span class="comment">#支持抽象类和抽象方法</span></span><br><span class="line"></span><br><span class="line">声明<span class="keyword">class</span>时继承ABC</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">xxx</span>(<span class="title class_ inherited__">ABC</span>):</span><br><span class="line"><span class="meta">  @abstractmethod </span><span class="comment">#用修饰符说明是抽象方法</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">yyy</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">  </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">xxx_sun</span>(<span class="title class_ inherited__">xxx</span>):</span><br><span class="line">  <span class="comment">#子类继承抽象类的话</span></span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">yyy</span>(<span class="params">self</span>): <span class="comment">#必须要实现每一个抽象方法</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ok&quot;</span>)</span><br></pre></td></tr></table></figure></div>
-<p>枚举器：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> enum</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ModelMeanType</span>(enum.Enum):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    继承一个枚举类基类的话</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    PREVIOUS_X = enum.auto()  <span class="comment">#在里面声明一些名词</span></span><br><span class="line">    START_X = enum.auto()  <span class="comment">#enum.auto() 自动推断用什么作为枚举元(string,int之类的)</span></span><br><span class="line">    EPSILON = enum.auto()  <span class="comment">#</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">is_pr</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">return</span> self == ModelMeanType.PREVIOUS_X <span class="comment">#可以声明一些判别函数</span></span><br><span class="line">      </span><br><span class="line">target = &#123;</span><br><span class="line">   ModelMeanType.PREVIOUS_X: self.q_posterior_mean_variance(</span><br><span class="line">   	x_start=x_start, x_t=x_t, t=t</span><br><span class="line">   )[<span class="number">0</span>],</span><br><span class="line">   ModelMeanType.START_X: x_start,</span><br><span class="line">   ModelMeanType.EPSILON: noise,</span><br><span class="line">&#125;[self.model_mean_type]</span><br><span class="line"><span class="comment">#后文可以直接用类似于一个Switch的方法，给不同的type声明不同的结果，然后按枚举器实际结果判别</span></span><br></pre></td></tr></table></figure></div>
-<p>字典式参数parser：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">create_argparser</span>():</span><br><span class="line">    defaults = <span class="built_in">dict</span>( <span class="comment">#主函数中声明字典</span></span><br><span class="line">        data_dir=<span class="string">&quot;&quot;</span>,</span><br><span class="line">        schedule_sampler=<span class="string">&quot;uniform&quot;</span>,</span><br><span class="line">        lr=<span class="number">1e-4</span>,</span><br><span class="line">    )</span><br><span class="line">    defaults.update(model_and_diffusion_defaults()) <span class="comment">#字典dict可以很方便的添加新元素</span></span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    add_dict_to_argparser(parser, defaults)</span><br><span class="line">    <span class="keyword">return</span> parser</span><br><span class="line">  </span><br><span class="line"> <span class="keyword">def</span> <span class="title function_">add_dict_to_argparser</span>(<span class="params">parser, default_dict</span>):</span><br><span class="line">  	<span class="comment">#add函数中把字典里所有元素进行遍历，一个一个加入argparser中</span></span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> default_dict.items():</span><br><span class="line">        v_type = <span class="built_in">type</span>(v)</span><br><span class="line">        <span class="keyword">if</span> v <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            v_type = <span class="built_in">str</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="built_in">isinstance</span>(v, <span class="built_in">bool</span>):</span><br><span class="line">            v_type = str2bool</span><br><span class="line">        parser.add_argument(<span class="string">f&quot;--<span class="subst">&#123;k&#125;</span>&quot;</span>, default=v, <span class="built_in">type</span>=v_type)</span><br></pre></td></tr></table></figure></div>
-<p>函数传参单*与双*，他们都可以匹配参数个数、名字不确定的情况。</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">*args</span>): <span class="comment">#单*相当于把后面的内容解析成tuple</span></span><br><span class="line">  							 <span class="comment">#函数内部看做一个一个传进来的参数</span></span><br><span class="line">    <span class="built_in">print</span>(args)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(i)</span><br><span class="line">        </span><br><span class="line">func(*[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])<span class="comment">#如果在调用时传参前面加*，代表解一层递归，再传参</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;======&quot;</span>)</span><br><span class="line">func([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">======</span><br><span class="line">([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],)</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></div>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">func</span>(<span class="params">**kwargs</span>): <span class="comment">#双星**代表把后面的看做一个dict</span></span><br><span class="line">    <span class="built_in">print</span>(kwargs)</span><br><span class="line">    <span class="keyword">for</span> k, v <span class="keyword">in</span> kwargs.items():</span><br><span class="line">        <span class="built_in">print</span>(k, v)</span><br><span class="line"></span><br><span class="line">func(**&#123;<span class="string">&#x27;name&#x27;</span>:<span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>:<span class="string">&#x27;888888&#x27;</span>&#125;)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;======&quot;</span>)</span><br><span class="line">func(name=<span class="string">&#x27;Spade_&#x27;</span>, number=<span class="string">&#x27;888888&#x27;</span>)</span><br><span class="line"></span><br><span class="line">&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>: <span class="string">&#x27;888888&#x27;</span>&#125;</span><br><span class="line">name Spade_</span><br><span class="line">number <span class="number">888888</span></span><br><span class="line">======</span><br><span class="line">&#123;<span class="string">&#x27;name&#x27;</span>: <span class="string">&#x27;Spade_&#x27;</span>, <span class="string">&#x27;number&#x27;</span>: <span class="string">&#x27;888888&#x27;</span>&#125;</span><br><span class="line">name Spade_</span><br><span class="line">number <span class="number">888888</span></span><br></pre></td></tr></table></figure></div>
-<p>如果函数声明中有个单独的*，就是一个分隔符，而不是参数，代表后面的参数在调用时都要以$x=100$这种形式写：</p>
-<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">test_keyvalue</span>(<span class="params">a,b,*,x,y=<span class="number">2</span>,z=<span class="number">3</span></span>):</span><br><span class="line">    <span class="built_in">print</span>(a,b,x,y,z)... </span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>)</span><br><span class="line"><span class="comment"># Traceback (most recent call last):  File &quot;&quot;, line 1, in TypeError: test_keyvalue() takes 2 positional arguments but 5 were given</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>,y=<span class="number">4</span>,z=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 1 2 3 4 5</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>)</span><br><span class="line"><span class="comment"># 1 2 3 2 3</span></span><br><span class="line">test_keyvalue(<span class="number">1</span>,<span class="number">2</span>,x=<span class="number">3</span>,z=<span class="number">8</span>,y=<span class="number">9</span>)</span><br><span class="line"><span class="comment"># 1 2 3 9 8</span></span><br><span class="line">test_keyvalue(x=<span class="number">3</span>,z=<span class="number">8</span>,y=<span class="number">9</span>,a=<span class="number">3</span>,b=<span class="number">5</span>)</span><br><span class="line"><span class="comment"># 3 5 3 9 8</span></span><br></pre></td></tr></table></figure></div>
-
+        <p>今天论文不多，不过有意思的不少</p>
+<h2 id="Future-Lens-Anticipating-Subsequent-Tokens-from-a-Single-Hidden-State"><a href="#Future-Lens-Anticipating-Subsequent-Tokens-from-a-Single-Hidden-State" class="headerlink" title="Future Lens: Anticipating Subsequent Tokens from a Single Hidden State"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04897.pdf">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</a></h2><p>来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48%</p>
+<h2 id="TEAL-Tokenize-and-Embed-ALL-for-Multi-modal-Large-Language-Models"><a href="#TEAL-Tokenize-and-Embed-ALL-for-Multi-modal-Large-Language-Models" class="headerlink" title="TEAL: Tokenize and Embed ALL for Multi-modal Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04589.pdf">TEAL: Tokenize and Embed ALL for Multi-modal Large Language Models</a></h2><p>作者提到目前的多模态模型对于多模态的输入和非语言模态的输出都比较差。作者认为这件事是因为tokenizer。作者提出了一个Tokenize and Embed ALl(TEAL)的方法，把所有模态的数据tokenize到一个统一的词表。最后也可以按照无损的形式解码回来。发现极大地改善了上述问题</p>
+<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/teal.png"></p>
+<h2 id="Uncovering-Causal-Variables-in-Transformers-using-Circuit-Probing"><a href="#Uncovering-Causal-Variables-in-Transformers-using-Circuit-Probing" class="headerlink" title="Uncovering Causal Variables in Transformers using Circuit Probing"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04354.pdf">Uncovering Causal Variables in Transformers using Circuit Probing</a></h2><p>作者提出了一个有趣的办法， 通过截断一些计算路径，看看模型会不会丧失某个能力，来嗅探该计算路径代表了什么。</p>
+<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/circuit.png"></p>
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -339,19 +323,10 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b4c23497.html" rel="bookmark">配置LaTeX环境:Windows,Mac,WSL</a></div>
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/839511f0.html" rel="bookmark">给hexo添加近期文章与更新情况换月</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c344b452.html" rel="bookmark">给hexo添加日历</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fa20dd9d.html" rel="bookmark">hexo折腾记</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
+      <div class="popular-posts-title"><a href="/3179c33f.html" rel="bookmark">Arxiv Insights</a></div>
     </li>
   </ul>
 
@@ -359,25 +334,13 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E6%8E%A2%E7%B4%A2/" rel="tag"><i class="fa fa-tag"></i> 探索</a>
-              <a href="/tags/diffusion-model/" rel="tag"><i class="fa fa-tag"></i> diffusion model</a>
-              <a href="/tags/%E6%97%A5%E8%AE%B0/" rel="tag"><i class="fa fa-tag"></i> 日记</a>
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
           </div>
 
         
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/b1e2de2b" rel="prev" title="7-18总结">
-      <i class="fa fa-chevron-left"></i> 7-18总结
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/c925a921" rel="next" title="7-27总结">
-      7-27总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -440,6 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Future-Lens-Anticipating-Subsequent-Tokens-from-a-Single-Hidden-State"><span class="nav-number">1.</span> <span class="nav-text">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TEAL-Tokenize-and-Embed-ALL-for-Multi-modal-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">TEAL: Tokenize and Embed ALL for Multi-modal Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uncovering-Causal-Variables-in-Transformers-using-Circuit-Probing"><span class="nav-number">3.</span> <span class="nav-text">Uncovering Causal Variables in Transformers using Circuit Probing</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -563,11 +527,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/c8297af" selected>
+        <option value="zh-CN" data-href="/63030322" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/c8297af" selected>
+        <option value="en" data-href="/en/63030322" selected>
           English
         </option>
       
@@ -819,61 +783,6 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
-      
-
-<script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      loader: {
-          load: ['[tex]/mhchem'],
-        source: {
-          '[tex]/amsCd': '[tex]/amscd',
-          '[tex]/AMScd': '[tex]/amscd'
-        }
-      },
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-          packages: {'[+]': ['mhchem']},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              let target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    (function () {
-      var script = document.createElement('script');
-      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
-      script.defer = true;
-      document.head.appendChild(script);
-    })();
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
