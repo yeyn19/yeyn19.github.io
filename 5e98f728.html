@@ -24,20 +24,22 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="压缩带来智能，5%的论文决定学术界95%的成果！每天从Arxiv论文中总结分享最重要、最有趣的最多三篇论文。 Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to thre">
+  <meta name="description" content="LLaVA-Plus: Learning to Use Tools for Creating Multimodal Agents一言以蔽之，多模态版本的ToolBench。toolbench方法详细介绍在 这个笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Arxiv Insights">
-<meta property="og:url" content="https://www.yynnyy.cn/3179c33f">
+<meta property="og:title" content="2023-11-10-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/5e98f728">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="压缩带来智能，5%的论文决定学术界95%的成果！每天从Arxiv论文中总结分享最重要、最有趣的最多三篇论文。 Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to thre">
+<meta property="og:description" content="LLaVA-Plus: Learning to Use Tools for Creating Multimodal Agents一言以蔽之，多模态版本的ToolBench。toolbench方法详细介绍在 这个笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-09-29T02:50:12.000Z">
-<meta property="article:modified_time" content="2023-11-10T03:36:04.912Z">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/llava-plus.png">
+<meta property="article:published_time" content="2023-11-10T02:40:02.000Z">
+<meta property="article:modified_time" content="2023-11-10T03:35:58.089Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/llava-plus.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/3179c33f.html">
+<link rel="canonical" href="https://www.yynnyy.cn/5e98f728.html">
 
 
 <script id="page-configurations">
@@ -50,7 +52,7 @@
   };
 </script>
 
-  <title>Arxiv Insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2023-11-10-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -221,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/3179c33f">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/5e98f728">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -234,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Arxiv Insights
+          2023-11-10-insights
         </h1>
 
         <div class="post-meta">
@@ -243,19 +245,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-09-29 10:50:12" itemprop="dateCreated datePublished" datetime="2022-09-29T10:50:12+08:00">2022-09-29</time>
+              <time title="创建时间：2023-11-10 10:40:02 / 修改时间：11:35:58" itemprop="dateCreated datePublished" datetime="2023-11-10T10:40:02+08:00">2023-11-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-10 11:36:04" itemprop="dateModified" datetime="2023-11-10T11:36:04+08:00">2023-11-10</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
+                </span>
+            </span>
 
           
-            <span id="/3179c33f" class="post-meta-item leancloud_visitors" data-flag-title="Arxiv Insights" title="阅读次数">
+            <span id="/5e98f728" class="post-meta-item leancloud_visitors" data-flag-title="2023-11-10-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -270,8 +275,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/3179c33f#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/3179c33f" itemprop="commentCount"></span>
+    <a title="valine" href="/5e98f728#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/5e98f728" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -281,14 +286,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.4k</span>
+              <span>98</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
+              <span>1 分钟</span>
             </span>
 
 
@@ -301,314 +306,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>压缩带来智能，5%的论文决定学术界95%的成果！每天从Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p>
-<p>Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to three!</p>
-<p><script type="text/javascript">
-    var insight_now_id = 0;
-    var insight_max_id = 17;
-    function tips_insight(num){
-        document.getElementById("insights_"+insight_now_id).hidden = "hidden";
-        insight_now_id -= num;
-        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}
-        if (insight_now_id < 0) {insight_now_id = 0;}
-        document.getElementById("insights_" + insight_now_id).hidden = "";
-    }
-</script></p>
-<table id="insights_0" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年十一月November</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td bgcolor="#00F800"><a href="../70d443d6">1(61->1 papers)</a></td><td bgcolor="#00EE00"><a href="../9be3f8d5">2(57->2 papers)</a></td><td bgcolor="#00F700"><a href="../742193eb">3(46->1 papers)</a></td><td>4 </td></tr>
-<tr><td>5 </td><td bgcolor="#00F500"><a href="../920858af">6(54->1 papers)</a></td><td bgcolor="#00F100"><a href="../7dca3391">7(74->2 papers)</a></td><td bgcolor="#00F600"><a href="../8cc1681c">8(59->1 papers)</a></td><td bgcolor="#00EC00"><a href="../'63030322'">9(48->3 papers)</a></td><td bgcolor="#00F700"><a href="../5e98f728">10(69->1 papers)</a></td><td>11 </td></tr>
-<tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td></tr>
-<tr><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
-<tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr></table>
-
-<table id="insights_1" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年十月October</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr><td>1 </td><td bgcolor="#00F100"><a href="../46752150">2(??->2 papers)</a></td><td bgcolor="#00ED00"><a href="../a9b74a6e">3(??->3 papers)</a></td><td bgcolor="#00F100"><a href="../4b6b5117">4(??->2 papers)</a></td><td bgcolor="#00F200"><a href="../a4a93a29">5(??->2 papers)</a></td><td bgcolor="#00EE00"><a href="../4f9e812a">6(??->2 papers)</a></td><td>7 </td></tr>
-<tr><td>8 </td><td bgcolor="#00FB00"><a href="../be95daa7">9(??->0 papers)</a></td><td bgcolor="#00F000"><a href="../830e2ead">10(172->3 papers)</a></td><td bgcolor="#00EA00"><a href="../6ccc4593">11(??->3 papers)</a></td><td bgcolor="#00F100"><a href="../87fbfe90">12(??->2 papers)</a></td><td bgcolor="#00EF00"><a href="../683995ae">13(??->2 papers)</a></td><td>14 </td></tr>
-<tr><td>15 </td><td bgcolor="#00FE00"><a href="../8e105eea">16(??->0 papers)</a></td><td bgcolor="#00EE00"><a href="../61d235d4">17(135->2 papers)</a></td><td bgcolor="#00E900"><a href="../90d96e59">18(83->3 papers)</a></td><td bgcolor="#00E900"><a href="../7f1b0567">19(74->3 papers)</a></td><td bgcolor="#00F000"><a href="../1aec48ac">20(74->2 papers)</a></td><td>21 </td></tr>
-<tr><td>22 </td><td bgcolor="#00F500"><a href="../f1dbf3af">23(108->1 papers)</a></td><td bgcolor="#00F800"><a href="../1307e8d6">24(203->3 papers)</a></td><td bgcolor="#00F600"><a href="../fcc583e8">25(112->1 papers)</a></td><td bgcolor="#00F800"><a href="../17f238eb">26(89->1 papers)</a></td><td bgcolor="#00F600"><a href="../f83053d5">27(80->1 papers)</a></td><td>28 </td></tr>
-<tr><td>29 </td><td bgcolor="#00FE00"><a href="../db62976c">30(67->0 papers)</a></td><td bgcolor="#00F800"><a href="../34a0fc52">31(141->3 papers)</a></td></tr></table>
-
-<table id="insights_2" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年九月September</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td></tr>
-<tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr>
-<tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr>
-<tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr>
-<tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td bgcolor="#00D600"><a href="../13a1e3c6">28(??->2 papers)</a></td><td bgcolor="#00BC00"><a href="../d2c6faf">29(??->3 papers)</a></td><td>30 </td></tr>
-<tr></tr></table>
-
-<table id="insights_3" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年八月August</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td></tr>
-<tr><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td></tr>
-<tr><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td></tr>
-<tr><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td></tr>
-<tr><td>27 </td><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_4" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年七月July</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td></tr>
-<tr><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td></tr>
-<tr><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td></tr>
-<tr><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td></tr>
-<tr><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td></tr>
-<tr><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_5" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年六月June</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td></tr>
-<tr><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr>
-<tr><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td></tr>
-<tr><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td></tr>
-<tr><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr></table>
-
-<table id="insights_6" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年五月May</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td></tr>
-<tr><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td></tr>
-<tr><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td></tr>
-<tr><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td></tr>
-<tr><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_7" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年四月April</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td></tr>
-<tr><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td></tr>
-<tr><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td></tr>
-<tr><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td></tr>
-<tr><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td></tr>
-<tr><td>30 </td></tr></table>
-
-<table id="insights_8" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年三月March</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr>
-<tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr>
-<tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td></tr>
-<tr><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
-<tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_9" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年二月February</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr>
-<tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr>
-<tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td></tr>
-<tr><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
-<tr><td>26 </td><td>27 </td><td>28 </td></tr></table>
-
-<table id="insights_10" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2023年一月January</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td></tr>
-<tr><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td></tr>
-<tr><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td></tr>
-<tr><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td></tr>
-<tr><td>29 </td><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_11" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年十二月December</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td></tr>
-<tr><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr>
-<tr><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td></tr>
-<tr><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td></tr>
-<tr><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr>
-<tr></tr></table>
-
-<table id="insights_12" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年十一月November</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td></tr>
-<tr><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td></tr>
-<tr><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td></tr>
-<tr><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td></tr>
-<tr><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr></table>
-
-<table id="insights_13" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年十月October</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td></tr>
-<tr><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td></tr>
-<tr><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td></tr>
-<tr><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td></tr>
-<tr><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td></tr>
-<tr><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_14" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年九月September</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td></tr>
-<tr><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr>
-<tr><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td></tr>
-<tr><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td></tr>
-<tr><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr></table>
-
-<table id="insights_15" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年八月August</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td><td>5 </td><td>6 </td></tr>
-<tr><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td><td>12 </td><td>13 </td></tr>
-<tr><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td><td>19 </td><td>20 </td></tr>
-<tr><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td><td>26 </td><td>27 </td></tr>
-<tr><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr></table>
-
-<table id="insights_16" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年七月July</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td></tr>
-<tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr>
-<tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr>
-<tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr>
-<tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr>
-<tr><td>31 </td></tr></table>
-
-<table id="insights_17" hidden="hidden" style="text-align:center"><tr> <td>
-        <form action>
-            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
-        </form>
-    </td>
-    <td colspan="5">2022年六月June</td> <td>
-        <form action>
-            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
-        </form>
-    </td>
-    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td><td>4 </td></tr>
-<tr><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td><td>11 </td></tr>
-<tr><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td><td>17 </td><td>18 </td></tr>
-<tr><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td><td>25 </td></tr>
-<tr><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td></tr></table>
-
-
+        <h2 id="LLaVA-Plus-Learning-to-Use-Tools-for-Creating-Multimodal-Agents"><a href="#LLaVA-Plus-Learning-to-Use-Tools-for-Creating-Multimodal-Agents" class="headerlink" title="LLaVA-Plus: Learning to Use Tools for Creating Multimodal Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2311.05437">LLaVA-Plus: Learning to Use Tools for Creating Multimodal Agents</a></h2><p>一言以蔽之，多模态版本的ToolBench。toolbench方法详细介绍在 <a href="/660d5dc5.html" title="论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS">这个笔记</a></p>
+<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/llava-plus.png"></p>
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -619,6 +319,9 @@
   <ul class="popular-posts">
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3179c33f.html" rel="bookmark">Arxiv Insights</a></div>
     </li>
   </ul>
 
@@ -633,16 +336,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/e7441803" rel="prev" title="论文阅读[精读]-LEARNING TO LEARN WITH GENERATIVE MODELS OF NEURAL NETWORK CHECKPOINTS">
-      <i class="fa fa-chevron-left"></i> 论文阅读[精读]-LEARNING TO LEARN WITH GENERATIVE MODELS OF NEURAL NETWORK CHECKPOINTS
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/87d3e2cf" rel="next" title="9-29总结">
-      9-29总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -705,6 +398,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LLaVA-Plus-Learning-to-Use-Tools-for-Creating-Multimodal-Agents"><span class="nav-number">1.</span> <span class="nav-text">LLaVA-Plus: Learning to Use Tools for Creating Multimodal Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -828,11 +522,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/3179c33f" selected>
+        <option value="zh-CN" data-href="/5e98f728" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/3179c33f" selected>
+        <option value="en" data-href="/en/5e98f728" selected>
           English
         </option>
       
