@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-11-17T03:13:31.383Z</updated>
+  <updated>2023-11-20T02:40:33.131Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,30 +17,21 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-11-17-insights</title>
-    <link href="https://www.yynnyy.cn/bc44ec51"/>
-    <id>https://www.yynnyy.cn/bc44ec51</id>
-    <published>2023-11-17T02:26:30.000Z</published>
-    <updated>2023-11-17T03:13:31.383Z</updated>
+    <title>2023-11-20-insights</title>
+    <link href="https://www.yynnyy.cn/c77a9129"/>
+    <id>https://www.yynnyy.cn/c77a9129</id>
+    <published>2023-11-20T02:26:28.000Z</published>
+    <updated>2023-11-20T02:40:33.131Z</updated>
     
-    <content type="html"><![CDATA[<p>今天的论文好多呀，大家都在卡NAACL匿名期的bug</p><h2 id="Auto-ICL-In-Context-Learning-without-Human-Supervision"><a href="#Auto-ICL-In-Context-Learning-without-Human-Supervision" class="headerlink" title="Auto-ICL: In-Context Learning without Human Supervision"></a><a href="https://arxiv.org/pdf/2311.09263.pdf">Auto-ICL: In-Context Learning without Human Supervision</a></h2><p>furu wei的工作，作者谈到目前的icl需要人工设计形式、输入输出样例。作者思考能不能把人在这个过程中的依赖去掉。作者提了一个二阶段的框架。</p><ul><li>一阶段收到人类请求，自动生成一些context，包括instruction、example 等等</li><li>二阶段根据刚才的context去解决该任务</li></ul><p>作者发现该framework在传统in-context场景下表现都挺好，同时更灵活</p><p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/auto-icl.png"></p><h2 id="Language-Generation-from-Human-Brain-Activities"><a href="#Language-Generation-from-Human-Brain-Activities" class="headerlink" title="Language Generation from Human Brain Activities"></a><a href="https://arxiv.org/pdf/2311.09889.pdf">Language Generation from Human Brain Activities</a></h2><p>刘奕群老师的工作，瞄准的任务是脑机接口领域的”从fMRI脑波中解码人类想说的话”。作者提出了一个新的方法，可以利用一个LLM的语言能力，同时通过一个brain decoder来理解fMRI中的语义，由此生成人fMRI中想要表达的话。这种方法不需要和被试者绑定的输入输出样本，展现了non-invasive braIn-computer interface的巨大潜力。</p><p>我不太懂，不过感觉应该是领域内创新性很强的工作</p><p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/hba.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天论文不多，感觉也没啥有意思的东西出现</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;今天的论文好多呀，大家都在卡NAACL匿名期的bug&lt;/p&gt;
-&lt;h2 id=&quot;Auto-ICL-In-Context-Learning-without-Human-Supervision&quot;&gt;&lt;a href=&quot;#Auto-ICL-In-Context-Learning-without-Human-Supervision&quot; class=&quot;headerlink&quot; title=&quot;Auto-ICL: In-Context Learning without Human Supervision&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.09263.pdf&quot;&gt;Auto-ICL: In-Context Learning without Human Supervision&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;furu wei的工作，作者谈到目前的icl需要人工设计形式、输入输出样例。作者思考能不能把人在这个过程中的依赖去掉。作者提了一个二阶段的框架。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;一阶段收到人类请求，自动生成一些context，包括instruction、example 等等&lt;/li&gt;
-&lt;li&gt;二阶段根据刚才的context去解决该任务&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;作者发现该framework在传统in-context场景下表现都挺好，同时更灵活&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023:11:13-11:17/auto-icl.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Language-Generation-from-Human-Brain-Activities&quot;&gt;&lt;a href=&quot;#Language-Generation-from-Human-Brain-Activities&quot; class=&quot;headerlink&quot; title=&quot;Language Generation from Human Brain Activities&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.09889.pdf&quot;&gt;Language Generation from Human Brain Activities&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;刘奕群老师的工作，瞄准的任务是脑机接口领域的”从fMRI脑波中解码人类想说的话”。作者提出了一个新的方法，可以利用一个LLM的语言能力，同时通过一个brain decoder来理解fMRI中的语义，由此生成人fMRI中想要表达的话。这种方法不需要和被试者绑定的输入输出样本，展现了non-invasive braIn-computer interface的巨大潜力。&lt;/p&gt;
-&lt;p&gt;我不太懂，不过感觉应该是领域内创新性很强的工作&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023:11:13-11:17/hba.png&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;今天论文不多，感觉也没啥有意思的东西出现&lt;/p&gt;
+</summary>
     
     
     
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    <category term="Arxiv-insights" scheme="https://www.yynnyy.cn/categories/Arxiv-insights/"/>
     
     
     <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
