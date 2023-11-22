@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-11-21T05:32:50.456Z</updated>
+  <updated>2023-11-22T06:22:45.391Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,28 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-11-21-insights</title>
-    <link href="https://www.yynnyy.cn/28b8fa17"/>
-    <id>https://www.yynnyy.cn/28b8fa17</id>
-    <published>2023-11-21T04:47:08.000Z</published>
-    <updated>2023-11-21T05:32:50.456Z</updated>
+    <title>2023-11-22-insights</title>
+    <link href="https://www.yynnyy.cn/c38f4114"/>
+    <id>https://www.yynnyy.cn/c38f4114</id>
+    <published>2023-11-22T02:51:42.000Z</published>
+    <updated>2023-11-22T06:22:45.391Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation"><a href="#ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation" class="headerlink" title="ProAgent: From Robotic Process Automation to Agentic Process Automation"></a><a href="https://arxiv.org/pdf/2311.10751.pdf">ProAgent: From Robotic Process Automation to Agentic Process Automation</a></h2><p>推荐一下我的工作……作者探讨RPA技术作为目前最先进的自动化技术，可以自动连接各种APP完成实际需求。然而RPA还要面临两个问题：</p><ul><li>工作流程需要人类搭建，这个过程耗时比较长，同时效率比较低</li><li>只能处理结构化数据，对于某些比较灵活的任务，需要处理非结构化数据时就无能为力</li></ul><p>现在的LLM-Agent技术正好有灵活性，由此可以提出基于Agent技术的RPA框架，也就是APA。可以让Agent自动完成workflow搭建，同时在workflow执行时通过提前定义的Agent节点来处理非结构化数据，同时可以自动进行决策</p><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/APA.png"></p><h2 id="System-2-Attention-is-something-you-might-need-too"><a href="#System-2-Attention-is-something-you-might-need-too" class="headerlink" title="System 2 Attention (is something you might need too)"></a><a href="https://arxiv.org/pdf/2311.11829.pdf">System 2 Attention (is something you might need too)</a></h2><p>来自meta的论文。作者提到目前的Attention算法可以让模型看到所有token对应的hidden state，因此会受到很多和无问题无关的token的影响，比如下图其实前一段和问题无关，但会影响问题的答案。</p><p>作者由此提出了一个system2 Attention，先重新生成一遍输入，只包含有关的信息，再回答问题做推理。作者发现这样的模型对输入更鲁棒、事实性更准确</p><blockquote><p>话说turbo和Llama2的输入怎么这么像……很难说用了多少turbo的数据做RLHF</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/system2-attention.png"></p><h2 id="Exponentially-Faster-Language-Modeling"><a href="#Exponentially-Faster-Language-Modeling" class="headerlink" title="Exponentially Faster Language Modeling"></a><a href="https://arxiv.org/pdf/2311.10770.pdf">Exponentially Faster Language Modeling</a></h2><p>ETH的研究，作者发现LLM事实上只需要一个很小部分的神经元就能完成一个特定的任务。作者由此把FeedForward层改成了所谓的FFF层，只需要使用12/4096的神经元就能推理。作者在BERT上实验，把推理速度提升了接近80倍，同时score下降不明显。</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey"><a href="#Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey" class="headerlink" title="Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey"></a><a href="https://arxiv.org/pdf/2311.12351.pdf">Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey</a></h2><p>南京大学出的一篇长文本的综述，目前这个领域发展火速，最近的综述还是很有看看的必要的。</p><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/memory_survey.png"></p><h2 id="Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis"><a href="#Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis" class="headerlink" title="Soft Random Sampling: A Theoretical and Empirical Analysis"></a><a href="https://arxiv.org/pdf/2311.12727.pdf">Soft Random Sampling: A Theoretical and Empirical Analysis</a></h2><p>IBM research的论文，好少见的机构。作者讨论了在训练数据很大的情况下如何sample训练数据，作者发现了一个sample重合度很低的算法，比起传统sample方法训练更高效。</p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation&quot;&gt;&lt;a href=&quot;#ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation&quot; class=&quot;headerlink&quot; title=&quot;ProAgent: From Robotic Process Automation to Agentic Process Automation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.10751.pdf&quot;&gt;ProAgent: From Robotic Process Automation to Agentic Process Automation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;推荐一下我的工作……作者探讨RPA技术作为目前最先进的自动化技术，可以自动连接各种APP完成实际需求。然而RPA还要面临两个问题：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;工作流程需要人类搭建，这个过程耗时比较长，同时效率比较低&lt;/li&gt;
-&lt;li&gt;只能处理结构化数据，对于某些比较灵活的任务，需要处理非结构化数据时就无能为力&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;现在的LLM-Agent技术正好有灵活性，由此可以提出基于Agent技术的RPA框架，也就是APA。可以让Agent自动完成workflow搭建，同时在workflow执行时通过提前定义的Agent节点来处理非结构化数据，同时可以自动进行决策&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/APA.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;System-2-Attention-is-something-you-might-need-too&quot;&gt;&lt;a href=&quot;#System-2-Attention-is-something-you-might-need-too&quot; class=&quot;headerlink&quot; title=&quot;System 2 Attention (is something you might need too)&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.11829.pdf&quot;&gt;System 2 Attention (is something you might need too)&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;来自meta的论文。作者提到目前的Attention算法可以让模型看到所有token对应的hidden state，因此会受到很多和无问题无关的token的影响，比如下图其实前一段和问题无关，但会影响问题的答案。&lt;/p&gt;
-&lt;p&gt;作者由此提出了一个system2 Attention，先重新生成一遍输入，只包含有关的信息，再回答问题做推理。作者发现这样的模型对输入更鲁棒、事实性更准确&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;话说turbo和Llama2的输入怎么这么像……很难说用了多少turbo的数据做RLHF&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/system2-attention.png&quot;&gt;&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey&quot;&gt;&lt;a href=&quot;#Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey&quot; class=&quot;headerlink&quot; title=&quot;Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.12351.pdf&quot;&gt;Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;南京大学出的一篇长文本的综述，目前这个领域发展火速，最近的综述还是很有看看的必要的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/memory_survey.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis&quot;&gt;&lt;a href=&quot;#Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis&quot; class=&quot;headerlink&quot; title=&quot;Soft Random Sampling: A Theoretical and Empirical Analysis&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.12727.pdf&quot;&gt;Soft Random Sampling: A Theoretical and Empirical Analysis&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;IBM research的论文，好少见的机构。作者讨论了在训练数据很大的情况下如何sample训练数据，作者发现了一个sample重合度很低的算法，比起传统sample方法训练更高效。&lt;/p&gt;
+</summary>
     
     
     
@@ -257,9 +248,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
@@ -365,9 +356,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
