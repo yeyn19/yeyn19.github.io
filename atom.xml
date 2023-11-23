@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-11-22T06:22:45.391Z</updated>
+  <updated>2023-11-23T11:28:15.453Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,18 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-11-22-insights</title>
-    <link href="https://www.yynnyy.cn/c38f4114"/>
-    <id>https://www.yynnyy.cn/c38f4114</id>
-    <published>2023-11-22T02:51:42.000Z</published>
-    <updated>2023-11-22T06:22:45.391Z</updated>
+    <title>2023-11-23-insights</title>
+    <link href="https://www.yynnyy.cn/2c4d2a2a"/>
+    <id>https://www.yynnyy.cn/2c4d2a2a</id>
+    <published>2023-11-23T02:54:15.000Z</published>
+    <updated>2023-11-23T11:28:15.453Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey"><a href="#Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey" class="headerlink" title="Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey"></a><a href="https://arxiv.org/pdf/2311.12351.pdf">Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey</a></h2><p>南京大学出的一篇长文本的综述，目前这个领域发展火速，最近的综述还是很有看看的必要的。</p><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/memory_survey.png"></p><h2 id="Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis"><a href="#Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis" class="headerlink" title="Soft Random Sampling: A Theoretical and Empirical Analysis"></a><a href="https://arxiv.org/pdf/2311.12727.pdf">Soft Random Sampling: A Theoretical and Empirical Analysis</a></h2><p>IBM research的论文，好少见的机构。作者讨论了在训练数据很大的情况下如何sample训练数据，作者发现了一个sample重合度很低的算法，比起传统sample方法训练更高效。</p>]]></content>
+    <content type="html"><![CDATA[<p>神奇，连续好几天论文不多了</p><h2 id="PaSS-Parallel-Speculative-Sampling"><a href="#PaSS-Parallel-Speculative-Sampling" class="headerlink" title="PaSS: Parallel Speculative Sampling"></a><a href="">PaSS: Parallel Speculative Sampling</a></h2><p>apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。</p><p>那么，为什么不让大模型自己去做”小模型”呢？作者额外定义了一些token作为look-ahead token，使用下面的算法做sample。</p><blockquote><p>下面这个算法，越看越精妙，叹为观止的apple inc……</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/parallel.png"></p><h2 id="Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning"><a href="#Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning" class="headerlink" title="Automatic Instruction Optimization for Open-source LLM Instruction Tuning"></a><a href="">Automatic Instruction Optimization for Open-source LLM Instruction Tuning</a></h2><p>华为的研究。作者谈到目前的instruction领域基本就是让human或者GPT4来标数据，接着让模型做SFT。效果受限于SFT数据质量，很多工作都是在想办法剔除低质量数据。这里作者反过来想问题：能不能挽救一下低质量数据，而不是抛弃他？由此提出了CoachLM workflow，效果很好</p><p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/coach.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey&quot;&gt;&lt;a href=&quot;#Advancing-Transformer-Architecture-in-Long-Context-Large-Language-Models-A-Comprehensive-Survey&quot; class=&quot;headerlink&quot; title=&quot;Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.12351.pdf&quot;&gt;Advancing Transformer Architecture in Long-Context Large Language Models: A Comprehensive Survey&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;南京大学出的一篇长文本的综述，目前这个领域发展火速，最近的综述还是很有看看的必要的。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/memory_survey.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis&quot;&gt;&lt;a href=&quot;#Soft-Random-Sampling-A-Theoretical-and-Empirical-Analysis&quot; class=&quot;headerlink&quot; title=&quot;Soft Random Sampling: A Theoretical and Empirical Analysis&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.12727.pdf&quot;&gt;Soft Random Sampling: A Theoretical and Empirical Analysis&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;IBM research的论文，好少见的机构。作者讨论了在训练数据很大的情况下如何sample训练数据，作者发现了一个sample重合度很低的算法，比起传统sample方法训练更高效。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;神奇，连续好几天论文不多了&lt;/p&gt;
+&lt;h2 id=&quot;PaSS-Parallel-Speculative-Sampling&quot;&gt;&lt;a href=&quot;#PaSS-Parallel-Speculative-Sampling&quot; class=&quot;headerlink&quot; title=&quot;PaSS: Parallel Speculative Sampling&quot;&gt;&lt;/a&gt;&lt;a href&gt;PaSS: Parallel Speculative Sampling&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。&lt;/p&gt;
+&lt;p&gt;那么，为什么不让大模型自己去做”小模型”呢？作者额外定义了一些token作为look-ahead token，使用下面的算法做sample。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;下面这个算法，越看越精妙，叹为观止的apple inc……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/parallel.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning&quot;&gt;&lt;a href=&quot;#Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning&quot; class=&quot;headerlink&quot; title=&quot;Automatic Instruction Optimization for Open-source LLM Instruction Tuning&quot;&gt;&lt;/a&gt;&lt;a href&gt;Automatic Instruction Optimization for Open-source LLM Instruction Tuning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;华为的研究。作者谈到目前的instruction领域基本就是让human或者GPT4来标数据，接着让模型做SFT。效果受限于SFT数据质量，很多工作都是在想办法剔除低质量数据。这里作者反过来想问题：能不能挽救一下低质量数据，而不是抛弃他？由此提出了CoachLM workflow，效果很好&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-20-11-24/coach.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -356,9 +362,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
