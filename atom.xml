@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-11-29T03:24:16.253Z</updated>
+  <updated>2023-11-30T05:29:16.544Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,22 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-11-29-insights</title>
-    <link href="https://www.yynnyy.cn/3b6fbae3"/>
-    <id>https://www.yynnyy.cn/3b6fbae3</id>
-    <published>2023-11-29T02:56:08.000Z</published>
-    <updated>2023-11-29T03:24:16.253Z</updated>
+    <title>2023-11-30-insights</title>
+    <link href="https://www.yynnyy.cn/6f44ee9"/>
+    <id>https://www.yynnyy.cn/6f44ee9</id>
+    <published>2023-11-30T02:51:39.000Z</published>
+    <updated>2023-11-30T05:29:16.544Z</updated>
     
-    <content type="html"><![CDATA[<p>最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了……</p><h2 id="CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models"><a href="#CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models" class="headerlink" title="CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models"></a><a href="https://arxiv.org/pdf/2311.16832.pdf">CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models</a></h2><p>推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看多了……</p><p>这个工作还是黄老师的主线：对话系统。作者在ChatGLM的基础上训了Character-based Dialogues模型，可以选择role、偏好等等。在人类实验上，作者达到了opensource SOTA，甚至超过了大多数close-source model，包括GPT系。作者开源了其中的6B版本</p><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/characterGLM.png"></p><h2 id="LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models"><a href="#LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models" class="headerlink" title="LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models"></a><a href="https://arxiv.org/pdf/2311.17043.pdf">LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models</a></h2><p>作者谈到目前的VLM基本上是把图片编码成多个patch-token，这里有个问题：对于vedio，seq-length也太长了。作者搞了简单的办法，直接把一个图片变成了2 token，这样假如一秒一帧，甚至可以存一个1h的视频进去。作者在vedio、image 等benchmark测试了，基本都是SOTA</p><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/LLama-vid.png" style="zoom: 33%;" ></p><h2 id="Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop"><a href="#Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop" class="headerlink" title="Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop"></a><a href="">Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop</a></h2><p>作者谈到，近期有一个趋势就是在模型自己生成的数据上训练，去得到一个next-generation of model。然而，这种方法长久吗？作者设计了一系列实验，来探索这个问题。发现在初期，模型的quality和diversity会上升，但随后会下降。最终的稳定性取决于数据中真实数据的比例</p><blockquote><p> 让我想起了不久前的另一篇论文Self-Consuming Generative Models Go MAD，是在cv领域探索这个事情</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h2 id="Universal-Self-Consistency-for-Large-Language-Model-Generation"><a href="#Universal-Self-Consistency-for-Large-Language-Model-Generation" class="headerlink" title="Universal Self-Consistency for Large Language Model Generation"></a><a href="https://arxiv.org/pdf/2311.17311.pdf">Universal Self-Consistency for Large Language Model Generation</a></h2><p>Google的论文，好像有几天没看到他们了。作者谈到一个问题，目前的self-consistency类的方法要求有个标准答案，或者起码可以把set中所有元素聚合成一些cluster，这对于free-form answer是不可行的。</p><p>作者把这个困难offload给模型，让模型自己选。这样就能在free-form answer上做self-consistency了。进一步的，对于数学这种有答案的场景，也不需要符合特定的格式，任何回答都可以。</p><blockquote><p>不过我大致看下来，需要context能乘下多个样本才行</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/usc.png"></p><h2 id="VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following"><a href="#VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following" class="headerlink" title="VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following"></a><a href="https://arxiv.org/pdf/2311.17647.pdf">VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following</a></h2><p>Yejin Choi的论文，作者想了个怪招：如果把MLLM task中的文本instruction用图片的形式和原始图片拼在一起会怎么样？把常见的VQA<em>v2, MME, MM-Vet, and Ref- COCO</em>等任务都这么搞了一遍，发现除了GPT-4V以外的模型全傻了……这说明实际上开源模型和4V差距比想象中大呀</p><blockquote><p>我感觉开源模型都是蒸馏的4v，所以只有在数据里有的场景才能和4v比比。只要出怪招，基本都是寄……</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/vim.png" style="zoom:33%;" ></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了……&lt;/p&gt;
-&lt;h2 id=&quot;CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models&quot;&gt;&lt;a href=&quot;#CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.16832.pdf&quot;&gt;CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看多了……&lt;/p&gt;
-&lt;p&gt;这个工作还是黄老师的主线：对话系统。作者在ChatGLM的基础上训了Character-based Dialogues模型，可以选择role、偏好等等。在人类实验上，作者达到了opensource SOTA，甚至超过了大多数close-source model，包括GPT系。作者开源了其中的6B版本&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/characterGLM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models&quot;&gt;&lt;a href=&quot;#LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.17043.pdf&quot;&gt;LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者谈到目前的VLM基本上是把图片编码成多个patch-token，这里有个问题：对于vedio，seq-length也太长了。作者搞了简单的办法，直接把一个图片变成了2 token，这样假如一秒一帧，甚至可以存一个1h的视频进去。作者在vedio、image 等benchmark测试了，基本都是SOTA&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/LLama-vid.png&quot; style=&quot;zoom: 33%;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop&quot;&gt;&lt;a href=&quot;#Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop&quot; class=&quot;headerlink&quot; title=&quot;Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop&quot;&gt;&lt;/a&gt;&lt;a href&gt;Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者谈到，近期有一个趋势就是在模型自己生成的数据上训练，去得到一个next-generation of model。然而，这种方法长久吗？作者设计了一系列实验，来探索这个问题。发现在初期，模型的quality和diversity会上升，但随后会下降。最终的稳定性取决于数据中真实数据的比例&lt;/p&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;Universal-Self-Consistency-for-Large-Language-Model-Generation&quot;&gt;&lt;a href=&quot;#Universal-Self-Consistency-for-Large-Language-Model-Generation&quot; class=&quot;headerlink&quot; title=&quot;Universal Self-Consistency for Large Language Model Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.17311.pdf&quot;&gt;Universal Self-Consistency for Large Language Model Generation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Google的论文，好像有几天没看到他们了。作者谈到一个问题，目前的self-consistency类的方法要求有个标准答案，或者起码可以把set中所有元素聚合成一些cluster，这对于free-form answer是不可行的。&lt;/p&gt;
+&lt;p&gt;作者把这个困难offload给模型，让模型自己选。这样就能在free-form answer上做self-consistency了。进一步的，对于数学这种有答案的场景，也不需要符合特定的格式，任何回答都可以。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过我大致看下来，需要context能乘下多个样本才行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/usc.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following&quot;&gt;&lt;a href=&quot;#VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following&quot; class=&quot;headerlink&quot; title=&quot;VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.17647.pdf&quot;&gt;VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Yejin Choi的论文，作者想了个怪招：如果把MLLM task中的文本instruction用图片的形式和原始图片拼在一起会怎么样？把常见的VQA&lt;em&gt;v2, MME, MM-Vet, and Ref- COCO&lt;/em&gt;等任务都这么搞了一遍，发现除了GPT-4V以外的模型全傻了……这说明实际上开源模型和4V差距比想象中大呀&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我感觉开源模型都是蒸馏的4v，所以只有在数据里有的场景才能和4v比比。只要出怪招，基本都是寄……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/vim.png&quot; style=&quot;zoom:33%;&quot;&gt;&lt;/p&gt;
+</summary>
     
     
     
@@ -277,9 +282,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
@@ -385,9 +390,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
