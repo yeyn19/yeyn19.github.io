@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-01T05:07:15.220Z</updated>
+  <updated>2023-12-05T05:55:18.996Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,27 +17,58 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-01-insights</title>
-    <link href="https://www.yynnyy.cn/cd1e2f18"/>
-    <id>https://www.yynnyy.cn/cd1e2f18</id>
-    <published>2023-12-01T04:31:53.000Z</published>
-    <updated>2023-12-01T05:07:15.220Z</updated>
+    <title>2023-12-05-insights</title>
+    <link href="https://www.yynnyy.cn/c4f58f62"/>
+    <id>https://www.yynnyy.cn/c4f58f62</id>
+    <published>2023-12-05T04:55:02.000Z</published>
+    <updated>2023-12-05T05:55:18.996Z</updated>
     
-    <content type="html"><![CDATA[<p>看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来</p><h2 id="LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models"><a href="#LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models" class="headerlink" title="LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models"></a><a href="https://arxiv.org/pdf/2311.18232.pdf">LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models</a></h2><p>deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个multi-turn RL。搭了一个框架，提供了一些基础的算法实现，希望可以指导这个领域积极发展。</p><blockquote><p>经提醒，ICLR review 5 6 5 5</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/lmrl.png"></p><h2 id="Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation"><a href="#Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation" class="headerlink" title="Language Model Agents Suffer from Compositional Generalization in Web Automation"></a><a href="https://arxiv.org/pdf/2311.18751.pdf">Language Model Agents Suffer from Compositional Generalization in Web Automation</a></h2><p>也是deepmind的工作。作者谈到GPT4对于单个MiniWoB任务上效果很好95%，但如果组合多个任务在一起，就只能做到25%。作者构造了一些task组合的数据集。</p><blockquote><p>我觉得这个是不是也是模型fine-tune的局限性，和昨天Yejin Choi那个怪招有点像，来个训练集没有的直接就崩了</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/Compositional-MiniWoB.png"></p><h2 id="CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation"><a href="#CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation" class="headerlink" title="CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation"></a><a href="https://arxiv.org/pdf/2311.18702.pdf">CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation</a></h2><h2 id="AlignBench-Benchmarking-Chinese-Alignment-of-Large-Language-Models"><a href="#AlignBench-Benchmarking-Chinese-Alignment-of-Large-Language-Models" class="headerlink" title="AlignBench: Benchmarking Chinese Alignment of Large Language Models"></a><a href="https://arxiv.org/pdf/2311.18743.pdf">AlignBench: Benchmarking Chinese Alignment of Large Language Models</a></h2><p>这两篇都是唐杰老师的工作，应该是按照论文“最小发布单元”的理论分成两篇了，我就算成一个了。</p><p>作者说目前的LLM对比评测，尤其是中文评测，基本都是找GPT4打分。但具体做得都不够solid，作者搞了一系列pipeline来提升评测的准确性。并由此专门训练了一个score-model，达到了GPT4 95%的评测效果。</p><p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/alignbench.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>虽然是周二，不过今天看起来还好，没有论文爆炸</p><h2 id="The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning"><a href="#The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning" class="headerlink" title="The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning"></a><a href="https://arxiv.org/pdf/2312.01552.pdf">The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning</a></h2><p>Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？</p><p>作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。</p><p>再进一步，既然如此简单，那么能不能不训练，直接用in-context learning呢？作者直接用了3-shot样本+system prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好</p><blockquote><p>不愧 Yejin Choi，个人风格很强</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/urial.png"></p><h2 id="RLHF-and-IIA-Perverse-Incentives"><a href="#RLHF-and-IIA-Perverse-Incentives" class="headerlink" title="RLHF and IIA: Perverse Incentives"></a><a href="https://arxiv.org/pdf/2312.01057.pdf">RLHF and IIA: Perverse Incentives</a></h2><p>是的，摘要就这么短。</p><blockquote><p> IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我”更喜欢梨还是喜欢苹果”，回答是喜欢苹果。这个时候，如果引入橘子，然后问”更喜欢梨还是喜欢苹果”，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。</p></blockquote><p>作者认为，RLHF场景引入这个假设是有问题的。</p><blockquote><p> 感觉有道理呀……prompt领域比较火的self-consistency方法，似乎就是建立在非IIA假设上的？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/IIA.png"></p><h2 id="Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars"><a href="#Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars" class="headerlink" title="Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars"></a><a href="https://arxiv.org/pdf/2312.01429.pdf">Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars</a></h2><p>一作是华子。作者主要表达的观点是：目前很多transformer可解释性研究都试图在局部(某attention层)还原computation path，试图找到一些可解释的pattern。然而，作者说明局部可能没有任何pattern，全局的pattern在局部看起来很可能是”类随机的”。因此，局部的可解释性研究可能是有误导性的伪研究，撞运气没准能发现一个”pattern”。</p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来&lt;/p&gt;
-&lt;h2 id=&quot;LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models&quot;&gt;&lt;a href=&quot;#LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.18232.pdf&quot;&gt;LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个multi-turn RL。搭了一个框架，提供了一些基础的算法实现，希望可以指导这个领域积极发展。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;虽然是周二，不过今天看起来还好，没有论文爆炸&lt;/p&gt;
+&lt;h2 id=&quot;The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning&quot;&gt;&lt;a href=&quot;#The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning&quot; class=&quot;headerlink&quot; title=&quot;The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.01552.pdf&quot;&gt;The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？&lt;/p&gt;
+&lt;p&gt;作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。&lt;/p&gt;
+&lt;p&gt;再进一步，既然如此简单，那么能不能不训练，直接用in-context learning呢？作者直接用了3-shot样本+system prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;经提醒，ICLR review 5 6 5 5&lt;/p&gt;
+&lt;p&gt;不愧 Yejin Choi，个人风格很强&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/lmrl.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation&quot;&gt;&lt;a href=&quot;#Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation&quot; class=&quot;headerlink&quot; title=&quot;Language Model Agents Suffer from Compositional Generalization in Web Automation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.18751.pdf&quot;&gt;Language Model Agents Suffer from Compositional Generalization in Web Automation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;也是deepmind的工作。作者谈到GPT4对于单个MiniWoB任务上效果很好95%，但如果组合多个任务在一起，就只能做到25%。作者构造了一些task组合的数据集。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/urial.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;RLHF-and-IIA-Perverse-Incentives&quot;&gt;&lt;a href=&quot;#RLHF-and-IIA-Perverse-Incentives&quot; class=&quot;headerlink&quot; title=&quot;RLHF and IIA: Perverse Incentives&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.01057.pdf&quot;&gt;RLHF and IIA: Perverse Incentives&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;是的，摘要就这么短。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我觉得这个是不是也是模型fine-tune的局限性，和昨天Yejin Choi那个怪招有点像，来个训练集没有的直接就崩了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-11-27-12-01/Compositional-MiniWoB.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation&quot;&gt;&lt;a href=&quot;#CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation&quot; class=&quot;headerlink&quot; title=&quot;CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2311.18702.pdf&quot;&gt;CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation&lt;/a&gt;&lt;/h2&gt;</summary>
+&lt;p&gt; IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我”更喜欢梨还是喜欢苹果”，回答是喜欢苹果。这个时候，如果引入橘子，然后问”更喜欢梨还是喜欢苹果”，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023-12-04-insights</title>
+    <link href="https://www.yynnyy.cn/2b37e45c"/>
+    <id>https://www.yynnyy.cn/2b37e45c</id>
+    <published>2023-12-04T09:25:17.000Z</published>
+    <updated>2023-12-05T02:35:30.177Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Instruction-tuning-Aligns-LLMs-to-the-Human-Brain"><a href="#Instruction-tuning-Aligns-LLMs-to-the-Human-Brain" class="headerlink" title="Instruction-tuning Aligns LLMs to the Human Brain"></a><a href="https://arxiv.org/pdf/2312.00575.pdf">Instruction-tuning Aligns LLMs to the Human Brain</a></h2><p>EPFL的论文，有点像之前Stanford那篇”惊讶度”的论文，作者观察了instruction tuning的训练是不是会让模型的分布更好的对齐到人脑的想法。从两个方面去探索：</p><ul><li>brain alignment：hidden state和人脑理解的方式是不是对齐的</li><li>behavioral alignment: 行为上的对齐</li></ul><p>作者发现，模型instruction tuning后对齐程度基本上都会有提升。越强的模型在instruction tuning阶段的提升越明显。挺好玩的研究</p><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/align.png"></p><h2 id="Making-Large-Multimodal-Models-Understand-Arbitrary-Visual-Prompts"><a href="#Making-Large-Multimodal-Models-Understand-Arbitrary-Visual-Prompts" class="headerlink" title="Making Large Multimodal Models Understand Arbitrary Visual Prompts"></a><a href="https://arxiv.org/pdf/2312.00784.pdf">Making Large Multimodal Models Understand Arbitrary Visual Prompts</a></h2><p>LlaVa团队的作品。研究一个很小的，但是实际应用价值很大的问题：开源的Multimodal model如何获得visual prompt following的能力，比如图里面，给image加上箭头或者圈起来，模型能感知到吗？</p><p>作者专门给这个任务做了特训，然后提出了一个vipBench测试这个能力，最后开源了数据、代码、模型</p><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/vip.png"></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Instruction-tuning-Aligns-LLMs-to-the-Human-Brain&quot;&gt;&lt;a href=&quot;#Instruction-tuning-Aligns-LLMs-to-the-Human-Brain&quot; class=&quot;headerlink&quot; title=&quot;Instruction-tuning Aligns LLMs to the Human Brain&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.00575.pdf&quot;&gt;Instruction-tuning Aligns LLMs to the Human Brain&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;EPFL的论文，有点像之前Stanford那篇”惊讶度”的论文，作者观察了instruction tuning的训练是不是会让模型的分布更好的对齐到人脑的想法。从两个方面去探索：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;brain alignment：hidden state和人脑理解的方式是不是对齐的&lt;/li&gt;
+&lt;li&gt;behavioral alignment: 行为上的对齐&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作者发现，模型instruction tuning后对齐程度基本上都会有提升。越强的模型在instruction tuning阶段的提升越明显。挺好玩的研究&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/align.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Making-Large-Multimodal-Models-Understand-Arbitrary-Visual-Prompts&quot;&gt;&lt;a href=&quot;#Making-Large-Multimodal-Models-Understand-Arbitrary-Visual-Prompts&quot; class=&quot;headerlink&quot; title=&quot;Making Large Multimodal Models Understand Arbitrary Visual Prompts&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.00784.pdf&quot;&gt;Making Large Multimodal Models Understand Arbitrary Visual Prompts&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;LlaVa团队的作品。研究一个很小的，但是实际应用价值很大的问题：开源的Multimodal model如何获得visual prompt following的能力，比如图里面，给image加上箭头或者圈起来，模型能感知到吗？&lt;/p&gt;
+&lt;p&gt;作者专门给这个任务做了特训，然后提出了一个vipBench测试这个能力，最后开源了数据、代码、模型&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/vip.png&quot;&gt;&lt;/p&gt;
+</summary>
     
     
     
@@ -282,9 +313,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -390,9 +421,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -526,30 +557,6 @@
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>论文阅读[粗读]-Generative Agents: Interactive Simulacra of Human Behavior</title>
-    <link href="https://www.yynnyy.cn/4a3bcbdb"/>
-    <id>https://www.yynnyy.cn/4a3bcbdb</id>
-    <published>2023-04-12T05:52:40.000Z</published>
-    <updated>2023-09-23T00:52:29.352Z</updated>
-    
-    <content type="html"><![CDATA[<p>今天讲一篇很有意思的论文，如果让25个GPT假装NPC在游戏里自由生活、交流、发展会怎么样呢？</p><p><img src="../files/images/Generative_Agents/intro.png"></p><span id="more"></span><p><img src="../files/images/Generative_Agents/authors.png"></p><p>作者团队来自斯坦福和google research。其中percy liang是stanford AI的代表人物，他挂名的论文一般质量都很高。</p><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>整个introduction的写法大概相当于一个简单版的论文原文，这种写作手法其实是比较少见的，可能是这篇论文的格式瞄准的是nature子刊类，需要让外行也能看懂论文的内容。</p><p>introduction中，作者谈到想要真实地模拟出NPC的行为，大概需要有一个比较好的记忆模块，可以去进行长期的记忆。在此基础之上，作者额外设计了三个模块：记忆模块、反思模块、交互模块。</p><p>作者进行了对比实验，发现任何一个模块都对于结果非常重要。同时作者也做了一个社会实验，告诉其中一个模型要举行情人节派对，最后所有NPC都通过交谈得知了这件事情，每个人都决定自己要不要参加、或者因为什么事情不会出席。NPC社会衍生出了非常类似于人类社会的关系。</p><p>另外，我想额外说几件事情：</p><ul><li>搭建这样一个平台框架是一个很复杂的工程问题，作者其实为了这件事情应该是写了非常多的代码</li><li>prompt设计估计也比想象中麻烦</li><li>作者没有开源代码</li><li>作者在后文提到，即使这样一个平台，没有训练只是做实验，在ChatGPT现在打1折的情况下，仍然花了几千刀来完成实验。可见money is all you need</li></ul><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>下面我们来看看具体作者怎么创造了这么一个GPT的世界呢？</p><h3 id="world"><a href="#world" class="headerlink" title="world"></a>world</h3><p><img src="../files/images/Generative_Agents/world.png"></p><p>作者首先设定了一个世界，里面有各种各样的场所，还有各种各样的对象可以交互，交互方式就是自然语言。</p><p>同时世界中有各种各样的人，每个人由一段prompt定义，比如说John：</p><blockquote><p>John Lin is a pharmacy shopkeeper at the Willow Market and Pharmacy who loves to help people. He is always looking for ways to make the process of getting medication easier for his customers; John Lin is living with his wife, Mei Lin, who is a college professor, and son, Eddy Lin, who is a student studying music theory; John Lin loves his family very much; John Lin has known the old couple next-door, Sam Moore and Jennifer Moore, for a few years; John Lin thinks Sam Moore is a kind and nice man; John Lin knows his neighbor, Yuriko Yamamoto, well; John Lin knows of his neighbors, Tamara Taylor and Carmen Ortiz, but has not met them before; John Lin and Tom Moreno are colleagues at The Willows Market and Pharmacy; John Lin and Tom Moreno are friends and like to discuss local politics together; John Lin knows the Moreno family somewhat well — the husband Tom Moreno and the wife Jane Moreno.</p></blockquote><p>GPT接受这个prompt作为人设开始活动</p><h3 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h3><p><img src="../files/images/Generative_Agents/memory.png"></p><p>仅仅是GPT的32768的seqlength显然是不够的，作者需要一个记忆模块。记忆模块存储了过去智能体经历的所有事件。事件包括时间地点人物内容对话等等。每当模型发生一个新的事件，就把事件记录到记忆模块里。</p><h3 id="retrieve"><a href="#retrieve" class="headerlink" title="retrieve"></a>retrieve</h3><p>为了让模型可以想起过去发生的事件，作者定义了一个专门搜索模块retrieve模块。</p><p><img src="../files/images/Generative_Agents/retrieve.png"></p><p>对于一个搜索的输入，对所有记忆中的事件都有三个部分的得分：</p><ul><li>时间得分：发生在最近的事件分数高。作者提到是一个底数为0.99的指数衰减算法</li><li>重要性得分：重要的事件分数高。这一部分是在事件发生时让模型自己打分。作者提到模型自己打的分挺好的，比如没啥意义的吃早饭就打1分，找暗恋对象去约会就打8分。</li></ul><blockquote><p>On the scale of 1 to 10, where 1 is purely mundane (e.g., brushing teeth, making bed) and 10 is extremely poignant (e.g., a break up, college acceptance), rate the likely poignancy of the following piece of memory.</p><p>Memory: buying groceries at The Willows Market and Pharmacy<br> Rating: <fill in></p></blockquote><ul><li>相关性得分：和query相关的分数高。这里作者直接找了另一个LLM去编码句子向量，然后算cosine相似度。</li></ul><p>最终得分是三个得分的加权平均。模型每次遇到不知道的问题或者需要查看记忆的时候就调用这个retrieve模块。</p><h3 id="reflection"><a href="#reflection" class="headerlink" title="reflection"></a>reflection</h3><p>仅仅是记忆和搜索，并不能让模型自己总结世界知识。作者希望模型可以在生活中自己总结出一些结论，这就是reflection模块。</p><p><img src="../files/images/Generative_Agents/reflection.png"></p><p>这一部分作者采用自顶向下的模式，每天进行一到两次reflection。每次reflection时输入最近的100个事件，然后通过prompt询问我们可以通过这些时间发现什么问题。要发现三个问题。</p><p>接下来，对于发现的问题，作者用retrieve模块搜索相关事件，然后让模型通过结果来回答问题。</p><blockquote><p>Statements about Klaus Mueller</p><ol><li>Klaus Mueller is writing a research paper</li><li><p>Klaus Mueller enjoys reading a book</p><p>on gentrification</p></li><li><p>Klaus Mueller is conversing with Ayesha Khan about exercising […]</p><p>What 5 high-level insights can you infer from the above statements? (example format: insight (because of 1, 5, 3))</p></li></ol></blockquote><p>最终整体的reflection过程会当做一个事件存储到memory系统里。也就是说，随着生活的进行，模型会对于世界有更多的了解，比如说自己的邻居沉迷科研，或者xxx每天要花很长时间浇花之类的。最后NPC的对话会越来越精确，也能发现趣味相投的朋友。</p><h3 id="plan和交互"><a href="#plan和交互" class="headerlink" title="plan和交互"></a>plan和交互</h3><p><img src="../files/images/Generative_Agents/plan.png"></p><p>有了记忆模块，模型最后是怎么和世界交互的呢？</p><p>作者定义了一个自顶向下的plan过程。每天先通过prompt生成当天的计划，大概分为5-8个部分。</p><blockquote><p>Name: Eddy Lin (age: 19)<br> Innate traits: friendly, outgoing, hospitable<br> Eddy Lin is a student at Oak Hill College studying music theory and composition. He loves to explore different musical styles and is always looking for ways to expand his knowledge. Eddy Lin is working on a composition project for his college class. He is also taking classes to learn more about music<br> theory. Eddy Lin is excited about the new composition he is working on but he wants to dedicate more hours in the day to work on it in the coming days On Tuesday February 12, Eddy </p><p>1) woke up and completed the morning routine at 7:00 am,<br>2)  [. . . ]</p><ol><li><p>got ready to sleep around 10 pm.</p><p>Today is Wednesday February 13. Here is Eddy’s plan today in broad strokes: 1)</p></li></ol></blockquote><p>接下来对于生成的每个部分，再生成更详细的计划。</p><blockquote><p> 4:00 pm: grab a light snack, such as a piece of fruit, a granola bar, or some nuts. </p><p>4:05 pm: take a short walk around his workspace</p><p> […] </p><p>4:50 pm: take a few minutes to clean up his workspace. </p></blockquote><p>接下来作者就会让模型真的去开始这一天，通过生成的今日计划。随着计划的进行，模型会遇到别的人，比如说都在餐厅吃饭之类的。或者遇到某些世界事件，比如在修路走不了。</p><p>对于这种，作者定义为observation，是一段自然语言描述，比如下面这样：</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> John Lin’s status: John is back home early from work.<br> Observation: John saw Eddy taking a short walk around his workplace.<br>Summary of relevant context from John’s memory: Eddy Lin is John’s Lin’s son. Eddy Lin has been working on a music composition for his class. Eddy Lin likes to walk around the garden when he is thinking about or listening to music.<br> Should John react to the observation, and if so, what would be an appropriate reaction?</p></blockquote><p>接下来作者让模型自己决定要不要去和别的NPC交互一下，比如下文就是选择去说话。</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> John Lin’s status: John is back home early from work.<br> Observation: John saw Eddy taking a short walk around his workplace.<br> Summary of relevant context from John’s memory: Eddy Lin is John’s Lin’s son. Eddy Lin has been working on a music composition for his class. Eddy Lin likes to walk around the garden when he is thinking about or listening to music.<br> John is asking Eddy about his music composition project. </p><p>What would he say to Eddy?</p></blockquote><p>另外的模型也用同样的方式回答：</p><blockquote><p>[Agent’s Summary Description]<br> It is February 13, 2023, 4:56 pm.<br> Eddy Lin’s status: Eddy is taking a short walk around his workplace.<br> Observation: John is initiating a conversation with Eddy.<br> Summary of relevant context from Eddy’s memory: Jonn Lin is Eddy Lin’s father. John Lin is caring and is interested to learn more about Eddy Lin’s school work. John Lin knows that Eddy Lin is working on a music composition.<br> Here is the dialogue history:<br> John: Hey Eddy, how’s the music composition project for your class coming along?<br> How would Eddy respond to John?</p></blockquote><p>同时，作者也允许模型在通过交互以后修改自己本来做好的plan:</p><blockquote><p>[Agent’s Summary Description]<br> Eddy Lin is currently in The Lin family’s house:</p><p>Eddy Lin’s bedroom: desk) that has Mei and John Lin’s<br> bedroom, Eddy Lin’s bedroom, common room, kitchen, bathroom, and garden.</p><p>Eddy Lin knows of the following areas: The Lin family’s house, Johnson Park, Harvey Oak Supply Store, The Willows Market and Pharmacy, Hobbs Cafe, The Rose and Crown Pub.</p><p>* Prefer to stay in the current area if the activity can be done there.<br> Eddy Lin is planning to take a short walk around his workspace. Which area should Eddy Lin go to?</p></blockquote><p>通过上述的所有模块，作者最终让智能体可以在小世界自由的生活、交谈、理解、反思。</p><h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>这一部分作者做了两个实验。</p><p>首先是相似性实验，作者让human在模型同样的处境下选response。和模型自己的response掺杂在一起，然后让别的human打分看看局的哪个好(打分人不知道哪个是human写的)。</p><p><img src="../files/images/Generative_Agents/clone.png"></p><p>最后发现，其实模型自己生成的response比human写的还要好，尤其是在有所有模块的情况下。</p><p><img src="../files/images/Generative_Agents/party.png"></p><p>另外，作者还做了个社会实验：通过修改某个NPC的行为，让它想要开个情人节派对。最后通过NPC的对话传播，最终12个人得知了情况，决定来参加。模型们自己讨论了派对时间地点，最终成功举办了派对。细思恐极呀。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul><li><p>现在模型都能无监督自己生活了，这会不会有伦理问题呀w</p></li><li><p>期待一手未来的游戏，难道GTA6里面的NPC要变成真正的智能NPC、决定自己的行程和发展了吗？</p></li><li><p>25个ChatGPT跑了2天的模拟人生，就花了几千刀的token钱，还是在打1折的情况下。哎</p></li><li><p>作者说还有很多的改进空间，感觉提到的改进空间大多数都是需要少更多钱才能做的。</p></li><li><p>我自己挺看好这个方向的，而且我觉得肯定很多做心理学、社会学的人会对这个很感兴趣，比如说</p><ul><li>真正的human和24个ChatGPT生活会怎么样？</li><li>10个人和15个ChatGPT生活两天后投票谁是AI，能不能选出真正的人？</li></ul></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;今天讲一篇很有意思的论文，如果让25个GPT假装NPC在游戏里自由生活、交流、发展会怎么样呢？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../files/images/Generative_Agents/intro.png&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
-    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
