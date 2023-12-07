@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-06T03:43:03.808Z</updated>
+  <updated>2023-12-07T05:21:12.409Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,22 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-06-insights</title>
-    <link href="https://www.yynnyy.cn/2fc23461"/>
-    <id>https://www.yynnyy.cn/2fc23461</id>
-    <published>2023-12-06T03:00:51.000Z</published>
-    <updated>2023-12-06T03:43:03.808Z</updated>
+    <title>2023-12-07-insights</title>
+    <link href="https://www.yynnyy.cn/c0005f5f"/>
+    <id>https://www.yynnyy.cn/c0005f5f</id>
+    <published>2023-12-07T03:01:00.000Z</published>
+    <updated>2023-12-07T05:21:12.409Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training"><a href="#Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training" class="headerlink" title="Efficient Online Data Mixing For Language Model Pre-Training"></a><a href="https://arxiv.org/pdf/2312.02406.pdf">Efficient Online Data Mixing For Language Model Pre-Training</a></h2><p>预训练数据的选择对模型的最终表现至关重要。有些Active Learning的方法去选择下一个训练数据，但这样的方法效率太低了。另一类方案是自动选择dataset各个subset的比例，这里的优势在于只用选择有限个cluster的比例，因此效率很高。</p><p>作者提到，目前的sbuset选择方案需要预先选择好再开始训练，不能处理模型的动态能力提升。作者想到了一种online的方式，可以根据训练情况动态选择各个subset的比例，比之前的SOTA算法DeReMi效率和效果好。</p><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/ODM.png"></p><h2 id="Prompt-Optimization-via-Adversarial-In-Context-Learning"><a href="#Prompt-Optimization-via-Adversarial-In-Context-Learning" class="headerlink" title="Prompt Optimization via Adversarial In-Context Learning"></a><a href="https://arxiv.org/pdf/2312.02614.pdf">Prompt Optimization via Adversarial In-Context Learning</a></h2><p>作者提出了一套对抗的Automatic Prompt enginnering框架。用一个generator和一个discriminator相互对抗：每轮generator生成一批数据，discriminator说对不对。然后另外有一个prompt modifier根据discriminator的分辨情况分别去修改两者增强的prompt。</p><p>经过这种对抗攻击，作者提到在很多下游任务上可以自动搜索出表现很好的prompt。</p><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/advICL.png"></p><h2 id="Training-Chain-of-Thought-via-Latent-Variable-Inference"><a href="#Training-Chain-of-Thought-via-Latent-Variable-Inference" class="headerlink" title="Training Chain-of-Thought via Latent-Variable Inference"></a><a href="https://arxiv.org/pdf/2312.02179.pdf">Training Chain-of-Thought via Latent-Variable Inference</a></h2><p>google的论文，经典一张图都没有。作者谈到，CoT通过生成中间的rational来最终完成答案。作者想要自动构建CoT数据做finetune来让模型获得CoT能力。其中的问题是，没法保证(自动检验)中间Rational的正确性。作者提出了一套markov-chain Monte-Carlo的方法，可以平衡多个链路的后验概率。</p><p>作者在GSM8K and the tasks in BIG-Bench Hard做测试，发现效果提升超过STaR、CoT-prompt tuning</p>]]></content>
+    <content type="html"><![CDATA[<p>今天的论文读了读，似乎没有什么太好的。给大家推荐一下Gemini的technical report吧</p><p>虽然没挂arxiv……<a href="https://deepmind.google/technologies/gemini/#introduction">https://deepmind.google/technologies/gemini/#introduction</a></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training&quot;&gt;&lt;a href=&quot;#Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training&quot; class=&quot;headerlink&quot; title=&quot;Efficient Online Data Mixing For Language Model Pre-Training&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.02406.pdf&quot;&gt;Efficient Online Data Mixing For Language Model Pre-Training&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;预训练数据的选择对模型的最终表现至关重要。有些Active Learning的方法去选择下一个训练数据，但这样的方法效率太低了。另一类方案是自动选择dataset各个subset的比例，这里的优势在于只用选择有限个cluster的比例，因此效率很高。&lt;/p&gt;
-&lt;p&gt;作者提到，目前的sbuset选择方案需要预先选择好再开始训练，不能处理模型的动态能力提升。作者想到了一种online的方式，可以根据训练情况动态选择各个subset的比例，比之前的SOTA算法DeReMi效率和效果好。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/ODM.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Prompt-Optimization-via-Adversarial-In-Context-Learning&quot;&gt;&lt;a href=&quot;#Prompt-Optimization-via-Adversarial-In-Context-Learning&quot; class=&quot;headerlink&quot; title=&quot;Prompt Optimization via Adversarial In-Context Learning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.02614.pdf&quot;&gt;Prompt Optimization via Adversarial In-Context Learning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提出了一套对抗的Automatic Prompt enginnering框架。用一个generator和一个discriminator相互对抗：每轮generator生成一批数据，discriminator说对不对。然后另外有一个prompt modifier根据discriminator的分辨情况分别去修改两者增强的prompt。&lt;/p&gt;
-&lt;p&gt;经过这种对抗攻击，作者提到在很多下游任务上可以自动搜索出表现很好的prompt。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/advICL.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Training-Chain-of-Thought-via-Latent-Variable-Inference&quot;&gt;&lt;a href=&quot;#Training-Chain-of-Thought-via-Latent-Variable-Inference&quot; class=&quot;headerlink&quot; title=&quot;Training Chain-of-Thought via Latent-Variable Inference&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.02179.pdf&quot;&gt;Training Chain-of-Thought via Latent-Variable Inference&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;google的论文，经典一张图都没有。作者谈到，CoT通过生成中间的rational来最终完成答案。作者想要自动构建CoT数据做finetune来让模型获得CoT能力。其中的问题是，没法保证(自动检验)中间Rational的正确性。作者提出了一套markov-chain Monte-Carlo的方法，可以平衡多个链路的后验概率。&lt;/p&gt;</summary>
+    <summary type="html">&lt;p&gt;今天的论文读了读，似乎没有什么太好的。给大家推荐一下Gemini的technical report吧&lt;/p&gt;
+&lt;p&gt;虽然没挂arxiv……&lt;a href=&quot;https://deepmind.google/technologies/gemini/#introduction&quot;&gt;https://deepmind.google/technologies/gemini/#introduction&lt;/a&gt;&lt;/p&gt;
+</summary>
     
     
     
