@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-07T05:21:12.409Z</updated>
+  <updated>2023-12-08T03:59:28.325Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,18 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-07-insights</title>
-    <link href="https://www.yynnyy.cn/c0005f5f"/>
-    <id>https://www.yynnyy.cn/c0005f5f</id>
-    <published>2023-12-07T03:01:00.000Z</published>
-    <updated>2023-12-07T05:21:12.409Z</updated>
+    <title>2023-12-08-insights</title>
+    <link href="https://www.yynnyy.cn/310b04d2"/>
+    <id>https://www.yynnyy.cn/310b04d2</id>
+    <published>2023-12-08T03:11:18.000Z</published>
+    <updated>2023-12-08T03:59:28.325Z</updated>
     
-    <content type="html"><![CDATA[<p>今天的论文读了读，似乎没有什么太好的。给大家推荐一下Gemini的technical report吧</p><p>虽然没挂arxiv……<a href="https://deepmind.google/technologies/gemini/#introduction">https://deepmind.google/technologies/gemini/#introduction</a></p>]]></content>
+    <content type="html"><![CDATA[<p>今天论文多了不少，并且很多都是有意思的，我看了很久</p><h2 id="Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator"><a href="#Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator" class="headerlink" title="Chain of Code: Reasoning with a Language Model-Augmented Code Emulator"></a><a href="https://arxiv.org/pdf/2312.04474.pdf">Chain of Code: Reasoning with a Language Model-Augmented Code Emulator</a></h2><p>deepmind的论文，作者竟然还有李飞飞，好少见。</p><p>作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译器可执行的代码是不可能的。那么，由于本身代码也不复杂，能不能让模型自己emulate执行的结果？作者发现是可行的，并且效果还挺好，在BBH上从72%刷到了84%</p><blockquote><p>甚至，一个简单的zer-shot CoT prompt “thinking in code”就能涨</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/cog.png"></p><h2 id="CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models"><a href="#CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models" class="headerlink" title="CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models"></a><a href="https://arxiv.org/pdf/2312.04350.pdf">CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models</a></h2><p>挑了一篇benchmark论文。作者提到目前LLM关于causal reasoning(因果推断)更多停留在common sense上，没有人系统测试过这个能力是否存在于普遍的各种规则中。</p><p>作者搞了个10k的数据集，先生成一些规则，再根据规则推导出推理路径，最后把题目翻译回自然语言形成问题。</p><p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/cladder.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;今天的论文读了读，似乎没有什么太好的。给大家推荐一下Gemini的technical report吧&lt;/p&gt;
-&lt;p&gt;虽然没挂arxiv……&lt;a href=&quot;https://deepmind.google/technologies/gemini/#introduction&quot;&gt;https://deepmind.google/technologies/gemini/#introduction&lt;/a&gt;&lt;/p&gt;
-</summary>
+    <summary type="html">&lt;p&gt;今天论文多了不少，并且很多都是有意思的，我看了很久&lt;/p&gt;
+&lt;h2 id=&quot;Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator&quot;&gt;&lt;a href=&quot;#Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator&quot; class=&quot;headerlink&quot; title=&quot;Chain of Code: Reasoning with a Language Model-Augmented Code Emulator&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.04474.pdf&quot;&gt;Chain of Code: Reasoning with a Language Model-Augmented Code Emulator&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;deepmind的论文，作者竟然还有李飞飞，好少见。&lt;/p&gt;
+&lt;p&gt;作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译器可执行的代码是不可能的。那么，由于本身代码也不复杂，能不能让模型自己emulate执行的结果？作者发现是可行的，并且效果还挺好，在BBH上从72%刷到了84%&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;甚至，一个简单的zer-shot CoT prompt “thinking in code”就能涨&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/cog.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models&quot;&gt;&lt;a href=&quot;#CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.04350.pdf&quot;&gt;CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;挑了一篇benchmark论文。作者提到目前LLM关于causal reasoning(因果推断)更多停留在common sense上，没有人系统测试过这个能力是否存在于普遍的各种规则中。&lt;/p&gt;
+&lt;p&gt;作者搞了个10k的数据集，先生成一些规则，再根据规则推导出推理路径，最后把题目翻译回自然语言形成问题。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-04-12-08/cladder.png&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -381,9 +388,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
