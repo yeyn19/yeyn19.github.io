@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-11T02:49:01.698Z</updated>
+  <updated>2023-12-12T11:59:51.257Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,21 +17,16 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-11-insights</title>
-    <link href="https://www.yynnyy.cn/c90f0d8"/>
-    <id>https://www.yynnyy.cn/c90f0d8</id>
-    <published>2023-12-11T02:20:06.000Z</published>
-    <updated>2023-12-11T02:49:01.698Z</updated>
+    <title>2023-12-12-insights</title>
+    <link href="https://www.yynnyy.cn/e7a74bdb"/>
+    <id>https://www.yynnyy.cn/e7a74bdb</id>
+    <published>2023-12-12T08:10:02.000Z</published>
+    <updated>2023-12-12T11:59:51.257Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Is-Feedback-All-You-Need-Leveraging-Natural-Language-Feedback-in-Goal-Conditioned-Reinforcement-Learning"><a href="#Is-Feedback-All-You-Need-Leveraging-Natural-Language-Feedback-in-Goal-Conditioned-Reinforcement-Learning" class="headerlink" title="Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning"></a><a href="https://arxiv.org/pdf/2312.04736.pdf">Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning</a></h2><p>一篇有趣的论文，在今年的NeurIPS上。作者提到目前的强化学习速度比起人类的学习速度慢了很多，原因是什么？作者认为人在学习的时候会收到一些自然语言的feedback，蕴含有非结构化的、信息很强的监督信号。</p><p>LLM能不能用类似的方式收到NL feedback来做强化学习呢？作者发现可以，而且学习速度很快。甚至在测试时没有feedback都可以</p><p><img src="../../files/images/arxiv-insights/2023-12-11-12-15/feedback.png"></p><h2 id="Language-Models-Agent-Models-and-World-Models-The-LAW-for-Machine-Reasoning-and-Planning"><a href="#Language-Models-Agent-Models-and-World-Models-The-LAW-for-Machine-Reasoning-and-Planning" class="headerlink" title="Language Models, Agent Models, and World Models: The LAW for Machine Reasoning and Planning"></a><a href="https://arxiv.org/pdf/2312.05230.pdf">Language Models, Agent Models, and World Models: The LAW for Machine Reasoning and Planning</a></h2><p>zhiting hu的position paper，先相信。作者提了一套agent任务的high level的思想框架LAW，认为会指导以后的agent方法设计。</p><p>具体我没细看，下来仔细读读，要是好的话分享给大家~</p><p><img src="../../files/images/arxiv-insights/2023-12-11-12-15/law.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>72篇，估计是这周的巅峰了。不过仔细看了一下，好像也没啥有意思的</p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Is-Feedback-All-You-Need-Leveraging-Natural-Language-Feedback-in-Goal-Conditioned-Reinforcement-Learning&quot;&gt;&lt;a href=&quot;#Is-Feedback-All-You-Need-Leveraging-Natural-Language-Feedback-in-Goal-Conditioned-Reinforcement-Learning&quot; class=&quot;headerlink&quot; title=&quot;Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.04736.pdf&quot;&gt;Is Feedback All You Need? Leveraging Natural Language Feedback in Goal-Conditioned Reinforcement Learning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;一篇有趣的论文，在今年的NeurIPS上。作者提到目前的强化学习速度比起人类的学习速度慢了很多，原因是什么？作者认为人在学习的时候会收到一些自然语言的feedback，蕴含有非结构化的、信息很强的监督信号。&lt;/p&gt;
-&lt;p&gt;LLM能不能用类似的方式收到NL feedback来做强化学习呢？作者发现可以，而且学习速度很快。甚至在测试时没有feedback都可以&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-11-12-15/feedback.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Language-Models-Agent-Models-and-World-Models-The-LAW-for-Machine-Reasoning-and-Planning&quot;&gt;&lt;a href=&quot;#Language-Models-Agent-Models-and-World-Models-The-LAW-for-Machine-Reasoning-and-Planning&quot; class=&quot;headerlink&quot; title=&quot;Language Models, Agent Models, and World Models: The LAW for Machine Reasoning and Planning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.05230.pdf&quot;&gt;Language Models, Agent Models, and World Models: The LAW for Machine Reasoning and Planning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;zhiting hu的position paper，先相信。作者提了一套agent任务的high level的思想框架LAW，认为会指导以后的agent方法设计。&lt;/p&gt;
-&lt;p&gt;具体我没细看，下来仔细读读，要是好的话分享给大家~&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-11-12-15/law.png&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;72篇，估计是这周的巅峰了。不过仔细看了一下，好像也没啥有意思的&lt;/p&gt;
 </summary>
     
     
