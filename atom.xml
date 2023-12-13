@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-12T11:59:51.257Z</updated>
+  <updated>2023-12-13T09:23:53.945Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,16 +17,22 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-12-insights</title>
-    <link href="https://www.yynnyy.cn/e7a74bdb"/>
-    <id>https://www.yynnyy.cn/e7a74bdb</id>
-    <published>2023-12-12T08:10:02.000Z</published>
-    <updated>2023-12-12T11:59:51.257Z</updated>
+    <title>2023-12-13-insights</title>
+    <link href="https://www.yynnyy.cn/86520e5"/>
+    <id>https://www.yynnyy.cn/86520e5</id>
+    <published>2023-12-13T03:31:02.000Z</published>
+    <updated>2023-12-13T09:23:53.945Z</updated>
     
-    <content type="html"><![CDATA[<p>72篇，估计是这周的巅峰了。不过仔细看了一下，好像也没啥有意思的</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Alignment-for-Honesty"><a href="#Alignment-for-Honesty" class="headerlink" title="Alignment for Honesty"></a><a href="https://arxiv.org/pdf/2312.07000.pdf">Alignment for Honesty</a></h2><p>刘鹏飞的论文，现在在上交。作者探索了一个有趣的问题：语言模型的可以关于”诚实”做对齐吗？具体来说作者用了论语里的定义：</p><blockquote><p><em>To say “I know” when you know, and “I don’t know” when you don’t, that is wisdom.</em></p><p>– The Analects of Confucius</p></blockquote><p>诚实的训练需要模型知道自己不会的知识是什么，这个和模型是绑定的，SFT恐怕不行，因此需要额外的设计</p><p><img src="../../files/images/arxiv-insights/2023-12-11-12-15/honesty.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;72篇，估计是这周的巅峰了。不过仔细看了一下，好像也没啥有意思的&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;Alignment-for-Honesty&quot;&gt;&lt;a href=&quot;#Alignment-for-Honesty&quot; class=&quot;headerlink&quot; title=&quot;Alignment for Honesty&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.07000.pdf&quot;&gt;Alignment for Honesty&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;刘鹏飞的论文，现在在上交。作者探索了一个有趣的问题：语言模型的可以关于”诚实”做对齐吗？具体来说作者用了论语里的定义：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;To say “I know” when you know, and “I don’t know” when you don’t, that is wisdom.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;– The Analects of Confucius&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;诚实的训练需要模型知道自己不会的知识是什么，这个和模型是绑定的，SFT恐怕不行，因此需要额外的设计&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-11-12-15/honesty.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
