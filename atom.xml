@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-20T03:33:33.264Z</updated>
+  <updated>2023-12-21T05:50:09.539Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,58 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-20-insights</title>
-    <link href="https://www.yynnyy.cn/7ab0fde7"/>
-    <id>https://www.yynnyy.cn/7ab0fde7</id>
-    <published>2023-12-20T03:11:58.000Z</published>
-    <updated>2023-12-20T03:33:33.264Z</updated>
+    <title>2023-12-21-insights</title>
+    <link href="https://www.yynnyy.cn/957296d9"/>
+    <id>https://www.yynnyy.cn/957296d9</id>
+    <published>2023-12-21T05:29:47.000Z</published>
+    <updated>2023-12-21T05:50:09.539Z</updated>
     
-    <content type="html"><![CDATA[<p>昨天没来得及分享，今天把这两天的都补上</p><h2 id="Sparse-is-Enough-in-Fine-tuning-Pre-trained-Large-Language-Model"><a href="#Sparse-is-Enough-in-Fine-tuning-Pre-trained-Large-Language-Model" class="headerlink" title="Sparse is Enough in Fine-tuning Pre-trained Large Language Model"></a><a href="https://arxiv.org/pdf/2312.11875.pdf">Sparse is Enough in Fine-tuning Pre-trained Large Language Model</a></h2><p>作者想要探究PET方法的内部机理，为什么PET方法只调整很少的参数就会有用呢？这篇工作中，作者尝试把模型的参数按照某个程度初始化一下，(程度最小就是不动)，作者发现无论怎么训练，基本上都是1%的参数占据了99%的gradient，说明模型的稀疏是一个固有的性质</p><p>由此，作者根据参数的gradient提出了一个Sparse Increment Fine-Tuning方法，发现效果也不错</p><blockquote><p>经典的ICML偏好的论文形式</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/grad.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>最近AAAI 24的论文开始出来了，其实我挺不喜欢的，感觉AAAI的论文格式字又小，还是左右分栏。相比之下，还是更喜欢NeurIPS和ICLR</p><h2 id="Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design"><a href="#Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design" class="headerlink" title="Imitation of Life: A Search Engine for Biologically Inspired Design"></a><a href="https://arxiv.org/pdf/2312.12681.pdf">Imitation of Life: A Search Engine for Biologically Inspired Design</a></h2><p>选他不是因为创新性很强，而是因为选题很好玩</p><p>作者提到很多研究发现的创新都是从大自然、生物学中寻找灵感，有没有可能设计一个搜索引擎，每当人输入什么现象，就能自动匹配到自然界中和这个很像的植物或者动物的行为、结构呢</p><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/bio-search.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;昨天没来得及分享，今天把这两天的都补上&lt;/p&gt;
-&lt;h2 id=&quot;Sparse-is-Enough-in-Fine-tuning-Pre-trained-Large-Language-Model&quot;&gt;&lt;a href=&quot;#Sparse-is-Enough-in-Fine-tuning-Pre-trained-Large-Language-Model&quot; class=&quot;headerlink&quot; title=&quot;Sparse is Enough in Fine-tuning Pre-trained Large Language Model&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.11875.pdf&quot;&gt;Sparse is Enough in Fine-tuning Pre-trained Large Language Model&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者想要探究PET方法的内部机理，为什么PET方法只调整很少的参数就会有用呢？这篇工作中，作者尝试把模型的参数按照某个程度初始化一下，(程度最小就是不动)，作者发现无论怎么训练，基本上都是1%的参数占据了99%的gradient，说明模型的稀疏是一个固有的性质&lt;/p&gt;
-&lt;p&gt;由此，作者根据参数的gradient提出了一个Sparse Increment Fine-Tuning方法，发现效果也不错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;经典的ICML偏好的论文形式&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/grad.png&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;p&gt;最近AAAI 24的论文开始出来了，其实我挺不喜欢的，感觉AAAI的论文格式字又小，还是左右分栏。相比之下，还是更喜欢NeurIPS和ICLR&lt;/p&gt;
+&lt;h2 id=&quot;Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design&quot;&gt;&lt;a href=&quot;#Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design&quot; class=&quot;headerlink&quot; title=&quot;Imitation of Life: A Search Engine for Biologically Inspired Design&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.12681.pdf&quot;&gt;Imitation of Life: A Search Engine for Biologically Inspired Design&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;选他不是因为创新性很强，而是因为选题很好玩&lt;/p&gt;
+&lt;p&gt;作者提到很多研究发现的创新都是从大自然、生物学中寻找灵感，有没有可能设计一个搜索引擎，每当人输入什么现象，就能自动匹配到自然界中和这个很像的植物或者动物的行为、结构呢&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/bio-search.png&quot;&gt;&lt;/p&gt;
 </summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2023-12-19-insights</title>
-    <link href="https://www.yynnyy.cn/1f47b02c"/>
-    <id>https://www.yynnyy.cn/1f47b02c</id>
-    <published>2023-12-19T12:58:14.000Z</published>
-    <updated>2023-12-20T03:10:29.456Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning"><a href="#Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning" class="headerlink" title="Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning"></a><a href="https://arxiv.org/pdf/2312.11420.pdf">Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning</a></h2><p>PET(parameter efficient tuning)领域的文章，如标题那样，作者发现对于multimodal-LM，只调整transformer block内部的layernorm也行，需要的参数比Lora少，同时效果有的时候会更好。</p><blockquote><p>神奇……这让我想到：基本MoE干啥说明PET有潜力做这个。目前的MoE基本瞄准MLP，这是不是说明layerNorm也有潜力搞MoE呢？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/tune-layernorm.png"></p><h2 id="Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning"><a href="#Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning" class="headerlink" title="Understanding the Instruction Mixture for Large Language Model Fine-tuning"></a><a href="https://arxiv.org/pdf/2312.10793.pdf">Understanding the Instruction Mixture for Large Language Model Fine-tuning</a></h2><p>之前预训练领域有doremi之类的工作探索了每个pretrain-subset的比例对于模型最终效果的重要性。作者希望在instruction tuning领域做一个类似的事情，探索(close-domain) instruction tuning里面不同的任务类型对最终的模型有帮助吗？</p><ul><li>不同的instruction类型对最终的效果有不同的影响</li><li>有些类型上做训练，会导致在其他类型上效果下降</li></ul><blockquote><p>这让我想起Jason Wei在Flan-Collection里提到不同的instruction set的sample权重的问题，不知道他有没有类似的initial experiment</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/instruction-mixture.png"></p><p>前面起高了，感觉后面有好几篇都挺好的，可惜今天只剩下一个名额了……</p><h2 id="Cascade-Speculative-Drafting-for-Even-Faster-LLM-Inference"><a href="#Cascade-Speculative-Drafting-for-Even-Faster-LLM-Inference" class="headerlink" title="Cascade Speculative Drafting for Even Faster LLM Inference"></a><a href="https://arxiv.org/pdf/2312.11462.pdf">Cascade Speculative Drafting for Even Faster LLM Inference</a></h2><p>投机推理的论文我应该已经放几篇了：online投机推理、并行投机推理、预测投机推理……今天这位想了另一个问题：投机模型可以视为小模型级联一个大模型，那如果这个级联是递归的，会不会更好呢？</p><p>作者搞了一大堆数学，为了让分布和原来模型等价，然后最后发现效果比之前更好更快</p><blockquote><p>看起来是ICML喜欢的风格</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/cas-spe.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning&quot;&gt;&lt;a href=&quot;#Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning&quot; class=&quot;headerlink&quot; title=&quot;Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.11420.pdf&quot;&gt;Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;PET(parameter efficient tuning)领域的文章，如标题那样，作者发现对于multimodal-LM，只调整transformer block内部的layernorm也行，需要的参数比Lora少，同时效果有的时候会更好。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;神奇……这让我想到：基本MoE干啥说明PET有潜力做这个。目前的MoE基本瞄准MLP，这是不是说明layerNorm也有潜力搞MoE呢？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/tune-layernorm.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning&quot;&gt;&lt;a href=&quot;#Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning&quot; class=&quot;headerlink&quot; title=&quot;Understanding the Instruction Mixture for Large Language Model Fine-tuning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.10793.pdf&quot;&gt;Understanding the Instruction Mixture for Large Language Model Fine-tuning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;之前预训练领域有doremi之类的工作探索了每个pretrain-subset的比例对于模型最终效果的重要性。作者希望在instruction tuning领域做一个类似的事情，探索(close-domain) instruction tuning里面不同的任务类型对最终的模型有帮助吗？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;不同的instruction类型对最终的效果有不同的影响&lt;/li&gt;
-&lt;li&gt;有些类型上做训练，会导致在其他类型上效果下降&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这让我想起Jason Wei在Flan-Collection里提到不同的instruction set的sample权重的问题，不知道他有没有类似的initial experiment&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/instruction-mixture.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;前面起高了，感觉后面有好几篇都挺好的，可惜今天只剩下一个名额了……&lt;/p&gt;</summary>
     
     
     
@@ -369,9 +331,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
@@ -477,9 +439,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
@@ -557,6 +519,32 @@
     
     
     <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>论文阅读[粗读]-Are Emergent Abilities of Large Language Models a Mirage?</title>
+    <link href="https://www.yynnyy.cn/f1e00e18"/>
+    <id>https://www.yynnyy.cn/f1e00e18</id>
+    <published>2023-05-05T06:36:22.000Z</published>
+    <updated>2023-09-29T09:27:11.649Z</updated>
+    
+    <content type="html"><![CDATA[<p>前两天看论文解释了emergent ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。</p><p><img src="../files/images/emergent_ability_isnt_mirage/reason.png"></p><span id="more"></span><p>作者来自斯坦福大学</p><p><img src="../files/images/emergent_ability_isnt_mirage/authors.png"></p><h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p>其实这篇论文也没什么所谓的方法，都是基于一个假设。</p><p>我们之前也聊过emergent ability的博客： <a href="/9ece5113.html" title="大模型的Emergent-Abilities和最优传输">大模型的Emergent-Abilities和最优传输</a>。里面说到其实crossentropy loss是随着模型(指数)大小线性下降，符合power-law的。</p><p>作者就从这里出发，提到：我们现在的主流测试函数和loss不是线性关系，具体而言，主流有几种测试score:</p><script type="math/tex; mode=display">\text{Multiple Choice Grade} \overset{\text{def}}{=} \left\{ \begin{aligned}& 1, \text{if highest probability mass on correct option} \\& 0, \text{otherwise}\end{aligned} \right.</script><script type="math/tex; mode=display">\text{Exact String Match} \overset{\text{def}}{=} \left\{ \begin{aligned}& 1, \text{if output string exactly matches target string} \\& 0, \text{otherwise}\end{aligned} \right.</script><p>但我们的loss之前解释过</p><script type="math/tex; mode=display">\mathcal{L}_{CE}(N) = - \log P_N(a_j | a_{i<j}) \propto \text{model-size}</script><p>那么对于一个单独的token，其正确的概率大概是</p><script type="math/tex; mode=display">p(\text{single token correct}) = e^{-\mathcal{L}_{CE}(N)}</script><p>Accuracy-Lc可以视为二项分布，连续L个token都猜对 。string match也是一个意思</p><script type="math/tex; mode=display">P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L</script><p>因此如果以模型大小为轴，看起来，再加上非常离散的采样方式，看起来就是emergent ability</p><p>由此作者提出了现在emergent ability的三个原因：</p><ul><li>选取的metric和model size不是线性的，而且选取的模型size太稀疏了(GPT-3 family就4个size)</li><li>测试数据集太小，有偏差</li><li>无论什么score，增加target string length都会使得表现下降</li></ul><p>下面作者做了几个实验</p><p><img src="../files/images/emergent_ability_isnt_mirage/exp.png"></p><p>解释下这几个图，作者在GPT3 family的API上做了实验：</p><ul><li>图中的列从左到右代表三个不同的任务：Mathematical Model, 2-Integer 2-Digit Multiplication Task, 2- Integer 4-Digit Addition Task</li><li>图的行上下对照是不同的metric，上面是acc。下面是token edit distance，代表错误答案最少修改几个token就能做对。这个score可以近似看做和log model size 成正比，去掉了L的影响：</li></ul><script type="math/tex; mode=display">\text{Token Edit Distance}(N) ≈ L \left(1 − p_N (\text{single token correct})\right) = L(1 − \exp(N/c)^α)</script><p>从图中可以看到，换成了好的score之后，emergent ability的现象基本就消失了</p><p>接下来作者探索了是不是增加测试集大小，普通的score也能看起来好很多</p><p><img src="../files/images/emergent_ability_isnt_mirage/test_size.png"></p><p>发现看起来确实好了很多，不过这里有个小细节</p><blockquote><p>我戴上赛文眼镜以后，发现这个图的纵坐标变成指数坐标系了？上面图的纵坐标是线性坐标系？</p></blockquote><p><img src="../files/images/emergent_ability_isnt_mirage/big_bench.png"></p><p>作者还尝试了在big-bench上测试LaMDA一系列的模型，发现出现emergent ability的绝大多数都是这种非线性metric的</p><p>最后，作者在CV领域用卷积网络”复现“了emergent ability。它定义了一种非线性score</p><blockquote><p>如果连续K个样本都分类正确，就算正确。K=1时就是图片分类accuracy</p></blockquote><p><img src="../files/images/emergent_ability_isnt_mirage/cv.png"></p><p>用MNIST数据集做实验，然后稀疏采样了model-size，形成最右侧的图。看起来和最左边GPT3在NLP领域的emergent ability看起来一模一样。</p><h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>我比较认可作者的思路，但这并不是说之前讨论emergent ability就没有意义了。我由此想到了几个问题。</p><p>首先，我们在实际应用中，确实就是要用这种类似二项分布的accuracy。而且这个长度L很可能会更大，几十、几百、几千。所谓量变引起质变，这其实对预训练模型领域而言是个很好的现象：虽然模型指数增长，per token loss线性下降；但loss线性下降，对应的是metric的级数级别的的提高。所以pertoken优化的前景仍然广阔。</p><p>其次，现在的主流metric如果是如此的非线性，那用他来衡量模型的强度显然是很不合理的。虽然不合理，但是确实符合实际应用场景的。这里面就衍生出了一个bias：有没有什么更好的衡量办法呢？</p><p>最后，现在的模型训练显然都是在做NCE、crossentropy loss，这个loss训练很稳定。但这篇文章其实揭示了另一个方面：这种per token的训练和下游任务某种程度上是有偏差的。这接着聊就是老生常谈的teacher-force bias和explosure bias。但其实我们从另一个角度思考一下，现在大火的RLHF其实就是跳出了这个怪圈，从generation级别进行优化，进而得出了很好的实际应用效果。我觉得，也许未来在pertoken的预训练基础上，还能发掘出更多per-generation级别的优化方式。如果设想的再张狂一些，把级别再次拉大，奖励变得更稀疏，是不是就和我们人类对自身的优化方式更像了呢？</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;前两天看论文解释了emergent ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../files/images/emergent_ability_isnt_mirage/reason.png&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
