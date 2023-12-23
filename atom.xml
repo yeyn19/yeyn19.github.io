@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-21T05:50:09.539Z</updated>
+  <updated>2023-12-23T03:41:50.513Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,19 +17,28 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-21-insights</title>
-    <link href="https://www.yynnyy.cn/957296d9"/>
-    <id>https://www.yynnyy.cn/957296d9</id>
-    <published>2023-12-21T05:29:47.000Z</published>
-    <updated>2023-12-21T05:50:09.539Z</updated>
+    <title>2023-12-22-insights</title>
+    <link href="https://www.yynnyy.cn/7e452dda"/>
+    <id>https://www.yynnyy.cn/7e452dda</id>
+    <published>2023-12-23T03:16:33.000Z</published>
+    <updated>2023-12-23T03:41:50.513Z</updated>
     
-    <content type="html"><![CDATA[<p>最近AAAI 24的论文开始出来了，其实我挺不喜欢的，感觉AAAI的论文格式字又小，还是左右分栏。相比之下，还是更喜欢NeurIPS和ICLR</p><h2 id="Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design"><a href="#Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design" class="headerlink" title="Imitation of Life: A Search Engine for Biologically Inspired Design"></a><a href="https://arxiv.org/pdf/2312.12681.pdf">Imitation of Life: A Search Engine for Biologically Inspired Design</a></h2><p>选他不是因为创新性很强，而是因为选题很好玩</p><p>作者提到很多研究发现的创新都是从大自然、生物学中寻找灵感，有没有可能设计一个搜索引擎，每当人输入什么现象，就能自动匹配到自然界中和这个很像的植物或者动物的行为、结构呢</p><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/bio-search.png"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models"><a href="#Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models" class="headerlink" title="Time is Encoded in the Weights of Finetuned Language Models"></a><a href="https://arxiv.org/pdf/2312.13401.pdf">Time is Encoded in the Weights of Finetuned Language Models</a></h2><p>Noah A. Smith的论文，很好玩。最近有一个research line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：</p><ul><li>首先收集一段时间内的所有数据，形成一个数据集</li><li>然后finetune模型，减去预训练权重，获得一个差值作为time embedding</li><li>每个时间段都能得到这些time embedding</li></ul><p>作者研究，这些权重是不是线性可加的，效果好不好？发现这个直观的方法效果竟然还不错</p><blockquote><p>这种用预训练数据集自己的归纳偏置的方式似乎还能训练一大堆其他的vector？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png"></p><h2 id="The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction"><a href="#The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction" class="headerlink" title="The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction"></a><a href="https://arxiv.org/pdf/2312.13558.pdf">The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction</a></h2><p>microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？</p><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/laser.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;最近AAAI 24的论文开始出来了，其实我挺不喜欢的，感觉AAAI的论文格式字又小，还是左右分栏。相比之下，还是更喜欢NeurIPS和ICLR&lt;/p&gt;
-&lt;h2 id=&quot;Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design&quot;&gt;&lt;a href=&quot;#Imitation-of-Life-A-Search-Engine-for-Biologically-Inspired-Design&quot; class=&quot;headerlink&quot; title=&quot;Imitation of Life: A Search Engine for Biologically Inspired Design&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.12681.pdf&quot;&gt;Imitation of Life: A Search Engine for Biologically Inspired Design&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;选他不是因为创新性很强，而是因为选题很好玩&lt;/p&gt;
-&lt;p&gt;作者提到很多研究发现的创新都是从大自然、生物学中寻找灵感，有没有可能设计一个搜索引擎，每当人输入什么现象，就能自动匹配到自然界中和这个很像的植物或者动物的行为、结构呢&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/bio-search.png&quot;&gt;&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models&quot;&gt;&lt;a href=&quot;#Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;Time is Encoded in the Weights of Finetuned Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.13401.pdf&quot;&gt;Time is Encoded in the Weights of Finetuned Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Noah A. Smith的论文，很好玩。最近有一个research line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;首先收集一段时间内的所有数据，形成一个数据集&lt;/li&gt;
+&lt;li&gt;然后finetune模型，减去预训练权重，获得一个差值作为time embedding&lt;/li&gt;
+&lt;li&gt;每个时间段都能得到这些time embedding&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;作者研究，这些权重是不是线性可加的，效果好不好？发现这个直观的方法效果竟然还不错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这种用预训练数据集自己的归纳偏置的方式似乎还能训练一大堆其他的vector？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction&quot;&gt;&lt;a href=&quot;#The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction&quot; class=&quot;headerlink&quot; title=&quot;The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.13558.pdf&quot;&gt;The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/laser.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -331,9 +340,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
@@ -439,9 +448,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
