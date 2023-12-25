@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-23T03:41:50.513Z</updated>
+  <updated>2023-12-25T03:36:04.289Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,28 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-22-insights</title>
-    <link href="https://www.yynnyy.cn/7e452dda"/>
-    <id>https://www.yynnyy.cn/7e452dda</id>
-    <published>2023-12-23T03:16:33.000Z</published>
-    <updated>2023-12-23T03:41:50.513Z</updated>
+    <title>2023-12-25-insights</title>
+    <link href="https://www.yynnyy.cn/9c9936a3"/>
+    <id>https://www.yynnyy.cn/9c9936a3</id>
+    <published>2023-12-25T03:10:42.000Z</published>
+    <updated>2023-12-25T03:36:04.289Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models"><a href="#Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models" class="headerlink" title="Time is Encoded in the Weights of Finetuned Language Models"></a><a href="https://arxiv.org/pdf/2312.13401.pdf">Time is Encoded in the Weights of Finetuned Language Models</a></h2><p>Noah A. Smith的论文，很好玩。最近有一个research line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：</p><ul><li>首先收集一段时间内的所有数据，形成一个数据集</li><li>然后finetune模型，减去预训练权重，获得一个差值作为time embedding</li><li>每个时间段都能得到这些time embedding</li></ul><p>作者研究，这些权重是不是线性可加的，效果好不好？发现这个直观的方法效果竟然还不错</p><blockquote><p>这种用预训练数据集自己的归纳偏置的方式似乎还能训练一大堆其他的vector？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png"></p><h2 id="The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction"><a href="#The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction" class="headerlink" title="The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction"></a><a href="https://arxiv.org/pdf/2312.13558.pdf">The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction</a></h2><p>microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？</p><p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/laser.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>圣诞节，没想到arxiv还在更新，本来以为没论文读了……</p><h2 id="Reasons-to-Reject-Aligning-Language-Models-with-Judgments"><a href="#Reasons-to-Reject-Aligning-Language-Models-with-Judgments" class="headerlink" title="Reasons to Reject? Aligning Language Models with Judgments"></a><a href="https://arxiv.org/pdf/2312.14591.pdf">Reasons to Reject? Aligning Language Models with Judgments</a></h2><p>作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？</p><p>作者试了试，发现如果方法正确，用很少的数据就能学的很好，而且这个流程可以变成多轮的在线增强</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/judge.png"></p><h2 id="WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation"><a href="#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation" class="headerlink" title="WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation"></a><a href="https://arxiv.org/pdf/2312.14187.pdf">WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation</a></h2><p>微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高， finetune以后效果提升很明显</p><blockquote><p>另外图里的这些模型中，deepseek提升似乎不明显，也许说明他们在训练时已经做过了类似的数据工程</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/WaveCoder.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models&quot;&gt;&lt;a href=&quot;#Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;Time is Encoded in the Weights of Finetuned Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.13401.pdf&quot;&gt;Time is Encoded in the Weights of Finetuned Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Noah A. Smith的论文，很好玩。最近有一个research line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先收集一段时间内的所有数据，形成一个数据集&lt;/li&gt;
-&lt;li&gt;然后finetune模型，减去预训练权重，获得一个差值作为time embedding&lt;/li&gt;
-&lt;li&gt;每个时间段都能得到这些time embedding&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;作者研究，这些权重是不是线性可加的，效果好不好？发现这个直观的方法效果竟然还不错&lt;/p&gt;
+    <summary type="html">&lt;p&gt;圣诞节，没想到arxiv还在更新，本来以为没论文读了……&lt;/p&gt;
+&lt;h2 id=&quot;Reasons-to-Reject-Aligning-Language-Models-with-Judgments&quot;&gt;&lt;a href=&quot;#Reasons-to-Reject-Aligning-Language-Models-with-Judgments&quot; class=&quot;headerlink&quot; title=&quot;Reasons to Reject? Aligning Language Models with Judgments&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.14591.pdf&quot;&gt;Reasons to Reject? Aligning Language Models with Judgments&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？&lt;/p&gt;
+&lt;p&gt;作者试了试，发现如果方法正确，用很少的数据就能学的很好，而且这个流程可以变成多轮的在线增强&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/judge.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation&quot;&gt;&lt;a href=&quot;#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation&quot; class=&quot;headerlink&quot; title=&quot;WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.14187.pdf&quot;&gt;WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高， finetune以后效果提升很明显&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这种用预训练数据集自己的归纳偏置的方式似乎还能训练一大堆其他的vector？&lt;/p&gt;
+&lt;p&gt;另外图里的这些模型中，deepseek提升似乎不明显，也许说明他们在训练时已经做过了类似的数据工程&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction&quot;&gt;&lt;a href=&quot;#The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction&quot; class=&quot;headerlink&quot; title=&quot;The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.13558.pdf&quot;&gt;The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-18-12-22/laser.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/WaveCoder.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -340,9 +336,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
-    
     <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
+    
+    <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
     
   </entry>
   
