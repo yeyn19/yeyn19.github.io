@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-25T03:36:04.289Z</updated>
+  <updated>2023-12-28T03:18:00.108Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,24 +17,24 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-25-insights</title>
-    <link href="https://www.yynnyy.cn/9c9936a3"/>
-    <id>https://www.yynnyy.cn/9c9936a3</id>
-    <published>2023-12-25T03:10:42.000Z</published>
-    <updated>2023-12-25T03:36:04.289Z</updated>
+    <title>2023-12-27-insights</title>
+    <link href="https://www.yynnyy.cn/986ce69e"/>
+    <id>https://www.yynnyy.cn/986ce69e</id>
+    <published>2023-12-27T13:06:09.000Z</published>
+    <updated>2023-12-28T03:18:00.108Z</updated>
     
-    <content type="html"><![CDATA[<p>圣诞节，没想到arxiv还在更新，本来以为没论文读了……</p><h2 id="Reasons-to-Reject-Aligning-Language-Models-with-Judgments"><a href="#Reasons-to-Reject-Aligning-Language-Models-with-Judgments" class="headerlink" title="Reasons to Reject? Aligning Language Models with Judgments"></a><a href="https://arxiv.org/pdf/2312.14591.pdf">Reasons to Reject? Aligning Language Models with Judgments</a></h2><p>作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？</p><p>作者试了试，发现如果方法正确，用很少的数据就能学的很好，而且这个流程可以变成多轮的在线增强</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/judge.png"></p><h2 id="WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation"><a href="#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation" class="headerlink" title="WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation"></a><a href="https://arxiv.org/pdf/2312.14187.pdf">WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation</a></h2><p>微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高， finetune以后效果提升很明显</p><blockquote><p>另外图里的这些模型中，deepseek提升似乎不明显，也许说明他们在训练时已经做过了类似的数据工程</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/WaveCoder.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>昨天没有arxiv，今天一下出来70多篇</p><h2 id="SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling"><a href="#SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling" class="headerlink" title="SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling"></a><a href="https://arxiv.org/pdf/2312.15166.pdf">SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling</a></h2><p>作者谈到，传统的MoE增大模型的方式需要修改训练和infer的方式。作者提出了一个叫depth up-scaling(DUS)的方法，可以把一个模型复制一份，然后前后拼到一起，再做一些post-training，不需要修改训练和infer的方式</p><p>作者实验发现两个Llama2 7B拼成的10.7B模型，可以打败mistral 7B，在做完SFT以后，可以超过Mixtral-8x7B</p><blockquote><p> 韩国的论文，只能说。不过模型是Apache 2.0协议，点赞！</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/solar.png"></p><h2 id="Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering"><a href="#Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering" class="headerlink" title="Aligning Large Language Models with Human Preferences through Representation Engineering"></a><a href="https://arxiv.org/pdf/2312.15997.pdf">Aligning Large Language Models with Human Preferences through Representation Engineering</a></h2><p>这篇论文还要追溯到 <a href="/a9b74a6e.html" title="2023-10-03-insights">2023-10-03-insight</a> 里提到的 RePE方法，作者思考能不能模型本身的latent embedding去做建模来做align呢？由此进行了一系列探索</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/repe.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;圣诞节，没想到arxiv还在更新，本来以为没论文读了……&lt;/p&gt;
-&lt;h2 id=&quot;Reasons-to-Reject-Aligning-Language-Models-with-Judgments&quot;&gt;&lt;a href=&quot;#Reasons-to-Reject-Aligning-Language-Models-with-Judgments&quot; class=&quot;headerlink&quot; title=&quot;Reasons to Reject? Aligning Language Models with Judgments&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.14591.pdf&quot;&gt;Reasons to Reject? Aligning Language Models with Judgments&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？&lt;/p&gt;
-&lt;p&gt;作者试了试，发现如果方法正确，用很少的数据就能学的很好，而且这个流程可以变成多轮的在线增强&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/judge.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation&quot;&gt;&lt;a href=&quot;#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation&quot; class=&quot;headerlink&quot; title=&quot;WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.14187.pdf&quot;&gt;WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高， finetune以后效果提升很明显&lt;/p&gt;
+    <summary type="html">&lt;p&gt;昨天没有arxiv，今天一下出来70多篇&lt;/p&gt;
+&lt;h2 id=&quot;SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling&quot;&gt;&lt;a href=&quot;#SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling&quot; class=&quot;headerlink&quot; title=&quot;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.15166.pdf&quot;&gt;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者谈到，传统的MoE增大模型的方式需要修改训练和infer的方式。作者提出了一个叫depth up-scaling(DUS)的方法，可以把一个模型复制一份，然后前后拼到一起，再做一些post-training，不需要修改训练和infer的方式&lt;/p&gt;
+&lt;p&gt;作者实验发现两个Llama2 7B拼成的10.7B模型，可以打败mistral 7B，在做完SFT以后，可以超过Mixtral-8x7B&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;另外图里的这些模型中，deepseek提升似乎不明显，也许说明他们在训练时已经做过了类似的数据工程&lt;/p&gt;
+&lt;p&gt; 韩国的论文，只能说。不过模型是Apache 2.0协议，点赞！&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/WaveCoder.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/solar.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering&quot;&gt;&lt;a href=&quot;#Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering&quot; class=&quot;headerlink&quot; title=&quot;Aligning Large Language Models with Human Preferences through Representation Engineering&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.15997.pdf&quot;&gt;Aligning Large Language Models with Human Preferences through Representation Engineering&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;这篇论文还要追溯到 &lt;a href=&quot;/a9b74a6e.html&quot; title=&quot;2023-10-03-insights&quot;&gt;2023-10-03-insight&lt;/a&gt; 里提到的 RePE方法，作者思考能不能模型本身的latent embedding去做建模来做align呢？由此进行了一系列探索&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/repe.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
