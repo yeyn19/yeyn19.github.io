@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2023-12-28T03:18:00.108Z</updated>
+  <updated>2023-12-29T06:06:16.978Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,25 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2023-12-27-insights</title>
-    <link href="https://www.yynnyy.cn/986ce69e"/>
-    <id>https://www.yynnyy.cn/986ce69e</id>
-    <published>2023-12-27T13:06:09.000Z</published>
-    <updated>2023-12-28T03:18:00.108Z</updated>
+    <title>2023-12-29-insights</title>
+    <link href="https://www.yynnyy.cn/86a5d62d"/>
+    <id>https://www.yynnyy.cn/86a5d62d</id>
+    <published>2023-12-29T05:27:26.000Z</published>
+    <updated>2023-12-29T06:06:16.978Z</updated>
     
-    <content type="html"><![CDATA[<p>昨天没有arxiv，今天一下出来70多篇</p><h2 id="SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling"><a href="#SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling" class="headerlink" title="SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling"></a><a href="https://arxiv.org/pdf/2312.15166.pdf">SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling</a></h2><p>作者谈到，传统的MoE增大模型的方式需要修改训练和infer的方式。作者提出了一个叫depth up-scaling(DUS)的方法，可以把一个模型复制一份，然后前后拼到一起，再做一些post-training，不需要修改训练和infer的方式</p><p>作者实验发现两个Llama2 7B拼成的10.7B模型，可以打败mistral 7B，在做完SFT以后，可以超过Mixtral-8x7B</p><blockquote><p> 韩国的论文，只能说。不过模型是Apache 2.0协议，点赞！</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/solar.png"></p><h2 id="Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering"><a href="#Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering" class="headerlink" title="Aligning Large Language Models with Human Preferences through Representation Engineering"></a><a href="https://arxiv.org/pdf/2312.15997.pdf">Aligning Large Language Models with Human Preferences through Representation Engineering</a></h2><p>这篇论文还要追溯到 <a href="/a9b74a6e.html" title="2023-10-03-insights">2023-10-03-insight</a> 里提到的 RePE方法，作者思考能不能模型本身的latent embedding去做建模来做align呢？由此进行了一系列探索</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/repe.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天的论文不多，不过好玩的倒是不少，可惜有每天的数量限制……</p><h2 id="Experiential-Co-Learning-of-Software-Developing-Agents"><a href="#Experiential-Co-Learning-of-Software-Developing-Agents" class="headerlink" title="Experiential Co-Learning of Software-Developing Agents"></a><a href="https://arxiv.org/pdf/2312.17025.pdf">Experiential Co-Learning of Software-Developing Agents</a></h2><p>推荐一下师兄的论文，不算今天的名额。</p><p>这篇是ChatDev的后继工作，主体思想是最近学界一直有的self-evolve思想：Agent能不能从过去的经验中汲取力量？</p><p>作者在ChatDev框架下进行了探索，Agent可以从检索过去的reasoning shortcut，帮助这次的任务</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/co-evolve.png" style="zoom:50%;" ></p><h2 id="Task-Contamination-Language-Models-May-Not-Be-Few-Shot-Anymore"><a href="#Task-Contamination-Language-Models-May-Not-Be-Few-Shot-Anymore" class="headerlink" title="Task Contamination: Language Models May Not Be Few-Shot Anymore"></a><a href="https://arxiv.org/pdf/2312.16337.pdf">Task Contamination: Language Models May Not Be Few-Shot Anymore</a></h2><p>作者提到，目前的模型表现出来的zero-shot和few-shot能力，可能是潜在的task contamination问题。在数据截止日期以后的数据集上，几乎丧失了few-shot和zero-shot能力。</p><blockquote><p>这篇有点像之前那个”training on testset is all you need”，感觉比较好玩，就放上来了</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/task.png" style="zoom:33%;" ></p><h2 id="Generative-AI-for-Math-Part-I-MATHPILE-A-Billion-Token-Scale-Pretraining-Corpus-for-Math"><a href="#Generative-AI-for-Math-Part-I-MATHPILE-A-Billion-Token-Scale-Pretraining-Corpus-for-Math" class="headerlink" title="Generative AI for Math: Part I MATHPILE: A Billion-Token-Scale Pretraining Corpus for Math"></a><a href="https://arxiv.org/pdf/2312.17120.pdf">Generative AI for Math: Part I MATHPILE: A Billion-Token-Scale Pretraining Corpus for Math</a></h2><p>大家都知道the pile。math pile也就不言而喻：数据集的工作，没什么好说的，估计真的促进这个领域蓬勃发展</p><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/math-pile.png"></p><h2 id="Spike-No-More-Stabilizing-the-Pre-training-of-Large-Language-Models"><a href="#Spike-No-More-Stabilizing-the-Pre-training-of-Large-Language-Models" class="headerlink" title="Spike No More: Stabilizing the Pre-training of Large Language Models"></a><a href="https://arxiv.org/pdf/2312.16903.pdf">Spike No More: Stabilizing the Pre-training of Large Language Models</a></h2><p>pretrain领域的论文，最近看的少了，不过这篇挺有意思的，就分享一下</p><p>loss spike的现象在pretrain里很常见，尤其是模型很大时。作者分析了spike出现的原因，这个过程中gradient等的变化。总体而言，和之前kaiming发现的ViT训练的情况类似，主要也是embedding layer崩了。作者谈到了两个技巧：把embedding层做scale或者加一个LayerNorm</p><blockquote><p>感觉，应该大家都是这么搞的？</p></blockquote><p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/spike.png"></p>]]></content>
     
     
-    <summary type="html">&lt;p&gt;昨天没有arxiv，今天一下出来70多篇&lt;/p&gt;
-&lt;h2 id=&quot;SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling&quot;&gt;&lt;a href=&quot;#SOLAR-10-7B-Scaling-Large-Language-Models-with-Simple-yet-Effective-Depth-Up-Scaling&quot; class=&quot;headerlink&quot; title=&quot;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.15166.pdf&quot;&gt;SOLAR 10.7B: Scaling Large Language Models with Simple yet Effective Depth Up-Scaling&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者谈到，传统的MoE增大模型的方式需要修改训练和infer的方式。作者提出了一个叫depth up-scaling(DUS)的方法，可以把一个模型复制一份，然后前后拼到一起，再做一些post-training，不需要修改训练和infer的方式&lt;/p&gt;
-&lt;p&gt;作者实验发现两个Llama2 7B拼成的10.7B模型，可以打败mistral 7B，在做完SFT以后，可以超过Mixtral-8x7B&lt;/p&gt;
+    <summary type="html">&lt;p&gt;今天的论文不多，不过好玩的倒是不少，可惜有每天的数量限制……&lt;/p&gt;
+&lt;h2 id=&quot;Experiential-Co-Learning-of-Software-Developing-Agents&quot;&gt;&lt;a href=&quot;#Experiential-Co-Learning-of-Software-Developing-Agents&quot; class=&quot;headerlink&quot; title=&quot;Experiential Co-Learning of Software-Developing Agents&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.17025.pdf&quot;&gt;Experiential Co-Learning of Software-Developing Agents&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;推荐一下师兄的论文，不算今天的名额。&lt;/p&gt;
+&lt;p&gt;这篇是ChatDev的后继工作，主体思想是最近学界一直有的self-evolve思想：Agent能不能从过去的经验中汲取力量？&lt;/p&gt;
+&lt;p&gt;作者在ChatDev框架下进行了探索，Agent可以从检索过去的reasoning shortcut，帮助这次的任务&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/co-evolve.png&quot; style=&quot;zoom:50%;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Task-Contamination-Language-Models-May-Not-Be-Few-Shot-Anymore&quot;&gt;&lt;a href=&quot;#Task-Contamination-Language-Models-May-Not-Be-Few-Shot-Anymore&quot; class=&quot;headerlink&quot; title=&quot;Task Contamination: Language Models May Not Be Few-Shot Anymore&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.16337.pdf&quot;&gt;Task Contamination: Language Models May Not Be Few-Shot Anymore&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提到，目前的模型表现出来的zero-shot和few-shot能力，可能是潜在的task contamination问题。在数据截止日期以后的数据集上，几乎丧失了few-shot和zero-shot能力。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt; 韩国的论文，只能说。不过模型是Apache 2.0协议，点赞！&lt;/p&gt;
+&lt;p&gt;这篇有点像之前那个”training on testset is all you need”，感觉比较好玩，就放上来了&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/solar.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering&quot;&gt;&lt;a href=&quot;#Aligning-Large-Language-Models-with-Human-Preferences-through-Representation-Engineering&quot; class=&quot;headerlink&quot; title=&quot;Aligning Large Language Models with Human Preferences through Representation Engineering&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.15997.pdf&quot;&gt;Aligning Large Language Models with Human Preferences through Representation Engineering&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;这篇论文还要追溯到 &lt;a href=&quot;/a9b74a6e.html&quot; title=&quot;2023-10-03-insights&quot;&gt;2023-10-03-insight&lt;/a&gt; 里提到的 RePE方法，作者思考能不能模型本身的latent embedding去做建模来做align呢？由此进行了一系列探索&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/repe.png&quot;&gt;&lt;/p&gt;
-</summary>
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2023-12-25-12-29/task.png&quot; style=&quot;zoom:33%;&quot;&gt;&lt;/p&gt;</summary>
     
     
     
@@ -336,9 +336,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
@@ -444,9 +444,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
