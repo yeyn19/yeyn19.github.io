@@ -3,12 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 随缘随笔
+title: "随缘随笔 </br> Insights Flow"
 subtitle: 
-description: '高效率工作，低效率生活'
+description: '高效率工作，低效率生活</br> work swiftly, live softly'
 keywords:
-author: 叶奕宁
-language: zh-CN
+author: 叶奕宁 </br> Yining_Ye
+language: [zh-CN, en]
+i18n:
+  type: [page, post]
+  generator: [index, archive, category, tag]
+
 timezone: ''
 
 # URL
@@ -35,7 +39,8 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: 
+
 
 nofollow:
     enable: true
@@ -103,10 +108,13 @@ prismjs:
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
+
+
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 1
   order_by: -date
+
 
 # Category & Tag
 default_category: uncategorized
@@ -172,3 +180,22 @@ deploy:
   - type: baidu_url_submitter
 
 
+hide_posts:
+  # Should hexo-hide-posts be enabled.
+  enable: true
+
+  # The front-matter key for flagging hidden posts.
+  # You can change the filter name if you like.
+  filter: hidden
+
+  # Add "noindex" meta tag to prevent hidden posts from being indexed by search engines.
+  noindex: true
+
+  # Generators in the allowlist will have access to the hidden posts.
+  # Common generators in Hexo: 'index', 'tag', 'category', 'archive', 'sitemap', 'feed'
+  # allowlist_generators: ['*']
+
+  # Generators in the blocklist can *not* access the hidden posts.
+  # The allowlist has higher priority than the blocklist, if both set.
+  blocklist_generators: ['index','feed']
+  # allowlist_generators: ['*']

@@ -45,8 +45,8 @@ def get_start_day(year, month):
 
 
 # 月份与名称对应的字典
-month_dict = {1: '一月', 2: '二月', 3: '三月', 4: '四月', 5: '五月', 6: '六月',
-              7: '七月', 8: '八月', 9: '九月', 10: '十月', 11: '十一月', 12: '十二月'}
+month_dict = {1: '一月January', 2: '二月February', 3: '三月March', 4: '四月April', 5: '五月May', 6: '六月June',
+              7: '七月July', 8: '八月August', 9: '九月September', 10: '十月October', 11: '十一月November', 12: '十二月December'}
 
 
 def get_month_name(month):
@@ -58,8 +58,8 @@ def print_month_title(year, month):
     # 打印日历的首部
 
     cal.write('         ' + str(get_month_name(month)) +  '   ' + str(year) + '          \n')
-    cal.write('星期日 | 星期一 | 星期二  | 星期三 | 星期四 | 星期五 | 星期六 \n')
-    cal.write('---| ---| ---| ---| ---| ---| ---|\n')
+    cal.write('星期日Sunday | 星期一Monday | 星期二Tuesday | 星期三Wednesday | 星期四Thursday | 星期五Friday | 星期六Saturday \n')
+    cal.write('----------- | ----------- | ------------ | -------------- | ------------- | ----------- | ------- |\n')
 
 def count_to_color(count):
     # 将0 - 5000 字映射到 0,255,0 -> 0,139,0
@@ -79,19 +79,19 @@ def print_table(year, month, blog_count, word_count,status,id,hidden):
     cal.write("<tr>")
     cal.write(''' <td>
         <form action="">
-            <input type="button" value="上月" onclick="tips(-1)">
+            <input type="button" value="上月Last Month" onclick="tips(-1)">
         </form>
     </td>
     ''')
     cal.write("<td colspan='5'>"+str(year)+"年"+str(get_month_name(month)) +"</td>")
     cal.write(''' <td>
         <form action="">
-            <input type="button" value="下月" onclick="tips(1)">
+            <input type="button" value="下月Next Month" onclick="tips(1)">
         </form>
     </td>
     ''')
     cal.write("</tr>")
-    cal.write('<tr><td> 星期日 </td><td> 星期一 </td><td> 星期二  </td><td> 星期三 </td><td> 星期四 </td><td> 星期五 </td><td> 星期六 </td> </tr>')
+    cal.write('<tr><td> 星期日</br>Sunday </td><td> 星期一</br>Monday </td><td> 星期二</br>Tuesday  </td><td> 星期三</br>Wednesday </td><td> 星期四</br>Thursday </td><td> 星期五</br>Friday </td><td> 星期六</br>Saturday </td> </tr>')
    
     cal.write("<tr>")
     i = get_start_day(year, month)
@@ -157,17 +157,27 @@ def get_word_count(f_body):
             code = 1 - code
     return count
 
+def get_all_blogs(root_dir = "./source/_posts"):
+    names = []
+    for name in os.listdir(root_dir):
+        path = os.path.join(root_dir, name)
+        if os.path.isdir(path):
+            sub_names = get_all_blogs(path)
+            names.extend(sub_names)
+        else:
+            if not name.endswith("md") or name == "本月更新.md":
+                continue
+            names.append(os.path.join(root_dir,name))
+    return names
+
 def get_writing_freq(root_dir = "./source/_posts", year = 2022, month = 6):
     # 返回每天更新的博客数量
     blog_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
     word_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
     status_count = ["" for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
-    for name in os.listdir(root_dir):
-
-        if not name.endswith("md") or name == "本月更新.md":
-            continue
-        name = os.path.join(root_dir,name)
-        #print(name)
+    
+    names = get_all_blogs(root_dir)
+    for name in names:
 
         f = open(name,"r",encoding="utf-8")
         f_head,f_body = parse_md(f)
@@ -203,7 +213,7 @@ end_month = 6
 
 
 
-data = open("./source/_posts/本月更新.md","r").readlines()[:8]
+data = open("./source/_posts/本月更新.md","r").readlines()[:10]
 
 cal = open("./source/_posts/本月更新.md",'w')
 
