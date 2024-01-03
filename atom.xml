@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-01-02T05:37:24.246Z</updated>
+  <updated>2024-01-03T03:27:28.079Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,28 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2024-01-02-insights</title>
-    <link href="https://www.yynnyy.cn/fb15e1d6"/>
-    <id>https://www.yynnyy.cn/fb15e1d6</id>
-    <published>2024-01-02T04:57:08.000Z</published>
-    <updated>2024-01-02T05:37:24.246Z</updated>
+    <title>2024-01-03-insights</title>
+    <link href="https://www.yynnyy.cn/14d78ae8"/>
+    <id>https://www.yynnyy.cn/14d78ae8</id>
+    <published>2024-01-03T03:14:28.000Z</published>
+    <updated>2024-01-03T03:27:28.079Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension"><a href="#GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension" class="headerlink" title="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension"></a><a href="https://arxiv.org/pdf/2312.17294.pdf">GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension</a></h2><p>推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。</p><p>在这篇工作中，我们尝试了让LLM自动从Github上搜索、clone、运行相关的仓库，来完成我们想完成的任务。这篇工作展示了某种可能性，可能是以后GPT4、GPT4.5、GPT5去接管人类计算和智慧资源的方式</p><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/git-agent.png"></p><h2 id="Improving-Text-Embeddings-with-Large-Language-Models"><a href="#Improving-Text-Embeddings-with-Large-Language-Models" class="headerlink" title="Improving Text Embeddings with Large Language Models"></a><a href="https://arxiv.org/pdf/2401.00368.pdf">Improving Text Embeddings with Large Language Models</a></h2><p>Furu Wei的论文。作者在dense retreive的领域做了一个类似alpaca的东西：</p><ul><li>首先让GPT4生成一大堆retrieve可能的任务</li><li>然后对于每种任务，都生成一大堆 (question, positive, hard-negative)三元组</li></ul><p>使用这个造数据pipeline生成了100,000数据，然后直接用简单的的对比学习loss训练了1k step，就得到了多个下游任务上的新SOTA</p><blockquote><p>神奇，这么朴素暴力的办法之前没有人想到吗……</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/improving-text-embedding.png"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models"><a href="#Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models" class="headerlink" title="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models"></a><a href="https://arxiv.org/pdf/2401.01335.pdf">Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models</a></h2><p>作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？</p><p>作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分不出来了 ，就说明达到了人类的水平。在训练中表明，这样训出来的模型效果甚至比用GPT4做preference的DPO要好</p><blockquote><p>有趣，感觉这个方法背后藏着更多的真理等待去挖掘……</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/self-play.png"></p><h2 id="A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models"><a href="#A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models" class="headerlink" title="A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models"></a><a href="https://arxiv.org/pdf/2401.01313.pdf">A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models</a></h2><p>hallucination指的是模型过于自信，一直预测next-token，最后预测出来看起来正常，但其实不存在，或者前后不一致的事物，或者说出来不正确的fact。</p><p>这个领域早就有了，但是最近才变得比较火。这是篇survey的文章，重在”新”，想要入行的可以看一下~</p><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/hallucination.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension&quot;&gt;&lt;a href=&quot;#GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension&quot; class=&quot;headerlink&quot; title=&quot;GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2312.17294.pdf&quot;&gt;GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。&lt;/p&gt;
-&lt;p&gt;在这篇工作中，我们尝试了让LLM自动从Github上搜索、clone、运行相关的仓库，来完成我们想完成的任务。这篇工作展示了某种可能性，可能是以后GPT4、GPT4.5、GPT5去接管人类计算和智慧资源的方式&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/git-agent.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Improving-Text-Embeddings-with-Large-Language-Models&quot;&gt;&lt;a href=&quot;#Improving-Text-Embeddings-with-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;Improving Text Embeddings with Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.00368.pdf&quot;&gt;Improving Text Embeddings with Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Furu Wei的论文。作者在dense retreive的领域做了一个类似alpaca的东西：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;首先让GPT4生成一大堆retrieve可能的任务&lt;/li&gt;
-&lt;li&gt;然后对于每种任务，都生成一大堆 (question, positive, hard-negative)三元组&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;使用这个造数据pipeline生成了100,000数据，然后直接用简单的的对比学习loss训练了1k step，就得到了多个下游任务上的新SOTA&lt;/p&gt;
+    <summary type="html">&lt;h2 id=&quot;Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models&quot;&gt;&lt;a href=&quot;#Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.01335.pdf&quot;&gt;Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？&lt;/p&gt;
+&lt;p&gt;作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分不出来了 ，就说明达到了人类的水平。在训练中表明，这样训出来的模型效果甚至比用GPT4做preference的DPO要好&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;神奇，这么朴素暴力的办法之前没有人想到吗……&lt;/p&gt;
+&lt;p&gt;有趣，感觉这个方法背后藏着更多的真理等待去挖掘……&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/improving-text-embedding.png&quot;&gt;&lt;/p&gt;</summary>
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/self-play.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models&quot;&gt;&lt;a href=&quot;#A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.01313.pdf&quot;&gt;A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;hallucination指的是模型过于自信，一直预测next-token，最后预测出来看起来正常，但其实不存在，或者前后不一致的事物，或者说出来不正确的fact。&lt;/p&gt;
+&lt;p&gt;这个领域早就有了，但是最近才变得比较火。这是篇survey的文章，重在”新”，想要入行的可以看一下~&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/hallucination.png&quot;&gt;&lt;/p&gt;
+</summary>
     
     
     
@@ -466,9 +463,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
