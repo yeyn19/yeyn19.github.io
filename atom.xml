@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-01-05T05:23:24.676Z</updated>
+  <updated>2024-01-09T07:20:39.875Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,50 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2024-01-05-insights</title>
-    <link href="https://www.yynnyy.cn/19c9faaf"/>
-    <id>https://www.yynnyy.cn/19c9faaf</id>
-    <published>2024-01-05T03:10:12.000Z</published>
-    <updated>2024-01-05T05:23:24.676Z</updated>
+    <title>2024-01-09-insights</title>
+    <link href="https://www.yynnyy.cn/3f51a21"/>
+    <id>https://www.yynnyy.cn/3f51a21</id>
+    <published>2024-01-09T06:42:53.000Z</published>
+    <updated>2024-01-09T07:20:39.875Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="LLAMA-PRO-Progressive-LLaMA-with-Block-Expansion"><a href="#LLAMA-PRO-Progressive-LLaMA-with-Block-Expansion" class="headerlink" title="LLAMA PRO: Progressive LLaMA with Block Expansion"></a><a href="https://arxiv.org/pdf/2401.02415.pdf">LLAMA PRO: Progressive LLaMA with Block Expansion</a></h2><p>作者提到LLM的训练基本都是狗熊掰棒子：记住后面的就会忘掉前面的，作者改了改llama的算法，让他可以同时学会新的技巧也记住前面的技巧。大致是把transformer block的一部分复制了一份，然后锁住原来的参。</p><blockquote><p>有点类似之前的那个韩国深度拼接LLM的论文</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/llama-pro.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]</p><blockquote><p>哎，要不是考试周到了，真想痛快读上10个小时论文呀</p></blockquote><h2 id="Mixtral-of-Experts"><a href="#Mixtral-of-Experts" class="headerlink" title="Mixtral of Experts"></a><a href="https://arxiv.org/pdf/2401.04088.pdf">Mixtral of Experts</a></h2><p>上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源了。</p><p>每个token都会在8个FFN层中选择最大的两个去用，用这个方法做出来了一个8x7B模型，效果胜过ChatGPT3.5和Llama2 70B。其instruct版本，在评测中超过了GPT-3.5 Turbo, Claude-2.1, Gemini Pro， Llama 2 70B</p><blockquote><p>等我这周考完试，写一个这篇论文的阅读笔记吧</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/Mixtral of Experts.png"></p><h2 id="MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts"><a href="#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts" class="headerlink" title="MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts"></a><a href="https://arxiv.org/pdf/2401.04081.pdf">MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts</a></h2><p>如果大家还记得之前分享的mamba架构……之前mamba的一个问题就是scaling做不起来。作者发现，如果把Mamba和MoE技术结合起来，就能真正释放mamba的潜力。比Transformer、Transformer-MoE都更容易scaling</p><blockquote><p>期待成品，感觉大家现在还是更认成品，必须得真有个超过llama的模型丢出来，大家才会真正去follow</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/MoE-mamba.png"></p><h2 id="Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon"><a href="#Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon" class="headerlink" title="Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon"></a><a href="https://arxiv.org/pdf/2401.03462.pdf">Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon</a></h2><p>长文本领域的新探索，这篇工作想的是：能不能把activation换成一个更稠密的形式，使得相对进的sliding window就能表示更多的信息。作者设计了训练任务，使得模型可以把activation变得跟稠密，进而通过sliding windows做就能文本建模</p><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/activation-beacon.png"></p><h2 id="AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding"><a href="#AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding" class="headerlink" title="AST-T5: Structure-Aware Pretraining for Code Generation and Understanding"></a><a href="https://arxiv.org/pdf/2401.03003.pdf">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</a></h2><p>我觉得这篇也很有价值，实在不好取舍，就干脆都放上来了。</p><p>Meta AI的论文，作者提到，目前的代码模型都会把code视为sequence，但实际上很多代码不同的写法是等价的，还有等等问题。对于代码理解来说，真正的不变量是AST结构，作者想要直接把AST结构做预训练生成的对象。</p><p>在T5这个规模下，作者尝试基于AST结构划分span，发现新式的训练方法在所有规模下，最终效果都比传统方法好很多</p><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/ast-t5.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;LLAMA-PRO-Progressive-LLaMA-with-Block-Expansion&quot;&gt;&lt;a href=&quot;#LLAMA-PRO-Progressive-LLaMA-with-Block-Expansion&quot; class=&quot;headerlink&quot; title=&quot;LLAMA PRO: Progressive LLaMA with Block Expansion&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.02415.pdf&quot;&gt;LLAMA PRO: Progressive LLaMA with Block Expansion&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提到LLM的训练基本都是狗熊掰棒子：记住后面的就会忘掉前面的，作者改了改llama的算法，让他可以同时学会新的技巧也记住前面的技巧。大致是把transformer block的一部分复制了一份，然后锁住原来的参。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;有点类似之前的那个韩国深度拼接LLM的论文&lt;/p&gt;
+&lt;p&gt;哎，要不是考试周到了，真想痛快读上10个小时论文呀&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/llama-pro.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-01-04-insights</title>
-    <link href="https://www.yynnyy.cn/f60b9191"/>
-    <id>https://www.yynnyy.cn/f60b9191</id>
-    <published>2024-01-05T02:44:12.000Z</published>
-    <updated>2024-01-05T05:23:30.872Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨天忘更新了，今天把两天的都补上</p><h2 id="Navigating-Uncertainty-Optimizing-API-Dependency-for-Hallucination-Reduction-in-Closed-Book-Question-Answering"><a href="#Navigating-Uncertainty-Optimizing-API-Dependency-for-Hallucination-Reduction-in-Closed-Book-Question-Answering" class="headerlink" title="Navigating Uncertainty: Optimizing API Dependency for Hallucination Reduction in Closed-Book Question Answering"></a><a href="https://arxiv.org/pdf/2401.01780.pdf">Navigating Uncertainty: Optimizing API Dependency for Hallucination Reduction in Closed-Book Question Answering</a></h2><p>作者讲了一个很有意思的问题：在QA阶段，模型自身存储的知识是不够的，希望借助外部工具来辅助回答。然而，借用工具会带来额外的cost和等待时间。因此我们需要权衡查搜索引擎来的收益。</p><blockquote><p>我觉得方法并不关键，这里面的核心思路我们喜欢：调用工具虽好，但模型可以学会不调用工具吗？或者说，”1+1=?”这个问题也需要用计算器吗？</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/Navigating-Uncertainty.png"></p><h2 id="Theoretical-guarantees-on-the-best-of-n-alignment-policy"><a href="#Theoretical-guarantees-on-the-best-of-n-alignment-policy" class="headerlink" title="Theoretical guarantees on the best-of-n alignment policy"></a><a href="https://arxiv.org/pdf/2401.01879.pdf">Theoretical guarantees on the best-of-n alignment policy</a></h2><p>deepmind的新作。作者用一堆数学，发现之前best-of-N算法在align场景的证明是错的，然后作者给best-of-N换了个新的算法，证明了一个更紧的逼近</p><p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/best-of-n.png"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;昨天忘更新了，今天把两天的都补上&lt;/p&gt;
-&lt;h2 id=&quot;Navigating-Uncertainty-Optimizing-API-Dependency-for-Hallucination-Reduction-in-Closed-Book-Question-Answering&quot;&gt;&lt;a href=&quot;#Navigating-Uncertainty-Optimizing-API-Dependency-for-Hallucination-Reduction-in-Closed-Book-Question-Answering&quot; class=&quot;headerlink&quot; title=&quot;Navigating Uncertainty: Optimizing API Dependency for Hallucination Reduction in Closed-Book Question Answering&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.01780.pdf&quot;&gt;Navigating Uncertainty: Optimizing API Dependency for Hallucination Reduction in Closed-Book Question Answering&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者讲了一个很有意思的问题：在QA阶段，模型自身存储的知识是不够的，希望借助外部工具来辅助回答。然而，借用工具会带来额外的cost和等待时间。因此我们需要权衡查搜索引擎来的收益。&lt;/p&gt;
+&lt;h2 id=&quot;Mixtral-of-Experts&quot;&gt;&lt;a href=&quot;#Mixtral-of-Experts&quot; class=&quot;headerlink&quot; title=&quot;Mixtral of Experts&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.04088.pdf&quot;&gt;Mixtral of Experts&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源了。&lt;/p&gt;
+&lt;p&gt;每个token都会在8个FFN层中选择最大的两个去用，用这个方法做出来了一个8x7B模型，效果胜过ChatGPT3.5和Llama2 70B。其instruct版本，在评测中超过了GPT-3.5 Turbo, Claude-2.1, Gemini Pro， Llama 2 70B&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;我觉得方法并不关键，这里面的核心思路我们喜欢：调用工具虽好，但模型可以学会不调用工具吗？或者说，”1+1=?”这个问题也需要用计算器吗？&lt;/p&gt;
+&lt;p&gt;等我这周考完试，写一个这篇论文的阅读笔记吧&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/Navigating-Uncertainty.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;Theoretical-guarantees-on-the-best-of-n-alignment-policy&quot;&gt;&lt;a href=&quot;#Theoretical-guarantees-on-the-best-of-n-alignment-policy&quot; class=&quot;headerlink&quot; title=&quot;Theoretical guarantees on the best-of-n alignment policy&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.01879.pdf&quot;&gt;Theoretical guarantees on the best-of-n alignment policy&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;deepmind的新作。作者用一堆数学，发现之前best-of-N算法在align场景的证明是错的，然后作者给best-of-N换了个新的算法，证明了一个更紧的逼近&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-01-01-05/best-of-n.png&quot;&gt;&lt;/p&gt;
-</summary>
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-08-01-12/Mixtral of Experts.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts&quot;&gt;&lt;a href=&quot;#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts&quot; class=&quot;headerlink&quot; title=&quot;MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.04081.pdf&quot;&gt;MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;如果大家还记得之前分享的mamba架构……之前mamba的一个问题就是scaling做不起来。作者发现，如果把Mamba和MoE技术结合起来，就能真正释放mamba的潜力。比Transformer、Transformer-MoE都更容易scaling&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;期待成品，感觉大家现在还是更认成品，必须得真有个超过llama的模型丢出来，大家才会真正去follow&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -488,9 +467,9 @@
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="计算机" scheme="https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
@@ -544,6 +523,30 @@
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
     <category term="强化学习" scheme="https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2023-5-6总结</title>
+    <link href="https://www.yynnyy.cn/db37895b"/>
+    <id>https://www.yynnyy.cn/db37895b</id>
+    <published>2023-05-06T15:45:32.000Z</published>
+    <updated>2023-09-23T00:52:29.345Z</updated>
+    
+    <content type="html"><![CDATA[<p>好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。</p><blockquote><p>千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错</p></blockquote><span id="more"></span><p>五一假期刚刚过完，今年学校放五一假期时间很长，具体我体感不太清楚，但似乎最少放了五天假，比起前几年疫情时期把五一、十一假期取消的离谱操作，可以说是充满了温馨。依我来看，这恐怕是西芹上台以来，做的最大的一件好事了。假期虽然长，朋友圈的足迹也基本踏破了大江南北、天南海北，但我并没有做什么，除了大吃大喝了几顿……好吧，无论有没有假期我都会出去大吃大喝，没什么所谓仪式感。仔细想来，和”劳动节“关系最大的事情可能就是把家里的马桶修好了，四舍五入也算是劳动了。</p><p>假期的生活和最近一两个月的生活其实都差不多，按部就班，一眼望到底：毕设、科研、街舞、LPL……来回周转，好像也没什么值得专门说的。最近和做强化学习的许哲华老师交流了一下，倒不是说有多么受益良多，主要是发现许老师的生活好多彩：弹唱、舞蹈、摄影、滑雪、调酒……这样恐怕才是破折号青年吧。我发自内心喜爱这样的生活，但好像又没有勇气把这些事情做起来。常言道万事开头难，做一万件事的开头就更是一万倍的困难，希望我不要望洋兴叹一辈子吧。</p><p>生活挺单调，但倒是挺幸福快乐的。最近感觉自己的街舞初窥门径，基本每天晚上8:30-10:00去舞房和队员们联系一个多小时，买了一顶大佬跳舞时都喜欢带的帽子，一个人练习的时候也逐渐知道自己该练什么内容。我相信这是个好的开始，嗯，SFT阶段结束进入RLHF阶段…？说到这方面，我最近还真有了点把街舞和LLM联系起来的哲学思考，等再多跳跳、多学学再分享给大家吧。</p><p>……刚才读了读自己写的东西，怎么有种意识流的感觉，上了四年大学，写作能力已经退化到”毫无技巧、全是感情“的地步了吗。可恶，终究还是不行吗？算了，就这样吧。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;好久没写随笔了，今天一写突然发现好像博客快要更新一年了。这下子随笔的标题得把年份加上，和往年的时间加以区别了。笑死，让我想起了”千年虫”事件。这下我的博客要发生”一年虫“危机了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;千年虫：曾经的计算机使用2位十进制数计年，所以到了横跨世纪的时候就会报错&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   

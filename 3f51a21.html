@@ -24,30 +24,38 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/page/126/index.html">
+  <meta name="description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-01-09-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/3f51a21">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/Mixtral%20of%20Experts.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/MoE-mamba.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/activation-beacon.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/ast-t5.png">
+<meta property="article:published_time" content="2024-01-09T06:42:53.000Z">
+<meta property="article:modified_time" content="2024-01-09T07:20:39.875Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/Mixtral%20of%20Experts.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/page/126/">
+<link rel="canonical" href="https://www.yynnyy.cn/3f51a21.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>随缘随笔 <br> Insights Flow</title>
+  <title>2024-01-09-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,15 +219,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
 
-      
-            
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/ff05b5bf">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/3f51a21">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -231,10 +238,9 @@
       <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ff05b5bf" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          2024-01-09-insights
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -242,28 +248,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-17 14:10:10" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
+              <time title="创建时间：2024-01-09 14:42:53 / 修改时间：15:20:39" itemprop="dateCreated datePublished" datetime="2024-01-09T14:42:53+08:00">2024-01-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/ff05b5bf" class="post-meta-item leancloud_visitors" data-flag-title="第一篇博客" title="阅读次数">
+            <span id="/3f51a21" class="post-meta-item leancloud_visitors" data-flag-title="2024-01-09-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +278,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/ff05b5bf#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ff05b5bf" itemprop="commentCount"></span>
+    <a title="valine" href="/3f51a21#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/3f51a21" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,7 +289,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -309,43 +309,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>为什么写博客？博客写什么？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ff05b5bf">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <p>今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]</p>
+<blockquote>
+<p>哎，要不是考试周到了，真想痛快读上10个小时论文呀</p>
+</blockquote>
+<h2 id="Mixtral-of-Experts"><a href="#Mixtral-of-Experts" class="headerlink" title="Mixtral of Experts"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04088.pdf">Mixtral of Experts</a></h2><p>上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源了。</p>
+<p>每个token都会在8个FFN层中选择最大的两个去用，用这个方法做出来了一个8x7B模型，效果胜过ChatGPT3.5和Llama2 70B。其instruct版本，在评测中超过了GPT-3.5 Turbo, Claude-2.1, Gemini Pro， Llama 2 70B</p>
+<blockquote>
+<p>等我这周考完试，写一个这篇论文的阅读笔记吧</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/Mixtral of Experts.png"></p>
+<h2 id="MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts"><a href="#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts" class="headerlink" title="MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04081.pdf">MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts</a></h2><p>如果大家还记得之前分享的mamba架构……之前mamba的一个问题就是scaling做不起来。作者发现，如果把Mamba和MoE技术结合起来，就能真正释放mamba的潜力。比Transformer、Transformer-MoE都更容易scaling</p>
+<blockquote>
+<p>期待成品，感觉大家现在还是更认成品，必须得真有个超过llama的模型丢出来，大家才会真正去follow</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/MoE-mamba.png"></p>
+<h2 id="Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon"><a href="#Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon" class="headerlink" title="Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03462.pdf">Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon</a></h2><p>长文本领域的新探索，这篇工作想的是：能不能把activation换成一个更稠密的形式，使得相对进的sliding window就能表示更多的信息。作者设计了训练任务，使得模型可以把activation变得跟稠密，进而通过sliding windows做就能文本建模</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/activation-beacon.png"></p>
+<h2 id="AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding"><a href="#AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding" class="headerlink" title="AST-T5: Structure-Aware Pretraining for Code Generation and Understanding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03003.pdf">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</a></h2><p>我觉得这篇也很有价值，实在不好取舍，就干脆都放上来了。</p>
+<p>Meta AI的论文，作者提到，目前的代码模型都会把code视为sequence，但实际上很多代码不同的写法是等价的，还有等等问题。对于代码理解来说，真正的不变量是AST结构，作者想要直接把AST结构做预训练生成的对象。</p>
+<p>在T5这个规模下，作者尝试基于AST结构划分span，发现新式的训练方法在所有规模下，最终效果都比传统方法好很多</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/ast-t5.png"></p>
+
     </div>
 
     
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3179c33f.html" rel="bookmark">Arxiv Insights</a></div>
+    </li>
+  </ul>
+
 
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/aa29fa81" rel="prev" title="2023-12-31总结(年度总结)">
+      <i class="fa fa-chevron-left"></i> 2023-12-31总结(年度总结)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
-      
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/125/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><span class="page-number current">126</span>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -396,6 +427,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixtral-of-Experts"><span class="nav-number">1.</span> <span class="nav-text">Mixtral of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts"><span class="nav-number">2.</span> <span class="nav-text">MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Soaring-from-4K-to-400K-Extending-LLM%E2%80%99s-Context-with-Activation-Beacon"><span class="nav-number">3.</span> <span class="nav-text">Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding"><span class="nav-number">4.</span> <span class="nav-text">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,11 +485,7 @@
       
       
         <li class="recent_posts_li">
-          <a href="/19c9faaf" title="2024-01-05-insights" target="_blank">2024-01-05-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f60b9191" title="2024-01-04-insights" target="_blank">2024-01-04-insights</a>
+          <a href="/3f51a21" title="2024-01-09-insights" target="_blank">2024-01-09-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -492,6 +520,10 @@
           <a href="/660d5dc5" title="论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS" target="_blank">论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS</a>
         </li>
       
+        <li class="recent_posts_li">
+          <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
+        </li>
+      
     </ul>
   </div>
 
@@ -519,11 +551,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/page/126/index.html" selected>
+        <option value="zh-CN" data-href="/3f51a21" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/page/126/index.html" selected>
+        <option value="en" data-href="/en/3f51a21" selected>
           English
         </option>
       
@@ -545,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">208k</span>
+    <span title="站点总字数">209k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:09</span>
+    <span title="站点阅读时长">3:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
