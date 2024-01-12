@@ -26,28 +26,33 @@
 
   <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
 <meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/page/126/index.html">
+<meta property="og:title" content="从Switch-Transformer到Switch-Head:聊聊MoE">
+<meta property="og:url" content="https://www.yynnyy.cn/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
 <meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-11T14:40:52.000Z">
+<meta property="article:modified_time" content="2024-01-11T14:44:45.216Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="计算机">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.yynnyy.cn/page/126/">
+<link rel="canonical" href="https://www.yynnyy.cn/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
+    isHome : false,
     isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>随缘随笔 <br> Insights Flow</title>
+  <title>从Switch-Transformer到Switch-Head:聊聊MoE | 随缘随笔 <br> Insights Flow
+</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -210,142 +215,48 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-
-          <div class="content index posts-expand">
-            
-
-      
-            
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/ff05b5bf">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/ava.JPG">
-      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
-      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
-    </span>
+          <div class="content page posts-expand">
+            
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
-    </span>
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ff05b5bf" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
 
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
+<h1 class="post-title" itemprop="name headline">从Switch-Transformer到Switch-Head:聊聊MoE
+</h1>
 
-              <time title="创建时间：2022-06-17 14:10:10" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/ff05b5bf" class="post-meta-item leancloud_visitors" data-flag-title="第一篇博客" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
+<div class="post-meta">
   
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/ff05b5bf#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ff05b5bf" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
 
+</div>
 
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-          <p>为什么写博客？博客写什么？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ff05b5bf">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
+      
+      
+      <div class="post-body">
+          
+      </div>
+      
+      
       
     </div>
+    
 
     
     
     
-      
-
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/125/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><span class="page-number current">126</span>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -410,7 +321,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">126</span>
+          <span class="site-state-item-count">125</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,11 +364,7 @@
       
       
         <li class="recent_posts_li">
-          <a href="/d1ac8515" title="2024-01-11-insights" target="_blank">2024-01-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3e6eee2b" title="2024-01-10-insights" target="_blank">2024-01-10-insights</a>
+          <a href="/3a9b3e16" title="2024-01-12-insights" target="_blank">2024-01-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -492,6 +399,10 @@
           <a href="/660d5dc5" title="论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS" target="_blank">论文阅读[粗读]-TOOLLLM: FACILITATING LARGE LANGUAGE MODELS TO MASTER 16000+ REAL-WORLD APIS</a>
         </li>
       
+        <li class="recent_posts_li">
+          <a href="/a3a406b2" title="论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)" target="_blank">论文阅读[精读]-Llama 2: Open Foundation and Fine-Tuned Chat Models(下)</a>
+        </li>
+      
     </ul>
   </div>
 
@@ -519,11 +430,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/page/126/index.html" selected>
+        <option value="zh-CN" data-href="/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/page/126/index.html" selected>
+        <option value="en" data-href="/en/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE" selected>
           English
         </option>
       
@@ -545,12 +456,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">209k</span>
+    <span title="站点总字数">208k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:10</span>
+    <span title="站点阅读时长">3:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>
