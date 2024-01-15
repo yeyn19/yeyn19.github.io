@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-01-12T04:40:50.741Z</updated>
+  <updated>2024-01-15T04:05:09.231Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -17,26 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>2024-01-12-insights</title>
-    <link href="https://www.yynnyy.cn/3a9b3e16"/>
-    <id>https://www.yynnyy.cn/3a9b3e16</id>
-    <published>2024-01-12T03:07:46.000Z</published>
-    <updated>2024-01-12T04:40:50.741Z</updated>
+    <title>2024-01-15-insights</title>
+    <link href="https://www.yynnyy.cn/d847256f"/>
+    <id>https://www.yynnyy.cn/d847256f</id>
+    <published>2024-01-15T02:58:32.000Z</published>
+    <updated>2024-01-15T04:05:09.231Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully"><a href="#SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully" class="headerlink" title="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully"></a><a href="https://arxiv.org/pdf/2401.05930.pdf">SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully</a></h2><p>上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮。这样的模型可以对此仔细考虑一下，进而提升效果</p><blockquote><p>这个方法和之前的R-Tuning、Align-for-Honesty有点类似，都需要模型前向两次。由前一次的输出指导后一次的生成，得到一个model-oriented的信号。这个范式感觉是truthfulLLM的一个重要概念，以后设计算法不知道是不是都可以走这个路线。</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/SH2.png"></p><h2 id="The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models"><a href="#The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models" class="headerlink" title="The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models"></a><a href="https://arxiv.org/pdf/2401.05618.pdf">The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models</a></h2><p>和昨天那个<a href="/d1ac8515.html" title="2024-01-11-insights">CoT越长，效果越好</a> 的论文相反，这篇得出的结论是如果CoT是简洁的，那么效果反而会更好。使用“Let’s us think step by step, and be concise”在减少token消耗的基础上，提升了效果</p><blockquote><p>看来他们得打一架了</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/concise.png"></p>]]></content>
+    <content type="html"><![CDATA[<p>最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀</p><p>今天也是沧海遗珠，哪个都想选呀</p><h2 id="Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><a href="#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements" class="headerlink" title="Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements"></a><a href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</a></h2><p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p><blockquote><p>这个和yejin choi一个月前那个How I learned to start worrying about prompt formatting思路很像……时隔多年，大家终于准备对prompt tuning动手了吗</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png"></p><h2 id="Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><a href="#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning" class="headerlink" title="Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning"></a><a href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</a></h2><p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p><p>这个任务会让模型学会对ICL样本顺序不敏感，并在下游中表现更好。</p><blockquote><p>感觉这个任务能work，是不是也能用在比如prompt+paraphrase里，让模型对于SFT的instruction也变得不敏感？</p></blockquote><h2 id="INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><a href="#INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning" class="headerlink" title="INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning"></a><a href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</a></h2><p>之前讲了wenzhu chen的position paper “large search model”。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p><blockquote><p>这画图，是在致敬T0吗？不过要是真的这么solid，那倒是也不愧</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png"></p><h2 id="Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty"><a href="#Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty" class="headerlink" title="Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty"></a><a href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</a></h2><p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p><ol><li>模型基本没有能力表达自己的不确定性</li><li>这种不确定性的丧失可能来源于RLHF，因为人类偏好不看好”表达不确定性“的回答</li></ol><p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/unwilling.png"></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully&quot;&gt;&lt;a href=&quot;#SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully&quot; class=&quot;headerlink&quot; title=&quot;SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.05930.pdf&quot;&gt;SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮。这样的模型可以对此仔细考虑一下，进而提升效果&lt;/p&gt;
+    <summary type="html">&lt;p&gt;最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀&lt;/p&gt;
+&lt;p&gt;今天也是沧海遗珠，哪个都想选呀&lt;/p&gt;
+&lt;h2 id=&quot;Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements&quot;&gt;&lt;a href=&quot;#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements&quot; class=&quot;headerlink&quot; title=&quot;Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.06766.pdf&quot;&gt;Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这个方法和之前的R-Tuning、Align-for-Honesty有点类似，都需要模型前向两次。由前一次的输出指导后一次的生成，得到一个model-oriented的信号。这个范式感觉是truthfulLLM的一个重要概念，以后设计算法不知道是不是都可以走这个路线。&lt;/p&gt;
+&lt;p&gt;这个和yejin choi一个月前那个How I learned to start worrying about prompt formatting思路很像……时隔多年，大家终于准备对prompt tuning动手了吗&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-08-01-12/SH2.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models&quot;&gt;&lt;a href=&quot;#The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models&quot; class=&quot;headerlink&quot; title=&quot;The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.05618.pdf&quot;&gt;The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;和昨天那个&lt;a href=&quot;/d1ac8515.html&quot; title=&quot;2024-01-11-insights&quot;&gt;CoT越长，效果越好&lt;/a&gt; 的论文相反，这篇得出的结论是如果CoT是简洁的，那么效果反而会更好。使用“Let’s us think step by step, and be concise”在减少token消耗的基础上，提升了效果&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-15-01-19/format.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning&quot;&gt;&lt;a href=&quot;#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning&quot; class=&quot;headerlink&quot; title=&quot;Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://arxiv.org/pdf/2401.06469.pdf&quot;&gt;Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。&lt;/p&gt;
+&lt;p&gt;这个任务会让模型学会对ICL样本顺序不敏感，并在下游中表现更好。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;看来他们得打一架了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-01-08-01-12/concise.png&quot;&gt;&lt;/p&gt;
-</summary>
+&lt;p&gt;感觉这个任务能work，是不是也能用在比如prompt+paraphrase里，让模型对于SFT的instruction也变得不敏感？&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
@@ -356,9 +357,9 @@
     
     <category term="人工智能" scheme="https://www.yynnyy.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
-    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
-    
     <category term="预训练模型" scheme="https://www.yynnyy.cn/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/"/>
+    
+    <category term="多模态" scheme="https://www.yynnyy.cn/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/"/>
     
   </entry>
   
