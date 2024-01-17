@@ -24,21 +24,26 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="从Switch-Transformer到Switch-Head:聊聊MoE">
-<meta property="og:url" content="https://www.yynnyy.cn/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE">
+  <meta name="description" content="昨天没等到arxiv更新，结果今天来了163篇，让我想起了10月份AAAI挂arxiv时候的恐惧…… 既然昨天没有，那就算今天的是这两天的，所以今天上限六篇 Tuning Language Models by Proxyyejin choi又来活了，这次是parameter efficient tuning. 作者思考，未来的LLM finetune实际上是越来越贵的。不过之前的工作发现，很多时候">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-01-17-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/dcb2f552">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="昨天没等到arxiv更新，结果今天来了163篇，让我想起了10月份AAAI挂arxiv时候的恐惧…… 既然昨天没有，那就算今天的是这两天的，所以今天上限六篇 Tuning Language Models by Proxyyejin choi又来活了，这次是parameter efficient tuning. 作者思考，未来的LLM finetune实际上是越来越贵的。不过之前的工作发现，很多时候">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-01-11T14:40:52.000Z">
-<meta property="article:modified_time" content="2024-01-11T14:44:45.216Z">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/proxy.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/RAG-finetuning.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/extense-tokenizer.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/BGM.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/icl-training.png">
+<meta property="article:published_time" content="2024-01-17T06:03:13.000Z">
+<meta property="article:modified_time" content="2024-01-17T07:23:17.181Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="人工智能">
-<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/proxy.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE.html">
+<link rel="canonical" href="https://www.yynnyy.cn/dcb2f552.html">
 
 
 <script id="page-configurations">
@@ -46,13 +51,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>从Switch-Transformer到Switch-Head:聊聊MoE | 随缘随笔 <br> Insights Flow
-</title>
+  <title>2024-01-17-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -215,43 +219,170 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/dcb2f552">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024-01-17-insights
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">从Switch-Transformer到Switch-Head:聊聊MoE
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post-meta">
+              <time title="创建时间：2024-01-17 14:03:13 / 修改时间：15:23:17" itemprop="dateCreated datePublished" datetime="2024-01-17T14:03:13+08:00">2024-01-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/dcb2f552" class="post-meta-item leancloud_visitors" data-flag-title="2024-01-17-insights" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/dcb2f552#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/dcb2f552" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>昨天没等到arxiv更新，结果今天来了163篇，让我想起了10月份AAAI挂arxiv时候的恐惧……</p>
+<p>既然昨天没有，那就算今天的是这两天的，所以今天上限六篇</p>
+<h2 id="Tuning-Language-Models-by-Proxy"><a href="#Tuning-Language-Models-by-Proxy" class="headerlink" title="Tuning Language Models by Proxy"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08565.pdf">Tuning Language Models by Proxy</a></h2><p>yejin choi又来活了，这次是parameter efficient tuning. 作者思考，未来的LLM finetune实际上是越来越贵的。不过之前的工作发现，很多时候比如SFT，对模型的改变很小，只是在“elicit latent knowledge”。</p>
+<p>那么，用线性代数的方法：在大模型的logits上叠加一个小模型微调前后的差值。能不能得到和大模型类似的效果呢？作者发现，用这种方法，只微调一个小模型。能达到微调大模型90%左右的水平</p>
+<blockquote>
+<p>90%，正如GLM4之于GPT4……只能说……</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/proxy.png"></p>
+<h2 id="RAG-vs-Fine-tuning-Pipelines-Tradeoffs-and-a-Case-Study-on-Agriculture"><a href="#RAG-vs-Fine-tuning-Pipelines-Tradeoffs-and-a-Case-Study-on-Agriculture" class="headerlink" title="RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08406.pdf">RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</a></h2><p>微软的研究。作者用了33页就为了讨论一个问题：RAG和finetune谁的效果更好？可以同时存在吗？作者在一个基本还没有AI参与的领域(农业)数据集上探索了各个模型做finetune和RAG的效果。</p>
+<p>发现，两者都能提高效果。然后，即使在某个数据集上finetune了，还是需要再相同的数据集上做RAG。</p>
+<blockquote>
+<p>很好的研究，有scaling的视角。感觉像是OpenAI下放的insights</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/RAG-finetuning.png"></p>
+<h2 id="Flexibly-Scaling-Large-Language-Models’-Contexts-Through-Extensible-Tokenization"><a href="#Flexibly-Scaling-Large-Language-Models’-Contexts-Through-Extensible-Tokenization" class="headerlink" title="Flexibly Scaling Large Language Models’ Contexts Through Extensible Tokenization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.07793.pdf">Flexibly Scaling Large Language Models’ Contexts Through Extensible Tokenization</a></h2><p>一片长文本的有趣论文，作者这次是对tokenizer出手了。有一个浅显的道理，如果tokenizer一个token代表10个word，是不是同样sequence下token就变多了呢？作者搞了tokenizer作为插件放到了LLM之前</p>
+<blockquote>
+<p>话说这么一想，之前那个activation-beacon，似乎也算是个tokenizer了？</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/extense-tokenizer.png"></p>
+<h2 id="Bridging-the-Preference-Gap-between-Retrievers-and-LLMs"><a href="#Bridging-the-Preference-Gap-between-Retrievers-and-LLMs" class="headerlink" title="Bridging the Preference Gap between Retrievers and LLMs"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06954.pdf">Bridging the Preference Gap between Retrievers and LLMs</a></h2><p>google出的一篇retrieve领域的论文。作者发现已有的finetune RAG类工作，要么就是finetune retriever，要么就是finetune generator，(or both)。那么，如果两者都是通过API买的，不能调。这些工作就抓瞎了</p>
+<p>作者的思路是，训练一个映射，或者说re-ranker作为一个bridge链接锁死的retriever和generator。</p>
+<blockquote>
+<p>我感觉这个东西有点像self-knowledge-guided RAG，相当于在学习去建模generator的知识边界，定向补充他不知道的东西？</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/BGM.png"></p>
+<h2 id="Human-Instruction-Free-LLM-Self-Alignment-with-Limited-Samples"><a href="#Human-Instruction-Free-LLM-Self-Alignment-with-Limited-Samples" class="headerlink" title="Human-Instruction-Free LLM Self-Alignment with Limited Samples"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06785.pdf">Human-Instruction-Free LLM Self-Alignment with Limited Samples</a></h2><p>大家都知道模型在收到一个query以后，retrieve一些比较像的样本，然后ICL拼在前面，效果会更好。(这个过程也可以理解成RAG) 。那么，这个效果的增量能不能蒸馏回来呢？</p>
+<p>作者探索了这样的self-training框架：先ICL，把ICL以后生成样本做成训练样本。发现效果竟然还挺好？这是一个不需要任何人参与的SFT流程</p>
+<blockquote>
+<p>挑战，不可能？我觉得这里要讨论一个问题：ICL样本到底是交给了模型遵循format，还是交给模型理解不同的label。前者是align的场景，后者是潜在的数据泄露风险</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/icl-training.png"></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/f4243ee6" rel="prev" title="arxiv-insights">
+      <i class="fa fa-chevron-left"></i> arxiv-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -307,6 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuning-Language-Models-by-Proxy"><span class="nav-number">1.</span> <span class="nav-text">Tuning Language Models by Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAG-vs-Fine-tuning-Pipelines-Tradeoffs-and-a-Case-Study-on-Agriculture"><span class="nav-number">2.</span> <span class="nav-text">RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexibly-Scaling-Large-Language-Models%E2%80%99-Contexts-Through-Extensible-Tokenization"><span class="nav-number">3.</span> <span class="nav-text">Flexibly Scaling Large Language Models’ Contexts Through Extensible Tokenization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bridging-the-Preference-Gap-between-Retrievers-and-LLMs"><span class="nav-number">4.</span> <span class="nav-text">Bridging the Preference Gap between Retrievers and LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Human-Instruction-Free-LLM-Self-Alignment-with-Limited-Samples"><span class="nav-number">5.</span> <span class="nav-text">Human-Instruction-Free LLM Self-Alignment with Limited Samples</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,11 +496,11 @@
       
       
         <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+          <a href="/dcb2f552" title="2024-01-17-insights" target="_blank">2024-01-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/d847256f" title="2024-01-15-insights" target="_blank">2024-01-15-insights</a>
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -430,11 +562,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE" selected>
+        <option value="zh-CN" data-href="/dcb2f552" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/temp_post/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE" selected>
+        <option value="en" data-href="/en/dcb2f552" selected>
           English
         </option>
       
@@ -442,7 +574,7 @@
   </div>
 
         
-<font color="#FFFFFF">
+<font color="#000000">
 
 <div class="copyright">
   
@@ -461,7 +593,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:13</span>
+    <span title="站点阅读时长">3:12</span>
 </div>
 
 <i class="fa fa-user-md"></i>
