@@ -24,17 +24,22 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/archives/page/7/index.html">
+  <meta name="description" content="In-Context Language Learning: Arhitectures and Algorithmsjacob andreas的论文，作者思考了一个问题：目前的ICL主要瞄准regrssion之类的简单任务，如果对于复杂的ICL，比如finite state automata定义的文法，目前的模型还能做，作者把这个任务叫做In-Context Language Learning。并且">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-01-24-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/ae672850">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="In-Context Language Learning: Arhitectures and Algorithmsjacob andreas的论文，作者思考了一个问题：目前的ICL主要瞄准regrssion之类的简单任务，如果对于复杂的ICL，比如finite state automata定义的文法，目前的模型还能做，作者把这个任务叫做In-Context Language Learning。并且">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-22-01-26/icll.png">
+<meta property="article:published_time" content="2024-01-25T01:14:14.000Z">
+<meta property="article:modified_time" content="2024-01-25T01:30:00.055Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-22-01-26/icll.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/archives/page/7/">
+<link rel="canonical" href="https://www.yynnyy.cn/ae672850.html">
 
 
 <script id="page-configurations">
@@ -42,12 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 随缘随笔 <br> Insights Flow</title>
+  <title>2024-01-24-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,220 +216,146 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/ae672850">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024-01-24-insights
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-01-25 09:14:14 / 修改时间：09:30:00" itemprop="dateCreated datePublished" datetime="2024-01-25T09:14:14+08:00">2024-01-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/ae672850" class="post-meta-item leancloud_visitors" data-flag-title="2024-01-24-insights" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">很好! 目前共计 125 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/ae672850#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/ae672850" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>280</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-27T23:15:56+08:00" content="2022-09-27">
-          09-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/d7ec9992" itemprop="url">
-            <span itemprop="name">9-27总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-26T13:05:22+08:00" content="2022-09-26">
-          09-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/dfdbbbd6" itemprop="url">
-            <span itemprop="name">9-25/26总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-24T22:01:13+08:00" content="2022-09-24">
-          09-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/e604830f" itemprop="url">
-            <span itemprop="name">9-24总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-23T11:08:46+08:00" content="2022-09-23">
-          09-23
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2673b2a2" itemprop="url">
-            <span itemprop="name">论文阅读[粗读]-WantWords: An Open-source Online Reverse Dictionary System</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-21T15:23:26+08:00" content="2022-09-21">
-          09-21
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/b43caca8" itemprop="url">
-            <span itemprop="name">9-21总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-17T13:20:27+08:00" content="2022-09-17">
-          09-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/b3424711" itemprop="url">
-            <span itemprop="name">论文阅读[精读]-Towards Building a Multilingual Sememe Knowledge Base: Predicting Sememes for BabelNet Synsets</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-17T09:59:08+08:00" content="2022-09-17">
-          09-17
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/b4c23497" itemprop="url">
-            <span itemprop="name">配置LaTeX环境:Windows,Mac,WSL</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-09-16T16:11:40+08:00" content="2022-09-16">
-          09-16
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/ff1495c5" itemprop="url">
-            <span itemprop="name">9-16总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-08-28T23:17:20+08:00" content="2022-08-28">
-          08-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/ce668245" itemprop="url">
-            <span itemprop="name">8-28总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2022-08-03T23:08:49+08:00" content="2022-08-03">
-          08-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/f10a4c12" itemprop="url">
-            <span itemprop="name">8-3总结</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="In-Context-Language-Learning-Arhitectures-and-Algorithms"><a href="#In-Context-Language-Learning-Arhitectures-and-Algorithms" class="headerlink" title="In-Context Language Learning: Arhitectures and Algorithms"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.12973.pdf">In-Context Language Learning: Arhitectures and Algorithms</a></h2><p>jacob andreas的论文，作者思考了一个问题：目前的ICL主要瞄准regrssion之类的简单任务，如果对于复杂的ICL，比如finite state automata定义的文法，目前的模型还能做，作者把这个任务叫做In-Context Language Learning。并且发现目前的模型结构只有transformer效果较好</p>
+<p>神奇的是，当作者把剩下结构里一些对于ICLL很重要的head硬编码添加回路以后，这些新模型在LLM任务中的表现竟然提升也很明显。</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/icll.png"></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/f4243ee6" rel="prev" title="arxiv-insights">
+      <i class="fa fa-chevron-left"></i> arxiv-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/6/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/archives/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/13/">13</a><a class="extend next" rel="next" href="/archives/page/8/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -475,6 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Context-Language-Learning-Arhitectures-and-Algorithms"><span class="nav-number">1.</span> <span class="nav-text">In-Context Language Learning: Arhitectures and Algorithms</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -598,11 +530,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/archives/page/7/index.html" selected>
+        <option value="zh-CN" data-href="/ae672850" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/archives/page/7/index.html" selected>
+        <option value="en" data-href="/en/ae672850" selected>
           English
         </option>
       
