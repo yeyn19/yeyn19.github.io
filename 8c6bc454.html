@@ -24,21 +24,22 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="体系结构cache测量实验与我的解法">
+  <meta name="description" content="Yi: Open Foundation Models by 01.AI开源的7B和34B模型：作者发现，更多的数据工程是更好的表现的根本来源。并做了一个长达15个步骤的清洗流程，最终训练出了一个很好的语言模型  很可惜，3.4T token高质量语料没开源">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《体系结构cache测量实验》">
-<meta property="og:url" content="https://www.yynnyy.cn/d49e0552">
+<meta property="og:title" content="2024-03-08-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/8c6bc454">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="体系结构cache测量实验与我的解法">
+<meta property="og:description" content="Yi: Open Foundation Models by 01.AI开源的7B和34B模型：作者发现，更多的数据工程是更好的表现的根本来源。并做了一个长达15个步骤的清洗流程，最终训练出了一个很好的语言模型  很可惜，3.4T token高质量语料没开源">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-21T02:00:47.000Z">
-<meta property="article:modified_time" content="2023-09-23T00:52:29.349Z">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-04-03-08/yi.png">
+<meta property="article:published_time" content="2024-03-08T04:56:41.000Z">
+<meta property="article:modified_time" content="2024-03-08T05:22:41.835Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
-<meta property="article:tag" content="计算机">
-<meta property="article:tag" content="大三下">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-04-03-08/yi.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/d49e0552.html">
+<link rel="canonical" href="https://www.yynnyy.cn/8c6bc454.html">
 
 
 <script id="page-configurations">
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>《体系结构cache测量实验》 | 随缘随笔 <br> Insights Flow</title>
+  <title>2024-03-08-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -222,7 +223,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/d49e0552">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/8c6bc454">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -235,7 +236,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《体系结构cache测量实验》
+          2024-03-08-insights
         </h1>
 
         <div class="post-meta">
@@ -244,28 +245,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-21 10:00:47" itemprop="dateCreated datePublished" datetime="2022-06-21T10:00:47+08:00">2022-06-21</time>
+              <time title="创建时间：2024-03-08 12:56:41 / 修改时间：13:22:41" itemprop="dateCreated datePublished" datetime="2024-03-08T12:56:41+08:00">2024-03-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-09-23 08:52:29" itemprop="dateModified" datetime="2023-09-23T08:52:29+08:00">2023-09-23</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">课程与作业</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/d49e0552" class="post-meta-item leancloud_visitors" data-flag-title="《体系结构cache测量实验》" title="阅读次数">
+            <span id="/8c6bc454" class="post-meta-item leancloud_visitors" data-flag-title="2024-03-08-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -280,8 +275,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/d49e0552#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/d49e0552" itemprop="commentCount"></span>
+    <a title="valine" href="/8c6bc454#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/8c6bc454" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -291,7 +286,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>436</span>
+              <span>120</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -300,7 +295,6 @@
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               <span>1 分钟</span>
             </span>
-            <div class="post-description">体系结构cache测量实验与我的解法</div>
 
 
         </div>
@@ -312,18 +306,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>体系结构课的评测见这里：<a href="/1e98a428.html" title="《计算机系统结构》课程总结">《计算机系统结构》课程总结</a></p>
-<p>这次实验的要求是通过侧信道方法测量：</p>
-<ul>
-<li>cache size</li>
-<li>cache line size</li>
-<li>cache相联度</li>
-<li>cache替换方法(选做) </li>
-</ul>
-<p>​    当时觉得好神奇。后来在网安课上学到了 <code>flush-flush,prime-probe</code>等侧信道方法，又一次感觉这次实验很有意思。我觉得所谓实验，不应该是实现、复现xx方法，而应该是针对某个特定的问题，设计自己的方法，又通过结果去验证方法的正确性、分析设计的优缺点，进而去改进。这就像是一个小的科研训练，锻炼我们实际的解决问题的能力。</p>
-<p>​    其中，我觉得比较有意思的最后一个测量。当时我构造很多按照4B地址对齐的数据，为了保证它们可以对应到一个set里，然后通过构造不同的访问方式，提前计算不同替换方法下预计的缺失率，进而通过缺失率大小，估计用的时间，再实际测量用的时间。最后拟合出很多条”假设缺失率-时间“曲线，最接近直线的一条就是测量出的替换方法。</p>
-<p>由于当时的报告由于不可逆因素没了，我就放一个pdf在这里…</p>
-<div class="pdfobject-container" data-target="/files/体系结构第一次实验报告.pdf" data-height="500px"></div>
+        <h2 id="Yi-Open-Foundation-Models-by-01-AI"><a href="#Yi-Open-Foundation-Models-by-01-AI" class="headerlink" title="Yi: Open Foundation Models by 01.AI"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.04652.pdf">Yi: Open Foundation Models by 01.AI</a></h2><p>开源的7B和34B模型：作者发现，更多的数据工程是更好的表现的根本来源。并做了一个长达15个步骤的清洗流程，最终训练出了一个很好的语言模型</p>
+<blockquote>
+<p>很可惜，3.4T token高质量语料没开源</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-03-04-03-08/yi.png"></p>
 
     </div>
 
@@ -334,19 +321,16 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3784f7a3.html" rel="bookmark">大三下学期总结</a></div>
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1e98a428.html" rel="bookmark">《计算机系统结构》课程总结</a></div>
+      <div class="popular-posts-title"><a href="/7d609fd9.html" rel="bookmark">2024-03-07-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1a09bd40.html" rel="bookmark">OS课程总结</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8618fb6d.html" rel="bookmark">《现代密码学》课程总结</a></div>
+      <div class="popular-posts-title"><a href="/92a2f4e7.html" rel="bookmark">2024-03-06-insights</a></div>
     </li>
   </ul>
 
@@ -354,8 +338,7 @@
       <footer class="post-footer">
           
           <div class="post-tags">
-              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
-              <a href="/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/" rel="tag"><i class="fa fa-tag"></i> 大三下</a>
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
           </div>
 
         
@@ -364,13 +347,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/1e98a428" rel="prev" title="《计算机系统结构》课程总结">
-      <i class="fa fa-chevron-left"></i> 《计算机系统结构》课程总结
+    <a href="/7d609fd9" rel="prev" title="2024-03-07-insights">
+      <i class="fa fa-chevron-left"></i> 2024-03-07-insights
     </a></div>
-      <div class="post-nav-item">
-    <a href="/f5d3b3af" rel="next" title="6-20-21总结">
-      6-20-21总结 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -434,6 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Yi-Open-Foundation-Models-by-01-AI"><span class="nav-number">1.</span> <span class="nav-text">Yi: Open Foundation Models by 01.AI</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -557,11 +538,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/d49e0552" selected>
+        <option value="zh-CN" data-href="/8c6bc454" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/d49e0552" selected>
+        <option value="en" data-href="/en/8c6bc454" selected>
           English
         </option>
       
