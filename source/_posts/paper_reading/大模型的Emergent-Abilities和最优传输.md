@@ -19,7 +19,7 @@ date: 2023-04-15 14:35:27
 
 <!-- more -->
 
-<img src="../files/images/emergent_ability/authors.png">
+<img src="../../files/images/emergent_ability/authors.png">
 
 ## 定义
 
@@ -50,7 +50,7 @@ date: 2023-04-15 14:35:27
 
 最后得到了这张图
 
-<img src="../files/images/emergent_ability/result.png">
+<img src="../../files/images/emergent_ability/result.png">
 
 这个图里面每个都是一种任务，纵坐标是metric值，横坐标是FLOP。
 
@@ -68,7 +68,7 @@ date: 2023-04-15 14:35:27
 
 除了最简单的few-shot prompt方法以外，学界还有一些进阶的效果增强方法
 
-<img src="../files/images/emergent_ability/result2.png">
+<img src="../../files/images/emergent_ability/result2.png">
 
 - chain of thought(CoT)是说模型在做数学题的时候自己先生成一些思考、生成一些中间步骤，再一点点做
 - inistruction tuning是说模型要做一些参数更新，使得可以更好的follow人类指令。这个需要提前做出一些instruction的数据集
@@ -82,7 +82,7 @@ date: 2023-04-15 14:35:27
 
 这就是emergent ability
 
-<img src="../files/images/emergent_ability/threshold.png">
+<img src="../../files/images/emergent_ability/threshold.png">
 
 这里作者还详细给出了每个实验产生emergent的阈值是多少。
 
@@ -101,7 +101,7 @@ date: 2023-04-15 14:35:27
 
 此外，作者在附录中也做了cross-entropy loss和规模的关系
 
-<img src="../files/images/emergent_ability/loss.png">
+<img src="../../files/images/emergent_ability/loss.png">
 
 可以看到，cross-entropy-loss还是比较符合scaling-law。但performance为什么会emergence，就不好说了。
 
@@ -140,7 +140,7 @@ $$
 
 那么？压缩率有没有上限呢？有！因为数据集本身就是不确定的。比如说上面那句话，"首都"这个词上帝来了也预测不出来，谁知道你这里是要说”首都“还是”国旗“、”主席“或者什么其他别的词。这个例子也说明，只有更多的上下文，才能更好、更优的建模后文的token。
 
-<img src="../files/images/emergent_ability/logits.jpeg">
+<img src="../../files/images/emergent_ability/logits.jpeg">
 
 用博客里的图就是上面那张：一个代表加法的串，只有结果是确定的，输入谁来了也预测不了。所以说我们的模型压缩是有上限的，这个上限和数据集有关，和模型、方法无关。
 

@@ -12,13 +12,13 @@ date: 2023-07-05 14:17:54
 
 今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4
 
-<img src="../files/images/verify/result.png" style="zoom:33%;" >
+<img src="../../files/images/verify/result.png" style="zoom:33%;" >
 
 <!-- more -->
 
 作者团队来自openAI。其实openAI今年也没发几篇论文，我基本上都看了。今天正好分享一下这篇吧，以后有机会把别的也讲讲。
 
-<img src="../files/images/verify/authors.png" >
+<img src="../../files/images/verify/authors.png" >
 
 ## Introduction
 
@@ -32,7 +32,7 @@ date: 2023-07-05 14:17:54
 
 作者另辟蹊径，找了一个好判断的场景：数学题。作者把解决一个问题需要多步推导的每一个步骤视为一个step，由此进行了一波人工标注。
 
-<img src="../files/images/verify/step.png" >
+<img src="../../files/images/verify/step.png" >
 
 总体而言，
 
@@ -58,7 +58,7 @@ date: 2023-07-05 14:17:54
 
 在所有的实验开始之前，作者先对所有模型在一个叫做mathMix的充满数学题和解答的数据集(1.5B)进行了一波finetune
 
-<img src="../files/images/verify/mathMix.png" >
+<img src="../../files/images/verify/mathMix.png" >
 
 👆🏻数据组成是这样的。不幸的是这个数据集没开源，只能参考一下。
 
@@ -154,7 +154,7 @@ date: 2023-07-05 14:17:54
 
 拿到这些标签，就当是人标的，训练一个小号的PRM-small、ORM-small，然后用小号的generator-small做best-of-n实验对抗rm-small
 
-<img src="../files/images/verify/ablation.png" >
+<img src="../../files/images/verify/ablation.png" >
 
 由此，作者跑出来两个图：
 
@@ -191,7 +191,7 @@ date: 2023-07-05 14:17:54
 
 数据外分布测试：作者尝试了Math以外的数据集(和PRM、ORM的训练数据不一致)
 
-<img src="../files/images/verify/OOD.png" >
+<img src="../../files/images/verify/OOD.png" >
 
 可以发现数据规律和前面的实验一致
 

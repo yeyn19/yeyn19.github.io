@@ -3,6 +3,7 @@ import os
 import re
 from datetime import datetime
 from tqdm import tqdm
+from itertools import chain
 
 def is_leap_year(year):
     # 判断是否为闰年
@@ -54,13 +55,6 @@ def get_month_name(month):
     return month_dict[month]
 
 
-def print_month_title(year, month):
-    # 打印日历的首部
-
-    cal.write('         ' + str(get_month_name(month)) +  '   ' + str(year) + '          \n')
-    cal.write('星期日Sunday | 星期一Monday | 星期二Tuesday | 星期三Wednesday | 星期四Thursday | 星期五Friday | 星期六Saturday \n')
-    cal.write('----------- | ----------- | ------------ | -------------- | ------------- | ----------- | ------- |\n')
-
 def count_to_color(count):
     # 将0 - 5000 字映射到 0,255,0 -> 0,139,0
     count = min(count,5000)
@@ -71,7 +65,7 @@ def count_to_color(count):
     data = max(data, 0)
     return f"#00{format(data,'02X')}00"
 
-def print_table(year, month, blog_count, word_count,paper_interesting,paper_total,abbr_count, id,hidden):
+def print_table(cal, year, month, blog_count, word_count,paper_interesting,paper_total,abbr_count, id,hidden):
     # print(abbr_count)
     if hidden:
         cal.write(f"<table id='insights_{id}' hidden='hidden' style='text-align:center'>")
@@ -113,7 +107,7 @@ def print_table(year, month, blog_count, word_count,paper_interesting,paper_tota
             cal.write('</tr>\n<tr>')   # 每换行一次行首继续空格
     cal.write("</tr></table>")
     cal.write("\n\n")
-    pass
+    return
 
 
 def print_month_body(year, month, blog_count, word_count):
@@ -173,12 +167,16 @@ def get_all_blogs(root_dir = "./source/_posts"):
             names.append(path)
     return names
 
-def get_writing_freq(root_dir = "./source/_posts/arxiv_insights", year = 2022, month = 6):
+def get_arxiv_writing_freq(root_dir = "./source/_posts", year = 2022, month = 6):
     # 返回每天更新的博客数量
     blog_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
     word_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
-    paper_interesting_count = ["" for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
-    paper_total_count = ["??" for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+    paper_interesting_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+    paper_total_count = [-1 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+    paper_read_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+    paper_cite_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+    paper_pub_count = [0 for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
+
     abbr_count = ["" for i in range(get_num_of_days_in_month(year,month))] #统计开始前每天更新为0
     names = get_all_blogs(os.path.join(root_dir,"arxiv_insights"))
     for name in names:
@@ -187,8 +185,9 @@ def get_writing_freq(root_dir = "./source/_posts/arxiv_insights", year = 2022, m
         f = open(name,"r",encoding="utf-8")
         f_head,f_body = parse_md(f)
         date_pos = -1
-        paper_interesting = ""
-        paper_total = ""
+        paper_interesting = 0
+        paper_total = 0
+        paper_cite, paper_pub, paper_read = 0, 0, 0
         abbr_link = ""
         for cont in f_head:
             abbr_link = re.findall(f"abbrlink: (.+)",cont)
@@ -200,56 +199,73 @@ def get_writing_freq(root_dir = "./source/_posts/arxiv_insights", year = 2022, m
             if ma != []:
                 print(name)
                 date_pos = int(ma[0]) - 1
+                print(date_pos)
                 abbr_count[date_pos] = abbr_link
                 # print(date_pos)
                 word_count[date_pos] += get_word_count(f_body)
                 blog_count[date_pos] += 1
                 #print(get_word_count(f_body))
-                for cont in f_head:
+                for cont2 in f_head:
                     # 找到状态：
-                    if "interesting" in cont:
+                    if "interesting" in cont2:
+                        paper_interesting = int(cont2.split(":")[-1].strip())
+                    if "total" in cont2:
                         # print(cont)
-                        paper_interesting = cont.split(":")[-1].strip()
-                    if "total" in cont:
-                        # print(cont)
-                        paper_total = cont.split(":")[-1].strip()
-                    
-        if paper_interesting != "":
+                        paper_total = int(cont2.split(":")[-1].strip())
+                    if "cite" in cont2:
+                        paper_cite = int(cont2.split(":")[-1].strip())
+                    if "read" in cont2:
+                        paper_read = int(cont2.split(":")[-1].strip())
+                    if "pub" in cont2:
+                        paper_pub = int(cont2.split(":")[-1].strip())
+
+        if date_pos != -1:
             paper_interesting_count[date_pos] = paper_interesting
-        if paper_total != "":
-            paper_total_count[date_pos] = paper_total
-        
-    # print(status_count)
-    return blog_count,word_count,paper_interesting_count, paper_total_count, abbr_count
+
+            if paper_total != 0:
+                # if date_pos == 
+                paper_total_count[date_pos] = paper_total
+            else:
+                paper_total_count[date_pos] = 10*(paper_interesting+1)
+            if paper_read != 0:
+                paper_read_count[date_pos] = paper_read
+            if paper_cite != 0:
+                paper_cite_count[date_pos] = paper_cite
+            if paper_pub != 0:
+                paper_pub_count[date_pos] = paper_pub
+        # if name == "./source/_posts/arxiv_insights/2024-02-29-insights.md":
+        #     import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
+    return blog_count,word_count,paper_interesting_count, paper_total_count, abbr_count, paper_read_count, paper_cite_count, paper_pub_count
+
+
+def main():
+    time = datetime.now()
+    now_year = int(time.strftime("%Y")) #今天的年
+    now_month = int(time.strftime("%m")) # 今天月份
+    print(f"now {now_year}-{now_month}")
+    end_year = 2023
+    end_month = 9
 
 
 
-time = datetime.now()
-now_year = int(time.strftime("%Y")) #今天的年
-now_month = int(time.strftime("%m")) # 今天月份
-print(f"now {now_year}-{now_month}")
-end_year = 2022
-end_month = 6
+    data = open("./source/_posts/arxiv_insights/index.md","r").readlines()
+    data = data[:13]
+    cal = open("./source/_posts/arxiv_insights/index.md",'w')
+    for i in data:
+        cal.write(i)
+    cal.write("\n\n")
 
-
-
-data = open("./source/arxiv_insights/index.md","r").readlines()
-data = data[:13]
-cal = open("./source/arxiv_insights/index.md",'w')
-
-for i in data:
-    cal.write(i)
-
-id = 0
-while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序
-    id += 1
-    #下一个月
-    now_month -= 1
-    if now_month == 0:
-        now_month = 12
-        now_year -= 1
-
-cal.write('''
+    id = 0
+    while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序
+        id += 1
+        #下一个月
+        now_month -= 1
+        if now_month == 0:
+            now_month = 12
+            now_year -= 1
+    
+    cal.write('''
 <script type="text/javascript">
     var insight_now_id = '''+str(0)+''';
     var insight_max_id = '''+str(id-1)+''';
@@ -261,27 +277,26 @@ cal.write('''
         document.getElementById("insights_" + insight_now_id).hidden = "";
     }
 </script>
-''')
+    ''')
 
+    cal.write("\n\n")
 
-now_year = int(time.strftime("%Y")) #今天的年
-now_month = int(time.strftime("%m")) # 今天月份
-id = 0
-while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序
-    bc, wc,paper_interesting,paper_total, abbr_count = get_writing_freq("./source/_posts",now_year, now_month)
-    hidden = not (now_year == int(time.strftime("%Y")) and now_month == int(time.strftime("%m")))
-    print_table(now_year, now_month,bc,wc,paper_interesting,paper_total,abbr_count,id,hidden)
-    id += 1
-    #下一个月
-    now_month -= 1
-    if now_month == 0:
-        now_month = 12
-        now_year -= 1
-    # exit()
-cal.close()
+    time = datetime.now()
+    now_year = int(time.strftime("%Y")) #今天的年
+    now_month = int(time.strftime("%m")) # 今天月份
+    id = 0
+    while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序
+        bc, wc,paper_interesting,paper_total, abbr_count, paper_read_count, paper_cite_count, paper_pub_count = get_arxiv_writing_freq("./source/_posts",now_year, now_month)
+        hidden = not (now_year == int(time.strftime("%Y")) and now_month == int(time.strftime("%m")))
+        print_table(cal, now_year, now_month,bc,wc,paper_interesting,paper_total,abbr_count,id,hidden)
+        id += 1
+        #下一个月
+        now_month -= 1
+        if now_month == 0:
+            now_month = 12
+            now_year -= 1
+        # exit()
+    cal.close()
 
-
-data = open("./source/arxiv_insights/index.md","r").readlines()
-cal = open("./source/_posts/arxiv_insights/index.md",'w')
-for i in data:
-    cal.write(i)
+if __name__ == "__main__":
+    main()

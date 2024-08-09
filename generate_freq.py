@@ -2,11 +2,242 @@
 import os
 import re
 from datetime import datetime
+from generate_insights import get_arxiv_writing_freq
+from itertools import chain
+from copy import deepcopy
 from tqdm import tqdm
+
+
+def get_prompt():
+    end_year = 2023
+    end_month = 10
+
+    time = datetime.now()
+    now_year = int(time.strftime("%Y")) #今天的年
+    now_month = int(time.strftime("%m")) # 今天月份
+    now_day = int(time.strftime("%d")) # 今天月份
+    x_axis = []
+    # print(f"{now_year}-{now_month}-{now_day}")
+    id = 0
+    paper_read,paper_cite,paper_pub,paper_scan,paper_recommend = [],[],[],[],[]
+    while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序
+        blog_count,word_count,paper_interesting_count, paper_total_count, abbr_count, paper_read_count, paper_cite_count, paper_pub_count = get_arxiv_writing_freq("./source/_posts",now_year, now_month)
+        assert len(paper_interesting_count) == len(paper_total_count) == len(paper_cite_count) == len(paper_pub_count) == len(paper_read_count)
+        if id == 0:
+            paper_read_count = paper_read_count[:now_day]
+            paper_cite_count = paper_cite_count[:now_day]
+            paper_pub_count = paper_pub_count[:now_day]
+            paper_total_count = paper_total_count[:now_day]
+            paper_interesting_count = paper_interesting_count[:now_day]
+        month_days = [f"{now_year:04d}-{now_month:02d}-{(i+1):02d}" for i in range(len(paper_read_count))]
+        x_axis = [month_days] + x_axis
+        paper_read = [paper_read_count] + paper_read
+        paper_cite = [paper_cite_count] + paper_cite
+        paper_pub = [paper_pub_count] + paper_pub
+        paper_scan = [paper_total_count] + paper_scan
+        paper_recommend = [[int(num) if num !="" else 0 for num in paper_interesting_count]] + paper_recommend
+
+
+        now_month -= 1
+        if now_month == 0:
+            now_month = 12
+            now_year -= 1
+        id += 1
+
+    paper_read = list(chain(*paper_read))
+    paper_cite = list(chain(*paper_cite))
+    paper_pub = list(chain(*paper_pub))
+    paper_scan = list(chain(*paper_scan))
+    paper_recommend = list(chain(*paper_recommend))
+    x_axis = list(chain(*x_axis))
+
+    for lists in [paper_scan, paper_recommend]:
+        """这两者需要从前到后累加"""
+        now_sum = 0
+        for day_id in range(len(lists)):
+            if lists[day_id] > 0:
+                now_sum += lists[day_id]
+            lists[day_id] = now_sum
+
+    for lists in [paper_read, paper_cite, paper_pub]:
+        """这几个需要把0的位置补充成最后一个位置"""
+        next_num = 0
+        for day_id in range(len(lists))[::-1]:
+            if lists[day_id] > 0:
+                next_num = lists[day_id]
+            else:
+                lists[day_id] = next_num
+        #最后面有连着的0要顺便补上
+        pos = len(lists) -1
+        while lists[pos] == 0:
+            pos -= 1
+        flag = lists[pos] 
+        pos += 1
+        while pos <= len(lists) -1:
+            lists[pos] = flag
+            pos += 1
+    # import pdb; pdb.set_trace()
+
+    paper_scan = [num/10 for num in paper_scan]
+
+    timelines = {
+            "100 citation": "2023-10-15",
+            "Gemini": "2023-12-06",
+            "publish 10 paper": "2024-01-26",
+            "Sora": "2024-02-15",
+            "Twitter 100 followers": "2024-02-22",
+            "scan 10000 paper": "2024-04-18",
+        }
+
+    chart_head = ["read", "cite", "publish", "paper-scan-in-arxiv/10", "paper-recommend-in-arxiv"]
+    title =  ""
+    interval = int(len(paper_scan)/10)
+
+    vertical_line = """
+    {
+        name: '{{line_name}}',
+        type: 'line',
+        lineStyle: {
+            color: 'black', // 竖线颜色设置为黑色
+        },
+        markLine: {
+            symbol: ['none', 'none'], // 不显示标记线两端的标记
+            label: {
+                show: true, // 显示标签
+                position: 'end', // 在线的末端显示标签
+                formatter: '{{obj_name}}', // 自定义显示的文本
+                rotate: 30, // 旋转角度
+            },
+            lineStyle: {
+                color: 'black',
+            },
+            data: [
+                {
+                    name: '{{obj_name}}', // 这里是竖线的名字
+                    xAxis: '{{obj_time}}' // 假设你想在 2023-12-15 这个日期上添加竖线
+                }
+            ]
+        }
+    },
+    """
+
+    vertical_line_prompt = ""
+    for k, (obj_name, obj_time) in enumerate(timelines.items()):
+        vertical_line_new = deepcopy(vertical_line)
+        vertical_line_new = vertical_line_new.replace("{{line_name}}", f"obj_{k}")
+        vertical_line_new = vertical_line_new.replace("{{obj_name}}", obj_name)
+        vertical_line_new = vertical_line_new.replace("{{obj_time}}", obj_time)
+        vertical_line_prompt += vertical_line_new
+    
+    echart_prompt = """
+option = {
+title: {
+    text: \"""" + title +"""\"
+},
+tooltip: {
+    trigger: 'axis',
+    axisPointer: {
+    type: 'cross',
+    label: {
+        backgroundColor: '#6a7985'
+    }
+    }
+},
+legend: {
+    data: """ + str(chart_head) +"""
+},
+toolbox: {
+    feature: {
+    saveAsImage: {}
+    }
+},
+grid: {
+    left: '3%',
+    right: '4%',
+    bottom: '3%',
+    containLabel: true
+},
+xAxis: [
+    {
+    type: 'category',
+    boundaryGap: false,
+    data: """ + str(x_axis) +""",
+    axisLabel: {
+        interval: """ +str(interval) + """,
+        rotate: 45 // 设置标签旋转角度为45度
+    }
+    }
+],
+yAxis: [
+    {
+    type: 'value'
+    }
+],
+series: [
+    """+ vertical_line_prompt+"""
+    {
+    name: 'read',
+    type: 'line',
+    emphasis: {
+        focus: 'series'
+    },
+    itemStyle: {
+        borderWidth: 0
+    },
+    data: """ + str(paper_read) +"""
+    },
+    {
+    name: 'cite',
+    type: 'line',
+    emphasis: {
+        focus: 'series'
+    },
+    itemStyle: {
+        borderWidth: 0
+    },
+    data: """ + str(paper_cite) +"""
+    },
+    {
+    name: 'publish',
+    type: 'line',
+    emphasis: {
+        focus: 'series'
+    },
+    itemStyle: {
+        borderWidth: 0
+    },
+    data: """ + str(paper_pub) +"""
+    },
+    {
+    name: 'paper-scan-in-arxiv/10',
+    type: 'line',
+    emphasis: {
+        focus: 'series'
+    },
+    itemStyle: {
+        borderWidth: 0
+    },
+    data: """ + str(paper_scan) +"""
+    },
+    {
+    name: 'paper-recommend-in-arxiv',
+    type: 'line',
+    emphasis: {
+        focus: 'series'
+    },
+    itemStyle: {
+        borderWidth: 0
+    },
+    data: """ + str(paper_recommend) +"""
+    }
+]
+};
+"""
+    return echart_prompt
 
 def is_leap_year(year):
     # 判断是否为闰年
-    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+    if (year % 4 == 0) and (year % 100 != 0) or (year % 400 == 0):
         return True
     else:
         return False
@@ -14,9 +245,9 @@ def is_leap_year(year):
 
 def get_num_of_days_in_month(year, month):
     # 给定年月返回月份的天数
-    if month in (1, 3, 5, 7, 8, 10, 12):
+    if month in [1, 3, 5, 7, 8, 10, 12]:
         return 31
-    elif month in (4, 6, 9, 11):
+    elif month in [4, 6, 9, 11]:
         return 30
     elif is_leap_year(year):
         return 29
@@ -219,6 +450,16 @@ cal = open("./source/_posts/本月更新.md",'w')
 
 for i in data:
     cal.write(i)
+
+echart_prompt = get_prompt()
+cal.write("""
+<script src="https://github.com/TransformersWsz/TransformersWsz.github.io/releases/download/echarts/echarts.min.js"></script>
+
+{% echarts 500 '100%' %} 
+"""+  echart_prompt +"""
+{% endecharts %}
+\n""")
+
 
 id = 0
 while now_year > end_year or (now_year == end_year and now_month >= end_month): #反着排序

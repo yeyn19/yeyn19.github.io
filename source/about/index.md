@@ -4,7 +4,7 @@ date: 2022-06-17 13:58:50
 comments: false
 ---
 
-Hi, I am a First year master student at [THUNLP](http://nlp.csai.tsinghua.edu.cn) lab, Tsinghua University, coadvised by [Zhiyuan_Liu](http://lcg.tsinghua.edu.cn/info/1072/1191.htm).  working on computer science.
+Hi, I am a First year master student at [THUNLP](http://nlp.csai.tsinghua.edu.cn) lab, Tsinghua University, advised by [Zhiyuan_Liu](http://lcg.tsinghua.edu.cn/info/1072/1191.htm).  working on computer science.
 
 - Artificial Intelligence
 -  Natural Language Processing
@@ -14,6 +14,13 @@ Hi, I am a First year master student at [THUNLP](http://nlp.csai.tsinghua.edu.cn
 
 
 ## Recent News
+
+- (02/2024) Teaching Assistant of NLP, Tsinghua
+- (02/2024) Teaching Assistant of Program Design Basics, Tsinghua (utilize [DebugBench](https://arxiv.org/abs/2401.04621) techniques in education)
+- (01/2024) Teaching Assistant of NLP Mooc, learnX
+- (01/2024) reach 200 citations on Google-Scholar
+- (11/2023) Give a talk at AITime about Tool learning techniques
+- (10/2023) reach 100 citations on Google-Scholar
 
 - (9/2023) Give a talk at OpenBMB about advanced reasoning technique
 
@@ -32,6 +39,14 @@ Hi, I am a First year master student at [THUNLP](http://nlp.csai.tsinghua.edu.cn
 
 
 ## Selected Publications
+
+- 2024/01: [DebugBench: Evaluating Debugging Capability of Large Language Models](https://arxiv.org/abs/2401.04621)
+
+We have evaluated the debugging abilities of common LLMs, and we found that open-source LLM did poor on that task 
+
+- 2023/11: [ProAgent: From Robotic Process Automation to Agentic Process Automation](https://arxiv.org/abs/2311.10751)
+
+We explored using LLM to automatically generate RPA workflows, and how to use LLM as AI-data and AI-logic node in the workflow, which is called APA(Agentic Process Automation)
 
 - 2023/8: [Large Language Model as Autonomous Decision Maker](https://arxiv.org/abs/2308.12519)
 
