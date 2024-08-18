@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="昨天OpenAI一口气更新了两篇论文，暨DALL.E 3之后的又一更新，其中一篇讲述了一个朴素的问题：如果未来的模型超越人类了，我们该怎么给他们提供监督信号？（毕竟我们只有人类——一个相对更弱的模型） OpenAI把这个问题叫做weak-to-strong generalization在这里做了一些简单的尝试，对于这个问题的性质进行了一些探索。我们来一起学习一下他们看问题和解决问题的思路吧！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？">
+<meta property="og:url" content="https://www.yynnyy.cn/3229ec6">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="昨天OpenAI一口气更新了两篇论文，暨DALL.E 3之后的又一更新，其中一篇讲述了一个朴素的问题：如果未来的模型超越人类了，我们该怎么给他们提供监督信号？（毕竟我们只有人类——一个相对更弱的模型） OpenAI把这个问题叫做weak-to-strong generalization在这里做了一些简单的尝试，对于这个问题的性质进行了一些探索。我们来一起学习一下他们看问题和解决问题的思路吧！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/weak2strong/intro.png">
+<meta property="article:published_time" content="2023-12-16T02:52:21.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.970Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="superhumanAI">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/weak2strong/intro.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/3229ec6.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？ | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/3229ec6">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-16 10:52:21" itemprop="dateCreated datePublished" datetime="2023-12-16T10:52:21+08:00">2023-12-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/3229ec6" class="post-meta-item leancloud_visitors" data-flag-title="Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/3229ec6#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/3229ec6" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <img src="/../../files/images/weak2strong/intro.png" itemprop="contentUrl">
+        </div>
+        <p>昨天OpenAI一口气更新了两篇论文，暨DALL.E 3之后的又一更新，其中一篇讲述了一个朴素的问题：如果未来的模型超越人类了，我们该怎么给他们提供监督信号？（毕竟我们只有人类——一个相对更弱的模型）</p>
+<p>OpenAI把这个问题叫做weak-to-strong generalization在这里做了一些简单的尝试，对于这个问题的性质进行了一些探索。我们来一起学习一下他们看问题和解决问题的思路吧！</p>
+<span id="more"></span>
+<p>作者首先映入眼帘的就是ilya Sutskever，这个老哥真是为人类尽心尽力呀……OpenAI官网写的这个论文的作者是”Safety&amp;Alignment”</p>
+<p><img src="../../files/images/weak2strong/authors.png"></p>
+<p>而他的primary authors Jeff Wu更是重量级，我不多评价，直接列出其最近的publication，可以说是群星璀璨了……我什么时候能发12篇论文都有这个质量呀</p>
+<p><img src="../../files/images/weak2strong/jeff_wu.png" style="zoom:30%;"></p>
+<h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><p>回到正题，作者提到目前的研究更多focus在RLHF，既模型向人类偏好对齐，这套框架最终可以发展出一个类似于人的通用人工智能。然而，到此为止了：想要训练、对齐一个超越人类的智能，目前的方法都不再适用了，因为我们最高也只能用到人了。举个例子:</p>
+<blockquote>
+<p>我们可以要求模型写出一个100万行的很复杂的代码来完成一个任务，然而让人去看代码好不好是一个很难达成的任务。</p>
+</blockquote>
+<p>因此，目前还没有关于superalignment（对齐一个超越人的模型）的研究，并且，我们更希望其对应的方法可以不止适用于目前的模型，更适用于未来的模型(consistency)。在本篇工作中，作者类比了人类监督超人模型的问题，提出了一个类似的问题：可以用GPT2监督GPT4吗？</p>
+<blockquote>
+<p>具体来说，能不能用GPT2在某个任务的trainset上finetune，然后给trainset重新打一遍标签。让GPT4在GPT2打标签的trainset上训练，然后观察GPT2和GPT4在testset上的表现？</p>
+</blockquote>
+<p>这是一个很直观很容易实现的setup，作者把这个set up叫做weak-to-strong learning。</p>
+<p>听起来这个weak-to-strong generalization似乎是不可能的，不过作者进行了一些解释：在学习过程中，我们不是预期弱模型教会强模型知识(这些知识是强模型本来就会的)，而是希望弱模型教会强模型这个任务的概念是什么，和一些intension，因此这个过程更像是激发”elicit”。用刚才那个例子来说，如果强模型已经能写100万行的代码，那他肯定有潜力去理解人类的目的是什么。因此即使弱模型给的标签有误差，应该不影响一个更鲁棒的强模型去理解，这就是作者预期出现的结果。</p>
+<p><img src="../../files/images/weak2strong/first_perf.png" style="zoom:30%;"></p>
+<p>作者在传统NLP task(二分类)、chess puzzles(选出最优步的生成任务)、human preference modeling(二分类)上做了实验，并得出一些结论：</p>
+<ul>
+<li>强模型在weak-to-strong generalize以后基本都会超越帮他标数据的弱模型。？？？</li>
+<li>直接做weak-to-strong generalize的效果并不好，比强模型+oracle-label finetune 差很远，可能需要一些额外的优化</li>
+<li>一些很简单、很直觉地方案对于这个任务的提升很大。这说明这个领域还有很大的进步空间</li>
+</ul>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>像刚才Introduction里提到的，这个setup是很简单的。不过，比起一般论文讲完方法讲实验，作者额外说了一下这个setup的优点和问题。作者额外说了一个他们观察的指标performance gap recovered(PRG)：假设weak-to-strong训练比小模型效果好，那他能恢复强模型直接训练的几分风采？注意，这里面PRG=1代表和强模型直接训练等价，PRG=0代表和小模型表现一样，完全没有generalize。</p>
+<blockquote>
+<p>为什么要和 “强模型+orcale finetune” 去比？虽然现在的setup是数据集，因此有orcale 标签可以做”强模型+orcale finetune”的上限实验。但事实上所谓的”orcale 标签”也是人去打的标签，未来的模型在完成超人任务时就没有标签了，或者说只有人去打的”噪声标签”。</p>
+<p>这种情况下，我们可以预设有”外星人打的oracle标签”跑上限实验，也就是说：我们更关注超人模型的能力上限能不能被激发出来。PGR可以看做一个”激发比例”</p>
+</blockquote>
+<p><img src="../../files/images/weak2strong/prg.png" style="zoom:50%;"></p>
+<p>优点：总体来说，就是这个方案更有利于scaling</p>
+<ul>
+<li>对于模型不可知，任何的 强-弱 模型对都能跑这个实验，也不需要一定要有GPT4。另外，这个路径不需要人，因此实验很快</li>
+<li>对任务不可知，任何任务都能跑这个setup</li>
+<li>这里面得到的关于超人模型的结论，即使现在也能用的上：未来对齐GPT10的方法，不妨现在就用到GPT4里？</li>
+</ul>
+<blockquote>
+<p>这也许暗示着目前OpenAI内部已经有超人模型了……</p>
+</blockquote>
+<p>缺点：</p>
+<ul>
+<li>Imitation saliency：这个我觉得很难翻译，就直接摆原文了。这里讲的是未来的超人模型和今天的GPT4存在统计学的巨大差异。对未来的超人模型来说，理解人类的想法是一个很简单的问题，但GPT4去理解GPT2可能没那么简单。并且，GPT2犯的错误类型和人类犯的错误类型也有很大区别，因此目前的结论更多是研究GPT2错误，会有统计学差异。</li>
+<li>数据泄露：目前的setup里面的oracle标签可能或多或少在预训练数据里出现过。未来的模型不存在”超人的预训练数据”，因此实验结论可能和现在有偏差</li>
+</ul>
+<p>总体而言，超人模型长什么样、有什么现象现在仍未可知。作者提到，我们更需要对于未来的所有模型都跑一跑现在的实验，观察一下实验结论是否是稳定存在于所有模型中的……怎么有一种三体人的水滴在破坏物理学规律的感觉……</p>
+<h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>作者在附录里讲了实验细节，大致有如下关键点：</p>
+<ul>
+<li>NLP task中，作者选取了29个有代表意义的task，都转换成了2分类任务，为了简化整个setting。</li>
+<li>在模型方面，作者使用GPT4架构，构造了和GPT2、GPT3、GPT3.5、GPT4相当计算量的模型(但都是GPT4架构)。作者去掉了decoder最后的那个unembedding layer，换成了一个二分类头做实验</li>
+<li>数据方面，作者把数据做了一些清洗，使得数据集中两个类的标签数量接近，然后有数据分类风险的数据们都在train test的其中一个split上</li>
+</ul>
+<p>另外两个setup：</p>
+<ul>
+<li>reward model：作者直接使用了训练ChatGPT的SFT数据集，里面有数据对以及human给出的偏好。可以看成一个很复杂的二分类任务。这个的训练方法和正常的reward model一样，把unembedding layer改成一个N-&gt;1的linear来输出一个float当做score。最后用两个candidate的score谁大来作为预测</li>
+<li>chess puzzle：很多象棋的棋局，作者希望模型给出第一步，最优解是什么。这个可以看做一个生成任务，因为可选位置有很多个。原始数据大概长下面这样</li>
+</ul>
+<p><img src="../../files/images/weak2strong/chess.png" style="zoom:20%;"></p>
+<blockquote>
+<p>我猜测，作者选这几个setup是基于这样的考虑：</p>
+<p>NLP task，大小模型做的都不错。</p>
+<p>chess puzzle，大模型做的不错，小模型做不了。 </p>
+<p>reward model，大小模型做的都不太好</p>
+</blockquote>
+<p>由此，作者</p>
+<ul>
+<li>首先构造了大小不同的多个GPT4架构的模型。这些模型都是做过预训练的，使用的预训练数据和GPT4一致</li>
+<li>对于每个setting，作者分别跑了刚才提到的四步测试<ul>
+<li>小模型在trainset真实标签上做训练FT</li>
+<li>FT的小模型给trainset重新打一遍伪标签</li>
+<li>大模型在带噪的trainset上训练，同时做一个真实标签FT的上限训练</li>
+<li>测量三个模型在testset的表现，计算出PRG</li>
+</ul>
+</li>
+</ul>
+<p>论文的主试验就是下面这个图</p>
+<p><img src="../../files/images/weak2strong/main.png" style="zoom:50%;"></p>
+<p>这个看着有点费解，后面的所有图都用了相同的画法，我在这里解释一下：</p>
+<ul>
+<li>纵着看，每列代表一个task。(29个NLP task被划到一起了 )</li>
+<li>横着看，上面三个图报告的是数据集上的performance，下面三个图报告的是PRG</li>
+<li>每个图里面的横轴说的是学生模型的大小，标准是GPT4相对计算量。注意，学生模型一定比老师强</li>
+<li>图里的一条线代表的是同一个老师监督不同大小的学生的水平。老师越大，线越亮。注意，老师永远小于学生，因此这个图差不多都在右下三角半区</li>
+<li>上面的三个图里最上面的线是大模型的上限实验结果。</li>
+</ul>
+<p>作者观察到几个关键结论：</p>
+<ul>
+<li>PRG基本永远大于0，学生总是强过老师。</li>
+<li><p>老师变大或者学生变大，PRG基本都会增大。对于最强的学生，PRG甚至会超过50%：这也许预示着，对于超人模型来说，weak-to-strong generalization实际上很简单</p>
+</li>
+<li><p>chess puzzle任务上，这些现象更显著。当学生很小时，PRG接近0，大小模型做的都很垃圾。并且，这个任务上的PRG和前面相反，出现了inverse scaling现象？即同一个老师，学生越强，PRG反而越低了？</p>
+</li>
+<li><p>对于reward model任务，PRG一直都很低。对于所有setting，PRG都低于20%</p>
+</li>
+</ul>
+<p>作者特别强调了一下，PRG&gt;0这个事情基本一直成立，这个现象其实很神奇，因为也没做什么特别的优化。这个现象预示着superalignment的可能性，也需要在相关领域有更多的研究</p>
+<h2 id="如何提高weak-to-strong-generalization的表现？"><a href="#如何提高weak-to-strong-generalization的表现？" class="headerlink" title="如何提高weak-to-strong generalization的表现？"></a>如何提高weak-to-strong generalization的表现？</h2><p>做完主试验，一个显然的思路就是：如何优化他？作者在这里简单地想了几个办法。在这里，我们看一下OpenAI研究员的”注意到”是什么样的吧？</p>
+<h3 id="bootstrapping：级联"><a href="#bootstrapping：级联" class="headerlink" title="bootstrapping：级联"></a>bootstrapping：级联</h3><p>注意到：刚才提到老师和学生差距太大，以及老师/学生提升，PRG效果都会变好。那么，如果用小老师监督稍微强一点的学生，再把学生当成新老师，监督更强一点的学生……如此反复，效果会更好吗？</p>
+<p><img src="../../files/images/weak2strong/bootstrap.png" style="zoom:50%;"></p>
+<p>作者在chess puzzle进行了实验，图里面的虚线是主试验里面的小老师直接监督大学生，实现是级联监督的结果。作者发现：</p>
+<ul>
+<li>当最开始的大小gap差距小时，这个办法是优化</li>
+<li>当最开始的大小gap差距大时，这个办法是负优化</li>
+</ul>
+<p>尽管在chess puzzle看起来效果不错，但作者发现这个办法在NLP task提升不大，在reward modeling没有提升。对于这个现象。作者”注意到”：主试验中，Chess这个场景gap越大PRG越小，其他场景都是gap越大PRG越大。因此级联方法缩小gap，对于Chess才有帮助。 </p>
+<blockquote>
+<p>可是，主试验又为什么会有这样的现象呢？</p>
+</blockquote>
+<h3 id="auxiliary-confidence-loss-学生要学会质疑"><a href="#auxiliary-confidence-loss-学生要学会质疑" class="headerlink" title="auxiliary confidence loss: 学生要学会质疑"></a>auxiliary confidence loss: 学生要学会质疑</h3><p>注意到：强模型是在弱模型打得标签上训练的，因此强模型不得不去学习弱模型犯的错误。我们更希望强模型从噪声标签中学习任务的intension，而不是学习弱模型的错误(因为对强模型来说，理解弱模型犯的错误也是一个简单的事情)。但目前的训练框架没法区分这两者。</p>
+<p>作者想了一个朴素的办法，把强模型自己的confidence loss加入进去作为辅助loss，和弱模型的标签loss形成一个对抗，对冲一下”学习犯错”带来的影响。</p>
+<script type="math/tex; mode=display">
+L' = (1-\alpha)\text{CE}(f(x), f_w(x)) + \alpha \text{CE}(f(x), \hat{f}_t(x))</script><p>其中$f_w(x)$是老师的logits， $\hat{f}_t(x)=I[f(x) &gt;t]$是给学生模型的预测按照阈值t做了离散化后的标签。$\alpha,t$都是超参数</p>
+<p>注意到，上面的公式等价于下面这个，思路和self-training有点类似</p>
+<script type="math/tex; mode=display">
+L' = \text{CE}\left(f(x), (1-\alpha)f_w(x)+\alpha\hat{f}_t(x) \right)</script><p>这个新loss相当于噪声标签和学生自己打的标签的一个加权平均。最开始的时候学生啥都不会，应该把$\alpha$调小，后面再慢慢增大，作者在实验中就在前20%训练中把$\alpha$从0提升到0.75，后面维持0.75不变</p>
+<blockquote>
+<p>如果老师和学生模型的算法相同，也许可以不再标签层面做平滑，可以直接用logits做平滑，去掉一个超参数t。作者估计是为了保证scaling的通用性，就没这么优化。</p>
+</blockquote>
+<p><img src="../../files/images/weak2strong/aux.png" style="zoom:50%;"></p>
+<p>类似上面，作者在NLP任务上做了实验，发现这个优化对于NLP任务的PRG提升很明显，甚至从25%提升到了80%……作者认为这个结论是符合直觉的：aux loss可以减缓学生在”weak error learning”上的计算资源，减缓对于老师的错误的拟合</p>
+<p>上篇也写了4000多字了，就讲到这里，在下篇我会分享作者对于这些现象，以及superalignment问题的理解，再说一说我对这些问题的看法，以及我对于这篇论文研究思路的思考。</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/61495969.html" rel="bookmark">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/7cd10148.html" rel="bookmark">Self-Consistency之我见，兼More Agents is All You Need</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/superhumanAI/" rel="tag"><i class="fa fa-tag"></i> superhumanAI</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/68247c98" rel="prev" title="论文阅读[精读]-Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics">
+      <i class="fa fa-chevron-left"></i> 论文阅读[精读]-Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2300f7be" rel="next" title="论文阅读[粗读]-Alignment For Honesty">
+      论文阅读[粗读]-Alignment For Honesty <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98weak-to-strong-generalization%E7%9A%84%E8%A1%A8%E7%8E%B0%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">如何提高weak-to-strong generalization的表现？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrapping%EF%BC%9A%E7%BA%A7%E8%81%94"><span class="nav-number">4.1.</span> <span class="nav-text">bootstrapping：级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auxiliary-confidence-loss-%E5%AD%A6%E7%94%9F%E8%A6%81%E5%AD%A6%E4%BC%9A%E8%B4%A8%E7%96%91"><span class="nav-number">4.2.</span> <span class="nav-text">auxiliary confidence loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/3229ec6" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/3229ec6" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

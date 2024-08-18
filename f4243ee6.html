@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv 论文中总结分享最重要、最有趣的最多三篇论文。 Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to">
+<meta property="og:type" content="article">
+<meta property="og:title" content="arxiv-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/f4243ee6">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv 论文中总结分享最重要、最有趣的最多三篇论文。 Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-01-15T02:58:32.000Z">
+<meta property="article:modified_time" content="2024-08-18T15:16:10.050Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://www.yynnyy.cn/f4243ee6.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>arxiv-insights | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/f4243ee6">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          arxiv-insights
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-01-15 10:58:32" itemprop="dateCreated datePublished" datetime="2024-01-15T10:58:32+08:00">2024-01-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-18 23:16:10" itemprop="dateModified" datetime="2024-08-18T23:16:10+08:00">2024-08-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/f4243ee6" class="post-meta-item leancloud_visitors" data-flag-title="arxiv-insights" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/f4243ee6#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/f4243ee6" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv 论文中总结分享最重要、最有趣的最多三篇论文。</p>
+<p>Compression brings intelligence, 5% of papers determine 95% of AI technologies! Share the most important papers from Arxiv, every day, up to three!</p>
+<script type="text/javascript">
+    var insight_now_id = 0;
+    var insight_max_id = 11;
+    function tips_insight(num){
+        document.getElementById("insights_"+insight_now_id).hidden = "hidden";
+        insight_now_id -= num;
+        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}
+        if (insight_now_id < 0) {insight_now_id = 0;}
+        document.getElementById("insights_" + insight_now_id).hidden = "";
+    }
+</script>
+
+
+<table id="insights_0" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年八月August</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td><td>3 </td></tr>
+<tr><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td><td>10 </td></tr>
+<tr><td>11 </td><td bgcolor="#00F500"><a href="../bd0e34fe">12(73->1 papers)</a></td><td bgcolor="#00F200"><a href="../52cc5fc0">13(68->2 papers)</a></td><td bgcolor="#00F500"><a href="../b01044b9">14(53->1 papers)</a></td><td bgcolor="#00F700"><a href="../5fd22f87">15(41->1 papers)</a></td><td bgcolor="#00F500"><a href="../b4e59484">16(36->1 papers)</a></td><td>17 </td></tr>
+<tr><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td><td>24 </td></tr>
+<tr><td>25 </td><td>26 </td><td>27 </td><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr>
+<tr></tr></table>
+
+<table id="insights_1" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年七月July</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td><td bgcolor="#00F600"><a href="../b0c78508">1(68->1 papers)</a></td><td bgcolor="#00E100"><a href="../5bf03e0b">2(155->3 papers)</a></td><td bgcolor="#00F500"><a href="../b4325535">3(96->1 papers)</a></td><td bgcolor="#00F000"><a href="../56ee4e4c">4(87->2 papers)</a></td><td>5 </td><td>6 </td></tr>
+<tr><td>7 </td><td bgcolor="#00ED00"><a href="../4cd2aec2">8(121->2 papers)</a></td><td bgcolor="#00ED00"><a href="../a310c5fc">9(106->2 papers)</a></td><td bgcolor="#00F100"><a href="../9e8b31f6">10(69->2 papers)</a></td><td bgcolor="#00ED00"><a href="../71495ac8">11(45->2 papers)</a></td><td bgcolor="#00EE00"><a href="../9a7ee1cb">12(46->2 papers)</a></td><td>13 </td></tr>
+<tr><td>14 </td><td bgcolor="#00F900"><a href="../78a2fab2">15(49->1 papers)</a></td><td bgcolor="#00EA00"><a href="../939541b1">16(112->2 papers)</a></td><td bgcolor="#00F500"><a href="../7c572a8f">17(97->1 papers)</a></td><td>18 </td><td bgcolor="#00E400"><a href="../629e1a3c">19(129->3 papers)</a></td><td>20 </td></tr>
+<tr><td>21 </td><td bgcolor="#00F500"><a href="../39c87ca">22(50->1 papers)</a></td><td bgcolor="#00E500"><a href="../ec5eecf4">23(105->3 papers)</a></td><td bgcolor="#00F400"><a href="../e82f78d">24(54->1 papers)</a></td><td bgcolor="#00F800"><a href="../e1409cb3">25(49->1 papers)</a></td><td bgcolor="#00EF00"><a href="../a7727b0">26(60->2 papers)</a></td><td>27 </td></tr>
+<tr><td>28 </td><td>29 </td><td>30 </td><td>31 </td></tr></table>
+
+<table id="insights_2" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年六月June</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td></tr>
+<tr><td>2 </td><td bgcolor="#00F500"><a href="../69a48cb0">3(77->1 papers)</a></td><td bgcolor="#00E500"><a href="../8b7897c9">4(153->3 papers)</a></td><td bgcolor="#00F100"><a href="../64bafcf7">5(93->2 papers)</a></td><td bgcolor="#00F900"><a href="../8f8d47f4">6(90->1 papers)</a></td><td bgcolor="#00E900"><a href="../604f2cca">7(84->3 papers)</a></td><td>8 </td></tr>
+<tr><td>9 </td><td bgcolor="#00F500"><a href="../431de873">10(80->1 papers)</a></td><td bgcolor="#00E400"><a href="../acdf834d">11(150->3 papers)</a></td><td bgcolor="#00E800"><a href="../47e8384e">12(148->3 papers)</a></td><td bgcolor="#00E700"><a href="../a82a5370">13(83->3 papers)</a></td><td bgcolor="#00F800"><a href="../4af64809">14(88->1 papers)</a></td><td>15 </td></tr>
+<tr><td>16 </td><td bgcolor="#00EB00"><a href="../a1c1f30a">17(72->2 papers)</a></td><td bgcolor="#00E600"><a href="../50caa887">18(310->4 papers)</a></td><td bgcolor="#00E500"><a href="../bf08c3b9">19(161->3 papers)</a></td><td>20 </td><td bgcolor="#00E600"><a href="../353de54c">21(223->3 papers)</a></td><td>22 </td></tr>
+<tr><td>23 </td><td bgcolor="#00F700"><a href="../d3142e08">24(100->1 papers)</a></td><td bgcolor="#00ED00"><a href="../3cd64536">25(188->2 papers)</a></td><td bgcolor="#00F000"><a href="../d7e1fe35">26(101->2 papers)</a></td><td bgcolor="#00E600"><a href="../3823950b">27(101->3 papers)</a></td><td bgcolor="#00EC00"><a href="../c928ce86">28(78->2 papers)</a></td><td>29 </td></tr>
+<tr><td>30 </td></tr></table>
+
+<table id="insights_3" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年五月May</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td bgcolor="#00EB00"><a href="../d09b3043">1(64->2 papers)</a></td><td bgcolor="#00EB00"><a href="../3bac8b40">2(71->2 papers)</a></td><td bgcolor="#00F500"><a href="../d46ee07e">3(47->1 papers)</a></td><td>4 </td></tr>
+<tr><td>5 </td><td bgcolor="#00F500"><a href="../32472b3a">6(69->1 papers)</a></td><td bgcolor="#00E400"><a href="../dd854004">7(82->4 papers)</a></td><td bgcolor="#00F000"><a href="../2c8e1b89">8(41->2 papers)</a></td><td bgcolor="#00F600"><a href="../c34c70b7">9(36->1 papers)</a></td><td bgcolor="#00F500"><a href="../fed784bd">10(42->1 papers)</a></td><td>11 </td></tr>
+<tr><td>12 </td><td bgcolor="#00F700"><a href="../15e03fbe">13(49->1 papers)</a></td><td bgcolor="#00FE00"><a href="../f73c24c7">14(122->0 papers)</a></td><td bgcolor="#00FE00"><a href="../18fe4ff9">15(42->0 papers)</a></td><td bgcolor="#00FE00"><a href="../f3c9f4fa">16(28->0 papers)</a></td><td bgcolor="#00ED00"><a href="../1c0b9fc4">17(48->2 papers)</a></td><td>18 </td></tr>
+<tr><td>19 </td><td bgcolor="#00F800"><a href="../6735e2bc">20(43->1 papers)</a></td><td bgcolor="#00F500"><a href="../88f78982">21(106->1 papers)</a></td><td bgcolor="#00FE00"><a href="../63c03281">22(40->0 papers)</a></td><td>23 </td><td bgcolor="#00E600"><a href="../6ede42c6">24(196->3 papers)</a></td><td>25 </td></tr>
+<tr><td>26 </td><td bgcolor="#00E100"><a href="../85e9f9c5">27(72->3 papers)</a></td><td bgcolor="#00ED00"><a href="../74e2a248">28(72->2 papers)</a></td><td bgcolor="#00F100"><a href="../9b20c976">29(81->2 papers)</a></td><td bgcolor="#00E900"><a href="../a6bb3d7c">30(72->2 papers)</a></td><td bgcolor="#00E600"><a href="../'49795642'">31(76->3 papers)</a></td></tr></table>
+
+<table id="insights_4" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年四月April</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td><td bgcolor="#00E400"><a href="../d0de9c6">1(62->3 papers)</a></td><td bgcolor="#00EA00"><a href="../e63a52c5">2(159->3 papers)</a></td><td bgcolor="#00F900"><a href="../9f839fb">3(101->1 papers)</a></td><td bgcolor="#00F400"><a href="../eb242282">4(74->1 papers)</a></td><td bgcolor="#00E300"><a href="../4e649bc">5(72->4 papers)</a></td><td>6 </td></tr>
+<tr><td>7 </td><td bgcolor="#00DF00"><a href="../f118c20c">8(46->3 papers)</a></td><td bgcolor="#00E100"><a href="../1edaa932">9(118->3 papers)</a></td><td bgcolor="#00F000"><a href="../23415d38">10(62->2 papers)</a></td><td bgcolor="#00F400"><a href="../cc833606">11(48->1 papers)</a></td><td bgcolor="#00E500"><a href="../27b48d05">12(59->3 papers)</a></td><td>13 </td></tr>
+<tr><td>14 </td><td bgcolor="#00FE00"><a href="../c568967c">15(46->0 papers)</a></td><td bgcolor="#00ED00"><a href="../2e5f2d7f">16(137->2 papers)</a></td><td bgcolor="#00F600"><a href="../c19d4641">17(47->1 papers)</a></td><td bgcolor="#00E700"><a href="../30961dcc">18(57->3 papers)</a></td><td bgcolor="#00F800"><a href="../df5476f2">19(59->1 papers)</a></td><td>20 </td></tr>
+<tr><td>21 </td><td bgcolor="#00FE00"><a href="../be56eb04">22(50->0 papers)</a></td><td bgcolor="#00DA00"><a href="../5194803a">23(104->4 papers)</a></td><td bgcolor="#00F600"><a href="../b3489b43">24(83->1 papers)</a></td><td bgcolor="#00F800"><a href="../5c8af07d">25(47->1 papers)</a></td><td bgcolor="#00F700"><a href="../b7bd4b7e">26(56->1 papers)</a></td><td>27 </td></tr>
+<tr><td>28 </td><td bgcolor="#00FE00"><a href="../46b610f3">29(41->0 papers)</a></td><td bgcolor="#00E700"><a href="../7b2de4f9">30(99->3 papers)</a></td></tr></table>
+
+<table id="insights_5" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年三月March</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td bgcolor="#00F000"><a href="../707eef9e">1(67->2 papers)</a></td><td>2 </td></tr>
+<tr><td>3 </td><td bgcolor="#00F700"><a href="../965724da">4(48->1 papers)</a></td><td bgcolor="#00EE00"><a href="../79954fe4">5(175->2 papers)</a></td><td bgcolor="#00EA00"><a href="../92a2f4e7">6(74->3 papers)</a></td><td bgcolor="#00F700"><a href="../7d609fd9">7(52->1 papers)</a></td><td bgcolor="#00F000"><a href="../8c6bc454">8(58->2 papers)</a></td><td>9 </td></tr>
+<tr><td>10 </td><td bgcolor="#00EC00"><a href="../b1f0305e">11(69->2 papers)</a></td><td bgcolor="#00F800"><a href="../5ac78b5d">12(115->1 papers)</a></td><td bgcolor="#00E500"><a href="../b505e063">13(53->2 papers)</a></td><td bgcolor="#00E800"><a href="../57d9fb1a">14(73->3 papers)</a></td><td bgcolor="#00E100"><a href="../b81b9024">15(58->3 papers)</a></td><td>16 </td></tr>
+<tr><td>17 </td><td bgcolor="#00F900"><a href="../4de51b94">18(75->1 papers)</a></td><td bgcolor="#00DC00"><a href="../a22770aa">19(114->4 papers)</a></td><td bgcolor="#00EF00"><a href="../c7d03d61">20(61->2 papers)</a></td><td bgcolor="#00EE00"><a href="../2812565f">21(56->2 papers)</a></td><td bgcolor="#00E100"><a href="../c325ed5c">22(66->3 papers)</a></td><td>23 </td></tr>
+<tr><td>24 </td><td bgcolor="#00F000"><a href="../21f9f625">25(67->2 papers)</a></td><td bgcolor="#00E100"><a href="../cace4d26">26(148->3 papers)</a></td><td bgcolor="#00EE00"><a href="../250c2618">27(84->2 papers)</a></td><td bgcolor="#00E800"><a href="../d4077d95">28(66->3 papers)</a></td><td bgcolor="#00E100"><a href="../3bc516ab">29(69->3 papers)</a></td><td>30 </td></tr>
+<tr><td>31 </td></tr></table>
+
+<table id="insights_6" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年二月February</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td><td bgcolor="#00E600"><a href="../ade8361b">1(52->3 papers)</a></td><td bgcolor="#00E200"><a href="../46df8d18">2(54->4 papers)</a></td><td>3 </td></tr>
+<tr><td>4 </td><td bgcolor="#00EB00"><a href="../a4039661">5(71->2 papers)</a></td><td bgcolor="#00EB00"><a href="../4f342d62">6(221->2 papers)</a></td><td bgcolor="#00E900"><a href="../a0f6465c">7(77->3 papers)</a></td><td bgcolor="#00F400"><a href="../51fd1dd1">8(58->1 papers)</a></td><td bgcolor="#00F000"><a href="../be3f76ef">9(81->2 papers)</a></td><td>10 </td></tr>
+<tr><td>11 </td><td bgcolor="#00EE00"><a href="../875152d8">12(46->2 papers)</a></td><td bgcolor="#00E800"><a href="../'689339e6'">13(93->3 papers)</a></td><td bgcolor="#00F200"><a href="../8a4f229f">14(51->2 papers)</a></td><td bgcolor="#00EC00"><a href="../658d49a1">15(49->2 papers)</a></td><td bgcolor="#00F000"><a href="../8ebaf2a2">16(68->2 papers)</a></td><td>17 </td></tr>
+<tr><td>18 </td><td bgcolor="#00ED00"><a href="../7fb1a92f">19(88->2 papers)</a></td><td bgcolor="#00E400"><a href="../1a46e4e4">20(265->3 papers)</a></td><td bgcolor="#00E600"><a href="../f5848fda">21(108->2 papers)</a></td><td bgcolor="#00EB00"><a href="../1eb334d9">22(105->2 papers)</a></td><td bgcolor="#00E600"><a href="../f1715fe7">23(105->3 papers)</a></td><td>24 </td></tr>
+<tr><td>25 </td><td bgcolor="#00F200"><a href="../175894a3">26(114->3 papers)</a></td><td bgcolor="#00EE00"><a href="../f89aff9d">27(165->3 papers)</a></td><td bgcolor="#00E900"><a href="../991a410">28(84->3 papers)</a></td><td bgcolor="#00F100"><a href="../e653cf2e">29(96->2 papers)</a></td></tr></table>
+
+<table id="insights_7" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2024年一月January</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td><td bgcolor="#00F400"><a href="../10225ad5">1(42->1 papers)</a></td><td bgcolor="#00EB00"><a href="../fb15e1d6">2(48->1 papers)</a></td><td bgcolor="#00ED00"><a href="../14d78ae8">3(24->2 papers)</a></td><td bgcolor="#00EF00"><a href="../f60b9191">4(29->2 papers)</a></td><td bgcolor="#00F800"><a href="../19c9faaf">5(28->1 papers)</a></td><td>6 </td></tr>
+<tr><td>7 </td><td bgcolor="#00F800"><a href="../ec37711f">8(17->1 papers)</a></td><td bgcolor="#00DA00"><a href="../3f51a21">9(80->4 papers)</a></td><td bgcolor="#00EB00"><a href="../3e6eee2b">10(38->2 papers)</a></td><td bgcolor="#00EB00"><a href="../d1ac8515">11(36->2 papers)</a></td><td bgcolor="#00EB00"><a href="../3a9b3e16">12(60->2 papers)</a></td><td>13 </td></tr>
+<tr><td>14 </td><td bgcolor="#00DA00"><a href="../d847256f">15(57->3 papers)</a></td><td>16 </td><td bgcolor="#00CE00"><a href="../dcb2f552">17(163->5 papers)</a></td><td bgcolor="#00F700"><a href="../2db9aedf">18(35->1 papers)</a></td><td bgcolor="#00EA00"><a href="../c27bc5e1">19(49->3 papers)</a></td><td>20 </td></tr>
+<tr><td>21 </td><td bgcolor="#00E400"><a href="../a3795817">22(45->3 papers)</a></td><td bgcolor="#00E700"><a href="../4cbb3329">23(75->3 papers)</a></td><td bgcolor="#00F500"><a href="../ae672850">24(43->1 papers)</a></td><td bgcolor="#00F800"><a href="../41a5436e">25(56->1 papers)</a></td><td bgcolor="#00DB00"><a href="../aa92f86d">26(46->3 papers)</a></td><td>27 </td></tr>
+<tr><td>28 </td><td bgcolor="#00FE00"><a href="../5b99a3e0">29(42->0 papers)</a></td><td bgcolor="#00EC00"><a href="../660257ea">30(85->2 papers)</a></td><td bgcolor="#00F600"><a href="../89c03cd4">31(57->1 papers)</a></td></tr></table>
+
+<table id="insights_8" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2023年十二月December</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td bgcolor="#00E200"><a href="../cd1e2f18">1(44->3 papers)</a></td><td>2 </td></tr>
+<tr><td>3 </td><td bgcolor="#00ED00"><a href="../2b37e45c">4(39->2 papers)</a></td><td bgcolor="#00E200"><a href="../c4f58f62">5(78->3 papers)</a></td><td bgcolor="#00E400"><a href="../2fc23461">6(44->3 papers)</a></td><td bgcolor="#00FC00"><a href="../c0005f5f">7(42->0 papers)</a></td><td bgcolor="#00EC00"><a href="../310b04d2">8(89->2 papers)</a></td><td>9 </td></tr>
+<tr><td>10 </td><td bgcolor="#00EE00"><a href="../c90f0d8">11(41->2 papers)</a></td><td bgcolor="#00FE00"><a href="../e7a74bdb">12(72->0 papers)</a></td><td bgcolor="#00F600"><a href="../'86520e5'">13(48->1 papers)</a></td><td bgcolor="#00F100"><a href="../eab93b9c">14(42->1 papers)</a></td><td bgcolor="#00EF00"><a href="../57b50a2">15(40->2 papers)</a></td><td>16 </td></tr>
+<tr><td>17 </td><td bgcolor="#00E700"><a href="../f085db12">18(43->3 papers)</a></td><td bgcolor="#00E200"><a href="../1f47b02c">19(92->3 papers)</a></td><td bgcolor="#00F500"><a href="../7ab0fde7">20(67->1 papers)</a></td><td bgcolor="#00F600"><a href="../957296d9">21(44->1 papers)</a></td><td bgcolor="#00EC00"><a href="../7e452dda">22(31->2 papers)</a></td><td>23 </td></tr>
+<tr><td>24 </td><td bgcolor="#00EE00"><a href="../9c9936a3">25(38->2 papers)</a></td><td>26 </td><td bgcolor="#00EC00"><a href="../986ce69e">27(72->2 papers)</a></td><td>28 </td><td bgcolor="#00DE00"><a href="../86a5d62d">29(47->3 papers)</a></td><td>30 </td></tr>
+<tr><td>31 </td></tr></table>
+
+<table id="insights_9" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2023年十一月November</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td><td bgcolor="#00F800"><a href="../70d443d6">1(61->1 papers)</a></td><td bgcolor="#00EE00"><a href="../9be3f8d5">2(57->2 papers)</a></td><td bgcolor="#00F700"><a href="../742193eb">3(46->1 papers)</a></td><td>4 </td></tr>
+<tr><td>5 </td><td bgcolor="#00F500"><a href="../920858af">6(54->1 papers)</a></td><td bgcolor="#00F100"><a href="../7dca3391">7(74->2 papers)</a></td><td bgcolor="#00F600"><a href="../8cc1681c">8(59->1 papers)</a></td><td bgcolor="#00EC00"><a href="../'63030322'">9(48->3 papers)</a></td><td bgcolor="#00F700"><a href="../5e98f728">10(69->1 papers)</a></td><td>11 </td></tr>
+<tr><td>12 </td><td bgcolor="#00DB00"><a href="../b5af4c2b">13(34->3 papers)</a></td><td bgcolor="#00EF00"><a href="../'57735752'">14(119->2 papers)</a></td><td bgcolor="#00D900"><a href="../b8b13c6c">15(109->3 papers)</a></td><td bgcolor="#00E800"><a href="../5386876f">16(118->2 papers)</a></td><td bgcolor="#00ED00"><a href="../bc44ec51">17(154->2 papers)</a></td><td>18 </td></tr>
+<tr><td>19 </td><td bgcolor="#00FE00"><a href="../c77a9129">20(27->0 papers)</a></td><td bgcolor="#00E600"><a href="../28b8fa17">21(99->3 papers)</a></td><td bgcolor="#00F400"><a href="../c38f4114">22(37->2 papers)</a></td><td bgcolor="#00EF00"><a href="../2c4d2a2a">23(39->2 papers)</a></td><td>24 </td><td>25 </td></tr>
+<tr><td>26 </td><td bgcolor="#00ED00"><a href="../25a68a50">27(48->2 papers)</a></td><td bgcolor="#00F000"><a href="../d4add1dd">28(87->2 papers)</a></td><td bgcolor="#00E300"><a href="../3b6fbae3">29(52->3 papers)</a></td><td bgcolor="#00EB00"><a href="../6f44ee9">30(47->2 papers)</a></td></tr></table>
+
+<table id="insights_10" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2023年十月October</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr><td>1 </td><td bgcolor="#00F100"><a href="../46752150">2(30->2 papers)</a></td><td bgcolor="#00ED00"><a href="../a9b74a6e">3(40->3 papers)</a></td><td bgcolor="#00F100"><a href="../4b6b5117">4(30->2 papers)</a></td><td bgcolor="#00F200"><a href="../a4a93a29">5(30->2 papers)</a></td><td bgcolor="#00EE00"><a href="../4f9e812a">6(30->2 papers)</a></td><td>7 </td></tr>
+<tr><td>8 </td><td bgcolor="#00FB00"><a href="../be95daa7">9(10->0 papers)</a></td><td bgcolor="#00F000"><a href="../830e2ead">10(172->3 papers)</a></td><td bgcolor="#00EA00"><a href="../6ccc4593">11(40->3 papers)</a></td><td bgcolor="#00F100"><a href="../87fbfe90">12(30->2 papers)</a></td><td bgcolor="#00EF00"><a href="../683995ae">13(30->2 papers)</a></td><td>14 </td></tr>
+<tr><td>15 </td><td bgcolor="#00FE00"><a href="../8e105eea">16(10->0 papers)</a></td><td bgcolor="#00EE00"><a href="../61d235d4">17(135->2 papers)</a></td><td bgcolor="#00E900"><a href="../90d96e59">18(83->3 papers)</a></td><td bgcolor="#00E900"><a href="../7f1b0567">19(74->3 papers)</a></td><td bgcolor="#00F000"><a href="../1aec48ac">20(74->2 papers)</a></td><td>21 </td></tr>
+<tr><td>22 </td><td bgcolor="#00F500"><a href="../f1dbf3af">23(108->1 papers)</a></td><td bgcolor="#00F800"><a href="../1307e8d6">24(203->3 papers)</a></td><td bgcolor="#00F600"><a href="../fcc583e8">25(112->1 papers)</a></td><td bgcolor="#00F800"><a href="../17f238eb">26(89->1 papers)</a></td><td bgcolor="#00F600"><a href="../f83053d5">27(80->1 papers)</a></td><td>28 </td></tr>
+<tr><td>29 </td><td bgcolor="#00FE00"><a href="../db62976c">30(67->0 papers)</a></td><td bgcolor="#00F800"><a href="../34a0fc52">31(141->3 papers)</a></td></tr></table>
+
+<table id="insights_11" hidden="hidden" style="text-align:center"><tr> <td>
+        <form action>
+            <input type="button" value="上月Last Month" onclick="tips_insight(-1)">
+        </form>
+    </td>
+    <td colspan="5">2023年九月September</td> <td>
+        <form action>
+            <input type="button" value="下月Next Month" onclick="tips_insight(1)">
+        </form>
+    </td>
+    </tr><tr><td> 星期日<br>Sunday </td><td> 星期一<br>Monday </td><td> 星期二<br>Tuesday  </td><td> 星期三<br>Wednesday </td><td> 星期四<br>Thursday </td><td> 星期五<br>Friday </td><td> 星期六<br>Saturday </td> </tr><tr>  <td></td>  <td></td>  <td></td>  <td></td>  <td></td><td>1 </td><td>2 </td></tr>
+<tr><td>3 </td><td>4 </td><td>5 </td><td>6 </td><td>7 </td><td>8 </td><td>9 </td></tr>
+<tr><td>10 </td><td>11 </td><td>12 </td><td>13 </td><td>14 </td><td>15 </td><td>16 </td></tr>
+<tr><td>17 </td><td>18 </td><td>19 </td><td>20 </td><td>21 </td><td>22 </td><td>23 </td></tr>
+<tr><td>24 </td><td>25 </td><td>26 </td><td>27 </td><td bgcolor="#00D600"><a href="../13a1e3c6">28(30->2 papers)</a></td><td bgcolor="#00BC00"><a href="../d2c6faf">29(40->3 papers)</a></td><td>30 </td></tr>
+<tr></tr></table>
+
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b4e59484.html" rel="bookmark">2024-08-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5fd22f87.html" rel="bookmark">2024-08-15-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b01044b9.html" rel="bookmark">2024-08-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/52cc5fc0.html" rel="bookmark">2024-08-13-insights</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/aa29fa81" rel="prev" title="2023-12-31总结(年度总结)">
+      <i class="fa fa-chevron-left"></i> 2023-12-31总结(年度总结)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/7cd10148" rel="next" title="Self-Consistency之我见，兼More Agents is All You Need">
+      Self-Consistency之我见，兼More Agents is All You Need <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/f4243ee6" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/f4243ee6" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning">
+<meta property="og:url" content="https://www.yynnyy.cn/6dd69a39">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/intro.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/authors.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/compare_to_previous_method.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/arch.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/text.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/meta_transformer/image.png">
+<meta property="article:published_time" content="2023-07-23T02:27:52.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.973Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="多模态">
+<meta property="article:tag" content="预训练模型">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/meta_transformer/intro.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/6dd69a39.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/6dd69a39">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-07-23 10:27:52" itemprop="dateCreated datePublished" datetime="2023-07-23T10:27:52+08:00">2023-07-23</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/6dd69a39" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/6dd69a39#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/6dd69a39" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天来看一篇的新作，如何在不用模态对数据的情况下，炼多模态模型？甚至效果还行？</p>
+<p><img src="../files/images/meta_transformer/intro.png" style="zoom: 33%;"></p>
+<span id="more"></span>
+<p>论文作者来自香港中文大学，笑死，一看题目我还以为Meta AI的新作。论文的一作我搜了搜，好像没有什么我见过的文章</p>
+<p><img src="../files/images/meta_transformer/authors.png" style="zoom: 33%;"></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者在文章里讲到，多模态领域的一个重要问题是如何把模态对齐。而transformer架构其实是对模态不敏感的，只要进来embedding就能跑。那么作者就想到，能不能把各种模态的数据都扔进一个embedding空间，来做实现多模态编码呢？</p>
+<p>其实，这个思路和CLIP是一样的，但是他们的解决方式不一样。CLIP是要找到很多image-text pair数据来做对比学习。但本文，是想要对齐多达12个模态，肯定找不到pair数据了。</p>
+<p>另一个解决办法是像之前的imageBind一样，把所有模态的数据都对齐到一个模态(图像)，化简数据难度。</p>
+<p>作者和上面的思路都不一样，他这里想要不用模态数据，但是没讲为什么？</p>
+<p>大家肯定要问：不用pair数据，怎么做模态对齐任务？你说得对，这就是本文的一个故布迷阵，他只做了单模态任务，没做模态对齐任务。</p>
+<p>总之，本文的贡献就是：尝试用统一的encoder，不用pair数据来做多模态表示。</p>
+<p><img src="../files/images/meta_transformer/compare_to_previous_method.png" style="zoom: 50%;"></p>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>这一部分，作者首先假设所有模态都应该享有一个公共的语义空间(这里的语义是泛指，不是指语言模态)。因此作者就想要找到一个多模态的编码方式</p>
+<script type="math/tex; mode=display">
+\hat{y} = F(x,\theta^*), \theta^* = \arg \min[\mathcal{L}(y,\hat{y})]</script><p>其中x是原始输入，$\hat{y}$是模型输出，y是真实标签。总体而言就是传统finetune的方式</p>
+<p>作者设计了一个三阶段的流程</p>
+<script type="math/tex; mode=display">
+F = h◦g◦f(x)</script><p>第一阶段是embedding函数f，这一部分是对于不同模态分开设计的</p>
+<ul>
+<li>text模态就是wordpiece+wordembedding</li>
+<li>图片模态是ViT那套patch划分，再过一个conv层</li>
+<li>视频模态是变成多个图片</li>
+<li>……</li>
+</ul>
+<p>总之，最后所有输入都能变成二位的embedding，注意：作者压平了维度，所有模态都和text一样了</p>
+<p>接下来是encoder，作者想要用一个encoder接收所有：meta_transformer</p>
+<p>最后是一个任务独立的head，每个任务都不一样，和BERT迁移到下游任务的方式一样</p>
+<p>总体架构如下所示</p>
+<p><img src="../files/images/meta_transformer/arch.png" style="zoom: 50%;"></p>
+<h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>首先作者的encoder是在LAION-2B上训练的ViT(并不是abstract提到的没用pair数据)，然后text模态用CLIP text word embedding初始化</p>
+<p>接下来，作者在各个模态的任务上都做了些实验</p>
+<p><img src="../files/images/meta_transformer/text.png" style="zoom: 50%;"></p>
+<p><img src="../files/images/meta_transformer/image.png" style="zoom: 50%;"></p>
+<p>这里放上text和image模态的结果。模型名字里最右下角的T和F分别是指encoder是Tune还是Freeze</p>
+<ul>
+<li>总体而言，结果不是很好，尤其是encoder freeze的情况下。可以理解，encoder freeze就相当于只有embedding和linear</li>
+<li>话说是不是应该放个没有encoder的bias study</li>
+</ul>
+<p>最后，这篇文章没有analysis，放上所有实验的结果就跑路了</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li><p>我其实不太喜欢这篇文章的思路，我认为：如果方法中设计了什么变化，就需要说出来为什么要这么设计，同时实验中要有结果支撑”这个设计的优势是什么”。否则的话按照奥卡姆剃刀原则，就不应该有这个设计。但是本文似乎没讲清楚”不用pair数据”、”要freeze encoder”的意义和目的是什么</p>
+</li>
+<li><p>当然，本文探索的这个问题很有意思，结果也挺有意思：当你在一个模态训了一个大encoder，锁住以后在另一个模态上加一个encoder强行对齐，竟然也能做？</p>
+</li>
+</ul>
+<blockquote>
+<p>我觉得这里面藏着更深的道理：另外之前image bind所有模态对齐到一个模态的结果也挺好，以及最开始类似flamingo的思路就用一个crossattention就能很轻松的连接多个模态，以及versitle Diffusion也是做到了类似的事情。</p>
+<p>这是否说明transformer结构天然地将信息分解为了模态相关的和模态独立的两个部分，所以两个模态的transformer拼接时就会很容易呢？</p>
+<p>我们是不是有机会让GPT4甚至不调参就能接到各个模态上去？</p>
+</blockquote>
+<ul>
+<li>多模态领域发展真快呀，大家似乎都在试图剔除之前方法里的很多数据依赖和模型依赖，不知道最终能剔除到什么地步？</li>
+<li>最后，模态间生成任务大家做的似乎都不是很好、要不就是干脆没做。我觉得多模态的终点就是把模型对齐到”脑波”模态，让我们和模型可以互相理解对方在想什么，是不是可解释性就来了？</li>
+</ul>
+<blockquote>
+<p>脑机接口，但是没有脑机？</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1a72430d.html" rel="bookmark">GPT4技术报告解读:应用报告</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/cf5a0a9e.html" rel="bookmark">论文阅读[精读]-Language Is Not All You Need: Aligning Perception with Language Models</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag"><i class="fa fa-tag"></i> 多模态</a>
+              <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/" rel="tag"><i class="fa fa-tag"></i> 预训练模型</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/1c5cf63c" rel="prev" title="论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models">
+      <i class="fa fa-chevron-left"></i> 论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/de3f5273" rel="next" title="从Flowformer探讨Attention的线性复杂度">
+      从Flowformer探讨Attention的线性复杂度 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/6dd69a39" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/6dd69a39" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

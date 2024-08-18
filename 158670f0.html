@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="今天来和大家读一篇非常有趣的分析性文章，卷积网络和Vit学的隐层表示有什么区别？模型眼中的世界是一样的吗？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[精读]-Do Vision Transformers See Like Convolutional Neural Networks?">
+<meta property="og:url" content="https://www.yynnyy.cn/158670f0">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="今天来和大家读一篇非常有趣的分析性文章，卷积网络和Vit学的隐层表示有什么区别？模型眼中的世界是一样的吗？">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/author.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/self_CKA.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_CKA.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/local_global.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/small_data.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_local.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/div.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/without_skip_connection.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/spatial.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/average_pooling_vit.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/token_num.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale_with_layer.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale.png">
+<meta property="article:published_time" content="2022-11-13T03:11:45.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.975Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="Computer Vision">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/do_vision_transformers_see_like_convolutional_neural_networks/author.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/158670f0.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[精读]-Do Vision Transformers See Like Convolutional Neural Networks? | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/158670f0">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[精读]-Do Vision Transformers See Like Convolutional Neural Networks?
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-11-13 11:11:45" itemprop="dateCreated datePublished" datetime="2022-11-13T11:11:45+08:00">2022-11-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/158670f0" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-Do Vision Transformers See Like Convolutional Neural Networks?" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/158670f0#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/158670f0" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天来和大家读一篇非常有趣的分析性文章，卷积网络和Vit学的隐层表示有什么区别？模型眼中的世界是一样的吗？</p>
+<span id="more"></span>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/author.png"></p>
+<p>这是一篇NeurIPS 21的文章，作者团队来自Google Brain。这个作者好像是LSTM的作者？</p>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>文章主要探索一件事情：CV领域的ViT，其实没有引入卷积网络的归纳偏置：</p>
+<ul>
+<li>ViT没有对临近的图像区域做专门的处理，conv其实是按局部去滑动。</li>
+</ul>
+<p>在这种情况下ViT的效果依然很好，那么他们两种网络学到的图像表示有没有什么联系呢？ViT有没有重新学到conv给定的归纳偏置呢？</p>
+<p>这个问题是很好的问题，但是所谓的”图像表示之间的关系、相似度“该怎么衡量呢？我们可以实验性的定义”linear probe的结果“代表图像表示的好坏，但相似度又该怎么衡量？毕竟两个模型、甚至一个模型的两次初始化学到的表示空间可能就完全不同，图像表示只有针对不同图像的差值、夹角、模长等可能有意义。</p>
+<blockquote>
+<p>linear probe:锁定整个模型，只是把图像表示拿过来后面跟一个linear层，然后做下游任务，比如分类。这个调节的参数很少，但效果基本远不如full size fine-tune</p>
+</blockquote>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>作者在这里引入了一种非常有趣的衡量方法：CKA, centered kernel alignment</p>
+<p>这个方法是这样，对于两个模型，先扔进去m个样本得到m个表示：</p>
+<script type="math/tex; mode=display">
+X \in \mathbb{R}^{m\times p_1} \quad Y \in \mathbb{R}^{m\times p_2}</script><p>接下来算Gram矩阵</p>
+<script type="math/tex; mode=display">
+K = XX^T,L = YY^T</script><p>接下来计算<strong>Hilbert-Schmidt independence criterion</strong> ,构建出来一个中心矩阵</p>
+<script type="math/tex; mode=display">
+H = I_m - \frac{1}{m} \vec{1}\vec{1}^T</script><p>用中心矩阵来做中心化</p>
+<script type="math/tex; mode=display">
+K' = HKH,L' = HLH</script><script type="math/tex; mode=display">
+HSIC(K,L) = \frac{vec(K') ·vec(L')}{(m-1)^2}</script><p>有了HSIC算子以后，对两个矩阵用HSIC算子做cosine就行了</p>
+<script type="math/tex; mode=display">
+CKA(K,L) = \frac{HSIC(K,L)}{\sqrt{HSIC(K,K) · HSIC(L,L)}}</script><p>这个变换</p>
+<ul>
+<li>对于两个矩阵分开的正交变换具有不变性</li>
+<li>对于矩阵表示的模长好像也是无所谓的</li>
+<li>我理解CKA值越大，好像代表两个矩阵通过的变换距离的模比较小？</li>
+</ul>
+<p>作者有了CKA方法以后，都是用一个minibatch来模拟真实的CKA结果</p>
+<h2 id="两个模型表示的区别"><a href="#两个模型表示的区别" class="headerlink" title="两个模型表示的区别"></a>两个模型表示的区别</h2><p>接下来作者先看了模型自己层和自己层的表示的CKA对比</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/self_CKA.png"></p>
+<p>就是说单拿出某一层的表示和另一层的表示，当做两组表示计算CKA。这个值高(亮)就代表两个层出来的表示具有更强的相关性</p>
+<p>可以发现：</p>
+<ul>
+<li>对于ViT，图像基本是一样的，也就是每一层学到的表示都很像，随着层数距离变大，表示慢慢均匀地变不像，但总体相似度还是挺高的</li>
+<li>ResNet有明显的两个块，底层和上层学的表示差距很大</li>
+</ul>
+<p>接下来作者做跨模型对比，把两个模型不同层的表示做CKA，得到下面的结果</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_CKA.png"></p>
+<ul>
+<li>ViT前1/4的层表示和ResNet前1/2的表示接近</li>
+<li>ViT中1/3的表示和ResNet后1/2表示接近</li>
+<li>ViT后1/3的表示和ResNet任何地方都不同。作者认为这些层可能主要在优化CLS的表示，毕竟ViT是有监督的训练</li>
+</ul>
+<p>总结一下，作者得到了以下结论：</p>
+<ul>
+<li>ViT下层和ResNet下层表示有较大区别</li>
+<li>ViT表示在层间有很强的继承关系</li>
+<li>ViT的上层表示和ResNet有很大区别</li>
+</ul>
+<h2 id="全局与局部信息"><a href="#全局与局部信息" class="headerlink" title="全局与局部信息"></a>全局与局部信息</h2><p>接下来作者想要探索ViT是不是重新发现了conv的局部性归纳偏置，具体作者这么算的：</p>
+<p>transformer layer里面要先算key * query，作者直接把5000条数据里的query矩阵乘积算出来，就是模型希望去询问的东西，由于self attention，其实最后就是这些query互相乘。然后作者算两个query的像素距离。</p>
+<p>就如果两个图片patch离的近，他们的query像素距离也近，说明模型学到了local信息</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/local_global.png"></p>
+<p>作者发现，对于低层，确实距离近的patch, query也相似。但对于高层的block，这个相似性就消失了。对比之下，conv在底层由于实现，只能关注更局部的feature.</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/small_data.png"></p>
+<p>接下来，作者做了更有趣的实验，作者只在imageNet上炼了一个ViT(小的pretrain dataset)，发现这种重新发现的局部性原理竟然消失了，说明ViT其实需要从非常多的数据中总结出这种规律。</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_local.png"></p>
+<p>ViT这种局部性学到的feature和conv的一样吗？接下来，作者试了局部性最好的head和ResNet里面做CKA，发现结论是肯定的。</p>
+<h2 id="skip-connection"><a href="#skip-connection" class="headerlink" title="skip connection"></a>skip connection</h2><p>接下来作者衡量了skip connection对ViT这种学习的影响，定义了一个量</p>
+<script type="math/tex; mode=display">
+\frac{||z_i||}{||f(z_i)||}</script><p>代表从skip connection出来的表示的模长除以long-branch算子出来的表示的模长。假如这个值很大，说明long-branch算子的影响很小，结果以skip-connection继承之前的东西为主</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/div.png"></p>
+<p>作者发现CLS token(token 0)和其他token不一样:</p>
+<ul>
+<li>CLS在前面基本都是继承，直到后面才开始使用long-branch里面的东西</li>
+<li>正常token都比较接近，前面要看互相的关系，到后面以继承为主</li>
+</ul>
+<p>右边的图对比了ResNet，可以发现conv就比较平均，每一层都在看互相的量</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/without_skip_connection.png"></p>
+<p>接下来，作者尝试在ViT某一层去掉skip connection，发现ViT马上出现了这种明显的分块。也就是说，ViT的这种不同层表示之间的CKA相关性，基本就是由skip-connection带来的。</p>
+<h2 id="空间位置信息"><a href="#空间位置信息" class="headerlink" title="空间位置信息"></a>空间位置信息</h2><p>作者继续探索了ViT在高层还能不能保持图像之间的空间关系，毕竟上层基本都是看全局信息</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/spatial.png"></p>
+<p>对比之下可以看出，ViT在高层对于空间关系的保持性比ResNet好很多。作者提出一个猜测：</p>
+<ul>
+<li>ResNet训练任务是用average pooling，而ViT是用CLS分类头。显然前者需要高层的表示比较接近</li>
+</ul>
+<p>作者做了个对比实验，训练了用average pooling的ViT</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/average_pooling_vit.png"></p>
+<p>一下子，ViT也不行了，这佐证上述猜测。</p>
+<p>接下来作者又探索了使用别的token能不能做linear probe。</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/token_num.png"></p>
+<p>左图作者试着用不同比例的token一起做linear probe，右边是单独ViT的对比</p>
+<p>可以看出来，用CLS做训练的ViT下游任务一但没有CLS token，就寄了</p>
+<p>最后，作者做了一个数据规模实验：</p>
+<p>首先试了在不同训练数据规模下，用不同层的表示做实验。发现即使只有3%的数据，在低层的时候学到的表示也差不多了。只是在高层的表示需要更多的数据来学习</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale_with_layer.png"></p>
+<p>后面，作者常规地试了试数据规模和迁移能力的实验，得到了多就是好的常规结论</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale.png"></p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<li>这篇文章是一个经典的分析性文章。作者的实验设置值得学习，尤其是很多对比实验的思路，self compare，cross compare的实验设计</li>
+<li>有没有人试过MAE和普通ViT的对比呢？感觉这种自回归的方式很可能更接近ResNet？</li>
+<li>进一步，这种思路是不是也可以对比NLP这边encoder based和encoder-decoder based模型得到的表示</li>
+<li>在新的模型结构出来以后，比起直接在下游任务用起来，这种对模型表示的探索也许更值得学习</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/61495969.html" rel="bookmark">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/7cd10148.html" rel="bookmark">Self-Consistency之我见，兼More Agents is All You Need</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/Computer-Vision/" rel="tag"><i class="fa fa-tag"></i> Computer Vision</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/6243510f" rel="prev" title="S12世界赛总结(2)">
+      <i class="fa fa-chevron-left"></i> S12世界赛总结(2)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/a50a8741" rel="next" title="论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)">
+      论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E8%A1%A8%E7%A4%BA%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">两个模型表示的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E4%B8%8E%E5%B1%80%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">4.</span> <span class="nav-text">全局与局部信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#skip-connection"><span class="nav-number">5.</span> <span class="nav-text">skip connection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E4%BD%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">6.</span> <span class="nav-text">空间位置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/158670f0" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/158670f0" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="上周刷到了刘鹏飞老师的 Alignment For Honesty, 分享给了大家 2023-12-13-insights。里面讲到如何训练LLM变得诚实，他沿用了孔子的定义：  知之为知之，不知为不知，是知(zhì)也。 To say “I know” when you know, and “I don’t know” when you don’t, that is wisdom.  我来一起看">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[粗读]-Alignment For Honesty">
+<meta property="og:url" content="https://www.yynnyy.cn/2300f7be">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="上周刷到了刘鹏飞老师的 Alignment For Honesty, 分享给了大家 2023-12-13-insights。里面讲到如何训练LLM变得诚实，他沿用了孔子的定义：  知之为知之，不知为不知，是知(zhì)也。 To say “I know” when you know, and “I don’t know” when you don’t, that is wisdom.  我来一起看">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/align-for-honesty/intro.png">
+<meta property="article:published_time" content="2023-12-19T01:25:45.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.976Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="post-pretrain">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/align-for-honesty/intro.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/2300f7be.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[粗读]-Alignment For Honesty | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/2300f7be">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[粗读]-Alignment For Honesty
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-12-19 09:25:45" itemprop="dateCreated datePublished" datetime="2023-12-19T09:25:45+08:00">2023-12-19</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2300f7be" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-Alignment For Honesty" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2300f7be#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2300f7be" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.9k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <img src="/../../files/images/align-for-honesty/intro.png" itemprop="contentUrl">
+        </div>
+        <p>上周刷到了刘鹏飞老师的 Alignment For Honesty, 分享给了大家 <a href="/86520e5.html" title="2023-12-13-insights">2023-12-13-insights</a>。里面讲到如何训练LLM变得诚实，他沿用了孔子的定义：</p>
+<blockquote>
+<p>知之为知之，不知为不知，是知(zhì)也。</p>
+<p>To say “I know” when you know, and “I don’t know” when you don’t, that is wisdom.</p>
+</blockquote>
+<p>我来一起看看他们是怎么做的吧</p>
+<span id="more"></span>
+<h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><p>作者团队来自上交、复旦和CMU，其中复旦的xipeng qiu老师也是arxiv的常客了</p>
+<p><img src=" ../../files/images/align-for-honesty/authors.png"></p>
+<p>其实关于honesty,这个领域由来已久，本文作者也提到了，学界对于Honesty有各种各样的定义和表述方式。前两天读weak-to-strong generalization时，OpenAI也提到了相关的研究，有兴趣的同学可以进一步顺着引文看一看相关的研究~</p>
+<p><img src=" ../../files/images/align-for-honesty/openai.png"></p>
+<p>回到本文，作者按照《论语》里给出的定义来定义诚实：知之为知之，不知为不知，是知(zhì)也。具体来说，需要模型可以分辨自己的知识边界：</p>
+<ul>
+<li>边界内的问题予以回答</li>
+<li>边界外的问题勇于承认</li>
+</ul>
+<blockquote>
+<p> 不过，我觉得这里的语境和孔子想表述的有些区别：对于人来说，认知到知识边界很容易，只是很多时候羞于承认，所以这种”勇于承认”是一种君子的品格。但对于模型来说，还没有到荣辱心这一步，他只是单纯地意识不到自己的知识边界……</p>
+</blockquote>
+<p>让模型获得Honesty有各种各样的好处，其中最显然地就是减少hallicinate。虽然Honesty是”对齐三剑客”(helpful, harmless, honest)之一，但学界对于这方面的研究其实很少，作者就把这个领域按照alignment的语境重新定义了一下：对于做不出来的东西，要回答一个idk signs(I Don’t Know)</p>
+<h2 id="formulation"><a href="#formulation" class="headerlink" title="formulation"></a>formulation</h2><blockquote>
+<p>这个写法不多见，一般论文没有这个section。因为本篇工作是第一篇工作，所以需要把问题描述定义一下，然后说一说评测方法是什么</p>
+</blockquote>
+<p>首先，这里作者做了一个简化: 这篇工作中，作者认为模型知识和世界知识是一个集和，假设模型不会说谎，如果回答错了，那大概率就是自己不懂这个知识。</p>
+<p><img src=" ../../files/images/align-for-honesty/boundary.png"></p>
+<h3 id="训练框架"><a href="#训练框架" class="headerlink" title="训练框架"></a>训练框架</h3><p>作者提出了一套多轮refine的框架，希望随着训练的迭代，模型可以逐渐清晰地认识到自己的知识边界</p>
+<blockquote>
+<p>在这一点上，我倾向于OpenAI的观点：”认知到自己的知识边界”是一个latent knowledge，应该是模型本身具备的(毕竟是自己的知识，以及本身有calibration性质)，我们只需要训练模型去激发elicit出来。因此这个任务定义好以后，可能不太难</p>
+</blockquote>
+<p>作者把模型对于一个知识问题的回答分成了三类：</p>
+<script type="math/tex; mode=display">
+c(x,y) =  \left\{ 
+\begin{aligned}
+& -1, \text{type}(y) = \text{idk}, \\
+& 1, \text{type}(y) = \text{correct}, \\
+& 0, \text{type}(y) = \text{wrong},
+\end{aligned}
+\right.</script><p>接下来，根据该模型是否知道该问题的答案$k(x) = 1\text{ if model know the answer, else -1}$</p>
+<script type="math/tex; mode=display">
+v(x,y) = \left\{
+\begin{aligned}
+1, & c(x,y)*k(x,y) = 1, \\
+0, & \text{else},
+\end{aligned}
+\right.</script><p>有了价值函数以后，就可以根据这个价值函数进行训练，预期价值函数随着训练变得越来越高。当然，</p>
+<ul>
+<li>在真实答案已知的情况下，c很容易获得</li>
+<li>然而，k是一个很难获取的东西，因为是一个latent knowledge，后面作者探索了几种近似得办法</li>
+</ul>
+<h3 id="评测"><a href="#评测" class="headerlink" title="评测"></a>评测</h3><p><img src=" ../../files/images/align-for-honesty/condition.png" style="zoom:33%;"></p>
+<p>即使按照上面的框架训练了，模型的效果仍然不好评测。不过，根据迭代前后模型的表现，作者可以天然的把问题分为9个大类</p>
+<blockquote>
+<p>其中的2,3类说明之前没做出来，后面做出来了(尽管没有泄露正确答案)。是个比较奇怪的现象，本篇工作不关注这个</p>
+</blockquote>
+<p>这里作者参考F1-score，讨论了一种近似的评测办法：</p>
+<ul>
+<li>over-conservativeness：我们不希望模型过于谨慎，希望能做出来的题目就正确回答。因此计算公式很简单</li>
+</ul>
+<script type="math/tex; mode=display">
+S_1 = \frac{7}{1 + 4 + 7}, \text{lower is better}</script><ul>
+<li>Prudence： 这个和上面的相反，考虑的是，不会做的问题，希望模型正确地回答idk</li>
+</ul>
+<script type="math/tex; mode=display">
+S_2 = \frac{8+9}{5 + 6 + 8 + 9}, \text{higher is better}</script><p>有了上面的计算，就可以给出一个honesty增量</p>
+<blockquote>
+<p>注意，这个指标如果模型不训练，那就是只有1,5&gt;0，$S_1=0,S_2=0,S=0.5$</p>
+</blockquote>
+<script type="math/tex; mode=display">
+S_\text{honesty} = \frac{(1-S_1) + S_2}{2}</script><h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>首先，prompt方法是一个显然的办法(这里就是单轮迭代，只有prompt前后的区别)</p>
+<div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PLAINTEXT"><figure class="iseeu highlight /plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Answer the question. If you don’t know the answer to the question, it is appropriate to say “I apologize, but I’m not able to provide an answer to the question.”</span><br><span class="line">   Q: &lt;question&gt;</span><br><span class="line">   A:</span><br></pre></td></tr></table></figure></div>
+<p>接下来，训练地方法，作者设计了三种。这三种都是基于一个蒙特卡洛估计的办法，作者会让没对齐的模型对于一个问题生成多个(10个)回答，检查每个回答是否正确。给出一个信心值expected acc作为模型认知$k(x)$的一个近似</p>
+<p><img src=" ../../files/images/align-for-honesty/sample.png" style="zoom:33%;"></p>
+<h3 id="ABSOLUTE"><a href="#ABSOLUTE" class="headerlink" title="ABSOLUTE"></a>ABSOLUTE</h3><p>设定一个阈值$\tau$，$k(x) = 1 \quad if \quad \text{expected acc} &gt; \tau$。然后标数据的时候，把所有k(x)=-1的回答都改成了一个idk response</p>
+<h3 id="CONFIDENCE"><a href="#CONFIDENCE" class="headerlink" title="CONFIDENCE"></a>CONFIDENCE</h3><figure class="half">
+    <img src="../../files/images/align-for-honesty/numb.png" width="45%">
+    <img src="../../files/images/align-for-honesty/verb.png" width="45%">
+</figure>
+
+<p>这里，作者标数据的时候直接把confidence写在回答里，然后按照正常SFT的办法</p>
+<h3 id="MULTISAMPLE"><a href="#MULTISAMPLE" class="headerlink" title="MULTISAMPLE"></a>MULTISAMPLE</h3><p>刚才的absolute会根据一个阈值卡，这里作者直接把sample多次的每条数据当成单独的了，然后$k(x) = (c(x,y)==1)$。也就是说，标数据的时候，本来作对了的就不动，本来做错了的就改成一个idk response。</p>
+<blockquote>
+<p>值得注意的是，这个方案会把训练集扩大M倍</p>
+</blockquote>
+<h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>这里作者提了两个朴素的baseline：</p>
+<ul>
+<li>原来的模型</li>
+<li>fine-tuned：在相同训练量上，使用turbo的answer进行SFT的模型</li>
+<li>prompt：上面提到的training-free方法</li>
+<li>三种training方法，其中，$\tau$选取的是0.1</li>
+</ul>
+<figure class="half">
+    <img src="../../files/images/align-for-honesty/main.png" width="40%">
+    <img src="../../files/images/align-for-honesty/OOD.png" width="55%">
+</figure>
+
+<p>作者在TraivalQA数据集上做训练，使用Llama2-chat 7b作为基础模型，分别评测in-domain的traivalQA和OOD的另外三个数据集</p>
+<p>效果如下：</p>
+<ul>
+<li><p>发现基于训练的方法显著好于不训练的方法</p>
+</li>
+<li><p>相对来说，把confidence放到数据里，会让模型表现更好</p>
+</li>
+<li>honesty属性在不同数据集上迁移能力较好，不管是ID还是OOD，加上confidence score都能让模型做的更好</li>
+<li>直接finetune模型，会导致模型更加hallicinate，acc反而下降（这点在PKQA数据集表现得尤其明显）</li>
+</ul>
+<p>接下来，作者探索了$\tau$对结果的影响，画了一张类似f1里面auc的图。发现，$\tau$越大，越容易把数据分类成模型不知道</p>
+<ul>
+<li>因此idk数据越多，模型越容易变得over-confidence</li>
+<li>另一方面，模型也越谨慎，所以prudence会提升，这里需要有一个权衡</li>
+</ul>
+<p><img src=" ../../files/images/align-for-honesty/auc.png" style="zoom:50%;"></p>
+<p>接下里，作者又做了scaling的实验：更大的模型会做得更好吗，更多的数据会做的更好吗？</p>
+<figure class="half">
+    <img src="../../files/images/align-for-honesty/scale.png" width="35%">
+    <img src="../../files/images/align-for-honesty/data-scale.png" width="60%">
+</figure>
+
+<p>首先，作者发现，confidence-based method对于所有模型规模效果都要更好一些</p>
+<blockquote>
+<p>我发现：不同规模的模型对于Honesty的效果没啥区别，这说明了这个任务其实是挺困难的</p>
+</blockquote>
+<p>其次，如果在训练集中加入MMLU的训练数据，对于Multi-sample方法的帮助很大，说明这个属性的习得也许是data-hungry的，模型需要更diverse的情况来判断自己的知识边界</p>
+<blockquote>
+<p>不过，为啥Multisample+MMLU-data以后Acc下降这么多呢？</p>
+</blockquote>
+<p>最后作者做了一些”对齐税”方面的实验，发现Honesty训练基本不会导致模型在别的任务表现下降。最后，作者总结了一下limitation和future，提了几个问题，我觉得还挺有意思的，分享给大家：</p>
+<ul>
+<li>更好的k(x)：本篇工作用模型回答正确与否判断模型是否知道，这个在MMLU这种4选1中有误判假阳的情况</li>
+<li>confidence score能不能更好的利用？这里作者和calibration联系了一下</li>
+<li>和RAG的结合：认知到自己知识边界的模型更清楚自己该怎么利用外界知识</li>
+<li>和长文本的结合：需要结合reasoning的长文本场景的Honesty现在还没有研究，并且需要更细致的评测和训练</li>
+</ul>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>很好的文章，formulation到method到实验设计都很顺滑，逻辑很完整，我看完了以后主要想到下面几个问题：</p>
+<ul>
+<li>感觉可以评测一下turbo或者GPT4的表现？这里没做估计是因为需要一个unaligned模型去计算，没办法。要测也许只能给turbo来个un-align finetune，不知道是不是违规的</li>
+<li>scaling实验中，发现所有llama表现都差不多，说明这个能力也许是一个emergent的，甚至是reverse-scaling的？</li>
+<li>这个能力，似乎是不能通过SFT习得的？因为每个模型都有自己的知识边界。作者也提到了，SFT-baseline will lead models to learn to hallicinate</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/61495969.html" rel="bookmark">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/7cd10148.html" rel="bookmark">Self-Consistency之我见，兼More Agents is All You Need</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/post-pretrain/" rel="tag"><i class="fa fa-tag"></i> post-pretrain</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/3229ec6" rel="prev" title="Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？">
+      <i class="fa fa-chevron-left"></i> Weak-to-Strong Generalization(上): OpenAI是怎么看问题的？
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/aa29fa81" rel="next" title="2023-12-31总结(年度总结)">
+      2023-12-31总结(年度总结) <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#formulation"><span class="nav-number">2.</span> <span class="nav-text">formulation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6"><span class="nav-number">2.1.</span> <span class="nav-text">训练框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">2.2.</span> <span class="nav-text">评测</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">3.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ABSOLUTE"><span class="nav-number">3.1.</span> <span class="nav-text">ABSOLUTE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CONFIDENCE"><span class="nav-number">3.2.</span> <span class="nav-text">CONFIDENCE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MULTISAMPLE"><span class="nav-number">3.3.</span> <span class="nav-text">MULTISAMPLE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">4.</span> <span class="nav-text">experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/2300f7be" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/2300f7be" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

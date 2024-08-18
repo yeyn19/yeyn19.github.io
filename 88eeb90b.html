@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="之前我们聊了  DDPM的原理 DDPM笔记 也聊了 score based models 原理 博客阅读笔记  今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[精读]-Diffusion-LM Improves Controllable Text Generation(2)">
+<meta property="og:url" content="https://www.yynnyy.cn/88eeb90b">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="之前我们聊了  DDPM的原理 DDPM笔记 也聊了 score based models 原理 博客阅读笔记  今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/structure.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/embedding.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/example.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/result.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/compose.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/infilling.png">
+<meta property="article:published_time" content="2022-07-07T06:41:06.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.975Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="diffusion model">
+<meta property="article:tag" content="可控文本生成">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/Diffusion-LM/structure.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/88eeb90b.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[精读]-Diffusion-LM Improves Controllable Text Generation(2) | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/88eeb90b">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[精读]-Diffusion-LM Improves Controllable Text Generation(2)
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-07 14:41:06" itemprop="dateCreated datePublished" datetime="2022-07-07T14:41:06+08:00">2022-07-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/88eeb90b" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-Diffusion-LM Improves Controllable Text Generation(2)" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/88eeb90b#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/88eeb90b" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>之前我们聊了</p>
+<ul>
+<li>DDPM的原理 <a href="/75bfb84b.html" title="论文阅读:Diffusion-LM Improves Controllable Text Generation(1)">DDPM笔记</a></li>
+<li>也聊了 score based models 原理 <a href="/593c50eb.html" title="博客阅读-Generative Modeling by Estimating Gradients of the Data Distribution">博客阅读笔记</a></li>
+</ul>
+<p>今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。</p>
+<span id="more"></span>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<li>可控文本生成是一个重要的任务</li>
+<li>已有的方法对粗粒度的控制尚可(情感)，但对细粒度的控制效果不好(句法树)</li>
+<li>本文设计了一个非自回归的、连续的diffusion model来解决这个问题</li>
+<li>去噪过程中的多个中间量可以指导可控的文本生成过程</li>
+<li>在6个可控生成任务中，Diffusion-LM模型大幅战胜了SOTA</li>
+</ul>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>自回归的语言模型的生成能力很强，但可控性很弱。如果想做可控的生成：</p>
+<ul>
+<li>直观方法是做有监督的训练，但这样需要每个任务炼一个模型，成本高。</li>
+<li>plug-and-play的方法，冻住模型。但此类方法效果差，难以实现细粒度的控制</li>
+</ul>
+<p>传统的连续diffusion model不适用于文本，因为word是离散的。本文通过添加一个embedding步骤和一个rounding步骤解决这个问题。同时，本文通过一种可控的gradient update指导模型可以平衡fluency和controllable两种属性。</p>
+<p>本文在6个可控任务中大幅战胜plug-and-play SOTA，同时战胜了fine-tune的方法。甚至，在不用classifier的情况下和自回归的模型有的一拼。</p>
+<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Diffusion Models for Text： 已有方法都是在离散的空间做这件事，提到的论文我也看了，有时间给大家写一篇笔记。本文用了连续的方法来做。</p>
+<p>Autoregressive and Non-autoregressive LMs： 已有的模型大多是是从左到右训练的，但是对于infilling等任务来说，这限制了模型的发挥。这个问题，有一些解决方法。本文的diffusion model是classifier指导的，所以可以看到句子的全部。</p>
+<p>Plug-and-Play Controllable Generation：冻结模型，训一个类似分类器的东西。已有方法大多基于自回归模型：</p>
+<ul>
+<li>FUDGE：通过对生成质量的估计来reweight LM prediction</li>
+<li>GeDi, DExperts： 通过fine—tune一个小的LM来reweight LM prediction<ul>
+<li>GeDi的论文没准后面也写个笔记</li>
+</ul>
+</li>
+</ul>
+<p>PPLM方法和本文最接近，通过一个分类器做梯度上升。但由于是自回归的，只能从左到右，不能实现细粒度的控制。</p>
+<h2 id="Problem-Statement-and-Background"><a href="#Problem-Statement-and-Background" class="headerlink" title="Problem Statement and Background"></a>Problem Statement and Background</h2><h3 id="Generative-Models-and-Controllable-Generation-for-Text"><a href="#Generative-Models-and-Controllable-Generation-for-Text" class="headerlink" title="Generative Models and Controllable Generation for Text"></a>Generative Models and Controllable Generation for Text</h3><p>如何在控制条件c的情况下生成w，最大化$P(w|c)$.由于</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P(w|c) & = \frac{P(w)\times P(c|w)}{P(c)} \\
+& \propto P(w)\times P(c|w)
+\end{aligned}</script><p>如果对w的生成求导：</p>
+<script type="math/tex; mode=display">
+\bigtriangledown_w \log P(w|c)  = \bigtriangledown_w \log P(w)+ \bigtriangledown_w \log P(c|w)</script><p>可以发现，右边是正常模型的输出的梯度，后面是某个分类器的输出的梯度。这个其实就是经典的在图像领域做可控生成的diffusion model的方法</p>
+<h3 id="Autoregressive-Language-Models"><a href="#Autoregressive-Language-Models" class="headerlink" title="Autoregressive Language Models"></a>Autoregressive Language Models</h3><script type="math/tex; mode=display">
+P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{<i})</script><p>这是一个经典的从左到右的解码过程。一般大家都是用一个transformer结构来做$P_{lm}(w)$</p>
+<h3 id="Diffusion-Models-for-Continuous-Domains"><a href="#Diffusion-Models-for-Continuous-Domains" class="headerlink" title="Diffusion Models for Continuous Domains"></a>Diffusion Models for Continuous Domains</h3><p>这一部分是DDPM的子集，可以参考</p>
+<ul>
+<li><a href="/75bfb84b.html" title="论文阅读:Diffusion-LM Improves Controllable Text Generation(1)">DDPM笔记</a></li>
+<li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">what are diffusion models</a></li>
+</ul>
+<p>结论是：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{simple} = \sum_{t=1}^T \mathop{\mathbb{E}} \limits_{q(x_t| x_0)} || \mu_\theta(x_t,t) - \hat{\mu}(x_t,x_0)||^2 \\
+ \hat{\mu}(x_t,x_0) = \text{mean} [q(x_{t−1}|x_0, x_t)]</script><p>大概就是估计模型对每一个$x_{t-1}$都做估计，把估计和实际值的偏差叠加在一起。所谓的”mean”是指后面来自一个高斯分布，这个是期望</p>
+<h2 id="Diffusion-LM-Continuous-Diffusion-Language-Modeling"><a href="#Diffusion-LM-Continuous-Diffusion-Language-Modeling" class="headerlink" title="Diffusion-LM: Continuous Diffusion Language Modeling"></a>Diffusion-LM: Continuous Diffusion Language Modeling</h2><p><img src="../files/images/Diffusion-LM/structure.png"></p>
+<p>其实这一部分开始才是本文的方法：</p>
+<ul>
+<li>首先用一个EMB层把离散的word映射到连续空间</li>
+<li>定义一个端到端的training objectives</li>
+<li>定义一个rounding method再把生成的连续向量映射回word</li>
+<li>同时，为了rounding的效果，提出了专门的训练策略</li>
+</ul>
+<h3 id="End-to-end-Training"><a href="#End-to-end-Training" class="headerlink" title="End-to-end Training"></a>End-to-end Training</h3><script type="math/tex; mode=display">
+EMB(w) = [EMB(w_1), . . . , EMB(w_n)] \in R^{nd}.</script><p>是一个词向量映射，把n个word映射成n个d维向量，这个是可学习的。</p>
+<p>接下来把</p>
+<script type="math/tex; mode=display">
+q_\phi (x_0|w) = \mathcal{N} (EMB(w), \sigma_0I)</script><p>视做diffusion process的第一步(其实$\phi$就是embedding层模型……)</p>
+<p>此外，添加rounding过程</p>
+<script type="math/tex; mode=display">
+p_\theta(w | x_0) = \sum^n_{i=1} p_\theta(w_i | x_i)</script><p>$p_\theta(w_i | x_i)$就是一个经典的softmax变换。</p>
+<p>最后：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\mathcal{L}_{vlb}(x_0) & = \mathbb{E}{(x_0\sim p_{data})}  [\log p_\theta (x_0 )] \\
+& = \mathop{\mathbb{E}}\limits_{x_{1:T}|x_0} \left[ \log \frac{P_\theta(x_T | x_0)}{P_\theta (x_T)} + \sum_{t=2}^T \log \frac{q(x_{t−1}|x_0, x_t)}{P_\theta(x_{t-1} | x_t)}  -\log P_\theta(x_{0} | x_1) \right]
+\end{aligned}</script><script type="math/tex; mode=display">
+\begin{aligned}
+\mathcal{L}_{vlb}^{e2e}(w) & = \mathop{\mathbb{E}}\limits_{x_0|w}\left[\mathcal{L}_{vlb}(x_0) +\log q_\phi(x_0 | w) - \log p_\theta(w | x_0) \right] \\
+& = \mathop{\mathbb{E}}\limits_{x_{0:T}|w} \left[ \mathcal{L}_{simple}(x_0) + ||EMB(w)−\mu_\theta (x_1 ,1) ||^2 -\log p_\theta(w | x_0) \right]
+\end{aligned}</script><p>这是一个端到端的训练loss。只需要给出很多w，用DDPM的算法，就可以慢慢让模型学习了。作者也发现，这样模型和embedding一起学出来，最后word embedding也可以表现出一定的聚合性</p>
+<p><img src="../files/images/Diffusion-LM/embedding.png"></p>
+<h3 id="Reducing-Rounding-Errors"><a href="#Reducing-Rounding-Errors" class="headerlink" title="Reducing Rounding Errors"></a>Reducing Rounding Errors</h3><p>rounding的过程其实是对每一个位置选取最接近的embedding。</p>
+<p>作者提到，如果像一般的DDPM那样用模型预测$p<em>\theta(x</em>{t−1} | x_t) $的均值，会导致输入长度很短的时候效果很差(图像领域没出问题，因为最短也是32x32)。</p>
+<p>解决办法是用模型直接预测$x_0$. </p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{x0-simple}^{e2e}(x_0) = \sum_{t=1}^T \mathbb{E}_{x_t} ||f_\theta(x_t,t) - x_0||^2\\
+f_\theta(x_t,t) \to x_0</script><p>这里有点怪：换模型的目标好像会影响sample方法？还是说同样是预测$x<em>{t-1}$，但是把$x_0$视为$x</em>{t-1},x_t$的线性组合</p>
+<p>这样模型可以很快发现$x_0$的每一个位置都应该对应某个word的embedding。</p>
+<p>同时，修改原来的sample方法：</p>
+<script type="math/tex; mode=display">
+x_{t−1} =\sqrt{\overline{\alpha}}f_\theta(x_t,t)+ \sqrt{1- \overline{\alpha}} \epsilon \\
+\overline{\alpha} = \sum_{s=0}^t (1 -\beta_t) ,\quad \epsilon \sim \mathcal{N}(0,I)</script><p>(能成立是因为连续的高斯采样等价于从最开始只做一次高斯采样)</p>
+<p>上面的方法随着t的递减，逐渐从随机噪声恢复成一个无噪音的数据</p>
+<p>如果希望模型可以显式地对齐某个embedding，可以在每一步都加一个clamp。取和$f_\theta(x_t,t)$最接近的word embedding</p>
+<script type="math/tex; mode=display">
+x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \overline{\alpha}} \epsilon</script><p>同时作者也提到，对于t很大时做clamp是一个负优化，因为这时<script type="math/tex">f_\theta(x_t,t)</script>还没有对应到某些embedding，因此选取clamp的开始时间是一个超参。</p>
+<h2 id="Decoding-and-Controllable-Generation-with-Diffusion-LM"><a href="#Decoding-and-Controllable-Generation-with-Diffusion-LM" class="headerlink" title="Decoding and Controllable Generation with Diffusion-LM"></a>Decoding and Controllable Generation with Diffusion-LM</h2><h3 id="Controllable-Text-Generation"><a href="#Controllable-Text-Generation" class="headerlink" title="Controllable Text Generation"></a>Controllable Text Generation</h3><p>正如前面提到的：</p>
+<script type="math/tex; mode=display">
+\bigtriangledown_{x_{t-1}} \log P(x_{t-1}|x_t,c)  = \bigtriangledown_{x_{t-1}} \log P(x_{t-1} | x_t)+ \bigtriangledown_{x_{t-1}} \log P(c|x_{t-1})</script><p>其中式子右边的第一项是Diffusion-LM的输出。右边是一种分类器的输出。如果对于目标任务，我们在目标数据集训练一个分类器，在sample时每一步都根据这个输出做更新，那么最终就会生成符合条件c的结果。</p>
+<p>同时作者为了细粒度的控制”可控性“，定义一个超参$\lambda$来平衡流畅度和控制程度</p>
+<script type="math/tex; mode=display">
+ p(x_{t−1} | x_t, c) = \lambda \log P(x_{t-1} | x_t)+\log P(c|x_{t-1})</script><p>作为最终用来指导梯度的东西。作者提到每次得到$x_t$之后：</p>
+<ul>
+<li>sample $x_{t-1}$</li>
+<li><p>再做三轮Adagrad更新</p>
+</li>
+<li><p>把sample步骤从2000步变成200步来加速</p>
+</li>
+</ul>
+<p>这个方法我理解类似于之前微分方程那篇文章提到的PC更新方式</p>
+<h3 id="Minimum-Bayes-Risk-Decoding"><a href="#Minimum-Bayes-Risk-Decoding" class="headerlink" title="Minimum Bayes Risk Decoding"></a>Minimum Bayes Risk Decoding</h3><p>这个方法可以得到一个高质量的结果。作者用下面的最小化risk函数：</p>
+<script type="math/tex; mode=display">
+\hat{w} = \mathop{\text{argmin}}_{w \in S} \sum_{w' \in S} \frac{1}{|S|} \mathcal{L}_{bleu}(w,w')</script><p>这种方法可以参考 <a href="/f1fcbd7.html" title="论文阅读[粗读]-Minimum Bayes-Risk Decoding for Statistical Machine Translation">MBR解码博客</a></p>
+<h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><p>作者在很多个任务上使用了Diffusion-LM方法：</p>
+<ul>
+<li>classifier-guided</li>
+<li>classifier-free：不需要分类器，比如说句子长度。只要最开始的初始化向量变成需要长度即可(控制率显然是100%)</li>
+</ul>
+<p>Diffusion model里面的内部解码层作者使用了一个非常传统的transformer结构，80M参数，可以说是很少:</p>
+<ul>
+<li>步骤T = 2000</li>
+<li>词向量维度 d = 16-128</li>
+<li>句长n=64</li>
+</ul>
+<p><img src="../files/images/Diffusion-LM/example.png"></p>
+<p>输入就像上图input所示：通过分类器来在解码中每一次去噪都提供梯度</p>
+<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p><img src="../files/images/Diffusion-LM/result.png"></p>
+<p>主要结果就如上图所示。</p>
+<ul>
+<li>基本上把SOTA得分翻倍了，但这个SOTA是指plug-and-play的方法</li>
+<li>在Syntax Tree， Syntax Spans任务上，甚至比fine-tune的模型效果还好</li>
+</ul>
+<p><img src="../files/images/Diffusion-LM/compose.png"></p>
+<p>同时作者也做了综合的控制实验，比如说同时限定两个条件。可以看出，效果很好，方法就是单纯的把控制的梯度转换成两个classifier梯度的综合。</p>
+<p><img src="../files/images/Diffusion-LM/infilling.png"></p>
+<p>在infilling任务中，Diffusion-LM在没有做额外训练的情况下就表现很好</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这篇工作很新颖，很有启发，我觉得可以做的点还有以下两个方面：</p>
+<ul>
+<li>这个方法好像不能实现平行的转换，只能”根据某些控制生成特定的句子“。像之前DALL.E都是可以把特定的句子翻译成对应的图像。</li>
+<li>感觉短文本领域，只有更加平行，才能更加泛用。不过在长文本领域，可能这种没有平行的生成会更好，但作者并没有测试。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e7441803.html" rel="bookmark">论文阅读[精读]-LEARNING TO LEARN WITH GENERATIVE MODELS OF NEURAL NETWORK CHECKPOINTS</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8467c46.html" rel="bookmark">论文阅读[粗读]-Improved Denoising Diffusion Probabilistic Models</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4a98dda1.html" rel="bookmark">论文阅读[粗读]-AUTOREGRESSIVE DIFFUSION MODELS</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/diffusion-model/" rel="tag"><i class="fa fa-tag"></i> diffusion model</a>
+              <a href="/tags/%E5%8F%AF%E6%8E%A7%E6%96%87%E6%9C%AC%E7%94%9F%E6%88%90/" rel="tag"><i class="fa fa-tag"></i> 可控文本生成</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/4d63b6f9" rel="prev" title="7-5总结">
+      <i class="fa fa-chevron-left"></i> 7-5总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/f1fcbd7" rel="next" title="论文阅读[粗读]-Minimum Bayes-Risk Decoding for Statistical Machine Translation">
+      论文阅读[粗读]-Minimum Bayes-Risk Decoding for Statistical Machine Translation <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Related-work"><span class="nav-number">3.</span> <span class="nav-text">Related work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Statement-and-Background"><span class="nav-number">4.</span> <span class="nav-text">Problem Statement and Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Generative-Models-and-Controllable-Generation-for-Text"><span class="nav-number">4.1.</span> <span class="nav-text">Generative Models and Controllable Generation for Text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Autoregressive-Language-Models"><span class="nav-number">4.2.</span> <span class="nav-text">Autoregressive Language Models</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diffusion-Models-for-Continuous-Domains"><span class="nav-number">4.3.</span> <span class="nav-text">Diffusion Models for Continuous Domains</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diffusion-LM-Continuous-Diffusion-Language-Modeling"><span class="nav-number">5.</span> <span class="nav-text">Diffusion-LM: Continuous Diffusion Language Modeling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#End-to-end-Training"><span class="nav-number">5.1.</span> <span class="nav-text">End-to-end Training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducing-Rounding-Errors"><span class="nav-number">5.2.</span> <span class="nav-text">Reducing Rounding Errors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Decoding-and-Controllable-Generation-with-Diffusion-LM"><span class="nav-number">6.</span> <span class="nav-text">Decoding and Controllable Generation with Diffusion-LM</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Controllable-Text-Generation"><span class="nav-number">6.1.</span> <span class="nav-text">Controllable Text Generation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimum-Bayes-Risk-Decoding"><span class="nav-number">6.2.</span> <span class="nav-text">Minimum Bayes Risk Decoding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experimental-Setup"><span class="nav-number">7.</span> <span class="nav-text">Experimental Setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">8.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">9.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/88eeb90b" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/88eeb90b" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

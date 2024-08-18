@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="陈天奇在MLSys的新作，提出一种形状动态的auto-scheduler方法，速度和效果都很好。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS">
+<meta property="og:url" content="https://www.yynnyy.cn/99874d79">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="陈天奇在MLSys的新作，提出一种形状动态的auto-scheduler方法，速度和效果都很好。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/input.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/workflow.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/c++.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/kernel.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/compare.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/padding.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/%E7%90%86%E8%A7%A3cost.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/cost.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/occ.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/normal.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/end-to-end.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/time.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/DietCode/runtime.png">
+<meta property="article:published_time" content="2022-07-02T04:10:24.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.971Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="深度学习编译">
+<meta property="article:tag" content="TVM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/DietCode/input.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/99874d79.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/99874d79">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-02 12:10:24" itemprop="dateCreated datePublished" datetime="2022-07-02T12:10:24+08:00">2022-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/99874d79" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/99874d79#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/99874d79" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+            <div class="post-description">陈天奇在MLSys的新作，提出一种形状动态的auto-scheduler方法，速度和效果都很好。</div>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>昨天阅读survey之后，今天继续阅读编译优化论文一篇。是MLSys会议上的论文。这个会上全是一些深度学习+系统的文章，好像国内知名度不是很高，甚至不再CCF推荐列表上 ……</p>
+<p>说回本文，本文最后一个作者是陈天奇，TVM的作者，之前我看了他的经历，挺受鼓舞的，推荐大家都可以看一下~</p>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.jiqizhixin.com/articles/2019-07-20">陈天奇：机器学习科研的十年</a></p>
+</blockquote>
+<p>由于这个方向我了解甚少，这篇论文还是精度，笔记也做得详细一点。</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>在计算密集的负载下得到高效率的计算是很难的问题。目前解决办法：</p>
+<ul>
+<li>vendor libraries：需要大量工程开发</li>
+<li>auto-schedulers：只支持确定形状。否则scheduler速度会变的非常慢。</li>
+</ul>
+<p>作者观察到只支持确定形状的瓶颈在于：搜索空间是和形状有关的。作者提出新方法，可以构建一个形状无关的搜索空间，在同一空间中、用同样的cost model来同时搜索所有形状。</p>
+<p>实验表明，新方法的速度和效果均大幅超越SOTA。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>随着DL大规模应用，成本变得很高。$5\%$的性能提升可能要多花4000$。</p>
+<p>然而，提升所有算子的效果很难，需要详细的实验、开发。很多研究者应用oneDNN，cuDNN等vendor library。后者的开发时间和更新周期都很长。（一年一更）</p>
+<p>为了解决这个问题，多种auto-schedule负责进行High-level IR计算定义和Low-level IR实现之间的过程。然而，现有方法都需要在计算时知道所有位置的形状，这样才能正确地构建搜索空间，考虑所有情况。</p>
+<p>然而，很多工作需要形状不确定。一个方法是对所有形状都遍历优化一遍：</p>
+<ul>
+<li>慢，一个BERT层需要42h来优化</li>
+</ul>
+<p>作者发现，如果把想同类型、不同形状的算子看成一个可变形状的workload，然后只规划一次，可以显著减少计算量。已有方法不能这么做，是因为他们要对不同形状开不用的搜索空间。本文提出一种新的方法DietCode：</p>
+<p>构建一个由micro-kernel构成的shape-generic搜索空间，每个micro-kernel都是形状不固定的。这样就能让DietCode有一个统一的搜索空间。</p>
+<p>DietCode构建的cost-model包括：</p>
+<ul>
+<li>复杂的shape-generic 的部分。需要从micro-kernel中提取loop feature等信息，需要从硬件上获取参数</li>
+<li>简单的依赖形状的部分。不需要额外信息</li>
+</ul>
+<p>本文的贡献可以归纳为：</p>
+<ul>
+<li>提出通过构建shape-generic的搜索空间解决动态形状的规划问题</li>
+<li>提出DietCode，可以同时规划所有形状，用同样的shape-generic cost model</li>
+<li>在BERT模型编译中，比SOTA快5.88倍，如果考虑所有形状，快100倍。效果上比auto-schedule好$69\%$,比库方法好$18.6\%$</li>
+</ul>
+<h2 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h2><h3 id="现有auto-scheduler工作流"><a href="#现有auto-scheduler工作流" class="headerlink" title="现有auto-scheduler工作流"></a>现有auto-scheduler工作流</h3><p>现有的vendor library成本很高，有很多auto-scheduler来替代。</p>
+<p><img src="../files/images/DietCode/input.png"></p>
+<p>其输入如上图：包含一个tensor的表达式，同时对于tensor的形状有附加的说明。</p>
+<p><img src="../files/images/DietCode/workflow.png"></p>
+<p>现有方法如上图左:</p>
+<ul>
+<li>1.通过表达式和形状信息，与硬件的可能优化方式一起构建搜索空间</li>
+<li>2.通过硬件信息构建一个cost model</li>
+<li>3.用某种算法进行学习</li>
+</ul>
+<p>最后搜出来的方法大约比vendor-library方法快3.88倍</p>
+<h3 id="动态形状tensor的程序"><a href="#动态形状tensor的程序" class="headerlink" title="动态形状tensor的程序"></a>动态形状tensor的程序</h3><p>现有方法需要：在优化时知道所有的形状信息。因此不适用于以下需求：</p>
+<ul>
+<li>NAS中，需要搜索网络超参。每组超参的实现，网络的结构都不同(举例，12800种)</li>
+<li>在NLP等序列任务中，输入的长度可能运行时才能确定，比如BERT就是长度1-128</li>
+<li>统一模型，不同层的维度可能都不一样：比如BERT的hidden state在不同层可能是$(768,2304,3072)$</li>
+</ul>
+<h3 id="为什么需要新的auto-scheduler框架"><a href="#为什么需要新的auto-scheduler框架" class="headerlink" title="为什么需要新的auto-scheduler框架"></a>为什么需要新的auto-scheduler框架</h3><p>现有方法加一些代码不行吗？</p>
+<ul>
+<li>对于vendor-library：输入性状改变可能带来13倍的性能衰减。这是因为代码里有好多hard-code。改这些东西的代价很大，码量爆炸。</li>
+<li>已有auto-scheduler：现有的工作流，上图左，形状信息都是焊死的。不改代码的话，只能对所有形状遍历，这个速度肯定不可行。</li>
+</ul>
+<p>已有一些auto-scheduler的动态形状改进有一些问题：</p>
+<ul>
+<li>Selective tuning：把不同形状聚成一个个cluster，然后对每个cluster优化。需要额外的知识，不能完全自动化</li>
+<li>Nimble：在一个大形状上预计算，然后在别的动态形状应用。问题是在一个大形状上的最优不一定可以泛化到别的最优。</li>
+<li>Bucketing：把形状变化区间分成子区间，然后用每个子区间的最大值作为值来计算一次。<ul>
+<li>需要额外计算形状信息，并且由于化简，带来计算不准确。</li>
+<li>由于padding，会出现不必要的计算开销。</li>
+</ul>
+</li>
+</ul>
+<p>综上，已有方法都不好。</p>
+<h2 id="DietCode原理、关键因素"><a href="#DietCode原理、关键因素" class="headerlink" title="DietCode原理、关键因素"></a>DietCode原理、关键因素</h2><h3 id="Shape-Generic-Search-Space"><a href="#Shape-Generic-Search-Space" class="headerlink" title="Shape-Generic Search Space"></a>Shape-Generic Search Space</h3><p>观察下面这个图：</p>
+<p><img src="../files/images/DietCode/c++.png"></p>
+<p>左边是一个含参数T的代码，右边是已有auto-scheduler的做法：</p>
+<ul>
+<li>可见，他们只尝试了T的因子，比如$T=49,t \in[1,7,49]$,显然比如t=10时就不准确。</li>
+</ul>
+<p>本文，则考虑硬件约束下，给出了一些micro-kernel。这是符合硬件条件的一些算子，可以一个动态形状的运算可以视为一些micro-kernel的组合，比如下列运算：</p>
+<script type="math/tex; mode=display">
+Y = XW^T \\
+X :[16*T,768] ,\quad W:[2304,768]</script><p>其中T是可变的参数。如果我们有一个运算器可以运算$128*128$的矩阵micro-kernel：dense_128x128。</p>
+<p>当T=64时，由于$16·T = 8×128, 2304 = 18×128$可以把他们视为$8*18$的kernel的排列在一起进行运算，如图：</p>
+<p><img src="../files/images/DietCode/kernel.png"></p>
+<p>通过排布使用micro-kernel dense_128x128,我们对于$T=1,2,…128$都可以很方便的实现上面的运算。<strong>也就是说，通过这种设计，我们只需要使用形状无关的micro-kernel，就可以实现任意形状输入的优化</strong></p>
+<p>这种方法要解决几个问题：</p>
+<ul>
+<li>如果T=60，那么就需要一个padding，如上图的下面。也就是说，会带来一些额外计算。要怎样高效利用所有micro-kernel？</li>
+<li>怎样准确评判这种由micro-kernel构成的程序的效率？</li>
+</ul>
+<h3 id="Micro-Kernel-based-Cost-Model"><a href="#Micro-Kernel-based-Cost-Model" class="headerlink" title="Micro-Kernel-based Cost Model"></a>Micro-Kernel-based Cost Model</h3><p>上面说的第一个问题通过padding可以一定程度上解决。对于后一个问题，需要构建一个新的cost model。</p>
+<p>已有的cost-model需要输入整个程序，从中抽取一些特征：</p>
+<script type="math/tex; mode=display">
+\text{Cost}(P ) = f (\text{FeatureExtractor}(P )) \\
+f : \text{cost function (e.g., XGBoost)} \\
+P : \text{complete program } \\
+\text{Cost} :\text{ compute throughput}</script><p>但是，由于micro-kernel是程序的一种切片，不是整个程序，因此不适用传统cost model。</p>
+<p>设计新的cost model，发现如果一个动态形状程序P被切片成很多micro-kernel M，那么cost可以拆解成两部分：</p>
+<ul>
+<li>$f_{MK}$：这些micro-kernel的损失。和形状无关（多个micro-kernel可以并行，时间是常数）</li>
+<li>$f_{adapt}$ ：把P切片成M带来的损失。和形状有关，但是计算很简单(比如上图就是算padding的比例)</li>
+</ul>
+<script type="math/tex; mode=display">
+\text{Cost}_M(P)=f_{MK}(\text{FeatureExtractor}(M))·f_{\text{adapt}}(P,M)</script><p>式子的左边可以通过已有方法的公式计算，更重要的是，由于M和程序P无关，可以事先预计算。式子的右边计算速度很快。综上，新模型的计算效率很高。</p>
+<h3 id="Joint-Learning-with-DietCode"><a href="#Joint-Learning-with-DietCode" class="headerlink" title="Joint Learning with DietCode"></a>Joint Learning with DietCode</h3><p>本文提出了DietCode，基于以下要素：</p>
+<ul>
+<li>一个Shape-Generic Search Space</li>
+<li>一个Micro-Kernel-based Cost Model</li>
+<li>在运行时通过上面的cost公式对确定的输入形状派发一种micro-kernel排列</li>
+</ul>
+<p>和已有方法对比如下图：</p>
+<p><img src="../files/images/DietCode/compare.png"></p>
+<p>可以对所有categories同时学习，因为有统一的cost公式，复杂度是$O(1)$</p>
+<h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><p>这种方法作为TVM的auto-scheduler方法</p>
+<h3 id="local-padding"><a href="#local-padding" class="headerlink" title="local padding"></a>local padding</h3><p>上面提到的由于使用padding，可能会带来性能下降，高达17倍。这是因为引入了很多的branch指令，而且每个branch都要计算数据。</p>
+<p>作者研究了三种已有解决方法，举例子如下图，这个例子有一个数据读取，一个数据修改，一个数据写回</p>
+<p><img src="../files/images/DietCode/padding.png"></p>
+<ul>
+<li>global padding：如b。提前算好，不需要在里面做branch，但是需要引入额外的存储空间和padding结果的运算</li>
+<li>Loop partitioning：如c。把程序切成两片，其中上一片无论如何都不会爆。当$t \ll T$时效果不错，但这个条件很难保证。</li>
+<li>local padding: 在取数据和写回数据时保证正确性，但是在计算时不保证。这个有两个好处：<ul>
+<li>只有计算阶段的branch会大幅影响表现。fetch和write back的时间可以被已有流水线技术优化掉</li>
+<li>如果计算阶段算了额外算了padding的部分，写回阶段会把它忽略，因此不怎么影响表现</li>
+</ul>
+</li>
+</ul>
+<p>本工作使用local padding方法</p>
+<h3 id="Micro-Kernel-based-Cost-Model-具体实现"><a href="#Micro-Kernel-based-Cost-Model-具体实现" class="headerlink" title="Micro-Kernel-based Cost Model 具体实现"></a>Micro-Kernel-based Cost Model 具体实现</h3><p>cost的计算应该考虑以下部分：</p>
+<ul>
+<li>1、micro-kernel的表现</li>
+<li>2、硬件占有率带来的惩罚，用的micro-kernel越多，瞬时的占有率高，吞吐量大，就是好。</li>
+<li>3、padding带来的额外惩罚，padding的比例越低越好</li>
+</ul>
+<p>这三部分可以这样理解：</p>
+<p><img src="../files/images/DietCode/理解cost.png"></p>
+<p>最终公式如下：</p>
+<p><img src="../files/images/DietCode/cost.png"></p>
+<p>其中$f_{PAD}$和硬件无关，之和micro-kernel设计、程序P有关</p>
+<p>其中$f_{OCC}$是占有率惩罚， 用一个回归模型预测</p>
+<p><img src="../files/images/DietCode/occ.png"></p>
+<p>k，b是可学习的参数，由于每个micro-kernel被派发到不同的核，$f_{OCC}$也可以看做占了多少的核。如果做一个归一化的话：</p>
+<p><img src="../files/images/DietCode/normal.png"></p>
+<p>可以节省一个参数b</p>
+<h3 id="Automatic-Dispatching"><a href="#Automatic-Dispatching" class="headerlink" title="Automatic Dispatching"></a>Automatic Dispatching</h3><p>在同时计算完所有的M以后，我们根据：</p>
+<script type="math/tex; mode=display">
+vote(S) = argmax_M(CostM(P(S,M)))</script><p>这个得分是和吞吐率成正比的，因此越高越好。用argmax    </p>
+<p>来对与特定的形状S派发一组micro-kernel的排列M，这个可以遍历。结束以后，我们把$<s,vote(s)>$做成一颗决策树，在运行时通过决策树决定M即可。</s,vote(s)></p>
+<p>​    </p>
+<h2 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION"></a>EVALUATION</h2><p>这一部分就不详细讲了。简单说一下，就是测试BERT模型的表现，baseline是：</p>
+<ul>
+<li>vendor: cuDNN</li>
+<li>Auto-scheduler: Ansor</li>
+<li>dynamic code generation: Nimble。进一步优化Ansor，计算最大形状，然后应用在所有形状上</li>
+</ul>
+<p>评测指标，全都是越小越好：</p>
+<ul>
+<li>end-to-end latency on the entire model, measured as msec。</li>
+<li>the runtime cost of the generated tensor programs on a single operator, measured as μsec and averaged over 100 runs。</li>
+<li>the total auto-scheduling time used, measured as hours</li>
+</ul>
+<p><img src="../files/images/DietCode/end-to-end.png"></p>
+<p>上面这个图可以看出，对于不同的输入维度，DietCode的效果基本最好。同时和vendor的差距小，但是vendor需要人工大码量、长时间的开发。</p>
+<p><img src="../files/images/DietCode/time.png"></p>
+<p>上面这个图是编译时间，虚线代表理论推导，实际根本不可行。可以看出，DietCode非常快。</p>
+<p><img src="../files/images/DietCode/runtime.png"></p>
+<p>上面这个图是指选定某种结构以后，真正的跑的速度。更快。作者测试了dense层(一个动态量)，batchmatmul层(2个动态量)，效果都更好。</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li>其实我之前也不知道这种“动态形状”的输入是怎么规划的。但我确实感觉到动态形状的支持应该是必要的，基本所有的NLP问题都需要这个。</li>
+<li>看作者的意思，这个功能现在已经上TVM了，我在想这个是不是和操作系统一样：</li>
+</ul>
+<blockquote>
+<p>先有实现，后有理论</p>
+</blockquote>
+<ul>
+<li>后续我可能会继续调研一些TVM的原理，感觉还是挺神奇的。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/39e1c917.html" rel="bookmark">论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b0f88437.html" rel="bookmark">论文阅读[粗读]-THE CORA TENSOR COMPILER: COMPILATION FOR RAGGED TENSORS WITH MINIMAL PADDING</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f3519427.html" rel="bookmark">论文阅读[精读]-The Deep Learning Compiler: A Comprehensive Survey</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/" rel="tag"><i class="fa fa-tag"></i> 深度学习编译</a>
+              <a href="/tags/TVM/" rel="tag"><i class="fa fa-tag"></i> TVM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/b92c92ea" rel="prev" title="7-1总结">
+      <i class="fa fa-chevron-left"></i> 7-1总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/93d2057b" rel="next" title="论文阅读[精读]-DENOISING DIFFUSION IMPLICIT MODELS">
+      论文阅读[精读]-DENOISING DIFFUSION IMPLICIT MODELS <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%B0%E6%9C%89auto-scheduler%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">3.1.</span> <span class="nav-text">现有auto-scheduler工作流</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%BD%A2%E7%8A%B6tensor%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="nav-number">3.2.</span> <span class="nav-text">动态形状tensor的程序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E6%96%B0%E7%9A%84auto-scheduler%E6%A1%86%E6%9E%B6"><span class="nav-number">3.3.</span> <span class="nav-text">为什么需要新的auto-scheduler框架</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DietCode%E5%8E%9F%E7%90%86%E3%80%81%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DietCode原理、关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape-Generic-Search-Space"><span class="nav-number">4.1.</span> <span class="nav-text">Shape-Generic Search Space</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model"><span class="nav-number">4.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Joint-Learning-with-DietCode"><span class="nav-number">4.3.</span> <span class="nav-text">Joint Learning with DietCode</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="nav-number">5.</span> <span class="nav-text">实现细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#local-padding"><span class="nav-number">5.1.</span> <span class="nav-text">local padding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Micro-Kernel-based-Cost-Model-%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0"><span class="nav-number">5.2.</span> <span class="nav-text">Micro-Kernel-based Cost Model 具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automatic-Dispatching"><span class="nav-number">5.3.</span> <span class="nav-text">Automatic Dispatching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EVALUATION"><span class="nav-number">6.</span> <span class="nav-text">EVALUATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/99874d79" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/99874d79" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

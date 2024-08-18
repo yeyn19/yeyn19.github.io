@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="最近Sora巨火，仿佛开启了AIGC的新时代。Jason Wei表示：”Sora is the GPT-2 moment” for video generation。我在sora发布的大约第5个小时读了technical report，里面最打动我的其实是没提什么细节的recaption技术。让我回想想起了之前读DALL.E 3论文时的愉快体验。 所以今天来分享一下DALL.E 3论文里的reca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和&quot;Synthetic Data&quot;是一个意思吗？">
+<meta property="og:url" content="https://www.yynnyy.cn/61495969">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="最近Sora巨火，仿佛开启了AIGC的新时代。Jason Wei表示：”Sora is the GPT-2 moment” for video generation。我在sora发布的大约第5个小时读了technical report，里面最打动我的其实是没提什么细节的recaption技术。让我回想想起了之前读DALL.E 3论文时的愉快体验。 所以今天来分享一下DALL.E 3论文里的reca">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/recaption/dalle3.png">
+<meta property="article:published_time" content="2024-03-02T03:08:13.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.971Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="多模态">
+<meta property="article:tag" content="Computer Vision">
+<meta property="article:tag" content="from scratch">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/recaption/dalle3.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/61495969.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？ | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/61495969">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-03-02 11:08:13" itemprop="dateCreated datePublished" datetime="2024-03-02T11:08:13+08:00">2024-03-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/61495969" class="post-meta-item leancloud_visitors" data-flag-title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/61495969#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/61495969" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>7 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+            <img src="/../../files/images/recaption/dalle3.png" itemprop="contentUrl">
+        </div>
+        <p>最近Sora巨火，仿佛开启了AIGC的新时代。Jason Wei表示：”Sora is the GPT-2 moment” for video generation。我在sora发布的大约第5个小时读了technical report，里面最打动我的其实是没提什么细节的recaption技术。让我回想想起了之前读DALL.E 3论文时的愉快体验。</p>
+<p>所以今天来分享一下DALL.E 3论文里的recaption细节，并讨论几个问题和我的看法：1)OpenAI教你为什么要”先查看原始数据，再做创新” 2)Recaption和大家一直在聊的”training on synthetic data”是一回事吗? 3)recaption技术是否已经在(或者即将在)被其他领域使用？</p>
+<p>另外，我总结了一下上篇笔记阅读量大的关键：语言表达要浅显易懂些，所以这篇笔记我可以声明一下：<strong>没学过AI也能看懂</strong>(我在博客里加了这个标签”from scratch”，所有我认为不懂AI或者只知道一点点的人也能看懂的博客都会加上这个标签)</p>
+<p>参考文献：</p>
+<blockquote>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://openai.com/sora">https://openai.com/sora</a></p>
+<p>Improving Image Generation with Better Captions</p>
+<p>Automatic Instruction Optimization for Open-source LLM Instruction Tuning</p>
+<p>WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation</p>
+<p>Reformatted Alignment</p>
+<p>Rephrasing the Web: A Recipe for Compute and Data-Efficient Language Modeling</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="DALL-E-3"><a href="#DALL-E-3" class="headerlink" title="DALL.E 3"></a>DALL.E 3</h2><p>论文的标题明确指出了关键点”Better Captions”，说白了就是教你(叫你)去清洗数据。我们也许可以从这篇论文里，大致窥探到OpenAI世界第一的数据工程insights。</p>
+<p><img src="../../files/images/recaption/authors.png"></p>
+<p>作者指出，在DALL.E 2以后，text2image得到了学界越来越多的关注，大家想要开发更好的模型结构、使用更大的参数量和训练量。另外，学界很多工作帮助指出DALL.E 2中存在的问题：忽略text中的要求、和text中的语义不符，图片里出现诡异的文字等等。</p>
+<p>怎么办呢？继续扩大模型规模，可以在一定程度上缓解这个问题。不过，作者在查看了原始数据后发现了根源：巨量的互联网 图片-文本对 数据里的图片和文本在大多数情况下并不对应，比如下图，虽然图片相对高质量，但是对应的alt text实际上都和图片没什么关系。实际上，上面提到的text2image model中的问题，其根源在于数据集的质量。</p>
+<h3 id="re-caption"><a href="#re-caption" class="headerlink" title="re-caption"></a>re-caption</h3><p><img src="../../files/images/recaption/caption.png"></p>
+<p>所以，作者有了直觉的想法：</p>
+<ol>
+<li>先训练一个caption model，可以输入图片数据输出高质量文字描述</li>
+<li>把他们的整个数据集的所有文字描述全部重跑一遍，所以这个过程叫做(re-caption)</li>
+<li>在新生成的数据集上训练text2image model。保证训练数据是高质量的</li>
+</ol>
+<p>这个思路没什么难的，实际上学界也早有了相关的思路，OpenAI只是把这个方法扩展了起来。作者分别标注了short-description和detailed-description两个小数据集，端到端的训练了一个caption model，然后把每条预训练数据集里面的图片都生成了SSC和DSC两种。</p>
+<p>然而，作者敏锐的察觉到了上面这种方法里存在的问题：人类世界的caption虽然质量不一定高，但足够泛化。机器生成的caption虽然质量高，但他的多样性受制于caption model训练数据的多样性。比如说，如果caption model永远输出”a xxx”开头的caption，那么如果用户运行时的输入不是a开头的，模型是不是就会爆炸了？所以作者希望数据集中的caption要尽可能接近人类生成的text</p>
+<p>这个问题其实也好解决：把原始数据和recaption数据掺在一起训练！作者由此开展了一系列实验。另外，作者尝试了使用GPT-4V作为image caption，效果实际上也很不错</p>
+<h3 id="Blending-synthetic-and-ground-truth-captions"><a href="#Blending-synthetic-and-ground-truth-captions" class="headerlink" title="Blending synthetic and ground-truth captions"></a>Blending synthetic and ground-truth captions</h3><p><img src="../../files/images/recaption/blend.png" style="zoom:33%;"></p>
+<p>作者经过一系列实验，发现基本上使用更多的synthetic data，在in-domain的测试里效果会更好。作者由此训练了DALL.E 3发现效果比DALL.E 2有了明显的提升。不过作者也同时指出了，DALL.E 3仍然有很多问题，并且这些问题本质上是image caption model暂时学习不到的性质</p>
+<ol>
+<li>get不到caption里面的空间信息，比如谁在谁的前面/上面等等，作者发现caption model也往往说不对这些关系</li>
+<li>图片里面的文字会丢失字母等等：作者认为这是text encoder是基于t5的。他的encoder是基于token的，模型需要学会把tokenizer里面的token(含多个char)映射到图片空间，这实际上非常难(比如说”图片要求写一个”play”，每个字母用不同的颜色，每个字母分别倾斜30度”。这个描述本身被tokenizer时”play”会是一个token，)。以后也许会训练基于char的model来解决</li>
+<li>专业知识性的caption说不对，比如各种罕见的鸟的类型生成不对：作者发现这是因为caption model也说不出来，因为这需要更多、更高级的世界知识理解能力。作者认为需要更强的caption model(比如GPT-4V)</li>
+</ol>
+<h2 id="DALL-E-3还有后手？"><a href="#DALL-E-3还有后手？" class="headerlink" title="DALL.E 3还有后手？"></a>DALL.E 3还有后手？</h2><p>通过上面的讲解，我们应该发现：DALL.E 3的训练数据的文字部分，绝大多数(95%)都是recaption出来的。这对模型的影响有多大呢？</p>
+<p><img src="../../files/images/recaption/image-with-better-caption.png"></p>
+<p>作者列出来了dalle.3使用正常caption和详细caption下的实际表现，确实在prompt following能力上天差地别，使用更符合DALL.E 3训练数据格式的prompt会让他的表现好很多。实际上，很多text2image目标用户过去一年里的很多学习，或者说网上找的教程都是在学习”如何写好的prompt”。这和”模型更好的遵从prompt”是一个双向奔赴的过程，但是只有OpenAI自己知道他们的闭源的recaption训练数据到底长什么样：我们其实很难针对性的写出符合DALL.E 3预期的prompt。这也就是上面论文里提到的问题：真实人类需求和训练prompt的分布不一致，会导致模型部署时崩溃风险高。</p>
+<p>怎么办？OpenAI帮我们想了一招：写prompt的也是OpenAI-model就好了！所以我们会发现，现在使用DALL.E 3都是基于网页端的，我的需求会被GPT “re-caption”成真实的需求。比如这张图片：</p>
+<ol>
+<li><p>我写的要求：帮我生成一张图片，描述weak2strong generation里GPT2监督GPT4</p>
+</li>
+<li><p>GPT4实际生成的prompt：Imagine a futuristic, abstract scene where GPT-2, represented as a wise, older robot with classic design elements, is mentoring GPT-4, depicted as a sleek, advanced robot with cutting-edge features. The setting is inside a vast, digital library, filled with glowing books and holographic data streams. GPT-2 is shown pointing towards a holographic display that illustrates complex algorithms and data structures, while GPT-4 observes attentively, its sensors and circuits illuminated by the holographic light. The atmosphere is one of collaboration and knowledge transfer, highlighting the evolution of technology from one generation to the next.</p>
+</li>
+</ol>
+<p><img src="../../files/images/recaption/dalle3-image.webp" style="zoom:33%;"></p>
+<p>通过这种方案，就不怕分布不一致了。OpenAI的这个设计实际上让我产生了两个联想：</p>
+<ol>
+<li>对于用户来说，prompt是什么本身比并不重要。prompt只是链接需求和成品的桥梁，用户关心的是自己想要的图片完成没有而不是prompt好不好。</li>
+<li>ChatGPT目前做的事情更像是链接了 用户需求 -&gt; text-prompt。这本身不是最直观的方法，因为GPT和DALLE本身是没有交互的</li>
+<li>我们可以把DALL.E 3部署时产生的数据定义为三元组 (多轮对话, text-prompt, target-image)。如果这个数据量scale起来，数据量达到二元组数据规模以后，是不是可以直接训练一个端到端的模型呢？他可以同时生成文字和图片，理解文字和图片。直接和你的对话去理解你的那种虽然抽象、但乐于通过对话表达出来的需求(比如要多少号多大的猫)，甚至通过多轮的图片生成去一点点猜测你的真实意图。</li>
+</ol>
+<blockquote>
+<p>在DALL.E 3论文里用GPT4生成caption的实验里展示了这种野心的一角，这可能才是text2image下沉市场(直接使用图像的用户、而不是基于图片去二次创作的画家们)的更广阔的未来</p>
+</blockquote>
+<h2 id="Sora的recaption又玩出了什么？"><a href="#Sora的recaption又玩出了什么？" class="headerlink" title="Sora的recaption又玩出了什么？"></a>Sora的recaption又玩出了什么？</h2><p>Sora在技术报告里提到使用re-caption技术为视频创造文字描述。实际上这个领域和text2image完全不同：</p>
+<ol>
+<li>互联网能找到大量的图片、文本对，但很难找到大规模的 视频-文本对</li>
+<li>图片和文本基本上是一一对应关系：有一个很精确详细的文本描述以后，其对应的图像基本也就只能长那个样子，对图片进行裁剪会导致清晰度丢失严重，并且丧失语义丰富性。但视频是可以”降采样的”，一个视频的任何片段还是视频，大概率还会有语义，可以做re-caption。</li>
+<li>除了降采样，实际上还可以拼接。比如Sora里提到了模型有能力融合两个视频变成一个语义通顺的更长视频。这种方式，在理想情况，对于数据的利用效率会从O(n)变为O(n^n)。如果显卡足够，简直无法想象</li>
+</ol>
+<p>所以，sora里面很可能更大比例的使用re-caption技术来获得准确高质量的视频描述。这个描述不仅仅是空间尺度的，甚至还有时间尺度的，比如”在14秒时，屏幕上出现一只猫，在17秒时跳走了”。然而，如何高质量的降采样、拼接，使得视频仍然是保有语义的，OpenAI不知道做了多少数据工程。</p>
+<blockquote>
+<p>“保有语义”这个描述可能不太准确，实际上是：希望视频描述和真实用户在要求sora生成视频的需求尽可能接近。比如可能没人希望生成”两瓶可乐在打架”的视频，虽然确实是有语义的……可能，也有人？</p>
+</blockquote>
+<p>Sora技术报告对这些细节语焉不详，我们只能期待学界的开源工作在这方面做出更多更有趣的探索吧。</p>
+<h2 id="recaption：my-insights"><a href="#recaption：my-insights" class="headerlink" title="recaption：my insights"></a>recaption：my insights</h2><p>我认为，代码、图片、视频，(甚至我研究的tool-call-chain)都是和文字独立的其他模态的数据。他们有自己的模式，目前我们对于语言模态的模型训练效果最好，或者说，在语言模态找到的auto-regressive训练方法对数据的训练效率最高。</p>
+<h3 id="recaption-is-only-training-to-align"><a href="#recaption-is-only-training-to-align" class="headerlink" title="recaption is only training to align?"></a>recaption is only training to align?</h3><p>想要习得一个新模态的能力，我们需要的是pair数据：不放设想一下，我从出生开始，虽然到现在也才20多年，但是我经历的数据是 (文字-图像-视频-声音)等等完全对齐的，脑子里甚至在同时产生无穷无尽的CoT来解释目前看到的这一切</p>
+<p><img src="../../files/images/recaption/歪头.jpeg"></p>
+<p>所以对于模型来说，学习别的模态是一个比学习语言模态更困难的任务：image2text做的好、text2image不容易。所以大家训练dalle想要的做的事情可能<strong>并不是让模型学会图片模态，而是希望模型更好的把自己对于文字模态的知识映射到图片模态</strong>。对于这种类似于“align”的任务，最好地办法就是给出更准确的align数据。什么叫更好的align数据？没有歧义的数据，比如说一个文字描述，你能画出多少图片，他们之间的差异有多大：画一个人、画一个男人、画一个小男孩、画一个华裔小男孩、画马斯克、画埃隆马斯克……可以认为，更详细的文字描述是在减少歧义，同时通过传入更多的信息去<strong>定点地激活对应的文字模态的知识</strong></p>
+<p>当然，OpenAI做recaption的思路其实有点违背了预训练的初衷：更多的数据、更少的干预、更少的归纳偏置。当然，这种初衷是希望模型获得通用的世界知识建模能力，如果我们认为模型(T5-encoder)本来就有世界知识，我们只是在”elicit”激发他的知识，那另说。</p>
+<p>在很多情况下，我们希望模型去学习到很多通用的、语言没法表达的世界知识，比如几何题做辅助线、一堆水滴落在水面的样子等等，我们恰好发现。我们发现，这些知识正好都是目前的多模态模型很差的地方……也许，获得这些能力，是需要我们跳出”align”、re-caption的观点，去开发一种直接瞄准获取多模态通用知识的方案。这种方案，简单来说就是”没有输入，直接输出”，和GPT4的训练方式一样</p>
+<p>我认为，在视频模态训练sora是可行的，原因在这里：对于图片生成，尤其是Diffusion model，一个模糊的图片变成清晰一点的图片，在我看来对于语义的依赖性没那么强。反而是视频模态，生成后面的视频，对于前面的依赖性很强，也就是说模型必须在auto-regressive训练中直接捕获到一些世界知识，考虑下面这个：</p>
+<blockquote>
+<p>你从一个鼻子模糊的图片里，参考前面的草图把鼻子画清楚。关键是你猜到这里是鼻子，你本来就会画鼻子，你从中学到的知识并不精确</p>
+<p>看到两个球碰撞前的视频，预测出来碰撞后的样子。你需要理解速度、中心、碰撞点等概念，从中学到的知识表征了世界的更多属性。</p>
+</blockquote>
+<h3 id="recaption-is-NOT-“training-on-synthetic-data”"><a href="#recaption-is-NOT-“training-on-synthetic-data”" class="headerlink" title="recaption is NOT “training on synthetic data”"></a>recaption is NOT “training on synthetic data”</h3><p>最近另外一个比较火的关键词是在合成数据上做训练，recaption算是”在合成数据上做训练”吗？我认为不是，因为recaption是在对已有的数据做改写成更符合要求的形式，本来就有数据。Sora中使用虚幻5渲染出来的视频做训练才是真正的”training on synthetic data”。我认为在合成数据上做训练，本质是想要让模型grokking：希望模型通过更多的数据，最终捕获到了更高级的heuristics。</p>
+<p>举几个例子：</p>
+<ol>
+<li>牛顿被苹果砸了，发现了万有引力。只需要一个公式，就能预测所有苹果落地的trace。所以这个高级的heuristics需要更少的计算量就能表征更多的数据</li>
+<li><p>小明算1+2+3… +10需要点点算，高斯发现了这个算式可以变成 (1+10)*20/2.很快算完了。但他俩结果是一样的</p>
+</li>
+<li><p>虚幻五是一个渲染视频的引擎，如果”虚幻5”本身是一个模型，用户只需要输入操作虚幻五的”action trace”，就能渲染出一个视频。从compression的角度看，虚幻五把视频世界知识压缩进了自己的参数里，可以把一个长视频压缩到”action trace”这么少的数据量里。Sora很傻，他一直看虚幻5生成的视频，为了对虚幻五进行拙劣的模仿，目前还学的不太对</p>
+</li>
+</ol>
+<blockquote>
+<p>目前的AI还没有牛顿这么聪明，可能被砸一亿个苹果才会突然顿悟，发现公式，这个事情在学界叫做grokking。从这里，我们发现的事实是：在我不知道万有引力时，我可能通过一堆低级方法生成苹果降落的视频，来一直砸牛顿，反正总有一天能砸对。</p>
+<p>在更高级的模型看来，虚幻五也是”傻子”，需要下载好几十GB才能渲染视频，没准他用100M就生成比虚幻五好多了。更高级的模型没准觉得人类也是傻子，测出来卡西米尔效应是-1/12但解释不了，自己知道为什么，只是没办法用自然语言表达……因为人类的数学体系太烂了，整个”数学词表”也就这么大，还是离散的。</p>
+<p>可悲的是，人类自己本来有机会grokking的，但是每个人只能活100年，柯洁学10000年围棋真的还下不过alpha-zero吗……类似的有教育意义的案例，可以参考漫士沉思录对于哈马努金推导的讲解 <a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.bilibili.com/video/BV1si4y1p75k">全体自然数之和等于-1/12？真相远没有那么简单！</a></p>
+</blockquote>
+<p>所以，1)找到高级heuristics很困难。2)高级和低级heurisitic生成的数据都是正确的。3)越多的原始数据，越多发现高级herusitics的可能。从这三个观点出发，就产生了”training on synthetic data”的想法：盼着模型去grokking。我十分同意这个观点，也相信这才是AGI最可行的路线。</p>
+<p>不过话说回来，不管怎么看，这和recaption都不是一回事，在根本目的上就不一样。</p>
+<h2 id="recaption-is-all-you-need"><a href="#recaption-is-all-you-need" class="headerlink" title="recaption is all you need?"></a>recaption is all you need?</h2><p>recaption本身有没有在学界的其他领域使用呢？我认为这是一个范式：A是一个比B更难的任务，A-&gt;B 的模型效果不好，就反过来训一个 B -&gt; A的模型，为(A-B) pair提供更多的数据。这个思路很简单、很scalable，并且实际上很多工作都在用，我这里举一些例子：</p>
+<ol>
+<li>WaveCoder：根据query生成code很困难。那么我先找一堆code，对着他生成、改写query，再训练code模型。</li>
+<li>CoachLM：SFT中根据query生成response很困难：那我找到已有的query-response数据对，把query改成更好的、更没有歧义的格式，再训练模型去生成response</li>
+<li>Reformatted Alignment：推理领域，根据query生成CoT很困难。我把原始的数据格式改写一下，让query里告诉模型该怎么写CoT，再生成CoT。由此finetune模型，效果会更好吗？</li>
+</ol>
+<p>我相信，这种范式会在未来变得越来越普遍，甚至扩展到预训练场景(比如CMU今年出的Rephrasing the Web)</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d33e88af.html" rel="bookmark">LLaVA, LLaVA 1.5和LLaVA-Plus: 讲讲LMM</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6dd69a39.html" rel="bookmark">论文阅读[粗读]-Meta-Transformer: A Unified Framework for Multimodal Learning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1a72430d.html" rel="bookmark">GPT4技术报告解读:应用报告</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E5%A4%9A%E6%A8%A1%E6%80%81/" rel="tag"><i class="fa fa-tag"></i> 多模态</a>
+              <a href="/tags/Computer-Vision/" rel="tag"><i class="fa fa-tag"></i> Computer Vision</a>
+              <a href="/tags/from-scratch/" rel="tag"><i class="fa fa-tag"></i> from scratch</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/e9916de0" rel="prev" title="2024-02-29总结：研一下开始了">
+      <i class="fa fa-chevron-left"></i> 2024-02-29总结：研一下开始了
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/fbc665c3" rel="next" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training">
+      论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DALL-E-3"><span class="nav-number">1.</span> <span class="nav-text">DALL.E 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#re-caption"><span class="nav-number">1.1.</span> <span class="nav-text">re-caption</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Blending-synthetic-and-ground-truth-captions"><span class="nav-number">1.2.</span> <span class="nav-text">Blending synthetic and ground-truth captions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DALL-E-3%E8%BF%98%E6%9C%89%E5%90%8E%E6%89%8B%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">DALL.E 3还有后手？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sora%E7%9A%84recaption%E5%8F%88%E7%8E%A9%E5%87%BA%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">Sora的recaption又玩出了什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recaption%EF%BC%9Amy-insights"><span class="nav-number">4.</span> <span class="nav-text">recaption：my insights</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#recaption-is-only-training-to-align"><span class="nav-number">4.1.</span> <span class="nav-text">recaption is only training to align?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#recaption-is-NOT-%E2%80%9Ctraining-on-synthetic-data%E2%80%9D"><span class="nav-number">4.2.</span> <span class="nav-text">recaption is NOT “training on synthetic data”</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recaption-is-all-you-need"><span class="nav-number">5.</span> <span class="nav-text">recaption is all you need?</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/61495969" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/61495969" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

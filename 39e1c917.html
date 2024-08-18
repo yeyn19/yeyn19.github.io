@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MLSys的论文，讲了如何在auto-tuners中更好的利用硬件的信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE">
+<meta property="og:url" content="https://www.yynnyy.cn/39e1c917">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="MLSys的论文，讲了如何在auto-tuners中更好的利用硬件的信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/compare_with_lib.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/template.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/workflow.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/fusion.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/presis.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/BOLT/eva.png">
+<meta property="article:published_time" content="2022-07-04T06:09:03.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.975Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="深度学习编译">
+<meta property="article:tag" content="TVM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/BOLT/compare_with_lib.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/39e1c917.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/39e1c917">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-04 14:09:03" itemprop="dateCreated datePublished" datetime="2022-07-04T14:09:03+08:00">2022-07-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/39e1c917" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/39e1c917#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/39e1c917" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+            <div class="post-description">MLSys的论文，讲了如何在auto-tuners中更好的利用硬件的信息</div>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>上次读了陈天奇关于auto-tuner中使用动态形状的论文，这篇论文是解决利用硬件信息的。本篇工作重新思考了图、算子、模型粒度下的优化方式，打算更好的在auto-tuner中利用硬件信息，达到vendor library相似的效果。</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p><img src="../files/images/BOLT/compare_with_lib.png"></p>
+<p>作者首先点出来一个事实，那就是现在的两种常用方法：auto-scheduler和vendor library的效果差的很远，如上图差了5倍。作者寻找原因：</p>
+<ul>
+<li>auto-tuner没有考虑硬件信息，硬件不透明，导致不能利用很多硬件原生的加速</li>
+<li>vendor library考虑硬件实现，虽然拓展性更差，但效果会更好</li>
+</ul>
+<p>作者还提到，不仅是效果，编译时间也差的很多：ResNet-50在NVIDIA GPU需要编译7天。作者提到一个可能的解决办法是通过特别的数据库来更好的利用cache信息。但这种方法并不长远，因为模型的动态性和输入的动态性让cache很难得到高效地利用。</p>
+<p>本文想要弥补这两种方法的gap。观察到一个事实：现有的vendor library有一个模板化的趋势(templated)</p>
+<ul>
+<li>NVIDIA CUTLASS：给出一些模板，不对具体的函数负责，比较好的扩展性。</li>
+<li>Intel OneDNN (Intel) ，AMD ROCm：类似的特性</li>
+</ul>
+<p>作者提出了BOLT，代码已经merge到TVM：</p>
+<ul>
+<li>首先，用vendor library支持的模板来搜索优化模板，利用hardware-native performance，生成tensor program</li>
+<li>接下来，通过排列模板进行计算图优化</li>
+<li>可以用hardware-native performance来同时进行图级别和算子级别的优化</li>
+<li>也可以通过符合提出的设计原则的模型来进行模型级别的优化</li>
+</ul>
+<p>作者的主要贡献：</p>
+<ul>
+<li>结合templated vendor library和auto-tuner来弥补前面的表现差异</li>
+<li>提出persistent kernel fusion，</li>
+<li>提出寻找模板参数的方法，可以直接生成常规的vendor library代码</li>
+<li>总结了三个系统友好的设计理念</li>
+<li>详细评测了BOLT的效果，远超SOTA</li>
+</ul>
+<h2 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h2><h3 id="Auto-tuners-have-a-performance-gap"><a href="#Auto-tuners-have-a-performance-gap" class="headerlink" title="Auto-tuners have a performance gap"></a>Auto-tuners have a performance gap</h3><p>一方面，Auto-tuner达不到硬件原生的表现。因为比如NVIDIA特殊的硬件结构，tensor核心，FP16加速机制是Ansor达不到的,因为对于auto-tuner来说硬件是不透明的。</p>
+<p>另一方面，Auto-tuner编译速度慢。一种解决办法是利用cache，重复使用前面的tuning log。对于静态的模型，效果不错。但对于动态模型、动态输入，只有运行时才能获取真正的工作流，效果不好。本文的Bolt方法可以减少编译时间。</p>
+<h3 id="The-emerging-trend-Templated-libraries"><a href="#The-emerging-trend-Templated-libraries" class="headerlink" title="The emerging trend: Templated libraries"></a>The emerging trend: Templated libraries</h3><p><img src="../files/images/BOLT/template.png"></p>
+<p>作者提到一些模板化的vendor library可以方便的实现新函数，实现新模板。这些templated libraries可以考虑硬件的实现，达到硬件透明的auto-tuner达不到的效果。</p>
+<ul>
+<li>CUTLASS：NVIDIA的templated library。给每个GEMM（矩阵乘）的CUDA model的每一个layer都做了c++的模板。带入正确的参数( tile size, data type等)，就可以实现电压、安培架构、优化FP优化、混精度计算等要求。</li>
+</ul>
+<p>上图的例子是在计算$C = A · B$,C是绿色。例子表明CUTLASS可以自动利用起局部的cache(容量更小但是更快)</p>
+<h3 id="Bolt-The-best-of-both-worlds"><a href="#Bolt-The-best-of-both-worlds" class="headerlink" title="Bolt: The best of both worlds"></a><strong>Bolt</strong>: The best of both worlds</h3><p>新的模板化vendor library提供下列特性：</p>
+<ul>
+<li>可重复利用的达到硬件原生性能的primitives</li>
+<li>对于不同的输入格式，可以很方便的参数化</li>
+<li>更好的进行auto-tuning search</li>
+<li>基础类可以很好地自定义、扩展、封装成更复杂的实现，进一步提高搜索效果</li>
+</ul>
+<p>这些特性带来下面的编译器设计：</p>
+<ul>
+<li>更轻量化，更好的考虑硬件的实现</li>
+<li>可以直接利用上面的templated library</li>
+</ul>
+<p><strong>图级别</strong>：Bolt可以更好的进行operator fusion。提出了 <em>persistent kernel fusion</em> 的方法，原有的auto-tuner可以实现更深层次的fusion，但得出的算子不被cuDNN支持，但Bolt的可以。扩展了graph-optimization的方向。</p>
+<p><strong>算子级别</strong>：原生的templated library太底层，并且需要集成到模型中。Bolt通过设计一个 light-weight performance profiler来自动的进行模板参数的搜索。可以在缩减搜索时间的同时，让生成的tensor code达到硬件原生的性能。</p>
+<p><strong>模型级别</strong>： 符合设计理念的模型可以被更好的优化。</p>
+<h2 id="BOLT-DESIGN"><a href="#BOLT-DESIGN" class="headerlink" title="BOLT DESIGN"></a>BOLT DESIGN</h2><p><img src="../files/images/BOLT/workflow.png"></p>
+<p>整个Bolt工作流如上图：</p>
+<ul>
+<li>对于一个特定的框架的模型，先通过TVM的前端生成一个relay graph</li>
+<li>接下里，调用deep fusion对graph做优化</li>
+<li>再接下来，同时用TVM和Bolt的templated library参数搜索对两种子图做优化</li>
+<li>最后，把生成的tensor code编译到一起</li>
+</ul>
+<h3 id="Enabling-deeper-operator-fusion"><a href="#Enabling-deeper-operator-fusion" class="headerlink" title="Enabling deeper operator fusion"></a>Enabling deeper operator fusion</h3><p>这一部分讲了如何做复杂的op fusion：</p>
+<ul>
+<li>可以减少内存读取的时间损失</li>
+<li>可以减少部署延迟，对于小的batchsize</li>
+<li>增加的可优化的空间</li>
+</ul>
+<p>作者提到，Bolt第一步是先用CUDLASS自带的epilogue fusion方法优化一次，然后在此基础上继续优化。</p>
+<p><img src="../files/images/BOLT/fusion.png"></p>
+<h4 id="Persistent-kernel-GEMM-Conv-fusion"><a href="#Persistent-kernel-GEMM-Conv-fusion" class="headerlink" title="Persistent kernel (GEMM/Conv) fusion"></a><em>Persistent kernel (GEMM/Conv) fusion</em></h4><p>这一部分的大体逻辑是如果做更深层的fusion，上一轮的运算结果可以存在寄存器或者shared memory里，更快。</p>
+<script type="math/tex; mode=display">
+D_0 = \alpha_0 A_0 W_0 + \beta_0 C_0 \\
+D_1 = \alpha_1 D_0 W_1 + \beta_1 C_1</script><p>像这种组合的式子，如果合成一个算子，如上图。就能减少运算，</p>
+<p><strong>Key property: Threadblock residence</strong>：管家在于算GEMM2的时候可以不用从global memory读取前面的输出。 作者提到一种 <em>threadblock residence</em>，如果GEMM2和GEMM1对应的threadblock有相同的memory(shared memory或register files)。没有一致性的话，又要去global memory取数据，等于白优化。</p>
+<blockquote>
+<p>查了一下：好像thread是cuda里的变成概念，可以硬件并行化。然后不同thread组成了叫block的概念。我理解大概是比如矩阵运算的时候会做很多的并行，然后这一堆”线程“就放在一个快里，共享一堆内存。</p>
+</blockquote>
+<p><img src="../files/images/BOLT/presis.png"></p>
+<p>后面作者分别讲了在register file级别和shared memory 级别这种一致性怎么保持，这一块读了半天都没读懂，实在是专业不对口……大概就是作者修改了一些CUDLASS的代码来保持这种连续操作的存储一致性，没动本身计算的接口。</p>
+<blockquote>
+<p>大家可以看原论文(5-6页)来自己理解一下: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://proceedings.mlsys.org/paper/2022/hash/38b3eff8baf56627478ec76a704e9b52-Abstract.html">原论文</a></p>
+</blockquote>
+<p>总结一下，这种deeper fusion可以对连续的GEMM和CONV操作进行合并，通过实现persistent kernel templates</p>
+<h3 id="Automating-templated-code-generation"><a href="#Automating-templated-code-generation" class="headerlink" title="Automating templated code generation"></a>Automating templated code generation</h3><h4 id="Challenges-in-code-generation"><a href="#Challenges-in-code-generation" class="headerlink" title="Challenges in code generation"></a><em>Challenges in code generation</em></h4><p>作者提到，templated library只提供一部分算子函数，不提供模型的端到端的、函数化的支持。已有的BYOC方法可以最大化的引入TVM等。但不能解决所有问题：</p>
+<ul>
+<li>templated library本身不能跑，需要实际的参数。Bolt构建了一个light-weight hardware-native performance profiler，可以针对实际工作流搜索模板的最佳参数。</li>
+<li>BYOC把library看做黑箱，编译时用hook链接，这不利于自定义和增量开发。Bolt把函数看做白盒，可以直接生成符合lib规范的函数</li>
+</ul>
+<blockquote>
+<p>注1：BYOC作者有个<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.bilibili.com/video/BV1r54y1W7Zk?spm_id_from=333.337.search-card.all.click&amp;vd_source=8d8e22a2686676c4db7b7429ce8a2e98">介绍视频</a>,大概就是可以让你支持多个编译器后端。在Bolt中就是引入CUDLASS库到TVM里</p>
+<p>注2：hook。大概就是编译时把这个函数看做一个指针直接指，后面把指针链接到对应的库函数。因此对编译器来说这个函数是黑箱的。</p>
+</blockquote>
+<h4 id="Light-weight-performance-profiler"><a href="#Light-weight-performance-profiler" class="headerlink" title="Light-weight performance profiler"></a><em>Light-weight performance profiler</em></h4><ul>
+<li>传统的自动调优器，通过生成样本并测量其速度来推断 Cost model，这需要大量的搜索空间和较长的调优时间。BOLT 通过将耗时的样例程序生成与性能测量分离，并通过有效利用硬件细节进行加速，大大减少了搜索时间。</li>
+<li>CUTLASS 模板中与性能相关的参数包括 threadblock、warp 和 instruction shapes、swizzling functor和stage 等。</li>
+<li>BOLT 采用白盒方法， 根据 GPU 架构以及特定于每个硬件的调优指南确定它们的可能值。</li>
+<li>对于每一个GPU架构，BOLT 都会产生数十个最佳参数组合，并通过初始化模板生成对应的示例程序。这些样例程序可通过给定的不同输入跨模型和工作负载重用。不需要用户提供额外的信息</li>
+<li>在运行时，BOLT 可以通过调用带有具体输入的预生成示例程序来分析性能。</li>
+</ul>
+<h4 id="Templated-code-generation"><a href="#Templated-code-generation" class="headerlink" title="Templated code generation"></a><em>Templated code generation</em></h4><p>传统的BYOC不能支持模板化的库函数。Bolt通过搜出的参数先生成一波函数。其中，用到了以下优化：</p>
+<ul>
+<li>Layout transformation：对于CONV操作，CUTLASS只支持NHWC内存布局，但所有的pytorch模型都是NCHW布局。BOLT先都转成NCHW，全优化完再都转回NHWC。</li>
+<li>Kernel padding： 传统CUTLASS支持各种大小的kernel，但是表现差挺多的。Bolt自动用alignment 8，并且提前申请内存。</li>
+</ul>
+<h3 id="Designing-system-friendly-models"><a href="#Designing-system-friendly-models" class="headerlink" title="Designing system-friendly models"></a>Designing system-friendly models</h3><p>作者提出了以下三个设计原则，我觉得用“设计原则”不太合适，感觉更像是”with Bolt，你可以怎么样“：</p>
+<ul>
+<li><p>Exploring different activation functions with epilogue fusion：由于Bolt尝试epilogue fusion，因此用什么激活函数对速度不敏感。</p>
+</li>
+<li><p>Deepening models with 1×1 Convs：由于Bolt有deep fusion，你加一大堆 1x1 Convs可以提高准确率，而且模型基本不会变慢</p>
+</li>
+<li>Aligning tensor shapes to use GPUs more efficiently：尽量让用到的tensor的形状是对齐的。</li>
+</ul>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>这一部分还是简略说</p>
+<p><img src="../files/images/BOLT/eva.png"></p>
+<p>结论就是：</p>
+<ul>
+<li>Bolt跑的更快</li>
+<li>Bolt编译更快</li>
+</ul>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li>同样是解决 auto-tuner和vendor library效果差距的文章，这篇是另外一个角度。</li>
+<li>感觉vendor library也不是吃干饭的，上次说它扩展性不好，这次人家就有templated library搞出来了…</li>
+<li>auto-tuner利用硬件信息我觉得是很必要的，这是上次综述文章里讲到的backend应该干的活。但我在想这一部分是不是还是得硬件开发上那边支持，毕竟写硬件的人最懂硬件怎么跑得快w</li>
+<li>说实话，感觉编译方面的论文都有点，啰嗦，就持续地说好多遍同样的东西……</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/99874d79.html" rel="bookmark">论文阅读[精读]-DIETCODE: AUTOMATIC OPTIMIZATION FOR DYNAMIC TENSOR PROGRAMS</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b0f88437.html" rel="bookmark">论文阅读[粗读]-THE CORA TENSOR COMPILER: COMPILATION FOR RAGGED TENSORS WITH MINIMAL PADDING</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f3519427.html" rel="bookmark">论文阅读[精读]-The Deep Learning Compiler: A Comprehensive Survey</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag"><i class="fa fa-tag"></i> 人工智能</a>
+              <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%BC%96%E8%AF%91/" rel="tag"><i class="fa fa-tag"></i> 深度学习编译</a>
+              <a href="/tags/TVM/" rel="tag"><i class="fa fa-tag"></i> TVM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2eb383c3" rel="prev" title="7-3总结">
+      <i class="fa fa-chevron-left"></i> 7-3总结
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/eb14bd4d" rel="next" title="7-4总结">
+      7-4总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BACKGROUND-AND-MOTIVATION"><span class="nav-number">2.</span> <span class="nav-text">BACKGROUND AND MOTIVATION</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Auto-tuners-have-a-performance-gap"><span class="nav-number">2.1.</span> <span class="nav-text">Auto-tuners have a performance gap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-emerging-trend-Templated-libraries"><span class="nav-number">2.2.</span> <span class="nav-text">The emerging trend: Templated libraries</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bolt-The-best-of-both-worlds"><span class="nav-number">2.3.</span> <span class="nav-text">Bolt: The best of both worlds</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BOLT-DESIGN"><span class="nav-number">3.</span> <span class="nav-text">BOLT DESIGN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Enabling-deeper-operator-fusion"><span class="nav-number">3.1.</span> <span class="nav-text">Enabling deeper operator fusion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Persistent-kernel-GEMM-Conv-fusion"><span class="nav-number">3.1.1.</span> <span class="nav-text">Persistent kernel (GEMM&#x2F;Conv) fusion</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Automating-templated-code-generation"><span class="nav-number">3.2.</span> <span class="nav-text">Automating templated code generation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Challenges-in-code-generation"><span class="nav-number">3.2.1.</span> <span class="nav-text">Challenges in code generation</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Light-weight-performance-profiler"><span class="nav-number">3.2.2.</span> <span class="nav-text">Light-weight performance profiler</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Templated-code-generation"><span class="nav-number">3.2.3.</span> <span class="nav-text">Templated code generation</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Designing-system-friendly-models"><span class="nav-number">3.3.</span> <span class="nav-text">Designing system-friendly models</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">4.</span> <span class="nav-text">Evaluation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/39e1c917" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/39e1c917" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>

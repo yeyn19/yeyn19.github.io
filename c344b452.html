@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN,en,default">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/ava.JPG">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/ava.JPG">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="1JEq-xmnmQSqcShMUdIO7vp6ILBVcY3cCm88rjBzuwA">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-flat-top.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如何在hexo中添加一个置顶的更新状态，如同github开发图表一样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="给hexo添加日历">
+<meta property="og:url" content="https://www.yynnyy.cn/c344b452">
+<meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
+<meta property="og:description" content="如何在hexo中添加一个置顶的更新状态，如同github开发图表一样">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/%E6%9C%AC%E6%9C%88%E6%9B%B4%E6%96%B0.png">
+<meta property="article:published_time" content="2022-06-18T05:01:50.000Z">
+<meta property="article:modified_time" content="2024-08-09T09:26:46.978Z">
+<meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="计算机">
+<meta property="article:tag" content="探索">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/%E6%9C%AC%E6%9C%88%E6%9B%B4%E6%96%B0.png">
+
+<link rel="canonical" href="https://www.yynnyy.cn/c344b452.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>给hexo添加日历 | 随缘随笔 <br> Insights Flow</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
+    <script data-pjax>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-N9BVC2B53T');
+      }
+    </script>
+
+
+  <script data-pjax>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?9c4405386c515442d48e196ee239baf3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">随缘随笔 <br> Insights Flow</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页(Home Page)</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于(About me)</a>
+
+  </li>
+        <li class="menu-item menu-item-arxiv-insights">
+
+    <a href="/arxiv_insights" rel="section"><i class="fa fa-cloud fa-fw"></i>Arxiv Insights</a>
+
+  </li>
+        <li class="menu-item menu-item-top-viewed">
+
+    <a href="/top/" rel="section"><i class="fa fa-signal fa-fw"></i>top-viewed</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>所有笔记(All Blogs)</a>
+
+  </li>
+        <li class="menu-item menu-item-switchlanguage">
+
+    <a href="/tags/English" rel="section"><i class="fa fa-language fa-fw"></i>Show only English blogs</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索(Blog Search)
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/c344b452">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          给hexo添加日历
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-18 13:01:50" itemprop="dateCreated datePublished" datetime="2022-06-18T13:01:50+08:00">2022-06-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">开发记录</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/c344b452" class="post-meta-item leancloud_visitors" data-flag-title="给hexo添加日历" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/c344b452#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/c344b452" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+            <div class="post-description">如何在hexo中添加一个置顶的更新状态，如同github开发图表一样</div>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>今天，我想要给hexo添加一个置顶的更新记录信息，显示每天是否有更新，以及更新的字数等信息，如图：</p>
+<p><img src="./../files/images/本月更新.png"></p>
+<p>其实我的本意是想要给我的论文阅读笔记模块添加本月的论文阅读打卡记录，但总之是要先实现一个基础的打卡记录功能。在网上找了一圈，没有找到相似的功能，要不就是要外挂一些别的打卡平台来实现，太麻烦。就打算自己实现一个。</p>
+<p>大体实现思路如下：</p>
+<ul>
+<li>扫描<code>_posts</code>文件夹中所有已有的博客，看看哪些是这个月写/更新的记录下来。</li>
+<li>用一个<code>python</code>程序更新它的信息，并用html的<code>table</code>语法实现。</li>
+<li>最后，用一个博客来存下当天的更新信息，并把该博客置顶。</li>
+<li>每次deploy前，都执行一遍这个代码。</li>
+</ul>
+<p>总体逻辑还是比较清晰的，<code>python</code>语法也没什么难度。我目前大概做了这些事：</p>
+<ul>
+<li>用笑脸😁个数来说明当天更新了几篇博客</li>
+<li>用背景颜色来说明当天更新的字数(最多5000，越多越绿)</li>
+</ul>
+<p>把总体代码放出来<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="PYTHON"><figure class="iseeu highlight /python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_leap_year</span>(<span class="params">year</span>):</span><br><span class="line">    <span class="comment"># 判断是否为闰年</span></span><br><span class="line">    <span class="keyword">if</span> year % <span class="number">4</span> == <span class="number">0</span> <span class="keyword">and</span> year % <span class="number">100</span> != <span class="number">0</span> <span class="keyword">or</span> year % <span class="number">400</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_num_of_days_in_month</span>(<span class="params">year, month</span>):</span><br><span class="line">    <span class="comment"># 给定年月返回月份的天数</span></span><br><span class="line">    <span class="keyword">if</span> month <span class="keyword">in</span> (<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">10</span>, <span class="number">12</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">31</span></span><br><span class="line">    <span class="keyword">elif</span> month <span class="keyword">in</span> (<span class="number">4</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">11</span>):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">30</span></span><br><span class="line">    <span class="keyword">elif</span> is_leap_year(year):</span><br><span class="line">        <span class="keyword">return</span> <span class="number">29</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">28</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_total_num_of_day</span>(<span class="params">year, month</span>):</span><br><span class="line">    <span class="comment"># 自1800年1月1日以来过了多少天</span></span><br><span class="line">    days = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1800</span>, year):</span><br><span class="line">        <span class="keyword">if</span> is_leap_year(y):</span><br><span class="line">            days += <span class="number">366</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            days += <span class="number">365</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, month):</span><br><span class="line">        days += get_num_of_days_in_month(year, m)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> days</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_start_day</span>(<span class="params">year, month</span>):</span><br><span class="line">    <span class="comment"># 返回当月1日是星期几，由1800.01.01是星期三推算</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">3</span> + get_total_num_of_day(year, month) % <span class="number">7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 月份与名称对应的字典</span></span><br><span class="line">month_dict = &#123;<span class="number">1</span>: <span class="string">&#x27;一月&#x27;</span>, <span class="number">2</span>: <span class="string">&#x27;二月&#x27;</span>, <span class="number">3</span>: <span class="string">&#x27;三月&#x27;</span>, <span class="number">4</span>: <span class="string">&#x27;四月&#x27;</span>, <span class="number">5</span>: <span class="string">&#x27;五月&#x27;</span>, <span class="number">6</span>: <span class="string">&#x27;六月&#x27;</span>,</span><br><span class="line">              <span class="number">7</span>: <span class="string">&#x27;七月&#x27;</span>, <span class="number">8</span>: <span class="string">&#x27;八月&#x27;</span>, <span class="number">9</span>: <span class="string">&#x27;九月&#x27;</span>, <span class="number">10</span>: <span class="string">&#x27;十月&#x27;</span>, <span class="number">11</span>: <span class="string">&#x27;十一月&#x27;</span>, <span class="number">12</span>: <span class="string">&#x27;十二月&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_month_name</span>(<span class="params">month</span>):</span><br><span class="line">    <span class="comment"># 返回当月的名称</span></span><br><span class="line">    <span class="keyword">return</span> month_dict[month]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_month_title</span>(<span class="params">year, month</span>):</span><br><span class="line">    <span class="comment"># 打印日历的首部</span></span><br><span class="line"></span><br><span class="line">    cal.write(<span class="string">&#x27;         &#x27;</span> + <span class="built_in">str</span>(get_month_name(month)) +  <span class="string">&#x27;   &#x27;</span> + <span class="built_in">str</span>(year) + <span class="string">&#x27;          \n&#x27;</span>)</span><br><span class="line">    cal.write(<span class="string">&#x27;星期日 | 星期一 | 星期二  | 星期三 | 星期四 | 星期五 | 星期六 \n&#x27;</span>)</span><br><span class="line">    cal.write(<span class="string">&#x27;---| ---| ---| ---| ---| ---| ---|\n&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_to_color</span>(<span class="params">count</span>):</span><br><span class="line">    <span class="comment"># 将0 - 5000 字映射到 0,255,0 -&gt; 0,139,0</span></span><br><span class="line">    count = <span class="built_in">min</span>(count,<span class="number">5000</span>)</span><br><span class="line">    count = <span class="built_in">max</span>(count,<span class="number">0</span>)</span><br><span class="line">    data = <span class="number">139</span> + <span class="built_in">float</span>(<span class="number">5000</span> - count) / <span class="number">5000</span> * (<span class="number">255</span> - <span class="number">139</span>)</span><br><span class="line">    data = <span class="built_in">int</span>(data)</span><br><span class="line">    data = <span class="built_in">min</span>(data,<span class="number">255</span>)</span><br><span class="line">    data = <span class="built_in">max</span>(data, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">f&quot;#00<span class="subst">&#123;<span class="built_in">format</span>(data,<span class="string">&#x27;02X&#x27;</span>)&#125;</span>00&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_table</span>(<span class="params">year, month, blog_count, word_count</span>):</span><br><span class="line">    cal.write(<span class="string">&quot;&lt;table style=&#x27;text-align:center&#x27;&gt;&quot;</span>)</span><br><span class="line">    cal.write(<span class="string">&quot;&lt;tr &gt; &lt;td colspan=&#x27;7&#x27;&gt;&quot;</span>+<span class="built_in">str</span>(year)+<span class="string">&quot;年&quot;</span>+<span class="built_in">str</span>(get_month_name(month)) +<span class="string">&quot;&lt;/td&gt;&lt;/tr&gt;&quot;</span>)</span><br><span class="line">    cal.write(<span class="string">&#x27;&lt;tr&gt;&lt;td&gt; 星期日 &lt;/td&gt;&lt;td&gt; 星期一 &lt;/td&gt;&lt;td&gt; 星期二  &lt;/td&gt;&lt;td&gt; 星期三 &lt;/td&gt;&lt;td&gt; 星期四 &lt;/td&gt;&lt;td&gt; 星期五 &lt;/td&gt;&lt;td&gt; 星期六 &lt;/td&gt; &lt;/tr&gt;&#x27;</span>)</span><br><span class="line">   </span><br><span class="line">    cal.write(<span class="string">&quot;&lt;tr&gt;&quot;</span>)</span><br><span class="line">    i = get_start_day(year, month)</span><br><span class="line">    <span class="keyword">if</span> i != <span class="number">7</span>:</span><br><span class="line">        <span class="comment"># cal.write(&#x27; &#x27;) # 打印行首的两个空格</span></span><br><span class="line">        cal.write(<span class="string">&#x27;  &lt;td&gt;&lt;/td&gt;&#x27;</span> * (i %<span class="number">7</span>))   <span class="comment"># 从星期几开始则空5*几个空格</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, get_num_of_days_in_month(year, month)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> blog_count[j - <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">            cal.write(<span class="string">f&quot; &lt;td bgcolor=<span class="subst">&#123;count_to_color(word_count[j-<span class="number">1</span>])&#125;</span>&gt;&quot;</span> + <span class="string">&quot;😁&quot;</span>*blog_count[j - <span class="number">1</span>] + <span class="string">&#x27; &lt;/td&gt;&#x27;</span>)<span class="comment"># 宽度控制，4+1=5</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cal.write( <span class="string">&quot;&lt;td&gt;&quot;</span>+ <span class="built_in">str</span>(j)+ <span class="string">&#x27; &lt;/td&gt;&#x27;</span>)<span class="comment"># 宽度控制，4+1=5</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">7</span> == <span class="number">0</span>:  <span class="comment"># i用于计数和换行</span></span><br><span class="line">            cal.write(<span class="string">&#x27;&lt;/tr&gt;\n&lt;tr&gt;&#x27;</span>)   <span class="comment"># 每换行一次行首继续空格</span></span><br><span class="line">    cal.write(<span class="string">&quot;&lt;/table&gt;&quot;</span>)</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">print_month_body</span>(<span class="params">year, month, blog_count, word_count</span>):</span><br><span class="line">    <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">    打印日历正文</span></span><br><span class="line"><span class="string">    格式说明：空两个空格，每天的长度为5</span></span><br><span class="line"><span class="string">    需要注意的是print加逗号会多一个空格</span></span><br><span class="line"><span class="string">    &#x27;&#x27;&#x27;</span></span><br><span class="line">    i = get_start_day(year, month)</span><br><span class="line">    <span class="keyword">if</span> i != <span class="number">7</span>:</span><br><span class="line">        <span class="comment"># cal.write(&#x27; &#x27;) # 打印行首的两个空格</span></span><br><span class="line">        cal.write(<span class="string">&#x27;  |&#x27;</span> * (i %<span class="number">7</span>))   <span class="comment"># 从星期几开始则空5*几个空格</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, get_num_of_days_in_month(year, month)+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> blog_count[j - <span class="number">1</span>] &gt; <span class="number">0</span>:</span><br><span class="line">            cal.write(<span class="string">&quot; &lt;font color = &#x27;Hotpink&#x27; &gt;&quot;</span> + <span class="built_in">str</span>(j) + <span class="string">&quot;/&quot;</span>+ <span class="built_in">str</span>(blog_count[j - <span class="number">1</span>]) +<span class="string">&quot;/&quot;</span>+ <span class="built_in">str</span>(word_count[j-<span class="number">1</span>])+ <span class="string">&#x27; &lt;/font&gt; |&#x27;</span>)<span class="comment"># 宽度控制，4+1=5</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            cal.write(<span class="built_in">str</span>(j)+ <span class="string">&#x27; |&#x27;</span>)<span class="comment"># 宽度控制，4+1=5</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">7</span> == <span class="number">0</span>:  <span class="comment"># i用于计数和换行</span></span><br><span class="line">            cal.write(<span class="string">&#x27;\n |&#x27;</span>)   <span class="comment"># 每换行一次行首继续空格</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">parse_md</span>(<span class="params">f</span>):</span><br><span class="line">    <span class="comment">#将博客内容返回成前导和实际串</span></span><br><span class="line">    start_pos = <span class="number">1</span></span><br><span class="line">    end_pos = -<span class="number">1</span></span><br><span class="line">    cc = <span class="number">0</span></span><br><span class="line">    data = f.readlines()</span><br><span class="line">    <span class="keyword">for</span> k, cont <span class="keyword">in</span> <span class="built_in">enumerate</span>(data):</span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;---&quot;</span> <span class="keyword">in</span> cont:</span><br><span class="line">            cc += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> cc == <span class="number">2</span>:</span><br><span class="line">                end_pos = k</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> [i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> data[<span class="number">1</span>:end_pos]], [i.strip() <span class="keyword">for</span> i <span class="keyword">in</span> data[end_pos+<span class="number">1</span>:]]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_word_count</span>(<span class="params">f_body</span>):</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> f_body:</span><br><span class="line">        count += <span class="built_in">len</span>(i)</span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_writing_freq</span>(<span class="params">root_dir = <span class="string">&quot;./source/_posts&quot;</span>, year = <span class="number">2022</span>, month = <span class="number">6</span></span>):</span><br><span class="line">    <span class="comment"># 返回每天更新的博客数量</span></span><br><span class="line">    blog_count = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(get_num_of_days_in_month(year,month))] <span class="comment">#统计开始前每天更新为0</span></span><br><span class="line">    word_count = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(get_num_of_days_in_month(year,month))] <span class="comment">#统计开始前每天更新为0</span></span><br><span class="line">    <span class="keyword">for</span> name <span class="keyword">in</span> os.listdir(root_dir):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> name.endswith(<span class="string">&quot;md&quot;</span>) <span class="keyword">or</span> name == <span class="string">&quot;本月更新.md&quot;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        name = os.path.join(root_dir,name)</span><br><span class="line">        <span class="comment">#print(name)</span></span><br><span class="line"></span><br><span class="line">        f = <span class="built_in">open</span>(name,<span class="string">&quot;r&quot;</span>,encoding=<span class="string">&quot;utf-8&quot;</span>)</span><br><span class="line">        f_head,f_body = parse_md(f)</span><br><span class="line">        <span class="comment">#print(f_head)</span></span><br><span class="line">        <span class="keyword">for</span> cont <span class="keyword">in</span> f_head:</span><br><span class="line">            ma = re.findall(<span class="string">f&quot;date: <span class="subst">&#123;year&#125;</span>-<span class="subst">&#123;<span class="built_in">format</span>(month,<span class="string">&#x27;02d&#x27;</span>)&#125;</span>-(\d+)&quot;</span>,cont)</span><br><span class="line">            <span class="keyword">if</span> ma != []:</span><br><span class="line">                date_pos = <span class="built_in">int</span>(ma[<span class="number">0</span>]) - <span class="number">1</span></span><br><span class="line">                word_count[date_pos] += get_word_count(f_body)</span><br><span class="line">                blog_count[date_pos] += <span class="number">1</span></span><br><span class="line">                <span class="comment">#print(get_word_count(f_body))</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> blog_count,word_count</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">time = datetime.now()</span><br><span class="line">year = <span class="built_in">int</span>(time.strftime(<span class="string">&quot;%Y&quot;</span>)) <span class="comment">#今天的年</span></span><br><span class="line">month = <span class="built_in">int</span>(time.strftime(<span class="string">&quot;%m&quot;</span>)) <span class="comment"># 今天月份</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bc, wc = get_writing_freq(root_dir = <span class="string">&quot;./source/_posts&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data = <span class="built_in">open</span>(<span class="string">&quot;./source/_posts/本月更新.md&quot;</span>,<span class="string">&quot;r&quot;</span>)</span><br><span class="line">f_head,f_data = parse_md(data)</span><br><span class="line"></span><br><span class="line">cal = <span class="built_in">open</span>(<span class="string">&quot;./source/_posts/本月更新.md&quot;</span>,<span class="string">&#x27;w&#x27;</span>)</span><br><span class="line">cal.write(<span class="string">&quot;---\n&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> f_head:</span><br><span class="line">    cal.write(i+<span class="string">&quot;\n&quot;</span>)</span><br><span class="line">cal.write(<span class="string">&quot;---\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">print_table(year, month,bc,wc)</span><br><span class="line">cal.close()</span><br></pre></td></tr></table></figure></div></p>
+<p>其中，更新后的deploy方法如下：<br><div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="SH"><figure class="iseeu highlight /sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python generate_freq.py</span><br><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></div></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b4c23497.html" rel="bookmark">配置LaTeX环境:Windows,Mac,WSL</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/839511f0.html" rel="bookmark">给hexo添加近期文章与更新情况换月</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa20dd9d.html" rel="bookmark">hexo折腾记</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/" rel="tag"><i class="fa fa-tag"></i> 计算机</a>
+              <a href="/tags/%E6%8E%A2%E7%B4%A2/" rel="tag"><i class="fa fa-tag"></i> 探索</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/fa20dd9d" rel="prev" title="hexo折腾记">
+      <i class="fa fa-chevron-left"></i> hexo折腾记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/5e20b515" rel="next" title="6-18总结">
+      6-18总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="叶奕宁 </br> Yining_Ye" src="/images/ava.JPG">
+  <p class="site-author-name" itemprop="name">叶奕宁 <br> Yining_Ye</p>
+  <div class="site-description" itemprop="description">高效率工作，低效率生活<br> work swiftly, live softly</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yeyn19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yeyn19" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yeyn2001@gmail.com" title="E-Mail → mailto:yeyn2001@gmail.com" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://scholar.google.com/citations?user=AUKaXYkAAAAJ" title="GoogleScholar → https:&#x2F;&#x2F;scholar.google.com&#x2F;citations?user&#x3D;AUKaXYkAAAAJ" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-leanpub fa-fw"></i>GoogleScholar</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/Yining_Ye" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;Yining_Ye" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+
+  <div class="links-of-blogroll motion-element links-of-blogroll-block">
+    <div class="links-of-blogroll-title">
+      <!-- modify icon to fire by szw -->
+      <i class="fa fa-history fa-" aria-hidden="true"></i>
+      近期文章(Recent Update)
+    </div>
+    <ul class="links-of-blogroll-list">
+      
+      
+        <li class="recent_posts_li">
+          <a href="/b4e59484" title="2024-08-16-insights" target="_blank">2024-08-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5fd22f87" title="2024-08-15-insights" target="_blank">2024-08-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/b01044b9" title="2024-08-14-insights" target="_blank">2024-08-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/52cc5fc0" title="2024-08-13-insights" target="_blank">2024-08-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bd0e34fe" title="2024-08-12-insights" target="_blank">2024-08-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f992cb6b" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性" target="_blank">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+  <div class="languages">
+    <label class="lang-select-label">
+      <i class="fa fa-language"></i>
+      <span>简体中文</span>
+      <i class="fa fa-angle-up" aria-hidden="true"></i>
+    </label>
+    <select class="lang-select" data-canonical>
+      
+        <option value="zh-CN" data-href="/c344b452" selected>
+          简体中文
+        </option>
+      
+        <option value="en" data-href="/en/c344b452" selected>
+          English
+        </option>
+      
+    </select>
+  </div>
+
+        
+<font color="#000000">
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">叶奕宁 <br> Yining_Ye</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">253k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:50</span>
+</div>
+
+<i class="fa fa-user-md"></i>
+<span id="sitetime"></span>
+<script language="javascript">
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+        */
+		var t1 = Date.UTC(2022,06,17,12,00,00); //北京时间2018-2-13 00:00:00
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML=" 建站 "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+
+
+
+
+</font>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="99" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/pjax/pjax.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+  <script>
+var pjax = new Pjax({
+  selectors: [
+    'head title',
+    '#page-configurations',
+    '.content-wrap',
+    '.post-toc-wrap',
+    '.languages',
+    '#pjax'
+  ],
+  switches: {
+    '.post-toc-wrap': Pjax.switches.innerHTML
+  },
+  analytics: false,
+  cacheBust: false,
+  scrollTo : !CONFIG.bookmark.enable
+});
+
+window.addEventListener('pjax:success', () => {
+  document.querySelectorAll('script[data-pjax], script#page-configurations, #pjax script').forEach(element => {
+    var code = element.text || element.textContent || element.innerHTML || '';
+    var parent = element.parentNode;
+    parent.removeChild(element);
+    var script = document.createElement('script');
+    if (element.id) {
+      script.id = element.id;
+    }
+    if (element.className) {
+      script.className = element.className;
+    }
+    if (element.type) {
+      script.type = element.type;
+    }
+    if (element.src) {
+      script.src = element.src;
+      // Force synchronous loading of peripheral JS.
+      script.async = false;
+    }
+    if (element.dataset.pjax !== undefined) {
+      script.dataset.pjax = '';
+    }
+    if (code !== '') {
+      script.appendChild(document.createTextNode(code));
+    }
+    parent.appendChild(script);
+  });
+  NexT.boot.refresh();
+  // Define Motion Sequence & Bootstrap Motion.
+  if (CONFIG.motion.enable) {
+    NexT.motion.integrator
+      .init()
+      .add(NexT.motion.middleWares.subMenu)
+      .add(NexT.motion.middleWares.postList)
+      .bootstrap();
+  }
+  NexT.utils.updateSidebarPosition();
+});
+</script>
+
+
+
+
+  
+  <script data-pjax>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script data-pjax>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+<script data-pjax>
+if (document.querySelectorAll('pre.mermaid').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', () => {
+    mermaid.initialize({
+      theme    : 'forest',
+      logLevel : 3,
+      flowchart: { curve     : 'linear' },
+      gantt    : { axisFormat: '%m/%d/%Y' },
+      sequence : { actorMargin: 50 }
+    });
+  }, window.mermaid);
+}
+</script>
+
+
+    <div id="pjax">
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'A0NQ8NrwSuSevoacmYvPv0Qk-gzGzoHsz',
+      appKey     : '2b7GYcEUoHtDSGAJDIEH1TAB',
+      placeholder: "向我留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'en,zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+    </div>
+</body>
+</html>
