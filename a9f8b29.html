@@ -319,95 +319,121 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>MLSys 22中编译优化方向的论文都看完了，今天看一个别的主题，分布式训练。这篇文章是一篇分析性文章，讲了分布式训练中梯度压缩算法在实际场景中的效果不好，分析原因，并且提出了一个和真实场景效果接近的performance model。</p>
+        <p>MLSys
+22中编译优化方向的论文都看完了，今天看一个别的主题，分布式训练。这篇文章是一篇分析性文章，讲了分布式训练中梯度压缩算法在实际场景中的效果不好，分析原因，并且提出了一个和真实场景效果接近的performance
+model。</p>
 <span id="more"></span>
 <p><img src="../files/images/compression_performance/author.png"></p>
 <p>作者来自华盛顿大学和CMU。</p>
-<h2 id="INTRODUCTION"><a href="#INTRODUCTION" class="headerlink" title="INTRODUCTION"></a>INTRODUCTION</h2><p>这个introduction很长，足足三页，分析性文章是这样的。</p>
-<p>首先作者讲了Synchronous data parallel stochastic gradient descent (SGD)方法，简称sync-SGD，是分布式训练中的一个方法，分为两个部分：</p>
+<h2 id="introduction">INTRODUCTION</h2>
+<p>这个introduction很长，足足三页，分析性文章是这样的。</p>
+<p>首先作者讲了Synchronous data parallel stochastic gradient descent
+(SGD)方法，简称sync-SGD，是分布式训练中的一个方法，分为两个部分：</p>
 <ul>
 <li>gradient computation：梯度的计算，不同node的时间是串联的。</li>
-<li>gradient aggregation：这一部分需要收集不同的node算出的梯度，需要node间的通信。目前的瓶颈在这，通信带宽。</li>
+<li>gradient
+aggregation：这一部分需要收集不同的node算出的梯度，需要node间的通信。目前的瓶颈在这，通信带宽。</li>
 </ul>
 <p>针对上面的瓶颈有几种解决办法：</p>
 <ul>
-<li><p>lossy gradient compression：把loss传输前先压缩一下。需要和深度学习框架交互，会带来额外的一些超参数</p>
-</li>
-<li><p>system-level optimizations：是说把梯度组织成tree之类的优化，和深度学习库非常耦合，时间复杂度和node数成$\mathcal{O}(n),\mathcal{O}(\log n)$的关系</p>
-</li>
-<li><p><em>overlap</em> the gradient computation and communication phases：这是说把上面sync-SGD的两个阶段并行的计算。第一个node计算完就可以开始第一个node的梯度汇总。这个方法效果很好，并且对用户完全透明，不需要用户加超参。如下图：</p>
-<p><img src="../files/images/compression_performance/merge.png"></p>
-</li>
+<li><p>lossy gradient
+compression：把loss传输前先压缩一下。需要和深度学习框架交互，会带来额外的一些超参数</p></li>
+<li><p>system-level
+optimizations：是说把梯度组织成tree之类的优化，和深度学习库非常耦合，时间复杂度和node数成<span class="math inline">\(\mathcal{O}(n),\mathcal{O}(\log
+n)\)</span>的关系</p></li>
+<li><p><em>overlap</em> the gradient computation and communication
+phases：这是说把上面sync-SGD的两个阶段并行的计算。第一个node计算完就可以开始第一个node的梯度汇总。这个方法效果很好，并且对用户完全透明，不需要用户加超参。如下图：</p></li>
 </ul>
+<p><img src="../files/images/compression_performance/merge.png"></p>
 <p>本篇工作重点在于评估上面的不同方法的效果：在96个GPU的集群上，对上面的方法进行超过200种setting的测试。</p>
 <p>作者发现了下面几个结论：</p>
 <ul>
-<li><em>limited opportunity for gradient compression</em>：梯度压缩效果不好。<ul>
+<li><em>limited opportunity for gradient
+compression</em>：梯度压缩效果不好。
+<ul>
 <li>一方面，这压缩、解压缩时间太长。正常的通信要200ms，压缩解压缩要50ms，能力有一个比较差的上界。</li>
-<li>另一方面，不能真正利用硬件的并行性。因为梯度计算，梯度压缩都要GPU，有竞争关系。大batch size效果好，是因为某种意义上隐藏了这个竞争消耗的时间。</li>
+<li>另一方面，不能真正利用硬件的并行性。因为梯度计算，梯度压缩都要GPU，有竞争关系。大batch
+size效果好，是因为某种意义上隐藏了这个竞争消耗的时间。</li>
+</ul></li>
+<li>all-reduce
+compression方法在扩大规模时表现更好。all-reduce定义见后文</li>
 </ul>
-</li>
-<li>all-reduce compression方法在扩大规模时表现更好。all-reduce定义见后文</li>
-</ul>
-<p>同时，为了研究者可以在理论上分析算法的好坏，作者设计了一个performance model，和实际效果很接近。</p>
+<p>同时，为了研究者可以在理论上分析算法的好坏，作者设计了一个performance
+model，和实际效果很接近。</p>
 <ul>
 <li>一个结论是：比起提高压缩率，压缩总体时间更重要。因为带宽也没有很低，即使对于大模型，4x压缩率就够了。</li>
 </ul>
 <p><img src="../files/images/compression_performance/performance_model.png"></p>
-<h2 id="BACKGROUND-AND-RELATED-WORK"><a href="#BACKGROUND-AND-RELATED-WORK" class="headerlink" title="BACKGROUND AND RELATED WORK"></a>BACKGROUND AND RELATED WORK</h2><h3 id="Gradient-Compression"><a href="#Gradient-Compression" class="headerlink" title="Gradient Compression"></a>Gradient Compression</h3><p>这一部分说了很多压缩算法，作者指出用来评测几个算法是：</p>
+<h2 id="background-and-related-work">BACKGROUND AND RELATED WORK</h2>
+<h3 id="gradient-compression">Gradient Compression</h3>
+<p>这一部分说了很多压缩算法，作者指出用来评测几个算法是：</p>
 <ul>
 <li>quantization based SIGNSGD</li>
 <li>low-rank decomposition based POWERSGD</li>
 <li>sparsification based MSTOP-K</li>
 </ul>
-<h3 id="System-Advances"><a href="#System-Advances" class="headerlink" title="System Advances"></a>System Advances</h3><p>这里作者梳理了几个概念</p>
-<h4 id="All-reduce"><a href="#All-reduce" class="headerlink" title="All-reduce"></a>All-reduce</h4><p>题外话，先说一下分布式训练的几个概念。分布式训练是把模型或者batch分布到不同节点上，因此每batch跑完后需要通讯</p>
+<h3 id="system-advances">System Advances</h3>
+<p>这里作者梳理了几个概念</p>
+<h4 id="all-reduce">All-reduce</h4>
+<p>题外话，先说一下分布式训练的几个概念。分布式训练是把模型或者batch分布到不同节点上，因此每batch跑完后需要通讯</p>
 <ul>
-<li><p>broadcast：是说将根服务器的是所有数据发给所有服务器</p>
-</li>
-<li><p>scatter：是说一次发太大，带宽瓶颈。把自己的数据分成几个批，每批分别发给一个服务器</p>
-</li>
-<li>gather：每个服务器都获得了其他服务器上的一个数据块，直接拼接到一起。</li>
-<li>allgather：所有服务器都做gather，都获得了全部服务器的数据。</li>
-<li>reduce：和gather相对。是说一个服务器收到数据时，不是去拼接原来的，而是做一个操作(比如相加)</li>
-<li>AllReduce：每个服务器都做reduce。</li>
+<li><p>broadcast：是说将根服务器的是所有数据发给所有服务器</p></li>
+<li><p>scatter：是说一次发太大，带宽瓶颈。把自己的数据分成几个批，每批分别发给一个服务器</p></li>
+<li><p>gather：每个服务器都获得了其他服务器上的一个数据块，直接拼接到一起。</p></li>
+<li><p>allgather：所有服务器都做gather，都获得了全部服务器的数据。</p></li>
+<li><p>reduce：和gather相对。是说一个服务器收到数据时，不是去拼接原来的，而是做一个操作(比如相加)</p></li>
+<li><p>AllReduce：每个服务器都做reduce。</p></li>
 </ul>
 <p>分布式训练大概就是每个node持有一个mini-batch，算出自己部分的梯度后broadcast给其他节点，其他节点收到以后做reduce。最后通过一个allreduce让所有节点都有整个batch的总的梯度，并且不需要额外的存储(显存、内存)</p>
 <p>作者提到，现有的这些allreduce算法都是在latency和bandwidth间做权衡。如下图：</p>
 <p><img src="../files/images/compression_performance/compare.png"></p>
-<p>值得一体的是，ring reduce方法的bandwidth花费时间和节点数p基本没关系</p>
-<p>后面，作者提到了all-reduce算法的几种优化，比如前面提到的overlapping和bucket gradient。后者是缩减all-reduce的函数调用时间，用一些cache优化。</p>
-<h2 id="EVALUATING-GRADIENT-COMPRESSION"><a href="#EVALUATING-GRADIENT-COMPRESSION" class="headerlink" title="EVALUATING GRADIENT COMPRESSION"></a>EVALUATING GRADIENT COMPRESSION</h2><p>后面四页都是在说做了什么实验，由于比较多，就不一个一个讲了，就说说结论。</p>
+<p>值得一体的是，ring
+reduce方法的bandwidth花费时间和节点数p基本没关系</p>
+<p>后面，作者提到了all-reduce算法的几种优化，比如前面提到的overlapping和bucket
+gradient。后者是缩减all-reduce的函数调用时间，用一些cache优化。</p>
+<h2 id="evaluating-gradient-compression">EVALUATING GRADIENT
+COMPRESSION</h2>
+<p>后面四页都是在说做了什么实验，由于比较多，就不一个一个讲了，就说说结论。</p>
 <p>所有的实验都是在一个64块V100的集群上进行的</p>
 <p><img src="../files/images/compression_performance/allreduce.png"></p>
 <p>上面的图说明all-reduce效果显著好于其他方法</p>
 <p><img src="../files/images/compression_performance/scale.png"></p>
 <p>上面这个图是说对比之下，随着node的上升，压缩算法的优化逐渐变得稳定(不随node的增加而增加)。其原因就是在上面提到的</p>
-<h2 id="IDENTIFYING-REGIMES-OF-HIGH-GRADIENT-COMPRESSION-UTILITY"><a href="#IDENTIFYING-REGIMES-OF-HIGH-GRADIENT-COMPRESSION-UTILITY" class="headerlink" title="IDENTIFYING REGIMES OF HIGH GRADIENT COMPRESSION UTILITY"></a>IDENTIFYING REGIMES OF HIGH GRADIENT COMPRESSION UTILITY</h2><h3 id="Performance-Model-for-Distributed-Data-Parallel"><a href="#Performance-Model-for-Distributed-Data-Parallel" class="headerlink" title="Performance Model for Distributed Data Parallel"></a>Performance Model for Distributed Data Parallel</h3><p>这一部分就是在讲作者的performance model，公式如下：</p>
-<script type="math/tex; mode=display">
-T_{obs} \approx \max \left[\lambda T_{comp}, (k-1) T_{comm}(b,p,BW) + T_{comm}(\hat{b},p,BW)\right]</script><ul>
+<h2 id="identifying-regimes-of-high-gradient-compression-utility">IDENTIFYING
+REGIMES OF HIGH GRADIENT COMPRESSION UTILITY</h2>
+<h3 id="performance-model-for-distributed-data-parallel">Performance
+Model for Distributed Data Parallel</h3>
+<p>这一部分就是在讲作者的performance model，公式如下： <span class="math display">\[
+T_{obs} \approx \max \left[\lambda T_{comp}, (k-1) T_{comm}(b,p,BW) +
+T_{comm}(\hat{b},p,BW)\right]
+\]</span></p>
+<ul>
 <li>模型可以分为k个bucket，每个前k-1个的大小是b，最后余出来的大小是$</li>
-<li>$T_{obs}$ 实际需要时间</li>
-<li>$T_{comp}$单个node的backward计算时间</li>
-<li>$BW$带宽</li>
-<li>$T_{comm}$，通讯时间</li>
-<li>$\lambda$,由于通讯和计算之间的延迟，带来的固有的下界，观测值大约是1.04-1.1</li>
+<li><span class="math inline">\(T_{obs}\)</span> 实际需要时间</li>
+<li><span class="math inline">\(T_{comp}\)</span>单个node的backward计算时间</li>
+<li><span class="math inline">\(BW\)</span>带宽</li>
+<li><span class="math inline">\(T_{comm}\)</span>，通讯时间</li>
+<li><span class="math inline">\(\lambda\)</span>,由于通讯和计算之间的延迟，带来的固有的下界，观测值大约是1.04-1.1</li>
 </ul>
-<p>举例来说，比如ring-reduce的话，$T_{comm}$可以具体化为</p>
-<script type="math/tex; mode=display">
-T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times \frac{p-1}{p\times BW}</script><p>剩下的算法可以根据上面提到的复杂度进行计算</p>
+<p>举例来说，比如ring-reduce的话，<span class="math inline">\(T_{comm}\)</span>可以具体化为 <span class="math display">\[
+T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times
+\frac{p-1}{p\times BW}
+\]</span> 剩下的算法可以根据上面提到的复杂度进行计算</p>
 <p>接下来，作者分析了上面的模型和实际观测时间的准确性，发现基本一致</p>
 <p>作者提到了现有performance模型的缺陷：</p>
 <ul>
 <li>没有考虑model太大导致必须分布到不同node的情况</li>
 <li>没考虑异步。假设同步只发生在每个iteration之后</li>
 </ul>
-<h3 id="Insights-from-the-Performance-Model"><a href="#Insights-from-the-Performance-Model" class="headerlink" title="Insights from the Performance Model"></a>Insights from the Performance Model</h3><p>从上面的 performance model，我们可以看出</p>
+<h3 id="insights-from-the-performance-model">Insights from the
+Performance Model</h3>
+<p>从上面的 performance model，我们可以看出</p>
 <ul>
 <li>压缩率不一定要很高，基本上4x就已经很足够了</li>
 <li>压缩算法只有在带宽很低(&lt;8Gbps)效果好</li>
 </ul>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<h2 id="思考">思考</h2>
+<ul>
 <li>我在想，这篇文章之所以能成功，是不是因为只有他们拿出了64张v100，别人没这么多，所以分析不了”node大的情况下压缩算法的表现“……</li>
 <li>作者提到的这个trade-off的现象，很有道理：探索在目前带宽逐渐增大的情况下压缩算法的未来演进方向确实很有意义</li>
 </ul>
@@ -522,7 +548,11 @@ T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times \frac{p-1}{p\times BW}<
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#INTRODUCTION"><span class="nav-number">1.</span> <span class="nav-text">INTRODUCTION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BACKGROUND-AND-RELATED-WORK"><span class="nav-number">2.</span> <span class="nav-text">BACKGROUND AND RELATED WORK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradient-Compression"><span class="nav-number">2.1.</span> <span class="nav-text">Gradient Compression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#System-Advances"><span class="nav-number">2.2.</span> <span class="nav-text">System Advances</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#All-reduce"><span class="nav-number">2.2.1.</span> <span class="nav-text">All-reduce</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EVALUATING-GRADIENT-COMPRESSION"><span class="nav-number">3.</span> <span class="nav-text">EVALUATING GRADIENT COMPRESSION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IDENTIFYING-REGIMES-OF-HIGH-GRADIENT-COMPRESSION-UTILITY"><span class="nav-number">4.</span> <span class="nav-text">IDENTIFYING REGIMES OF HIGH GRADIENT COMPRESSION UTILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Performance-Model-for-Distributed-Data-Parallel"><span class="nav-number">4.1.</span> <span class="nav-text">Performance Model for Distributed Data Parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Insights-from-the-Performance-Model"><span class="nav-number">4.2.</span> <span class="nav-text">Insights from the Performance Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">INTRODUCTION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background-and-related-work"><span class="nav-number">2.</span> <span class="nav-text">BACKGROUND AND RELATED WORK</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#gradient-compression"><span class="nav-number">2.1.</span> <span class="nav-text">Gradient Compression</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#system-advances"><span class="nav-number">2.2.</span> <span class="nav-text">System Advances</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#all-reduce"><span class="nav-number">2.2.1.</span> <span class="nav-text">All-reduce</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluating-gradient-compression"><span class="nav-number">3.</span> <span class="nav-text">EVALUATING GRADIENT
+COMPRESSION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#identifying-regimes-of-high-gradient-compression-utility"><span class="nav-number">4.</span> <span class="nav-text">IDENTIFYING
+REGIMES OF HIGH GRADIENT COMPRESSION UTILITY</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-model-for-distributed-data-parallel"><span class="nav-number">4.1.</span> <span class="nav-text">Performance
+Model for Distributed Data Parallel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#insights-from-the-performance-model"><span class="nav-number">4.2.</span> <span class="nav-text">Insights from the
+Performance Model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,6 +610,10 @@ T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times \frac{p-1}{p\times BW}<
       
       
         <li class="recent_posts_li">
+          <a href="/2d07f285" title="2024-08-26-insights" target="_blank">2024-08-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/cb2e39c1" title="2024-08-23-insights" target="_blank">2024-08-23-insights</a>
         </li>
       
@@ -589,10 +623,6 @@ T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times \frac{p-1}{p\times BW}<
       
         <li class="recent_posts_li">
           <a href="/cfdbe9fc" title="2024-08-21-insights" target="_blank">2024-08-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/201982c2" title="2024-08-20-insights" target="_blank">2024-08-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -672,12 +702,12 @@ T_{comm}(b,p,BW) = 2\alpha \times(p-1) + 2\times b\times \frac{p-1}{p\times BW}<
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">253k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:50</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

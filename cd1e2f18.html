@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来 LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Modelsdeepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个mu">
+  <meta name="description" content="看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来 LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个m">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-12-01-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/cd1e2f18">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来 LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Modelsdeepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个mu">
+<meta property="og:description" content="看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来 LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个m">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-27-12-01/lmrl.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-27-12-01/Compositional-MiniWoB.png">
@@ -315,18 +315,30 @@
 
       
         <p>看起来ICLR的投稿逐渐出现在arxiv上了……前面还有7000篇等着跳出来</p>
-<h2 id="LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models"><a href="#LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models" class="headerlink" title="LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18232.pdf">LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models</a></h2><p>deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个multi-turn RL。搭了一个框架，提供了一些基础的算法实现，希望可以指导这个领域积极发展。</p>
+<h2 id="lmrl-gym-benchmarks-for-multi-turn-reinforcement-learning-with-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18232.pdf">LMRL Gym: Benchmarks for
+Multi-Turn Reinforcement Learning with Language Models</a></h2>
+<p>deepmind和Berkeley的作品，有点像唐杰老师之前的agentbench，定义了一些需要多轮对话来完成的任务，然后把这个事情formalize成了一个multi-turn
+RL。搭了一个框架，提供了一些基础的算法实现，希望可以指导这个领域积极发展。</p>
 <blockquote>
 <p>经提醒，ICLR review 5 6 5 5</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/lmrl.png"></p>
-<h2 id="Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation"><a href="#Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation" class="headerlink" title="Language Model Agents Suffer from Compositional Generalization in Web Automation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18751.pdf">Language Model Agents Suffer from Compositional Generalization in Web Automation</a></h2><p>也是deepmind的工作。作者谈到GPT4对于单个MiniWoB任务上效果很好95%，但如果组合多个任务在一起，就只能做到25%。作者构造了一些task组合的数据集。</p>
+<h2 id="language-model-agents-suffer-from-compositional-generalization-in-web-automation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18751.pdf">Language Model Agents Suffer
+from Compositional Generalization in Web Automation</a></h2>
+<p>也是deepmind的工作。作者谈到GPT4对于单个MiniWoB任务上效果很好95%，但如果组合多个任务在一起，就只能做到25%。作者构造了一些task组合的数据集。</p>
 <blockquote>
-<p>我觉得这个是不是也是模型fine-tune的局限性，和昨天Yejin Choi那个怪招有点像，来个训练集没有的直接就崩了</p>
+<p>我觉得这个是不是也是模型fine-tune的局限性，和昨天Yejin
+Choi那个怪招有点像，来个训练集没有的直接就崩了</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/Compositional-MiniWoB.png"></p>
-<h2 id="CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation"><a href="#CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation" class="headerlink" title="CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18702.pdf">CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation</a></h2><h2 id="AlignBench-Benchmarking-Chinese-Alignment-of-Large-Language-Models"><a href="#AlignBench-Benchmarking-Chinese-Alignment-of-Large-Language-Models" class="headerlink" title="AlignBench: Benchmarking Chinese Alignment of Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18743.pdf">AlignBench: Benchmarking Chinese Alignment of Large Language Models</a></h2><p>这两篇都是唐杰老师的工作，应该是按照论文“最小发布单元”的理论分成两篇了，我就算成一个了。</p>
-<p>作者说目前的LLM对比评测，尤其是中文评测，基本都是找GPT4打分。但具体做得都不够solid，作者搞了一系列pipeline来提升评测的准确性。并由此专门训练了一个score-model，达到了GPT4 95%的评测效果。</p>
+<h2 id="critiquellm-scaling-llm-as-critic-for-effective-and-explainable-evaluation-of-large-language-model-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18702.pdf">CRITIQUELLM: Scaling
+LLM-as-Critic for Effective and Explainable Evaluation of Large Language
+Model Generation</a></h2>
+<h2 id="alignbench-benchmarking-chinese-alignment-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.18743.pdf">AlignBench: Benchmarking
+Chinese Alignment of Large Language Models</a></h2>
+<p>这两篇都是唐杰老师的工作，应该是按照论文“最小发布单元”的理论分成两篇了，我就算成一个了。</p>
+<p>作者说目前的LLM对比评测，尤其是中文评测，基本都是找GPT4打分。但具体做得都不够solid，作者搞了一系列pipeline来提升评测的准确性。并由此专门训练了一个score-model，达到了GPT4
+95%的评测效果。</p>
 <p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/alignbench.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -344,13 +356,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2d07f285.html" rel="bookmark">2024-08-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cb2e39c1.html" rel="bookmark">2024-08-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/24ec52ff.html" rel="bookmark">2024-08-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/cfdbe9fc.html" rel="bookmark">2024-08-21-insights</a></div>
     </li>
   </ul>
 
@@ -427,7 +439,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LMRL-Gym-Benchmarks-for-Multi-Turn-Reinforcement-Learning-with-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">LMRL Gym: Benchmarks for Multi-Turn Reinforcement Learning with Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Model-Agents-Suffer-from-Compositional-Generalization-in-Web-Automation"><span class="nav-number">2.</span> <span class="nav-text">Language Model Agents Suffer from Compositional Generalization in Web Automation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRITIQUELLM-Scaling-LLM-as-Critic-for-Effective-and-Explainable-Evaluation-of-Large-Language-Model-Generation"><span class="nav-number">3.</span> <span class="nav-text">CRITIQUELLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AlignBench-Benchmarking-Chinese-Alignment-of-Large-Language-Models"><span class="nav-number">4.</span> <span class="nav-text">AlignBench: Benchmarking Chinese Alignment of Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lmrl-gym-benchmarks-for-multi-turn-reinforcement-learning-with-language-models"><span class="nav-number">1.</span> <span class="nav-text">LMRL Gym: Benchmarks for
+Multi-Turn Reinforcement Learning with Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#language-model-agents-suffer-from-compositional-generalization-in-web-automation"><span class="nav-number">2.</span> <span class="nav-text">Language Model Agents Suffer
+from Compositional Generalization in Web Automation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#critiquellm-scaling-llm-as-critic-for-effective-and-explainable-evaluation-of-large-language-model-generation"><span class="nav-number">3.</span> <span class="nav-text">CRITIQUELLM: Scaling
+LLM-as-Critic for Effective and Explainable Evaluation of Large Language
+Model Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#alignbench-benchmarking-chinese-alignment-of-large-language-models"><span class="nav-number">4.</span> <span class="nav-text">AlignBench: Benchmarking
+Chinese Alignment of Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -485,6 +502,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/2d07f285" title="2024-08-26-insights" target="_blank">2024-08-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/cb2e39c1" title="2024-08-23-insights" target="_blank">2024-08-23-insights</a>
         </li>
       
@@ -494,10 +515,6 @@
       
         <li class="recent_posts_li">
           <a href="/cfdbe9fc" title="2024-08-21-insights" target="_blank">2024-08-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/201982c2" title="2024-08-20-insights" target="_blank">2024-08-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -577,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">253k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:50</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
