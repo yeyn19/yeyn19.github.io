@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-08-26T02:13:49.015Z</updated>
+  <updated>2024-08-27T05:06:10.074Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024-08-27-insights</title>
+    <link href="https://www.yynnyy.cn/c2c599bb"/>
+    <id>https://www.yynnyy.cn/c2c599bb</id>
+    <published>2024-08-27T04:52:07.000Z</published>
+    <updated>2024-08-27T05:06:10.074Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="focused-large-language-models-are-stable-many-shot-learners"><ahref="https://arxiv.org/pdf/2408.13987">Focused Large Language Modelsare Stable Many-Shot Learners</a></h2><p>在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错</p><blockquote><p>颇有ACL遗风，论文挺有故事感的</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/icl.png" ></p><h2id="step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models"><ahref="https://arxiv.org/pdf/2408.14470">Step-by-Step Unmasking forParameter-Efficient Fine-tuning of Large Language Models</a></h2><p>印度老哥的工作，作者思考了deltatuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。</p><blockquote><p>这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地deltatuning，那到底是增加了算力还是减少了算力呢……</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;focused-large-language-models-are-stable-many-shot-learners&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.13987&quot;&gt;Focused Large Language Models
+are Stable Many-Shot Learners&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;颇有ACL遗风，论文挺有故事感的&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/icl.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.14470&quot;&gt;Step-by-Step Unmasking for
+Parameter-Efficient Fine-tuning of Large Language Models&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;印度老哥的工作，作者思考了delta
+tuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地delta
+tuning，那到底是增加了算力还是减少了算力呢……&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2024-08-26-insights</title>
@@ -104,42 +140,6 @@ context有用的信息。其实对于很多类似于perplexity的场景，long
 context的来源就是一些语义无关的chunk&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/focusLLM.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-08-21-insights</title>
-    <link href="https://www.yynnyy.cn/cfdbe9fc"/>
-    <id>https://www.yynnyy.cn/cfdbe9fc</id>
-    <published>2024-08-21T06:17:34.000Z</published>
-    <updated>2024-08-21T07:09:04.793Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="reinstruct-building-instruction-data-from-unlabeled-corpus"><ahref="https://arxiv.org/pdf/2408.10663">REInstruct: Building InstructionData from Unlabeled Corpus</a></h2><p>如果大家还记得mammoth2，这篇文章探索了类似的事情：能不能从大规模、无监督的预训练数据里挖掘出来SFT数据？</p><blockquote><p>对于这个方法，我一直感觉有个悖论：如果SFT这个过程没有引入额外的信息，为什么对数据进行重组会让模型获得额外的知识呢？有的人会说，"把数据重组成QA可以帮助模型更好地学会知识"，不过我现在隐约感觉这里的"更好地学会"对于强模型会变得非常marginal……不知道</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/REInstruct.png" style="zoom:33%;"  ></p><h2 id="hmoe-heterogeneous-mixture-of-experts-for-language-modeling"><ahref="https://arxiv.org/pdf/2408.10681">HMoE: Heterogeneous Mixture ofExperts for Language Modeling</a></h2><p>如果MoE里不同专家的大小不一样会怎么样？这篇工作探索了，发现显然，模型会更倾向于激活大专家。所以作者改了loss让模型更多地去尝试激活小专家。经过训练，这样的HMoE比传统MoE数据效率更高。</p><blockquote><p>在我看来，这个东西有点像是让"小专家"从"大专家"上蒸馏知识，小专家为了被激活不得不去学着表现得像大专家。</p><p>比如说啊，如果infer时我把大专家删了，是不是就成功训练出来了一个"高效小模型"呢？但本质上是从大模型上蒸馏下来了参数？</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/HMoE.png" ></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;reinstruct-building-instruction-data-from-unlabeled-corpus&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.10663&quot;&gt;REInstruct: Building Instruction
-Data from Unlabeled Corpus&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;如果大家还记得mammoth2，这篇文章探索了类似的事情：能不能从大规模、无监督的预训练数据里挖掘出来SFT数据？&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;对于这个方法，我一直感觉有个悖论：如果SFT这个过程没有引入额外的信息，为什么对数据进行重组会让模型获得额外的知识呢？有的人会说，&quot;把数据重组成QA可以帮助模型更好地学会知识&quot;，不过我现在隐约感觉这里的&quot;更好地学会&quot;对于强模型会变得非常marginal……不知道&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/REInstruct.png&quot; style=&quot;zoom:33%;&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;hmoe-heterogeneous-mixture-of-experts-for-language-modeling&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.10681&quot;&gt;HMoE: Heterogeneous Mixture of
-Experts for Language Modeling&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;如果MoE里不同专家的大小不一样会怎么样？这篇工作探索了，发现显然，模型会更倾向于激活大专家。所以作者改了loss让模型更多地去尝试激活小专家。经过训练，这样的HMoE比传统MoE数据效率更高。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在我看来，这个东西有点像是让&quot;小专家&quot;从&quot;大专家&quot;上蒸馏知识，小专家为了被激活不得不去学着表现得像大专家。&lt;/p&gt;
-&lt;p&gt;比如说啊，如果infer时我把大专家删了，是不是就成功训练出来了一个&quot;高效小模型&quot;呢？但本质上是从大模型上蒸馏下来了参数？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/HMoE.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -344,9 +344,9 @@ Reasoning&lt;/p&gt;
     <link href="https://www.yynnyy.cn/f4243ee6"/>
     <id>https://www.yynnyy.cn/f4243ee6</id>
     <published>2024-01-15T02:58:32.000Z</published>
-    <updated>2024-08-26T09:03:48.351Z</updated>
+    <updated>2024-08-27T05:12:56.358Z</updated>
     
-    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 11;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年八月August&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td bgcolor="#00F500"><a href=../bd0e34fe>12(73-&gt;1 papers)</a></td><td bgcolor="#00F200"><a href=../52cc5fc0>13(68-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../b01044b9>14(53-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../5fd22f87>15(41-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../b4e59484>16(36-&gt;1 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00F900"><a href=../45eecf09>19(45-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../201982c2>20(102-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../cfdbe9fc>21(67-&gt;2 papers)</a></td><td bgcolor="#00E700"><a href=../24ec52ff>22(58-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../cb2e39c1>23(78-&gt;1 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F700"><a href=../2d07f285>26(36-&gt;1 papers)</a></td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr><tr></tr></table><table id='insights_1' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年七月July&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00F600&gt;&lt;a href=../b0c78508&gt;1(68-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00E100&gt;&lt;a href=../5bf03e0b&gt;2(155-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F500&gt;&lt;a href=../b4325535&gt;3(96-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F000&gt;&lt;a href=../56ee4e4c&gt;4(87-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;5 &lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>7</td><td bgcolor="#00ED00"><a href=../4cd2aec2>8(121-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../a310c5fc>9(106-&gt;2 papers)</a></td><td bgcolor="#00F100"><a href=../9e8b31f6>10(69-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../71495ac8>11(45-&gt;2 papers)</a></td><td bgcolor="#00EE00"><a href=../9a7ee1cb>12(46-&gt;2 papers)</a></td><td>13</td></tr><tr><td>14</td><td bgcolor="#00F900"><a href=../78a2fab2>15(49-&gt;1 papers)</a></td><td bgcolor="#00EA00"><a href=../939541b1>16(112-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../7c572a8f>17(97-&gt;1 papers)</a></td><td>18</td><td bgcolor="#00E400"><a href=../629e1a3c>19(129-&gt;3 papers)</a></td><td>20</td></tr><tr><td>21</td><td bgcolor="#00F500"><a href=../39c87ca>22(50-&gt;1 papers)</a></td><td bgcolor="#00E500"><a href=../ec5eecf4>23(105-&gt;3 papers)</a></td><td bgcolor="#00F400"><a href=../e82f78d>24(54-&gt;1 papers)</a></td><td bgcolor="#00F800"><a href=../e1409cb3>25(49-&gt;1 papers)</a></td><td bgcolor="#00EF00"><a href=../a7727b0>26(60-&gt;2 papers)</a></td><td>27</td></tr><tr><td>28</td><td>29</td><td>30</td><td>31</td></tr></table><table id='insights_2' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年六月June&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>2</td><td bgcolor="#00F500"><a href=../69a48cb0>3(77-&gt;1 papers)</a></td><td bgcolor="#00E500"><a href=../8b7897c9>4(153-&gt;3 papers)</a></td><td bgcolor="#00F100"><a href=../64bafcf7>5(93-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../8f8d47f4>6(90-&gt;1 papers)</a></td><td bgcolor="#00E900"><a href=../604f2cca>7(84-&gt;3 papers)</a></td><td>8</td></tr><tr><td>9</td><td bgcolor="#00F500"><a href=../431de873>10(80-&gt;1 papers)</a></td><td bgcolor="#00E400"><a href=../acdf834d>11(150-&gt;3 papers)</a></td><td bgcolor="#00E800"><a href=../47e8384e>12(148-&gt;3 papers)</a></td><td bgcolor="#00E700"><a href=../a82a5370>13(83-&gt;3 papers)</a></td><td bgcolor="#00F800"><a href=../4af64809>14(88-&gt;1 papers)</a></td><td>15</td></tr><tr><td>16</td><td bgcolor="#00EB00"><a href=../a1c1f30a>17(72-&gt;2 papers)</a></td><td bgcolor="#00E600"><a href=../50caa887>18(310-&gt;4 papers)</a></td><td bgcolor="#00E500"><a href=../bf08c3b9>19(161-&gt;3 papers)</a></td><td>20</td><td bgcolor="#00E600"><a href=../353de54c>21(223-&gt;3 papers)</a></td><td>22</td></tr><tr><td>23</td><td bgcolor="#00F700"><a href=../d3142e08>24(100-&gt;1 papers)</a></td><td bgcolor="#00ED00"><a href=../3cd64536>25(188-&gt;2 papers)</a></td><td bgcolor="#00F000"><a href=../d7e1fe35>26(101-&gt;2 papers)</a></td><td bgcolor="#00E600"><a href=../3823950b>27(101-&gt;3 papers)</a></td><td bgcolor="#00EC00"><a href=../c928ce86>28(78-&gt;2 papers)</a></td><td>29</td></tr><tr><td>30</td></tr></table><table id='insights_3' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年五月May&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00EB00&gt;&lt;a href=../d09b3043&gt;1(64-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EB00&gt;&lt;a href=../3bac8b40&gt;2(71-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F500&gt;&lt;a href=../d46ee07e&gt;3(47-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;4 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>5</td><td bgcolor="#00F500"><a href=../32472b3a>6(69-&gt;1 papers)</a></td><td bgcolor="#00E400"><a href=../dd854004>7(82-&gt;4 papers)</a></td><td bgcolor="#00F000"><a href=../2c8e1b89>8(41-&gt;2 papers)</a></td><td bgcolor="#00F600"><a href=../c34c70b7>9(36-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../fed784bd>10(42-&gt;1 papers)</a></td><td>11</td></tr><tr><td>12</td><td bgcolor="#00F700"><a href=../15e03fbe>13(49-&gt;1 papers)</a></td><td bgcolor="#00FE00"><a href=../f73c24c7>14(122-&gt;0 papers)</a></td><td bgcolor="#00FE00"><a href=../18fe4ff9>15(42-&gt;0 papers)</a></td><td bgcolor="#00FE00"><a href=../f3c9f4fa>16(28-&gt;0 papers)</a></td><td bgcolor="#00ED00"><a href=../1c0b9fc4>17(48-&gt;2 papers)</a></td><td>18</td></tr><tr><td>19</td><td bgcolor="#00F800"><a href=../6735e2bc>20(43-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../88f78982>21(106-&gt;1 papers)</a></td><td bgcolor="#00FE00"><a href=../63c03281>22(40-&gt;0 papers)</a></td><td>23</td><td bgcolor="#00E600"><a href=../6ede42c6>24(196-&gt;3 papers)</a></td><td>25</td></tr><tr><td>26</td><td bgcolor="#00E100"><a href=../85e9f9c5>27(72-&gt;3 papers)</a></td><td bgcolor="#00ED00"><a href=../74e2a248>28(72-&gt;2 papers)</a></td><td bgcolor="#00F100"><a href=../9b20c976>29(81-&gt;2 papers)</a></td><td bgcolor="#00E900"><a href=../a6bb3d7c>30(72-&gt;2 papers)</a></td><td bgcolor="#00E600"><a href=../'49795642'>31(76-&gt;3 papers)</a></td></tr></table><table id='insights_4' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年四月April&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00E400&gt;&lt;a href=../d0de9c6&gt;1(62-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EA00&gt;&lt;a href=../e63a52c5&gt;2(159-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F900&gt;&lt;a href=../9f839fb&gt;3(101-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F400&gt;&lt;a href=../eb242282&gt;4(74-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00E300&gt;&lt;a href=../4e649bc&gt;5(72-&gt;4 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>7</td><td bgcolor="#00DF00"><a href=../f118c20c>8(46-&gt;3 papers)</a></td><td bgcolor="#00E100"><a href=../1edaa932>9(118-&gt;3 papers)</a></td><td bgcolor="#00F000"><a href=../23415d38>10(62-&gt;2 papers)</a></td><td bgcolor="#00F400"><a href=../cc833606>11(48-&gt;1 papers)</a></td><td bgcolor="#00E500"><a href=../27b48d05>12(59-&gt;3 papers)</a></td><td>13</td></tr><tr><td>14</td><td bgcolor="#00FE00"><a href=../c568967c>15(46-&gt;0 papers)</a></td><td bgcolor="#00ED00"><a href=../2e5f2d7f>16(137-&gt;2 papers)</a></td><td bgcolor="#00F600"><a href=../c19d4641>17(47-&gt;1 papers)</a></td><td bgcolor="#00E700"><a href=../30961dcc>18(57-&gt;3 papers)</a></td><td bgcolor="#00F800"><a href=../df5476f2>19(59-&gt;1 papers)</a></td><td>20</td></tr><tr><td>21</td><td bgcolor="#00FE00"><a href=../be56eb04>22(50-&gt;0 papers)</a></td><td bgcolor="#00DA00"><a href=../5194803a>23(104-&gt;4 papers)</a></td><td bgcolor="#00F600"><a href=../b3489b43>24(83-&gt;1 papers)</a></td><td bgcolor="#00F800"><a href=../5c8af07d>25(47-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../b7bd4b7e>26(56-&gt;1 papers)</a></td><td>27</td></tr><tr><td>28</td><td bgcolor="#00FE00"><a href=../46b610f3>29(41-&gt;0 papers)</a></td><td bgcolor="#00E700"><a href=../7b2de4f9>30(99-&gt;3 papers)</a></td></tr></table><table id='insights_5' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年三月March&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00F000&gt;&lt;a href=../707eef9e&gt;1(67-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>3</td><td bgcolor="#00F700"><a href=../965724da>4(48-&gt;1 papers)</a></td><td bgcolor="#00EE00"><a href=../79954fe4>5(175-&gt;2 papers)</a></td><td bgcolor="#00EA00"><a href=../92a2f4e7>6(74-&gt;3 papers)</a></td><td bgcolor="#00F700"><a href=../7d609fd9>7(52-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../8c6bc454>8(58-&gt;2 papers)</a></td><td>9</td></tr><tr><td>10</td><td bgcolor="#00EC00"><a href=../b1f0305e>11(69-&gt;2 papers)</a></td><td bgcolor="#00F800"><a href=../5ac78b5d>12(115-&gt;1 papers)</a></td><td bgcolor="#00E500"><a href=../b505e063>13(53-&gt;2 papers)</a></td><td bgcolor="#00E800"><a href=../57d9fb1a>14(73-&gt;3 papers)</a></td><td bgcolor="#00E100"><a href=../b81b9024>15(58-&gt;3 papers)</a></td><td>16</td></tr><tr><td>17</td><td bgcolor="#00F900"><a href=../4de51b94>18(75-&gt;1 papers)</a></td><td bgcolor="#00DC00"><a href=../a22770aa>19(114-&gt;4 papers)</a></td><td bgcolor="#00EF00"><a href=../c7d03d61>20(61-&gt;2 papers)</a></td><td bgcolor="#00EE00"><a href=../2812565f>21(56-&gt;2 papers)</a></td><td bgcolor="#00E100"><a href=../c325ed5c>22(66-&gt;3 papers)</a></td><td>23</td></tr><tr><td>24</td><td bgcolor="#00F000"><a href=../21f9f625>25(67-&gt;2 papers)</a></td><td bgcolor="#00E100"><a href=../cace4d26>26(148-&gt;3 papers)</a></td><td bgcolor="#00EE00"><a href=../250c2618>27(84-&gt;2 papers)</a></td><td bgcolor="#00E800"><a href=../d4077d95>28(66-&gt;3 papers)</a></td><td bgcolor="#00E100"><a href=../3bc516ab>29(69-&gt;3 papers)</a></td><td>30</td></tr><tr><td>31</td></tr></table><table id='insights_6' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年二月February&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00E600&gt;&lt;a href=../ade8361b&gt;1(52-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00E200&gt;&lt;a href=../46df8d18&gt;2(54-&gt;4 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td bgcolor="#00EB00"><a href=../a4039661>5(71-&gt;2 papers)</a></td><td bgcolor="#00EB00"><a href=../4f342d62>6(221-&gt;2 papers)</a></td><td bgcolor="#00E900"><a href=../a0f6465c>7(77-&gt;3 papers)</a></td><td bgcolor="#00F400"><a href=../51fd1dd1>8(58-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../be3f76ef>9(81-&gt;2 papers)</a></td><td>10</td></tr><tr><td>11</td><td bgcolor="#00EE00"><a href=../875152d8>12(46-&gt;2 papers)</a></td><td bgcolor="#00E800"><a href=../'689339e6'>13(93-&gt;3 papers)</a></td><td bgcolor="#00F200"><a href=../8a4f229f>14(51-&gt;2 papers)</a></td><td bgcolor="#00EC00"><a href=../658d49a1>15(49-&gt;2 papers)</a></td><td bgcolor="#00F000"><a href=../8ebaf2a2>16(68-&gt;2 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00ED00"><a href=../7fb1a92f>19(88-&gt;2 papers)</a></td><td bgcolor="#00E400"><a href=../1a46e4e4>20(265-&gt;3 papers)</a></td><td bgcolor="#00E600"><a href=../f5848fda>21(108-&gt;2 papers)</a></td><td bgcolor="#00EB00"><a href=../1eb334d9>22(105-&gt;2 papers)</a></td><td bgcolor="#00E600"><a href=../f1715fe7>23(105-&gt;3 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F200"><a href=../175894a3>26(114-&gt;3 papers)</a></td><td bgcolor="#00EE00"><a href=../f89aff9d>27(165-&gt;3 papers)</a></td><td bgcolor="#00E900"><a href=../991a410>28(84-&gt;3 papers)</a></td><td bgcolor="#00F100"><a href=../e653cf2e>29(96-&gt;2 papers)</a></td></tr></table><table id='insights_7' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年一月January&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00F400&gt;&lt;a href=../10225ad5&gt;1(42-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EB00&gt;&lt;a href=../fb15e1d6&gt;2(48-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00ED00&gt;&lt;a href=../14d78ae8&gt;3(24-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EF00&gt;&lt;a href=../f60b9191&gt;4(29-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F800&gt;&lt;a href=../19c9faaf&gt;5(28-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>7</td><td bgcolor="#00F800"><a href=../ec37711f>8(17-&gt;1 papers)</a></td><td bgcolor="#00DA00"><a href=../3f51a21>9(80-&gt;4 papers)</a></td><td bgcolor="#00EB00"><a href=../3e6eee2b>10(38-&gt;2 papers)</a></td><td bgcolor="#00EB00"><a href=../d1ac8515>11(36-&gt;2 papers)</a></td><td bgcolor="#00EB00"><a href=../3a9b3e16>12(60-&gt;2 papers)</a></td><td>13</td></tr><tr><td>14</td><td bgcolor="#00DA00"><a href=../d847256f>15(57-&gt;3 papers)</a></td><td>16</td><td bgcolor="#00CE00"><a href=../dcb2f552>17(163-&gt;5 papers)</a></td><td bgcolor="#00F700"><a href=../2db9aedf>18(35-&gt;1 papers)</a></td><td bgcolor="#00EA00"><a href=../c27bc5e1>19(49-&gt;3 papers)</a></td><td>20</td></tr><tr><td>21</td><td bgcolor="#00E400"><a href=../a3795817>22(45-&gt;3 papers)</a></td><td bgcolor="#00E700"><a href=../4cbb3329>23(75-&gt;3 papers)</a></td><td bgcolor="#00F500"><a href=../ae672850>24(43-&gt;1 papers)</a></td><td bgcolor="#00F800"><a href=../41a5436e>25(56-&gt;1 papers)</a></td><td bgcolor="#00DB00"><a href=../aa92f86d>26(46-&gt;3 papers)</a></td><td>27</td></tr><tr><td>28</td><td bgcolor="#00FE00"><a href=../5b99a3e0>29(42-&gt;0 papers)</a></td><td bgcolor="#00EC00"><a href=../660257ea>30(85-&gt;2 papers)</a></td><td bgcolor="#00F600"><a href=../89c03cd4>31(57-&gt;1 papers)</a></td></tr></table><table id='insights_8' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2023年十二月December&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00E200&gt;&lt;a href=../cd1e2f18&gt;1(44-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>3</td><td bgcolor="#00ED00"><a href=../2b37e45c>4(39-&gt;2 papers)</a></td><td bgcolor="#00E200"><a href=../c4f58f62>5(78-&gt;3 papers)</a></td><td bgcolor="#00E400"><a href=../2fc23461>6(44-&gt;3 papers)</a></td><td bgcolor="#00FC00"><a href=../c0005f5f>7(42-&gt;0 papers)</a></td><td bgcolor="#00EC00"><a href=../310b04d2>8(89-&gt;2 papers)</a></td><td>9</td></tr><tr><td>10</td><td bgcolor="#00EE00"><a href=../c90f0d8>11(41-&gt;2 papers)</a></td><td bgcolor="#00FE00"><a href=../e7a74bdb>12(72-&gt;0 papers)</a></td><td bgcolor="#00F600"><a href=../'86520e5'>13(48-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../eab93b9c>14(42-&gt;1 papers)</a></td><td bgcolor="#00EF00"><a href=../57b50a2>15(40-&gt;2 papers)</a></td><td>16</td></tr><tr><td>17</td><td bgcolor="#00E700"><a href=../f085db12>18(43-&gt;3 papers)</a></td><td bgcolor="#00E200"><a href=../1f47b02c>19(92-&gt;3 papers)</a></td><td bgcolor="#00F500"><a href=../7ab0fde7>20(67-&gt;1 papers)</a></td><td bgcolor="#00F600"><a href=../957296d9>21(44-&gt;1 papers)</a></td><td bgcolor="#00EC00"><a href=../7e452dda>22(31-&gt;2 papers)</a></td><td>23</td></tr><tr><td>24</td><td bgcolor="#00EE00"><a href=../9c9936a3>25(38-&gt;2 papers)</a></td><td>26</td><td bgcolor="#00EC00"><a href=../986ce69e>27(72-&gt;2 papers)</a></td><td>28</td><td bgcolor="#00DE00"><a href=../86a5d62d>29(47-&gt;3 papers)</a></td><td>30</td></tr><tr><td>31</td></tr></table><table id='insights_9' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2023年十一月November&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td bgcolor=#00F800&gt;&lt;a href=../70d443d6&gt;1(61-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EE00&gt;&lt;a href=../9be3f8d5&gt;2(57-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F700&gt;&lt;a href=../742193eb&gt;3(46-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;4 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>5</td><td bgcolor="#00F500"><a href=../920858af>6(54-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../7dca3391>7(74-&gt;2 papers)</a></td><td bgcolor="#00F600"><a href=../8cc1681c>8(59-&gt;1 papers)</a></td><td bgcolor="#00EC00"><a href=../'63030322'>9(48-&gt;3 papers)</a></td><td bgcolor="#00F700"><a href=../5e98f728>10(69-&gt;1 papers)</a></td><td>11</td></tr><tr><td>12</td><td bgcolor="#00DB00"><a href=../b5af4c2b>13(34-&gt;3 papers)</a></td><td bgcolor="#00EF00"><a href=../'57735752'>14(119-&gt;2 papers)</a></td><td bgcolor="#00D900"><a href=../b8b13c6c>15(109-&gt;3 papers)</a></td><td bgcolor="#00E800"><a href=../5386876f>16(118-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../bc44ec51>17(154-&gt;2 papers)</a></td><td>18</td></tr><tr><td>19</td><td bgcolor="#00FE00"><a href=../c77a9129>20(27-&gt;0 papers)</a></td><td bgcolor="#00E600"><a href=../28b8fa17>21(99-&gt;3 papers)</a></td><td bgcolor="#00F400"><a href=../c38f4114>22(37-&gt;2 papers)</a></td><td bgcolor="#00EF00"><a href=../2c4d2a2a>23(39-&gt;2 papers)</a></td><td>24</td><td>25</td></tr><tr><td>26</td><td bgcolor="#00ED00"><a href=../25a68a50>27(48-&gt;2 papers)</a></td><td bgcolor="#00F000"><a href=../d4add1dd>28(87-&gt;2 papers)</a></td><td bgcolor="#00E300"><a href=../3b6fbae3>29(52-&gt;3 papers)</a></td><td bgcolor="#00EB00"><a href=../6f44ee9>30(47-&gt;2 papers)</a></td></tr></table><table id='insights_10' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2023年十月October&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td bgcolor=#00F100&gt;&lt;a href=../46752150&gt;2(30-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00ED00&gt;&lt;a href=../a9b74a6e&gt;3(40-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F100&gt;&lt;a href=../4b6b5117&gt;4(30-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00F200&gt;&lt;a href=../a4a93a29&gt;5(30-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00EE00&gt;&lt;a href=../4f9e812a&gt;6(30-&gt;2 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;7 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>8</td><td bgcolor="#00FB00"><a href=../be95daa7>9(10-&gt;0 papers)</a></td><td bgcolor="#00F000"><a href=../830e2ead>10(172-&gt;3 papers)</a></td><td bgcolor="#00EA00"><a href=../6ccc4593>11(40-&gt;3 papers)</a></td><td bgcolor="#00F100"><a href=../87fbfe90>12(30-&gt;2 papers)</a></td><td bgcolor="#00EF00"><a href=../683995ae>13(30-&gt;2 papers)</a></td><td>14</td></tr><tr><td>15</td><td bgcolor="#00FE00"><a href=../8e105eea>16(10-&gt;0 papers)</a></td><td bgcolor="#00EE00"><a href=../61d235d4>17(135-&gt;2 papers)</a></td><td bgcolor="#00E900"><a href=../90d96e59>18(83-&gt;3 papers)</a></td><td bgcolor="#00E900"><a href=../7f1b0567>19(74-&gt;3 papers)</a></td><td bgcolor="#00F000"><a href=../1aec48ac>20(74-&gt;2 papers)</a></td><td>21</td></tr><tr><td>22</td><td bgcolor="#00F500"><a href=../f1dbf3af>23(108-&gt;1 papers)</a></td><td bgcolor="#00F800"><a href=../1307e8d6>24(203-&gt;3 papers)</a></td><td bgcolor="#00F600"><a href=../fcc583e8>25(112-&gt;1 papers)</a></td><td bgcolor="#00F800"><a href=../17f238eb>26(89-&gt;1 papers)</a></td><td bgcolor="#00F600"><a href=../f83053d5>27(80-&gt;1 papers)</a></td><td>28</td></tr><tr><td>29</td><td bgcolor="#00FE00"><a href=../db62976c>30(67-&gt;0 papers)</a></td><td bgcolor="#00F800"><a href=../34a0fc52>31(141-&gt;3 papers)</a></td></tr></table><table id='insights_11' hidden='hidden' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2023年九月September&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td></tr><tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr><tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr><tr><td>24</td><td>25</td><td>26</td><td>27</td><td bgcolor="#00D600"><a href=../13a1e3c6>28(30-&gt;2 papers)</a></td><td bgcolor="#00BC00"><a href=../d2c6faf>29(40-&gt;3 papers)</a></td><td>30</td></tr><tr></tr></table>]]></content>
+    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 11;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年八月August&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td bgcolor="#00F500"><a href=../bd0e34fe>12(73-&gt;1 papers)</a></td><td bgcolor="#00F200"><a href=../52cc5fc0>13(68-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../b01044b9>14(53-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../5fd22f87>15(41-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../b4e59484>16(36-&gt;1 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00F900"><a href=../45eecf09>19(45-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../201982c2>20(102-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../cfdbe9fc>21(67-&gt;2 papers)</a></td><td bgcolor="#00E700"><a href=../24ec52ff>22(58-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../cb2e39c1>23(78-&gt;1 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F700"><a href=../2d07f285>26(36-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../c2c599bb>27(76-&gt;1 papers)</a></td><td>28</td><td>29</td><td>30</td><td>31</td></tr><tr></tr></table>]]></content>
     
     
     <summary type="html">&lt;p&gt;压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv
@@ -454,8 +454,8 @@ to three!&lt;/p&gt;
 &lt;td bgcolor=&quot;#00F700&quot;&gt;
 &lt;a href=&quot;../2d07f285&quot;&gt;26(36-&amp;gt;1 papers)&lt;/a&gt;
 &lt;/td&gt;
-&lt;td&gt;
-27
+&lt;td bgcolor=&quot;#00F000&quot;&gt;
+&lt;a href=&quot;../c2c599bb&quot;&gt;27(76-&amp;gt;1 papers)&lt;/a&gt;
 &lt;/td&gt;
 &lt;td&gt;
 28
@@ -473,719 +473,7 @@ to three!&lt;/p&gt;
 &lt;tr&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;table id=&quot;insights_1&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年七月July&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F600&amp;gt;&amp;lt;a href=../b0c78508&amp;gt;1(68-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E100&amp;gt;&amp;lt;a href=../5bf03e0b&amp;gt;2(155-&amp;gt;3 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F500&amp;gt;&amp;lt;a href=../b4325535&amp;gt;3(96-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F000&amp;gt;&amp;lt;a href=../56ee4e4c&amp;gt;4(87-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;5 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-7
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../4cd2aec2&quot;&gt;8(121-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../a310c5fc&quot;&gt;9(106-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../9e8b31f6&quot;&gt;10(69-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../71495ac8&quot;&gt;11(45-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../9a7ee1cb&quot;&gt;12(46-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-13
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-14
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F900&quot;&gt;
-&lt;a href=&quot;../78a2fab2&quot;&gt;15(49-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EA00&quot;&gt;
-&lt;a href=&quot;../939541b1&quot;&gt;16(112-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../7c572a8f&quot;&gt;17(97-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-18
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E400&quot;&gt;
-&lt;a href=&quot;../629e1a3c&quot;&gt;19(129-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-20
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-21
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../39c87ca&quot;&gt;22(50-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E500&quot;&gt;
-&lt;a href=&quot;../ec5eecf4&quot;&gt;23(105-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F400&quot;&gt;
-&lt;a href=&quot;../e82f78d&quot;&gt;24(54-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../e1409cb3&quot;&gt;25(49-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EF00&quot;&gt;
-&lt;a href=&quot;../a7727b0&quot;&gt;26(60-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-27
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-28
-&lt;/td&gt;
-&lt;td&gt;
-29
-&lt;/td&gt;
-&lt;td&gt;
-30
-&lt;/td&gt;
-&lt;td&gt;
-31
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_2&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年六月June&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;1 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-2
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../69a48cb0&quot;&gt;3(77-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E500&quot;&gt;
-&lt;a href=&quot;../8b7897c9&quot;&gt;4(153-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../64bafcf7&quot;&gt;5(93-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F900&quot;&gt;
-&lt;a href=&quot;../8f8d47f4&quot;&gt;6(90-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E900&quot;&gt;
-&lt;a href=&quot;../604f2cca&quot;&gt;7(84-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-8
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-9
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../431de873&quot;&gt;10(80-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E400&quot;&gt;
-&lt;a href=&quot;../acdf834d&quot;&gt;11(150-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E800&quot;&gt;
-&lt;a href=&quot;../47e8384e&quot;&gt;12(148-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E700&quot;&gt;
-&lt;a href=&quot;../a82a5370&quot;&gt;13(83-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../4af64809&quot;&gt;14(88-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-15
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-16
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../a1c1f30a&quot;&gt;17(72-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../50caa887&quot;&gt;18(310-&amp;gt;4 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E500&quot;&gt;
-&lt;a href=&quot;../bf08c3b9&quot;&gt;19(161-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-20
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../353de54c&quot;&gt;21(223-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-22
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-23
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../d3142e08&quot;&gt;24(100-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../3cd64536&quot;&gt;25(188-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../d7e1fe35&quot;&gt;26(101-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../3823950b&quot;&gt;27(101-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EC00&quot;&gt;
-&lt;a href=&quot;../c928ce86&quot;&gt;28(78-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-29
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-30
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_3&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年五月May&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00EB00&amp;gt;&amp;lt;a href=../d09b3043&amp;gt;1(64-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00EB00&amp;gt;&amp;lt;a href=../3bac8b40&amp;gt;2(71-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F500&amp;gt;&amp;lt;a href=../d46ee07e&amp;gt;3(47-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;4 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-5
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../32472b3a&quot;&gt;6(69-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E400&quot;&gt;
-&lt;a href=&quot;../dd854004&quot;&gt;7(82-&amp;gt;4 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../2c8e1b89&quot;&gt;8(41-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F600&quot;&gt;
-&lt;a href=&quot;../c34c70b7&quot;&gt;9(36-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../fed784bd&quot;&gt;10(42-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-11
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-12
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../15e03fbe&quot;&gt;13(49-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../f73c24c7&quot;&gt;14(122-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../18fe4ff9&quot;&gt;15(42-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../f3c9f4fa&quot;&gt;16(28-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../1c0b9fc4&quot;&gt;17(48-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-18
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-19
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../6735e2bc&quot;&gt;20(43-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../88f78982&quot;&gt;21(106-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../63c03281&quot;&gt;22(40-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-23
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../6ede42c6&quot;&gt;24(196-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-25
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-26
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../85e9f9c5&quot;&gt;27(72-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../74e2a248&quot;&gt;28(72-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../9b20c976&quot;&gt;29(81-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E900&quot;&gt;
-&lt;a href=&quot;../a6bb3d7c&quot;&gt;30(72-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../&#39;49795642&#39;&quot;&gt;31(76-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_4&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年四月April&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E400&amp;gt;&amp;lt;a href=../d0de9c6&amp;gt;1(62-&amp;gt;3 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00EA00&amp;gt;&amp;lt;a href=../e63a52c5&amp;gt;2(159-&amp;gt;3 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F900&amp;gt;&amp;lt;a href=../9f839fb&amp;gt;3(101-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F400&amp;gt;&amp;lt;a href=../eb242282&amp;gt;4(74-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E300&amp;gt;&amp;lt;a href=../4e649bc&amp;gt;5(72-&amp;gt;4 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-7
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DF00&quot;&gt;
-&lt;a href=&quot;../f118c20c&quot;&gt;8(46-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../1edaa932&quot;&gt;9(118-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../23415d38&quot;&gt;10(62-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F400&quot;&gt;
-&lt;a href=&quot;../cc833606&quot;&gt;11(48-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E500&quot;&gt;
-&lt;a href=&quot;../27b48d05&quot;&gt;12(59-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-13
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-14
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../c568967c&quot;&gt;15(46-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../2e5f2d7f&quot;&gt;16(137-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F600&quot;&gt;
-&lt;a href=&quot;../c19d4641&quot;&gt;17(47-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E700&quot;&gt;
-&lt;a href=&quot;../30961dcc&quot;&gt;18(57-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../df5476f2&quot;&gt;19(59-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-20
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-21
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../be56eb04&quot;&gt;22(50-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DA00&quot;&gt;
-&lt;a href=&quot;../5194803a&quot;&gt;23(104-&amp;gt;4 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F600&quot;&gt;
-&lt;a href=&quot;../b3489b43&quot;&gt;24(83-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../5c8af07d&quot;&gt;25(47-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../b7bd4b7e&quot;&gt;26(56-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-27
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-28
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../46b610f3&quot;&gt;29(41-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E700&quot;&gt;
-&lt;a href=&quot;../7b2de4f9&quot;&gt;30(99-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_5&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年三月March&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F000&amp;gt;&amp;lt;a href=../707eef9e&amp;gt;1(67-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;2 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-3
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../965724da&quot;&gt;4(48-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../79954fe4&quot;&gt;5(175-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EA00&quot;&gt;
-&lt;a href=&quot;../92a2f4e7&quot;&gt;6(74-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../7d609fd9&quot;&gt;7(52-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../8c6bc454&quot;&gt;8(58-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-9
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-10
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EC00&quot;&gt;
-&lt;a href=&quot;../b1f0305e&quot;&gt;11(69-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../5ac78b5d&quot;&gt;12(115-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E500&quot;&gt;
-&lt;a href=&quot;../b505e063&quot;&gt;13(53-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E800&quot;&gt;
-&lt;a href=&quot;../57d9fb1a&quot;&gt;14(73-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../b81b9024&quot;&gt;15(58-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-16
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-17
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F900&quot;&gt;
-&lt;a href=&quot;../4de51b94&quot;&gt;18(75-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DC00&quot;&gt;
-&lt;a href=&quot;../a22770aa&quot;&gt;19(114-&amp;gt;4 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EF00&quot;&gt;
-&lt;a href=&quot;../c7d03d61&quot;&gt;20(61-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../2812565f&quot;&gt;21(56-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../c325ed5c&quot;&gt;22(66-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-23
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-24
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../21f9f625&quot;&gt;25(67-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../cace4d26&quot;&gt;26(148-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../250c2618&quot;&gt;27(84-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E800&quot;&gt;
-&lt;a href=&quot;../d4077d95&quot;&gt;28(66-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E100&quot;&gt;
-&lt;a href=&quot;../3bc516ab&quot;&gt;29(69-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-30
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-31
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_6&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年二月February&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E600&amp;gt;&amp;lt;a href=../ade8361b&amp;gt;1(52-&amp;gt;3 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E200&amp;gt;&amp;lt;a href=../46df8d18&amp;gt;2(54-&amp;gt;4 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;3 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-4
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../a4039661&quot;&gt;5(71-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../4f342d62&quot;&gt;6(221-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E900&quot;&gt;
-&lt;a href=&quot;../a0f6465c&quot;&gt;7(77-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F400&quot;&gt;
-&lt;a href=&quot;../51fd1dd1&quot;&gt;8(58-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../be3f76ef&quot;&gt;9(81-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-10
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-11
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../875152d8&quot;&gt;12(46-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E800&quot;&gt;
-&lt;a href=&quot;../&#39;689339e6&#39;&quot;&gt;13(93-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F200&quot;&gt;
-&lt;a href=&quot;../8a4f229f&quot;&gt;14(51-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EC00&quot;&gt;
-&lt;a href=&quot;../658d49a1&quot;&gt;15(49-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../8ebaf2a2&quot;&gt;16(68-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-17
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-18
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../7fb1a92f&quot;&gt;19(88-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E400&quot;&gt;
-&lt;a href=&quot;../1a46e4e4&quot;&gt;20(265-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../f5848fda&quot;&gt;21(108-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../1eb334d9&quot;&gt;22(105-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E600&quot;&gt;
-&lt;a href=&quot;../f1715fe7&quot;&gt;23(105-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-24
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-25
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F200&quot;&gt;
-&lt;a href=&quot;../175894a3&quot;&gt;26(114-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EE00&quot;&gt;
-&lt;a href=&quot;../f89aff9d&quot;&gt;27(165-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E900&quot;&gt;
-&lt;a href=&quot;../991a410&quot;&gt;28(84-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../e653cf2e&quot;&gt;29(96-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
-&lt;table id=&quot;insights_7&quot; hidden=&quot;hidden&quot; style=&quot;text-align:center&quot;&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;form action&gt;
-&lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
-&lt;/form&gt;
-&lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年一月January&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
-    &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
-        &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
-    &amp;lt;/form&amp;gt;
-&amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F400&amp;gt;&amp;lt;a href=../10225ad5&amp;gt;1(42-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00EB00&amp;gt;&amp;lt;a href=../fb15e1d6&amp;gt;2(48-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00ED00&amp;gt;&amp;lt;a href=../14d78ae8&amp;gt;3(24-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00EF00&amp;gt;&amp;lt;a href=../f60b9191&amp;gt;4(29-&amp;gt;2 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F800&amp;gt;&amp;lt;a href=../19c9faaf&amp;gt;5(28-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-7
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../ec37711f&quot;&gt;8(17-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DA00&quot;&gt;
-&lt;a href=&quot;../3f51a21&quot;&gt;9(80-&amp;gt;4 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../3e6eee2b&quot;&gt;10(38-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../d1ac8515&quot;&gt;11(36-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EB00&quot;&gt;
-&lt;a href=&quot;../3a9b3e16&quot;&gt;12(60-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-13
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-14
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DA00&quot;&gt;
-&lt;a href=&quot;../d847256f&quot;&gt;15(57-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-16
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00CE00&quot;&gt;
-&lt;a href=&quot;../dcb2f552&quot;&gt;17(163-&amp;gt;5 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../2db9aedf&quot;&gt;18(35-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EA00&quot;&gt;
-&lt;a href=&quot;../c27bc5e1&quot;&gt;19(49-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-20
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-21
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E400&quot;&gt;
-&lt;a href=&quot;../a3795817&quot;&gt;22(45-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00E700&quot;&gt;
-&lt;a href=&quot;../4cbb3329&quot;&gt;23(75-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../ae672850&quot;&gt;24(43-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F800&quot;&gt;
-&lt;a href=&quot;../41a5436e&quot;&gt;25(56-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00DB00&quot;&gt;
-&lt;a href=&quot;../aa92f86d&quot;&gt;26(46-&amp;gt;3 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td&gt;
-27
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-28
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00FE00&quot;&gt;
-&lt;a href=&quot;../5b99a3e0&quot;&gt;29(42-&amp;gt;0 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00EC00&quot;&gt;
-&lt;a href=&quot;../660257ea&quot;&gt;30(85-&amp;gt;2 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F600&quot;&gt;
-&lt;a href=&quot;../89c03cd4&quot;&gt;31(57-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</summary>
+</summary>
     
     
     
