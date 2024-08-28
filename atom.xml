@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-08-27T05:06:10.074Z</updated>
+  <updated>2024-08-28T06:10:56.332Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024-08-28-insights</title>
+    <link href="https://www.yynnyy.cn/33cec236"/>
+    <id>https://www.yynnyy.cn/33cec236</id>
+    <published>2024-08-28T05:58:50.000Z</published>
+    <updated>2024-08-28T06:10:56.332Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="training-free-activation-sparsity-in-large-language-models"><ahref="https://arxiv.org/pdf/2408.14690"><strong>Training-Free ActivationSparsity in Large Language Models</strong></a></h2><p>infer稀疏性是LLM的固有形式：在预测时，绝大多数的attention、FFN参数激活值都很低。能不能让激活比较低的参数干脆不激活，置0呢？已有工作，参考MoE，都需要让模型通过额外的训练来学会这件事。这篇工作探索了training-free的办法，通过对激活时的激活分布做微调，使得砍掉比较低的也不影响分布。发现可以在效果不咋降的前提下加速1.5x</p><p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/infer-sparse.png" ></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;training-free-activation-sparsity-in-large-language-models&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.14690&quot;&gt;&lt;strong&gt;Training-Free Activation
+Sparsity in Large Language Models&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;infer稀疏性是LLM的固有形式：在预测时，绝大多数的attention、FFN参数激活值都很低。能不能让激活比较低的参数干脆不激活，置0呢？已有工作，参考MoE，都需要让模型通过额外的训练来学会这件事。这篇工作探索了training-free的办法，通过对激活时的激活分布做微调，使得砍掉比较低的也不影响分布。发现可以在效果不咋降的前提下加速1.5x&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/infer-sparse.png&quot;&gt;&lt;/p&gt;
+</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2024-08-27-insights</title>
@@ -96,50 +121,6 @@ Transformer-Mamba Models at Scale&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;之前有个叫jamba的论文，第一次把mamba训起来了，这次出了jamba
 1.5，直接搞了个激活92B参数Mamba MoE。感觉能训起来确实牛&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/dynamic-activation.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-08-22-insights</title>
-    <link href="https://www.yynnyy.cn/24ec52ff"/>
-    <id>https://www.yynnyy.cn/24ec52ff</id>
-    <published>2024-08-22T03:17:07.000Z</published>
-    <updated>2024-08-22T03:43:59.535Z</updated>
-    
-    <content type="html"><![CDATA[<h2id="first-activations-matter-training-free-methods-for-dynamic-activation-in-large-language-models"><ahref="https://arxiv.org/pdf/2408.11393">First Activations Matter:Training-Free Methods for Dynamic Activation in Large LanguageModels</a></h2><p>这篇工作瞄准的时dynamicactivation这个领域，这是一个和MoE对偶的场景：MoE认为我把FFN复制好多份，每次让模型竞争选出来谁是最合适的去激活。这个场景则不复制参数，而是认为正常的参数激活的过程中也是稀疏的，能不能提前预测这个稀疏性，进而干脆不计算可能贡献不大的部分。注意，不计算和不激活是俩概念，不激活还是得算了才知道，所以本质上没有加速；而不计算是真的没有算。</p><p>这篇工作更近一步，尝试了能不能干脆不去训练所谓的"sparsepredictor"，而是换成一个预先定义的、参数搜索的算法，竟然效果还不错</p><blockquote><p>我也是新知道这个领域，感觉有点像是折叠屏手机里面的大折叠屏和小折叠屏……</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/dynamic-activation.png" ></p><h2 id="focusllm-scaling-llms-context-by-parallel-decoding"><ahref="https://arxiv.org/pdf/2408.11745">FocusLLM: Scaling LLM’s Contextby Parallel Decoding</a></h2><p>朋友的工作，挺有趣的long context思路：有点类似之前有篇ActivationBeacon的工作。如果很长的context对于后文的decoding分别有作用，那么能不能把context分解成多个chunk，然后并行扫描给出hiddenstate中间结果。并最终让模型参考中间结果做最终的生成。作者发现这是可行的，并且在实际上可以把一个chunk压缩成几个token。</p><blockquote><p>这里和之前做sentenceembedding的核心区别是，在对chunk进行编码时是可以看到之前解码的上下文的，因此模型知道如何保留对localcontext有用的信息。其实对于很多类似于perplexity的场景，longcontext的来源就是一些语义无关的chunk</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/focusLLM.png" ></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;first-activations-matter-training-free-methods-for-dynamic-activation-in-large-language-models&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.11393&quot;&gt;First Activations Matter:
-Training-Free Methods for Dynamic Activation in Large Language
-Models&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;这篇工作瞄准的时dynamic
-activation这个领域，这是一个和MoE对偶的场景：MoE认为我把FFN复制好多份，每次让模型竞争选出来谁是最合适的去激活。这个场景则不复制参数，而是认为正常的参数激活的过程中也是稀疏的，能不能提前预测这个稀疏性，进而干脆不计算可能贡献不大的部分。注意，不计算和不激活是俩概念，不激活还是得算了才知道，所以本质上没有加速；而不计算是真的没有算。&lt;/p&gt;
-&lt;p&gt;这篇工作更近一步，尝试了能不能干脆不去训练所谓的&quot;sparse
-predictor&quot;，而是换成一个预先定义的、参数搜索的算法，竟然效果还不错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我也是新知道这个领域，感觉有点像是折叠屏手机里面的大折叠屏和小折叠屏……&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/dynamic-activation.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;focusllm-scaling-llms-context-by-parallel-decoding&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.11745&quot;&gt;FocusLLM: Scaling LLM’s Context
-by Parallel Decoding&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;朋友的工作，挺有趣的long context思路：有点类似之前有篇Activation
-Beacon的工作。如果很长的context对于后文的decoding分别有作用，那么能不能把context分解成多个chunk，然后并行扫描给出hidden
-state中间结果。并最终让模型参考中间结果做最终的生成。作者发现这是可行的，并且在实际上可以把一个chunk压缩成几个token。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这里和之前做sentence
-embedding的核心区别是，在对chunk进行编码时是可以看到之前解码的上下文的，因此模型知道如何保留对local
-context有用的信息。其实对于很多类似于perplexity的场景，long
-context的来源就是一些语义无关的chunk&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-19-08-23/focusLLM.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -344,9 +325,9 @@ Reasoning&lt;/p&gt;
     <link href="https://www.yynnyy.cn/f4243ee6"/>
     <id>https://www.yynnyy.cn/f4243ee6</id>
     <published>2024-01-15T02:58:32.000Z</published>
-    <updated>2024-08-27T05:12:56.358Z</updated>
+    <updated>2024-08-28T06:11:18.136Z</updated>
     
-    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 11;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年八月August&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td bgcolor="#00F500"><a href=../bd0e34fe>12(73-&gt;1 papers)</a></td><td bgcolor="#00F200"><a href=../52cc5fc0>13(68-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../b01044b9>14(53-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../5fd22f87>15(41-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../b4e59484>16(36-&gt;1 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00F900"><a href=../45eecf09>19(45-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../201982c2>20(102-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../cfdbe9fc>21(67-&gt;2 papers)</a></td><td bgcolor="#00E700"><a href=../24ec52ff>22(58-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../cb2e39c1>23(78-&gt;1 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F700"><a href=../2d07f285>26(36-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../c2c599bb>27(76-&gt;1 papers)</a></td><td>28</td><td>29</td><td>30</td><td>31</td></tr><tr></tr></table>]]></content>
+    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 11;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年八月August&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td bgcolor="#00F500"><a href=../bd0e34fe>12(73-&gt;1 papers)</a></td><td bgcolor="#00F200"><a href=../52cc5fc0>13(68-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../b01044b9>14(53-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../5fd22f87>15(41-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../b4e59484>16(36-&gt;1 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00F900"><a href=../45eecf09>19(45-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../201982c2>20(102-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../cfdbe9fc>21(67-&gt;2 papers)</a></td><td bgcolor="#00E700"><a href=../24ec52ff>22(58-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../cb2e39c1>23(78-&gt;1 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F700"><a href=../2d07f285>26(36-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../c2c599bb>27(76-&gt;1 papers)</a></td><td bgcolor="#00F600"><a href=../33cec236>28(50-&gt;1 papers)</a></td><td>29</td><td>30</td><td>31</td></tr><tr></tr></table>]]></content>
     
     
     <summary type="html">&lt;p&gt;压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv
@@ -457,8 +438,8 @@ to three!&lt;/p&gt;
 &lt;td bgcolor=&quot;#00F000&quot;&gt;
 &lt;a href=&quot;../c2c599bb&quot;&gt;27(76-&amp;gt;1 papers)&lt;/a&gt;
 &lt;/td&gt;
-&lt;td&gt;
-28
+&lt;td bgcolor=&quot;#00F600&quot;&gt;
+&lt;a href=&quot;../33cec236&quot;&gt;28(50-&amp;gt;1 papers)&lt;/a&gt;
 &lt;/td&gt;
 &lt;td&gt;
 29
