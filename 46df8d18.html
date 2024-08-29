@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>770</span>
+              <span>780</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -316,26 +316,20 @@
 
       
         <p>今天全是重量级，那就多分享几篇吧</p>
-<h2 id="ee-tuning-an-economical-yet-scalable-solution-for-tuning-early-exit-large-language-models"><a href>EE-Tuning: An Economical yet Scalable Solution for Tuning
-Early-Exit Large Language Models</a></h2>
+<h2 id="EE-Tuning-An-Economical-yet-Scalable-Solution-for-Tuning-Early-Exit-Large-Language-Models"><a href>EE-Tuning: An Economical yet Scalable Solution for Tuning Early-Exit Large Language Models</a></h2>
 <p>这是一个一直有的研究领域：early-exit，思考能不能让模型在推理时对于一些信心值很高的地方提前退出，来动态、主动地平衡效果和需要的计算量。作者提了一套框架，可以从任何一个预训练好的模型上启动early-exit的训练</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/early-exit.png"></p>
-<h2 id="efficient-exploration-for-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00396.pdf">Efficient Exploration for
-LLMs</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-29-02-02/early-exit.png">
+<h2 id="Efficient-Exploration-for-LLMs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00396.pdf">Efficient Exploration for LLMs</a></h2>
 <p>deepmind的论文。作者探索了一个问题，目前的RLHF只考虑在一个query集合上优化，模型生成一堆response然后训练：如果允许模型使用一些特殊的、主动的sample算法（而不是开个temperature直接sample）会怎么样？</p>
-<p>作者发现，这样的"active"的训练，可以极快地加速模型的收敛</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/exploration.png"></p>
-<h2 id="a-chain-of-thought-is-as-strong-as-its-weakest-link-a-benchmark-for-verifiers-of-reasoning-chains"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00742.pdf">A Chain-of-Thought Is as
-Strong as Its Weakest Link: A Benchmark for Verifiers of Reasoning
-Chains</a></h2>
+<p>作者发现，这样的&quot;active&quot;的训练，可以极快地加速模型的收敛</p>
+<img src="../../files/images/arxiv-insights/2024-01-29-02-02/exploration.png">
+<h2 id="A-Chain-of-Thought-Is-as-Strong-as-Its-Weakest-Link-A-Benchmark-for-Verifiers-of-Reasoning-Chains"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00742.pdf">A Chain-of-Thought Is as Strong as Its Weakest Link: A Benchmark for Verifiers of Reasoning Chains</a></h2>
 <p>这是一篇google的benchmark论文，作者发现：目前有很多研究去自动纠正CoT中的step-error，然后提升效果。但具体这些verifier并没有一个公平的评测，作者给出了一个benchmark，希望可以促进这方面的相关研究。</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/CoT-verifier.png"></p>
-<h2 id="towards-efficient-and-exact-optimization-of-language-model-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00856.pdf">Towards Efficient and Exact
-Optimization of Language Model Alignment</a></h2>
-<p>推荐一下lu
-cheng学长的论文，有一种ICML风的数学的美。作者提到目前RLHF领域用的比较多的PPO训练不稳定，后面用的多的DPO虽然公式简单训练稳定，但是他的理论基础不够强。</p>
+<img src="../../files/images/arxiv-insights/2024-01-29-02-02/CoT-verifier.png">
+<h2 id="Towards-Efficient-and-Exact-Optimization-of-Language-Model-Alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.00856.pdf">Towards Efficient and Exact Optimization of Language Model Alignment</a></h2>
+<p>推荐一下lu cheng学长的论文，有一种ICML风的数学的美。作者提到目前RLHF领域用的比较多的PPO训练不稳定，后面用的多的DPO虽然公式简单训练稳定，但是他的理论基础不够强。</p>
 <p>作者由此提出了一套EXO算法， 在理论和实验上都比DPO效果更好。</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/exo.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-29-02-02/exo.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -352,13 +346,13 @@ cheng学长的论文，有一种ICML风的数学的美。作者提到目前RLHF�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dc0ca908.html" rel="bookmark">2024-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/33cec236.html" rel="bookmark">2024-08-28-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c2c599bb.html" rel="bookmark">2024-08-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2d07f285.html" rel="bookmark">2024-08-26-insights</a></div>
     </li>
   </ul>
 
@@ -435,12 +429,7 @@ cheng学长的论文，有一种ICML风的数学的美。作者提到目前RLHF�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ee-tuning-an-economical-yet-scalable-solution-for-tuning-early-exit-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">EE-Tuning: An Economical yet Scalable Solution for Tuning
-Early-Exit Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#efficient-exploration-for-llms"><span class="nav-number">2.</span> <span class="nav-text">Efficient Exploration for
-LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-chain-of-thought-is-as-strong-as-its-weakest-link-a-benchmark-for-verifiers-of-reasoning-chains"><span class="nav-number">3.</span> <span class="nav-text">A Chain-of-Thought Is as
-Strong as Its Weakest Link: A Benchmark for Verifiers of Reasoning
-Chains</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#towards-efficient-and-exact-optimization-of-language-model-alignment"><span class="nav-number">4.</span> <span class="nav-text">Towards Efficient and Exact
-Optimization of Language Model Alignment</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EE-Tuning-An-Economical-yet-Scalable-Solution-for-Tuning-Early-Exit-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">EE-Tuning: An Economical yet Scalable Solution for Tuning Early-Exit Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-Exploration-for-LLMs"><span class="nav-number">2.</span> <span class="nav-text">Efficient Exploration for LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Chain-of-Thought-Is-as-Strong-as-Its-Weakest-Link-A-Benchmark-for-Verifiers-of-Reasoning-Chains"><span class="nav-number">3.</span> <span class="nav-text">A Chain-of-Thought Is as Strong as Its Weakest Link: A Benchmark for Verifiers of Reasoning Chains</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Efficient-and-Exact-Optimization-of-Language-Model-Alignment"><span class="nav-number">4.</span> <span class="nav-text">Towards Efficient and Exact Optimization of Language Model Alignment</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -498,6 +487,10 @@ Optimization of Language Model Alignment</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/dc0ca908" title="2024-08-29-insights" target="_blank">2024-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/33cec236" title="2024-08-28-insights" target="_blank">2024-08-28-insights</a>
         </li>
       
@@ -507,10 +500,6 @@ Optimization of Language Model Alignment</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/2d07f285" title="2024-08-26-insights" target="_blank">2024-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/cb2e39c1" title="2024-08-23-insights" target="_blank">2024-08-23-insights</a>
         </li>
       
         <li class="recent_posts_li">

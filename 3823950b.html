@@ -315,28 +315,24 @@
 
       
         <p>今天竟然也是101篇，我还以为arxiv bug了</p>
-<h2 id="guide-a-guideline-guided-dataset-for-instructional-video-comprehension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18227">GUIDE: A Guideline-Guided
-Dataset for Instructional Video Comprehension</a></h2>
+<h2 id="GUIDE-A-Guideline-Guided-Dataset-for-Instructional-Video-Comprehension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18227">GUIDE: A Guideline-Guided Dataset for Instructional Video Comprehension</a></h2>
 <p>作者发现，目前的视频理解数据(教程视频)的标注粒度太粗了、然后没有层次结构。作者找了3.5k个教程视频，标出了细粒度的task和task的层次结构，在时间上对齐。</p>
 <blockquote>
 <p>感觉工作量还挺大的，不知道后面大家能不能把这个数据玩出什么花样。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/guide.png"></p>
-<h2 id="convocache-smart-re-use-of-chatbot-responses"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18133">ConvoCache: Smart Re-Use of
-Chatbot Responses</a></h2>
+<img src="../../files/images/arxiv-insights/2024-06-24-06-28/guide.png">
+<h2 id="ConvoCache-Smart-Re-Use-of-Chatbot-Responses"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18133">ConvoCache: Smart Re-Use of Chatbot Responses</a></h2>
 <p>作者发现真实的LLM系统里，用户的query总是大差不差，如果加了一个cache系统，当输入和数据库某个输入非常像的时候，就复用输出，能不能加速这个系统呢？</p>
 <blockquote>
-<p>其实我觉得”reuse“这个概念不太好，因为输入差一点点可能输出差很多。但是再接一个投机推理是不是就好了，比如输入的前面n个token和语料里的前n
-token很像，就把语料里的后n-gram拿过来做一次验证，运气好的话直接出来n个token……这算infini-LLM吗……</p>
+<p>其实我觉得”reuse“这个概念不太好，因为输入差一点点可能输出差很多。但是再接一个投机推理是不是就好了，比如输入的前面n个token和语料里的前n token很像，就把语料里的后n-gram拿过来做一次验证，运气好的话直接出来n个token……这算infini-LLM吗……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/reuse.png"></p>
-<h2 id="charxiv-charting-gaps-in-realistic-chart-understanding-in-multimodal-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18521">CharXiv: Charting Gaps in
-Realistic Chart Understanding in Multimodal LLMs</a></h2>
+<img src="../../files/images/arxiv-insights/2024-06-24-06-28/reuse.png">
+<h2 id="CharXiv-Charting-Gaps-in-Realistic-Chart-Understanding-in-Multimodal-LLMs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.18521">CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs</a></h2>
 <p>danqi出品，一般都是精品。昨天有个llava-math，今天来个charXiv。作者发现目前的ChartQA这些数据集太简单了，而且简单的换一些图标的样子，模型就炸了。所以作者爬了arxiv上3000个真实的表格，人工想了两类query，然后测了一波，发现模型几乎全都不行。</p>
 <blockquote>
 <p>看来是想取代ChartQA呀……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/charXiv.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-24-06-28/charXiv.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -353,13 +349,13 @@ Realistic Chart Understanding in Multimodal LLMs</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dc0ca908.html" rel="bookmark">2024-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/33cec236.html" rel="bookmark">2024-08-28-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c2c599bb.html" rel="bookmark">2024-08-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2d07f285.html" rel="bookmark">2024-08-26-insights</a></div>
     </li>
   </ul>
 
@@ -436,10 +432,7 @@ Realistic Chart Understanding in Multimodal LLMs</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#guide-a-guideline-guided-dataset-for-instructional-video-comprehension"><span class="nav-number">1.</span> <span class="nav-text">GUIDE: A Guideline-Guided
-Dataset for Instructional Video Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#convocache-smart-re-use-of-chatbot-responses"><span class="nav-number">2.</span> <span class="nav-text">ConvoCache: Smart Re-Use of
-Chatbot Responses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#charxiv-charting-gaps-in-realistic-chart-understanding-in-multimodal-llms"><span class="nav-number">3.</span> <span class="nav-text">CharXiv: Charting Gaps in
-Realistic Chart Understanding in Multimodal LLMs</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GUIDE-A-Guideline-Guided-Dataset-for-Instructional-Video-Comprehension"><span class="nav-number">1.</span> <span class="nav-text">GUIDE: A Guideline-Guided Dataset for Instructional Video Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConvoCache-Smart-Re-Use-of-Chatbot-Responses"><span class="nav-number">2.</span> <span class="nav-text">ConvoCache: Smart Re-Use of Chatbot Responses</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CharXiv-Charting-Gaps-in-Realistic-Chart-Understanding-in-Multimodal-LLMs"><span class="nav-number">3.</span> <span class="nav-text">CharXiv: Charting Gaps in Realistic Chart Understanding in Multimodal LLMs</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -497,6 +490,10 @@ Realistic Chart Understanding in Multimodal LLMs</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/dc0ca908" title="2024-08-29-insights" target="_blank">2024-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/33cec236" title="2024-08-28-insights" target="_blank">2024-08-28-insights</a>
         </li>
       
@@ -506,10 +503,6 @@ Realistic Chart Understanding in Multimodal LLMs</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/2d07f285" title="2024-08-26-insights" target="_blank">2024-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/cb2e39c1" title="2024-08-23-insights" target="_blank">2024-08-23-insights</a>
         </li>
       
         <li class="recent_posts_li">

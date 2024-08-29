@@ -316,40 +316,31 @@
       
         <p>最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀</p>
 <p>今天也是沧海遗珠，哪个都想选呀</p>
-<h2 id="mind-your-format-towards-consistent-evaluation-of-in-context-learning-improvements"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards
-Consistent Evaluation of In-Context Learning Improvements</a></h2>
+<h2 id="Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</a></h2>
 <p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p>
 <blockquote>
-<p>这个和yejin choi一个月前那个How I learned to start worrying about
-prompt formatting思路很像……时隔多年，大家终于准备对prompt
-tuning动手了吗</p>
+<p>这个和yejin choi一个月前那个How I learned to start worrying about prompt formatting思路很像……时隔多年，大家终于准备对prompt tuning动手了吗</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png"></p>
-<h2 id="batch-icl-effective-efficient-and-order-agnostic-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective,
-Efficient, and Order-Agnostic In-Context Learning</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png">
+<h2 id="Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</a></h2>
 <p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p>
 <p>这个任务会让模型学会对ICL样本顺序不敏感，并在下游中表现更好。</p>
 <blockquote>
 <p>感觉这个任务能work，是不是也能用在比如prompt+paraphrase里，让模型对于SFT的instruction也变得不敏感？</p>
 </blockquote>
-<h2 id="inters-unlocking-the-power-of-large-language-models-in-search-with-instruction-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power
-of Large Language Models in Search with Instruction Tuning</a></h2>
-<p>之前讲了wenzhu chen的position paper "large search
-model"。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction
-tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
+<h2 id="INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</a></h2>
+<p>之前讲了wenzhu chen的position paper “large search model”。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
 <blockquote>
 <p>这画图，是在致敬T0吗？不过要是真的这么solid，那倒是也不愧</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png"></p>
-<h2 id="relying-on-the-unreliable-the-impact-of-language-models-reluctance-to-express-uncertainty"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable:
-The Impact of Language Models’ Reluctance to Express
-Uncertainty</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png">
+<h2 id="Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</a></h2>
 <p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p>
-<ol type="1">
+<ol>
 <li>模型基本没有能力表达自己的不确定性</li>
 <li>这种不确定性的丧失可能来源于RLHF，因为人类偏好不看好”表达不确定性“的回答</li>
 </ol>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/unwilling.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/unwilling.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -366,13 +357,13 @@ Uncertainty</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dc0ca908.html" rel="bookmark">2024-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/33cec236.html" rel="bookmark">2024-08-28-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c2c599bb.html" rel="bookmark">2024-08-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2d07f285.html" rel="bookmark">2024-08-26-insights</a></div>
     </li>
   </ul>
 
@@ -449,12 +440,7 @@ Uncertainty</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mind-your-format-towards-consistent-evaluation-of-in-context-learning-improvements"><span class="nav-number">1.</span> <span class="nav-text">Mind Your Format: Towards
-Consistent Evaluation of In-Context Learning Improvements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#batch-icl-effective-efficient-and-order-agnostic-in-context-learning"><span class="nav-number">2.</span> <span class="nav-text">Batch-ICL: Effective,
-Efficient, and Order-Agnostic In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inters-unlocking-the-power-of-large-language-models-in-search-with-instruction-tuning"><span class="nav-number">3.</span> <span class="nav-text">INTERS: Unlocking the Power
-of Large Language Models in Search with Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relying-on-the-unreliable-the-impact-of-language-models-reluctance-to-express-uncertainty"><span class="nav-number">4.</span> <span class="nav-text">Relying on the Unreliable:
-The Impact of Language Models’ Reluctance to Express
-Uncertainty</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><span class="nav-number">1.</span> <span class="nav-text">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><span class="nav-number">2.</span> <span class="nav-text">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><span class="nav-number">3.</span> <span class="nav-text">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relying-on-the-Unreliable-The-Impact-of-Language-Models%E2%80%99-Reluctance-to-Express-Uncertainty"><span class="nav-number">4.</span> <span class="nav-text">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -512,6 +498,10 @@ Uncertainty</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/dc0ca908" title="2024-08-29-insights" target="_blank">2024-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/33cec236" title="2024-08-28-insights" target="_blank">2024-08-28-insights</a>
         </li>
       
@@ -521,10 +511,6 @@ Uncertainty</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/2d07f285" title="2024-08-26-insights" target="_blank">2024-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/cb2e39c1" title="2024-08-23-insights" target="_blank">2024-08-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
