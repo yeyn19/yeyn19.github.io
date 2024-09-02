@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-08-30T06:04:02.004Z</updated>
+  <updated>2024-09-02T05:42:31.566Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024-09-02-insights</title>
+    <link href="https://www.yynnyy.cn/a11632bb"/>
+    <id>https://www.yynnyy.cn/a11632bb</id>
+    <published>2024-09-02T05:32:20.000Z</published>
+    <updated>2024-09-02T05:42:31.566Z</updated>
+    
+    <content type="html"><![CDATA[<h2id="usersumbench-a-benchmark-framework-for-evaluating-user-summarization-approaches"><ahref="https://arxiv.org/pdf/2408.16966">USERSUMBENCH: A BenchmarkFramework for Evaluating User Summarization Approaches</a></h2><p>一个挺应用向的工作，没想到是google搞的：作者提到很多工作都是试图做用户建模，进而理解用户意图。作者提了一个benchmark，专门来评测这类工作的质量。</p><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/usersumbench.png" ></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;usersumbench-a-benchmark-framework-for-evaluating-user-summarization-approaches&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.16966&quot;&gt;USERSUMBENCH: A Benchmark
+Framework for Evaluating User Summarization Approaches&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;一个挺应用向的工作，没想到是google搞的：作者提到很多工作都是试图做用户建模，进而理解用户意图。作者提了一个benchmark，专门来评测这类工作的质量。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-09-02-09-06/usersumbench.png&quot;&gt;&lt;/p&gt;
+</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2024-08-30-insights</title>
@@ -91,42 +116,6 @@ refine变成正常的feedback。当时发现30%的人类response有潜力变成�
 Sparsity in Large Language Models&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;infer稀疏性是LLM的固有形式：在预测时，绝大多数的attention、FFN参数激活值都很低。能不能让激活比较低的参数干脆不激活，置0呢？已有工作，参考MoE，都需要让模型通过额外的训练来学会这件事。这篇工作探索了training-free的办法，通过对激活时的激活分布做微调，使得砍掉比较低的也不影响分布。发现可以在效果不咋降的前提下加速1.5x&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/infer-sparse.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-08-27-insights</title>
-    <link href="https://www.yynnyy.cn/c2c599bb"/>
-    <id>https://www.yynnyy.cn/c2c599bb</id>
-    <published>2024-08-27T04:52:07.000Z</published>
-    <updated>2024-08-27T05:06:10.074Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="focused-large-language-models-are-stable-many-shot-learners"><ahref="https://arxiv.org/pdf/2408.13987">Focused Large Language Modelsare Stable Many-Shot Learners</a></h2><p>在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错</p><blockquote><p>颇有ACL遗风，论文挺有故事感的</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/icl.png" ></p><h2id="step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models"><ahref="https://arxiv.org/pdf/2408.14470">Step-by-Step Unmasking forParameter-Efficient Fine-tuning of Large Language Models</a></h2><p>印度老哥的工作，作者思考了deltatuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。</p><blockquote><p>这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地deltatuning，那到底是增加了算力还是减少了算力呢……</p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;focused-large-language-models-are-stable-many-shot-learners&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.13987&quot;&gt;Focused Large Language Models
-are Stable Many-Shot Learners&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;颇有ACL遗风，论文挺有故事感的&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/icl.png&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.14470&quot;&gt;Step-by-Step Unmasking for
-Parameter-Efficient Fine-tuning of Large Language Models&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;印度老哥的工作，作者思考了delta
-tuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地delta
-tuning，那到底是增加了算力还是减少了算力呢……&lt;/p&gt;
-&lt;/blockquote&gt;
 </summary>
     
     
@@ -281,9 +270,9 @@ me(x)&#92;)&lt;/span&gt;。做得多了，熟能生巧，常用的几个task的�
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="课程总结" scheme="https://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
-    
     <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="课程总结" scheme="https://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
     
     <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
     
@@ -331,9 +320,9 @@ Reasoning&lt;/p&gt;
     <link href="https://www.yynnyy.cn/f4243ee6"/>
     <id>https://www.yynnyy.cn/f4243ee6</id>
     <published>2024-01-15T02:58:32.000Z</published>
-    <updated>2024-08-30T06:05:03.116Z</updated>
+    <updated>2024-09-02T05:42:53.637Z</updated>
     
-    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 11;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年八月August&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;  &lt;td&gt;&lt;/td&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td&gt;2 &lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr><tr><td>11</td><td bgcolor="#00F500"><a href=../bd0e34fe>12(73-&gt;1 papers)</a></td><td bgcolor="#00F200"><a href=../52cc5fc0>13(68-&gt;2 papers)</a></td><td bgcolor="#00F500"><a href=../b01044b9>14(53-&gt;1 papers)</a></td><td bgcolor="#00F700"><a href=../5fd22f87>15(41-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../b4e59484>16(36-&gt;1 papers)</a></td><td>17</td></tr><tr><td>18</td><td bgcolor="#00F900"><a href=../45eecf09>19(45-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../201982c2>20(102-&gt;2 papers)</a></td><td bgcolor="#00ED00"><a href=../cfdbe9fc>21(67-&gt;2 papers)</a></td><td bgcolor="#00E700"><a href=../24ec52ff>22(58-&gt;2 papers)</a></td><td bgcolor="#00F900"><a href=../cb2e39c1>23(78-&gt;1 papers)</a></td><td>24</td></tr><tr><td>25</td><td bgcolor="#00F700"><a href=../2d07f285>26(36-&gt;1 papers)</a></td><td bgcolor="#00F000"><a href=../c2c599bb>27(76-&gt;1 papers)</a></td><td bgcolor="#00F600"><a href=../33cec236>28(50-&gt;1 papers)</a></td><td bgcolor="#00F500"><a href=../dc0ca908>29(53-&gt;1 papers)</a></td><td bgcolor="#00F100"><a href=../e1975d02>30(40-&gt;2 papers)</a></td><td>31</td></tr><tr></tr></table>]]></content>
+    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 12;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年九月September&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td bgcolor=#00F800&gt;&lt;a href=../a11632bb&gt;2(30-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;td&gt;4 &lt;/td&gt;&lt;td&gt;5 &lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;td&gt;7 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr><tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr><tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr><tr><td>29</td><td>30</td></tr></table>]]></content>
     
     
     <summary type="html">&lt;p&gt;压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv
@@ -343,7 +332,7 @@ technologies! Share the most important papers from Arxiv, every day, up
 to three!&lt;/p&gt;
 &lt;script type=&quot;text/javascript&quot;&gt;
     var insight_now_id = 0;
-    var insight_max_id = 11;
+    var insight_max_id = 12;
     function tips_insight(num){
         document.getElementById(&quot;insights_&quot;+insight_now_id).hidden = &quot;hidden&quot;;
         insight_now_id -= num;
@@ -359,25 +348,13 @@ to three!&lt;/p&gt;
 &lt;input type=&quot;button&quot; value=&quot;上月Last Month&quot; onclick=&quot;tips_insight(-1)&quot;&gt;
 &lt;/form&gt;
 &lt;/td&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年八月August&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;td colspan=&amp;#39;5&amp;#39;&amp;gt;2024年九月September&amp;lt;/td&amp;gt; &amp;lt;td&amp;gt;
     &amp;lt;form action=&amp;quot;&amp;quot;&amp;gt;
         &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
     &amp;lt;/form&amp;gt;
 &amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;  &amp;lt;td&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;1 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;2 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;3 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;1 &amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F800&amp;gt;&amp;lt;a href=../a11632bb&amp;gt;2(30-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;3 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;4 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;5 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;7 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/tr&gt;&lt;tr&gt;
-&lt;td&gt;
-4
-&lt;/td&gt;
-&lt;td&gt;
-5
-&lt;/td&gt;
-&lt;td&gt;
-6
-&lt;/td&gt;
-&lt;td&gt;
-7
-&lt;/td&gt;
 &lt;td&gt;
 8
 &lt;/td&gt;
@@ -387,77 +364,72 @@ to three!&lt;/p&gt;
 &lt;td&gt;
 10
 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;
 11
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../bd0e34fe&quot;&gt;12(73-&amp;gt;1 papers)&lt;/a&gt;
+&lt;td&gt;
+12
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F200&quot;&gt;
-&lt;a href=&quot;../52cc5fc0&quot;&gt;13(68-&amp;gt;2 papers)&lt;/a&gt;
+&lt;td&gt;
+13
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../b01044b9&quot;&gt;14(53-&amp;gt;1 papers)&lt;/a&gt;
+&lt;td&gt;
+14
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../5fd22f87&quot;&gt;15(41-&amp;gt;1 papers)&lt;/a&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+15
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../b4e59484&quot;&gt;16(36-&amp;gt;1 papers)&lt;/a&gt;
+&lt;td&gt;
+16
 &lt;/td&gt;
 &lt;td&gt;
 17
 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;
 18
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F900&quot;&gt;
-&lt;a href=&quot;../45eecf09&quot;&gt;19(45-&amp;gt;1 papers)&lt;/a&gt;
+&lt;td&gt;
+19
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../201982c2&quot;&gt;20(102-&amp;gt;2 papers)&lt;/a&gt;
+&lt;td&gt;
+20
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00ED00&quot;&gt;
-&lt;a href=&quot;../cfdbe9fc&quot;&gt;21(67-&amp;gt;2 papers)&lt;/a&gt;
+&lt;td&gt;
+21
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00E700&quot;&gt;
-&lt;a href=&quot;../24ec52ff&quot;&gt;22(58-&amp;gt;2 papers)&lt;/a&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+22
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F900&quot;&gt;
-&lt;a href=&quot;../cb2e39c1&quot;&gt;23(78-&amp;gt;1 papers)&lt;/a&gt;
+&lt;td&gt;
+23
 &lt;/td&gt;
 &lt;td&gt;
 24
 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;
 25
 &lt;/td&gt;
-&lt;td bgcolor=&quot;#00F700&quot;&gt;
-&lt;a href=&quot;../2d07f285&quot;&gt;26(36-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F000&quot;&gt;
-&lt;a href=&quot;../c2c599bb&quot;&gt;27(76-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F600&quot;&gt;
-&lt;a href=&quot;../33cec236&quot;&gt;28(50-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F500&quot;&gt;
-&lt;a href=&quot;../dc0ca908&quot;&gt;29(53-&amp;gt;1 papers)&lt;/a&gt;
-&lt;/td&gt;
-&lt;td bgcolor=&quot;#00F100&quot;&gt;
-&lt;a href=&quot;../e1975d02&quot;&gt;30(40-&amp;gt;2 papers)&lt;/a&gt;
+&lt;td&gt;
+26
 &lt;/td&gt;
 &lt;td&gt;
-31
+27
+&lt;/td&gt;
+&lt;td&gt;
+28
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
+&lt;td&gt;
+29
+&lt;/td&gt;
+&lt;td&gt;
+30
+&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
 </summary>
