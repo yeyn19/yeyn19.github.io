@@ -6,7 +6,7 @@
   <link href="https://www.yynnyy.cn/atom.xml" rel="self"/>
   
   <link href="https://www.yynnyy.cn/"/>
-  <updated>2024-09-02T05:42:31.566Z</updated>
+  <updated>2024-09-05T06:20:06.074Z</updated>
   <id>https://www.yynnyy.cn/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2024-09-05-insights</title>
+    <link href="https://www.yynnyy.cn/43ca29c2"/>
+    <id>https://www.yynnyy.cn/43ca29c2</id>
+    <published>2024-09-05T06:05:17.000Z</published>
+    <updated>2024-09-05T06:20:06.074Z</updated>
+    
+    <content type="html"><![CDATA[<h2id="mmmu-pro-a-more-robust-multi-discipline-multimodal-understanding-benchmark"><ahref="https://arxiv.org/pdf/2409.02813">MMMU-Pro: A More RobustMulti-discipline Multimodal Understanding Benchmark</a></h2><p>neubig官方出面，更新mmmu了：这次的主要是把只靠text就能回答的问题刨除掉了</p><blockquote><p>只能说，该强的还是强</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/mmmu-pro.png" ></p><h2id="longllava-scaling-multi-modal-llms-to-1000-images-efficiently-via-hybrid-architecture"><ahref="https://arxiv.org/pdf/2409.02889"><strong>LongLLaVA: ScalingMulti-modal LLMs to 1000 Images Efficiently via HybridArchitecture</strong></a></h2><p>注意，这个工作叫looongllava，因为之前有另一个叫longllava的工作……作者搞了个transformer和mamba混合结构，把单卡显存的vlm推到了1000照片。</p><blockquote><p>只能说，vlm迈出的一小步，videoLLM迈出的一大步</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/933.png" ></p><h2id="longcite-enabling-llms-to-generate-fine-grained-citations-in-long-context-qa"><ahref="https://arxiv.org/pdf/2409.02897"><strong>LongCite: Enabling LLMsto Generate Fine-grained Citations in Long-context QA</strong></a></h2><p>李娟子老师的工作，讨论的是long termcitation：这个领域有点像是vlm里面的grounding，要求模型在输出的时候可以cite一下上下文里面的其他地方。作者的处理方式就是正常的构造数据+sft，达到了4o水平，估计又要为glm添砖加瓦了。但是这个方向我觉得挺有意思的</p><blockquote><p>人类大概也很难做到long-term citation吧</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/cite.png" ></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;mmmu-pro-a-more-robust-multi-discipline-multimodal-understanding-benchmark&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.02813&quot;&gt;MMMU-Pro: A More Robust
+Multi-discipline Multimodal Understanding Benchmark&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;neubig官方出面，更新mmmu了：这次的主要是把只靠text就能回答的问题刨除掉了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只能说，该强的还是强&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-09-02-09-06/mmmu-pro.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;longllava-scaling-multi-modal-llms-to-1000-images-efficiently-via-hybrid-architecture&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.02889&quot;&gt;&lt;strong&gt;LongLLaVA: Scaling
+Multi-modal LLMs to 1000 Images Efficiently via Hybrid
+Architecture&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;注意，这个工作叫looongllava，因为之前有另一个叫longllava的工作……作者搞了个transformer和mamba混合结构，把单卡显存的vlm推到了1000照片。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;只能说，vlm迈出的一小步，videoLLM迈出的一大步&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-09-02-09-06/933.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;longcite-enabling-llms-to-generate-fine-grained-citations-in-long-context-qa&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.02897&quot;&gt;&lt;strong&gt;LongCite: Enabling LLMs
+to Generate Fine-grained Citations in Long-context QA&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;李娟子老师的工作，讨论的是long term
+citation：这个领域有点像是vlm里面的grounding，要求模型在输出的时候可以cite一下上下文里面的其他地方。作者的处理方式就是正常的构造数据+sft，达到了4o水平，估计又要为glm添砖加瓦了。但是这个方向我觉得挺有意思的&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2024-09-04-insights</title>
+    <link href="https://www.yynnyy.cn/ac0842fc"/>
+    <id>https://www.yynnyy.cn/ac0842fc</id>
+    <published>2024-09-05T05:06:32.000Z</published>
+    <updated>2024-09-05T06:20:06.073Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天足足有169篇工作，昨天是劳工节放假，所以今天是 放假 +周二的联合</p><h2id="pre-training-multimodal-hallucination-detectors-with-corrupted-grounding-data"><ahref="https://arxiv.org/pdf/2409.00238">Pre-Training MultimodalHallucination Detectors with Corrupted Grounding Data</a></h2><p>ScaleAI的工作，有趣的思路：作者认为，已有的幻觉检测方法大多是paragraph-level，说出来一整段有没有幻觉，作者想要在span-level做检测。所以作者反向构造数据：先找到一个对的数据，在所有grounding位置让LLM给出流畅的paraphrase，然后替换变成负样本。</p><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/detect.png" ></p><h2 id="learning-to-ask-when-llms-meet-unclear-instruction"><ahref="https://arxiv.org/pdf/2409.00557">Learning to Ask: When LLMs MeetUnclear Instruction</a></h2><p>挺有趣的工作，作者认为：在真实场景中，用户的instruction往往有歧义、或者不明确，模型应该正确地发现歧义，或者主动在任务进程中问用户相关的信息。作者探索了在tool场景中模型能否获得这个能力</p><blockquote><p>有点像组里师弟做的"tell me more"，今年的ACL工作</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/learn_to_ask.png" ></p><h2 id="training-on-the-benchmark-is-not-all-you-need"><ahref="https://arxiv.org/pdf/2409.01790">Training on the Benchmark Is NotAll You Need</a></h2><p>一篇检测各大公司是否把benchmark数据偷偷训进去的工作，作者的思路挺简单：瞄准多选题场景。作者觉得，如果没训进去，那选项不管怎么排布都应该概率一样。所以作者把n个选项生成了n!个变体，所有选项顺序打乱，观察模型的ppl，如果原始题目顺序的ppl是所有变体里最低的，那么就会危险。作者用这个方法观察了32个LLM，发现qwen系列的表现最为反常</p><blockquote><p>只能说……难说</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/leakage.png" ></p><h2id="craft-your-dataset-task-specific-synthetic-dataset-generation-through-corpus-retrieval-and-augmentation"><ahref="https://arxiv.org/pdf/2409.02098">CRAFT Your Dataset:Task-Specific Synthetic Dataset Generation Through Corpus Retrieval andAugmentation</a></h2><p>这篇工作有点像是mammoth2从预训练数据集中自底向上合成数据，但又不完全是：他是先找一个task，根据这个task找到最接近的free-text，然后让一个模型过来refine。所以没有最前面的fastext环节</p><blockquote><p>如果一定要找的话，我觉得最像的是neubig在扩展instructiontuning数据方面的一个工作<ahref="**https://arxiv.org/pdf/2404.14361.pdf**">Better Synthetic Data byRetrieving and Transforming ExistingDatasets</a>……如果大家还记得我四月份推过这篇的话</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/craft.png" ></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;今天足足有169篇工作，昨天是劳工节放假，所以今天是 放假 +
+周二的联合&lt;/p&gt;
+&lt;h2 id=&quot;pre-training-multimodal-hallucination-detectors-with-corrupted-grounding-data&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.00238&quot;&gt;Pre-Training Multimodal
+Hallucination Detectors with Corrupted Grounding Data&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;Scale
+AI的工作，有趣的思路：作者认为，已有的幻觉检测方法大多是paragraph-level，说出来一整段有没有幻觉，作者想要在span-level做检测。所以作者反向构造数据：先找到一个对的数据，在所有grounding位置让LLM给出流畅的paraphrase，然后替换变成负样本。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-09-02-09-06/detect.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;learning-to-ask-when-llms-meet-unclear-instruction&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.00557&quot;&gt;Learning to Ask: When LLMs Meet
+Unclear Instruction&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;挺有趣的工作，作者认为：在真实场景中，用户的instruction往往有歧义、或者不明确，模型应该正确地发现歧义，或者主动在任务进程中问用户相关的信息。作者探索了在tool场景中模型能否获得这个能力&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;有点像组里师弟做的&quot;tell me more&quot;，今年的ACL工作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-09-02-09-06/learn_to_ask.png&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;training-on-the-benchmark-is-not-all-you-need&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2409.01790&quot;&gt;Training on the Benchmark Is Not
+All You Need&lt;/a&gt;&lt;/h2&gt;
+&lt;p&gt;一篇检测各大公司是否把benchmark数据偷偷训进去的工作，作者的思路挺简单：瞄准多选题场景。作者觉得，如果没训进去，那选项不管怎么排布都应该概率一样。所以作者把n个选项生成了n!个变体，所有选项顺序打乱，观察模型的ppl，如果原始题目顺序的ppl是所有变体里最低的，那么就会危险。作者用这个方法观察了32个LLM，发现qwen系列的表现最为反常&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
+    
+    
+    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
+    
+  </entry>
   
   <entry>
     <title>2024-09-02-insights</title>
@@ -62,60 +138,6 @@ Sampling&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;作者做了实验，发现无论选取多少flops
 budget，都是用小模型合成效果更好。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/flop.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-08-29-insights</title>
-    <link href="https://www.yynnyy.cn/dc0ca908"/>
-    <id>https://www.yynnyy.cn/dc0ca908</id>
-    <published>2024-08-29T03:36:43.000Z</published>
-    <updated>2024-08-29T03:45:26.558Z</updated>
-    
-    <content type="html"><![CDATA[<h2id="wildfeedback-aligning-llms-with-in-situ-user-interactions-and-feedback"><ahref="https://arxiv.org/pdf/2408.15549"><strong>WildFeedback: AligningLLMs With In-situ User Interactions And Feedback</strong></a></h2><p>这篇论文瞄准了一个挺有意思的领域：在LLM上线以后，用户会和模型一直交流，用户不会帮公司点赞或者踩的按钮，而是会有文本的反馈。人类的反馈可以看做一种隐式的、带噪的对response的feedback。作者探索了是否有可能直接从这种反馈里面增强LLM能力。</p><blockquote><p>前几个月有个工作，想的是能不能把人类反馈做extract andrefine变成正常的feedback。当时发现30%的人类response有潜力变成反馈</p></blockquote><p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/wild-feedback.png" ></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;wildfeedback-aligning-llms-with-in-situ-user-interactions-and-feedback&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.15549&quot;&gt;&lt;strong&gt;WildFeedback: Aligning
-LLMs With In-situ User Interactions And Feedback&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;这篇论文瞄准了一个挺有意思的领域：在LLM上线以后，用户会和模型一直交流，用户不会帮公司点赞或者踩的按钮，而是会有文本的反馈。人类的反馈可以看做一种隐式的、带噪的对response的feedback。作者探索了是否有可能直接从这种反馈里面增强LLM能力。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;前几个月有个工作，想的是能不能把人类反馈做extract and
-refine变成正常的feedback。当时发现30%的人类response有潜力变成反馈&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/wild-feedback.png&quot;&gt;&lt;/p&gt;
-</summary>
-    
-    
-    
-    <category term="Arxiv-Insights" scheme="https://www.yynnyy.cn/categories/Arxiv-Insights/"/>
-    
-    
-    <category term="English" scheme="https://www.yynnyy.cn/tags/English/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024-08-28-insights</title>
-    <link href="https://www.yynnyy.cn/33cec236"/>
-    <id>https://www.yynnyy.cn/33cec236</id>
-    <published>2024-08-28T05:58:50.000Z</published>
-    <updated>2024-08-28T06:10:56.332Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="training-free-activation-sparsity-in-large-language-models"><ahref="https://arxiv.org/pdf/2408.14690"><strong>Training-Free ActivationSparsity in Large Language Models</strong></a></h2><p>infer稀疏性是LLM的固有形式：在预测时，绝大多数的attention、FFN参数激活值都很低。能不能让激活比较低的参数干脆不激活，置0呢？已有工作，参考MoE，都需要让模型通过额外的训练来学会这件事。这篇工作探索了training-free的办法，通过对激活时的激活分布做微调，使得砍掉比较低的也不影响分布。发现可以在效果不咋降的前提下加速1.5x</p><p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/infer-sparse.png" ></p>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;training-free-activation-sparsity-in-large-language-models&quot;&gt;&lt;a href=&quot;https://arxiv.org/pdf/2408.14690&quot;&gt;&lt;strong&gt;Training-Free Activation
-Sparsity in Large Language Models&lt;/strong&gt;&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;infer稀疏性是LLM的固有形式：在预测时，绝大多数的attention、FFN参数激活值都很低。能不能让激活比较低的参数干脆不激活，置0呢？已有工作，参考MoE，都需要让模型通过额外的训练来学会这件事。这篇工作探索了training-free的办法，通过对激活时的激活分布做微调，使得砍掉比较低的也不影响分布。发现可以在效果不咋降的前提下加速1.5x&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;../../files/images/arxiv-insights/2024-08-26-08-30/infer-sparse.png&quot;&gt;&lt;/p&gt;
 </summary>
     
     
@@ -270,9 +292,9 @@ me(x)&#92;)&lt;/span&gt;。做得多了，熟能生巧，常用的几个task的�
     <category term="随笔" scheme="https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
-    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="课程总结" scheme="https://www.yynnyy.cn/tags/%E8%AF%BE%E7%A8%8B%E6%80%BB%E7%BB%93/"/>
+    
+    <category term="随笔" scheme="https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/"/>
     
     <category term="日记" scheme="https://www.yynnyy.cn/tags/%E6%97%A5%E8%AE%B0/"/>
     
@@ -320,9 +342,9 @@ Reasoning&lt;/p&gt;
     <link href="https://www.yynnyy.cn/f4243ee6"/>
     <id>https://www.yynnyy.cn/f4243ee6</id>
     <published>2024-01-15T02:58:32.000Z</published>
-    <updated>2024-09-02T05:42:53.637Z</updated>
+    <updated>2024-09-05T06:20:15.119Z</updated>
     
-    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 12;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年九月September&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td bgcolor=#00F800&gt;&lt;a href=../a11632bb&gt;2(30-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;td&gt;4 &lt;/td&gt;&lt;td&gt;5 &lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;td&gt;7 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr><tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr><tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr><tr><td>29</td><td>30</td></tr></table>]]></content>
+    <content type="html"><![CDATA[<p>压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv论文中总结分享最重要、最有趣的最多三篇论文。</p><p>Compression brings intelligence, 5% of papers determine 95% of AItechnologies! Share the most important papers from Arxiv, every day, upto three!</p><script type="text/javascript">    var insight_now_id = 0;    var insight_max_id = 12;    function tips_insight(num){        document.getElementById("insights_"+insight_now_id).hidden = "hidden";        insight_now_id -= num;        if (insight_now_id > insight_max_id) {insight_now_id = insight_max_id;}        if (insight_now_id < 0) {insight_now_id = 0;}        document.getElementById("insights_" + insight_now_id).hidden = "";    }</script><table id='insights_0' style='text-align:center'><tr><td><form action><input type="button" value="上月Last Month" onclick="tips_insight(-1)"></form></td><pre><code>&lt;td colspan=&#39;5&#39;&gt;2024年九月September&lt;/td&gt; &lt;td&gt;    &lt;form action=&quot;&quot;&gt;        &lt;input type=&quot;button&quot; value=&quot;下月Next Month&quot; onclick=&quot;tips_insight(1)&quot;&gt;    &lt;/form&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt; 星期日&lt;/br&gt;Sunday &lt;/td&gt;&lt;td&gt; 星期一&lt;/br&gt;Monday &lt;/td&gt;&lt;td&gt; 星期二&lt;/br&gt;Tuesday  &lt;/td&gt;&lt;td&gt; 星期三&lt;/br&gt;Wednesday &lt;/td&gt;&lt;td&gt; 星期四&lt;/br&gt;Thursday &lt;/td&gt;&lt;td&gt; 星期五&lt;/br&gt;Friday &lt;/td&gt;&lt;td&gt; 星期六&lt;/br&gt;Saturday &lt;/td&gt; &lt;/tr&gt;&lt;tr&gt;&lt;td&gt;1 &lt;/td&gt;&lt;td bgcolor=#00F800&gt;&lt;a href=../a11632bb&gt;2(30-&gt;1 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;3 &lt;/td&gt;&lt;td bgcolor=#00DB00&gt;&lt;a href=../ac0842fc&gt;4(169-&gt;4 papers)&lt;/a&gt;&lt;/td&gt;&lt;td bgcolor=#00E900&gt;&lt;a href=../43ca29c2&gt;5(52-&gt;3 papers)&lt;/a&gt;&lt;/td&gt;&lt;td&gt;6 &lt;/td&gt;&lt;td&gt;7 &lt;/td&gt;&lt;/tr&gt;</code></pre><tr><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td></tr><tr><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td></tr><tr><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td></tr><tr><td>29</td><td>30</td></tr></table>]]></content>
     
     
     <summary type="html">&lt;p&gt;压缩带来智能，5% 的论文决定学术界 95% 的成果！每天从 Arxiv
@@ -353,7 +375,7 @@ to three!&lt;/p&gt;
         &amp;lt;input type=&amp;quot;button&amp;quot; value=&amp;quot;下月Next Month&amp;quot; onclick=&amp;quot;tips_insight(1)&amp;quot;&amp;gt;
     &amp;lt;/form&amp;gt;
 &amp;lt;/td&amp;gt;
-&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;1 &amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F800&amp;gt;&amp;lt;a href=../a11632bb&amp;gt;2(30-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;3 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;4 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;5 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;7 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt; 星期日&amp;lt;/br&amp;gt;Sunday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期一&amp;lt;/br&amp;gt;Monday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期二&amp;lt;/br&amp;gt;Tuesday  &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期三&amp;lt;/br&amp;gt;Wednesday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期四&amp;lt;/br&amp;gt;Thursday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期五&amp;lt;/br&amp;gt;Friday &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt; 星期六&amp;lt;/br&amp;gt;Saturday &amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt;&amp;lt;tr&amp;gt;&amp;lt;td&amp;gt;1 &amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00F800&amp;gt;&amp;lt;a href=../a11632bb&amp;gt;2(30-&amp;gt;1 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;3 &amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00DB00&amp;gt;&amp;lt;a href=../ac0842fc&amp;gt;4(169-&amp;gt;4 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td bgcolor=#00E900&amp;gt;&amp;lt;a href=../43ca29c2&amp;gt;5(52-&amp;gt;3 papers)&amp;lt;/a&amp;gt;&amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;6 &amp;lt;/td&amp;gt;&amp;lt;td&amp;gt;7 &amp;lt;/td&amp;gt;&amp;lt;/tr&amp;gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;/tr&gt;&lt;tr&gt;
 &lt;td&gt;
 8
