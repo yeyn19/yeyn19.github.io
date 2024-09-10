@@ -318,7 +318,7 @@
 
       
         <p>这篇文章发表于2020年的EMNLP demo，作者团队还是义原计算小组。</p>
-<p><img src="../files/images/Wantwords/authors.png"></p>
+<img src="../files/images/Wantwords/authors.png">
 <p>既然是是demo，那它一定是有一些借鉴的方法。其方法主要是这一篇提到的：</p>
 <blockquote>
 <p>Multi-Channel Reverse Dictionary Model (AAAI 2020)</p>
@@ -326,7 +326,7 @@
 <p>他们解决的都是所谓的“反向词典”任务。</p>
 <h2 id="反向词典任务">反向词典任务</h2>
 <p>反向词典任务就是和词典的工作相反：输入一个描述，返回对应的意思,如下图所示：</p>
-<p><img src="../files/images/Wantwords/description.png"></p>
+<img src="../files/images/Wantwords/description.png">
 <p>这个任务其实非常有实际意义：</p>
 <ul>
 <li>解决所谓tip-of-the-tongue的问题，当你想要表达一个意思，突然想不起来这是什么词（尤其是成语）</li>
@@ -336,34 +336,27 @@
 <p>事实上，反向词典任务经过拓展还能实现更多功能：</p>
 <ul>
 <li>比如通过在词库添加名人名言、唐诗宋词，可以帮你在作文中进行名言推荐</li>
-<li><del>添加党史、领导人语录，帮你在思想汇报、新闻稿中提高深度</del></li>
+<li><s>添加党史、领导人语录，帮你在思想汇报、新闻稿中提高深度</s></li>
 </ul>
-<p>已有的商用反向词典比如
-<code>OneLook</code>,<code>ReverseDictionary</code>都不是开源的，并且效果也一般。本文提出的方法效果很好，同时支持中英之间跨语言的搜索</p>
-<h2 id="multi-channel-reverse-dictionary-model">Multi-Channel Reverse
-Dictionary Model</h2>
+<p>已有的商用反向词典比如 <code>OneLook</code>,<code>ReverseDictionary</code>都不是开源的，并且效果也一般。本文提出的方法效果很好，同时支持中英之间跨语言的搜索</p>
+<h2 id="Multi-Channel-Reverse-Dictionary-Model">Multi-Channel Reverse Dictionary Model</h2>
 <p>已有的方法词典方法一般是两种路径：</p>
 <ul>
 <li>第一种是把查询query和词库里词语的词的释义进行比对，选最接近的。缺点是用户的query常常和释义的形式很不一样，极有可能出现偏差</li>
 <li>第二种是把query编码到隐空间，和词库里的词向量进行比对，选择接近的。缺点是很多罕见词的词向量其实很不准确，但真实的用户query常常就是想要”罕见词“。</li>
 </ul>
 <p>这篇方法主要走第二个路径，但通过加入一下专家知识帮助减少误判。下面简单讲讲方法</p>
-<p><img src="../files/images/Wantwords/arch.png"></p>
-<p>首先是用一个Bi-LSTM把输入编码到hidden
-state。接下来有四个channel辅助判断，以减少罕见词的误差：</p>
+<img src="../files/images/Wantwords/arch.png">
+<p>首先是用一个Bi-LSTM把输入编码到hidden state。接下来有四个channel辅助判断，以减少罕见词的误差：</p>
 <ul>
-<li>POS预测器: 用分类器把hidden
-state给每一种词性一个分类得分。同时词库里的词对应一些POS。词语的得分额外加上”对应POS的得分“</li>
+<li>POS预测器: 用分类器把hidden state给每一种词性一个分类得分。同时词库里的词对应一些POS。词语的得分额外加上”对应POS的得分“</li>
 <li>category预测器：和上面很接近，相当于把词库里的词分成好多组，然后一样给得分。</li>
-<li>morpheme预测器：morpheme也有点类似，每个词都有对应的morpheme。给hidden
-state每个token都进行morpheme分类算得分，然后词库里的词也有morpheme，把对应得分加上</li>
+<li>morpheme预测器：morpheme也有点类似，每个词都有对应的morpheme。给hidden state每个token都进行morpheme分类算得分，然后词库里的词也有morpheme，把对应得分加上</li>
 <li>sememe预测器：和morpheme完全一致</li>
 </ul>
-<p>上面四个channel的得分以及本身词向量和hidden
-state(线性到一个token)相似度的得分wordScore，加一个权重，最后来一个总的得分。这个方法效果很好，尤其对于罕见词。</p>
-<h2 id="wantwords">WantWords</h2>
-<p>本文的demo主要也是用Multi-Channel Reverse Dictionary
-Model(MRDM)的方法，但做了一些改进</p>
+<p>上面四个channel的得分以及本身词向量和hidden state(线性到一个token)相似度的得分wordScore，加一个权重，最后来一个总的得分。这个方法效果很好，尤其对于罕见词。</p>
+<h2 id="WantWords">WantWords</h2>
+<p>本文的demo主要也是用Multi-Channel Reverse Dictionary Model(MRDM)的方法，但做了一些改进</p>
 <blockquote>
 <p>把Bi-LSTM换成了BERT</p>
 </blockquote>
@@ -389,7 +382,7 @@ Model(MRDM)的方法，但做了一些改进</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b3424711.html" rel="bookmark">论文阅读[精读]-Towards Building a Multilingual Sememe Knowledge Base: Predicting Sememes for BabelNet Synsets</a></div>
@@ -490,8 +483,7 @@ Model(MRDM)的方法，但做了一些改进</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E8%AF%8D%E5%85%B8%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">反向词典任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-channel-reverse-dictionary-model"><span class="nav-number">2.</span> <span class="nav-text">Multi-Channel Reverse
-Dictionary Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wantwords"><span class="nav-number">3.</span> <span class="nav-text">WantWords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%8D%E5%90%91%E8%AF%8D%E5%85%B8%E4%BB%BB%E5%8A%A1"><span class="nav-number">1.</span> <span class="nav-text">反向词典任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-Channel-Reverse-Dictionary-Model"><span class="nav-number">2.</span> <span class="nav-text">Multi-Channel Reverse Dictionary Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WantWords"><span class="nav-number">3.</span> <span class="nav-text">WantWords</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -549,19 +541,19 @@ Dictionary Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-l
       
       
         <li class="recent_posts_li">
+          <a href="/646d3d46" title="2024-09-10-insights" target="_blank">2024-09-10-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/59f6c94c" title="2024-09-09-insights" target="_blank">2024-09-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a8fd92c1" title="2024-09-06-insights" target="_blank">2024-09-06-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/43ca29c2" title="2024-09-05-insights" target="_blank">2024-09-05-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/ac0842fc" title="2024-09-04-insights" target="_blank">2024-09-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a11632bb" title="2024-09-02-insights" target="_blank">2024-09-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -641,12 +633,12 @@ Dictionary Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-l
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">261k</span>
+    <span title="站点总字数">260k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">3:56</span>
 </div>
 
 <i class="fa fa-user-md"></i>
