@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="神奇，连续好几天论文不多了 PaSS: Parallel Speculative Sampling apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。 那么，为什么不让大模型自己去做&quot;小模型">
+  <meta name="description" content="神奇，连续好几天论文不多了 PaSS: Parallel Speculative Sampling apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。 那么，为什么不让大模型自己去做&quot;小模型&quot;呢？作者">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-11-23-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/2c4d2a2a">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="神奇，连续好几天论文不多了 PaSS: Parallel Speculative Sampling apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。 那么，为什么不让大模型自己去做&quot;小模型">
+<meta property="og:description" content="神奇，连续好几天论文不多了 PaSS: Parallel Speculative Sampling apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。 那么，为什么不让大模型自己去做&quot;小模型&quot;呢？作者">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-20-11-24/parallel.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-20-11-24/coach.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>486</span>
+              <span>476</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,16 +314,21 @@
 
       
         <p>神奇，连续好几天论文不多了</p>
-<h2 id="PaSS-Parallel-Speculative-Sampling"><a href>PaSS: Parallel Speculative Sampling</a></h2>
-<p>apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。</p>
-<p>那么，为什么不让大模型自己去做&quot;小模型&quot;呢？作者额外定义了一些token作为look-ahead token，使用下面的算法做sample。</p>
+<h2 id="pass-parallel-speculative-sampling"><a href>PaSS: Parallel
+Speculative Sampling</a></h2>
+<p>apple的研究，作者提到：目前的投机推理需要一个小模型先去多次autoregressive
+sample。这要求小模型单次sample时间要很短，同时大小模型必须使用同一个tokenize，而且效果如果要好需要小模型和大模型logits分布很接近。</p>
+<p>那么，为什么不让大模型自己去做"小模型"呢？作者额外定义了一些token作为look-ahead
+token，使用下面的算法做sample。</p>
 <blockquote>
 <p>下面这个算法，越看越精妙，叹为观止的apple inc……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-11-20-11-24/parallel.png">
-<h2 id="Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning"><a href>Automatic Instruction Optimization for Open-source LLM Instruction Tuning</a></h2>
-<p>华为的研究。作者谈到目前的instruction领域基本就是让human或者GPT4来标数据，接着让模型做SFT。效果受限于SFT数据质量，很多工作都是在想办法剔除低质量数据。这里作者反过来想问题：能不能挽救一下低质量数据，而不是抛弃他？由此提出了CoachLM workflow，效果很好</p>
-<img src="../../files/images/arxiv-insights/2023-11-20-11-24/coach.png">
+<p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/parallel.png"></p>
+<h2 id="automatic-instruction-optimization-for-open-source-llm-instruction-tuning"><a href>Automatic Instruction Optimization for Open-source LLM
+Instruction Tuning</a></h2>
+<p>华为的研究。作者谈到目前的instruction领域基本就是让human或者GPT4来标数据，接着让模型做SFT。效果受限于SFT数据质量，很多工作都是在想办法剔除低质量数据。这里作者反过来想问题：能不能挽救一下低质量数据，而不是抛弃他？由此提出了CoachLM
+workflow，效果很好</p>
+<p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/coach.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -423,7 +428,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PaSS-Parallel-Speculative-Sampling"><span class="nav-number">1.</span> <span class="nav-text">PaSS: Parallel Speculative Sampling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Automatic-Instruction-Optimization-for-Open-source-LLM-Instruction-Tuning"><span class="nav-number">2.</span> <span class="nav-text">Automatic Instruction Optimization for Open-source LLM Instruction Tuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pass-parallel-speculative-sampling"><span class="nav-number">1.</span> <span class="nav-text">PaSS: Parallel
+Speculative Sampling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#automatic-instruction-optimization-for-open-source-llm-instruction-tuning"><span class="nav-number">2.</span> <span class="nav-text">Automatic Instruction Optimization for Open-source LLM
+Instruction Tuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -573,12 +580,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">270k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:56</span>
+    <span title="站点阅读时长">4:05</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>871</span>
+              <span>861</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,27 +314,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Synthesize-Step-by-Step-Tools-Templates-and-LLMs-as-Data-Generators-for-Reasoning-Based-Chart-VQA"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16385.pdf">Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA</a></h2>
-<p>简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把acc从38%提升到了54%。</p>
+        <h2 id="synthesize-step-by-step-tools-templates-and-llms-as-data-generators-for-reasoning-based-chart-vqa"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16385.pdf">Synthesize Step-by-Step:
+Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart
+VQA</a></h2>
+<p>简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split
++ program-of-thought类型的数据。由此训练baseline
+model，把acc从38%提升到了54%。</p>
 <blockquote>
 <p>作者似乎没画scaling曲线，不知道如果数据量再增大十倍会怎么样</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-25-03-29/Synthesize.png">
-<h2 id="Understanding-Emergent-Abilities-of-Language-Models-from-the-Loss-Perspective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.15796.pdf">Understanding Emergent Abilities of Language Models from the Loss Perspective</a></h2>
-<p>tangjie老师的文章。作者发现，模型所谓的”emergent ability“几乎就是一个pertrain loss的函数，和模型大小、训练规模无关。只需要用pretrain loss，就可以几乎无损地预测出来模型的表现。</p>
-<p>由此，可以认为emergent ability是一种loss低于某个阈值的以后的特殊现象，我们其实很难用某个loss区间的结论去评估另一个loss区间模型的性能</p>
+<p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/Synthesize.png"></p>
+<h2 id="understanding-emergent-abilities-of-language-models-from-the-loss-perspective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.15796.pdf">Understanding Emergent
+Abilities of Language Models from the Loss Perspective</a></h2>
+<p>tangjie老师的文章。作者发现，模型所谓的”emergent
+ability“几乎就是一个pertrain
+loss的函数，和模型大小、训练规模无关。只需要用pretrain
+loss，就可以几乎无损地预测出来模型的表现。</p>
+<p>由此，可以认为emergent
+ability是一种loss低于某个阈值的以后的特殊现象，我们其实很难用某个loss区间的结论去评估另一个loss区间模型的性能</p>
 <blockquote>
-<p>这么看，真有一种&quot;音障&quot;的感觉了……</p>
+<p>这么看，真有一种"音障"的感觉了……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-25-03-29/emerge.png">
-<h2 id="If-CLIP-Could-Talk-Understanding-Vision-Language-Model-Representations-Through-Their-Preferred-Concept-Descriptions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16442.pdf">If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions</a></h2>
-<p>很好玩的工作：作者想要思考目前的VLM模型是怎么通过语言模态理解vision concept的，他们设计了两阶段的方法：</p>
-<ol>
+<p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/emerge.png"></p>
+<h2 id="if-clip-could-talk-understanding-vision-language-model-representations-through-their-preferred-concept-descriptions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16442.pdf">If CLIP Could Talk:
+Understanding Vision-Language Model Representations Through Their
+Preferred Concept Descriptions</a></h2>
+<p>很好玩的工作：作者想要思考目前的VLM模型是怎么通过语言模态理解vision
+concept的，他们设计了两阶段的方法：</p>
+<ol type="1">
 <li>训练一个模型去拟合VLM的表示空间，具体来说，用rl算法让一个text模型生成concept的表示，用cosine相似度匹配得分。</li>
-<li>训练好了以后，用模型去你拟合各种vision concept的表示，然后观察VLM如何通过文本来描述他对于视觉的感知</li>
+<li>训练好了以后，用模型去你拟合各种vision
+concept的表示，然后观察VLM如何通过文本来描述他对于视觉的感知</li>
 </ol>
 <p>作者发现，实际上VLM对于视觉concept的感知并不是视觉的(shape/color)，很多时候都是基于hallicinate的、猜测的结果</p>
-<img src="../../files/images/arxiv-insights/2024-03-25-03-29/concept.png">
+<p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/concept.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -434,7 +447,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synthesize-Step-by-Step-Tools-Templates-and-LLMs-as-Data-Generators-for-Reasoning-Based-Chart-VQA"><span class="nav-number">1.</span> <span class="nav-text">Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-Emergent-Abilities-of-Language-Models-from-the-Loss-Perspective"><span class="nav-number">2.</span> <span class="nav-text">Understanding Emergent Abilities of Language Models from the Loss Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-CLIP-Could-Talk-Understanding-Vision-Language-Model-Representations-Through-Their-Preferred-Concept-Descriptions"><span class="nav-number">3.</span> <span class="nav-text">If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#synthesize-step-by-step-tools-templates-and-llms-as-data-generators-for-reasoning-based-chart-vqa"><span class="nav-number">1.</span> <span class="nav-text">Synthesize Step-by-Step:
+Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart
+VQA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-emergent-abilities-of-language-models-from-the-loss-perspective"><span class="nav-number">2.</span> <span class="nav-text">Understanding Emergent
+Abilities of Language Models from the Loss Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-clip-could-talk-understanding-vision-language-model-representations-through-their-preferred-concept-descriptions"><span class="nav-number">3.</span> <span class="nav-text">If CLIP Could Talk:
+Understanding Vision-Language Model Representations Through Their
+Preferred Concept Descriptions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -584,12 +602,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">270k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:56</span>
+    <span title="站点阅读时长">4:05</span>
 </div>
 
 <i class="fa fa-user-md"></i>
