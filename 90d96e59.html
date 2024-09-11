@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>539</span>
+              <span>549</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,28 +315,23 @@
 
       
         <p>今天论文不多，只有83篇，其中3篇感觉挺好玩。(其实还有几篇也挺有意思，但是每天最多三篇，只能优中选优了)</p>
-<h2 id="bitnet-scaling-1-bit-transformers-for-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.11453">BitNet: Scaling 1-bit
-Transformers for Large Language Models</a></h2>
-<p>Furu
-Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1
-bit呢？</p>
+<h2 id="BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.11453">BitNet: Scaling 1-bit Transformers for Large Language Models</a></h2>
+<p>Furu Wei团队的作品。很有意思的观点，现在大家都在做模型的Quantization，希望换成位数更小的同时效果不掉。他们从相反的角度去思考：如果直接从预训练就用1 bit呢？</p>
 <p>他们训了一系列模型，发现随着模型越来越大，和16bit的差距越来越小，同时和16位模型的表现越来越接近。</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-18/BitNet.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-18/BitNet.png">
 <span id="more"></span>
-<h2 id="cotformer-more-tokens-with-attention-make-up-for-less-depth"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.10845.pdf">CoTFormer: More Tokens With
-Attention Make Up For Less Depth</a></h2>
+<h2 id="CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.10845.pdf">CoTFormer: More Tokens With Attention Make Up For Less Depth</a></h2>
 <p>作者发现了一个有趣的观点：做CoT类似于增加计算资源，和换用一个更deep的transformer有类似之处。由此，作者提出了一个自带CoT结构的transformer，发现训完以后做推理任务的表现更好。</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-18/CoTFormer.png"></p>
-<h2 id="large-language-model-unlearning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.10683.pdf">Large Language Model
-Unlearning</a></h2>
+<img src="../../files/images/arxiv-insights/2023-10-18/CoTFormer.png">
+<h2 id="Large-Language-Model-Unlearning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.10683.pdf">Large Language Model Unlearning</a></h2>
 <p>字节的论文，作者尝试能不能只使用负例(harmless样本)做对齐，让模型忘记去回答这种问题，发现</p>
 <ul>
 <li>效率更高，需要的计算资源更少</li>
 <li>可解释性更好</li>
 <li>在研究了harmless样本问题以后针对性优化效果很明显</li>
 </ul>
-<p>感觉是一个很"大厂"的需求……</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-18/unlearning.png"></p>
+<p>感觉是一个很&quot;大厂&quot;的需求……</p>
+<img src="../../files/images/arxiv-insights/2023-10-18/unlearning.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -353,13 +348,13 @@ Unlearning</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8baf5678.html" rel="bookmark">2024-09-11-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/646d3d46.html" rel="bookmark">2024-09-10-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/59f6c94c.html" rel="bookmark">2024-09-09-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a8fd92c1.html" rel="bookmark">2024-09-06-insights</a></div>
     </li>
   </ul>
 
@@ -436,10 +431,7 @@ Unlearning</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bitnet-scaling-1-bit-transformers-for-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">BitNet: Scaling 1-bit
-Transformers for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cotformer-more-tokens-with-attention-make-up-for-less-depth"><span class="nav-number">2.</span> <span class="nav-text">CoTFormer: More Tokens With
-Attention Make Up For Less Depth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#large-language-model-unlearning"><span class="nav-number">3.</span> <span class="nav-text">Large Language Model
-Unlearning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BitNet-Scaling-1-bit-Transformers-for-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">BitNet: Scaling 1-bit Transformers for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CoTFormer-More-Tokens-With-Attention-Make-Up-For-Less-Depth"><span class="nav-number">2.</span> <span class="nav-text">CoTFormer: More Tokens With Attention Make Up For Less Depth</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Language-Model-Unlearning"><span class="nav-number">3.</span> <span class="nav-text">Large Language Model Unlearning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -497,6 +489,10 @@ Unlearning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/8baf5678" title="2024-09-11-insights" target="_blank">2024-09-11-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/646d3d46" title="2024-09-10-insights" target="_blank">2024-09-10-insights</a>
         </li>
       
@@ -506,10 +502,6 @@ Unlearning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/a8fd92c1" title="2024-09-06-insights" target="_blank">2024-09-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/43ca29c2" title="2024-09-05-insights" target="_blank">2024-09-05-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -589,7 +581,7 @@ Unlearning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">270k</span>
+    <span title="站点总字数">269k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
