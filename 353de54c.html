@@ -314,19 +314,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Investigating-Mysteries-of-CoT-Augmented-Distillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14511">Investigating Mysteries of CoT-Augmented Distillation</a></h2>
-<p>如果大家还记得我在<a href="/f992cb6b.html" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性">Manyshot-ICL阅读笔记</a>里讲到的关于reasoning-anchor的讨论，今天有个工作发现了类似的现象：他们研究了带有CoT标注的数据集的finetune，发现把CoT chain放在answer后面实际上会让下游任务表现变得更好。而且，其实CoT trace是错误的可能也没有这么敏感，关键是提到几个关键词。</p>
-<img src="../../files/images/arxiv-insights/2024-06-17-06-21/post-cot.png">
-<h2 id="Identifying-User-Goals-from-UI-Trajectories"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14314">Identifying User Goals from UI Trajectories</a></h2>
-<p>google做得非常有趣的工作，作者发现对于GUI Agent来说，基本都能和用户一起再电脑上“结对编程”。那么Agent能不能主动发现用户面临了什么困难、进而去提供帮助呢？</p>
+        <h2 id="investigating-mysteries-of-cot-augmented-distillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14511">Investigating Mysteries of
+CoT-Augmented Distillation</a></h2>
+<p>如果大家还记得我在<a href="/f992cb6b.html" title="论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性">Manyshot-ICL阅读笔记</a>里讲到的关于reasoning-anchor的讨论，今天有个工作发现了类似的现象：他们研究了带有CoT标注的数据集的finetune，发现把CoT
+chain放在answer后面实际上会让下游任务表现变得更好。而且，其实CoT
+trace是错误的可能也没有这么敏感，关键是提到几个关键词。</p>
+<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/post-cot.png"></p>
+<h2 id="identifying-user-goals-from-ui-trajectories"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14314">Identifying User Goals from UI
+Trajectories</a></h2>
+<p>google做得非常有趣的工作，作者发现对于GUI
+Agent来说，基本都能和用户一起再电脑上“结对编程”。那么Agent能不能主动发现用户面临了什么困难、进而去提供帮助呢？</p>
 <p>作者在Gemini、gpt上做了实验，发现还行，但效果没human好。</p>
 <blockquote>
 <p>我感觉这才是GUI Agent该研究的方向</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-17-06-21/goals.png">
-<h2 id="Instruction-Pre-Training-Language-Models-are-Supervised-Multitask-Learners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14491">Instruction Pre-Training: Language Models are Supervised Multitask Learners</a></h2>
-<p>Furu Wei的工作，作者发现instruction Tuning先找到任务再找标注，效果好，但是数据很难scaling。如果自顶向下呢？先从预训练数据集里找到instruction和response，再和原始语料丢到一起pretrain。作者发现这样效果很好，搞了400M的pair以后，llama3-8B超过了llama-70B</p>
-<img src="../../files/images/arxiv-insights/2024-06-17-06-21/instruction-pt.png">
+<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/goals.png"></p>
+<h2 id="instruction-pre-training-language-models-are-supervised-multitask-learners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14491">Instruction Pre-Training:
+Language Models are Supervised Multitask Learners</a></h2>
+<p>Furu Wei的工作，作者发现instruction
+Tuning先找到任务再找标注，效果好，但是数据很难scaling。如果自顶向下呢？先从预训练数据集里找到instruction和response，再和原始语料丢到一起pretrain。作者发现这样效果很好，搞了400M的pair以后，llama3-8B超过了llama-70B</p>
+<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/instruction-pt.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -343,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/86b1263f.html" rel="bookmark">2024-09-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/69734d01.html" rel="bookmark">2024-09-16-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/8f5a8645.html" rel="bookmark">2024-09-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6098ed7b.html" rel="bookmark">2024-09-12-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +433,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigating-Mysteries-of-CoT-Augmented-Distillation"><span class="nav-number">1.</span> <span class="nav-text">Investigating Mysteries of CoT-Augmented Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Identifying-User-Goals-from-UI-Trajectories"><span class="nav-number">2.</span> <span class="nav-text">Identifying User Goals from UI Trajectories</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instruction-Pre-Training-Language-Models-are-Supervised-Multitask-Learners"><span class="nav-number">3.</span> <span class="nav-text">Instruction Pre-Training: Language Models are Supervised Multitask Learners</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#investigating-mysteries-of-cot-augmented-distillation"><span class="nav-number">1.</span> <span class="nav-text">Investigating Mysteries of
+CoT-Augmented Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#identifying-user-goals-from-ui-trajectories"><span class="nav-number">2.</span> <span class="nav-text">Identifying User Goals from UI
+Trajectories</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instruction-pre-training-language-models-are-supervised-multitask-learners"><span class="nav-number">3.</span> <span class="nav-text">Instruction Pre-Training:
+Language Models are Supervised Multitask Learners</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,6 +494,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/86b1263f" title="2024-09-17-insights" target="_blank">2024-09-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/69734d01" title="2024-09-16-insights" target="_blank">2024-09-16-insights</a>
         </li>
       
@@ -493,10 +507,6 @@
       
         <li class="recent_posts_li">
           <a href="/6098ed7b" title="2024-09-12-insights" target="_blank">2024-09-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8baf5678" title="2024-09-11-insights" target="_blank">2024-09-11-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -576,12 +586,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">269k</span>
+    <span title="站点总字数">271k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:05</span>
+    <span title="站点阅读时长">4:06</span>
 </div>
 
 <i class="fa fa-user-md"></i>
