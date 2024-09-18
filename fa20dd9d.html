@@ -291,7 +291,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>667</span>
+              <span>660</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,25 +314,27 @@
       
         <p>今天卡发了半天hexo建站，还是遇到了不少bug，网上已有的教程大多是针对老版本的<code>hexo</code>和<code>Next</code>来说的，新版本的开发还是有一些新的trick。我在开发中大概遇到了这些问题：</p>
 <h4 id="字数统计插件">字数统计插件</h4>
-<p>使用了
-<code>hexo-symbols-count-time</code>字数统计插件，其中中文占两个字符，每分钟阅读速度275。
-发现所有的文章都显示<code>预计时间1min</code>，还以为是bug，找了好久最终原因竟然是：
-- 所有<span class="math inline">\(\leq 1
-min\)</span>他都会显示约1min，是因为我前面的文章太短了…</p>
+<p>使用了 <code>hexo-symbols-count-time</code>字数统计插件，其中中文占两个字符，每分钟阅读速度275。<br>
+发现所有的文章都显示<code>预计时间1min</code>，还以为是bug，找了好久最终原因竟然是：</p>
+<ul>
+<li>所有$\leq 1 min$他都会显示约1min，是因为我前面的文章太短了…</li>
+</ul>
 <h4 id="访问量统计">访问量统计</h4>
-<p>使用 <code>不蒜子</code>
-的访问量统计工具，但是显示全是0。最后发现问题竟然是： - 本地
-<code>localhost</code> 不获取访问量，需要上 <code>deploy</code>
-才能正确显示… - 以及那个接口今年已经炸了，需要换个mirror:
-<code>//cdn.jsdelivr.net/npm/busuanzi@2.3.0</code>, 全文搜索
-<code>busuanzi-count</code> 替换即可</p>
+<p>使用 <code>不蒜子</code> 的访问量统计工具，但是显示全是0。最后发现问题竟然是：</p>
+<ul>
+<li>本地 <code>localhost</code> 不获取访问量，需要上 <code>deploy</code> 才能正确显示…</li>
+<li>以及那个接口今年已经炸了，需要换个mirror: <code>//cdn.jsdelivr.net/npm/busuanzi@2.3.0</code>, 全文搜索 <code>busuanzi-count</code> 替换即可</li>
+</ul>
 <h4 id="引用静态文件">引用静态文件</h4>
-<p>发现使用 hash地址作为url以后所有的静态文件都不能引用了？ -
-最后发现好像是路径地址计算的问题：所有的引用都要从<code>./source</code>作为地址的起点进行计算，同时<code>./_posts</code>文件夹似乎会被忽略？？最终解决办法是在<code>source</code>下新建了<code>./source/file</code>文件夹，把静态变量放到里面，再渲染</p>
+<p>发现使用 hash地址作为url以后所有的静态文件都不能引用了？</p>
+<ul>
+<li>最后发现好像是路径地址计算的问题：所有的引用都要从<code>./source</code>作为地址的起点进行计算，同时<code>./_posts</code>文件夹似乎会被忽略？？最终解决办法是在<code>source</code>下新建了<code>./source/file</code>文件夹，把静态变量放到里面，再渲染</li>
+</ul>
 <h4 id="相关文章推荐">相关文章推荐</h4>
-<p>这个是最蠢的…我用 <code>hexo-related-popular-posts</code>
-库来实现相关文章推荐的功能，发现不管怎么样都推荐不了相关文章： -
-结果是他的推荐算法是根据tags的相关性来的，但是我那会只有一篇博客，所以算不出来相关文章，组建就被<code>disbale</code>了…</p>
+<p>这个是最蠢的…我用 <code>hexo-related-popular-posts</code> 库来实现相关文章推荐的功能，发现不管怎么样都推荐不了相关文章：</p>
+<ul>
+<li>结果是他的推荐算法是根据tags的相关性来的，但是我那会只有一篇博客，所以算不出来相关文章，组建就被<code>disbale</code>了…</li>
+</ul>
 
     </div>
 
@@ -501,6 +503,10 @@ min\)</span>他都会显示约1min，是因为我前面的文章太短了…</p>
       
       
         <li class="recent_posts_li">
+          <a href="/77ba7db2" title="2024-09-18-insights" target="_blank">2024-09-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/86b1263f" title="2024-09-17-insights" target="_blank">2024-09-17-insights</a>
         </li>
       
@@ -510,10 +516,6 @@ min\)</span>他都会显示约1min，是因为我前面的文章太短了…</p>
       
         <li class="recent_posts_li">
           <a href="/8f5a8645" title="2024-09-13-insights" target="_blank">2024-09-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/6098ed7b" title="2024-09-12-insights" target="_blank">2024-09-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
