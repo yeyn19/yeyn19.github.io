@@ -314,25 +314,22 @@
 
       
         <p>上一周怎么每天都是这么多篇</p>
-<h2 id="ouroboros-speculative-decoding-with-large-model-enhanced-drafting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.13720.pdf">Ouroboros: Speculative
-Decoding with Large Model Enhanced Drafting</a></h2>
+<h2 id="Ouroboros-Speculative-Decoding-with-Large-Model-Enhanced-Drafting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.13720.pdf">Ouroboros: Speculative Decoding with Large Model Enhanced Drafting</a></h2>
 <p>推荐威霖的工作，非常聪明的想法！：作者发现，目前的投机推理需要小模型快速生成，然后让大模型去验证，验证成功的token就会被大模型接受，失败的情况下，前面的token被接受，后面的被放弃。</p>
 <p>威霖考虑了后面的情况，虽然被放弃了，但只是因为中间的某一个token不够好，不代表剩下的后缀没有意义。所以，能不能把投机推理看做对一大堆candidate同时进行验证呢？之前失败的后缀仍然可以作为后续的candidate。通过这种方案，在相同的资源消耗量下，可以把投机推理继续加速2倍</p>
 <blockquote>
 <p>很久没有这么耳目一新的感觉了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/or.png"></p>
-<h2 id="beyond-probabilities-unveiling-the-misalignment-in-evaluating-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.13887.pdf">Beyond Probabilities:
-Unveiling the Misalignment in Evaluating Large Language Models</a></h2>
+<img src="../../files/images/arxiv-insights/2024-02-19-02-23/or.png">
+<h2 id="Beyond-Probabilities-Unveiling-the-Misalignment-in-Evaluating-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.13887.pdf">Beyond Probabilities: Unveiling the Misalignment in Evaluating Large Language Models</a></h2>
 <p>分析性文章，作者发现目前评测LLM能力时大致有几种模式：</p>
-<ol type="1">
+<ol>
 <li>label-based: 给问题和选项，然后观察next-token是各个选项的概率</li>
 <li>sequence-based: 给定问题-答案对，观察不同candidate的ppl</li>
-<li>generation-based:
-给定问题和选项，让模型自己生成，最后在string上分析模型选了什么</li>
+<li>generation-based: 给定问题和选项，让模型自己生成，最后在string上分析模型选了什么</li>
 </ol>
 <p>作者探索一个问题：这几种模式，得到的结果是一样的吗？</p>
-<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/mismatch.png"></p>
+<img src="../../files/images/arxiv-insights/2024-02-19-02-23/mismatch.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -349,13 +346,13 @@ Unveiling the Misalignment in Evaluating Large Language Models</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fd8f5b47.html" rel="bookmark">2024-09-20-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9878168c.html" rel="bookmark">2024-09-19-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/77ba7db2.html" rel="bookmark">2024-09-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/86b1263f.html" rel="bookmark">2024-09-17-insights</a></div>
     </li>
   </ul>
 
@@ -432,9 +429,7 @@ Unveiling the Misalignment in Evaluating Large Language Models</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ouroboros-speculative-decoding-with-large-model-enhanced-drafting"><span class="nav-number">1.</span> <span class="nav-text">Ouroboros: Speculative
-Decoding with Large Model Enhanced Drafting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-probabilities-unveiling-the-misalignment-in-evaluating-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Beyond Probabilities:
-Unveiling the Misalignment in Evaluating Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ouroboros-Speculative-Decoding-with-Large-Model-Enhanced-Drafting"><span class="nav-number">1.</span> <span class="nav-text">Ouroboros: Speculative Decoding with Large Model Enhanced Drafting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Probabilities-Unveiling-the-Misalignment-in-Evaluating-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Beyond Probabilities: Unveiling the Misalignment in Evaluating Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -492,6 +487,10 @@ Unveiling the Misalignment in Evaluating Large Language Models</span></a></li></
       
       
         <li class="recent_posts_li">
+          <a href="/fd8f5b47" title="2024-09-20-insights" target="_blank">2024-09-20-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9878168c" title="2024-09-19-insights" target="_blank">2024-09-19-insights</a>
         </li>
       
@@ -501,10 +500,6 @@ Unveiling the Misalignment in Evaluating Large Language Models</span></a></li></
       
         <li class="recent_posts_li">
           <a href="/86b1263f" title="2024-09-17-insights" target="_blank">2024-09-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/69734d01" title="2024-09-16-insights" target="_blank">2024-09-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
