@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近几天都是NAACL和Coling的论文  The Role of n-gram Smoothing in the Age of Neural NetworksETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain corpus用n-gram做平滑，可以训练更好的LLM  The Unrea">
+  <meta name="description" content="最近几天都是NAACL和Coling的论文  The Role of n-gram Smoothing in the Age of Neural Networks ETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain corpus用n-gram做平滑，可以训练更好的LLM  The Unre">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-03-27-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/250c2618">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近几天都是NAACL和Coling的论文  The Role of n-gram Smoothing in the Age of Neural NetworksETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain corpus用n-gram做平滑，可以训练更好的LLM  The Unrea">
+<meta property="og:description" content="最近几天都是NAACL和Coling的论文  The Role of n-gram Smoothing in the Age of Neural Networks ETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain corpus用n-gram做平滑，可以训练更好的LLM  The Unre">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/n-gram.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/prune.png">
@@ -102,8 +102,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -316,9 +316,14 @@
         <blockquote>
 <p>最近几天都是NAACL和Coling的论文</p>
 </blockquote>
-<h2 id="The-Role-of-n-gram-Smoothing-in-the-Age-of-Neural-Networks"><a href="#The-Role-of-n-gram-Smoothing-in-the-Age-of-Neural-Networks" class="headerlink" title="The Role of n-gram Smoothing in the Age of Neural Networks"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.17240.pdf">The Role of n-gram Smoothing in the Age of Neural Networks</a></h2><p>ETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain corpus用n-gram做平滑，可以训练更好的LLM</p>
+<h2 id="the-role-of-n-gram-smoothing-in-the-age-of-neural-networks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.17240.pdf">The Role of n-gram Smoothing
+in the Age of Neural Networks</a></h2>
+<p>ETH的论文：作者认为，在LLM时代后n-gram类的方法似乎已经走进了死路。作者想要探索这些方法在LLM是否仍然有应用价值。他们发现，如果对pretrain
+corpus用n-gram做平滑，可以训练更好的LLM</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/n-gram.png" style="zoom:33%;"></p>
-<h2 id="The-Unreasonable-Ineffectiveness-of-the-Deeper-Layers"><a href="#The-Unreasonable-Ineffectiveness-of-the-Deeper-Layers" class="headerlink" title="The Unreasonable Ineffectiveness of the Deeper Layers"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.17887.pdf">The Unreasonable Ineffectiveness of the Deeper Layers</a></h2><p>Meta的工作：一个不是很新的问题，作者发现在llama里存在大量的无用layer，砍掉一半的layer后模型的效果几乎没影响(右上角)。另外，砍layer可以和lora一起使用。一方面减少一些参数，另一方面增加一些参数。作者认为：</p>
+<h2 id="the-unreasonable-ineffectiveness-of-the-deeper-layers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.17887.pdf">The Unreasonable
+Ineffectiveness of the Deeper Layers</a></h2>
+<p>Meta的工作：一个不是很新的问题，作者发现在llama里存在大量的无用layer，砍掉一半的layer后模型的效果几乎没影响(右上角)。另外，砍layer可以和lora一起使用。一方面减少一些参数，另一方面增加一些参数。作者认为：</p>
 <ul>
 <li>要么是目前的训练，尤其是optimizer，没有发挥出deep-model的优势</li>
 <li>要么是模型的常见模式是在前几层存知识</li>
@@ -343,13 +348,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f0912b00.html" rel="bookmark">2024-09-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1ba69003.html" rel="bookmark">2024-09-25-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f464fb3d.html" rel="bookmark">2024-09-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/16b8e044.html" rel="bookmark">2024-09-23-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +431,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Role-of-n-gram-Smoothing-in-the-Age-of-Neural-Networks"><span class="nav-number">1.</span> <span class="nav-text">The Role of n-gram Smoothing in the Age of Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Unreasonable-Ineffectiveness-of-the-Deeper-Layers"><span class="nav-number">2.</span> <span class="nav-text">The Unreasonable Ineffectiveness of the Deeper Layers</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-role-of-n-gram-smoothing-in-the-age-of-neural-networks"><span class="nav-number">1.</span> <span class="nav-text">The Role of n-gram Smoothing
+in the Age of Neural Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-unreasonable-ineffectiveness-of-the-deeper-layers"><span class="nav-number">2.</span> <span class="nav-text">The Unreasonable
+Ineffectiveness of the Deeper Layers</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,6 +491,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f0912b00" title="2024-09-26-insights" target="_blank">2024-09-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1ba69003" title="2024-09-25-insights" target="_blank">2024-09-25-insights</a>
         </li>
       
@@ -493,10 +504,6 @@
       
         <li class="recent_posts_li">
           <a href="/16b8e044" title="2024-09-23-insights" target="_blank">2024-09-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fd8f5b47" title="2024-09-20-insights" target="_blank">2024-09-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -576,12 +583,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">258k</span>
+    <span title="站点总字数">272k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:54</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

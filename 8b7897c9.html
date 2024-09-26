@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="153篇……足足是昨天的两倍 Automatic Instruction Evolving for Large Language ModelsWizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。  如">
+  <meta name="description" content="153篇……足足是昨天的两倍 Automatic Instruction Evolving for Large Language Models Wizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-04-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/8b7897c9">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="153篇……足足是昨天的两倍 Automatic Instruction Evolving for Large Language ModelsWizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。  如">
+<meta property="og:description" content="153篇……足足是昨天的两倍 Automatic Instruction Evolving for Large Language Models Wizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-03-06-07/auto-eval.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-03-06-07/re-reft.png">
@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -315,18 +315,26 @@
 
       
         <p>153篇……足足是昨天的两倍</p>
-<h2 id="Automatic-Instruction-Evolving-for-Large-Language-Models"><a href="#Automatic-Instruction-Evolving-for-Large-Language-Models" class="headerlink" title="Automatic Instruction Evolving for Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.00770">Automatic Instruction Evolving for Large Language Models</a></h2><p>Wizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。</p>
+<h2 id="automatic-instruction-evolving-for-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.00770">Automatic Instruction Evolving
+for Large Language Models</a></h2>
+<p>Wizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。</p>
 <blockquote>
-<p>如果这个可行，再结合之前那个Mammoth2从预训练数据集里自己挖掘可行的q-a pair……是不是能搞出阿西莫夫那个递归工厂：自己挖掘q-a，再自己进化，甚至挖掘和进化的方法自己也在进化。</p>
+<p>如果这个可行，再结合之前那个Mammoth2从预训练数据集里自己挖掘可行的q-a
+pair……是不是能搞出阿西莫夫那个递归工厂：自己挖掘q-a，再自己进化，甚至挖掘和进化的方法自己也在进化。</p>
 <p>模型自己给人类世界找bug？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/auto-eval.png"></p>
-<h2 id="Reflection-Reinforced-Self-Training-for-Language-Agents"><a href="#Reflection-Reinforced-Self-Training-for-Language-Agents" class="headerlink" title="Reflection-Reinforced Self-Training for Language Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01495"><strong>Reflection-Reinforced Self-Training for Language Agents</strong></a></h2><p>我挺喜欢的一篇论文，作者研究了经典的self-training(ReFT)：在问题集合上sample一堆样本，挑出来答案正确的，作为正样本训回模型参数里。作者发现这种方案依赖于生成出来的高质量样本，但实操上并不容易拿到。如果找到另一个模型把错误改对呢？作者发现这种方法可以生成更多好的样本，并且在各个下游任务上都比正常的ReFT好很多</p>
+<h2 id="reflection-reinforced-self-training-for-language-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01495"><strong>Reflection-Reinforced
+Self-Training for Language Agents</strong></a></h2>
+<p>我挺喜欢的一篇论文，作者研究了经典的self-training(ReFT)：在问题集合上sample一堆样本，挑出来答案正确的，作为正样本训回模型参数里。作者发现这种方案依赖于生成出来的高质量样本，但实操上并不容易拿到。如果找到另一个模型把错误改对呢？作者发现这种方法可以生成更多好的样本，并且在各个下游任务上都比正常的ReFT好很多</p>
 <blockquote>
 <p>感觉这个可以和之前那个R-Tuning组成双子星……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/re-reft.png"></p>
-<h2 id="MMLU-Pro-A-More-Robust-and-Challenging-Multi-Task-Language-Understanding-Benchmark"><a href="#MMLU-Pro-A-More-Robust-and-Challenging-Multi-Task-Language-Understanding-Benchmark" class="headerlink" title="MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01574"><strong>MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</strong></a></h2><p>挺好的一篇论文，作者发现MMLU现在已经被刷到接近90%，结果变得没那么可行。所以作者想搞一个新的，所以剔除掉了里面歧义的、和过于简单的问题，然后把选项从4个改成了10个，并且提升了对reasoning的依赖。希望以后能成为”下一个MMLU”</p>
+<h2 id="mmlu-pro-a-more-robust-and-challenging-multi-task-language-understanding-benchmark"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01574"><strong>MMLU-Pro: A More Robust
+and Challenging Multi-Task Language Understanding
+Benchmark</strong></a></h2>
+<p>挺好的一篇论文，作者发现MMLU现在已经被刷到接近90%，结果变得没那么可行。所以作者想搞一个新的，所以剔除掉了里面歧义的、和过于简单的问题，然后把选项从4个改成了10个，并且提升了对reasoning的依赖。希望以后能成为"下一个MMLU"</p>
 <p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/mmlu.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -344,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f0912b00.html" rel="bookmark">2024-09-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1ba69003.html" rel="bookmark">2024-09-25-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f464fb3d.html" rel="bookmark">2024-09-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/16b8e044.html" rel="bookmark">2024-09-23-insights</a></div>
     </li>
   </ul>
 
@@ -427,7 +435,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Automatic-Instruction-Evolving-for-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Automatic Instruction Evolving for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflection-Reinforced-Self-Training-for-Language-Agents"><span class="nav-number">2.</span> <span class="nav-text">Reflection-Reinforced Self-Training for Language Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMLU-Pro-A-More-Robust-and-Challenging-Multi-Task-Language-Understanding-Benchmark"><span class="nav-number">3.</span> <span class="nav-text">MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#automatic-instruction-evolving-for-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Automatic Instruction Evolving
+for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reflection-reinforced-self-training-for-language-agents"><span class="nav-number">2.</span> <span class="nav-text">Reflection-Reinforced
+Self-Training for Language Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmlu-pro-a-more-robust-and-challenging-multi-task-language-understanding-benchmark"><span class="nav-number">3.</span> <span class="nav-text">MMLU-Pro: A More Robust
+and Challenging Multi-Task Language Understanding
+Benchmark</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -485,6 +497,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f0912b00" title="2024-09-26-insights" target="_blank">2024-09-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1ba69003" title="2024-09-25-insights" target="_blank">2024-09-25-insights</a>
         </li>
       
@@ -494,10 +510,6 @@
       
         <li class="recent_posts_li">
           <a href="/16b8e044" title="2024-09-23-insights" target="_blank">2024-09-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fd8f5b47" title="2024-09-20-insights" target="_blank">2024-09-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -577,12 +589,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">258k</span>
+    <span title="站点总字数">272k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:54</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>
