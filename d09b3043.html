@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>583</span>
+              <span>592</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,27 +314,23 @@
 
       
         <p>失算了，没想到五一也在更新</p>
-<h2 id="in-context-learning-with-long-context-models-an-in-depth-exploration"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00200">In-Context Learning with
-Long-Context Models: An In-Depth Exploration</a></h2>
-<p>neubig的论文，被上周的manyshot
-icl抢发了。类似的思路：目前的模型已经是sequence length
-128k了，能不能来一个1024-shot learning?作者发现：</p>
-<ol type="1">
+<h2 id="In-Context-Learning-with-Long-Context-Models-An-In-Depth-Exploration"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00200">In-Context Learning with Long-Context Models: An In-Depth Exploration</a></h2>
+<p>neubig的论文，被上周的manyshot icl抢发了。类似的思路：目前的模型已经是sequence length 128k了，能不能来一个1024-shot learning?作者发现：</p>
+<ol>
 <li>sample数量增长，模型效果增长</li>
 <li>对比finetune，这个方法不够data-hungry，但是相对更鲁棒</li>
 <li>经过一系列实验，发现效果增长不是来源于学会了task，而是找到了类似的example</li>
 </ol>
 <blockquote>
-<p>emm……我觉得finetune也"不是来源于学会了task，而是找到了类似的example"</p>
+<p>emm……我觉得finetune也&quot;不是来源于学会了task，而是找到了类似的example&quot;</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/icl.png"></p>
-<h2 id="better-faster-large-language-models-via-multi-token-prediction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.19737">Better &amp; Faster Large
-Language Models via Multi-token Prediction</a></h2>
+<img src="../../files/images/arxiv-insights/2024-04-29-05-03/icl.png">
+<h2 id="Better-Faster-Large-Language-Models-via-Multi-token-Prediction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.19737">Better &amp; Faster Large Language Models via Multi-token Prediction</a></h2>
 <p>Meta的论文，作者发现目前的GPT系列都是next-token-prediction，每次预测下一个Token的logits。作者在想，如果一次预测未来n个Token，速度会加速吗？所以作者把模型结构改成了，前面是share的部分，从某个部分开始变成了n份，分别预测未来的n个token。发现这样训出来的模型当参数量起来以后，效果并不差，同时速度非常快。</p>
 <blockquote>
-<p>Llama时代下的，non-autoregressive model..?</p>
+<p>Llama时代下的，non-autoregressive model…?</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/multi-head.png" style="zoom:33%;"></p>
+<img src="../../files/images/arxiv-insights/2024-04-29-05-03/multi-head.png" style="zoom:33%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -434,9 +430,7 @@ Language Models via Multi-token Prediction</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#in-context-learning-with-long-context-models-an-in-depth-exploration"><span class="nav-number">1.</span> <span class="nav-text">In-Context Learning with
-Long-Context Models: An In-Depth Exploration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better-faster-large-language-models-via-multi-token-prediction"><span class="nav-number">2.</span> <span class="nav-text">Better &amp; Faster Large
-Language Models via Multi-token Prediction</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Context-Learning-with-Long-Context-Models-An-In-Depth-Exploration"><span class="nav-number">1.</span> <span class="nav-text">In-Context Learning with Long-Context Models: An In-Depth Exploration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Better-Faster-Large-Language-Models-via-Multi-token-Prediction"><span class="nav-number">2.</span> <span class="nav-text">Better &amp; Faster Large Language Models via Multi-token Prediction</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -591,7 +585,7 @@ Language Models via Multi-token Prediction</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -314,32 +314,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="jamba-a-hybrid-transformer-mamba-language-model"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.19887.pdf">Jamba: A Hybrid
-Transformer-Mamba Language Model</a></h2>
-<p>有人帮大家训了开源的MoE大mamba：在普通benchmark和long-text
-benchmark都是SOTA。同时得益于mamba的高效，他的kv
-cache很小，然后256k能力随手就来</p>
+        <h2 id="Jamba-A-Hybrid-Transformer-Mamba-Language-Model"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.19887.pdf">Jamba: A Hybrid Transformer-Mamba Language Model</a></h2>
+<p>有人帮大家训了开源的MoE大mamba：在普通benchmark和long-text benchmark都是SOTA。同时得益于mamba的高效，他的kv cache很小，然后256k能力随手就来</p>
 <blockquote>
-<p>只能说，再看一眼：现在的benchmark
-score主要取决于SFT数据和测试集的相似度……不知道有没有哪家大公司试试175B的大mamba</p>
+<p>只能说，再看一眼：现在的benchmark score主要取决于SFT数据和测试集的相似度……不知道有没有哪家大公司试试175B的大mamba</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/jamba.png"></p>
-<h2 id="gecko-versatile-text-embeddings-distilled-from-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.20327.pdf"><strong>Gecko: Versatile
-Text Embeddings Distilled from Large Language Models</strong></a></h2>
-<p>deepmind的新论文，做dense retreival场景：如果大家还记得几个月前weizhu
-chen那个花巨多钱用GPT4生成一大堆query-positive-negative达到SOTA的论文。deepmind这篇拓展了这个框架。先让一个大模型生成query-positive，然后用一个已有的dense
-retreiver找到一大堆passage，然后让之前那个大模型过来一个个看谁是正/负样本，由此进一步提高数据质量。由此，达到了新的sota，甚至256维就能战胜之前的768维的SOTA</p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/jamba.png">
+<h2 id="Gecko-Versatile-Text-Embeddings-Distilled-from-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.20327.pdf"><strong>Gecko: Versatile Text Embeddings Distilled from Large Language Models</strong></a></h2>
+<p>deepmind的新论文，做dense retreival场景：如果大家还记得几个月前weizhu chen那个花巨多钱用GPT4生成一大堆query-positive-negative达到SOTA的论文。deepmind这篇拓展了这个框架。先让一个大模型生成query-positive，然后用一个已有的dense retreiver找到一大堆passage，然后让之前那个大模型过来一个个看谁是正/负样本，由此进一步提高数据质量。由此，达到了新的sota，甚至256维就能战胜之前的768维的SOTA</p>
 <blockquote>
 <p>很有趣的思路，我觉得本质上是把单塔的能力持续地蒸馏到双塔里？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/gecko.png" style="zoom:50%;"></p>
-<h2 id="realm-reference-resolution-as-language-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.20329.pdf">ReALM: Reference Resolution
-As Language Modeling</a></h2>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/gecko.png" style="zoom:50%;">
+<h2 id="ReALM-Reference-Resolution-As-Language-Modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.20329.pdf">ReALM: Reference Resolution As Language Modeling</a></h2>
 <p>apple的新论文，apple又发力了？作者发现对于LLM有一个重要的概念：如何引用一个非语言的概念(比如屏幕里的某个物体、操作系统的某个操作)，这对于实际LLM作为人工智能助手非常重要。作者定义了一下这个任务，并且建模为了LLM任务，然后标了数据做了实验，发现效果很不错</p>
 <blockquote>
 <p>这算是在致敬realm吗？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/reference.png" style="zoom:50%;"></p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/reference.png" style="zoom:50%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -439,10 +431,7 @@ As Language Modeling</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#jamba-a-hybrid-transformer-mamba-language-model"><span class="nav-number">1.</span> <span class="nav-text">Jamba: A Hybrid
-Transformer-Mamba Language Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gecko-versatile-text-embeddings-distilled-from-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Gecko: Versatile
-Text Embeddings Distilled from Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#realm-reference-resolution-as-language-modeling"><span class="nav-number">3.</span> <span class="nav-text">ReALM: Reference Resolution
-As Language Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jamba-A-Hybrid-Transformer-Mamba-Language-Model"><span class="nav-number">1.</span> <span class="nav-text">Jamba: A Hybrid Transformer-Mamba Language Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gecko-Versatile-Text-Embeddings-Distilled-from-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Gecko: Versatile Text Embeddings Distilled from Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReALM-Reference-Resolution-As-Language-Modeling"><span class="nav-number">3.</span> <span class="nav-text">ReALM: Reference Resolution As Language Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -597,7 +586,7 @@ As Language Modeling</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

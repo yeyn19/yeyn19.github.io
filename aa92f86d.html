@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,8 +315,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="investigate-consolidate-exploit-a-general-strategy-for-inter-task-agent-self-evolution"><a href>Investigate-Consolidate-Exploit: A General Strategy for
-Inter-Task Agent Self-Evolution</a></h2>
+        <h2 id="Investigate-Consolidate-Exploit-A-General-Strategy-for-Inter-Task-Agent-Self-Evolution"><a href>Investigate-Consolidate-Exploit: A General Strategy for Inter-Task Agent Self-Evolution</a></h2>
 <p>推荐一下我们的论文，不算今天的名额：在Agent领域大家一般都是考虑完成一个任务，即使类Reflection的方案也是一个任务失败以后，能不能再次完成做的更好。实际上，没有人考虑任务间的经验学习。我们认为一个好的Agent系统应该具有两个性质：</p>
 <ul>
 <li>从之前成功的任务中汲取经验</li>
@@ -328,31 +327,22 @@ Inter-Task Agent Self-Evolution</a></h2>
 <li>对于有信心的地方可以直接按照pipeline的形式走，由此可以节省接近85%的token消耗</li>
 </ul>
 <p>由此可见，inter-task evolving的重要意义！</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/ICE.png"></p>
-<h2 id="towards-uncertainty-aware-language-agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14016.pdf">Towards Uncertainty-Aware
-Language Agent</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/ICE.png">
+<h2 id="Towards-Uncertainty-Aware-Language-Agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14016.pdf">Towards Uncertainty-Aware Language Agent</a></h2>
 <p>ICML风的论文，作者提到目前的Agent研究主要是走ReACT路线，通过多步工具调用完成任务。然而，没有Agent研究去表征模型自己的不确定性。作者考虑了模型自己在工具调用中的信心值，最终可以用更少的工具调用完成任务，同时提升效果。</p>
 <blockquote>
-<p>感觉这个和self-knowledge有异曲同工之意，尤其是作者完成的"Agent"任务实际上也是以QA为主。</p>
+<p>感觉这个和self-knowledge有异曲同工之意，尤其是作者完成的&quot;Agent&quot;任务实际上也是以QA为主。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/uncertainty.png"></p>
-<h2 id="webvoyager-building-an-end-to-end-web-agent-with-large-multimodal-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.13919.pdf">WebVoyager : Building an
-End-to-End Web Agent with Large Multimodal Models</a></h2>
-<p>相信大家都知道Nvidia之前搞的voyager，那么web-voyager是怎会回事呢？大概就是MM-Navigator、APPAgent那套GPT-4V
-based Multimodal ReACT路线加上各种observation-clean的工程优化。</p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/uncertainty.png">
+<h2 id="WebVoyager-Building-an-End-to-End-Web-Agent-with-Large-Multimodal-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.13919.pdf">WebVoyager : Building an End-to-End Web Agent with Large Multimodal Models</a></h2>
+<p>相信大家都知道Nvidia之前搞的voyager，那么web-voyager是怎会回事呢？大概就是MM-Navigator、APPAgent那套GPT-4V based Multimodal ReACT路线加上各种observation-clean的工程优化。</p>
 <blockquote>
-<p>以后有机会我帮大家梳理分享一下Multimodal Agent都做了什么，和Language
-Agent的发展是不是有一些对偶的成分在？</p>
+<p>以后有机会我帮大家梳理分享一下Multimodal Agent都做了什么，和Language Agent的发展是不是有一些对偶的成分在？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/web-voyager.png"></p>
-<h2 id="deepseek-coder-when-the-large-language-model-meets-programming---the-rise-of-code-intelligence"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14196.pdf">DeepSeek-Coder: When the
-Large Language Model Meets Programming - The Rise of Code
-Intelligence</a></h2>
-<p>最新的Code模型，pretrain了2T
-token，在各个任务上都表现很好，开源。另外，我觉得在leetcode
-weekly上做评测是一个很好的形式，这样相对来说就不会被大家喷各种Data
-leakage之类的问题了……</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/DeepSeek-Coder.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/web-voyager.png">
+<h2 id="DeepSeek-Coder-When-the-Large-Language-Model-Meets-Programming-The-Rise-of-Code-Intelligence"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14196.pdf">DeepSeek-Coder: When the Large Language Model Meets Programming - The Rise of Code Intelligence</a></h2>
+<p>最新的Code模型，pretrain了2T token，在各个任务上都表现很好，开源。另外，我觉得在leetcode weekly上做评测是一个很好的形式，这样相对来说就不会被大家喷各种Data leakage之类的问题了……</p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/DeepSeek-Coder.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -452,12 +442,7 @@ leakage之类的问题了……</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#investigate-consolidate-exploit-a-general-strategy-for-inter-task-agent-self-evolution"><span class="nav-number">1.</span> <span class="nav-text">Investigate-Consolidate-Exploit: A General Strategy for
-Inter-Task Agent Self-Evolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#towards-uncertainty-aware-language-agent"><span class="nav-number">2.</span> <span class="nav-text">Towards Uncertainty-Aware
-Language Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webvoyager-building-an-end-to-end-web-agent-with-large-multimodal-models"><span class="nav-number">3.</span> <span class="nav-text">WebVoyager : Building an
-End-to-End Web Agent with Large Multimodal Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepseek-coder-when-the-large-language-model-meets-programming---the-rise-of-code-intelligence"><span class="nav-number">4.</span> <span class="nav-text">DeepSeek-Coder: When the
-Large Language Model Meets Programming - The Rise of Code
-Intelligence</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigate-Consolidate-Exploit-A-General-Strategy-for-Inter-Task-Agent-Self-Evolution"><span class="nav-number">1.</span> <span class="nav-text">Investigate-Consolidate-Exploit: A General Strategy for Inter-Task Agent Self-Evolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Uncertainty-Aware-Language-Agent"><span class="nav-number">2.</span> <span class="nav-text">Towards Uncertainty-Aware Language Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebVoyager-Building-an-End-to-End-Web-Agent-with-Large-Multimodal-Models"><span class="nav-number">3.</span> <span class="nav-text">WebVoyager : Building an End-to-End Web Agent with Large Multimodal Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-Coder-When-the-Large-Language-Model-Meets-Programming-The-Rise-of-Code-Intelligence"><span class="nav-number">4.</span> <span class="nav-text">DeepSeek-Coder: When the Large Language Model Meets Programming - The Rise of Code Intelligence</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -612,7 +597,7 @@ Intelligence</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

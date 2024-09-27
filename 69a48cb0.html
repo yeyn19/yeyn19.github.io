@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Grammar-Aligned Decoding 这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案  这篇研究的问题其实就是之前我们想做的&quot;to">
+  <meta name="description" content="Grammar-Aligned Decoding 这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案  这篇研究的问题其实就是之前我们想做的&amp;qu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/69a48cb0">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Grammar-Aligned Decoding 这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案  这篇研究的问题其实就是之前我们想做的&quot;to">
+<meta property="og:description" content="Grammar-Aligned Decoding 这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案  这篇研究的问题其实就是之前我们想做的&amp;qu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-03-06-07/gad.png">
 <meta property="article:published_time" content="2024-06-03T07:51:30.000Z">
@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>286</span>
+              <span>296</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,15 +312,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="grammar-aligned-decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.21047">Grammar-Aligned
-Decoding</a></h2>
-<p>这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate
-token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案</p>
+        <h2 id="Grammar-Aligned-Decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.21047">Grammar-Aligned Decoding</a></h2>
+<p>这篇论文探索了一个简单的问题：如何保证模型的解码符合某种特定的结构(比如json)。有一类方法会用一个类似自动机的方式每个token中屏蔽掉导致结构被破坏的candidate token。作者提到，自动机类的方案会破坏模型原来的distribution，进而使得生成的样本效果很差。作者提出了一种改进方案</p>
 <blockquote>
-<p>这篇研究的问题其实就是之前我们想做的"tool
-learning"。其实还有些退化的可能性，比如一个语法我不能在任何时候判断，但如果我在n个token时可以判断前n-10个token是不是合法的，是不是也可以开发对应的算法呢？</p>
+<p>这篇研究的问题其实就是之前我们想做的&quot;tool learning&quot;。其实还有些退化的可能性，比如一个语法我不能在任何时候判断，但如果我在n个token时可以判断前n-10个token是不是合法的，是不是也可以开发对应的算法呢？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/gad.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-03-06-07/gad.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -420,8 +417,7 @@ learning"。其实还有些退化的可能性，比如一个语法我不能在�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#grammar-aligned-decoding"><span class="nav-number">1.</span> <span class="nav-text">Grammar-Aligned
-Decoding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Grammar-Aligned-Decoding"><span class="nav-number">1.</span> <span class="nav-text">Grammar-Aligned Decoding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -576,7 +572,7 @@ Decoding</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

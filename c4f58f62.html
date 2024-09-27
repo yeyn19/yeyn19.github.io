@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>923</span>
+              <span>963</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,35 +314,26 @@
 
       
         <p>虽然是周二，不过今天看起来还好，没有论文爆炸</p>
-<h2 id="the-unlocking-spell-on-base-llms-rethinking-alignment-via-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01552.pdf">The Unlocking Spell on Base
-LLMs: Rethinking Alignment via In-Context Learning</a></h2>
-<p>Yejin
-Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？</p>
-<p>作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style
-token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。</p>
-<p>再进一步，既然如此简单，那么能不能不训练，直接用in-context
-learning呢？作者直接用了3-shot样本+system
-prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好</p>
+<h2 id="The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01552.pdf">The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning</a></h2>
+<p>Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？</p>
+<p>作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。</p>
+<p>再进一步，既然如此简单，那么能不能不训练，直接用in-context learning呢？作者直接用了3-shot样本+system prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好</p>
 <blockquote>
 <p>不愧 Yejin Choi，个人风格很强</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/urial.png"></p>
-<h2 id="rlhf-and-iia-perverse-incentives"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01057.pdf">RLHF and IIA: Perverse
-Incentives</a></h2>
+<img src="../../files/images/arxiv-insights/2023-12-04-12-08/urial.png">
+<h2 id="RLHF-and-IIA-Perverse-Incentives"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01057.pdf">RLHF and IIA: Perverse Incentives</a></h2>
 <p>是的，摘要就这么短。</p>
 <blockquote>
-<p>IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我"更喜欢梨还是喜欢苹果"，回答是喜欢苹果。这个时候，如果引入橘子，然后问"更喜欢梨还是喜欢苹果"，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。</p>
+<p>IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我&quot;更喜欢梨还是喜欢苹果&quot;，回答是喜欢苹果。这个时候，如果引入橘子，然后问&quot;更喜欢梨还是喜欢苹果&quot;，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。</p>
 </blockquote>
 <p>作者认为，RLHF场景引入这个假设是有问题的。</p>
 <blockquote>
 <p>感觉有道理呀……prompt领域比较火的self-consistency方法，似乎就是建立在非IIA假设上的？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/IIA.png"></p>
-<h2 id="transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-dyck-grammars"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01429.pdf">Transformers are
-uninterpretable with myopic methods: a case study with bounded Dyck
-grammars</a></h2>
-<p>一作是华子。作者主要表达的观点是：目前很多transformer可解释性研究都试图在局部(某attention层)还原computation
-path，试图找到一些可解释的pattern。然而，作者说明局部可能没有任何pattern，全局的pattern在局部看起来很可能是"类随机的"。因此，局部的可解释性研究可能是有误导性的伪研究，撞运气没准能发现一个"pattern"。</p>
+<img src="../../files/images/arxiv-insights/2023-12-04-12-08/IIA.png">
+<h2 id="Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01429.pdf">Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars</a></h2>
+<p>一作是华子。作者主要表达的观点是：目前很多transformer可解释性研究都试图在局部(某attention层)还原computation path，试图找到一些可解释的pattern。然而，作者说明局部可能没有任何pattern，全局的pattern在局部看起来很可能是&quot;类随机的&quot;。因此，局部的可解释性研究可能是有误导性的伪研究，撞运气没准能发现一个&quot;pattern&quot;。</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -442,11 +433,7 @@ path，试图找到一些可解释的pattern。然而，作者说明局部可能
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-unlocking-spell-on-base-llms-rethinking-alignment-via-in-context-learning"><span class="nav-number">1.</span> <span class="nav-text">The Unlocking Spell on Base
-LLMs: Rethinking Alignment via In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rlhf-and-iia-perverse-incentives"><span class="nav-number">2.</span> <span class="nav-text">RLHF and IIA: Perverse
-Incentives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-dyck-grammars"><span class="nav-number">3.</span> <span class="nav-text">Transformers are
-uninterpretable with myopic methods: a case study with bounded Dyck
-grammars</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning"><span class="nav-number">1.</span> <span class="nav-text">The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RLHF-and-IIA-Perverse-Incentives"><span class="nav-number">2.</span> <span class="nav-text">RLHF and IIA: Perverse Incentives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars"><span class="nav-number">3.</span> <span class="nav-text">Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -601,7 +588,7 @@ grammars</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>
