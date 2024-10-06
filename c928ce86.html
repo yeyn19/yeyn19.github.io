@@ -102,8 +102,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>552</span>
+              <span>542</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,15 +314,23 @@
 
       
         <p>前两天github好像挂了没法push……今天才push上这两天的论文</p>
-<h2 id="MM-Instruct-Generated-Visual-Instructions-for-Large-Multimodal-Model-Alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.19736">MM-Instruct: Generated Visual Instructions for Large Multimodal Model Alignment</a></h2>
-<p>作者搞了一套机造VLM SFT数据的机制，还挺有意思的：会根据k-means做平衡，同时为了解决self-instruct领域在VLM中需要额外condition on image 的问题，作者先生成抽象的instruction，再根据clip embedding找到类似的图片过来适配实际的instruction。用这种方式，作者构造了个SFT数据集。</p>
+<h2 id="mm-instruct-generated-visual-instructions-for-large-multimodal-model-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.19736">MM-Instruct: Generated Visual
+Instructions for Large Multimodal Model Alignment</a></h2>
+<p>作者搞了一套机造VLM
+SFT数据的机制，还挺有意思的：会根据k-means做平衡，同时为了解决self-instruct领域在VLM中需要额外condition
+on image 的问题，作者先生成抽象的instruction，再根据clip
+embedding找到类似的图片过来适配实际的instruction。用这种方式，作者构造了个SFT数据集。</p>
 <blockquote>
 <p>不知道是不是被cambrian卷得挂arxiv了……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-24-06-28/mm-instruct.png">
-<h2 id="Read-Anywhere-Pointed-Layout-aware-GUI-Screen-Reading-with-Tree-of-Lens-Grounding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.19263">Read Anywhere Pointed: Layout-aware GUI Screen Reading with Tree-of-Lens Grounding</a></h2>
-<p>Erxi Xing的工作，他们提了新的GUI QA场景：pointed QA，其实就是Ferret里面讲的&quot;ref&quot;：用户在提问时可以附加一个区域，说明问题focus在这个区域。这个场景其实在GUI Agent应用中是显然的。作者根据点击的位置对accessibility tree做了筛选，让Agent可以更好地看到点击位置附近的gui。</p>
-<img src="../../files/images/arxiv-insights/2024-06-24-06-28/tol.png" style="zoom:50%;">
+<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/mm-instruct.png"></p>
+<h2 id="read-anywhere-pointed-layout-aware-gui-screen-reading-with-tree-of-lens-grounding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.19263">Read Anywhere Pointed:
+Layout-aware GUI Screen Reading with Tree-of-Lens Grounding</a></h2>
+<p>Erxi Xing的工作，他们提了新的GUI QA场景：pointed
+QA，其实就是Ferret里面讲的"ref"：用户在提问时可以附加一个区域，说明问题focus在这个区域。这个场景其实在GUI
+Agent应用中是显然的。作者根据点击的位置对accessibility
+tree做了筛选，让Agent可以更好地看到点击位置附近的gui。</p>
+<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/tol.png" style="zoom:50%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -339,13 +347,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/50bb6226.html" rel="bookmark">2024-10-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3c018487.html" rel="bookmark">2024-09-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1f53403e.html" rel="bookmark">2024-09-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f0912b00.html" rel="bookmark">2024-09-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1ba69003.html" rel="bookmark">2024-09-25-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +430,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MM-Instruct-Generated-Visual-Instructions-for-Large-Multimodal-Model-Alignment"><span class="nav-number">1.</span> <span class="nav-text">MM-Instruct: Generated Visual Instructions for Large Multimodal Model Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Read-Anywhere-Pointed-Layout-aware-GUI-Screen-Reading-with-Tree-of-Lens-Grounding"><span class="nav-number">2.</span> <span class="nav-text">Read Anywhere Pointed: Layout-aware GUI Screen Reading with Tree-of-Lens Grounding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mm-instruct-generated-visual-instructions-for-large-multimodal-model-alignment"><span class="nav-number">1.</span> <span class="nav-text">MM-Instruct: Generated Visual
+Instructions for Large Multimodal Model Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#read-anywhere-pointed-layout-aware-gui-screen-reading-with-tree-of-lens-grounding"><span class="nav-number">2.</span> <span class="nav-text">Read Anywhere Pointed:
+Layout-aware GUI Screen Reading with Tree-of-Lens Grounding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +447,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,19 +490,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/50bb6226" title="2024-10-01-insights" target="_blank">2024-10-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/3c018487" title="2024-09-30-insights" target="_blank">2024-09-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1f53403e" title="2024-09-27-insights" target="_blank">2024-09-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f0912b00" title="2024-09-26-insights" target="_blank">2024-09-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1ba69003" title="2024-09-25-insights" target="_blank">2024-09-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f464fb3d" title="2024-09-24-insights" target="_blank">2024-09-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -517,6 +523,10 @@
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -572,12 +582,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>
