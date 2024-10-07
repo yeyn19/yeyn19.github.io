@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -317,19 +317,14 @@
         <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
             <img src="/../../files/images/weak2strong/intro.png" itemprop="contentUrl">
         </div>
-        <p>昨天OpenAI一口气更新了两篇论文，暨DALL.E
-3之后的又一更新，其中一篇讲述了一个朴素的问题：如果未来的模型超越人类了，我们该怎么给他们提供监督信号？（毕竟我们只有人类——一个相对更弱的模型）</p>
-<p>OpenAI把这个问题叫做weak-to-strong
-generalization在这里做了一些简单的尝试，对于这个问题的性质进行了一些探索。我们来一起学习一下他们看问题和解决问题的思路吧！</p>
+        <p>昨天OpenAI一口气更新了两篇论文，暨DALL.E 3之后的又一更新，其中一篇讲述了一个朴素的问题：如果未来的模型超越人类了，我们该怎么给他们提供监督信号？（毕竟我们只有人类——一个相对更弱的模型）</p>
+<p>OpenAI把这个问题叫做weak-to-strong generalization在这里做了一些简单的尝试，对于这个问题的性质进行了一些探索。我们来一起学习一下他们看问题和解决问题的思路吧！</p>
 <span id="more"></span>
-<p>作者首先映入眼帘的就是ilya
-Sutskever，这个老哥真是为人类尽心尽力呀……OpenAI官网写的这个论文的作者是"Safety&amp;Alignment"</p>
+<p>作者首先映入眼帘的就是ilya Sutskever，这个老哥真是为人类尽心尽力呀……OpenAI官网写的这个论文的作者是”Safety&amp;Alignment”</p>
 <p><img src="../../files/images/weak2strong/authors.png"></p>
-<p>而他的primary authors Jeff
-Wu更是重量级，我不多评价，直接列出其最近的publication，可以说是群星璀璨了……我什么时候能发12篇论文都有这个质量呀</p>
+<p>而他的primary authors Jeff Wu更是重量级，我不多评价，直接列出其最近的publication，可以说是群星璀璨了……我什么时候能发12篇论文都有这个质量呀</p>
 <p><img src="../../files/images/weak2strong/jeff_wu.png" style="zoom:30%;"></p>
-<h2 id="introduction">introduction</h2>
-<p>回到正题，作者提到目前的研究更多focus在RLHF，既模型向人类偏好对齐，这套框架最终可以发展出一个类似于人的通用人工智能。然而，到此为止了：想要训练、对齐一个超越人类的智能，目前的方法都不再适用了，因为我们最高也只能用到人了。举个例子:</p>
+<h2 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h2><p>回到正题，作者提到目前的研究更多focus在RLHF，既模型向人类偏好对齐，这套框架最终可以发展出一个类似于人的通用人工智能。然而，到此为止了：想要训练、对齐一个超越人类的智能，目前的方法都不再适用了，因为我们最高也只能用到人了。举个例子:</p>
 <blockquote>
 <p>我们可以要求模型写出一个100万行的很复杂的代码来完成一个任务，然而让人去看代码好不好是一个很难达成的任务。</p>
 </blockquote>
@@ -337,37 +332,24 @@ Wu更是重量级，我不多评价，直接列出其最近的publication，可�
 <blockquote>
 <p>具体来说，能不能用GPT2在某个任务的trainset上finetune，然后给trainset重新打一遍标签。让GPT4在GPT2打标签的trainset上训练，然后观察GPT2和GPT4在testset上的表现？</p>
 </blockquote>
-<p>这是一个很直观很容易实现的setup，作者把这个set up叫做weak-to-strong
-learning。</p>
-<p>听起来这个weak-to-strong
-generalization似乎是不可能的，不过作者进行了一些解释：在学习过程中，我们不是预期弱模型教会强模型知识(这些知识是强模型本来就会的)，而是希望弱模型教会强模型这个任务的概念是什么，和一些intension，因此这个过程更像是激发"elicit"。用刚才那个例子来说，如果强模型已经能写100万行的代码，那他肯定有潜力去理解人类的目的是什么。因此即使弱模型给的标签有误差，应该不影响一个更鲁棒的强模型去理解，这就是作者预期出现的结果。</p>
+<p>这是一个很直观很容易实现的setup，作者把这个set up叫做weak-to-strong learning。</p>
+<p>听起来这个weak-to-strong generalization似乎是不可能的，不过作者进行了一些解释：在学习过程中，我们不是预期弱模型教会强模型知识(这些知识是强模型本来就会的)，而是希望弱模型教会强模型这个任务的概念是什么，和一些intension，因此这个过程更像是激发”elicit”。用刚才那个例子来说，如果强模型已经能写100万行的代码，那他肯定有潜力去理解人类的目的是什么。因此即使弱模型给的标签有误差，应该不影响一个更鲁棒的强模型去理解，这就是作者预期出现的结果。</p>
 <p><img src="../../files/images/weak2strong/first_perf.png" style="zoom:30%;"></p>
-<p>作者在传统NLP task(二分类)、chess
-puzzles(选出最优步的生成任务)、human preference
-modeling(二分类)上做了实验，并得出一些结论：</p>
+<p>作者在传统NLP task(二分类)、chess puzzles(选出最优步的生成任务)、human preference modeling(二分类)上做了实验，并得出一些结论：</p>
 <ul>
-<li>强模型在weak-to-strong
-generalize以后基本都会超越帮他标数据的弱模型。？？？</li>
-<li>直接做weak-to-strong generalize的效果并不好，比强模型+oracle-label
-finetune 差很远，可能需要一些额外的优化</li>
+<li>强模型在weak-to-strong generalize以后基本都会超越帮他标数据的弱模型。？？？</li>
+<li>直接做weak-to-strong generalize的效果并不好，比强模型+oracle-label finetune 差很远，可能需要一些额外的优化</li>
 <li>一些很简单、很直觉地方案对于这个任务的提升很大。这说明这个领域还有很大的进步空间</li>
 </ul>
-<h2 id="method">method</h2>
-<p>像刚才Introduction里提到的，这个setup是很简单的。不过，比起一般论文讲完方法讲实验，作者额外说了一下这个setup的优点和问题。作者额外说了一个他们观察的指标performance
-gap
-recovered(PRG)：假设weak-to-strong训练比小模型效果好，那他能恢复强模型直接训练的几分风采？注意，这里面PRG=1代表和强模型直接训练等价，PRG=0代表和小模型表现一样，完全没有generalize。</p>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><p>像刚才Introduction里提到的，这个setup是很简单的。不过，比起一般论文讲完方法讲实验，作者额外说了一下这个setup的优点和问题。作者额外说了一个他们观察的指标performance gap recovered(PRG)：假设weak-to-strong训练比小模型效果好，那他能恢复强模型直接训练的几分风采？注意，这里面PRG=1代表和强模型直接训练等价，PRG=0代表和小模型表现一样，完全没有generalize。</p>
 <blockquote>
-<p>为什么要和 “强模型+orcale finetune”
-去比？虽然现在的setup是数据集，因此有orcale 标签可以做"强模型+orcale
-finetune"的上限实验。但事实上所谓的"orcale
-标签"也是人去打的标签，未来的模型在完成超人任务时就没有标签了，或者说只有人去打的"噪声标签"。</p>
-<p>这种情况下，我们可以预设有"外星人打的oracle标签"跑上限实验，也就是说：我们更关注超人模型的能力上限能不能被激发出来。PGR可以看做一个"激发比例"</p>
+<p>为什么要和 “强模型+orcale finetune” 去比？虽然现在的setup是数据集，因此有orcale 标签可以做”强模型+orcale finetune”的上限实验。但事实上所谓的”orcale 标签”也是人去打的标签，未来的模型在完成超人任务时就没有标签了，或者说只有人去打的”噪声标签”。</p>
+<p>这种情况下，我们可以预设有”外星人打的oracle标签”跑上限实验，也就是说：我们更关注超人模型的能力上限能不能被激发出来。PGR可以看做一个”激发比例”</p>
 </blockquote>
 <p><img src="../../files/images/weak2strong/prg.png" style="zoom:50%;"></p>
 <p>优点：总体来说，就是这个方案更有利于scaling</p>
 <ul>
-<li>对于模型不可知，任何的 强-弱
-模型对都能跑这个实验，也不需要一定要有GPT4。另外，这个路径不需要人，因此实验很快</li>
+<li>对于模型不可知，任何的 强-弱 模型对都能跑这个实验，也不需要一定要有GPT4。另外，这个路径不需要人，因此实验很快</li>
 <li>对任务不可知，任何任务都能跑这个setup</li>
 <li>这里面得到的关于超人模型的结论，即使现在也能用的上：未来对齐GPT10的方法，不妨现在就用到GPT4里？</li>
 </ul>
@@ -376,47 +358,38 @@ finetune"的上限实验。但事实上所谓的"orcale
 </blockquote>
 <p>缺点：</p>
 <ul>
-<li>Imitation
-saliency：这个我觉得很难翻译，就直接摆原文了。这里讲的是未来的超人模型和今天的GPT4存在统计学的巨大差异。对未来的超人模型来说，理解人类的想法是一个很简单的问题，但GPT4去理解GPT2可能没那么简单。并且，GPT2犯的错误类型和人类犯的错误类型也有很大区别，因此目前的结论更多是研究GPT2错误，会有统计学差异。</li>
-<li>数据泄露：目前的setup里面的oracle标签可能或多或少在预训练数据里出现过。未来的模型不存在"超人的预训练数据"，因此实验结论可能和现在有偏差</li>
+<li>Imitation saliency：这个我觉得很难翻译，就直接摆原文了。这里讲的是未来的超人模型和今天的GPT4存在统计学的巨大差异。对未来的超人模型来说，理解人类的想法是一个很简单的问题，但GPT4去理解GPT2可能没那么简单。并且，GPT2犯的错误类型和人类犯的错误类型也有很大区别，因此目前的结论更多是研究GPT2错误，会有统计学差异。</li>
+<li>数据泄露：目前的setup里面的oracle标签可能或多或少在预训练数据里出现过。未来的模型不存在”超人的预训练数据”，因此实验结论可能和现在有偏差</li>
 </ul>
 <p>总体而言，超人模型长什么样、有什么现象现在仍未可知。作者提到，我们更需要对于未来的所有模型都跑一跑现在的实验，观察一下实验结论是否是稳定存在于所有模型中的……怎么有一种三体人的水滴在破坏物理学规律的感觉……</p>
-<h2 id="experiment">experiment</h2>
-<p>作者在附录里讲了实验细节，大致有如下关键点：</p>
+<h2 id="experiment"><a href="#experiment" class="headerlink" title="experiment"></a>experiment</h2><p>作者在附录里讲了实验细节，大致有如下关键点：</p>
 <ul>
-<li>NLP
-task中，作者选取了29个有代表意义的task，都转换成了2分类任务，为了简化整个setting。</li>
-<li>在模型方面，作者使用GPT4架构，构造了和GPT2、GPT3、GPT3.5、GPT4相当计算量的模型(但都是GPT4架构)。作者去掉了decoder最后的那个unembedding
-layer，换成了一个二分类头做实验</li>
-<li>数据方面，作者把数据做了一些清洗，使得数据集中两个类的标签数量接近，然后有数据分类风险的数据们都在train
-test的其中一个split上</li>
+<li>NLP task中，作者选取了29个有代表意义的task，都转换成了2分类任务，为了简化整个setting。</li>
+<li>在模型方面，作者使用GPT4架构，构造了和GPT2、GPT3、GPT3.5、GPT4相当计算量的模型(但都是GPT4架构)。作者去掉了decoder最后的那个unembedding layer，换成了一个二分类头做实验</li>
+<li>数据方面，作者把数据做了一些清洗，使得数据集中两个类的标签数量接近，然后有数据分类风险的数据们都在train test的其中一个split上</li>
 </ul>
 <p>另外两个setup：</p>
 <ul>
-<li>reward
-model：作者直接使用了训练ChatGPT的SFT数据集，里面有数据对以及human给出的偏好。可以看成一个很复杂的二分类任务。这个的训练方法和正常的reward
-model一样，把unembedding
-layer改成一个N-&gt;1的linear来输出一个float当做score。最后用两个candidate的score谁大来作为预测</li>
-<li>chess
-puzzle：很多象棋的棋局，作者希望模型给出第一步，最优解是什么。这个可以看做一个生成任务，因为可选位置有很多个。原始数据大概长下面这样</li>
+<li>reward model：作者直接使用了训练ChatGPT的SFT数据集，里面有数据对以及human给出的偏好。可以看成一个很复杂的二分类任务。这个的训练方法和正常的reward model一样，把unembedding layer改成一个N-&gt;1的linear来输出一个float当做score。最后用两个candidate的score谁大来作为预测</li>
+<li>chess puzzle：很多象棋的棋局，作者希望模型给出第一步，最优解是什么。这个可以看做一个生成任务，因为可选位置有很多个。原始数据大概长下面这样</li>
 </ul>
 <p><img src="../../files/images/weak2strong/chess.png" style="zoom:20%;"></p>
 <blockquote>
 <p>我猜测，作者选这几个setup是基于这样的考虑：</p>
 <p>NLP task，大小模型做的都不错。</p>
-<p>chess puzzle，大模型做的不错，小模型做不了。</p>
+<p>chess puzzle，大模型做的不错，小模型做不了。 </p>
 <p>reward model，大小模型做的都不太好</p>
 </blockquote>
 <p>由此，作者</p>
 <ul>
 <li>首先构造了大小不同的多个GPT4架构的模型。这些模型都是做过预训练的，使用的预训练数据和GPT4一致</li>
-<li>对于每个setting，作者分别跑了刚才提到的四步测试
-<ul>
+<li>对于每个setting，作者分别跑了刚才提到的四步测试<ul>
 <li>小模型在trainset真实标签上做训练FT</li>
 <li>FT的小模型给trainset重新打一遍伪标签</li>
 <li>大模型在带噪的trainset上训练，同时做一个真实标签FT的上限训练</li>
 <li>测量三个模型在testset的表现，计算出PRG</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p>论文的主试验就是下面这个图</p>
 <p><img src="../../files/images/weak2strong/main.png" style="zoom:50%;"></p>
@@ -430,56 +403,39 @@ puzzle：很多象棋的棋局，作者希望模型给出第一步，最优解�
 </ul>
 <p>作者观察到几个关键结论：</p>
 <ul>
-<li><p>PRG基本永远大于0，学生总是强过老师。</p></li>
-<li><p>老师变大或者学生变大，PRG基本都会增大。对于最强的学生，PRG甚至会超过50%：这也许预示着，对于超人模型来说，weak-to-strong
-generalization实际上很简单</p></li>
-<li><p>chess
-puzzle任务上，这些现象更显著。当学生很小时，PRG接近0，大小模型做的都很垃圾。并且，这个任务上的PRG和前面相反，出现了inverse
-scaling现象？即同一个老师，学生越强，PRG反而越低了？</p></li>
-<li><p>对于reward
-model任务，PRG一直都很低。对于所有setting，PRG都低于20%</p></li>
+<li>PRG基本永远大于0，学生总是强过老师。</li>
+<li><p>老师变大或者学生变大，PRG基本都会增大。对于最强的学生，PRG甚至会超过50%：这也许预示着，对于超人模型来说，weak-to-strong generalization实际上很简单</p>
+</li>
+<li><p>chess puzzle任务上，这些现象更显著。当学生很小时，PRG接近0，大小模型做的都很垃圾。并且，这个任务上的PRG和前面相反，出现了inverse scaling现象？即同一个老师，学生越强，PRG反而越低了？</p>
+</li>
+<li><p>对于reward model任务，PRG一直都很低。对于所有setting，PRG都低于20%</p>
+</li>
 </ul>
 <p>作者特别强调了一下，PRG&gt;0这个事情基本一直成立，这个现象其实很神奇，因为也没做什么特别的优化。这个现象预示着superalignment的可能性，也需要在相关领域有更多的研究</p>
-<h2 id="如何提高weak-to-strong-generalization的表现">如何提高weak-to-strong
-generalization的表现？</h2>
-<p>做完主试验，一个显然的思路就是：如何优化他？作者在这里简单地想了几个办法。在这里，我们看一下OpenAI研究员的"注意到"是什么样的吧？</p>
-<h3 id="bootstrapping级联">bootstrapping：级联</h3>
-<p>注意到：刚才提到老师和学生差距太大，以及老师/学生提升，PRG效果都会变好。那么，如果用小老师监督稍微强一点的学生，再把学生当成新老师，监督更强一点的学生……如此反复，效果会更好吗？</p>
+<h2 id="如何提高weak-to-strong-generalization的表现？"><a href="#如何提高weak-to-strong-generalization的表现？" class="headerlink" title="如何提高weak-to-strong generalization的表现？"></a>如何提高weak-to-strong generalization的表现？</h2><p>做完主试验，一个显然的思路就是：如何优化他？作者在这里简单地想了几个办法。在这里，我们看一下OpenAI研究员的”注意到”是什么样的吧？</p>
+<h3 id="bootstrapping：级联"><a href="#bootstrapping：级联" class="headerlink" title="bootstrapping：级联"></a>bootstrapping：级联</h3><p>注意到：刚才提到老师和学生差距太大，以及老师/学生提升，PRG效果都会变好。那么，如果用小老师监督稍微强一点的学生，再把学生当成新老师，监督更强一点的学生……如此反复，效果会更好吗？</p>
 <p><img src="../../files/images/weak2strong/bootstrap.png" style="zoom:50%;"></p>
-<p>作者在chess
-puzzle进行了实验，图里面的虚线是主试验里面的小老师直接监督大学生，实现是级联监督的结果。作者发现：</p>
+<p>作者在chess puzzle进行了实验，图里面的虚线是主试验里面的小老师直接监督大学生，实现是级联监督的结果。作者发现：</p>
 <ul>
 <li>当最开始的大小gap差距小时，这个办法是优化</li>
 <li>当最开始的大小gap差距大时，这个办法是负优化</li>
 </ul>
-<p>尽管在chess puzzle看起来效果不错，但作者发现这个办法在NLP
-task提升不大，在reward
-modeling没有提升。对于这个现象。作者"注意到"：主试验中，Chess这个场景gap越大PRG越小，其他场景都是gap越大PRG越大。因此级联方法缩小gap，对于Chess才有帮助。</p>
+<p>尽管在chess puzzle看起来效果不错，但作者发现这个办法在NLP task提升不大，在reward modeling没有提升。对于这个现象。作者”注意到”：主试验中，Chess这个场景gap越大PRG越小，其他场景都是gap越大PRG越大。因此级联方法缩小gap，对于Chess才有帮助。 </p>
 <blockquote>
 <p>可是，主试验又为什么会有这样的现象呢？</p>
 </blockquote>
-<h3 id="auxiliary-confidence-loss-学生要学会质疑">auxiliary confidence
-loss: 学生要学会质疑</h3>
-<p>注意到：强模型是在弱模型打得标签上训练的，因此强模型不得不去学习弱模型犯的错误。我们更希望强模型从噪声标签中学习任务的intension，而不是学习弱模型的错误(因为对强模型来说，理解弱模型犯的错误也是一个简单的事情)。但目前的训练框架没法区分这两者。</p>
-<p>作者想了一个朴素的办法，把强模型自己的confidence
-loss加入进去作为辅助loss，和弱模型的标签loss形成一个对抗，对冲一下"学习犯错"带来的影响。
-<span class="math display">\[
-L&#39; = (1-\alpha)\text{CE}(f(x), f_w(x)) + \alpha \text{CE}(f(x),
-\hat{f}_t(x))
-\]</span> 其中<span class="math inline">\(f_w(x)\)</span>是老师的logits， <span class="math inline">\(\hat{f}_t(x)=I[f(x)
-&gt;t]\)</span>是给学生模型的预测按照阈值t做了离散化后的标签。<span class="math inline">\(\alpha,t\)</span>都是超参数</p>
-<p>注意到，上面的公式等价于下面这个，思路和self-training有点类似 <span class="math display">\[
-L&#39; = \text{CE}\left(f(x), (1-\alpha)f_w(x)+\alpha\hat{f}_t(x)
-\right)
-\]</span>
-这个新loss相当于噪声标签和学生自己打的标签的一个加权平均。最开始的时候学生啥都不会，应该把<span class="math inline">\(\alpha\)</span>调小，后面再慢慢增大，作者在实验中就在前20%训练中把<span class="math inline">\(\alpha\)</span>从0提升到0.75，后面维持0.75不变</p>
+<h3 id="auxiliary-confidence-loss-学生要学会质疑"><a href="#auxiliary-confidence-loss-学生要学会质疑" class="headerlink" title="auxiliary confidence loss: 学生要学会质疑"></a>auxiliary confidence loss: 学生要学会质疑</h3><p>注意到：强模型是在弱模型打得标签上训练的，因此强模型不得不去学习弱模型犯的错误。我们更希望强模型从噪声标签中学习任务的intension，而不是学习弱模型的错误(因为对强模型来说，理解弱模型犯的错误也是一个简单的事情)。但目前的训练框架没法区分这两者。</p>
+<p>作者想了一个朴素的办法，把强模型自己的confidence loss加入进去作为辅助loss，和弱模型的标签loss形成一个对抗，对冲一下”学习犯错”带来的影响。</p>
+<script type="math/tex; mode=display">
+L' = (1-\alpha)\text{CE}(f(x), f_w(x)) + \alpha \text{CE}(f(x), \hat{f}_t(x))</script><p>其中$f_w(x)$是老师的logits， $\hat{f}_t(x)=I[f(x) &gt;t]$是给学生模型的预测按照阈值t做了离散化后的标签。$\alpha,t$都是超参数</p>
+<p>注意到，上面的公式等价于下面这个，思路和self-training有点类似</p>
+<script type="math/tex; mode=display">
+L' = \text{CE}\left(f(x), (1-\alpha)f_w(x)+\alpha\hat{f}_t(x) \right)</script><p>这个新loss相当于噪声标签和学生自己打的标签的一个加权平均。最开始的时候学生啥都不会，应该把$\alpha$调小，后面再慢慢增大，作者在实验中就在前20%训练中把$\alpha$从0提升到0.75，后面维持0.75不变</p>
 <blockquote>
 <p>如果老师和学生模型的算法相同，也许可以不再标签层面做平滑，可以直接用logits做平滑，去掉一个超参数t。作者估计是为了保证scaling的通用性，就没这么优化。</p>
 </blockquote>
 <p><img src="../../files/images/weak2strong/aux.png" style="zoom:50%;"></p>
-<p>类似上面，作者在NLP任务上做了实验，发现这个优化对于NLP任务的PRG提升很明显，甚至从25%提升到了80%……作者认为这个结论是符合直觉的：aux
-loss可以减缓学生在"weak error
-learning"上的计算资源，减缓对于老师的错误的拟合</p>
+<p>类似上面，作者在NLP任务上做了实验，发现这个优化对于NLP任务的PRG提升很明显，甚至从25%提升到了80%……作者认为这个结论是符合直觉的：aux loss可以减缓学生在”weak error learning”上的计算资源，减缓对于老师的错误的拟合</p>
 <p>上篇也写了4000多字了，就讲到这里，在下篇我会分享作者对于这些现象，以及superalignment问题的理解，再说一说我对这些问题的看法，以及我对于这篇论文研究思路的思考。</p>
 
     </div>
@@ -491,7 +447,7 @@ learning"上的计算资源，减缓对于老师的错误的拟合</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
@@ -592,9 +548,7 @@ learning"上的计算资源，减缓对于老师的错误的拟合</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98weak-to-strong-generalization%E7%9A%84%E8%A1%A8%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">如何提高weak-to-strong
-generalization的表现？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrapping%E7%BA%A7%E8%81%94"><span class="nav-number">4.1.</span> <span class="nav-text">bootstrapping：级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auxiliary-confidence-loss-%E5%AD%A6%E7%94%9F%E8%A6%81%E5%AD%A6%E4%BC%9A%E8%B4%A8%E7%96%91"><span class="nav-number">4.2.</span> <span class="nav-text">auxiliary confidence
-loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%90%E9%AB%98weak-to-strong-generalization%E7%9A%84%E8%A1%A8%E7%8E%B0%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">如何提高weak-to-strong generalization的表现？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrapping%EF%BC%9A%E7%BA%A7%E8%81%94"><span class="nav-number">4.1.</span> <span class="nav-text">bootstrapping：级联</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#auxiliary-confidence-loss-%E5%AD%A6%E7%94%9F%E8%A6%81%E5%AD%A6%E4%BC%9A%E8%B4%A8%E7%96%91"><span class="nav-number">4.2.</span> <span class="nav-text">auxiliary confidence loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -609,7 +563,7 @@ loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -652,15 +606,19 @@ loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/544eb21b" title="2024-10-03-insights" target="_blank">2024-10-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/bb8cd925" title="2024-10-02-insights" target="_blank">2024-10-02-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/50bb6226" title="2024-10-01-insights" target="_blank">2024-10-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/3c018487" title="2024-09-30-insights" target="_blank">2024-09-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1f53403e" title="2024-09-27-insights" target="_blank">2024-09-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -685,10 +643,6 @@ loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -744,12 +698,12 @@ loss: 学生要学会质疑</span></a></li></ol></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">273k</span>
+    <span title="站点总字数">259k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">3:55</span>
 </div>
 
 <i class="fa fa-user-md"></i>
