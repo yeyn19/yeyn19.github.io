@@ -318,53 +318,67 @@
       
         <p>今天来讲一篇我很喜欢的工作，ICLR 2022上通过对比学习建模长文本生成过程的文章。</p>
 <span id="more"></span>
-<p><img src="../files/images/long_text_generation_bridge/authors.png"></p>
+<img src="../files/images/long_text_generation_bridge/authors.png">
 <p>作者团队来自斯坦福大学</p>
-<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>这篇文章瞄准了现在长文本生领域的一个问题：coherence。正常Autoregressive model做长文本生成其实面临两个困境：</p>
+<h2 id="动机">动机</h2>
+<p>这篇文章瞄准了现在长文本生领域的一个问题：coherence。正常Autoregressive model做长文本生成其实面临两个困境：</p>
 <ul>
 <li>由于teacher forcing的训练方式，会造成explosure bias，在inference时很难真的把长文本的所有位置的生成都做好，尤其是一步错步步错。</li>
 <li>在长文本生成中，受限于显存，序列长度不能太长。模型只能有所取舍，比如每次只看到前面500个token是什么，这就从本质上上模型不能感知到前面生成了什么。</li>
 </ul>
 <p>作者提到对于前面一个问题</p>
 <ul>
-<li><p>目前有一些基于plan的方法先一些plan，最后再去做真正的生成。然而，这样就会带来的方法的效果其实非常依赖于一些人工的对plan的标注。</p>
+<li>
+<p>目前有一些基于plan的方法先一些plan，最后再去做真正的生成。然而，这样就会带来的方法的效果其实非常依赖于一些人工的对plan的标注。</p>
 </li>
-<li><p>另一方面，作者也提到有一些通过对比学习等方式尝试对一个长文本的生成过程做一个更好的建模，但这类方法在结果上都不好。</p>
+<li>
+<p>另一方面，作者也提到有一些通过对比学习等方式尝试对一个长文本的生成过程做一个更好的建模，但这类方法在结果上都不好。</p>
 <blockquote>
 <p>这类方法，还有一些关于长文本生成过程面临问题的本质探索的分析性文章，我后面也会阅读一些，可能为大家做一些分享。</p>
 </blockquote>
 </li>
 </ul>
 <p>在本篇工作中，作者着眼于第一个问题，提出了一种基于随机过程布朗桥的建模方法，通过新颖的对比学习loss设计巧妙利用了正例和负例，对长文本生成的atomic process做了更好的表示。最终得到了更好的长文本生成效果。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>那么，作者是怎么看长文本生成过程的呢？</p>
-<p><img src="../files/images/long_text_generation_bridge/bulang.png"></p>
+<h2 id="方法">方法</h2>
+<p>那么，作者是怎么看长文本生成过程的呢？</p>
+<img src="../files/images/long_text_generation_bridge/bulang.png">
 <p>在这里作者想到了随机过程中的布朗桥。就是一个粒子从一个点到另一个点，中间可能会有一个偏移的过程，离起止点越远，这个偏移就越严重。</p>
-<p>作者引入了一个归纳偏置：文本生成也遵循这样的道理。如果把每一句话的句表示都看做一个”点”，一段文本中的很多句话的句表示正是一个句表示空间的布朗桥。这样，最终生成的一整段话的语义应该有比较好的一致性和承接性。</p>
-<script type="math/tex; mode=display">
-p(z_t| z_0, z_T) = \mathcal{N} \left( (1-\frac{t}{T})z_0 +  \frac{t}{T} z_T, \frac{t(T-t)}{T}\right)</script><p>其中这个t可以认为是中间隔了一些句子。</p>
-<h3 id="布朗桥sentence-encoder"><a href="#布朗桥sentence-encoder" class="headerlink" title="布朗桥sentence encoder"></a>布朗桥sentence encoder</h3><p>上面的说法很有道理，但是你该怎么训练这个sentence encoder呢？作者很巧妙，在这里就想到了contrastive learning的方法。</p>
+<p>作者引入了一个归纳偏置：文本生成也遵循这样的道理。如果把每一句话的句表示都看做一个&quot;点&quot;，一段文本中的很多句话的句表示正是一个句表示空间的布朗桥。这样，最终生成的一整段话的语义应该有比较好的一致性和承接性。<br>
+$$<br>
+p(z_t| z_0, z_T) = \mathcal{N} \left( (1-\frac{t}{T})z_0 +  \frac{t}{T} z_T, \frac{t(T-t)}{T}\right)<br>
+$$<br>
+其中这个t可以认为是中间隔了一些句子。</p>
+<h3 id="布朗桥sentence-encoder">布朗桥sentence encoder</h3>
+<p>上面的说法很有道理，但是你该怎么训练这个sentence encoder呢？作者很巧妙，在这里就想到了contrastive learning的方法。</p>
 <p>对比学习一定要有正例和负例，作者这里是怎么考虑正例和负例的呢？</p>
 <ul>
 <li>要判定是不是在布朗桥里，需要最少三个样本。</li>
 <li>正样本明显可以直接从数据集里一段话采样三句</li>
 <li>负样本呢？作者认为，起止点还要是正确的起止点，但负样本应该要求中间的句子来自于一条其他的数据。</li>
 </ul>
-<p>假如说我现在训练一个encoder $ \theta \rightarrow f(\theta)$,对于一个三元组，我们就能算出偏移量</p>
-<script type="math/tex; mode=display">
-d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}{T})f_\theta(x_0) + \frac{t}{T}f_\theta(x_T)) ||^2_2</script><p>对于正样本希望它绝对值小，负样本希望它绝对值大。</p>
-<p>接下来通过采样真实的$x_t$和负例$\hat {x_t}$就能算出对比学习的cross entropy loss</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_N = - \log \frac{e^{d(\text{正样本})}}{ \sum e^{d(\text{所有样本})} }</script><p>通过继续不断地采样，最后encoder就会学到怎么把一个段中的句子编码成符合布朗桥过程的句表示。</p>
+<p>假如说我现在训练一个encoder $ \theta \rightarrow f(\theta)$,对于一个三元组，我们就能算出偏移量<br>
+$$<br>
+d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}{T})f_\theta(x_0) + \frac{t}{T}f_\theta(x_T)) ||^2_2<br>
+$$<br>
+对于正样本希望它绝对值小，负样本希望它绝对值大。</p>
+<p>接下来通过采样真实的$x_t$和负例$\hat {x_t}$就能算出对比学习的cross entropy loss<br>
+$$<br>
+\mathcal{L}_N = - \log \frac{e^{d(\text{正样本})}}{ \sum e^{d(\text{所有样本})} }<br>
+$$<br>
+通过继续不断地采样，最后encoder就会学到怎么把一个段中的句子编码成符合布朗桥过程的句表示。</p>
 <p>具体实现上，作者使用了GPT2 freeze，然后在最后一层的句子EOS表示的基础上叠加了4个可学习的MLP层进行预测</p>
 <p>在这个层面上，作者也类比已有方法的一些setting，论证了布朗桥建模的正确性。我后面可能也会看看他引的其他论文。</p>
-<h3 id="sentence-embedding-decoder"><a href="#sentence-embedding-decoder" class="headerlink" title="sentence embedding decoder"></a>sentence embedding decoder</h3><p>当第一阶段的sentence encoder训练结束以后，作者就会开始第二阶段的实际文本生成过程。在这里，其实有一个sentence embedding和之前生成的内容作为指导信号。作者直接fine-tune了一下GPT2做这个decoder。</p>
-<p><img src="../files/images/long_text_generation_bridge/plan.png"></p>
+<h3 id="sentence-embedding-decoder">sentence embedding decoder</h3>
+<p>当第一阶段的sentence encoder训练结束以后，作者就会开始第二阶段的实际文本生成过程。在这里，其实有一个sentence embedding和之前生成的内容作为指导信号。作者直接fine-tune了一下GPT2做这个decoder。</p>
+<img src="../files/images/long_text_generation_bridge/plan.png">
 <p>作者在这里fine-tune时不仅要求模型可以做next-token predicition，同时要求可以同时predict出来下一句话的sentence embedding</p>
 <p>具体的decoder结构作者在正文中没有提，但在附录里说了一下：</p>
 <ul>
-<li><p>假如一个段落分成两个句子 [SOS] [s1] [s1] [s1] [ . ] [s2] [s2] [s2]。其中[.]是句子开始符号，[SOS]是段落开始符号。s1是第一句，s2是第二句，分别有z1,z2两个句表示。接下来作者直接把句表示z贴在position embedding上z1, z1, z1, z1, z2, z2, z2, z2，然后当正常的GPT2来做fine-tune</p>
+<li>
+<p>假如一个段落分成两个句子 [SOS] [s1] [s1] [s1] [ . ] [s2] [s2] [s2]。其中[.]是句子开始符号，[SOS]是段落开始符号。s1是第一句，s2是第二句，分别有z1,z2两个句表示。接下来作者直接把句表示z贴在position embedding上z1, z1, z1, z1, z2, z2, z2, z2，然后当正常的GPT2来做fine-tune</p>
 </li>
-<li><p>采样时就是你先有生成的z1和s1 tokens，然后有个z2。你直接在后面加position embedding然后Autoregressive decode到下一个[.] token就算完成了。</p>
+<li>
+<p>采样时就是你先有生成的z1和s1 tokens，然后有个z2。你直接在后面加position embedding然后Autoregressive decode到下一个[.] token就算完成了。</p>
 </li>
 </ul>
 <p>对于一个长文本的解码过程，</p>
@@ -500,7 +514,7 @@ d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -543,6 +557,10 @@ d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}
       
       
         <li class="recent_posts_li">
+          <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/544eb21b" title="2024-10-03-insights" target="_blank">2024-10-03-insights</a>
         </li>
       
@@ -576,10 +594,6 @@ d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -635,12 +649,12 @@ d(x_0,x_t,x_T; f_\theta ) = - \frac{1}{2\sigma^2} ||f_\theta(x_t) - ((1-\frac{t}
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">259k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:55</span>
+    <span title="站点阅读时长">4:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>
