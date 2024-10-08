@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Pandora: Towards General World Model with Natural Language Actions and Video States arxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后">
+  <meta name="description" content="Pandora: Towards General World Model with Natural Language Actions and Video Statesarxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-17-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a1c1f30a">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Pandora: Towards General World Model with Natural Language Actions and Video States arxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后">
+<meta property="og:description" content="Pandora: Towards General World Model with Natural Language Actions and Video Statesarxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-17-06-21/pandora.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-17-06-21/vega.png">
@@ -313,18 +313,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="pandora-towards-general-world-model-with-natural-language-actions-and-video-states"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.09455">Pandora: Towards General World
-Model with Natural Language Actions and Video States</a></h2>
-<p>arxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后面希望发生什么，让模型接着生成呢？作者发现可行，而且这个认为本身更像是"世界模型"的训练任务。</p>
+        <h2 id="Pandora-Towards-General-World-Model-with-Natural-Language-Actions-and-Video-States"><a href="#Pandora-Towards-General-World-Model-with-Natural-Language-Actions-and-Video-States" class="headerlink" title="Pandora: Towards General World Model with Natural Language Actions and Video States"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.09455">Pandora: Towards General World Model with Natural Language Actions and Video States</a></h2><p>arxiv的最后一篇论文，差点略过去了，没想到这么好玩：一篇视频生成的文章。作者认为视频本身就是带时间信息的，目前的视频生成模型都是给一段caption，生成一整个视频。如果已经有个视频了，能不能给定这个视频的前缀，再用自然语言说后面希望发生什么，让模型接着生成呢？作者发现可行，而且这个认为本身更像是”世界模型”的训练任务。</p>
 <blockquote>
 <p>感觉这个特性是产品设计比较关键的：大家做video生成肯定没人会一轮成功的，这样子一轮轮迭代才是这个领域产品的形态。</p>
-<p>另外，这个任务本质上是需要很多时间戳对齐的caption数据，如果是这样，那么对应的video
-understanding模型好像也能搞？把loss token换成text就行了</p>
+<p>另外，这个任务本质上是需要很多时间戳对齐的caption数据，如果是这样，那么对应的video understanding模型好像也能搞？把loss token换成text就行了</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/pandora.png"></p>
-<h2 id="vega-learning-interleaved-image-text-comprehension-in-vision-language-large-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.10228">VEGA: Learning Interleaved
-Image-Text Comprehension in Vision-Language Large Models</a></h2>
-<p>作者讨论了在多图输入的VLM场景下，常常存在冗余的、干扰的信息，模型能不能正确地忽略这些信息呢？作者由此构造了一个benchmark，发现现在的模型确实还有进步空间。最后，作者搞了一波数据，发现finetune完以后的模型会好很多</p>
+<h2 id="VEGA-Learning-Interleaved-Image-Text-Comprehension-in-Vision-Language-Large-Models"><a href="#VEGA-Learning-Interleaved-Image-Text-Comprehension-in-Vision-Language-Large-Models" class="headerlink" title="VEGA: Learning Interleaved Image-Text Comprehension in Vision-Language Large Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.10228">VEGA: Learning Interleaved Image-Text Comprehension in Vision-Language Large Models</a></h2><p>作者讨论了在多图输入的VLM场景下，常常存在冗余的、干扰的信息，模型能不能正确地忽略这些信息呢？作者由此构造了一个benchmark，发现现在的模型确实还有进步空间。最后，作者搞了一波数据，发现finetune完以后的模型会好很多</p>
 <blockquote>
 <p>经典ACL风八股文，不过作者提的这个问题我挺喜欢的</p>
 </blockquote>
@@ -428,9 +423,7 @@ Image-Text Comprehension in Vision-Language Large Models</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pandora-towards-general-world-model-with-natural-language-actions-and-video-states"><span class="nav-number">1.</span> <span class="nav-text">Pandora: Towards General World
-Model with Natural Language Actions and Video States</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vega-learning-interleaved-image-text-comprehension-in-vision-language-large-models"><span class="nav-number">2.</span> <span class="nav-text">VEGA: Learning Interleaved
-Image-Text Comprehension in Vision-Language Large Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pandora-Towards-General-World-Model-with-Natural-Language-Actions-and-Video-States"><span class="nav-number">1.</span> <span class="nav-text">Pandora: Towards General World Model with Natural Language Actions and Video States</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VEGA-Learning-Interleaved-Image-Text-Comprehension-in-Vision-Language-Large-Models"><span class="nav-number">2.</span> <span class="nav-text">VEGA: Learning Interleaved Image-Text Comprehension in Vision-Language Large Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,12 +573,12 @@ Image-Text Comprehension in Vision-Language Large Models</span></a></li></ol></d
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">262k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
 
 <i class="fa fa-user-md"></i>

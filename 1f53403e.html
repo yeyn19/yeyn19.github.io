@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="What Would You Ask When You First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven Questioning 挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。  之前RL有个curiosity-driven rl的方">
+  <meta name="description" content="What Would You Ask When You First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven Questioning挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。  之前RL有个curiosity-driven rl的方向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-09-27-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/1f53403e">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="What Would You Ask When You First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven Questioning 挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。  之前RL有个curiosity-driven rl的方">
+<meta property="og:description" content="What Would You Ask When You First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven Questioning挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。  之前RL有个curiosity-driven rl的方向">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-23-09-27/curiosity.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-23-09-27/mio.png">
@@ -314,26 +314,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="what-would-you-ask-when-you-first-saw-a2-b2-c2-evaluating-llm-on-curiosity-driven-questioning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17172">What Would You Ask When You
-First Saw a2 + b2 = c2? Evaluating LLM on Curiosity-Driven
-Questioning</a></h2>
-<p>挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。</p>
+        <h2 id="What-Would-You-Ask-When-You-First-Saw-a2-b2-c2-Evaluating-LLM-on-Curiosity-Driven-Questioning"><a href="#What-Would-You-Ask-When-You-First-Saw-a2-b2-c2-Evaluating-LLM-on-Curiosity-Driven-Questioning" class="headerlink" title="What Would You Ask When You First Saw a2 + b2 = c2? Evaluating LLM on Curiosity-Driven Questioning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17172">What Would You Ask When You First Saw a2 + b2 = c2? Evaluating LLM on Curiosity-Driven Questioning</a></h2><p>挺有趣的纯文本的工作。这篇工作在评测模型的求知欲：收到一个passage，能提出怎样的问题？作者评测了不同模型，发现小模型其实提的问题反而更好。</p>
 <blockquote>
-<p>之前RL有个curiosity-driven rl的方向把求知欲用一个value
-function建模出来，指导后面的探索。感觉现在有点像是用generative的方式看待这个问题，我还挺喜欢这个思路的可能的后续推导的</p>
+<p>之前RL有个curiosity-driven rl的方向把求知欲用一个value function建模出来，指导后面的探索。感觉现在有点像是用generative的方式看待这个问题，我还挺喜欢这个思路的可能的后续推导的</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-09-23-09-27/curiosity.png"></p>
-<h2 id="mio-a-foundation-model-on-multimodal-tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17692">MIO: A Foundation Model on
-Multimodal Tokens</a></h2>
-<p>chamleon之后，终于又有人接了一下any-to-any
-modal的班，不知道为啥这个方向的工作挺少的，可能全是创业公司在卷？</p>
+<h2 id="MIO-A-Foundation-Model-on-Multimodal-Tokens"><a href="#MIO-A-Foundation-Model-on-Multimodal-Tokens" class="headerlink" title="MIO: A Foundation Model on Multimodal Tokens"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17692">MIO: A Foundation Model on Multimodal Tokens</a></h2><p>chamleon之后，终于又有人接了一下any-to-any modal的班，不知道为啥这个方向的工作挺少的，可能全是创业公司在卷？</p>
 <p><img src="../../files/images/arxiv-insights/2024-09-23-09-27/mio.png"></p>
-<h2 id="the-hard-positive-truth-about-vision-language-compositionality"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17958">The Hard Positive Truth about
-Vision-Language Compositionality</a></h2>
-<p>作者发现，之前大家认为clip过于”粗心“，把类似的负样本都分类到一起，所以有方法去引入hard
-negative。然而，这个训练导致clip过于敏感，把hard
-positive都分类错了。所以，作者同时引入了hard positive和 hard
-negative</p>
+<h2 id="The-Hard-Positive-Truth-about-Vision-Language-Compositionality"><a href="#The-Hard-Positive-Truth-about-Vision-Language-Compositionality" class="headerlink" title="The Hard Positive Truth about Vision-Language Compositionality"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.17958">The Hard Positive Truth about Vision-Language Compositionality</a></h2><p>作者发现，之前大家认为clip过于”粗心“，把类似的负样本都分类到一起，所以有方法去引入hard negative。然而，这个训练导致clip过于敏感，把hard positive都分类错了。所以，作者同时引入了hard positive和 hard negative</p>
 <p><img src="../../files/images/arxiv-insights/2024-09-23-09-27/hard-positive.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -434,11 +422,7 @@ negative</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#what-would-you-ask-when-you-first-saw-a2-b2-c2-evaluating-llm-on-curiosity-driven-questioning"><span class="nav-number">1.</span> <span class="nav-text">What Would You Ask When You
-First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven
-Questioning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mio-a-foundation-model-on-multimodal-tokens"><span class="nav-number">2.</span> <span class="nav-text">MIO: A Foundation Model on
-Multimodal Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-hard-positive-truth-about-vision-language-compositionality"><span class="nav-number">3.</span> <span class="nav-text">The Hard Positive Truth about
-Vision-Language Compositionality</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Would-You-Ask-When-You-First-Saw-a2-b2-c2-Evaluating-LLM-on-Curiosity-Driven-Questioning"><span class="nav-number">1.</span> <span class="nav-text">What Would You Ask When You First Saw a2 + b2 &#x3D; c2? Evaluating LLM on Curiosity-Driven Questioning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIO-A-Foundation-Model-on-Multimodal-Tokens"><span class="nav-number">2.</span> <span class="nav-text">MIO: A Foundation Model on Multimodal Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Hard-Positive-Truth-about-Vision-Language-Compositionality"><span class="nav-number">3.</span> <span class="nav-text">The Hard Positive Truth about Vision-Language Compositionality</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -588,12 +572,12 @@ Vision-Language Compositionality</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">262k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
 
 <i class="fa fa-user-md"></i>

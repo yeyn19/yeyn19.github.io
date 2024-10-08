@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension 推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。 在这篇工">
+  <meta name="description" content="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。 在这篇工作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-02-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/fb15e1d6">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension 推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。 在这篇工">
+<meta property="og:description" content="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。 在这篇工作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-01-01-05/git-agent.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-01-01-05/improving-text-embedding.png">
@@ -313,24 +313,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="gitagent-facilitating-autonomous-agent-with-github-by-tool-extension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.17294.pdf">GitAgent: Facilitating
-Autonomous Agent with GitHub by Tool Extension</a></h2>
-<p>推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software
-engineering
-track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。</p>
+        <h2 id="GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension"><a href="#GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension" class="headerlink" title="GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.17294.pdf">GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension</a></h2><p>推荐一下我参与的工作，不算今天的名额……不知道为啥归类到software engineering track了。这个算是自主Agent的一个阶段成果了，我们一直在设想一个可能性：Agent能不能自动用人类的方式去地使用、整合人类已有的资源去完成任务。</p>
 <p>在这篇工作中，我们尝试了让LLM自动从Github上搜索、clone、运行相关的仓库，来完成我们想完成的任务。这篇工作展示了某种可能性，可能是以后GPT4、GPT4.5、GPT5去接管人类计算和智慧资源的方式</p>
 <p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/git-agent.png"></p>
-<h2 id="improving-text-embeddings-with-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.00368.pdf">Improving Text Embeddings
-with Large Language Models</a></h2>
-<p>Furu Wei的论文。作者在dense
-retreive的领域做了一个类似alpaca的东西：</p>
+<h2 id="Improving-Text-Embeddings-with-Large-Language-Models"><a href="#Improving-Text-Embeddings-with-Large-Language-Models" class="headerlink" title="Improving Text Embeddings with Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.00368.pdf">Improving Text Embeddings with Large Language Models</a></h2><p>Furu Wei的论文。作者在dense retreive的领域做了一个类似alpaca的东西：</p>
 <ul>
 <li>首先让GPT4生成一大堆retrieve可能的任务</li>
-<li>然后对于每种任务，都生成一大堆 (question, positive,
-hard-negative)三元组</li>
+<li>然后对于每种任务，都生成一大堆 (question, positive, hard-negative)三元组</li>
 </ul>
-<p>使用这个造数据pipeline生成了100,000数据，然后直接用简单的的对比学习loss训练了1k
-step，就得到了多个下游任务上的新SOTA</p>
+<p>使用这个造数据pipeline生成了100,000数据，然后直接用简单的的对比学习loss训练了1k step，就得到了多个下游任务上的新SOTA</p>
 <blockquote>
 <p>神奇，这么朴素暴力的办法之前没有人想到吗……</p>
 </blockquote>
@@ -434,9 +425,7 @@ step，就得到了多个下游任务上的新SOTA</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitagent-facilitating-autonomous-agent-with-github-by-tool-extension"><span class="nav-number">1.</span> <span class="nav-text">GitAgent: Facilitating
-Autonomous Agent with GitHub by Tool Extension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-text-embeddings-with-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Improving Text Embeddings
-with Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#GitAgent-Facilitating-Autonomous-Agent-with-GitHub-by-Tool-Extension"><span class="nav-number">1.</span> <span class="nav-text">GitAgent: Facilitating Autonomous Agent with GitHub by Tool Extension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-Text-Embeddings-with-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Improving Text Embeddings with Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -586,12 +575,12 @@ with Large Language Models</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">262k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
 
 <i class="fa fa-user-md"></i>
