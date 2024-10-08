@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Synthetic continued pretraining一篇挺神奇的工作，将高效continue pretrain的：作者认为传统的CT需要巨大的domain corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是可">
+  <meta name="description" content="Synthetic continued pretraining 一篇挺神奇的工作，将高效continue pretrain的：作者认为传统的CT需要巨大的domain corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-09-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/6098ed7b">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Synthetic continued pretraining一篇挺神奇的工作，将高效continue pretrain的：作者认为传统的CT需要巨大的domain corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是可">
+<meta property="og:description" content="Synthetic continued pretraining 一篇挺神奇的工作，将高效continue pretrain的：作者认为传统的CT需要巨大的domain corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-09-09-13/her.png">
 <meta property="article:published_time" content="2024-09-12T03:00:52.000Z">
@@ -312,9 +312,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Synthetic-continued-pretraining"><a href="#Synthetic-continued-pretraining" class="headerlink" title="Synthetic continued pretraining"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.07431"><strong>Synthetic continued pretraining</strong></a></h2><p>一篇挺神奇的工作，将高效continue pretrain的：作者认为传统的CT需要巨大的domain corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是可以的</p>
+        <h2 id="synthetic-continued-pretraining"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.07431"><strong>Synthetic continued
+pretraining</strong></a></h2>
+<p>一篇挺神奇的工作，将高效continue
+pretrain的：作者认为传统的CT需要巨大的domain
+corpus来让模型习得新的能力，这个方式比较低效(data-inefficient)。如果语料本身是弱监督信号，能不能直接抽取语料里面的各种实体关系，变成类知识图谱，再把知识图谱重新合成成流畅的、小规模的CT文本呢？作者发现这样是可以的</p>
 <blockquote>
-<p>有种怪怪的感觉，像是把”知识”这个概念规约成了实体关系，再把实体关系规则蒸馏进了模型里：等价于LLM外挂知识库？</p>
+<p>有种怪怪的感觉，像是把"知识"这个概念规约成了实体关系，再把实体关系规则蒸馏进了模型里：等价于LLM外挂知识库？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-09-09-09-13/her.png"></p>
 <!-- flag of hidden posts -->
@@ -416,7 +420,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synthetic-continued-pretraining"><span class="nav-number">1.</span> <span class="nav-text">Synthetic continued pretraining</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#synthetic-continued-pretraining"><span class="nav-number">1.</span> <span class="nav-text">Synthetic continued
+pretraining</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -566,12 +571,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:57</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

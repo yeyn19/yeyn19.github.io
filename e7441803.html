@@ -301,7 +301,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.8k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -323,14 +323,18 @@
       
         <p>今天分享一篇最近挂arXiv的很有意思的工作，是讲用diffusion模型来做optimizer优化的。</p>
 <span id="more"></span>
-<p>作者团队是伯克利，一作其实是做CV的，他的<code>GAN-Supervised Dense Visual Alignment</code>在今年CVPR上获得了Oral Best Paper</p>
+<p>作者团队是伯克利，一作其实是做CV的，他的<code>GAN-Supervised Dense Visual Alignment</code>在今年CVPR上获得了Oral
+Best Paper</p>
 <p><img src="../files/images/G_pt/authors.png"></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>首先要说一说什么是optimizer</p>
+<h2 id="introduction">Introduction</h2>
+<p>首先要说一说什么是optimizer</p>
 <blockquote>
 <p>optimizer就是负责优化模型的。它持续的接受当前模型的参数和本次的梯度，然后负责进行模型参数的更新。可能会利用模型历史参数的信息来做一些类似momentum的方法。</p>
 </blockquote>
-<p>作者在这里提到一些已有的设计好的优化器manual optimizer比如SGD，ADAM，它们面临的问题优化速度很慢，不能从过去的经历中学到东西。这个”过去“是指过去的run。比如说你用同一个初始参数来初始化模型，用同一个数据集训练。跑100次，第一次和第100次都是需要同样多的epoch才能收敛。</p>
-<p>于是作者开始递归了……能不能训练一个优化器来优化模型，这就是<code>learning to learn</code>的意思。希望可以从一些已有的checkpoint作为数据集（大小23M），其中含有模型参数、模型初始参数、每个状态的loss、Error、Return等信息。是的，不含有梯度信息，只是单纯的loss，因此RL的score也在这个范围内。同时作者训练一个G.pt(generative checkpoint)模型来输入最开始的参数$\theta_0$和希望到达的loss，让模型快速地输出目标参数。在这里，作者非常巧妙地用到了diffusion训练框架，后文会提到。</p>
+<p>作者在这里提到一些已有的设计好的优化器manual
+optimizer比如SGD，ADAM，它们面临的问题优化速度很慢，不能从过去的经历中学到东西。这个”过去“是指过去的run。比如说你用同一个初始参数来初始化模型，用同一个数据集训练。跑100次，第一次和第100次都是需要同样多的epoch才能收敛。</p>
+<p>于是作者开始递归了……能不能训练一个优化器来优化模型，这就是<code>learning to learn</code>的意思。希望可以从一些已有的checkpoint作为数据集（大小23M），其中含有模型参数、模型初始参数、每个状态的loss、Error、Return等信息。是的，不含有梯度信息，只是单纯的loss，因此RL的score也在这个范围内。同时作者训练一个G.pt(generative
+checkpoint)模型来输入最开始的参数<span class="math inline">\(\theta_0\)</span>和希望到达的loss，让模型快速地输出目标参数。在这里，作者非常巧妙地用到了diffusion训练框架，后文会提到。</p>
 <p><img src="../files/images/G_pt/dataset.png"></p>
 <p>总体而言，这个方法有如下优点：</p>
 <ul>
@@ -339,52 +343,78 @@
 <li>对于out-of-distribution的初始化方法，效果也不错(diffusion能力？)</li>
 <li>对于不可导的loss比如RL的score，也能出结果。</li>
 </ul>
-<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><p>总体算法如下图所示：</p>
+<h2 id="method">Method</h2>
+<p>总体算法如下图所示：</p>
 <p><img src="../files/images/G_pt/algo.png"></p>
-<h3 id="首先是如何制造这个数据集"><a href="#首先是如何制造这个数据集" class="headerlink" title="首先是如何制造这个数据集"></a>首先是如何制造这个数据集</h3><ul>
-<li><p>数据集里的每一个checkpoint组其实是一次running里的多个checkpoint，就是把模型正常的训练一下，然后最终每个running都采样一些</p>
-</li>
-<li><p>由于数据很大生成很慢，可以思考进行数据增强</p>
-</li>
+<h3 id="首先是如何制造这个数据集">首先是如何制造这个数据集</h3>
+<ul>
+<li><p>数据集里的每一个checkpoint组其实是一次running里的多个checkpoint，就是把模型正常的训练一下，然后最终每个running都采样一些</p></li>
+<li><p>由于数据很大生成很慢，可以思考进行数据增强</p></li>
 </ul>
 <blockquote>
 <p>比如permutation，连续两个矩阵运算，两边的参数分别左乘右乘互逆的交换阵，就是一个等价的模型。</p>
 <p>比如大小变换也是，前面所有参数乘2，后面的除以2，还是等价模型。</p>
 </blockquote>
-<p>总之，作者最终获得了一个从MNIST, CIFAR-10数据集训练MLPs, CNNs结构的10万次running里的23M个checkpoint</p>
-<h3 id="G-pt是什么样子"><a href="#G-pt是什么样子" class="headerlink" title="G.pt是什么样子"></a>G.pt是什么样子</h3><p><img src="../files/images/G_pt/arch.png"></p>
-<h4 id="training-and-sample"><a href="#training-and-sample" class="headerlink" title="training and sample"></a>training and sample</h4><p>在训练时，可以知道一个模型的初始参数$\theta_0$与初始loss $L_0$。同时还有后面某个step的参数$\theta^<em>$和loss $L^</em>$</p>
-<p>接下来，先把$\theta^<em>$按diffusion时间j进行noise变成$\theta_j^</em>$,然后使用diffusion的训练方式：</p>
-<script type="math/tex; mode=display">
-\mathcal{L}(G) = \mathbb{E} \left[|| \theta^* - G(\theta_j^*, \theta_0, L_0, L^*, j) ||^2_2 \right]</script><blockquote>
-<p>有个小细节，在这里，作者的模型G.pt是预测参数$\theta_j$，而不是noise或者什么，这个方式叫做predict signal</p>
-<p>作者在后文提到了另一个细节Training on intermediate checkpoints improves one step training。也就是说在选取训练batch的时候，初始$\theta_0$可以不是真的初始参数，然后目标参数$\theta^*$也可以是训练中间的一个参数，这样会使得G.pt总体表现提升50%</p>
+<p>总之，作者最终获得了一个从MNIST, CIFAR-10数据集训练MLPs,
+CNNs结构的10万次running里的23M个checkpoint</p>
+<h3 id="g.pt是什么样子">G.pt是什么样子</h3>
+<p><img src="../files/images/G_pt/arch.png"></p>
+<h4 id="training-and-sample">training and sample</h4>
+<p>在训练时，可以知道一个模型的初始参数<span class="math inline">\(\theta_0\)</span>与初始loss <span class="math inline">\(L_0\)</span>。同时还有后面某个step的参数<span class="math inline">\(\theta^*\)</span>和loss <span class="math inline">\(L^*\)</span></p>
+<p>接下来，先把<span class="math inline">\(\theta^*\)</span>按diffusion时间j进行noise变成<span class="math inline">\(\theta_j^*\)</span>,然后使用diffusion的训练方式：
+<span class="math display">\[
+\mathcal{L}(G) = \mathbb{E} \left[|| \theta^* - G(\theta_j^*, \theta_0,
+L_0, L^*, j) ||^2_2 \right]
+\]</span></p>
+<blockquote>
+<p>有个小细节，在这里，作者的模型G.pt是预测参数<span class="math inline">\(\theta_j\)</span>，而不是noise或者什么，这个方式叫做predict
+signal</p>
 </blockquote>
-<p>训练结束以后，模型直接输入一个新的初始参数$\theta_0$和$L_0$，然后构造一个比较低的prompt Loss，让模型跑一次，就行了(这个一次，是指一次diffusion采样，可能会很多T=1000)。作者sample公式使用DDPM传统公式</p>
-<h4 id="tokenize"><a href="#tokenize" class="headerlink" title="tokenize"></a>tokenize</h4><p>G.pt需要输入模型参数，参数要如何表示，作者考虑了NLP里tokenize的方法，把模型的每个layer变成M维token(超过M就用多个chunk一下)。</p>
-<p>注意，所有的时间j，loss L， return R，error E作为单独的token也要输入进去</p>
+<blockquote>
+<p>作者在后文提到了另一个细节Training on intermediate checkpoints
+improves one step training。也就是说在选取训练batch的时候，初始<span class="math inline">\(\theta_0\)</span>可以不是真的初始参数，然后目标参数<span class="math inline">\(\theta^*\)</span>也可以是训练中间的一个参数，这样会使得G.pt总体表现提升50%</p>
+</blockquote>
+<p>训练结束以后，模型直接输入一个新的初始参数<span class="math inline">\(\theta_0\)</span>和<span class="math inline">\(L_0\)</span>，然后构造一个比较低的prompt
+Loss，让模型跑一次，就行了(这个一次，是指一次diffusion采样，可能会很多T=1000)。作者sample公式使用DDPM传统公式</p>
+<h4 id="tokenize">tokenize</h4>
+<p>G.pt需要输入模型参数，参数要如何表示，作者考虑了NLP里tokenize的方法，把模型的每个layer变成M维token(超过M就用多个chunk一下)。</p>
+<p>注意，所有的时间j，loss L， return R，error
+E作为单独的token也要输入进去</p>
 <p>接下来，作者有个小细节，tokenize完以后要用一个MLP全连接过一次，每个token的MLP是不共享参数的</p>
-<h4 id="gpt-2"><a href="#gpt-2" class="headerlink" title="gpt 2"></a>gpt 2</h4><p>后面，就直接把模型扔进一个gpt 2结构做一次decode。作者提到去掉了casual mask，这是因为模型应该需要看到”未来“，知晓所有信息</p>
-<p>然后把前面$\theta_j^*$位置的next token prediciton的结果拿出来，再过一个不共享参数的MLP作为模型的输出</p>
-<h4 id="Global-residual-connection"><a href="#Global-residual-connection" class="headerlink" title="Global residual connection"></a>Global residual connection</h4><p>作者提到，模型本身的输出还有一个全局的残差连接。然后模型其实是预测$\theta^<em> - \theta_j^</em>$，同时让模型的参数按照全0初始化，也就是总体而言是一一映射初始化。</p>
+<h4 id="gpt-2">gpt 2</h4>
+<p>后面，就直接把模型扔进一个gpt 2结构做一次decode。作者提到去掉了casual
+mask，这是因为模型应该需要看到”未来“，知晓所有信息</p>
+<p>然后把前面<span class="math inline">\(\theta_j^*\)</span>位置的next
+token prediciton的结果拿出来，再过一个不共享参数的MLP作为模型的输出</p>
+<h4 id="global-residual-connection">Global residual connection</h4>
+<p>作者提到，模型本身的输出还有一个全局的残差连接。然后模型其实是预测<span class="math inline">\(\theta^* -
+\theta_j^*\)</span>，同时让模型的参数按照全0初始化，也就是总体而言是一一映射初始化。</p>
 <p><img src="../files/images/G_pt/hyperparameter.png"></p>
-<p>超参如上图，可以看出作者的G.pt模型其实不小，训练时max length应该有几千，还是挺烧卡的。</p>
-<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>作者首先摆出来了一次sample的结果，G.pt给的prompt loss在上面的超参的图里。</p>
-<p>可以看出传统优化器一次sample基本啥效果都没有，但G.pt效果已经不错了。后面一行是传统manual optimizer训练曲线，红线是G.pt一次的结果，看起来G.pt一次顶传统optimizer炼1个小时。</p>
+<p>超参如上图，可以看出作者的G.pt模型其实不小，训练时max
+length应该有几千，还是挺烧卡的。</p>
+<h2 id="experiment">Experiment</h2>
+<p>作者首先摆出来了一次sample的结果，G.pt给的prompt
+loss在上面的超参的图里。</p>
+<p>可以看出传统优化器一次sample基本啥效果都没有，但G.pt效果已经不错了。后面一行是传统manual
+optimizer训练曲线，红线是G.pt一次的结果，看起来G.pt一次顶传统optimizer炼1个小时。</p>
 <p><img src="../files/images/G_pt/result.png"></p>
 <p>多次的持续sample，每次prompt loss低一些效果怎么样呢？</p>
 <ul>
 <li>对于初始化方法接近的模型，第一次效果基本就可以了，再来一次效果差距不大</li>
 <li>对于out-of-distribution的数据，多次sample的效果更好</li>
 </ul>
-<p>另一方面，作者也考察了输入不同prompt模型输出的准确度，可以看出对于不同的prompt loss，模型输出的目标参数对应的loss，确实比较接近prompt。</p>
+<p>另一方面，作者也考察了输入不同prompt模型输出的准确度，可以看出对于不同的prompt
+loss，模型输出的目标参数对应的loss，确实比较接近prompt。</p>
 <p><img src="../files/images/G_pt/different_loss.png"></p>
 <p>接下来作者做了个很有意思的实验，首先作者探索扩大模型规模对结果的影响(10M-800M)，发现基本是线性的。同时对比了扩大数据规模的影响，发现基本触顶了，这说明的G.pt结构的能力还可以被大模型进一步的发挥。这个实验设计很有意思，参考了</p>
 <p><img src="../files/images/G_pt/scale.png" style="zoom:33%;"></p>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<h2 id="我的思考">我的思考</h2>
+<ul>
 <li>这个工作一看就是很好的工作，diffusion泛化能力的又一体现，让人看了就觉得自己可以follow一下。研究的问题也很有实际意义</li>
-<li>全局残差连接是不是成功的关键？连接起了diffusion框架里prediction noise/signal的问题，但作者没多说</li>
-<li>我个人感觉这个最少是2023 ICLR oral，没准是best paper。现在放arXiv应该是赶ICLR投稿</li>
+<li>全局残差连接是不是成功的关键？连接起了diffusion框架里prediction
+noise/signal的问题，但作者没多说</li>
+<li>我个人感觉这个最少是2023 ICLR oral，没准是best
+paper。现在放arXiv应该是赶ICLR投稿</li>
 </ul>
 
     </div>
@@ -497,7 +527,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%B6%E9%80%A0%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.1.</span> <span class="nav-text">首先是如何制造这个数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#G-pt%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90"><span class="nav-number">2.2.</span> <span class="nav-text">G.pt是什么样子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#training-and-sample"><span class="nav-number">2.2.1.</span> <span class="nav-text">training and sample</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tokenize"><span class="nav-number">2.2.2.</span> <span class="nav-text">tokenize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gpt-2"><span class="nav-number">2.2.3.</span> <span class="nav-text">gpt 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Global-residual-connection"><span class="nav-number">2.2.4.</span> <span class="nav-text">Global residual connection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">Method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E5%A6%82%E4%BD%95%E5%88%B6%E9%80%A0%E8%BF%99%E4%B8%AA%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-number">2.1.</span> <span class="nav-text">首先是如何制造这个数据集</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#g.pt%E6%98%AF%E4%BB%80%E4%B9%88%E6%A0%B7%E5%AD%90"><span class="nav-number">2.2.</span> <span class="nav-text">G.pt是什么样子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#training-and-sample"><span class="nav-number">2.2.1.</span> <span class="nav-text">training and sample</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#tokenize"><span class="nav-number">2.2.2.</span> <span class="nav-text">tokenize</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gpt-2"><span class="nav-number">2.2.3.</span> <span class="nav-text">gpt 2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#global-residual-connection"><span class="nav-number">2.2.4.</span> <span class="nav-text">Global residual connection</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -647,12 +677,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:57</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

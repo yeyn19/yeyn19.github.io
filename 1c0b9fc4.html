@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Many-Shot In-Context Learning in Multimodal Foundation Models如果大家还记得那个manyshot in-context learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling law的。同时，如果query按照bat">
+  <meta name="description" content="Many-Shot In-Context Learning in Multimodal Foundation Models 如果大家还记得那个manyshot in-context learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling law的。同时，如果query按照ba">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-17-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/1c0b9fc4">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Many-Shot In-Context Learning in Multimodal Foundation Models如果大家还记得那个manyshot in-context learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling law的。同时，如果query按照bat">
+<meta property="og:description" content="Many-Shot In-Context Learning in Multimodal Foundation Models 如果大家还记得那个manyshot in-context learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling law的。同时，如果query按照ba">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-13-05-17/manyshot-vlm.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-13-05-17/rl.png">
@@ -313,12 +313,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Many-Shot-In-Context-Learning-in-Multimodal-Foundation-Models"><a href="#Many-Shot-In-Context-Learning-in-Multimodal-Foundation-Models" class="headerlink" title="Many-Shot In-Context Learning in Multimodal Foundation Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.09798">Many-Shot In-Context Learning in Multimodal Foundation Models</a></h2><p>如果大家还记得那个manyshot in-context learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling law的。同时，如果query按照batch的形式给出，一次api call预测多个query，效果会更好。</p>
+        <h2 id="many-shot-in-context-learning-in-multimodal-foundation-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.09798">Many-Shot In-Context Learning in
+Multimodal Foundation Models</a></h2>
+<p>如果大家还记得那个manyshot in-context
+learning，今天stanford在VLM里测试了效果。他们测试了gpt-4o和Gemini，发现非常多图输入的情况下，performance和样本数基本是符合scaling
+law的。同时，如果query按照batch的形式给出，一次api
+call预测多个query，效果会更好。</p>
 <blockquote>
 <p>手真快，4o这就测完了……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-05-13-05-17/manyshot-vlm.png"></p>
-<h2 id="Fine-Tuning-Large-Vision-Language-Models-as-Decision-Making-Agents-via-Reinforcement-Learning"><a href="#Fine-Tuning-Large-Vision-Language-Models-as-Decision-Making-Agents-via-Reinforcement-Learning" class="headerlink" title="Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.10292">Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning</a></h2><p>Berkeley的文章，作者竟然有LeCun。如果大家还记得之前deepmind那篇 when ReAct meets ReFT，这篇是在vlm领域做的：让一个vlm agent通过CoT的方式生成trace，然后给出Reward，进而使用rl优化：作者发现训练以后的7B模型可以在特定任务上超过GPT4</p>
+<h2 id="fine-tuning-large-vision-language-models-as-decision-making-agents-via-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.10292">Fine-Tuning Large
+Vision-Language Models as Decision-Making Agents via Reinforcement
+Learning</a></h2>
+<p>Berkeley的文章，作者竟然有LeCun。如果大家还记得之前deepmind那篇 when
+ReAct meets ReFT，这篇是在vlm领域做的：让一个vlm
+agent通过CoT的方式生成trace，然后给出Reward，进而使用rl优化：作者发现训练以后的7B模型可以在特定任务上超过GPT4</p>
 <blockquote>
 <p>很基础的研究：没想到现在才有工作推出来</p>
 </blockquote>
@@ -422,7 +432,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Many-Shot-In-Context-Learning-in-Multimodal-Foundation-Models"><span class="nav-number">1.</span> <span class="nav-text">Many-Shot In-Context Learning in Multimodal Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fine-Tuning-Large-Vision-Language-Models-as-Decision-Making-Agents-via-Reinforcement-Learning"><span class="nav-number">2.</span> <span class="nav-text">Fine-Tuning Large Vision-Language Models as Decision-Making Agents via Reinforcement Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#many-shot-in-context-learning-in-multimodal-foundation-models"><span class="nav-number">1.</span> <span class="nav-text">Many-Shot In-Context Learning in
+Multimodal Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fine-tuning-large-vision-language-models-as-decision-making-agents-via-reinforcement-learning"><span class="nav-number">2.</span> <span class="nav-text">Fine-Tuning Large
+Vision-Language Models as Decision-Making Agents via Reinforcement
+Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -572,12 +585,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:57</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。 作者想到了一个专门为模型定制数据的pipeline">
+  <meta name="description" content="Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment 这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。 作者想到了一个专门为模型定制数据的pipelin">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-22-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a3795817">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。 作者想到了一个专门为模型定制数据的pipeline">
+<meta property="og:description" content="Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment 这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。 作者想到了一个专门为模型定制数据的pipelin">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-22-01-26/kca.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-22-01-26/esc.png">
@@ -314,19 +314,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><a href="#Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment" class="headerlink" title="Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</a></h2><p>这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
+        <h2 id="mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of
+Large Language Models via Knowledge Consistent Alignment</a></h2>
+<p>这是之前self-knowledge research
+line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
 <p>作者想到了一个专门为模型定制数据的pipeline：</p>
 <ul>
 <li>先让turbo针对query生成知识点</li>
 <li>对于每个知识点，让turbo生成自己的理解passage</li>
 <li>让turbo根据上面的passage提问题</li>
-<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成”sorry message”之类的不同形式</li>
+<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成"sorry
+message"之类的不同形式</li>
 </ul>
 <p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/kca.png"></p>
-<h2 id="Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><a href="#Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning" class="headerlink" title="Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</a></h2><p>作者认为经典的self-consistency方法(CoT多次，选一个一致性最高的答案)的成本太高，有一个直觉：如果生成了一部分样本，发现已经一致性很高了，是不是就可以early-stopping呢？</p>
+<h2 id="escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost:
+Early-stopping Self-Consistency for Multi-step Reasoning</a></h2>
+<p>作者认为经典的self-consistency方法(CoT多次，选一个一致性最高的答案)的成本太高，有一个直觉：如果生成了一部分样本，发现已经一致性很高了，是不是就可以early-stopping呢？</p>
 <p>作者开发了一套in-batch的self-consistency，如果一个batch内sample的数据已经一致了，就早停。在下游任务上表现不错</p>
 <p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/esc.png"></p>
-<h2 id="MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><a href="#MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads" class="headerlink" title="MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</a></h2><p>解码加速research line，作者认为传统的投机推理需要额外的draft model。作者的想法是能不能让一个模型有多个decoding head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
+<h2 id="medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference
+Acceleration Framework with Multiple Decoding Heads</a></h2>
+<p>解码加速research line，作者认为传统的投机推理需要额外的draft
+model。作者的想法是能不能让一个模型有多个decoding
+head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
 <blockquote>
 <p>我没完全看懂，不过看起来是很有创新的工作</p>
 </blockquote>
@@ -430,7 +440,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of
+Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost:
+Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference
+Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,12 +593,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">260k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:57</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
