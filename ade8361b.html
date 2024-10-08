@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens  Are n-gram language models still relevant in this era of neural large lan- guage models (LLMs)? Our answer is yes  Yejin C">
+  <meta name="description" content="Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens Are n-gram language models still relevant in this era of neural large lan- guage models (LLMs)? Our answer is yes  Yejin Ch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-01-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/ade8361b">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens  Are n-gram language models still relevant in this era of neural large lan- guage models (LLMs)? Our answer is yes  Yejin C">
+<meta property="og:description" content="Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens Are n-gram language models still relevant in this era of neural large lan- guage models (LLMs)? Our answer is yes  Yejin Ch">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-29-02-02/n-gram.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-29-02-02/beam-search.png">
@@ -314,19 +314,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Infini-gram-Scaling-Unbounded-n-gram-Language-Models-to-a-Trillion-Tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.17377.pdf">Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens</a></h2>
-<blockquote>
+        <h2 id="Infini-gram-Scaling-Unbounded-n-gram-Language-Models-to-a-Trillion-Tokens"><a href="#Infini-gram-Scaling-Unbounded-n-gram-Language-Models-to-a-Trillion-Tokens" class="headerlink" title="Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.17377.pdf">Infini-gram: Scaling Unbounded** n-gram Language Models to a Trillion Tokens</a></h2><blockquote>
 <p>Are <em>n</em>-gram language models still relevant in this era of neural large lan- guage models (LLMs)? Our answer is <em>yes</em></p>
 </blockquote>
 <p>Yejin Choi的新活：在1.6TB token的量级上重新尝试了n-gram model，用一个新的算法把n-gram table的复杂度降到很低。作者发现实际上infty-gram model对human text的分类能力极强。并且可以比价好的区分出来人写的、model generated text</p>
-<img src="../../files/images/arxiv-insights/2024-01-29-02-02/n-gram.png">
-<h2 id="Deductive-Beam-Search-Decoding-Deducible-Rationale-for-Chain-of-Thought-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.17686.pdf">Deductive Beam Search: Decoding Deducible Rationale for Chain-of-Thought Reasoning</a></h2>
-<p>大家都知道beam-search，这篇工作探索了CoT场景下能不能在step粒度做beam-search，作者发现这种方案可以显著缓解模型在CoT过程中的误差累积，进而提升效果</p>
-<img src="../../files/images/arxiv-insights/2024-01-29-02-02/beam-search.png">
-<h2 id="RAPTOR-Recursive-Abstractive-Processing-for-Tree-Organized-Retrieval"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.18059.pdf">RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval</a></h2>
-<p>作者提到目前的RAG一般是大规模文档按照chunk编码成不同embedding，然后检索接近的chunk。能不能把文档天生组织成树的形式逐步编码呢？</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/n-gram.png"></p>
+<h2 id="Deductive-Beam-Search-Decoding-Deducible-Rationale-for-Chain-of-Thought-Reasoning"><a href="#Deductive-Beam-Search-Decoding-Deducible-Rationale-for-Chain-of-Thought-Reasoning" class="headerlink" title="Deductive Beam Search: Decoding Deducible Rationale for Chain-of-Thought Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.17686.pdf">Deductive Beam Search: Decoding Deducible Rationale for Chain-of-Thought Reasoning</a></h2><p>大家都知道beam-search，这篇工作探索了CoT场景下能不能在step粒度做beam-search，作者发现这种方案可以显著缓解模型在CoT过程中的误差累积，进而提升效果</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/beam-search.png"></p>
+<h2 id="RAPTOR-Recursive-Abstractive-Processing-for-Tree-Organized-Retrieval"><a href="#RAPTOR-Recursive-Abstractive-Processing-for-Tree-Organized-Retrieval" class="headerlink" title="RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.18059.pdf">RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval</a></h2><p>作者提到目前的RAG一般是大规模文档按照chunk编码成不同embedding，然后检索接近的chunk。能不能把文档天生组织成树的形式逐步编码呢？</p>
 <p>作者开发了一套基于树结构的RAG编码、解码框架，发现效果很好</p>
-<img src="../../files/images/arxiv-insights/2024-01-29-02-02/partor.png">
+<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/partor.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -343,13 +340,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5da51261.html" rel="bookmark">2024-10-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b692a962.html" rel="bookmark">2024-10-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/544eb21b.html" rel="bookmark">2024-10-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/bb8cd925.html" rel="bookmark">2024-10-02-insights</a></div>
     </li>
   </ul>
 
@@ -441,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -484,6 +481,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/5da51261" title="2024-10-07-insights" target="_blank">2024-10-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
         </li>
       
@@ -517,10 +518,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -576,12 +573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">260k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">3:57</span>
 </div>
 
 <i class="fa fa-user-md"></i>

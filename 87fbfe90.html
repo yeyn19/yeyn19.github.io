@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models 比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GP">
+  <meta name="description" content="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/87fbfe90">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models 比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GP">
+<meta property="og:description" content="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-12/online.png">
 <meta property="article:published_time" content="2023-10-12T02:01:24.000Z">
@@ -312,12 +312,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models">The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models</h2>
-<p>比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT的激活情况非常相似。用一个简单的分类模型输入GPT2的激活情况，通过简单的训练，就可以预测出人脑的激活情况(尤其在层数高的attentionLayer)。说明了预训练模型的认知结构和人脑的认知结构有一定的相似性。</p>
-<h2 id="Online-Speculative-Decoding">Online Speculative Decoding</h2>
-<p>在投机推理的场景，都是由小模型生成样本，由大模型决定是否采用。在实际应用中，user query往往来源于一个同质化的分布，小模型错的地方也有相似性。作者发现目前系统的效率很低，因为小模型是固定的。因此想要做在线的部署，对于错误的预测都记录下来，当做一个训练数据。每当数据集超过阈值，就更新一波小模型。</p>
+        <h2 id="The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models"><a href="#The-Temporal-Structure-of-Language-Processing-in-the-Human-Brain-Corresponds-to-The-Layered-Hierarchy-of-Deep-Language-Models" class="headerlink" title="The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models"></a>The Temporal Structure of Language Processing in the Human Brain Corresponds to The Layered Hierarchy of Deep Language Models</h2><p>比较有意思的研究问题。作者用脑波检测技术统计了志愿者在30min的对话里的大脑活动。同时把同样的文本输入到GPT2-XL内，发现人脑的激活情况与GPT的激活情况非常相似。用一个简单的分类模型输入GPT2的激活情况，通过简单的训练，就可以预测出人脑的激活情况(尤其在层数高的attentionLayer)。说明了预训练模型的认知结构和人脑的认知结构有一定的相似性。</p>
+<h2 id="Online-Speculative-Decoding"><a href="#Online-Speculative-Decoding" class="headerlink" title="Online Speculative Decoding"></a>Online Speculative Decoding</h2><p>在投机推理的场景，都是由小模型生成样本，由大模型决定是否采用。在实际应用中，user query往往来源于一个同质化的分布，小模型错的地方也有相似性。作者发现目前系统的效率很低，因为小模型是固定的。因此想要做在线的部署，对于错误的预测都记录下来，当做一个训练数据。每当数据集超过阈值，就更新一波小模型。</p>
 <p>通过这种方法，让小模型的部署时接受率从10%提升到了65%。非常有意思的观点。</p>
-<img src="../../files/images/arxiv-insights/2023-10-12/online.png">
+<p><img src="../../files/images/arxiv-insights/2023-10-12/online.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -334,13 +332,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5da51261.html" rel="bookmark">2024-10-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b692a962.html" rel="bookmark">2024-10-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/544eb21b.html" rel="bookmark">2024-10-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/bb8cd925.html" rel="bookmark">2024-10-02-insights</a></div>
     </li>
   </ul>
 
@@ -432,7 +430,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,6 +473,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/5da51261" title="2024-10-07-insights" target="_blank">2024-10-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
         </li>
       
@@ -508,10 +510,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -567,12 +565,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">260k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">3:57</span>
 </div>
 
 <i class="fa fa-user-md"></i>
