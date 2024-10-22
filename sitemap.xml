@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yynnyy.cn/73e9a69f</loc>
+    
+    <lastmod>2024-10-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/e3e060e4</loc>
     
     <lastmod>2024-10-22</lastmod>
@@ -13,7 +22,7 @@
   <url>
     <loc>https://www.yynnyy.cn/f4243ee6</loc>
     
-    <lastmod>2024-10-08</lastmod>
+    <lastmod>2024-10-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +31,7 @@
   <url>
     <loc>https://www.yynnyy.cn/e1e3e0e0</loc>
     
-    <lastmod>2024-10-08</lastmod>
+    <lastmod>2024-10-22</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -65,15 +74,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/temp_post/paper_reading/CogAgent-AutoWebGLM-Ferret-UI-GUIAgent%E4%B9%8B%E4%BA%8C%E4%B8%89</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/temp_post/paper_reading/Weak-to-Strong%20Generalization(%E4%B8%8B):%20%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%99%E6%A0%B7%EF%BC%9F</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -84,6 +84,15 @@
   
   <url>
     <loc>https://www.yynnyy.cn/temp_post/paper_reading/%E4%BB%8ESwitch-Transformer%E5%88%B0Switch-Head-%E8%81%8A%E8%81%8AMoE</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/temp_post/paper_reading/CogAgent-AutoWebGLM-Ferret-UI-GUIAgent%E4%B9%8B%E4%BA%8C%E4%B8%89</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -110,24 +119,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/b4c23497</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/980d63fc</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/839511f0</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -146,7 +137,16 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/categories/index.html</loc>
+    <loc>https://www.yynnyy.cn/b4c23497</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/980d63fc</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/f992cb6b</loc>
+    <loc>https://www.yynnyy.cn/categories/index.html</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -173,43 +173,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/fbc665c3</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/728d9a40</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/3544a1a8</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/476791e1</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/3784f7a3</loc>
+    <loc>https://www.yynnyy.cn/8618fb6d</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -236,15 +200,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/8618fb6d</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/ede8f462</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -254,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/2300f7be</loc>
+    <loc>https://www.yynnyy.cn/3784f7a3</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -263,7 +218,43 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/68247c98</loc>
+    <loc>https://www.yynnyy.cn/728d9a40</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/fbc665c3</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/f992cb6b</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/476791e1</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/3544a1a8</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -273,6 +264,15 @@
   
   <url>
     <loc>https://www.yynnyy.cn/6a73db61</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/6b5172a2</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -299,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/6b5172a2</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/b3424711</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -326,7 +317,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/a3a406b2</loc>
+    <loc>https://www.yynnyy.cn/2300f7be</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -335,61 +326,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/d074522f</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/cf5a0a9e</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/a50a8741</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/a50a8741</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/158670f0</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/e7441803</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/88eeb90b</loc>
+    <loc>https://www.yynnyy.cn/68247c98</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -407,6 +344,15 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/88eeb90b</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/93d2057b</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -416,7 +362,61 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/660d5dc5</loc>
+    <loc>https://www.yynnyy.cn/158670f0</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/a50a8741</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/a50a8741</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/e7441803</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/a3a406b2</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/cf5a0a9e</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/d074522f</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/5d2d4022</loc>
+    <loc>https://www.yynnyy.cn/660d5dc5</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/78ff6196</loc>
+    <loc>https://www.yynnyy.cn/b0f88437</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -461,7 +461,16 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/b0f88437</loc>
+    <loc>https://www.yynnyy.cn/78ff6196</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/5d2d4022</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -488,61 +497,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/6dd69a39</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/1c5cf63c</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/4a3bcbdb</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/8622e2d1</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/3e784f99</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/8467c46</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/a9f8b29</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -560,6 +515,24 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/6dd69a39</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/8467c46</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/f1fcbd7</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -569,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/abce9d24</loc>
+    <loc>https://www.yynnyy.cn/1c5cf63c</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -578,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/f1e00e18</loc>
+    <loc>https://www.yynnyy.cn/8622e2d1</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -587,7 +560,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/7d79ba7</loc>
+    <loc>https://www.yynnyy.cn/4a3bcbdb</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -596,7 +569,16 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/4f026f2</loc>
+    <loc>https://www.yynnyy.cn/a9f8b29</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/6b94db09</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -614,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/99193096</loc>
+    <loc>https://www.yynnyy.cn/f3519427</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -632,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/f3519427</loc>
+    <loc>https://www.yynnyy.cn/f1e00e18</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -641,7 +623,34 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/6b94db09</loc>
+    <loc>https://www.yynnyy.cn/99193096</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/7d79ba7</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/abce9d24</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/4f026f2</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -677,15 +686,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/1256e99b</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/593c50eb</loc>
     
     <lastmod>2024-08-09</lastmod>
@@ -695,25 +695,16 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/1256e99b</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/75bfb84b</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/7cd10148</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/3229ec6</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -740,7 +731,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/87d3e2cf</loc>
+    <loc>https://www.yynnyy.cn/7cd10148</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -749,7 +740,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/d7ec9992</loc>
+    <loc>https://www.yynnyy.cn/3229ec6</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -758,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/dfdbbbd6</loc>
+    <loc>https://www.yynnyy.cn/ff05b5bf</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -767,16 +758,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/e604830f</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/b43caca8</loc>
+    <loc>https://www.yynnyy.cn/fa20dd9d</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -821,7 +803,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/fa20dd9d</loc>
+    <loc>https://www.yynnyy.cn/b43caca8</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -830,7 +812,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/ff05b5bf</loc>
+    <loc>https://www.yynnyy.cn/d7ec9992</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -839,7 +821,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/c0289731</loc>
+    <loc>https://www.yynnyy.cn/dfdbbbd6</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -848,7 +830,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/991ad27c</loc>
+    <loc>https://www.yynnyy.cn/e604830f</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -857,25 +839,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/c925a921</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/c8297af</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/b1e2de2b</loc>
+    <loc>https://www.yynnyy.cn/87d3e2cf</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -893,7 +857,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/8ac3dc8d</loc>
+    <loc>https://www.yynnyy.cn/b1e2de2b</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -902,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/4d63b6f9</loc>
+    <loc>https://www.yynnyy.cn/c8297af</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -911,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/eb14bd4d</loc>
+    <loc>https://www.yynnyy.cn/b92c92ea</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -920,7 +884,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/2eb383c3</loc>
+    <loc>https://www.yynnyy.cn/c925a921</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -938,7 +902,52 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/b92c92ea</loc>
+    <loc>https://www.yynnyy.cn/991ad27c</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/c0289731</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/2eb383c3</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/4d63b6f9</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/8ac3dc8d</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/eb14bd4d</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -965,7 +974,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/b3e58ad1</loc>
+    <loc>https://www.yynnyy.cn/5e20b515</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -974,7 +983,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/15928165</loc>
+    <loc>https://www.yynnyy.cn/f857bea1</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -983,7 +992,34 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/820d904c</loc>
+    <loc>https://www.yynnyy.cn/f5d3b3af</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/74dfedb8</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/8090c9ab</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/26e7c21f</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1010,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/26e7c21f</loc>
+    <loc>https://www.yynnyy.cn/820d904c</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1019,7 +1055,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/8090c9ab</loc>
+    <loc>https://www.yynnyy.cn/15928165</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1028,88 +1064,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/74dfedb8</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/f5d3b3af</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/f857bea1</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/5e20b515</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/e9916de0</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/aa29fa81</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/6c02904f</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/db37895b</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/34250cd3</loc>
-    
-    <lastmod>2024-08-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/7109427b</loc>
+    <loc>https://www.yynnyy.cn/b3e58ad1</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1136,7 +1091,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/943a8ebd</loc>
+    <loc>https://www.yynnyy.cn/34250cd3</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1145,7 +1100,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/6075aaae</loc>
+    <loc>https://www.yynnyy.cn/7109427b</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1154,7 +1109,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/bcc282ea</loc>
+    <loc>https://www.yynnyy.cn/aa29fa81</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1163,7 +1118,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/7bf8e583</loc>
+    <loc>https://www.yynnyy.cn/e9916de0</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1172,7 +1127,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/94a083a0</loc>
+    <loc>https://www.yynnyy.cn/db37895b</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1181,7 +1136,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/62e8f349</loc>
+    <loc>https://www.yynnyy.cn/6c02904f</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1208,7 +1163,16 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/abb04eee</loc>
+    <loc>https://www.yynnyy.cn/62e8f349</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/94a083a0</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1218,6 +1182,51 @@
   
   <url>
     <loc>https://www.yynnyy.cn/c8607bd4</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/7bf8e583</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/bcc282ea</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/abb04eee</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/6075aaae</loc>
+    
+    <lastmod>2024-08-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/943a8ebd</loc>
     
     <lastmod>2024-08-09</lastmod>
     
@@ -1271,6 +1280,20 @@
 
   
   <url>
+    <loc>https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
+    <lastmod>2024-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/</loc>
+    <lastmod>2024-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -1286,20 +1309,6 @@
   
   <url>
     <loc>https://www.yynnyy.cn/tags/%E5%A4%A7%E4%B8%89%E4%B8%8B/</loc>
-    <lastmod>2024-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/tags/%E9%9A%8F%E7%AC%94/</loc>
-    <lastmod>2024-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.yynnyy.cn/tags/%E6%8E%A2%E7%B4%A2/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1355,6 +1364,13 @@
   </url>
   
   <url>
+    <loc>https://www.yynnyy.cn/tags/Reasoning/</loc>
+    <lastmod>2024-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.yynnyy.cn/tags/superhumanAI/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -1397,13 +1413,6 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/tags/Reasoning/</loc>
-    <lastmod>2024-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/tags/delta-tuning/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -1425,14 +1434,14 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
+    <loc>https://www.yynnyy.cn/tags/%E4%B9%89%E5%8E%9F%E8%AE%A1%E7%AE%97/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/tags/%E4%B9%89%E5%8E%9F%E8%AE%A1%E7%AE%97/</loc>
+    <loc>https://www.yynnyy.cn/tags/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1455,13 +1464,6 @@
 
   
   <url>
-    <loc>https://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/</loc>
-    <lastmod>2024-10-22</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.yynnyy.cn/categories/%E9%9A%8F%E7%AC%94/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
@@ -1476,7 +1478,7 @@
   </url>
   
   <url>
-    <loc>https://www.yynnyy.cn/categories/Arxiv-Insights/</loc>
+    <loc>https://www.yynnyy.cn/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1484,6 +1486,13 @@
   
   <url>
     <loc>https://www.yynnyy.cn/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2024-10-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.yynnyy.cn/categories/Arxiv-Insights/</loc>
     <lastmod>2024-10-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
