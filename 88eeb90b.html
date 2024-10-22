@@ -300,14 +300,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>5.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>5 分钟</span>
             </span>
 
 
@@ -327,51 +327,70 @@
 </ul>
 <p>今天我们满足了所有前置知识，可以来看这篇的本体了。如何把diffusion models 用到可控文本生成中。虽然是老本行，但这篇还是精读一下。</p>
 <span id="more"></span>
-<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><ul>
+<h2 id="摘要">摘要</h2>
+<ul>
 <li>可控文本生成是一个重要的任务</li>
 <li>已有的方法对粗粒度的控制尚可(情感)，但对细粒度的控制效果不好(句法树)</li>
 <li>本文设计了一个非自回归的、连续的diffusion model来解决这个问题</li>
 <li>去噪过程中的多个中间量可以指导可控的文本生成过程</li>
 <li>在6个可控生成任务中，Diffusion-LM模型大幅战胜了SOTA</li>
 </ul>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>自回归的语言模型的生成能力很强，但可控性很弱。如果想做可控的生成：</p>
+<h2 id="Introduction">Introduction</h2>
+<p>自回归的语言模型的生成能力很强，但可控性很弱。如果想做可控的生成：</p>
 <ul>
 <li>直观方法是做有监督的训练，但这样需要每个任务炼一个模型，成本高。</li>
 <li>plug-and-play的方法，冻住模型。但此类方法效果差，难以实现细粒度的控制</li>
 </ul>
 <p>传统的连续diffusion model不适用于文本，因为word是离散的。本文通过添加一个embedding步骤和一个rounding步骤解决这个问题。同时，本文通过一种可控的gradient update指导模型可以平衡fluency和controllable两种属性。</p>
 <p>本文在6个可控任务中大幅战胜plug-and-play SOTA，同时战胜了fine-tune的方法。甚至，在不用classifier的情况下和自回归的模型有的一拼。</p>
-<h2 id="Related-work"><a href="#Related-work" class="headerlink" title="Related work"></a>Related work</h2><p>Diffusion Models for Text： 已有方法都是在离散的空间做这件事，提到的论文我也看了，有时间给大家写一篇笔记。本文用了连续的方法来做。</p>
+<h2 id="Related-work">Related work</h2>
+<p>Diffusion Models for Text： 已有方法都是在离散的空间做这件事，提到的论文我也看了，有时间给大家写一篇笔记。本文用了连续的方法来做。</p>
 <p>Autoregressive and Non-autoregressive LMs： 已有的模型大多是是从左到右训练的，但是对于infilling等任务来说，这限制了模型的发挥。这个问题，有一些解决方法。本文的diffusion model是classifier指导的，所以可以看到句子的全部。</p>
 <p>Plug-and-Play Controllable Generation：冻结模型，训一个类似分类器的东西。已有方法大多基于自回归模型：</p>
 <ul>
 <li>FUDGE：通过对生成质量的估计来reweight LM prediction</li>
-<li>GeDi, DExperts： 通过fine—tune一个小的LM来reweight LM prediction<ul>
+<li>GeDi, DExperts： 通过fine–tune一个小的LM来reweight LM prediction
+<ul>
 <li>GeDi的论文没准后面也写个笔记</li>
 </ul>
 </li>
 </ul>
 <p>PPLM方法和本文最接近，通过一个分类器做梯度上升。但由于是自回归的，只能从左到右，不能实现细粒度的控制。</p>
-<h2 id="Problem-Statement-and-Background"><a href="#Problem-Statement-and-Background" class="headerlink" title="Problem Statement and Background"></a>Problem Statement and Background</h2><h3 id="Generative-Models-and-Controllable-Generation-for-Text"><a href="#Generative-Models-and-Controllable-Generation-for-Text" class="headerlink" title="Generative Models and Controllable Generation for Text"></a>Generative Models and Controllable Generation for Text</h3><p>如何在控制条件c的情况下生成w，最大化$P(w|c)$.由于</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-P(w|c) & = \frac{P(w)\times P(c|w)}{P(c)} \\
-& \propto P(w)\times P(c|w)
-\end{aligned}</script><p>如果对w的生成求导：</p>
-<script type="math/tex; mode=display">
-\bigtriangledown_w \log P(w|c)  = \bigtriangledown_w \log P(w)+ \bigtriangledown_w \log P(c|w)</script><p>可以发现，右边是正常模型的输出的梯度，后面是某个分类器的输出的梯度。这个其实就是经典的在图像领域做可控生成的diffusion model的方法</p>
-<h3 id="Autoregressive-Language-Models"><a href="#Autoregressive-Language-Models" class="headerlink" title="Autoregressive Language Models"></a>Autoregressive Language Models</h3><script type="math/tex; mode=display">
-P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{<i})</script><p>这是一个经典的从左到右的解码过程。一般大家都是用一个transformer结构来做$P_{lm}(w)$</p>
-<h3 id="Diffusion-Models-for-Continuous-Domains"><a href="#Diffusion-Models-for-Continuous-Domains" class="headerlink" title="Diffusion Models for Continuous Domains"></a>Diffusion Models for Continuous Domains</h3><p>这一部分是DDPM的子集，可以参考</p>
+<h2 id="Problem-Statement-and-Background">Problem Statement and Background</h2>
+<h3 id="Generative-Models-and-Controllable-Generation-for-Text">Generative Models and Controllable Generation for Text</h3>
+<p>如何在控制条件c的情况下生成w，最大化$P(w|c)$.由于<br>
+$$<br>
+\begin{aligned}<br>
+P(w|c) &amp; = \frac{P(w)\times P(c|w)}{P©} \<br>
+&amp; \propto P(w)\times P(c|w)<br>
+\end{aligned}<br>
+$$<br>
+如果对w的生成求导：<br>
+$$<br>
+\bigtriangledown_w \log P(w|c)  = \bigtriangledown_w \log P(w)+ \bigtriangledown_w \log P(c|w)<br>
+$$<br>
+可以发现，右边是正常模型的输出的梯度，后面是某个分类器的输出的梯度。这个其实就是经典的在图像领域做可控生成的diffusion model的方法</p>
+<h3 id="Autoregressive-Language-Models">Autoregressive Language Models</h3>
+<p>$$<br>
+P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{&lt;i})<br>
+$$</p>
+<p>这是一个经典的从左到右的解码过程。一般大家都是用一个transformer结构来做$P_{lm}(w)$</p>
+<h3 id="Diffusion-Models-for-Continuous-Domains">Diffusion Models for Continuous Domains</h3>
+<p>这一部分是DDPM的子集，可以参考</p>
 <ul>
-<li><a href="/75bfb84b.html" title="论文阅读:Diffusion-LM Improves Controllable Text Generation(1)">DDPM笔记</a></li>
+<li>
+<a href="/75bfb84b.html" title="论文阅读:Diffusion-LM Improves Controllable Text Generation(1)">DDPM笔记</a>
+</li>
 <li><a target="_blank" rel="external nofollow noopener noreferrer" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">what are diffusion models</a></li>
 </ul>
-<p>结论是：</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_{simple} = \sum_{t=1}^T \mathop{\mathbb{E}} \limits_{q(x_t| x_0)} || \mu_\theta(x_t,t) - \hat{\mu}(x_t,x_0)||^2 \\
- \hat{\mu}(x_t,x_0) = \text{mean} [q(x_{t−1}|x_0, x_t)]</script><p>大概就是估计模型对每一个$x_{t-1}$都做估计，把估计和实际值的偏差叠加在一起。所谓的”mean”是指后面来自一个高斯分布，这个是期望</p>
-<h2 id="Diffusion-LM-Continuous-Diffusion-Language-Modeling"><a href="#Diffusion-LM-Continuous-Diffusion-Language-Modeling" class="headerlink" title="Diffusion-LM: Continuous Diffusion Language Modeling"></a>Diffusion-LM: Continuous Diffusion Language Modeling</h2><p><img src="../files/images/Diffusion-LM/structure.png"></p>
+<p>结论是：<br>
+$$<br>
+\mathcal{L}<em>{simple} = \sum</em>{t=1}^T \mathop{\mathbb{E}} \limits_{q(x_t| x_0)} || \mu_\theta(x_t,t) - \hat{\mu}(x_t,x_0)||^2 \<br>
+\hat{\mu}(x_t,x_0) = \text{mean} [q(x_{t−1}|x_0, x_t)]<br>
+$$<br>
+大概就是估计模型对每一个$x_{t-1}$都做估计，把估计和实际值的偏差叠加在一起。所谓的&quot;mean&quot;是指后面来自一个高斯分布，这个是期望</p>
+<h2 id="Diffusion-LM-Continuous-Diffusion-Language-Modeling">Diffusion-LM: Continuous Diffusion Language Modeling</h2>
+<img src="../files/images/Diffusion-LM/structure.png">
 <p>其实这一部分开始才是本文的方法：</p>
 <ul>
 <li>首先用一个EMB层把离散的word映射到连续空间</li>
@@ -379,58 +398,90 @@ P_{lm}(w) = P_{lm}(w_1) \sum_{i=2}^N P_{lm}(w_i| w_{<i})</script><p>这是一个
 <li>定义一个rounding method再把生成的连续向量映射回word</li>
 <li>同时，为了rounding的效果，提出了专门的训练策略</li>
 </ul>
-<h3 id="End-to-end-Training"><a href="#End-to-end-Training" class="headerlink" title="End-to-end Training"></a>End-to-end Training</h3><script type="math/tex; mode=display">
-EMB(w) = [EMB(w_1), . . . , EMB(w_n)] \in R^{nd}.</script><p>是一个词向量映射，把n个word映射成n个d维向量，这个是可学习的。</p>
-<p>接下来把</p>
-<script type="math/tex; mode=display">
-q_\phi (x_0|w) = \mathcal{N} (EMB(w), \sigma_0I)</script><p>视做diffusion process的第一步(其实$\phi$就是embedding层模型……)</p>
-<p>此外，添加rounding过程</p>
-<script type="math/tex; mode=display">
-p_\theta(w | x_0) = \sum^n_{i=1} p_\theta(w_i | x_i)</script><p>$p_\theta(w_i | x_i)$就是一个经典的softmax变换。</p>
-<p>最后：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\mathcal{L}_{vlb}(x_0) & = \mathbb{E}{(x_0\sim p_{data})}  [\log p_\theta (x_0 )] \\
-& = \mathop{\mathbb{E}}\limits_{x_{1:T}|x_0} \left[ \log \frac{P_\theta(x_T | x_0)}{P_\theta (x_T)} + \sum_{t=2}^T \log \frac{q(x_{t−1}|x_0, x_t)}{P_\theta(x_{t-1} | x_t)}  -\log P_\theta(x_{0} | x_1) \right]
-\end{aligned}</script><script type="math/tex; mode=display">
-\begin{aligned}
-\mathcal{L}_{vlb}^{e2e}(w) & = \mathop{\mathbb{E}}\limits_{x_0|w}\left[\mathcal{L}_{vlb}(x_0) +\log q_\phi(x_0 | w) - \log p_\theta(w | x_0) \right] \\
-& = \mathop{\mathbb{E}}\limits_{x_{0:T}|w} \left[ \mathcal{L}_{simple}(x_0) + ||EMB(w)−\mu_\theta (x_1 ,1) ||^2 -\log p_\theta(w | x_0) \right]
-\end{aligned}</script><p>这是一个端到端的训练loss。只需要给出很多w，用DDPM的算法，就可以慢慢让模型学习了。作者也发现，这样模型和embedding一起学出来，最后word embedding也可以表现出一定的聚合性</p>
-<p><img src="../files/images/Diffusion-LM/embedding.png"></p>
-<h3 id="Reducing-Rounding-Errors"><a href="#Reducing-Rounding-Errors" class="headerlink" title="Reducing Rounding Errors"></a>Reducing Rounding Errors</h3><p>rounding的过程其实是对每一个位置选取最接近的embedding。</p>
-<p>作者提到，如果像一般的DDPM那样用模型预测$p<em>\theta(x</em>{t−1} | x_t) $的均值，会导致输入长度很短的时候效果很差(图像领域没出问题，因为最短也是32x32)。</p>
-<p>解决办法是用模型直接预测$x_0$. </p>
-<script type="math/tex; mode=display">
-\mathcal{L}_{x0-simple}^{e2e}(x_0) = \sum_{t=1}^T \mathbb{E}_{x_t} ||f_\theta(x_t,t) - x_0||^2\\
-f_\theta(x_t,t) \to x_0</script><p>这里有点怪：换模型的目标好像会影响sample方法？还是说同样是预测$x<em>{t-1}$，但是把$x_0$视为$x</em>{t-1},x_t$的线性组合</p>
+<h3 id="End-to-end-Training">End-to-end Training</h3>
+<p>$$<br>
+EMB(w) = [EMB(w_1), . . . , EMB(w_n)] \in R^{nd}.<br>
+$$</p>
+<p>是一个词向量映射，把n个word映射成n个d维向量，这个是可学习的。</p>
+<p>接下来把<br>
+$$<br>
+q_\phi (x_0|w) = \mathcal{N} (EMB(w), \sigma_0I)<br>
+$$<br>
+视做diffusion process的第一步(其实$\phi$就是embedding层模型……)</p>
+<p>此外，添加rounding过程<br>
+$$<br>
+p_\theta(w | x_0) = \sum^n_{i=1} p_\theta(w_i | x_i)<br>
+$$<br>
+$p_\theta(w_i | x_i)$就是一个经典的softmax变换。</p>
+<p>最后：<br>
+$$<br>
+\begin{aligned}<br>
+\mathcal{L}<em>{vlb}(x_0) &amp; = \mathbb{E}{(x_0\sim p</em>{data})}  [\log p_\theta (x_0 )] \<br>
+&amp; = \mathop{\mathbb{E}}\limits_{x_{1:T}|x_0} \left[ \log \frac{P_\theta(x_T | x_0)}{P_\theta (x_T)} + \sum_{t=2}^T \log \frac{q(x_{t−1}|x_0, x_t)}{P_\theta(x_{t-1} | x_t)}  -\log P_\theta(x_{0} | x_1) \right]<br>
+\end{aligned}<br>
+$$</p>
+<p>$$<br>
+\begin{aligned}<br>
+\mathcal{L}<em>{vlb}^{e2e}(w) &amp; = \mathop{\mathbb{E}}\limits</em>{x_0|w}\left[\mathcal{L}<em>{vlb}(x_0) +\log q</em>\phi(x_0 | w) - \log p_\theta(w | x_0) \right] \<br>
+&amp; = \mathop{\mathbb{E}}\limits_{x_{0:T}|w} \left[ \mathcal{L}<em>{simple}(x_0) + ||EMB(w)−\mu</em>\theta (x_1 ,1) ||^2 -\log p_\theta(w | x_0) \right]<br>
+\end{aligned}<br>
+$$</p>
+<p>这是一个端到端的训练loss。只需要给出很多w，用DDPM的算法，就可以慢慢让模型学习了。作者也发现，这样模型和embedding一起学出来，最后word embedding也可以表现出一定的聚合性</p>
+<img src="../files/images/Diffusion-LM/embedding.png">
+<h3 id="Reducing-Rounding-Errors">Reducing Rounding Errors</h3>
+<p>rounding的过程其实是对每一个位置选取最接近的embedding。</p>
+<p>作者提到，如果像一般的DDPM那样用模型预测$p_\theta(x_{t−1} | x_t) $的均值，会导致输入长度很短的时候效果很差(图像领域没出问题，因为最短也是32x32)。</p>
+<p>解决办法是用模型直接预测$x_0$.<br>
+$$<br>
+\mathcal{L}<em>{x0-simple}^{e2e}(x_0) = \sum</em>{t=1}^T \mathbb{E}<em>{x_t} ||f</em>\theta(x_t,t) - x_0||^2\<br>
+f_\theta(x_t,t) \to x_0<br>
+$$<br>
+这里有点怪：换模型的目标好像会影响sample方法？还是说同样是预测$x_{t-1}$，但是把$x_0$视为$x_{t-1},x_t$的线性组合</p>
 <p>这样模型可以很快发现$x_0$的每一个位置都应该对应某个word的embedding。</p>
-<p>同时，修改原来的sample方法：</p>
-<script type="math/tex; mode=display">
-x_{t−1} =\sqrt{\overline{\alpha}}f_\theta(x_t,t)+ \sqrt{1- \overline{\alpha}} \epsilon \\
-\overline{\alpha} = \sum_{s=0}^t (1 -\beta_t) ,\quad \epsilon \sim \mathcal{N}(0,I)</script><p>(能成立是因为连续的高斯采样等价于从最开始只做一次高斯采样)</p>
+<p>同时，修改原来的sample方法：<br>
+$$<br>
+x_{t−1} =\sqrt{\overline{\alpha}}f_\theta(x_t,t)+ \sqrt{1- \overline{\alpha}} \epsilon \<br>
+\overline{\alpha} = \sum_{s=0}^t (1 -\beta_t) ,\quad \epsilon \sim \mathcal{N}(0,I)<br>
+$$<br>
+(能成立是因为连续的高斯采样等价于从最开始只做一次高斯采样)</p>
 <p>上面的方法随着t的递减，逐渐从随机噪声恢复成一个无噪音的数据</p>
-<p>如果希望模型可以显式地对齐某个embedding，可以在每一步都加一个clamp。取和$f_\theta(x_t,t)$最接近的word embedding</p>
-<script type="math/tex; mode=display">
-x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \overline{\alpha}} \epsilon</script><p>同时作者也提到，对于t很大时做clamp是一个负优化，因为这时<script type="math/tex">f_\theta(x_t,t)</script>还没有对应到某些embedding，因此选取clamp的开始时间是一个超参。</p>
-<h2 id="Decoding-and-Controllable-Generation-with-Diffusion-LM"><a href="#Decoding-and-Controllable-Generation-with-Diffusion-LM" class="headerlink" title="Decoding and Controllable Generation with Diffusion-LM"></a>Decoding and Controllable Generation with Diffusion-LM</h2><h3 id="Controllable-Text-Generation"><a href="#Controllable-Text-Generation" class="headerlink" title="Controllable Text Generation"></a>Controllable Text Generation</h3><p>正如前面提到的：</p>
-<script type="math/tex; mode=display">
-\bigtriangledown_{x_{t-1}} \log P(x_{t-1}|x_t,c)  = \bigtriangledown_{x_{t-1}} \log P(x_{t-1} | x_t)+ \bigtriangledown_{x_{t-1}} \log P(c|x_{t-1})</script><p>其中式子右边的第一项是Diffusion-LM的输出。右边是一种分类器的输出。如果对于目标任务，我们在目标数据集训练一个分类器，在sample时每一步都根据这个输出做更新，那么最终就会生成符合条件c的结果。</p>
-<p>同时作者为了细粒度的控制”可控性“，定义一个超参$\lambda$来平衡流畅度和控制程度</p>
-<script type="math/tex; mode=display">
- p(x_{t−1} | x_t, c) = \lambda \log P(x_{t-1} | x_t)+\log P(c|x_{t-1})</script><p>作为最终用来指导梯度的东西。作者提到每次得到$x_t$之后：</p>
+<p>如果希望模型可以显式地对齐某个embedding，可以在每一步都加一个clamp。取和$f_\theta(x_t,t)$最接近的word embedding<br>
+$$<br>
+x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \overline{\alpha}} \epsilon<br>
+$$<br>
+同时作者也提到，对于t很大时做clamp是一个负优化，因为这时$$f_\theta(x_t,t)$$还没有对应到某些embedding，因此选取clamp的开始时间是一个超参。</p>
+<h2 id="Decoding-and-Controllable-Generation-with-Diffusion-LM">Decoding and Controllable Generation with Diffusion-LM</h2>
+<h3 id="Controllable-Text-Generation">Controllable Text Generation</h3>
+<p>正如前面提到的：<br>
+$$<br>
+\bigtriangledown_{x_{t-1}} \log P(x_{t-1}|x_t,c)  = \bigtriangledown_{x_{t-1}} \log P(x_{t-1} | x_t)+ \bigtriangledown_{x_{t-1}} \log P(c|x_{t-1})<br>
+$$<br>
+其中式子右边的第一项是Diffusion-LM的输出。右边是一种分类器的输出。如果对于目标任务，我们在目标数据集训练一个分类器，在sample时每一步都根据这个输出做更新，那么最终就会生成符合条件c的结果。</p>
+<p>同时作者为了细粒度的控制”可控性“，定义一个超参$\lambda$来平衡流畅度和控制程度<br>
+$$<br>
+p(x_{t−1} | x_t, c) = \lambda \log P(x_{t-1} | x_t)+\log P(c|x_{t-1})<br>
+$$<br>
+作为最终用来指导梯度的东西。作者提到每次得到$x_t$之后：</p>
 <ul>
-<li>sample $x_{t-1}$</li>
-<li><p>再做三轮Adagrad更新</p>
+<li>
+<p>sample $x_{t-1}$</p>
 </li>
-<li><p>把sample步骤从2000步变成200步来加速</p>
+<li>
+<p>再做三轮Adagrad更新</p>
+</li>
+<li>
+<p>把sample步骤从2000步变成200步来加速</p>
 </li>
 </ul>
 <p>这个方法我理解类似于之前微分方程那篇文章提到的PC更新方式</p>
-<h3 id="Minimum-Bayes-Risk-Decoding"><a href="#Minimum-Bayes-Risk-Decoding" class="headerlink" title="Minimum Bayes Risk Decoding"></a>Minimum Bayes Risk Decoding</h3><p>这个方法可以得到一个高质量的结果。作者用下面的最小化risk函数：</p>
-<script type="math/tex; mode=display">
-\hat{w} = \mathop{\text{argmin}}_{w \in S} \sum_{w' \in S} \frac{1}{|S|} \mathcal{L}_{bleu}(w,w')</script><p>这种方法可以参考 <a href="/f1fcbd7.html" title="论文阅读[粗读]-Minimum Bayes-Risk Decoding for Statistical Machine Translation">MBR解码博客</a></p>
-<h2 id="Experimental-Setup"><a href="#Experimental-Setup" class="headerlink" title="Experimental Setup"></a>Experimental Setup</h2><p>作者在很多个任务上使用了Diffusion-LM方法：</p>
+<h3 id="Minimum-Bayes-Risk-Decoding">Minimum Bayes Risk Decoding</h3>
+<p>这个方法可以得到一个高质量的结果。作者用下面的最小化risk函数：<br>
+$$<br>
+\hat{w} = \mathop{\text{argmin}}<em>{w \in S} \sum</em>{w’ \in S} \frac{1}{|S|} \mathcal{L}_{bleu}(w,w’)<br>
+$$<br>
+这种方法可以参考 <a href="/f1fcbd7.html" title="论文阅读[粗读]-Minimum Bayes-Risk Decoding for Statistical Machine Translation">MBR解码博客</a></p>
+<h2 id="Experimental-Setup">Experimental Setup</h2>
+<p>作者在很多个任务上使用了Diffusion-LM方法：</p>
 <ul>
 <li>classifier-guided</li>
 <li>classifier-free：不需要分类器，比如说句子长度。只要最开始的初始化向量变成需要长度即可(控制率显然是100%)</li>
@@ -441,19 +492,21 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
 <li>词向量维度 d = 16-128</li>
 <li>句长n=64</li>
 </ul>
-<p><img src="../files/images/Diffusion-LM/example.png"></p>
+<img src="../files/images/Diffusion-LM/example.png">
 <p>输入就像上图input所示：通过分类器来在解码中每一次去噪都提供梯度</p>
-<h2 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h2><p><img src="../files/images/Diffusion-LM/result.png"></p>
+<h2 id="Result">Result</h2>
+<img src="../files/images/Diffusion-LM/result.png">
 <p>主要结果就如上图所示。</p>
 <ul>
 <li>基本上把SOTA得分翻倍了，但这个SOTA是指plug-and-play的方法</li>
 <li>在Syntax Tree， Syntax Spans任务上，甚至比fine-tune的模型效果还好</li>
 </ul>
-<p><img src="../files/images/Diffusion-LM/compose.png"></p>
+<img src="../files/images/Diffusion-LM/compose.png">
 <p>同时作者也做了综合的控制实验，比如说同时限定两个条件。可以看出，效果很好，方法就是单纯的把控制的梯度转换成两个classifier梯度的综合。</p>
-<p><img src="../files/images/Diffusion-LM/infilling.png"></p>
+<img src="../files/images/Diffusion-LM/infilling.png">
 <p>在infilling任务中，Diffusion-LM在没有做额外训练的情况下就表现很好</p>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这篇工作很新颖，很有启发，我觉得可以做的点还有以下两个方面：</p>
+<h2 id="我的思考">我的思考</h2>
+<p>这篇工作很新颖，很有启发，我觉得可以做的点还有以下两个方面：</p>
 <ul>
 <li>这个方法好像不能实现平行的转换，只能”根据某些控制生成特定的句子“。像之前DALL.E都是可以把特定的句子翻译成对应的图像。</li>
 <li>感觉短文本领域，只有更加平行，才能更加泛用。不过在长文本领域，可能这种没有平行的生成会更好，但作者并没有测试。</li>
@@ -468,7 +521,7 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
@@ -585,7 +638,7 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -628,31 +681,11 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
       
       
         <li class="recent_posts_li">
+          <a href="/e3e060e4" title="2024-10-22-insights" target="_blank">2024-10-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/acae49ec" title="2024-10-08-insights" target="_blank">2024-10-08-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da51261" title="2024-10-07-insights" target="_blank">2024-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/544eb21b" title="2024-10-03-insights" target="_blank">2024-10-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/bb8cd925" title="2024-10-02-insights" target="_blank">2024-10-02-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/50bb6226" title="2024-10-01-insights" target="_blank">2024-10-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3c018487" title="2024-09-30-insights" target="_blank">2024-09-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -665,6 +698,26 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/2300f7be" title="论文阅读[粗读]-Alignment For Honesty" target="_blank">论文阅读[粗读]-Alignment For Honesty</a>
         </li>
       
     </ul>
@@ -720,12 +773,12 @@ x_{t−1} =\sqrt{\overline{\alpha}} \text{Clamp}(f_\theta(x_t,t))+ \sqrt{1- \ove
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>

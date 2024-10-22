@@ -299,14 +299,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>625</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
 
@@ -320,30 +320,41 @@
 
       
         <p>前两天看论文解释了emergent ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。</p>
-<p><img src="../files/images/emergent_ability_isnt_mirage/reason.png"></p>
+<img src="../files/images/emergent_ability_isnt_mirage/reason.png">
 <span id="more"></span>
 <p>作者来自斯坦福大学</p>
-<p><img src="../files/images/emergent_ability_isnt_mirage/authors.png"></p>
-<h2 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h2><p>其实这篇论文也没什么所谓的方法，都是基于一个假设。</p>
+<img src="../files/images/emergent_ability_isnt_mirage/authors.png">
+<h2 id="论文">论文</h2>
+<p>其实这篇论文也没什么所谓的方法，都是基于一个假设。</p>
 <p>我们之前也聊过emergent ability的博客： <a href="/9ece5113.html" title="大模型的Emergent-Abilities和最优传输">大模型的Emergent-Abilities和最优传输</a>。里面说到其实crossentropy loss是随着模型(指数)大小线性下降，符合power-law的。</p>
-<p>作者就从这里出发，提到：我们现在的主流测试函数和loss不是线性关系，具体而言，主流有几种测试score:</p>
-<script type="math/tex; mode=display">
-\text{Multiple Choice Grade} \overset{\text{def}}{=} \left\{ 
-\begin{aligned}
-& 1, \text{if highest probability mass on correct option} \\
-& 0, \text{otherwise}
-\end{aligned} \right.</script><script type="math/tex; mode=display">
-\text{Exact String Match} \overset{\text{def}}{=} \left\{ 
-\begin{aligned}
-& 1, \text{if output string exactly matches target string} \\
-& 0, \text{otherwise}
-\end{aligned} \right.</script><p>但我们的loss之前解释过</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_{CE}(N) = - \log P_N(a_j | a_{i<j}) \propto \text{model-size}</script><p>那么对于一个单独的token，其正确的概率大概是</p>
-<script type="math/tex; mode=display">
-p(\text{single token correct}) = e^{-\mathcal{L}_{CE}(N)}</script><p>Accuracy-Lc可以视为二项分布，连续L个token都猜对 。string match也是一个意思</p>
-<script type="math/tex; mode=display">
-P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L</script><p>因此如果以模型大小为轴，看起来，再加上非常离散的采样方式，看起来就是emergent ability</p>
+<p>作者就从这里出发，提到：我们现在的主流测试函数和loss不是线性关系，具体而言，主流有几种测试score:<br>
+$$<br>
+\text{Multiple Choice Grade} \overset{\text{def}}{=} \left{<br>
+\begin{aligned}<br>
+&amp; 1, \text{if highest probability mass on correct option} \<br>
+&amp; 0, \text{otherwise}<br>
+\end{aligned} \right.<br>
+$$</p>
+<p>$$<br>
+\text{Exact String Match} \overset{\text{def}}{=} \left{<br>
+\begin{aligned}<br>
+&amp; 1, \text{if output string exactly matches target string} \<br>
+&amp; 0, \text{otherwise}<br>
+\end{aligned} \right.<br>
+$$</p>
+<p>但我们的loss之前解释过<br>
+$$<br>
+\mathcal{L}<em>{CE}(N) = - \log P_N(a_j | a</em>{i&lt;j}) \propto \text{model-size}<br>
+$$<br>
+那么对于一个单独的token，其正确的概率大概是<br>
+$$<br>
+p(\text{single token correct}) = e^{-\mathcal{L}_{CE}(N)}<br>
+$$<br>
+Accuracy-Lc可以视为二项分布，连续L个token都猜对 。string match也是一个意思<br>
+$$<br>
+P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<br>
+$$<br>
+因此如果以模型大小为轴，看起来，再加上非常离散的采样方式，看起来就是emergent ability</p>
 <p>由此作者提出了现在emergent ability的三个原因：</p>
 <ul>
 <li>选取的metric和model size不是线性的，而且选取的模型size太稀疏了(GPT-3 family就4个size)</li>
@@ -351,29 +362,32 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
 <li>无论什么score，增加target string length都会使得表现下降</li>
 </ul>
 <p>下面作者做了几个实验</p>
-<p><img src="../files/images/emergent_ability_isnt_mirage/exp.png"></p>
+<img src="../files/images/emergent_ability_isnt_mirage/exp.png">
 <p>解释下这几个图，作者在GPT3 family的API上做了实验：</p>
 <ul>
 <li>图中的列从左到右代表三个不同的任务：Mathematical Model, 2-Integer 2-Digit Multiplication Task, 2- Integer 4-Digit Addition Task</li>
 <li>图的行上下对照是不同的metric，上面是acc。下面是token edit distance，代表错误答案最少修改几个token就能做对。这个score可以近似看做和log model size 成正比，去掉了L的影响：</li>
 </ul>
-<script type="math/tex; mode=display">
-\text{Token Edit Distance}(N) ≈ L \left(1 − p_N (\text{single token correct})\right) = L(1 − \exp(N/c)^α)</script><p>从图中可以看到，换成了好的score之后，emergent ability的现象基本就消失了</p>
+<p>$$<br>
+\text{Token Edit Distance}(N) ≈ L \left(1 − p_N (\text{single token correct})\right) = L(1 − \exp(N/c)^α)<br>
+$$</p>
+<p>从图中可以看到，换成了好的score之后，emergent ability的现象基本就消失了</p>
 <p>接下来作者探索了是不是增加测试集大小，普通的score也能看起来好很多</p>
-<p><img src="../files/images/emergent_ability_isnt_mirage/test_size.png"></p>
+<img src="../files/images/emergent_ability_isnt_mirage/test_size.png">
 <p>发现看起来确实好了很多，不过这里有个小细节</p>
 <blockquote>
 <p>我戴上赛文眼镜以后，发现这个图的纵坐标变成指数坐标系了？上面图的纵坐标是线性坐标系？</p>
 </blockquote>
-<p><img src="../files/images/emergent_ability_isnt_mirage/big_bench.png"></p>
+<img src="../files/images/emergent_ability_isnt_mirage/big_bench.png">
 <p>作者还尝试了在big-bench上测试LaMDA一系列的模型，发现出现emergent ability的绝大多数都是这种非线性metric的</p>
 <p>最后，作者在CV领域用卷积网络”复现“了emergent ability。它定义了一种非线性score</p>
 <blockquote>
 <p>如果连续K个样本都分类正确，就算正确。K=1时就是图片分类accuracy</p>
 </blockquote>
-<p><img src="../files/images/emergent_ability_isnt_mirage/cv.png"></p>
+<img src="../files/images/emergent_ability_isnt_mirage/cv.png">
 <p>用MNIST数据集做实验，然后稀疏采样了model-size，形成最右侧的图。看起来和最左边GPT3在NLP领域的emergent ability看起来一模一样。</p>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>我比较认可作者的思路，但这并不是说之前讨论emergent ability就没有意义了。我由此想到了几个问题。</p>
+<h2 id="我的思考">我的思考</h2>
+<p>我比较认可作者的思路，但这并不是说之前讨论emergent ability就没有意义了。我由此想到了几个问题。</p>
 <p>首先，我们在实际应用中，确实就是要用这种类似二项分布的accuracy。而且这个长度L很可能会更大，几十、几百、几千。所谓量变引起质变，这其实对预训练模型领域而言是个很好的现象：虽然模型指数增长，per token loss线性下降；但loss线性下降，对应的是metric的级数级别的的提高。所以pertoken优化的前景仍然广阔。</p>
 <p>其次，现在的主流metric如果是如此的非线性，那用他来衡量模型的强度显然是很不合理的。虽然不合理，但是确实符合实际应用场景的。这里面就衍生出了一个bias：有没有什么更好的衡量办法呢？</p>
 <p>最后，现在的模型训练显然都是在做NCE、crossentropy loss，这个loss训练很稳定。但这篇文章其实揭示了另一个方面：这种per token的训练和下游任务某种程度上是有偏差的。这接着聊就是老生常谈的teacher-force bias和explosure bias。但其实我们从另一个角度思考一下，现在大火的RLHF其实就是跳出了这个怪圈，从generation级别进行优化，进而得出了很好的实际应用效果。我觉得，也许未来在pertoken的预训练基础上，还能发掘出更多per-generation级别的优化方式。如果设想的再张狂一些，把级别再次拉大，奖励变得更稀疏，是不是就和我们人类对自身的优化方式更像了呢？</p>
@@ -387,7 +401,7 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
@@ -503,7 +517,7 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -546,31 +560,11 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
       
       
         <li class="recent_posts_li">
+          <a href="/e3e060e4" title="2024-10-22-insights" target="_blank">2024-10-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/acae49ec" title="2024-10-08-insights" target="_blank">2024-10-08-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da51261" title="2024-10-07-insights" target="_blank">2024-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/544eb21b" title="2024-10-03-insights" target="_blank">2024-10-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/bb8cd925" title="2024-10-02-insights" target="_blank">2024-10-02-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/50bb6226" title="2024-10-01-insights" target="_blank">2024-10-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3c018487" title="2024-09-30-insights" target="_blank">2024-09-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -583,6 +577,26 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/2300f7be" title="论文阅读[粗读]-Alignment For Honesty" target="_blank">论文阅读[粗读]-Alignment For Honesty</a>
         </li>
       
     </ul>
@@ -638,12 +652,12 @@ P_L \approx p(\text{single token correct})^L \propto (\log \text{model-size})^L<
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>

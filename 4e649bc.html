@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天全是重量级 ReFT: Representation Finetuning for Language Models这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多  Visualization-of-Thought Elic">
+  <meta name="description" content="今天全是重量级 ReFT: Representation Finetuning for Language Models 这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多  Visualization-of-Thought Eli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-04-05-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4e649bc">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天全是重量级 ReFT: Representation Finetuning for Language Models这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多  Visualization-of-Thought Elic">
+<meta property="og:description" content="今天全是重量级 ReFT: Representation Finetuning for Language Models 这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多  Visualization-of-Thought Eli">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-01-04-05/reft.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-01-04-05/visualization-of-thought.png">
@@ -316,18 +316,22 @@
 
       
         <p>今天全是重量级</p>
-<h2 id="ReFT-Representation-Finetuning-for-Language-Models"><a href="#ReFT-Representation-Finetuning-for-Language-Models" class="headerlink" title="ReFT: Representation Finetuning for Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03592.pdf">ReFT: Representation Finetuning for Language Models</a></h2><p>这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多</p>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/reft.png"></p>
-<h2 id="Visualization-of-Thought-Elicits-Spatial-Reasoning-in-Large-Language-Models"><a href="#Visualization-of-Thought-Elicits-Spatial-Reasoning-in-Large-Language-Models" class="headerlink" title="Visualization-of-Thought Elicits Spatial Reasoning in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03622.pdf">Visualization-of-Thought Elicits Spatial Reasoning in Large Language Models</a></h2><p>Furu Wei的论文，作者发现，如果让MLLM在推理的时候可以用上文本和图像的输入，模型的效果会更好，尤其是在空间类任务上</p>
+<h2 id="ReFT-Representation-Finetuning-for-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03592.pdf">ReFT: Representation Finetuning for Language Models</a></h2>
+<p>这是一篇delta tuning的论文：作者发现LLM中的hidden-state其实表征了巨大的信息，如果只给模型学习一个hidden-state，别的都锁住，比起传统的delta tuning，效果和参数量都好非常多</p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/reft.png">
+<h2 id="Visualization-of-Thought-Elicits-Spatial-Reasoning-in-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03622.pdf">Visualization-of-Thought Elicits Spatial Reasoning in Large Language Models</a></h2>
+<p>Furu Wei的论文，作者发现，如果让MLLM在推理的时候可以用上文本和图像的输入，模型的效果会更好，尤其是在空间类任务上</p>
 <blockquote>
 <p>名字里这个“elicits spatial reasoning”就很灵性</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/visualization-of-thought.png"></p>
-<h2 id="Training-LLMs-over-Neurally-Compressed-Text"><a href="#Training-LLMs-over-Neurally-Compressed-Text" class="headerlink" title="Training LLMs over Neurally Compressed Text"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03626.pdf">Training LLMs over Neurally Compressed Text</a></h2><p>anthropic的论文：作者探索了能不能在已经压缩过的文本上训练Autoregressive-model。如果可行的话，相同的token数量，由于压缩算法的压缩能力远超tokenizer的词表压缩法。这样的模型对应的string更长。也就是说，生成速度更快，可以表征的有效文本更长。</p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/visualization-of-thought.png">
+<h2 id="Training-LLMs-over-Neurally-Compressed-Text"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03626.pdf">Training LLMs over Neurally Compressed Text</a></h2>
+<p>anthropic的论文：作者探索了能不能在已经压缩过的文本上训练Autoregressive-model。如果可行的话，相同的token数量，由于压缩算法的压缩能力远超tokenizer的词表压缩法。这样的模型对应的string更长。也就是说，生成速度更快，可以表征的有效文本更长。</p>
 <p>作者发现，这个路线大致可行，效果比不上传统的tokenizer LLM，但是还有优化的空间。</p>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/compressed.png"></p>
-<h2 id="AutoWebGLM-Bootstrap-And-Reinforce-A-Large-Language-Model-based-Web-Navigating-Agent"><a href="#AutoWebGLM-Bootstrap-And-Reinforce-A-Large-Language-Model-based-Web-Navigating-Agent" class="headerlink" title="AutoWebGLM: Bootstrap And Reinforce A Large Language Model-based Web Navigating Agent"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03648.pdf">AutoWebGLM: Bootstrap And Reinforce A Large Language Model-based Web Navigating Agent</a></h2><p>唐杰老师的论文：简单来说，GUI领域的ToolBench。</p>
-<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/autoWebBench.png" style="zoom:33%;"></p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/compressed.png">
+<h2 id="AutoWebGLM-Bootstrap-And-Reinforce-A-Large-Language-Model-based-Web-Navigating-Agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03648.pdf">AutoWebGLM: Bootstrap And Reinforce A Large Language Model-based Web Navigating Agent</a></h2>
+<p>唐杰老师的论文：简单来说，GUI领域的ToolBench。</p>
+<img src="../../files/images/arxiv-insights/2024-04-01-04-05/autoWebBench.png" style="zoom:33%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -344,13 +348,10 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e3e060e4.html" rel="bookmark">2024-10-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/acae49ec.html" rel="bookmark">2024-10-08-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5da51261.html" rel="bookmark">2024-10-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b692a962.html" rel="bookmark">2024-10-04-insights</a></div>
     </li>
   </ul>
 
@@ -442,7 +443,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">131</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,31 +486,11 @@
       
       
         <li class="recent_posts_li">
+          <a href="/e3e060e4" title="2024-10-22-insights" target="_blank">2024-10-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/acae49ec" title="2024-10-08-insights" target="_blank">2024-10-08-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da51261" title="2024-10-07-insights" target="_blank">2024-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b692a962" title="2024-10-04-insights" target="_blank">2024-10-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/544eb21b" title="2024-10-03-insights" target="_blank">2024-10-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/bb8cd925" title="2024-10-02-insights" target="_blank">2024-10-02-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/50bb6226" title="2024-10-01-insights" target="_blank">2024-10-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3c018487" title="2024-09-30-insights" target="_blank">2024-09-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -522,6 +503,26 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/2300f7be" title="论文阅读[粗读]-Alignment For Honesty" target="_blank">论文阅读[粗读]-Alignment For Honesty</a>
         </li>
       
     </ul>
@@ -577,12 +578,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>
