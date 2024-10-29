@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>984</span>
+              <span>974</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,28 +315,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天足足有169篇工作，昨天是劳工节放假，所以今天是 放假 + 周二的联合</p>
-<h2 id="Pre-Training-Multimodal-Hallucination-Detectors-with-Corrupted-Grounding-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.00238">Pre-Training Multimodal Hallucination Detectors with Corrupted Grounding Data</a></h2>
-<p>Scale AI的工作，有趣的思路：作者认为，已有的幻觉检测方法大多是paragraph-level，说出来一整段有没有幻觉，作者想要在span-level做检测。所以作者反向构造数据：先找到一个对的数据，在所有grounding位置让LLM给出流畅的paraphrase，然后替换变成负样本。</p>
-<img src="../../files/images/arxiv-insights/2024-09-02-09-06/detect.png">
-<h2 id="Learning-to-Ask-When-LLMs-Meet-Unclear-Instruction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.00557">Learning to Ask: When LLMs Meet Unclear Instruction</a></h2>
+        <p>今天足足有169篇工作，昨天是劳工节放假，所以今天是 放假 +
+周二的联合</p>
+<h2 id="pre-training-multimodal-hallucination-detectors-with-corrupted-grounding-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.00238">Pre-Training Multimodal
+Hallucination Detectors with Corrupted Grounding Data</a></h2>
+<p>Scale
+AI的工作，有趣的思路：作者认为，已有的幻觉检测方法大多是paragraph-level，说出来一整段有没有幻觉，作者想要在span-level做检测。所以作者反向构造数据：先找到一个对的数据，在所有grounding位置让LLM给出流畅的paraphrase，然后替换变成负样本。</p>
+<p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/detect.png"></p>
+<h2 id="learning-to-ask-when-llms-meet-unclear-instruction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.00557">Learning to Ask: When LLMs Meet
+Unclear Instruction</a></h2>
 <p>挺有趣的工作，作者认为：在真实场景中，用户的instruction往往有歧义、或者不明确，模型应该正确地发现歧义，或者主动在任务进程中问用户相关的信息。作者探索了在tool场景中模型能否获得这个能力</p>
 <blockquote>
-<p>有点像组里师弟做的&quot;tell me more&quot;，今年的ACL工作</p>
+<p>有点像组里师弟做的"tell me more"，今年的ACL工作</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-09-02-09-06/learn_to_ask.png">
-<h2 id="Training-on-the-Benchmark-Is-Not-All-You-Need"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.01790">Training on the Benchmark Is Not All You Need</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/learn_to_ask.png"></p>
+<h2 id="training-on-the-benchmark-is-not-all-you-need"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.01790">Training on the Benchmark Is Not
+All You Need</a></h2>
 <p>一篇检测各大公司是否把benchmark数据偷偷训进去的工作，作者的思路挺简单：瞄准多选题场景。作者觉得，如果没训进去，那选项不管怎么排布都应该概率一样。所以作者把n个选项生成了n!个变体，所有选项顺序打乱，观察模型的ppl，如果原始题目顺序的ppl是所有变体里最低的，那么就会危险。作者用这个方法观察了32个LLM，发现qwen系列的表现最为反常</p>
 <blockquote>
 <p>只能说……难说</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-09-02-09-06/leakage.png">
-<h2 id="CRAFT-Your-Dataset-Task-Specific-Synthetic-Dataset-Generation-Through-Corpus-Retrieval-and-Augmentation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.02098">CRAFT Your Dataset: Task-Specific Synthetic Dataset Generation Through Corpus Retrieval and Augmentation</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/leakage.png"></p>
+<h2 id="craft-your-dataset-task-specific-synthetic-dataset-generation-through-corpus-retrieval-and-augmentation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.02098">CRAFT Your Dataset:
+Task-Specific Synthetic Dataset Generation Through Corpus Retrieval and
+Augmentation</a></h2>
 <p>这篇工作有点像是mammoth2从预训练数据集中自底向上合成数据，但又不完全是：他是先找一个task，根据这个task找到最接近的free-text，然后让一个模型过来refine。所以没有最前面的fastext环节</p>
 <blockquote>
-<p>如果一定要找的话，我觉得最像的是neubig在扩展instruction tuning数据方面的一个工作<a href="**https://arxiv.org/pdf/2404.14361.pdf**">Better Synthetic Data by Retrieving and Transforming Existing Datasets</a>……如果大家还记得我四月份推过这篇的话</p>
+<p>如果一定要找的话，我觉得最像的是neubig在扩展instruction
+tuning数据方面的一个工作<a href="**https://arxiv.org/pdf/2404.14361.pdf**">Better Synthetic Data by
+Retrieving and Transforming Existing
+Datasets</a>……如果大家还记得我四月份推过这篇的话</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-09-02-09-06/craft.png">
+<p><img src="../../files/images/arxiv-insights/2024-09-02-09-06/craft.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -351,6 +361,9 @@
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1b009b13.html" rel="bookmark">2024-10-29-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4c2f02d.html" rel="bookmark">2024-10-28-insights</a></div>
@@ -433,7 +446,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-Training-Multimodal-Hallucination-Detectors-with-Corrupted-Grounding-Data"><span class="nav-number">1.</span> <span class="nav-text">Pre-Training Multimodal Hallucination Detectors with Corrupted Grounding Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-to-Ask-When-LLMs-Meet-Unclear-Instruction"><span class="nav-number">2.</span> <span class="nav-text">Learning to Ask: When LLMs Meet Unclear Instruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-on-the-Benchmark-Is-Not-All-You-Need"><span class="nav-number">3.</span> <span class="nav-text">Training on the Benchmark Is Not All You Need</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CRAFT-Your-Dataset-Task-Specific-Synthetic-Dataset-Generation-Through-Corpus-Retrieval-and-Augmentation"><span class="nav-number">4.</span> <span class="nav-text">CRAFT Your Dataset: Task-Specific Synthetic Dataset Generation Through Corpus Retrieval and Augmentation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pre-training-multimodal-hallucination-detectors-with-corrupted-grounding-data"><span class="nav-number">1.</span> <span class="nav-text">Pre-Training Multimodal
+Hallucination Detectors with Corrupted Grounding Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-to-ask-when-llms-meet-unclear-instruction"><span class="nav-number">2.</span> <span class="nav-text">Learning to Ask: When LLMs Meet
+Unclear Instruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-on-the-benchmark-is-not-all-you-need"><span class="nav-number">3.</span> <span class="nav-text">Training on the Benchmark Is Not
+All You Need</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#craft-your-dataset-task-specific-synthetic-dataset-generation-through-corpus-retrieval-and-augmentation"><span class="nav-number">4.</span> <span class="nav-text">CRAFT Your Dataset:
+Task-Specific Synthetic Dataset Generation Through Corpus Retrieval and
+Augmentation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,7 +466,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,6 +509,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/1b009b13" title="2024-10-29-insights" target="_blank">2024-10-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f4c2f02d" title="2024-10-28-insights" target="_blank">2024-10-28-insights</a>
         </li>
       
@@ -524,10 +546,6 @@
       
         <li class="recent_posts_li">
           <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2300f7be" title="论文阅读[粗读]-Alignment For Honesty" target="_blank">论文阅读[粗读]-Alignment For Honesty</a>
         </li>
       
     </ul>
@@ -583,12 +601,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">273k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

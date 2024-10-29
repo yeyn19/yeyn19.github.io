@@ -314,30 +314,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.11420.pdf">Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning</a></h2>
-<p>PET(parameter efficient tuning)领域的文章，如标题那样，作者发现对于multimodal-LM，只调整transformer block内部的layernorm也行，需要的参数比Lora少，同时效果有的时候会更好。</p>
+        <h2 id="tuning-layernorm-in-attention-towards-efficient-multi-modal-llm-finetuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.11420.pdf">Tuning LayerNorm in
+Attention: Towards Efficient Multi-Modal LLM Finetuning</a></h2>
+<p>PET(parameter efficient
+tuning)领域的文章，如标题那样，作者发现对于multimodal-LM，只调整transformer
+block内部的layernorm也行，需要的参数比Lora少，同时效果有的时候会更好。</p>
 <blockquote>
 <p>神奇……这让我想到：基本MoE干啥说明PET有潜力做这个。目前的MoE基本瞄准MLP，这是不是说明layerNorm也有潜力搞MoE呢？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-12-18-12-22/tune-layernorm.png">
-<h2 id="Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.10793.pdf">Understanding the Instruction Mixture for Large Language Model Fine-tuning</a></h2>
-<p>之前预训练领域有doremi之类的工作探索了每个pretrain-subset的比例对于模型最终效果的重要性。作者希望在instruction tuning领域做一个类似的事情，探索(close-domain) instruction tuning里面不同的任务类型对最终的模型有帮助吗？</p>
+<p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/tune-layernorm.png"></p>
+<h2 id="understanding-the-instruction-mixture-for-large-language-model-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.10793.pdf">Understanding the
+Instruction Mixture for Large Language Model Fine-tuning</a></h2>
+<p>之前预训练领域有doremi之类的工作探索了每个pretrain-subset的比例对于模型最终效果的重要性。作者希望在instruction
+tuning领域做一个类似的事情，探索(close-domain) instruction
+tuning里面不同的任务类型对最终的模型有帮助吗？</p>
 <ul>
 <li>不同的instruction类型对最终的效果有不同的影响</li>
 <li>有些类型上做训练，会导致在其他类型上效果下降</li>
 </ul>
 <blockquote>
-<p>这让我想起Jason Wei在Flan-Collection里提到不同的instruction set的sample权重的问题，不知道他有没有类似的initial experiment</p>
+<p>这让我想起Jason Wei在Flan-Collection里提到不同的instruction
+set的sample权重的问题，不知道他有没有类似的initial experiment</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-12-18-12-22/instruction-mixture.png">
+<p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/instruction-mixture.png"></p>
 <p>前面起高了，感觉后面有好几篇都挺好的，可惜今天只剩下一个名额了……</p>
-<h2 id="Cascade-Speculative-Drafting-for-Even-Faster-LLM-Inference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.11462.pdf">Cascade Speculative Drafting for Even Faster LLM Inference</a></h2>
+<h2 id="cascade-speculative-drafting-for-even-faster-llm-inference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.11462.pdf">Cascade Speculative Drafting
+for Even Faster LLM Inference</a></h2>
 <p>投机推理的论文我应该已经放几篇了：online投机推理、并行投机推理、预测投机推理……今天这位想了另一个问题：投机模型可以视为小模型级联一个大模型，那如果这个级联是递归的，会不会更好呢？</p>
 <p>作者搞了一大堆数学，为了让分布和原来模型等价，然后最后发现效果比之前更好更快</p>
 <blockquote>
 <p>看起来是ICML喜欢的风格</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-12-18-12-22/cas-spe.png">
+<p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/cas-spe.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -352,6 +360,9 @@
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1b009b13.html" rel="bookmark">2024-10-29-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4c2f02d.html" rel="bookmark">2024-10-28-insights</a></div>
@@ -434,7 +445,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuning-LayerNorm-in-Attention-Towards-Efficient-Multi-Modal-LLM-Finetuning"><span class="nav-number">1.</span> <span class="nav-text">Tuning LayerNorm in Attention: Towards Efficient Multi-Modal LLM Finetuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-the-Instruction-Mixture-for-Large-Language-Model-Fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">Understanding the Instruction Mixture for Large Language Model Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cascade-Speculative-Drafting-for-Even-Faster-LLM-Inference"><span class="nav-number">3.</span> <span class="nav-text">Cascade Speculative Drafting for Even Faster LLM Inference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tuning-layernorm-in-attention-towards-efficient-multi-modal-llm-finetuning"><span class="nav-number">1.</span> <span class="nav-text">Tuning LayerNorm in
+Attention: Towards Efficient Multi-Modal LLM Finetuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-the-instruction-mixture-for-large-language-model-fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">Understanding the
+Instruction Mixture for Large Language Model Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cascade-speculative-drafting-for-even-faster-llm-inference"><span class="nav-number">3.</span> <span class="nav-text">Cascade Speculative Drafting
+for Even Faster LLM Inference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +463,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">131</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,6 +506,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/1b009b13" title="2024-10-29-insights" target="_blank">2024-10-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f4c2f02d" title="2024-10-28-insights" target="_blank">2024-10-28-insights</a>
         </li>
       
@@ -525,10 +543,6 @@
       
         <li class="recent_posts_li">
           <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2300f7be" title="论文阅读[粗读]-Alignment For Honesty" target="_blank">论文阅读[粗读]-Alignment For Honesty</a>
         </li>
       
     </ul>
@@ -584,12 +598,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">273k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
