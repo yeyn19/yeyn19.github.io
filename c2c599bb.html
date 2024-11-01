@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Focused Large Language Models are Stable Many-Shot Learners 在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错  颇有A">
+  <meta name="description" content="Focused Large Language Models are Stable Many-Shot Learners在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错  颇有AC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-08-27-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/c2c599bb">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Focused Large Language Models are Stable Many-Shot Learners 在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错  颇有A">
+<meta property="og:description" content="Focused Large Language Models are Stable Many-Shot Learners在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错  颇有AC">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-08-26-08-30/icl.png">
 <meta property="article:published_time" content="2024-08-27T04:52:07.000Z">
@@ -312,20 +312,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="focused-large-language-models-are-stable-many-shot-learners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.13987">Focused Large Language Models
-are Stable Many-Shot Learners</a></h2>
-<p>在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错</p>
+        <h2 id="Focused-Large-Language-Models-are-Stable-Many-Shot-Learners"><a href="#Focused-Large-Language-Models-are-Stable-Many-Shot-Learners" class="headerlink" title="Focused Large Language Models are Stable Many-Shot Learners"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.13987">Focused Large Language Models are Stable Many-Shot Learners</a></h2><p>在many-shot场景，近期有研究发现LLM的表现不达预期。作者分析这个现象，发现一个简单的原因：当context很长以后，answer生成时的attention不会聚焦在query上，而是被in-context样本分散了。作者设计了一个简单的恢复方法，甚至结果还不错</p>
 <blockquote>
 <p>颇有ACL遗风，论文挺有故事感的</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-08-26-08-30/icl.png"></p>
-<h2 id="step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.14470">Step-by-Step Unmasking for
-Parameter-Efficient Fine-tuning of Large Language Models</a></h2>
-<p>印度老哥的工作，作者思考了delta
-tuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。</p>
+<h2 id="Step-by-Step-Unmasking-for-Parameter-Efficient-Fine-tuning-of-Large-Language-Models"><a href="#Step-by-Step-Unmasking-for-Parameter-Efficient-Fine-tuning-of-Large-Language-Models" class="headerlink" title="Step-by-Step Unmasking for Parameter-Efficient Fine-tuning of Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.14470">Step-by-Step Unmasking for Parameter-Efficient Fine-tuning of Large Language Models</a></h2><p>印度老哥的工作，作者思考了delta tuning这个场景：只微调少量参数来节省显存，同时获得正常finetune差不多的效果。作者设计了一套selective的框架，让模型自由选择学习哪些参数，通过loss大小作为feedback。</p>
 <blockquote>
-<p>这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地delta
-tuning，那到底是增加了算力还是减少了算力呢……</p>
+<p>这个场景之前推荐过类似的论文，这里面其实有个反直觉的问题：如果我增加训练次数等方法来做更好地delta tuning，那到底是增加了算力还是减少了算力呢……</p>
 </blockquote>
 <!-- flag of hidden posts -->
     </div>
@@ -343,13 +337,13 @@ tuning，那到底是增加了算力还是减少了算力呢……</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8d2dbba3.html" rel="bookmark">2024-11-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c9590427.html" rel="bookmark">2024-10-31-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/269b6f19.html" rel="bookmark">2024-10-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1b009b13.html" rel="bookmark">2024-10-29-insights</a></div>
     </li>
   </ul>
 
@@ -426,9 +420,7 @@ tuning，那到底是增加了算力还是减少了算力呢……</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#focused-large-language-models-are-stable-many-shot-learners"><span class="nav-number">1.</span> <span class="nav-text">Focused Large Language Models
-are Stable Many-Shot Learners</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#step-by-step-unmasking-for-parameter-efficient-fine-tuning-of-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Step-by-Step Unmasking for
-Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Focused-Large-Language-Models-are-Stable-Many-Shot-Learners"><span class="nav-number">1.</span> <span class="nav-text">Focused Large Language Models are Stable Many-Shot Learners</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-by-Step-Unmasking-for-Parameter-Efficient-Fine-tuning-of-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Step-by-Step Unmasking for Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +435,7 @@ Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></d
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -486,6 +478,10 @@ Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></d
       
       
         <li class="recent_posts_li">
+          <a href="/8d2dbba3" title="2024-11-01-insights" target="_blank">2024-11-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c9590427" title="2024-10-31-insights" target="_blank">2024-10-31-insights</a>
         </li>
       
@@ -519,10 +515,6 @@ Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></d
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -578,12 +570,12 @@ Parameter-Efficient Fine-tuning of Large Language Models</span></a></li></ol></d
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">262k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">3:58</span>
 </div>
 
 <i class="fa fa-user-md"></i>
