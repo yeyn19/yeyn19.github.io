@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天几篇推荐全是VLM的……压力来到LLM这边 Tell Me What’s Next: Textual Foresight for Generic UI Representations挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给看">
+  <meta name="description" content="今天几篇推荐全是VLM的……压力来到LLM这边 Tell Me What’s Next: Textual Foresight for Generic UI Representations 挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-13-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a82a5370">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天几篇推荐全是VLM的……压力来到LLM这边 Tell Me What’s Next: Textual Foresight for Generic UI Representations挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给看">
+<meta property="og:description" content="今天几篇推荐全是VLM的……压力来到LLM这边 Tell Me What’s Next: Textual Foresight for Generic UI Representations 挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-10-06-14/what-next.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-10-06-14/re-caption.png">
@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -315,18 +315,21 @@
 
       
         <p>今天几篇推荐全是VLM的……压力来到LLM这边</p>
-<h2 id="Tell-Me-What’s-Next-Textual-Foresight-for-Generic-UI-Representations"><a href="#Tell-Me-What’s-Next-Textual-Foresight-for-Generic-UI-Representations" class="headerlink" title="Tell Me What’s Next: Textual Foresight for Generic UI Representations"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.07822">Tell Me What’s Next: Textual Foresight for Generic UI Representations</a></h2><p>挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给看state2，模型就能蒸馏这个“priori knowledge”了。作者发现，这样的数据效率比前面的Ferret类型高很多</p>
-<p><img src="../../files/images/arxiv-insights/2024-06-10-06-14/what-next.png"></p>
-<h2 id="What-If-We-Recaption-Billions-of-Web-Images-with-LLaMA-3"><a href="#What-If-We-Recaption-Billions-of-Web-Images-with-LLaMA-3" class="headerlink" title="What If We Recaption Billions of Web Images with LLaMA-3?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.08478">What If We Recaption <strong>Billions</strong> of Web Images with <strong>LLaMA-3</strong>?</a></h2><p>作者目标明确，找了llava新出的Llava-Next-Llama3-8B，把DataComp-1B里面的所有caption重新标注了一遍。然后训练CLIP和diffusion，发现效果起飞。这说明，如果有更多的钱、或者更牛的caption model，还能再起飞</p>
+<h2 id="Tell-Me-What’s-Next-Textual-Foresight-for-Generic-UI-Representations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.07822">Tell Me What’s Next: Textual Foresight for Generic UI Representations</a></h2>
+<p>挺好玩的一篇工作：作者找到了一个scaling GUI数据的方法。他设计一个游走算法在手机上随机点，然后每个state1-action-state2这样的组都能标注一个对action的解释。然后训练模型的时候不给看state2，模型就能蒸馏这个“priori knowledge”了。作者发现，这样的数据效率比前面的Ferret类型高很多</p>
+<img src="../../files/images/arxiv-insights/2024-06-10-06-14/what-next.png">
+<h2 id="What-If-We-Recaption-Billions-of-Web-Images-with-LLaMA-3"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.08478">What If We Recaption <strong>Billions</strong> of Web Images with <strong>LLaMA-3</strong>?</a></h2>
+<p>作者目标明确，找了llava新出的Llava-Next-Llama3-8B，把DataComp-1B里面的所有caption重新标注了一遍。然后训练CLIP和diffusion，发现效果起飞。这说明，如果有更多的钱、或者更牛的caption model，还能再起飞</p>
 <blockquote>
 <p>冒充DALL.E 3</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-10-06-14/re-caption.png"></p>
-<h2 id="Multimodal-Table-Understanding"><a href="#Multimodal-Table-Understanding" class="headerlink" title="Multimodal Table Understanding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.08100">Multimodal Table Understanding</a></h2><p>作者研究的是比较小众、但我比较喜欢的问题：table understanding。让模型用开放问答的形式完成table理解、推理、识别等等任务。作者提到，已有的模型往往依赖于图像、文本双模态的输入，他们想做成纯图片的VLM版本。所以构造了高质量SFT数据，发现还真行</p>
+<img src="../../files/images/arxiv-insights/2024-06-10-06-14/re-caption.png">
+<h2 id="Multimodal-Table-Understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.08100">Multimodal Table Understanding</a></h2>
+<p>作者研究的是比较小众、但我比较喜欢的问题：table understanding。让模型用开放问答的形式完成table理解、推理、识别等等任务。作者提到，已有的模型往往依赖于图像、文本双模态的输入，他们想做成纯图片的VLM版本。所以构造了高质量SFT数据，发现还真行</p>
 <blockquote>
 <p>挺好的文章，如果每个VLM领域都能有这么一手，把所有SFT数据扔在一起就是gpt-4o了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-10-06-14/table-llava.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-10-06-14/table-llava.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -576,12 +579,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作 Learning How Hard to Think: Input-Adaptive Allocation of LM ComputationJacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种">
+  <meta name="description" content="ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作 Learning How Hard to Think: Input-Adaptive Allocation of LM Computation Jacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-08-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/acae49ec">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作 Learning How Hard to Think: Input-Adaptive Allocation of LM ComputationJacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种">
+<meta property="og:description" content="ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作 Learning How Hard to Think: Input-Adaptive Allocation of LM Computation Jacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-07-10-11/adaptive.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-07-10-11/gen-r.png">
@@ -105,8 +105,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -317,16 +317,21 @@
 
       
         <p>ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作</p>
-<h2 id="Learning-How-Hard-to-Think-Input-Adaptive-Allocation-of-LM-Computation"><a href="#Learning-How-Hard-to-Think-Input-Adaptive-Allocation-of-LM-Computation" class="headerlink" title="Learning How Hard to Think: Input-Adaptive Allocation of LM Computation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04707"><strong>Learning How Hard to Think: Input-Adaptive Allocation of LM Computation</strong></a></h2><p>Jacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种方法，可以在保证最优效果的前提下，省下来超过50%的计算资源</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/adaptive.png" style="zoom:33%;"></p>
-<h2 id="Beyond-Scalar-Reward-Model-Learning-Generative-Judge-from-Preference-Data"><a href="#Beyond-Scalar-Reward-Model-Learning-Generative-Judge-from-Preference-Data" class="headerlink" title="Beyond Scalar Reward Model: Learning Generative Judge from Preference Data"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03742"><strong>Beyond Scalar Reward Model: Learning Generative Judge from Preference Data</strong></a></h2><p>liuyiqun老师转型了，去搞post-training了。这次是generative reward model，是说让reward model也是生成式的、CoT的，而不是从human偏序里蒸馏出来的float。虽然不是第一篇，但我很喜欢这个方向，现在看见就转</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/gen-r.png"></p>
-<h2 id="SWE-bench-Multimodal-Do-AI-Systems-Generalize-to-Visual-Software-Domains"><a href="#SWE-bench-Multimodal-Do-AI-Systems-Generalize-to-Visual-Software-Domains" class="headerlink" title="SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03859"><strong>SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?</strong></a></h2><p>我最开始看到这篇工作，还以为是让模型通过键鼠操作vscode来编程……仔细一看是解决多模态的编程问题。作者构建了一个新的bench，输入的问题描述或者testcase里最少有一张图片，需要多模态模型运用多模态能力来理解或者解决问题</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/swe-m.png"></p>
-<h2 id="Inference-Scaling-for-Long-Context-Retrieval-Augmented-Generation"><a href="#Inference-Scaling-for-Long-Context-Retrieval-Augmented-Generation" class="headerlink" title="Inference Scaling for Long-Context Retrieval Augmented Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04343"><strong>Inference Scaling for Long-Context Retrieval Augmented Generation</strong></a></h2><p>Deepmind的工作：作者结合了之前的many-shot ICL，认为其是RAG的inference-time compute领域的一种scaling方案。另一种方案是使用不同的RAG prompt抽取很多次做一堆infer。对于每个query，都可以使用这两种方案做各种实验，比如100-shot，或者用10个rag prompt做10次10-shot拼成一个100-shot，总体budget一致。作者经过研究，发现如果给所有budget做到optimal的情况下，performance和context-length是可以符合scaling law的</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/inference-rag.png"></p>
-<h2 id="Grounding-Partially-Defined-Events-in-Multimodal-Data"><a href="#Grounding-Partially-Defined-Events-in-Multimodal-Data" class="headerlink" title="Grounding Partially-Defined Events in Multimodal Data"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.05267">Grounding Partially-Defined Events in Multimodal Data</a></h2><p>作者标注了一个dense数据集，可以把caption中的各种实体、事件链接到时间信息，并进一步在空间中给出坐标，包含大约15h的标注视频。</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/multivent-G.png" style="zoom:33%;"></p>
+<h2 id="Learning-How-Hard-to-Think-Input-Adaptive-Allocation-of-LM-Computation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04707"><strong>Learning How Hard to Think: Input-Adaptive Allocation of LM Computation</strong></a></h2>
+<p>Jacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种方法，可以在保证最优效果的前提下，省下来超过50%的计算资源</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/adaptive.png" style="zoom:33%;">
+<h2 id="Beyond-Scalar-Reward-Model-Learning-Generative-Judge-from-Preference-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03742"><strong>Beyond Scalar Reward Model: Learning Generative Judge from Preference Data</strong></a></h2>
+<p>liuyiqun老师转型了，去搞post-training了。这次是generative reward model，是说让reward model也是生成式的、CoT的，而不是从human偏序里蒸馏出来的float。虽然不是第一篇，但我很喜欢这个方向，现在看见就转</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/gen-r.png">
+<h2 id="SWE-bench-Multimodal-Do-AI-Systems-Generalize-to-Visual-Software-Domains"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03859"><strong>SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?</strong></a></h2>
+<p>我最开始看到这篇工作，还以为是让模型通过键鼠操作vscode来编程……仔细一看是解决多模态的编程问题。作者构建了一个新的bench，输入的问题描述或者testcase里最少有一张图片，需要多模态模型运用多模态能力来理解或者解决问题</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/swe-m.png">
+<h2 id="Inference-Scaling-for-Long-Context-Retrieval-Augmented-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04343"><strong>Inference Scaling for Long-Context Retrieval Augmented Generation</strong></a></h2>
+<p>Deepmind的工作：作者结合了之前的many-shot ICL，认为其是RAG的inference-time compute领域的一种scaling方案。另一种方案是使用不同的RAG prompt抽取很多次做一堆infer。对于每个query，都可以使用这两种方案做各种实验，比如100-shot，或者用10个rag prompt做10次10-shot拼成一个100-shot，总体budget一致。作者经过研究，发现如果给所有budget做到optimal的情况下，performance和context-length是可以符合scaling law的</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/inference-rag.png">
+<h2 id="Grounding-Partially-Defined-Events-in-Multimodal-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.05267">Grounding Partially-Defined Events in Multimodal Data</a></h2>
+<p>作者标注了一个dense数据集，可以把caption中的各种实体、事件链接到时间信息，并进一步在空间中给出坐标，包含大约15h的标注视频。</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/multivent-G.png" style="zoom:33%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -576,12 +581,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="310篇论文，前无古人 Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一种">
+  <meta name="description" content="310篇论文，前无古人 Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization 推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-18-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/50caa887">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="310篇论文，前无古人 Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一种">
+<meta property="og:description" content="310篇论文，前无古人 Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization 推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-17-06-21/deception.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-17-06-21/code-gemma.png">
@@ -104,8 +104,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>541</span>
+              <span>580</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -316,21 +316,25 @@
 
       
         <p>310篇论文，前无古人</p>
-<h2 id="Super-ficial-alignment-Strong-Models-May-Deceive-Weak-Models-in-Weak-to-Strong-Generalization"><a href="#Super-ficial-alignment-Strong-Models-May-Deceive-Weak-Models-in-Weak-to-Strong-Generalization" class="headerlink" title="Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11431">Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization</a></h2><p>推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一种相反的情况：如果弱模型做得一塌糊涂，强模型会不会把意思理解反，还以为是在做另一件事情，进而表现得比弱模型更差呢？</p>
+<h2 id="Super-ficial-alignment-Strong-Models-May-Deceive-Weak-Models-in-Weak-to-Strong-Generalization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11431">Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization</a></h2>
+<p>推荐yankai师兄的工作：大家都知道weak-to-strong generalization，更强的模型能从更弱的模型的表现里学习到任务的目的，进而表现的比弱模型更好。但是，还有一种相反的情况：如果弱模型做得一塌糊涂，强模型会不会把意思理解反，还以为是在做另一件事情，进而表现得比弱模型更差呢？</p>
 <p>作者发现还真是，然后设计了方法去缓解这个情况</p>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/deception.png"></p>
-<h2 id="CodeGemma-Open-Code-Models-Based-on-Gemma"><a href="#CodeGemma-Open-Code-Models-Based-on-Gemma" class="headerlink" title="CodeGemma: Open Code Models Based on Gemma"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11409">CodeGemma: Open Code Models Based on Gemma</a></h2><p>如果大家还记得google的gemma，今天出了code版，还额外放送了数学能力。</p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/deception.png">
+<h2 id="CodeGemma-Open-Code-Models-Based-on-Gemma"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11409">CodeGemma: Open Code Models Based on Gemma</a></h2>
+<p>如果大家还记得google的gemma，今天出了code版，还额外放送了数学能力。</p>
 <blockquote>
 <p>Phi3-coder在哪，到你的回合了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/code-gemma.png"></p>
-<h2 id="Meta-Reasoning-for-Large-Language-Models"><a href="#Meta-Reasoning-for-Large-Language-Models" class="headerlink" title="Meta Reasoning for Large Language Models"></a><a href="Meta Reasoning for Large Language Models">Meta Reasoning for Large Language Models</a></h2><p>之前Denny Zhou出了一篇self-discover，今天出了一个Agent场景的self-discover。把ToT这些也涵盖到了备选池子里</p>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/meta-reasoning.png"></p>
-<h2 id="Nemotron-4-340B-Technical-Report"><a href="#Nemotron-4-340B-Technical-Report" class="headerlink" title="Nemotron-4 340B Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11704">Nemotron-4 340B Technical Report</a></h2><p>nvidia新出的340B的dense模型，训了8T token。开源的。</p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/code-gemma.png">
+<h2 id="Meta-Reasoning-for-Large-Language-Models-Meta-Reasoning-for-Large-Language-Models">[Meta Reasoning for Large Language Models](Meta Reasoning for Large Language Models)</h2>
+<p>之前Denny Zhou出了一篇self-discover，今天出了一个Agent场景的self-discover。把ToT这些也涵盖到了备选池子里</p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/meta-reasoning.png">
+<h2 id="Nemotron-4-340B-Technical-Report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.11704">Nemotron-4 340B Technical Report</a></h2>
+<p>nvidia新出的340B的dense模型，训了8T token。开源的。</p>
 <blockquote>
 <p>牛，只能说</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/nemotron.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/nemotron.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -430,7 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Super-ficial-alignment-Strong-Models-May-Deceive-Weak-Models-in-Weak-to-Strong-Generalization"><span class="nav-number">1.</span> <span class="nav-text">Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CodeGemma-Open-Code-Models-Based-on-Gemma"><span class="nav-number">2.</span> <span class="nav-text">CodeGemma: Open Code Models Based on Gemma</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meta-Reasoning-for-Large-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Meta Reasoning for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nemotron-4-340B-Technical-Report"><span class="nav-number">4.</span> <span class="nav-text">Nemotron-4 340B Technical Report</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Super-ficial-alignment-Strong-Models-May-Deceive-Weak-Models-in-Weak-to-Strong-Generalization"><span class="nav-number">1.</span> <span class="nav-text">Super(ficial)-alignment: Strong Models May Deceive Weak Models in Weak-to-Strong Generalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CodeGemma-Open-Code-Models-Based-on-Gemma"><span class="nav-number">2.</span> <span class="nav-text">CodeGemma: Open Code Models Based on Gemma</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Meta-Reasoning-for-Large-Language-Models-Meta-Reasoning-for-Large-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">[Meta Reasoning for Large Language Models](Meta Reasoning for Large Language Models)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Nemotron-4-340B-Technical-Report"><span class="nav-number">4.</span> <span class="nav-text">Nemotron-4 340B Technical Report</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -580,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
