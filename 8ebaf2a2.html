@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天挂论文真的倒霉……风头全被sora和gemini-1.5抢了……  Chain-of-Thought Reasoning Without Prompting Denny Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning module去完成任务">
+  <meta name="description" content="今天挂论文真的倒霉……风头全被sora和gemini-1.5抢了……  Chain-of-Thought Reasoning Without PromptingDenny Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning module去完成任务。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-16-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/8ebaf2a2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天挂论文真的倒霉……风头全被sora和gemini-1.5抢了……  Chain-of-Thought Reasoning Without Prompting Denny Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning module去完成任务">
+<meta property="og:description" content="今天挂论文真的倒霉……风头全被sora和gemini-1.5抢了……  Chain-of-Thought Reasoning Without PromptingDenny Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning module去完成任务。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/decoding.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/answer-the-question.png">
@@ -316,17 +316,9 @@
         <blockquote>
 <p>今天挂论文真的倒霉……风头全被sora和gemini-1.5抢了……</p>
 </blockquote>
-<h2 id="chain-of-thought-reasoning-without-prompting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10200.pdf">Chain-of-Thought Reasoning
-Without Prompting</a></h2>
-<p>Denny
-Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning
-module去完成任务。</p>
+<h2 id="Chain-of-Thought-Reasoning-Without-Prompting"><a href="#Chain-of-Thought-Reasoning-Without-Prompting" class="headerlink" title="Chain-of-Thought Reasoning Without Prompting"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10200.pdf">Chain-of-Thought Reasoning Without Prompting</a></h2><p>Denny Zhou的论文：作者尝试了在解码时不使用prompt技巧鼓励模型用CoT，而是直接通过解码算法让模型使用CoT。作者发现通过这种方法激发出来了CoT能力其实也很好，而且可以使用不同的reasoning module去完成任务。</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-12-02-16/decoding.png"></p>
-<h2 id="answer-is-all-you-need-instruction-following-text-embedding-via-answering-the-question"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.09642.pdf">Answer is All You Need:
-Instruction-following Text Embedding via Answering the Question</a></h2>
-<p>作者对于text
-embedding建模想到了一个简单的框架：如果找embedding是为了使用，那么不妨直接用QA的形式组织text
-embedding的表示。并且在instruction-aware的测试中取得了较好的效果</p>
+<h2 id="Answer-is-All-You-Need-Instruction-following-Text-Embedding-via-Answering-the-Question"><a href="#Answer-is-All-You-Need-Instruction-following-Text-Embedding-via-Answering-the-Question" class="headerlink" title="Answer is All You Need: Instruction-following Text Embedding via Answering the Question"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.09642.pdf">Answer is All You Need: Instruction-following Text Embedding via Answering the Question</a></h2><p>作者对于text embedding建模想到了一个简单的框架：如果找embedding是为了使用，那么不妨直接用QA的形式组织text embedding的表示。并且在instruction-aware的测试中取得了较好的效果</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-12-02-16/answer-the-question.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -344,13 +336,13 @@ embedding的表示。并且在instruction-aware的测试中取得了较好的效
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8033cbe4.html" rel="bookmark">2024-11-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6ff1a0da.html" rel="bookmark">2024-11-06-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c61bd9.html" rel="bookmark">2024-11-05-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6b0470e7.html" rel="bookmark">2024-11-04-insights</a></div>
     </li>
   </ul>
 
@@ -427,9 +419,7 @@ embedding的表示。并且在instruction-aware的测试中取得了较好的效
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#chain-of-thought-reasoning-without-prompting"><span class="nav-number">1.</span> <span class="nav-text">Chain-of-Thought Reasoning
-Without Prompting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#answer-is-all-you-need-instruction-following-text-embedding-via-answering-the-question"><span class="nav-number">2.</span> <span class="nav-text">Answer is All You Need:
-Instruction-following Text Embedding via Answering the Question</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chain-of-Thought-Reasoning-Without-Prompting"><span class="nav-number">1.</span> <span class="nav-text">Chain-of-Thought Reasoning Without Prompting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Answer-is-All-You-Need-Instruction-following-Text-Embedding-via-Answering-the-Question"><span class="nav-number">2.</span> <span class="nav-text">Answer is All You Need: Instruction-following Text Embedding via Answering the Question</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,7 +434,7 @@ Instruction-following Text Embedding via Answering the Question</span></a></li><
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,6 +477,10 @@ Instruction-following Text Embedding via Answering the Question</span></a></li><
       
       
         <li class="recent_posts_li">
+          <a href="/8033cbe4" title="2024-11-07-insights" target="_blank">2024-11-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6ff1a0da" title="2024-11-06-insights" target="_blank">2024-11-06-insights</a>
         </li>
       
@@ -520,10 +514,6 @@ Instruction-following Text Embedding via Answering the Question</span></a></li><
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -579,12 +569,12 @@ Instruction-following Text Embedding via Answering the Question</span></a></li><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">261k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">3:57</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天找了几个，全是关于Math的 TinyGSM: achieving &gt; 80% on GSM8k with small language models 经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好  GSM8K版的MathGLM……但是数据没开源。可惜">
+  <meta name="description" content="今天找了几个，全是关于Math的 TinyGSM: achieving &gt; 80% on GSM8k with small language models经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好  GSM8K版的MathGLM……但是数据没开源。可惜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-12-15-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/57b50a2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天找了几个，全是关于Math的 TinyGSM: achieving &gt; 80% on GSM8k with small language models 经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好  GSM8K版的MathGLM……但是数据没开源。可惜">
+<meta property="og:description" content="今天找了几个，全是关于Math的 TinyGSM: achieving &gt; 80% on GSM8k with small language models经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好  GSM8K版的MathGLM……但是数据没开源。可惜">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-11-12-15/tinygsm.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-11-12-15/math-shepherd.png">
@@ -314,17 +314,12 @@
 
       
         <p>今天找了几个，全是关于Math的</p>
-<h2 id="tinygsm-achieving-80-on-gsm8k-with-small-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.09241.pdf">TinyGSM: achieving &gt; 80%
-on GSM8k with small language models</a></h2>
-<p>经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好</p>
+<h2 id="TinyGSM-achieving-gt-80-on-GSM8k-with-small-language-models"><a href="#TinyGSM-achieving-gt-80-on-GSM8k-with-small-language-models" class="headerlink" title="TinyGSM: achieving &gt; 80% on GSM8k with small language models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.09241.pdf">TinyGSM: achieving &gt; 80% on GSM8k with small language models</a></h2><p>经典的math场景加数据训练的模型，作者用turbo生成了12.5M的GSM8K换皮qa对，然后在phi系列模型上训练。发现数据上去以后，即使125M的模型在GSM8K上的表现都很好</p>
 <blockquote>
 <p>GSM8K版的MathGLM……但是数据没开源。可惜</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-12-11-12-15/tinygsm.png"></p>
-<h2 id="math-shepherd-a-label-free-step-by-step-verifier-for-llms-in-mathematical-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.08935.pdf">Math-Shepherd: A Label-Free
-Step-by-Step Verifier for LLMs in Mathematical Reasoning</a></h2>
-<p>之前"verify step by step"里说的step reward
-model一直没找到开源的实现或者复现，这次作者在MATH和GSM8K上用伪数据训了一个开源版本。发现用step-reward，可以把Math刷到接近50%</p>
+<h2 id="Math-Shepherd-A-Label-Free-Step-by-Step-Verifier-for-LLMs-in-Mathematical-Reasoning"><a href="#Math-Shepherd-A-Label-Free-Step-by-Step-Verifier-for-LLMs-in-Mathematical-Reasoning" class="headerlink" title="Math-Shepherd: A Label-Free Step-by-Step Verifier for LLMs in Mathematical Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.08935.pdf">Math-Shepherd: A Label-Free Step-by-Step Verifier for LLMs in Mathematical Reasoning</a></h2><p>之前”verify step by step”里说的step reward model一直没找到开源的实现或者复现，这次作者在MATH和GSM8K上用伪数据训了一个开源版本。发现用step-reward，可以把Math刷到接近50%</p>
 <blockquote>
 <p>这个和上面那个结合一下……是不是能把MATH搞到100%</p>
 </blockquote>
@@ -345,13 +340,13 @@ model一直没找到开源的实现或者复现，这次作者在MATH和GSM8K上
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8033cbe4.html" rel="bookmark">2024-11-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6ff1a0da.html" rel="bookmark">2024-11-06-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c61bd9.html" rel="bookmark">2024-11-05-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6b0470e7.html" rel="bookmark">2024-11-04-insights</a></div>
     </li>
   </ul>
 
@@ -428,9 +423,7 @@ model一直没找到开源的实现或者复现，这次作者在MATH和GSM8K上
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tinygsm-achieving-80-on-gsm8k-with-small-language-models"><span class="nav-number">1.</span> <span class="nav-text">TinyGSM: achieving &gt; 80%
-on GSM8k with small language models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#math-shepherd-a-label-free-step-by-step-verifier-for-llms-in-mathematical-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Math-Shepherd: A Label-Free
-Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TinyGSM-achieving-gt-80-on-GSM8k-with-small-language-models"><span class="nav-number">1.</span> <span class="nav-text">TinyGSM: achieving &gt; 80% on GSM8k with small language models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math-Shepherd-A-Label-Free-Step-by-Step-Verifier-for-LLMs-in-Mathematical-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Math-Shepherd: A Label-Free Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +438,7 @@ Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></d
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +481,10 @@ Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></d
       
       
         <li class="recent_posts_li">
+          <a href="/8033cbe4" title="2024-11-07-insights" target="_blank">2024-11-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6ff1a0da" title="2024-11-06-insights" target="_blank">2024-11-06-insights</a>
         </li>
       
@@ -521,10 +518,6 @@ Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></d
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -580,12 +573,12 @@ Step-by-Step Verifier for LLMs in Mathematical Reasoning</span></a></li></ol></d
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">261k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">3:57</span>
 </div>
 
 <i class="fa fa-user-md"></i>
