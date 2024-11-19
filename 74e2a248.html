@@ -102,8 +102,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -313,11 +313,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="rlaif-v-aligning-mllms-through-open-source-ai-feedback-for-super-gpt-4v-trustworthiness"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17220">RLAIF-V: Aligning MLLMs through
-Open-Source AI Feedback for Super GPT-4V Trustworthiness</a></h2>
-<p>推荐我们组的工作：方法论有点像是之前那篇LLM fact
-check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
-<ol type="1">
+        <h2 id="RLAIF-V-Aligning-MLLMs-through-Open-Source-AI-Feedback-for-Super-GPT-4V-Trustworthiness"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17220">RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness</a></h2>
+<p>推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
+<ol>
 <li>输入两个response pair</li>
 <li>先提取里面所有的陈述</li>
 <li>对于所有的陈述转换成对应的问题</li>
@@ -325,13 +323,10 @@ check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
 <li>根据陈述的正确性给出原始response的正确性，作为feedback</li>
 </ol>
 <p>作者发现，根据这套pipeline，可以极大地进行self-training，减少模型的hallicination</p>
-<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/rlaif-v.png"></p>
-<h2 id="thread-thinking-deeper-with-recursive-spawning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17402">THREAD: Thinking Deeper with
-Recursive Spawning</a></h2>
-<p>挺久没推reasoning领域的论文了，不过这个mit的工作看起来还挺有趣的：作者从之前tree
-of
-thought那些地方得到了灵感，很多任务在做拆解等时是可以并行的，所以作者定义了一个thread的概念，模型做出分解后，子线程就可以自己跑自己的了，直到最后拿到一个答案。然后上层线程可以汇总下层的信息做出后面的决策、或者换新的方法。</p>
-<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/thread.png"></p>
+<img src="../../files/images/arxiv-insights/2024-05-27-05-31/rlaif-v.png">
+<h2 id="THREAD-Thinking-Deeper-with-Recursive-Spawning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17402">THREAD: Thinking Deeper with Recursive Spawning</a></h2>
+<p>挺久没推reasoning领域的论文了，不过这个mit的工作看起来还挺有趣的：作者从之前tree of thought那些地方得到了灵感，很多任务在做拆解等时是可以并行的，所以作者定义了一个thread的概念，模型做出分解后，子线程就可以自己跑自己的了，直到最后拿到一个答案。然后上层线程可以汇总下层的信息做出后面的决策、或者换新的方法。</p>
+<img src="../../files/images/arxiv-insights/2024-05-27-05-31/thread.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -348,13 +343,13 @@ thought那些地方得到了灵感，很多任务在做拆解等时是可以并�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5f742497.html" rel="bookmark">2024-11-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b0b64fa9.html" rel="bookmark">2024-11-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4548c419.html" rel="bookmark">2024-11-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aa8aaf27.html" rel="bookmark">2024-11-14-insights</a></div>
     </li>
   </ul>
 
@@ -431,9 +426,7 @@ thought那些地方得到了灵感，很多任务在做拆解等时是可以并�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rlaif-v-aligning-mllms-through-open-source-ai-feedback-for-super-gpt-4v-trustworthiness"><span class="nav-number">1.</span> <span class="nav-text">RLAIF-V: Aligning MLLMs through
-Open-Source AI Feedback for Super GPT-4V Trustworthiness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thread-thinking-deeper-with-recursive-spawning"><span class="nav-number">2.</span> <span class="nav-text">THREAD: Thinking Deeper with
-Recursive Spawning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RLAIF-V-Aligning-MLLMs-through-Open-Source-AI-Feedback-for-Super-GPT-4V-Trustworthiness"><span class="nav-number">1.</span> <span class="nav-text">RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THREAD-Thinking-Deeper-with-Recursive-Spawning"><span class="nav-number">2.</span> <span class="nav-text">THREAD: Thinking Deeper with Recursive Spawning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,7 +441,7 @@ Recursive Spawning</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,23 +484,15 @@ Recursive Spawning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/5f742497" title="2024-11-19-insights" target="_blank">2024-11-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b0b64fa9" title="2024-11-18-insights" target="_blank">2024-11-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4548c419" title="2024-11-15-insights" target="_blank">2024-11-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa8aaf27" title="2024-11-14-insights" target="_blank">2024-11-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4856b45e" title="2024-11-13-insights" target="_blank">2024-11-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a794df60" title="2024-11-12-insights" target="_blank">2024-11-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -528,6 +513,14 @@ Recursive Spawning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -583,12 +576,12 @@ Recursive Spawning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

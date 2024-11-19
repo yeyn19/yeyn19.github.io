@@ -102,8 +102,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -313,27 +313,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="proagent-from-robotic-process-automation-to-agentic-process-automation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.10751.pdf">ProAgent: From Robotic
-Process Automation to Agentic Process Automation</a></h2>
+        <h2 id="ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.10751.pdf">ProAgent: From Robotic Process Automation to Agentic Process Automation</a></h2>
 <p>推荐一下我的工作……作者探讨RPA技术作为目前最先进的自动化技术，可以自动连接各种APP完成实际需求。然而RPA还要面临两个问题：</p>
 <ul>
 <li>工作流程需要人类搭建，这个过程耗时比较长，同时效率比较低</li>
 <li>只能处理结构化数据，对于某些比较灵活的任务，需要处理非结构化数据时就无能为力</li>
 </ul>
 <p>现在的LLM-Agent技术正好有灵活性，由此可以提出基于Agent技术的RPA框架，也就是APA。可以让Agent自动完成workflow搭建，同时在workflow执行时通过提前定义的Agent节点来处理非结构化数据，同时可以自动进行决策</p>
-<p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/APA.png"></p>
-<h2 id="system-2-attention-is-something-you-might-need-too"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.11829.pdf">System 2 Attention (is
-something you might need too)</a></h2>
-<p>来自meta的论文。作者提到目前的Attention算法可以让模型看到所有token对应的hidden
-state，因此会受到很多和无问题无关的token的影响，比如下图其实前一段和问题无关，但会影响问题的答案。</p>
-<p>作者由此提出了一个system2
-Attention，先重新生成一遍输入，只包含有关的信息，再回答问题做推理。作者发现这样的模型对输入更鲁棒、事实性更准确</p>
+<img src="../../files/images/arxiv-insights/2023-11-20-11-24/APA.png">
+<h2 id="System-2-Attention-is-something-you-might-need-too"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.11829.pdf">System 2 Attention (is something you might need too)</a></h2>
+<p>来自meta的论文。作者提到目前的Attention算法可以让模型看到所有token对应的hidden state，因此会受到很多和无问题无关的token的影响，比如下图其实前一段和问题无关，但会影响问题的答案。</p>
+<p>作者由此提出了一个system2 Attention，先重新生成一遍输入，只包含有关的信息，再回答问题做推理。作者发现这样的模型对输入更鲁棒、事实性更准确</p>
 <blockquote>
 <p>话说turbo和Llama2的输入怎么这么像……很难说用了多少turbo的数据做RLHF</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-11-20-11-24/system2-attention.png"></p>
-<h2 id="exponentially-faster-language-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.10770.pdf">Exponentially Faster
-Language Modeling</a></h2>
+<img src="../../files/images/arxiv-insights/2023-11-20-11-24/system2-attention.png">
+<h2 id="Exponentially-Faster-Language-Modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.10770.pdf">Exponentially Faster Language Modeling</a></h2>
 <p>ETH的研究，作者发现LLM事实上只需要一个很小部分的神经元就能完成一个特定的任务。作者由此把FeedForward层改成了所谓的FFF层，只需要使用12/4096的神经元就能推理。作者在BERT上实验，把推理速度提升了接近80倍，同时score下降不明显。</p>
 <!-- flag of hidden posts -->
     </div>
@@ -351,13 +346,13 @@ Language Modeling</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5f742497.html" rel="bookmark">2024-11-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b0b64fa9.html" rel="bookmark">2024-11-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4548c419.html" rel="bookmark">2024-11-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aa8aaf27.html" rel="bookmark">2024-11-14-insights</a></div>
     </li>
   </ul>
 
@@ -434,10 +429,7 @@ Language Modeling</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#proagent-from-robotic-process-automation-to-agentic-process-automation"><span class="nav-number">1.</span> <span class="nav-text">ProAgent: From Robotic
-Process Automation to Agentic Process Automation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#system-2-attention-is-something-you-might-need-too"><span class="nav-number">2.</span> <span class="nav-text">System 2 Attention (is
-something you might need too)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exponentially-faster-language-modeling"><span class="nav-number">3.</span> <span class="nav-text">Exponentially Faster
-Language Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ProAgent-From-Robotic-Process-Automation-to-Agentic-Process-Automation"><span class="nav-number">1.</span> <span class="nav-text">ProAgent: From Robotic Process Automation to Agentic Process Automation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#System-2-Attention-is-something-you-might-need-too"><span class="nav-number">2.</span> <span class="nav-text">System 2 Attention (is something you might need too)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exponentially-Faster-Language-Modeling"><span class="nav-number">3.</span> <span class="nav-text">Exponentially Faster Language Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -452,7 +444,7 @@ Language Modeling</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -495,23 +487,15 @@ Language Modeling</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/5f742497" title="2024-11-19-insights" target="_blank">2024-11-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b0b64fa9" title="2024-11-18-insights" target="_blank">2024-11-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4548c419" title="2024-11-15-insights" target="_blank">2024-11-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa8aaf27" title="2024-11-14-insights" target="_blank">2024-11-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4856b45e" title="2024-11-13-insights" target="_blank">2024-11-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a794df60" title="2024-11-12-insights" target="_blank">2024-11-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -532,6 +516,14 @@ Language Modeling</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -587,12 +579,12 @@ Language Modeling</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

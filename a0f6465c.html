@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents 这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent + RAG，或者说voyager里面用的那个&quot;skill set&quot;。作者发现这种简单的改进可以把ALFWorld等任务的效果提升很多  SELF-D">
+  <meta name="description" content="RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents 这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent + RAG，或者说voyager里面用的那个&quot;skill set&quot;。作者发现这种简单的改进可以把ALFWorld等任务的效果提升">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-07-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a0f6465c">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents 这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent + RAG，或者说voyager里面用的那个&quot;skill set&quot;。作者发现这种简单的改进可以把ALFWorld等任务的效果提升很多  SELF-D">
+<meta property="og:description" content="RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents 这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent + RAG，或者说voyager里面用的那个&quot;skill set&quot;。作者发现这种简单的改进可以把ALFWorld等任务的效果提升">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/rap.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/self-discover.png">
@@ -102,8 +102,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>593</span>
+              <span>603</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,23 +313,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="rap-retrieval-augmented-planning-with-contextual-memory-for-multimodal-llm-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03610.pdf">RAP: Retrieval-Augmented
-Planning with Contextual Memory for Multimodal LLM Agents</a></h2>
-<p>这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent +
-RAG，或者说voyager里面用的那个"skill
-set"。作者发现这种简单的改进可以把ALFWorld等任务的效果提升很多</p>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/rap.png"></p>
-<h2 id="self-discover-large-language-models-self-compose-reasoning-structures"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03620.pdf">SELF-DISCOVER: Large
-Language Models Self-Compose Reasoning Structures</a></h2>
-<p>google的新工作：如果让模型首先根据问题在几种推理模式中(CoT、direct
-answer等)选择，然后根据选择的模式进行推理，会发生什么？作者发现这种方法比CoT的效果要好40%</p>
+        <h2 id="RAP-Retrieval-Augmented-Planning-with-Contextual-Memory-for-Multimodal-LLM-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03610.pdf">RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents</a></h2>
+<p>这个rap不是之前CoT+mcts那个RAP，这个讲的是如何结合MLLM Agent + RAG，或者说voyager里面用的那个&quot;skill set&quot;。作者发现这种简单的改进可以把ALFWorld等任务的效果提升很多</p>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/rap.png">
+<h2 id="SELF-DISCOVER-Large-Language-Models-Self-Compose-Reasoning-Structures"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03620.pdf">SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures</a></h2>
+<p>google的新工作：如果让模型首先根据问题在几种推理模式中(CoT、direct answer等)选择，然后根据选择的模式进行推理，会发生什么？作者发现这种方法比CoT的效果要好40%</p>
 <blockquote>
 <p>什么，竟然是，in-context orca2！！</p>
 <p>顺便还要宣传一波t4d数据集是吧……不过这个我确实觉得也挺好的，除了没人引用……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/self-discover.png"></p>
-<h2 id="scaling-laws-for-downstream-task-performance-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.04177.pdf">Scaling Laws for Downstream
-Task Performance of Large Language Models</a></h2>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/self-discover.png">
+<h2 id="Scaling-Laws-for-Downstream-Task-Performance-of-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.04177.pdf">Scaling Laws for Downstream Task Performance of Large Language Models</a></h2>
 <p>stanford的论文：目前的研究探索了pretrain中的scaling-law。然而，finetune阶段是否也存在scaling-law呢？具体来说，pretrain资源指数增长，finetune以后得效果是不是也可以线性增长呢？</p>
 <p>作者在翻译任务中基本证实了这个观点</p>
 <!-- flag of hidden posts -->
@@ -348,13 +342,13 @@ Task Performance of Large Language Models</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5f742497.html" rel="bookmark">2024-11-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b0b64fa9.html" rel="bookmark">2024-11-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4548c419.html" rel="bookmark">2024-11-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aa8aaf27.html" rel="bookmark">2024-11-14-insights</a></div>
     </li>
   </ul>
 
@@ -431,10 +425,7 @@ Task Performance of Large Language Models</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rap-retrieval-augmented-planning-with-contextual-memory-for-multimodal-llm-agents"><span class="nav-number">1.</span> <span class="nav-text">RAP: Retrieval-Augmented
-Planning with Contextual Memory for Multimodal LLM Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-discover-large-language-models-self-compose-reasoning-structures"><span class="nav-number">2.</span> <span class="nav-text">SELF-DISCOVER: Large
-Language Models Self-Compose Reasoning Structures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-for-downstream-task-performance-of-large-language-models"><span class="nav-number">3.</span> <span class="nav-text">Scaling Laws for Downstream
-Task Performance of Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RAP-Retrieval-Augmented-Planning-with-Contextual-Memory-for-Multimodal-LLM-Agents"><span class="nav-number">1.</span> <span class="nav-text">RAP: Retrieval-Augmented Planning with Contextual Memory for Multimodal LLM Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELF-DISCOVER-Large-Language-Models-Self-Compose-Reasoning-Structures"><span class="nav-number">2.</span> <span class="nav-text">SELF-DISCOVER: Large Language Models Self-Compose Reasoning Structures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Laws-for-Downstream-Task-Performance-of-Large-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Scaling Laws for Downstream Task Performance of Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +440,7 @@ Task Performance of Large Language Models</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,23 +483,15 @@ Task Performance of Large Language Models</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/5f742497" title="2024-11-19-insights" target="_blank">2024-11-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b0b64fa9" title="2024-11-18-insights" target="_blank">2024-11-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4548c419" title="2024-11-15-insights" target="_blank">2024-11-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa8aaf27" title="2024-11-14-insights" target="_blank">2024-11-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4856b45e" title="2024-11-13-insights" target="_blank">2024-11-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a794df60" title="2024-11-12-insights" target="_blank">2024-11-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -529,6 +512,14 @@ Task Performance of Large Language Models</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -584,12 +575,12 @@ Task Performance of Large Language Models</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
