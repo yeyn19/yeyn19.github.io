@@ -313,27 +313,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="k-level-reasoning-with-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01521.pdf">K-Level Reasoning with Large
-Language Models</a></h2>
-<p>Furu
-Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level
-thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。</p>
-<p>所以，已有Agent工作大多focus在1-level thinking，作者探索了k-level
-thinking是否在LLM上可能。发现在模拟任务上效果不错</p>
+        <h2 id="K-Level-Reasoning-with-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01521.pdf">K-Level Reasoning with Large Language Models</a></h2>
+<p>Furu Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。</p>
+<p>所以，已有Agent工作大多focus在1-level thinking，作者探索了k-level thinking是否在LLM上可能。发现在模拟任务上效果不错</p>
 <blockquote>
 <p>主要是这玩意儿确实不好在真实场景评测，是吧……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/K-Level.png"></p>
-<h2 id="executable-code-actions-elicit-better-llm-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01030.pdf">Executable Code Actions
-Elicit Better LLM Agents</a></h2>
-<p>Heng
-Ji老师的工作，将ReACT推广到了python中。因为目前的Tool-Agent都是需要用json-schema从pre-defined
-tools中进行多步调用。如果我们给模型code-intepreter，可以让模型自己写代码去做多步工具调用，自己决定是不是需要添加逻辑，会更好吗？</p>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/K-Level.png">
+<h2 id="Executable-Code-Actions-Elicit-Better-LLM-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01030.pdf">Executable Code Actions Elicit Better LLM Agents</a></h2>
+<p>Heng Ji老师的工作，将ReACT推广到了python中。因为目前的Tool-Agent都是需要用json-schema从pre-defined tools中进行多步调用。如果我们给模型code-intepreter，可以让模型自己写代码去做多步工具调用，自己决定是不是需要添加逻辑，会更好吗？</p>
 <p>作者对比了CodeAct和ReAct，发现效果好很多。然后，按照toolBench的形式造SFT数据集、训SFT模型</p>
 <blockquote>
 <p>目前的XAgent等工作其实都是支持了code-intepreter，不过确实值得专门把这些形式拿出来对比一下</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/codeact.png"></p>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/codeact.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -350,13 +343,13 @@ tools中进行多步调用。如果我们给模型code-intepreter，可以让模
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d5410262.html" rel="bookmark">2024-11-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3a83695c.html" rel="bookmark">2024-11-20-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5f742497.html" rel="bookmark">2024-11-19-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b0b64fa9.html" rel="bookmark">2024-11-18-insights</a></div>
     </li>
   </ul>
 
@@ -433,9 +426,7 @@ tools中进行多步调用。如果我们给模型code-intepreter，可以让模
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#k-level-reasoning-with-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">K-Level Reasoning with Large
-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#executable-code-actions-elicit-better-llm-agents"><span class="nav-number">2.</span> <span class="nav-text">Executable Code Actions
-Elicit Better LLM Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#K-Level-Reasoning-with-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">K-Level Reasoning with Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Executable-Code-Actions-Elicit-Better-LLM-Agents"><span class="nav-number">2.</span> <span class="nav-text">Executable Code Actions Elicit Better LLM Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -450,7 +441,7 @@ Elicit Better LLM Agents</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,19 +484,15 @@ Elicit Better LLM Agents</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3a83695c" title="2024-11-20-insights" target="_blank">2024-11-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5f742497" title="2024-11-19-insights" target="_blank">2024-11-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b0b64fa9" title="2024-11-18-insights" target="_blank">2024-11-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4548c419" title="2024-11-15-insights" target="_blank">2024-11-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -530,6 +517,10 @@ Elicit Better LLM Agents</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
