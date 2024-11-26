@@ -323,117 +323,114 @@
       
         <p>这篇论文探索了DDPM对于NLL指标效果不好的原因，并且从实际训练的角度给出了很多可行的改进。</p>
 <span id="more"></span>
-<img src="../files/images/IDDPM/author.png">
-<p>这篇论文是21年的NIPS，作者来自OpenAI，其实就是后面GLIDE的作者。我理解大概是OpenAI看到了DDPM的论文，然后用”财大气粗“的方式来了一波复现和改进。这篇论文其实更偏向于分析性文章。另外，这篇论文的方法的代码和复现性很好。</p>
-<blockquote>
-<p>发现一个讲IDDPM代码的是<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.bilibili.com/video/BV1sG411s7vV">视频</a></p>
-</blockquote>
+<p><img src="../files/images/IDDPM/author.png"></p>
+<p>这篇论文是21年的NIPS，作者来自OpenAI，其实就是后面GLIDE的作者。我理解大概是OpenAI看到了DDPM的论文，然后用”财大气粗“的方式来了一波复现和改进。这篇论文其实更偏向于分析性文章。另外，这篇论文的方法的代码和复现性很好。
+&gt; 发现一个讲IDDPM代码的是<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.bilibili.com/video/BV1sG411s7vV">视频</a></p>
 <p>本文大概探索了这个几个问题：</p>
 <ul>
 <li>DDPM的训练object</li>
-<li>$\beta_t$的选取</li>
+<li><span class="math inline">\(\beta_t\)</span>的选取</li>
 <li>训练的采样方法</li>
 <li>DDPM模型的可扩展性</li>
 </ul>
-<h2 id="Denoising-Diffusion-Probabilistic-Models">Denoising Diffusion Probabilistic Models</h2>
+<h2 id="denoising-diffusion-probabilistic-models">Denoising Diffusion
+Probabilistic Models</h2>
 <p>这里重新梳理了一遍DDPM，我就说几个新颖的地方</p>
-<h3 id="Definition">Definition</h3>
-<p>作者写出了$L_{VLB}$的形式</p>
-<img src="../files/images/IDDPM/vlb.png">
+<h3 id="definition">Definition</h3>
+<p>作者写出了<span class="math inline">\(L_{VLB}\)</span>的形式</p>
+<p><img src="../files/images/IDDPM/vlb.png"></p>
 <p>可以看出中间的项都是KL散度，可以通过前后两个高斯分布的均值和方差直接计算出来:</p>
 <ul>
-<li>正常的DDPM模型$p_\theta$模型的均值由模型得出，而方差是确定性的</li>
-<li>$q(x_{t-1} | x_t, x_0)$的均值方差均可以被代数表示</li>
+<li>正常的DDPM模型<span class="math inline">\(p_\theta\)</span>模型的均值由模型得出，而方差是确定性的</li>
+<li><span class="math inline">\(q(x_{t-1} | x_t,
+x_0)\)</span>的均值方差均可以被代数表示</li>
 </ul>
-<img src="../files/images/IDDPM/q.png">
-<h3 id="Training-in-Practice">Training in Practice</h3>
+<p><img src="../files/images/IDDPM/q.png"></p>
+<h3 id="training-in-practice">Training in Practice</h3>
 <p>这一部分，作者说到了三种模型目标：</p>
 <ul>
-<li>生成 $\mu_\theta(x_t,t)$，预测$x_{t-1}$的均值</li>
-<li>预测$x_0$,采样时根据公式10线性拟合出$x_{t-1}$进行去噪</li>
-<li>预测加噪时的噪声$\epsilon$,去噪根据下式和公式10拟合出$x_{t-1}$</li>
+<li>生成 <span class="math inline">\(\mu_\theta(x_t,t)\)</span>，预测<span class="math inline">\(x_{t-1}\)</span>的均值</li>
+<li>预测<span class="math inline">\(x_0\)</span>,采样时根据公式10线性拟合出<span class="math inline">\(x_{t-1}\)</span>进行去噪</li>
+<li>预测加噪时的噪声<span class="math inline">\(\epsilon\)</span>,去噪根据下式和公式10拟合出<span class="math inline">\(x_{t-1}\)</span></li>
 </ul>
-<p>$$<br>
-x_0 = \frac{1}{\sqrt{\alpha_t}}\left( x_t - \frac{\beta_t}{\sqrt{1 - \overline{\alpha}_t}} \epsilon \right)<br>
-$$</p>
+<p><span class="math display">\[
+x_0 = \frac{1}{\sqrt{\alpha_t}}\left( x_t - \frac{\beta_t}{\sqrt{1 -
+\overline{\alpha}_t}} \epsilon \right)
+\]</span></p>
 <p>DDPM在训练过程中使用最后一种，表现最好</p>
-<p>作者把$L_{VLB}$进行了一波reweight，得出下式作为训练loss进行训练<br>
-$$<br>
-L_{\text{simple}} = \mathbb{E}<em>{t,x_0,\epsilon} || \epsilon - \epsilon</em>\theta(x_t,t)||^2<br>
-$$</p>
+<p>作者把<span class="math inline">\(L_{VLB}\)</span>进行了一波reweight，得出下式作为训练loss进行训练
+<span class="math display">\[
+L_{\text{simple}} = \mathbb{E}_{t,x_0,\epsilon} || \epsilon -
+\epsilon_\theta(x_t,t)||^2
+\]</span></p>
 <p>同时，作者说到在predict阶段，使用下面两种方差效果很接近</p>
 <ul>
-<li>$\sigma_t^2 = \beta_t$</li>
-<li>$\sigma_t^2 = \tilde\beta_t$</li>
+<li><span class="math inline">\(\sigma_t^2 = \beta_t\)</span></li>
+<li><span class="math inline">\(\sigma_t^2 = \tilde\beta_t\)</span></li>
 </ul>
-<h2 id="Improving-the-Log-likelihood">Improving the Log-likelihood</h2>
+<h2 id="improving-the-log-likelihood">Improving the Log-likelihood</h2>
 <p>这里作者提到Log-likelihood这个指标在图像生成也很重要，但DDPM在这个指标的效果不好(虽然FID不错)。</p>
-<h3 id="learning-Sigma-theta-x-t-t">learning $\Sigma_\theta(x_t,t)$</h3>
+<h3 id="learning-sigma_thetax_tt">learning <span class="math inline">\(\Sigma_\theta(x_t,t)\)</span></h3>
 <p>作者思考为什么DDPM的两个方差效果接近</p>
-<img src="../files/images/IDDPM/beta.png">
+<p><img src="../files/images/IDDPM/beta.png"></p>
 <ul>
-<li>
-<p>图一可以发现两种方差只在$t$很小的时候有差距，别的时候基本一致</p>
-</li>
-<li>
-<p>图二可以发现$t$小的时候对NLL的影响是最大的</p>
-</li>
+<li><p>图一可以发现两种方差只在<span class="math inline">\(t\)</span>很小的时候有差距，别的时候基本一致</p></li>
+<li><p>图二可以发现<span class="math inline">\(t\)</span>小的时候对NLL的影响是最大的</p></li>
 </ul>
-<p>综合上面观点，作者觉得NLL效果差的重要原因就是对方差的估计有偏差(上面两种$\sigma$都是估计的形式)。因此作者想要找到更好的方差，作者希望通过网络拟合它，看做两种$\sigma$的拟合<br>
-$$<br>
-\Sigma_\theta(x_t,t) = \exp (v \log \beta_t + (1-v)\log \tilde\beta_t)<br>
-$$<br>
+<p>综合上面观点，作者觉得NLL效果差的重要原因就是对方差的估计有偏差(上面两种<span class="math inline">\(\sigma\)</span>都是估计的形式)。因此作者想要找到更好的方差，作者希望通过网络拟合它，看做两种<span class="math inline">\(\sigma\)</span>的拟合 <span class="math display">\[
+\Sigma_\theta(x_t,t) = \exp (v \log \beta_t + (1-v)\log \tilde\beta_t)
+\]</span>
 其中v是可学习的参数。作者在这里没有对v的范围做限制，但实际训练还是控制在0-1内。说明DDPM作者选取的两个估计还是很靠谱的</p>
-<p>想要学习这个v，就只能把loss直接表示成$L_{VLB}$,才能反向传播到v，因此作者选择了最终的loss函数<br>
-$$<br>
-L_{\text{hybird}} =  L_{\text{simple}} + \lambda·L_{VLB}<br>
-$$<br>
-其中$\lambda=0.001$</p>
-<h3 id="Improving-the-Noise-Schedule">Improving the Noise Schedule</h3>
-<p>这一部分，作者探索了$\beta$的选取</p>
-<img src="../files/images/IDDPM/cosine.png">
-<p>DDPM使用linear来选取，作者采用新的cosine的公式选取<br>
-$$<br>
-\overline\alpha_t = \frac{f(t)}{f(0)},\quad f(t) = \cos \left(\frac{t/T + s}{1+s}·\frac{\pi}{2} \right)^2 \<br>
-\beta_t = \min(0.999,1 - \frac{\overline\alpha_t}{\overline\alpha_{t-1}})<br>
-$$<br>
+<p>想要学习这个v，就只能把loss直接表示成<span class="math inline">\(L_{VLB}\)</span>,才能反向传播到v，因此作者选择了最终的loss函数
+<span class="math display">\[
+L_{\text{hybird}} =  L_{\text{simple}} + \lambda·L_{VLB}
+\]</span> 其中<span class="math inline">\(\lambda=0.001\)</span></p>
+<h3 id="improving-the-noise-schedule">Improving the Noise Schedule</h3>
+<p>这一部分，作者探索了<span class="math inline">\(\beta\)</span>的选取</p>
+<p><img src="../files/images/IDDPM/cosine.png"></p>
+<p>DDPM使用linear来选取，作者采用新的cosine的公式选取 <span class="math display">\[
+\overline\alpha_t = \frac{f(t)}{f(0)},\quad f(t) = \cos \left(\frac{t/T
++ s}{1+s}·\frac{\pi}{2} \right)^2 \\
+\beta_t = \min(0.999,1 -
+\frac{\overline\alpha_t}{\overline\alpha_{t-1}})
+\]</span>
 这中选取方式比linear更稳定。同时作者指出，类似cosine的这种形状的，最后效果都差不多</p>
-<h3 id="Reducing-Gradient-Noise">Reducing Gradient Noise</h3>
+<h3 id="reducing-gradient-noise">Reducing Gradient Noise</h3>
 <p>第三个改进是让训练更稳定</p>
-<img src="../files/images/IDDPM/stable.png">
-<p>作者发现直接优化$L_{VLB}$的训练非常不稳定，比起优化$L_{simple}$。作者发现这是由于$L_{VLB}$参数对梯度更分散。</p>
-<p>进一步分析，发现是在训练时平均的选取t导致训练额外的噪声，实际上的选取应该是：<br>
-$$<br>
-L_{VLB} = \mathbb{E}_{t \sim p(t)} \left[ \frac{L_t}{p_t}  \right], \text{where}\quad<br>
-p_t \propto \sqrt{\mathbb{E}[L_t^2]}, \quad \sum p_t = 1<br>
-$$<br>
-对于每个t，在训练过程中都可以维护$L_t$，只要训练开始一段时间以后。</p>
+<p><img src="../files/images/IDDPM/stable.png"></p>
+<p>作者发现直接优化<span class="math inline">\(L_{VLB}\)</span>的训练非常不稳定，比起优化<span class="math inline">\(L_{simple}\)</span>。作者发现这是由于<span class="math inline">\(L_{VLB}\)</span>参数对梯度更分散。</p>
+<p>进一步分析，发现是在训练时平均的选取t导致训练额外的噪声，实际上的选取应该是：
+<span class="math display">\[
+L_{VLB} = \mathbb{E}_{t \sim p(t)} \left[ \frac{L_t}{p_t}  \right],
+\text{where}\quad
+p_t \propto \sqrt{\mathbb{E}[L_t^2]}, \quad \sum p_t = 1
+\]</span> 对于每个t，在训练过程中都可以维护<span class="math inline">\(L_t\)</span>，只要训练开始一段时间以后。</p>
 <ul>
-<li>先平均选取t，直到每个t都有10个$L_t$的历史数据为止</li>
-<li>接下来，按照前10个历史数据的平均作为目前$L_t$情况的估计，进而带入公式来采样下一个t的选取</li>
+<li>先平均选取t，直到每个t都有10个<span class="math inline">\(L_t\)</span>的历史数据为止</li>
+<li>接下来，按照前10个历史数据的平均作为目前<span class="math inline">\(L_t\)</span>情况的估计，进而带入公式来采样下一个t的选取</li>
 </ul>
 <p>最终的训练变得很稳定，如上图的绿线</p>
-<h2 id="Improving-Sampling-Speed">Improving Sampling Speed</h2>
+<h2 id="improving-sampling-speed">Improving Sampling Speed</h2>
 <p>这一部分提到了可以加速采样</p>
-<img src="../files/images/IDDPM/speedup.png">
-<p>这里主要对比的是DDIM，方法也差不多：采样一个$1,2,…T$的长度为K子序列进行sample</p>
+<p><img src="../files/images/IDDPM/speedup.png"></p>
+<p>这里主要对比的是DDIM，方法也差不多：采样一个<span class="math inline">\(1,2,...T\)</span>的长度为K子序列进行sample</p>
 <p>可以发现，DDIM的没有IDDPM好：</p>
 <ul>
 <li>DDIM没有做IDDPM里这些改进。</li>
 <li>作者提到没法做改进，这是因为DDIM的公式里的方差项没了</li>
 </ul>
-<h2 id="Scaling-Model-Size">Scaling Model Size</h2>
-<img src="../files/images/IDDPM/scale.png">
+<p>## Scaling Model Size</p>
+<p><img src="../files/images/IDDPM/scale.png"></p>
 <p>这一部分是分析DDPM模型在加大size以后会不会变得更好，因此作者直接加参数</p>
 <ul>
-<li>FID得分和模型的参数(计算量)基本呈线性关系。满足power law，因此扩大规模是个好选择</li>
+<li>FID得分和模型的参数(计算量)基本呈线性关系。满足power
+law，因此扩大规模是个好选择</li>
 <li>NLL得分不满足线性关系，扩大规模效果不好，可能原因有：
 <ul>
 <li>很快过拟合</li>
 <li>loss不稳定</li>
-<li>作者没有直接优化降低NLL用的$L_{VLB}$，而是一个$L_{\text{hybrid}}$</li>
-</ul>
-</li>
+<li>作者没有直接优化降低NLL用的<span class="math inline">\(L_{VLB}\)</span>，而是一个<span class="math inline">\(L_{\text{hybrid}}\)</span></li>
+</ul></li>
 </ul>
 <h2 id="我的思考">我的思考</h2>
 <ul>
@@ -551,7 +548,8 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Denoising-Diffusion-Probabilistic-Models"><span class="nav-number">1.</span> <span class="nav-text">Denoising Diffusion Probabilistic Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Training-in-Practice"><span class="nav-number">1.2.</span> <span class="nav-text">Training in Practice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-the-Log-likelihood"><span class="nav-number">2.</span> <span class="nav-text">Improving the Log-likelihood</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-Sigma-theta-x-t-t"><span class="nav-number">2.1.</span> <span class="nav-text">learning $\Sigma_\theta(x_t,t)$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Improving-the-Noise-Schedule"><span class="nav-number">2.2.</span> <span class="nav-text">Improving the Noise Schedule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reducing-Gradient-Noise"><span class="nav-number">2.3.</span> <span class="nav-text">Reducing Gradient Noise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-Sampling-Speed"><span class="nav-number">3.</span> <span class="nav-text">Improving Sampling Speed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Model-Size"><span class="nav-number">4.</span> <span class="nav-text">Scaling Model Size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#denoising-diffusion-probabilistic-models"><span class="nav-number">1.</span> <span class="nav-text">Denoising Diffusion
+Probabilistic Models</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#definition"><span class="nav-number">1.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#training-in-practice"><span class="nav-number">1.2.</span> <span class="nav-text">Training in Practice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-the-log-likelihood"><span class="nav-number">2.</span> <span class="nav-text">Improving the Log-likelihood</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-sigma_thetax_tt"><span class="nav-number">2.1.</span> <span class="nav-text">learning \(\Sigma_\theta(x_t,t)\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#improving-the-noise-schedule"><span class="nav-number">2.2.</span> <span class="nav-text">Improving the Noise Schedule</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#reducing-gradient-noise"><span class="nav-number">2.3.</span> <span class="nav-text">Reducing Gradient Noise</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-sampling-speed"><span class="nav-number">3.</span> <span class="nav-text">Improving Sampling Speed</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -566,7 +564,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -609,6 +607,10 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/379d191b" title="2024-11-26-insights" target="_blank">2024-11-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
         </li>
       
@@ -642,10 +644,6 @@ $$<br>
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -701,7 +699,7 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">277k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
