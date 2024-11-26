@@ -317,41 +317,30 @@
 
       
         <p>现在刷俩track以后……周二竟然有500篇了？？？</p>
-<h2 id="autoglm-autonomous-foundation-agents-for-guis"><a href="**https://arxiv.org/pdf/2411.00820**">AutoGLM: Autonomous
-Foundation Agents for GUIs</a></h2>
-<p>前两天刚出一个Android-Lab，今天唐杰老师又搞了个模型的工作AutoGLM。总体的观感有点像上半年的AutoWebBench工作，延拓了一些安卓场景。claude一出，GUI
-Agent方向又火起来了呀</p>
+<h2 id="AutoGLM-Autonomous-Foundation-Agents-for-GUIs"><a href="**https://arxiv.org/pdf/2411.00820**">AutoGLM: Autonomous Foundation Agents for GUIs</a></h2>
+<p>前两天刚出一个Android-Lab，今天唐杰老师又搞了个模型的工作AutoGLM。总体的观感有点像上半年的AutoWebBench工作，延拓了一些安卓场景。claude一出，GUI Agent方向又火起来了呀</p>
 <blockquote>
 <p>这个把前几天那个公众号pr稿翻译成论文了吗……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/autoglm.png"></p>
-<h2 id="vision-language-models-can-self-improve-reasoning-via-reflection"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00855">Vision-Language Models Can
-Self-Improve Reasoning via Reflection</a></h2>
-<p>刘洋老师的工作，目标是VLM中的self-reflection。这个领域火了一年了，但是好像一直没人能真搞出来的。作者这次提的方案是让模型生成一大堆cot，然后互相比较，去写一个更好的，再把这一大堆测试时计算塌缩成一个dual-cot-trace.
-发现效果还挺好的</p>
+<img src="../../files/images/arxiv-insights/2024-11-04-11-08/autoglm.png">
+<h2 id="Vision-Language-Models-Can-Self-Improve-Reasoning-via-Reflection"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00855">Vision-Language Models Can Self-Improve Reasoning via Reflection</a></h2>
+<p>刘洋老师的工作，目标是VLM中的self-reflection。这个领域火了一年了，但是好像一直没人能真搞出来的。作者这次提的方案是让模型生成一大堆cot，然后互相比较，去写一个更好的，再把这一大堆测试时计算塌缩成一个dual-cot-trace. 发现效果还挺好的</p>
 <blockquote>
-<p>之前kumar有一篇training models to
-self-correct,感觉和这篇是两个方法论，不知道谁的更合理一些……</p>
+<p>之前kumar有一篇training models to self-correct,感觉和这篇是两个方法论，不知道谁的更合理一些……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/self-reflection.png" style="zoom:33%;"></p>
-<h2 id="hunyuan-large-an-open-source-moe-model-with-52-billion-activated-parameters-by-tencent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02265">Hunyuan-Large: An Open-Source
-MoE Model with 52 Billion Activated Parameters by Tencent</a></h2>
-<h2 id="hunyuan3d-1.0-a-unified-framework-for-text-to-3d-and-image-to-3d-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02293">Hunyuan3D-1.0: A Unified
-Framework for Text-to-3D and Image-to-3D Generation</a></h2>
+<img src="../../files/images/arxiv-insights/2024-11-04-11-08/self-reflection.png" style="zoom:33%;">
+<h2 id="Hunyuan-Large-An-Open-Source-MoE-Model-with-52-Billion-Activated-Parameters-by-Tencent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02265">Hunyuan-Large: An Open-Source MoE Model with 52 Billion Activated Parameters by Tencent</a></h2>
+<h2 id="Hunyuan3D-1-0-A-Unified-Framework-for-Text-to-3D-and-Image-to-3D-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02293">Hunyuan3D-1.0: A Unified Framework for Text-to-3D and Image-to-3D Generation</a></h2>
 <p>混元MoE的技术报告，激活参数就有52B。讲真的，这真挺大的。作者讲到，这个模型和之前的主要区别是，合成数据的占比更大，大一个数量级。</p>
-<p>另外，除了LLM，还在cv
-track偷跑了一个text-to-3D模型，他是真关心游戏场景的公司。</p>
+<p>另外，除了LLM，还在cv track偷跑了一个text-to-3D模型，他是真关心游戏场景的公司。</p>
 <blockquote>
 <p>想起来之前tencent搞过一个personal-hub，绝对的合成数据大队。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/hunyuan-moe.png" style="zoom:33%;"></p>
-<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/text23d.png" style="zoom:33%;"></p>
-<h2 id="foundations-and-recent-trends-in-multimodal-mobile-agents-a-survey"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02006">Foundations and Recent Trends in
-Multimodal Mobile Agents: A Survey</a></h2>
-<p>如标题，一篇survey，整理最近对于model
-agent领域的各种工作，对比了训练数据等问题。想了解GUI
-Agent的话，这篇工作还挺好的</p>
-<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/model-agent-survey.png"></p>
+<img src="../../files/images/arxiv-insights/2024-11-04-11-08/hunyuan-moe.png" style="zoom:33%;">
+<img src="../../files/images/arxiv-insights/2024-11-04-11-08/text23d.png" style="zoom:33%;">
+<h2 id="Foundations-and-Recent-Trends-in-Multimodal-Mobile-Agents-A-Survey"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.02006">Foundations and Recent Trends in Multimodal Mobile Agents: A Survey</a></h2>
+<p>如标题，一篇survey，整理最近对于model agent领域的各种工作，对比了训练数据等问题。想了解GUI Agent的话，这篇工作还挺好的</p>
+<img src="../../files/images/arxiv-insights/2024-11-04-11-08/model-agent-survey.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -368,13 +357,13 @@ Agent的话，这篇工作还挺好的</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dcaaa218.html" rel="bookmark">2024-11-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3e76b961.html" rel="bookmark">2024-11-22-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d5410262.html" rel="bookmark">2024-11-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3a83695c.html" rel="bookmark">2024-11-20-insights</a></div>
     </li>
   </ul>
 
@@ -451,12 +440,7 @@ Agent的话，这篇工作还挺好的</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#autoglm-autonomous-foundation-agents-for-guis"><span class="nav-number">1.</span> <span class="nav-text">AutoGLM: Autonomous
-Foundation Agents for GUIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vision-language-models-can-self-improve-reasoning-via-reflection"><span class="nav-number">2.</span> <span class="nav-text">Vision-Language Models Can
-Self-Improve Reasoning via Reflection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hunyuan-large-an-open-source-moe-model-with-52-billion-activated-parameters-by-tencent"><span class="nav-number">3.</span> <span class="nav-text">Hunyuan-Large: An Open-Source
-MoE Model with 52 Billion Activated Parameters by Tencent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hunyuan3d-1.0-a-unified-framework-for-text-to-3d-and-image-to-3d-generation"><span class="nav-number">4.</span> <span class="nav-text">Hunyuan3D-1.0: A Unified
-Framework for Text-to-3D and Image-to-3D Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#foundations-and-recent-trends-in-multimodal-mobile-agents-a-survey"><span class="nav-number">5.</span> <span class="nav-text">Foundations and Recent Trends in
-Multimodal Mobile Agents: A Survey</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoGLM-Autonomous-Foundation-Agents-for-GUIs"><span class="nav-number">1.</span> <span class="nav-text">AutoGLM: Autonomous Foundation Agents for GUIs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vision-Language-Models-Can-Self-Improve-Reasoning-via-Reflection"><span class="nav-number">2.</span> <span class="nav-text">Vision-Language Models Can Self-Improve Reasoning via Reflection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hunyuan-Large-An-Open-Source-MoE-Model-with-52-Billion-Activated-Parameters-by-Tencent"><span class="nav-number">3.</span> <span class="nav-text">Hunyuan-Large: An Open-Source MoE Model with 52 Billion Activated Parameters by Tencent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hunyuan3D-1-0-A-Unified-Framework-for-Text-to-3D-and-Image-to-3D-Generation"><span class="nav-number">4.</span> <span class="nav-text">Hunyuan3D-1.0: A Unified Framework for Text-to-3D and Image-to-3D Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foundations-and-Recent-Trends-in-Multimodal-Mobile-Agents-A-Survey"><span class="nav-number">5.</span> <span class="nav-text">Foundations and Recent Trends in Multimodal Mobile Agents: A Survey</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -514,15 +498,15 @@ Multimodal Mobile Agents: A Survey</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3e76b961" title="2024-11-22-insights" target="_blank">2024-11-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3a83695c" title="2024-11-20-insights" target="_blank">2024-11-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -606,12 +590,12 @@ Multimodal Mobile Agents: A Survey</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
