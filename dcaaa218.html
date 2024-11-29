@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning一篇online video caption的工作，作者的leader前几个月还做了一个Streaming Dense Video Captioning。作者改了一下建模方式，让模型在解码时不用看到前面的文本。  deepmi">
+  <meta name="description" content="What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning 一篇online video caption的工作，作者的leader前几个月还做了一个Streaming Dense Video Captioning。作者改了一下建模方式，让模型在解码时不用看到前面的文本。  deepm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-11-25-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/dcaaa218">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning一篇online video caption的工作，作者的leader前几个月还做了一个Streaming Dense Video Captioning。作者改了一下建模方式，让模型在解码时不用看到前面的文本。  deepmi">
+<meta property="og:description" content="What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning 一篇online video caption的工作，作者的leader前几个月还做了一个Streaming Dense Video Captioning。作者改了一下建模方式，让模型在解码时不用看到前面的文本。  deepm">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-25-11-29/video-caption.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-25-11-29/scribeagent.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-25-11-29/xgrammar.png">
 <meta property="article:published_time" content="2024-11-25T09:06:48.000Z">
-<meta property="article:modified_time" content="2024-11-26T05:40:04.352Z">
+<meta property="article:modified_time" content="2024-11-28T03:52:13.619Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>2024-11-25-insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2024-11-25-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -255,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-11-26 13:40:04" itemprop="dateModified" datetime="2024-11-26T13:40:04+08:00">2024-11-26</time>
+                <time title="修改时间：2024-11-28 11:52:13" itemprop="dateModified" datetime="2024-11-28T11:52:13+08:00">2024-11-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,19 +314,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="What’s-in-a-Video-Factorized-Autoregressive-Decoding-for-Online-Dense-Video-Captioning"><a href="#What’s-in-a-Video-Factorized-Autoregressive-Decoding-for-Online-Dense-Video-Captioning" class="headerlink" title="What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14688">What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning</a></h2><p>一篇online video caption的工作，作者的leader前几个月还做了一个<code>Streaming Dense Video Captioning</code>。作者改了一下建模方式，让模型在解码时不用看到前面的文本。</p>
+        <h2 id="whats-in-a-video-factorized-autoregressive-decoding-for-online-dense-video-captioning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14688">What’s in a Video: Factorized
+Autoregressive Decoding for Online Dense Video Captioning</a></h2>
+<p>一篇online video
+caption的工作，作者的leader前几个月还做了一个<code>Streaming Dense Video Captioning</code>。作者改了一下建模方式，让模型在解码时不用看到前面的文本。</p>
 <blockquote>
 <p>deepmind感觉是想在4o场景从数据角度发力了呀</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-25-11-29/video-caption.png"></p>
-<h2 id="ScribeAgent-Towards-Specialized-Web-Agents-Using-Production-Scale-Workflow-Data"><a href="#ScribeAgent-Towards-Specialized-Web-Agents-Using-Production-Scale-Workflow-Data" class="headerlink" title="ScribeAgent: Towards Specialized Web Agents Using Production-Scale Workflow Data"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.15004"><strong>ScribeAgent: Towards Specialized Web Agents Using Production-Scale Workflow Data</strong></a></h2><p>一篇GUI Agent的工作，作者用一堆工作流标注出来了很多SFT数据，训练了一个HTML-based LLM Agent，在下游任务上表现很好。</p>
+<h2 id="scribeagent-towards-specialized-web-agents-using-production-scale-workflow-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.15004"><strong>ScribeAgent: Towards
+Specialized Web Agents Using Production-Scale Workflow
+Data</strong></a></h2>
+<p>一篇GUI
+Agent的工作，作者用一堆工作流标注出来了很多SFT数据，训练了一个HTML-based
+LLM Agent，在下游任务上表现很好。</p>
 <blockquote>
 <p>所以，数据在哪</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-25-11-29/scribeagent.png"></p>
-<h2 id="XGrammar-Flexible-and-Efficient-Structured-Generation-Engine-for-Large-Language-Models"><a href="#XGrammar-Flexible-and-Efficient-Structured-Generation-Engine-for-Large-Language-Models" class="headerlink" title="XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.15100"><strong>XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models</strong></a></h2><p>之前OpenAI更新了tool-call强制模式，保证一定会输出json format. 这次有个工作讨论了这个问题：强制grammar输出模式，一般都会建一个类似编译器的扫描表，把不符合语法的token logits置成0。但对于模型来说，这些还会和forward、KV-cache绑定，这里面是有一些加速空间的。作者搞了个grammar generation的加速框架</p>
+<h2 id="xgrammar-flexible-and-efficient-structured-generation-engine-for-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.15100"><strong>XGrammar: Flexible and
+Efficient Structured Generation Engine for Large Language
+Models</strong></a></h2>
+<p>之前OpenAI更新了tool-call强制模式，保证一定会输出json format.
+这次有个工作讨论了这个问题：强制grammar输出模式，一般都会建一个类似编译器的扫描表，把不符合语法的token
+logits置成0。但对于模型来说，这些还会和forward、KV-cache绑定，这里面是有一些加速空间的。作者搞了个grammar
+generation的加速框架</p>
 <p><img src="../../files/images/arxiv-insights/2024-11-25-11-29/xgrammar.png"></p>
-
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -342,13 +356,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/295429a8.html" rel="bookmark">2024-11-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d85f7225.html" rel="bookmark">2024-11-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/379d191b.html" rel="bookmark">2024-11-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3e76b961.html" rel="bookmark">2024-11-22-insights</a></div>
     </li>
   </ul>
 
@@ -363,16 +377,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/3e76b961" rel="prev" title="2024-11-22-insights">
-      <i class="fa fa-chevron-left"></i> 2024-11-22-insights
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/379d191b" rel="next" title="2024-11-26-insights">
-      2024-11-26-insights <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -435,7 +439,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#What%E2%80%99s-in-a-Video-Factorized-Autoregressive-Decoding-for-Online-Dense-Video-Captioning"><span class="nav-number">1.</span> <span class="nav-text">What’s in a Video: Factorized Autoregressive Decoding for Online Dense Video Captioning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ScribeAgent-Towards-Specialized-Web-Agents-Using-Production-Scale-Workflow-Data"><span class="nav-number">2.</span> <span class="nav-text">ScribeAgent: Towards Specialized Web Agents Using Production-Scale Workflow Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XGrammar-Flexible-and-Efficient-Structured-Generation-Engine-for-Large-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">XGrammar: Flexible and Efficient Structured Generation Engine for Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#whats-in-a-video-factorized-autoregressive-decoding-for-online-dense-video-captioning"><span class="nav-number">1.</span> <span class="nav-text">What’s in a Video: Factorized
+Autoregressive Decoding for Online Dense Video Captioning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scribeagent-towards-specialized-web-agents-using-production-scale-workflow-data"><span class="nav-number">2.</span> <span class="nav-text">ScribeAgent: Towards
+Specialized Web Agents Using Production-Scale Workflow
+Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xgrammar-flexible-and-efficient-structured-generation-engine-for-large-language-models"><span class="nav-number">3.</span> <span class="nav-text">XGrammar: Flexible and
+Efficient Structured Generation Engine for Large Language
+Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -450,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,23 +502,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/379d191b" title="2024-11-26-insights" target="_blank">2024-11-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3e76b961" title="2024-11-22-insights" target="_blank">2024-11-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -530,6 +531,14 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -585,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题，">
+  <meta name="description" content="Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations 这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-09-30-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3c018487">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题，">
+<meta property="og:description" content="Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations 这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/gan.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/survey.png">
@@ -313,12 +313,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Charting-the-Future-Using-Chart-Question-Answering-for-Scalable-Evaluation-of-LLM-Driven-Data-Visualizations"><a href="#Charting-the-Future-Using-Chart-Question-Answering-for-Scalable-Evaluation-of-LLM-Driven-Data-Visualizations" class="headerlink" title="Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.18764">Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations</a></h2><p>这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题，说明可视化模型信息没丢失。</p>
+        <h2 id="charting-the-future-using-chart-question-answering-for-scalable-evaluation-of-llm-driven-data-visualizations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.18764">Charting the Future: Using Chart
+Question-Answering for Scalable Evaluation of LLM-Driven Data
+Visualizations</a></h2>
+<p>这个工作名字有点拗口，但其实很新颖：作者想要评测LLM做数据可视化的质量。可视化中的一个重要因素就是信息不丢失，作者想到，能不能用VQA的形式评测？如果另一个VQA模型回答对了问题，说明可视化模型信息没丢失。</p>
 <blockquote>
 <p>这个方向挺小众，不过我感觉这个方法还可以深挖呀，抽象一下：一个任务可以退化成更简单的任务，那可以通过评测退化的任务来给出原任务的一个noisy-reward</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/gan.png" style="zoom:33%;"></p>
-<h2 id="A-Survey-on-the-Honesty-of-Large-Language-Models"><a href="#A-Survey-on-the-Honesty-of-Large-Language-Models" class="headerlink" title="A Survey on the Honesty of Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.18786"><strong>A Survey on the Honesty of Large Language Models</strong></a></h2><p>一篇LLM honesty的survey，这个领域一直挺小众的，大家好像叫法也挺多的，很多人叫自己hallucination，还有人叫”known and unknown”，感觉需要有个谁出来给个具体的定义，整合一下。</p>
+<h2 id="a-survey-on-the-honesty-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.18786"><strong>A Survey on the Honesty
+of Large Language Models</strong></a></h2>
+<p>一篇LLM
+honesty的survey，这个领域一直挺小众的，大家好像叫法也挺多的，很多人叫自己hallucination，还有人叫"known
+and unknown"，感觉需要有个谁出来给个具体的定义，整合一下。</p>
 <p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/survey.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -336,13 +343,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/295429a8.html" rel="bookmark">2024-11-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d85f7225.html" rel="bookmark">2024-11-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/379d191b.html" rel="bookmark">2024-11-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dcaaa218.html" rel="bookmark">2024-11-25-insights</a></div>
     </li>
   </ul>
 
@@ -419,7 +426,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Charting-the-Future-Using-Chart-Question-Answering-for-Scalable-Evaluation-of-LLM-Driven-Data-Visualizations"><span class="nav-number">1.</span> <span class="nav-text">Charting the Future: Using Chart Question-Answering for Scalable Evaluation of LLM-Driven Data Visualizations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Survey-on-the-Honesty-of-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">A Survey on the Honesty of Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#charting-the-future-using-chart-question-answering-for-scalable-evaluation-of-llm-driven-data-visualizations"><span class="nav-number">1.</span> <span class="nav-text">Charting the Future: Using Chart
+Question-Answering for Scalable Evaluation of LLM-Driven Data
+Visualizations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-survey-on-the-honesty-of-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">A Survey on the Honesty
+of Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -434,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -477,23 +487,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/379d191b" title="2024-11-26-insights" target="_blank">2024-11-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3e76b961" title="2024-11-22-insights" target="_blank">2024-11-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -514,6 +516,14 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -569,12 +579,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

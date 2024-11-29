@@ -318,10 +318,12 @@
 <li>cache size</li>
 <li>cache line size</li>
 <li>cache相联度</li>
-<li>cache替换方法(选做) </li>
+<li>cache替换方法(选做)</li>
 </ul>
-<p>​    当时觉得好神奇。后来在网安课上学到了 <code>flush-flush,prime-probe</code>等侧信道方法，又一次感觉这次实验很有意思。我觉得所谓实验，不应该是实现、复现xx方法，而应该是针对某个特定的问题，设计自己的方法，又通过结果去验证方法的正确性、分析设计的优缺点，进而去改进。这就像是一个小的科研训练，锻炼我们实际的解决问题的能力。</p>
-<p>​    其中，我觉得比较有意思的最后一个测量。当时我构造很多按照4B地址对齐的数据，为了保证它们可以对应到一个set里，然后通过构造不同的访问方式，提前计算不同替换方法下预计的缺失率，进而通过缺失率大小，估计用的时间，再实际测量用的时间。最后拟合出很多条”假设缺失率-时间“曲线，最接近直线的一条就是测量出的替换方法。</p>
+<p>​ 当时觉得好神奇。后来在网安课上学到了
+<code>flush-flush,prime-probe</code>等侧信道方法，又一次感觉这次实验很有意思。我觉得所谓实验，不应该是实现、复现xx方法，而应该是针对某个特定的问题，设计自己的方法，又通过结果去验证方法的正确性、分析设计的优缺点，进而去改进。这就像是一个小的科研训练，锻炼我们实际的解决问题的能力。</p>
+<p>​
+其中，我觉得比较有意思的最后一个测量。当时我构造很多按照4B地址对齐的数据，为了保证它们可以对应到一个set里，然后通过构造不同的访问方式，提前计算不同替换方法下预计的缺失率，进而通过缺失率大小，估计用的时间，再实际测量用的时间。最后拟合出很多条”假设缺失率-时间“曲线，最接近直线的一条就是测量出的替换方法。</p>
 <p>由于当时的报告由于不可逆因素没了，我就放一个pdf在这里…</p>
 <div class="pdfobject-container" data-target="/files/体系结构第一次实验报告.pdf" data-height="500px"></div>
 
@@ -334,7 +336,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3784f7a3.html" rel="bookmark">大三下学期总结</a></div>
@@ -448,7 +450,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,23 +493,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/379d191b" title="2024-11-26-insights" target="_blank">2024-11-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3e76b961" title="2024-11-22-insights" target="_blank">2024-11-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -528,6 +522,14 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -583,12 +585,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

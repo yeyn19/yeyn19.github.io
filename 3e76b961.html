@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Extending Video Masked Autoencoders to 128 frames作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西  Multimodal Autoregressive Pre-training of Large Vision En">
+  <meta name="description" content="Extending Video Masked Autoencoders to 128 frames 作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西  Multimodal Autoregressive Pre-training of Large Vision E">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-11-22-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3e76b961">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Extending Video Masked Autoencoders to 128 frames作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西  Multimodal Autoregressive Pre-training of Large Vision En">
+<meta property="og:description" content="Extending Video Masked Autoencoders to 128 frames 作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西  Multimodal Autoregressive Pre-training of Large Vision E">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-18-11-22/mae.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-18-11-22/aimv2.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-18-11-22/conv.png">
 <meta property="article:published_time" content="2024-11-22T03:29:55.000Z">
-<meta property="article:modified_time" content="2024-11-22T05:08:03.035Z">
+<meta property="article:modified_time" content="2024-11-28T03:52:03.497Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>2024-11-22-insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2024-11-22-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -247,10 +247,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2024-11-22 11:29:55 / 修改时间：13:08:03" itemprop="dateCreated datePublished" datetime="2024-11-22T11:29:55+08:00">2024-11-22</time>
+              <time title="创建时间：2024-11-22 11:29:55" itemprop="dateCreated datePublished" datetime="2024-11-22T11:29:55+08:00">2024-11-22</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-11-28 11:52:03" itemprop="dateModified" datetime="2024-11-28T11:52:03+08:00">2024-11-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -308,17 +314,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Extending-Video-Masked-Autoencoders-to-128-frames"><a href="#Extending-Video-Masked-Autoencoders-to-128-frames" class="headerlink" title="Extending Video Masked Autoencoders to 128 frames"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.13683">Extending Video Masked Autoencoders to 128 frames</a></h2><p>作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西</p>
+        <h2 id="extending-video-masked-autoencoders-to-128-frames"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.13683">Extending Video Masked
+Autoencoders to 128 frames</a></h2>
+<p>作者提到，视频VAE
+Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction
+loss和两种模态的加噪，还真搞出了点东西</p>
 <p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/mae.png"></p>
-<h2 id="Multimodal-Autoregressive-Pre-training-of-Large-Vision-Encoders"><a href="#Multimodal-Autoregressive-Pre-training-of-Large-Vision-Encoders" class="headerlink" title="Multimodal Autoregressive Pre-training of Large Vision Encoders"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14402">Multimodal Autoregressive Pre-training of Large Vision Encoders</a></h2><p>苹果出的一个joint training VLM的方法，模型结构和传统VLM差不多，都是几个模块式的。但是作者在VLM token上也加了loss，让他去直接预测图片的后面patch。但这个也不算生成理解统一模型，因为还是需要一个prefix vison encoder预先看到原始图片生成一堆visual token embedding。</p>
+<h2 id="multimodal-autoregressive-pre-training-of-large-vision-encoders"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14402">Multimodal Autoregressive
+Pre-training of Large Vision Encoders</a></h2>
+<p>苹果出的一个joint training
+VLM的方法，模型结构和传统VLM差不多，都是几个模块式的。但是作者在VLM
+token上也加了loss，让他去直接预测图片的后面patch。但这个也不算生成理解统一模型，因为还是需要一个prefix
+vison encoder预先看到原始图片生成一堆visual token embedding。</p>
 <p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/aimv2.png"></p>
-<h2 id="Revisiting-the-Integration-of-Convolution-and-Attention-for-Vision-Backbone"><a href="#Revisiting-the-Integration-of-Convolution-and-Attention-for-Vision-Backbone" class="headerlink" title="Revisiting the Integration of Convolution and Attention for Vision Backbone"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14429">Revisiting the Integration of Convolution and Attention for Vision Backbone</a></h2><p>一篇研究VLM结构的工作，在今天不太多见，有点kaiming遗风。作者发现，传统VLM中对于conv和attention层基本都是二选一，即使都用，也是在某些地方做二路并行。作者提出一个观点：conv快，attention慢，其实应该在不同颗粒度使用。能不能在pixel level大量使用conv，在更高颗粒度使用attention呢？</p>
+<h2 id="revisiting-the-integration-of-convolution-and-attention-for-vision-backbone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14429">Revisiting the Integration of
+Convolution and Attention for Vision Backbone</a></h2>
+<p>一篇研究VLM结构的工作，在今天不太多见，有点kaiming遗风。作者发现，传统VLM中对于conv和attention层基本都是二选一，即使都用，也是在某些地方做二路并行。作者提出一个观点：conv快，attention慢，其实应该在不同颗粒度使用。能不能在pixel
+level大量使用conv，在更高颗粒度使用attention呢？</p>
 <p>作者做了一些实验，发现这样出来的cv模型效果确实好不少。</p>
 <blockquote>
 <p>scalability的问题不知道解决没有</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/conv.png"></p>
-
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -334,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/295429a8.html" rel="bookmark">2024-11-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d85f7225.html" rel="bookmark">2024-11-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/379d191b.html" rel="bookmark">2024-11-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dcaaa218.html" rel="bookmark">2024-11-25-insights</a></div>
     </li>
   </ul>
 
@@ -355,16 +373,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/d5410262" rel="prev" title="2024-11-21-insights">
-      <i class="fa fa-chevron-left"></i> 2024-11-21-insights
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/dcaaa218" rel="next" title="2024-11-25-insights">
-      2024-11-25-insights <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -427,7 +435,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Extending-Video-Masked-Autoencoders-to-128-frames"><span class="nav-number">1.</span> <span class="nav-text">Extending Video Masked Autoencoders to 128 frames</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multimodal-Autoregressive-Pre-training-of-Large-Vision-Encoders"><span class="nav-number">2.</span> <span class="nav-text">Multimodal Autoregressive Pre-training of Large Vision Encoders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revisiting-the-Integration-of-Convolution-and-Attention-for-Vision-Backbone"><span class="nav-number">3.</span> <span class="nav-text">Revisiting the Integration of Convolution and Attention for Vision Backbone</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#extending-video-masked-autoencoders-to-128-frames"><span class="nav-number">1.</span> <span class="nav-text">Extending Video Masked
+Autoencoders to 128 frames</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multimodal-autoregressive-pre-training-of-large-vision-encoders"><span class="nav-number">2.</span> <span class="nav-text">Multimodal Autoregressive
+Pre-training of Large Vision Encoders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#revisiting-the-integration-of-convolution-and-attention-for-vision-backbone"><span class="nav-number">3.</span> <span class="nav-text">Revisiting the Integration of
+Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -442,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,23 +496,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/379d191b" title="2024-11-26-insights" target="_blank">2024-11-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dcaaa218" title="2024-11-25-insights" target="_blank">2024-11-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3e76b961" title="2024-11-22-insights" target="_blank">2024-11-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d5410262" title="2024-11-21-insights" target="_blank">2024-11-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -522,6 +525,14 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -577,12 +588,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
