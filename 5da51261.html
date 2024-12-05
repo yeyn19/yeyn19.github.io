@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>756</span>
+              <span>766</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,18 +314,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Frame-Voyager-Learning-to-Query-Frames-for-Video-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03226"><strong>Frame-Voyager: Learning to Query Frames for Video Large Language Models</strong></a></h2>
+        <h2 id="frame-voyager-learning-to-query-frames-for-video-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03226"><strong>Frame-Voyager: Learning
+to Query Frames for Video Large Language Models</strong></a></h2>
 <p>字节出的一篇关键帧抽取的工作，是一套以终为始的思路：关键帧抽取是为了更好地进行VQA。那可以先随机抽一大堆关键帧组，然后每个组合都回答一次vqa，根据答案的质量(其实是正确答案的ppl)反过来给出关键帧抽取质量的评价，找出来关键帧抽取方案的正负样本</p>
 <blockquote>
 <p>很聪明！不过它的瓶颈看起来是随机抽到好帧的概率，当视频变长以后，这种方案随机采样到真正好帧的可能性就会下降。</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-07-10-11/frame.png">
-<h2 id="Better-Instruction-Following-Through-Minimum-Bayes-Risk"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.02902"><strong>Better Instruction-Following Through Minimum Bayes Risk</strong></a></h2>
-<p>Neubig的工作，作者搞了个神奇的方法：大家现在做Post training 的大致方法都是生成一堆回答然后给一些评价。这个事情其实可以online地去实现，如果可以给评价loss，那其实就可以用MBR解码找到$\sum_{y’} P(y’)·L(y,y’)$最小的y。这个方法甚至都不需要reward model，就能给一堆样本拿到一个得分。作者首先实验了一下在运行时直接MBR找最好的样本，发现这个样本一般确实是最好的。然后又尝试了self-train，把MBR样本当成正样本，发现训完的模型直接greedy-decoding就和之前用MBR挑出来的样本差不多好</p>
-<img src="../../files/images/arxiv-insights/2024-10-07-10-11/mbr.png">
-<h2 id="Exploring-the-Benefit-of-Activation-Sparsity-in-Pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03440">Exploring the Benefit of Activation Sparsity in Pre-training</a></h2>
-<p>师兄的工作，作者发现在模型预训练中也是存在稀疏激活现象的，由此开发了一套集和Dense training和MoE training的pipeline，根据激活情况进行动态的routing，由此训出来的模型既可以作为dense模型保持效果，也可以用MoE的方式加快推理速度</p>
-<img src="../../files/images/arxiv-insights/2024-10-07-10-11/sparse.png">
+<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/frame.png"></p>
+<h2 id="better-instruction-following-through-minimum-bayes-risk"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.02902"><strong>Better
+Instruction-Following Through Minimum Bayes Risk</strong></a></h2>
+<p>Neubig的工作，作者搞了个神奇的方法：大家现在做Post training
+的大致方法都是生成一堆回答然后给一些评价。这个事情其实可以online地去实现，如果可以给评价loss，那其实就可以用MBR解码找到<span class="math inline">\(\sum_{y&#39;}
+P(y’)·L(y,y&#39;)\)</span>最小的y。这个方法甚至都不需要reward
+model，就能给一堆样本拿到一个得分。作者首先实验了一下在运行时直接MBR找最好的样本，发现这个样本一般确实是最好的。然后又尝试了self-train，把MBR样本当成正样本，发现训完的模型直接greedy-decoding就和之前用MBR挑出来的样本差不多好</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/mbr.png"></p>
+<h2 id="exploring-the-benefit-of-activation-sparsity-in-pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03440">Exploring the Benefit of
+Activation Sparsity in Pre-training</a></h2>
+<p>师兄的工作，作者发现在模型预训练中也是存在稀疏激活现象的，由此开发了一套集和Dense
+training和MoE
+training的pipeline，根据激活情况进行动态的routing，由此训出来的模型既可以作为dense模型保持效果，也可以用MoE的方式加快推理速度</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/sparse.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/34120750.html" rel="bookmark">2024-12-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/dbd06c6e.html" rel="bookmark">2024-12-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/295429a8.html" rel="bookmark">2024-11-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d85f7225.html" rel="bookmark">2024-11-27-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +433,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Frame-Voyager-Learning-to-Query-Frames-for-Video-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Frame-Voyager: Learning to Query Frames for Video Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Better-Instruction-Following-Through-Minimum-Bayes-Risk"><span class="nav-number">2.</span> <span class="nav-text">Better Instruction-Following Through Minimum Bayes Risk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-the-Benefit-of-Activation-Sparsity-in-Pre-training"><span class="nav-number">3.</span> <span class="nav-text">Exploring the Benefit of Activation Sparsity in Pre-training</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#frame-voyager-learning-to-query-frames-for-video-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Frame-Voyager: Learning
+to Query Frames for Video Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better-instruction-following-through-minimum-bayes-risk"><span class="nav-number">2.</span> <span class="nav-text">Better
+Instruction-Following Through Minimum Bayes Risk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exploring-the-benefit-of-activation-sparsity-in-pre-training"><span class="nav-number">3.</span> <span class="nav-text">Exploring the Benefit of
+Activation Sparsity in Pre-training</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,15 +494,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/34120750" title="2024-12-03-insights" target="_blank">2024-12-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/dbd06c6e" title="2024-12-02-insights" target="_blank">2024-12-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">

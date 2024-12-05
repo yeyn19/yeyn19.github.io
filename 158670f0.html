@@ -328,44 +328,41 @@
       
         <p>今天来和大家读一篇非常有趣的分析性文章，卷积网络和Vit学的隐层表示有什么区别？模型眼中的世界是一样的吗？</p>
 <span id="more"></span>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/author.png">
-<p>这是一篇NeurIPS 21的文章，作者团队来自Google Brain。这个作者好像是LSTM的作者？</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/author.png"></p>
+<p>这是一篇NeurIPS 21的文章，作者团队来自Google
+Brain。这个作者好像是LSTM的作者？</p>
 <h2 id="动机">动机</h2>
 <p>文章主要探索一件事情：CV领域的ViT，其实没有引入卷积网络的归纳偏置：</p>
 <ul>
 <li>ViT没有对临近的图像区域做专门的处理，conv其实是按局部去滑动。</li>
 </ul>
 <p>在这种情况下ViT的效果依然很好，那么他们两种网络学到的图像表示有没有什么联系呢？ViT有没有重新学到conv给定的归纳偏置呢？</p>
-<p>这个问题是很好的问题，但是所谓的”图像表示之间的关系、相似度“该怎么衡量呢？我们可以实验性的定义”linear probe的结果“代表图像表示的好坏，但相似度又该怎么衡量？毕竟两个模型、甚至一个模型的两次初始化学到的表示空间可能就完全不同，图像表示只有针对不同图像的差值、夹角、模长等可能有意义。</p>
+<p>这个问题是很好的问题，但是所谓的”图像表示之间的关系、相似度“该怎么衡量呢？我们可以实验性的定义”linear
+probe的结果“代表图像表示的好坏，但相似度又该怎么衡量？毕竟两个模型、甚至一个模型的两次初始化学到的表示空间可能就完全不同，图像表示只有针对不同图像的差值、夹角、模长等可能有意义。</p>
 <blockquote>
-<p>linear probe:锁定整个模型，只是把图像表示拿过来后面跟一个linear层，然后做下游任务，比如分类。这个调节的参数很少，但效果基本远不如full size fine-tune</p>
+<p>linear
+probe:锁定整个模型，只是把图像表示拿过来后面跟一个linear层，然后做下游任务，比如分类。这个调节的参数很少，但效果基本远不如full
+size fine-tune</p>
 </blockquote>
 <h2 id="实验">实验</h2>
-<p>作者在这里引入了一种非常有趣的衡量方法：CKA, centered kernel alignment</p>
-<p>这个方法是这样，对于两个模型，先扔进去m个样本得到m个表示：<br>
-$$<br>
-X \in \mathbb{R}^{m\times p_1} \quad Y \in \mathbb{R}^{m\times p_2}<br>
-$$<br>
-接下来算Gram矩阵<br>
-$$<br>
-K = XX^T,L = YY^T<br>
-$$<br>
-接下来计算<strong>Hilbert-Schmidt independence criterion</strong> ,构建出来一个中心矩阵<br>
-$$<br>
-H = I_m - \frac{1}{m} \vec{1}\vec{1}^T<br>
-$$<br>
-用中心矩阵来做中心化<br>
-$$<br>
-K’ = HKH,L’ = HLH<br>
-$$</p>
-<p>$$<br>
-HSIC(K,L) = \frac{vec(K’) ·vec(L’)}{(m-1)^2}<br>
-$$</p>
-<p>有了HSIC算子以后，对两个矩阵用HSIC算子做cosine就行了<br>
-$$<br>
-CKA(K,L) = \frac{HSIC(K,L)}{\sqrt{HSIC(K,K) · HSIC(L,L)}}<br>
-$$<br>
-这个变换</p>
+<p>作者在这里引入了一种非常有趣的衡量方法：CKA, centered kernel
+alignment</p>
+<p>这个方法是这样，对于两个模型，先扔进去m个样本得到m个表示： <span class="math display">\[
+X \in \mathbb{R}^{m\times p_1} \quad Y \in \mathbb{R}^{m\times p_2}
+\]</span> 接下来算Gram矩阵 <span class="math display">\[
+K = XX^T,L = YY^T
+\]</span> 接下来计算<strong>Hilbert-Schmidt independence
+criterion</strong> ,构建出来一个中心矩阵 <span class="math display">\[
+H = I_m - \frac{1}{m} \vec{1}\vec{1}^T
+\]</span> 用中心矩阵来做中心化 <span class="math display">\[
+K&#39; = HKH,L&#39; = HLH
+\]</span></p>
+<p><span class="math display">\[
+HSIC(K,L) = \frac{vec(K&#39;) ·vec(L&#39;)}{(m-1)^2}
+\]</span></p>
+<p>有了HSIC算子以后，对两个矩阵用HSIC算子做cosine就行了 <span class="math display">\[
+CKA(K,L) = \frac{HSIC(K,L)}{\sqrt{HSIC(K,K) · HSIC(L,L)}}
+\]</span> 这个变换</p>
 <ul>
 <li>对于两个矩阵分开的正交变换具有不变性</li>
 <li>对于矩阵表示的模长好像也是无所谓的</li>
@@ -374,7 +371,7 @@ $$<br>
 <p>作者有了CKA方法以后，都是用一个minibatch来模拟真实的CKA结果</p>
 <h2 id="两个模型表示的区别">两个模型表示的区别</h2>
 <p>接下来作者先看了模型自己层和自己层的表示的CKA对比</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/self_CKA.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/self_CKA.png"></p>
 <p>就是说单拿出某一层的表示和另一层的表示，当做两组表示计算CKA。这个值高(亮)就代表两个层出来的表示具有更强的相关性</p>
 <p>可以发现：</p>
 <ul>
@@ -382,7 +379,7 @@ $$<br>
 <li>ResNet有明显的两个块，底层和上层学的表示差距很大</li>
 </ul>
 <p>接下来作者做跨模型对比，把两个模型不同层的表示做CKA，得到下面的结果</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_CKA.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_CKA.png"></p>
 <ul>
 <li>ViT前1/4的层表示和ResNet前1/2的表示接近</li>
 <li>ViT中1/3的表示和ResNet后1/2表示接近</li>
@@ -396,53 +393,62 @@ $$<br>
 </ul>
 <h2 id="全局与局部信息">全局与局部信息</h2>
 <p>接下来作者想要探索ViT是不是重新发现了conv的局部性归纳偏置，具体作者这么算的：</p>
-<p>transformer layer里面要先算key * query，作者直接把5000条数据里的query矩阵乘积算出来，就是模型希望去询问的东西，由于self attention，其实最后就是这些query互相乘。然后作者算两个query的像素距离。</p>
+<p>transformer layer里面要先算key *
+query，作者直接把5000条数据里的query矩阵乘积算出来，就是模型希望去询问的东西，由于self
+attention，其实最后就是这些query互相乘。然后作者算两个query的像素距离。</p>
 <p>就如果两个图片patch离的近，他们的query像素距离也近，说明模型学到了local信息</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/local_global.png">
-<p>作者发现，对于低层，确实距离近的patch, query也相似。但对于高层的block，这个相似性就消失了。对比之下，conv在底层由于实现，只能关注更局部的feature.</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/small_data.png">
-<p>接下来，作者做了更有趣的实验，作者只在imageNet上炼了一个ViT(小的pretrain dataset)，发现这种重新发现的局部性原理竟然消失了，说明ViT其实需要从非常多的数据中总结出这种规律。</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_local.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/local_global.png"></p>
+<p>作者发现，对于低层，确实距离近的patch,
+query也相似。但对于高层的block，这个相似性就消失了。对比之下，conv在底层由于实现，只能关注更局部的feature.</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/small_data.png"></p>
+<p>接下来，作者做了更有趣的实验，作者只在imageNet上炼了一个ViT(小的pretrain
+dataset)，发现这种重新发现的局部性原理竟然消失了，说明ViT其实需要从非常多的数据中总结出这种规律。</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/cross_local.png"></p>
 <p>ViT这种局部性学到的feature和conv的一样吗？接下来，作者试了局部性最好的head和ResNet里面做CKA，发现结论是肯定的。</p>
 <h2 id="skip-connection">skip connection</h2>
-<p>接下来作者衡量了skip connection对ViT这种学习的影响，定义了一个量<br>
-$$<br>
-\frac{||z_i||}{||f(z_i)||}<br>
-$$<br>
-代表从skip connection出来的表示的模长除以long-branch算子出来的表示的模长。假如这个值很大，说明long-branch算子的影响很小，结果以skip-connection继承之前的东西为主</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/div.png">
+<p>接下来作者衡量了skip connection对ViT这种学习的影响，定义了一个量
+<span class="math display">\[
+\frac{||z_i||}{||f(z_i)||}
+\]</span> 代表从skip
+connection出来的表示的模长除以long-branch算子出来的表示的模长。假如这个值很大，说明long-branch算子的影响很小，结果以skip-connection继承之前的东西为主</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/div.png"></p>
 <p>作者发现CLS token(token 0)和其他token不一样:</p>
 <ul>
 <li>CLS在前面基本都是继承，直到后面才开始使用long-branch里面的东西</li>
 <li>正常token都比较接近，前面要看互相的关系，到后面以继承为主</li>
 </ul>
 <p>右边的图对比了ResNet，可以发现conv就比较平均，每一层都在看互相的量</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/without_skip_connection.png">
-<p>接下来，作者尝试在ViT某一层去掉skip connection，发现ViT马上出现了这种明显的分块。也就是说，ViT的这种不同层表示之间的CKA相关性，基本就是由skip-connection带来的。</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/without_skip_connection.png"></p>
+<p>接下来，作者尝试在ViT某一层去掉skip
+connection，发现ViT马上出现了这种明显的分块。也就是说，ViT的这种不同层表示之间的CKA相关性，基本就是由skip-connection带来的。</p>
 <h2 id="空间位置信息">空间位置信息</h2>
 <p>作者继续探索了ViT在高层还能不能保持图像之间的空间关系，毕竟上层基本都是看全局信息</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/spatial.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/spatial.png"></p>
 <p>对比之下可以看出，ViT在高层对于空间关系的保持性比ResNet好很多。作者提出一个猜测：</p>
 <ul>
-<li>ResNet训练任务是用average pooling，而ViT是用CLS分类头。显然前者需要高层的表示比较接近</li>
+<li>ResNet训练任务是用average
+pooling，而ViT是用CLS分类头。显然前者需要高层的表示比较接近</li>
 </ul>
 <p>作者做了个对比实验，训练了用average pooling的ViT</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/average_pooling_vit.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/average_pooling_vit.png"></p>
 <p>一下子，ViT也不行了，这佐证上述猜测。</p>
 <p>接下来作者又探索了使用别的token能不能做linear probe。</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/token_num.png">
-<p>左图作者试着用不同比例的token一起做linear probe，右边是单独ViT的对比</p>
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/token_num.png"></p>
+<p>左图作者试着用不同比例的token一起做linear
+probe，右边是单独ViT的对比</p>
 <p>可以看出来，用CLS做训练的ViT下游任务一但没有CLS token，就寄了</p>
 <p>最后，作者做了一个数据规模实验：</p>
 <p>首先试了在不同训练数据规模下，用不同层的表示做实验。发现即使只有3%的数据，在低层的时候学到的表示也差不多了。只是在高层的表示需要更多的数据来学习</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale_with_layer.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale_with_layer.png"></p>
 <p>后面，作者常规地试了试数据规模和迁移能力的实验，得到了多就是好的常规结论</p>
-<img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale.png">
+<p><img src="../files/images/do_vision_transformers_see_like_convolutional_neural_networks/scale.png"></p>
 <h2 id="思考">思考</h2>
 <ul>
-<li>这篇文章是一个经典的分析性文章。作者的实验设置值得学习，尤其是很多对比实验的思路，self compare，cross compare的实验设计</li>
+<li>这篇文章是一个经典的分析性文章。作者的实验设置值得学习，尤其是很多对比实验的思路，self
+compare，cross compare的实验设计</li>
 <li>有没有人试过MAE和普通ViT的对比呢？感觉这种自回归的方式很可能更接近ResNet？</li>
-<li>进一步，这种思路是不是也可以对比NLP这边encoder based和encoder-decoder based模型得到的表示</li>
+<li>进一步，这种思路是不是也可以对比NLP这边encoder
+based和encoder-decoder based模型得到的表示</li>
 <li>在新的模型结构出来以后，比起直接在下游任务用起来，这种对模型表示的探索也许更值得学习</li>
 </ul>
 
@@ -455,7 +461,7 @@ $$<br>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fbc665c3.html" rel="bookmark">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a></div>
@@ -490,8 +496,8 @@ $$<br>
       <i class="fa fa-chevron-left"></i> S12世界赛总结(2)
     </a></div>
       <div class="post-nav-item">
-    <a href="/a50a8741" rel="next" title="论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)">
-      论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1) <i class="fa fa-chevron-right"></i>
+    <a href="/a50a8741" rel="next" title="论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)">
+      论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2) <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -614,15 +620,15 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/34120750" title="2024-12-03-insights" target="_blank">2024-12-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/dbd06c6e" title="2024-12-02-insights" target="_blank">2024-12-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d85f7225" title="2024-11-27-insights" target="_blank">2024-11-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
