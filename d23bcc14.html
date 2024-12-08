@@ -24,30 +24,37 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/page/133/index.html">
+  <meta name="description" content="Densing Law of LLMs 首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;par">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-12-06-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/d23bcc14">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="Densing Law of LLMs 首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;par">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/dense-law.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/nvila.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/huanyuan.png">
+<meta property="article:published_time" content="2024-12-08T09:50:37.000Z">
+<meta property="article:modified_time" content="2024-12-08T10:13:41.035Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/dense-law.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/page/133/">
+<link rel="canonical" href="https://www.yynnyy.cn/d23bcc14.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>随缘随笔 <br> Insights Flow</title>
+  <title>2024-12-06-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,15 +218,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
 
-      
-            
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/ff05b5bf">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/d23bcc14">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -231,10 +237,9 @@
       <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ff05b5bf" class="post-title-link" itemprop="url">第一篇博客</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          2024-12-06-insights
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -242,28 +247,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-17 14:10:10" itemprop="dateCreated datePublished" datetime="2022-06-17T14:10:10+08:00">2022-06-17</time>
+              <time title="创建时间：2024-12-08 17:50:37 / 修改时间：18:13:41" itemprop="dateCreated datePublished" datetime="2024-12-08T17:50:37+08:00">2024-12-08</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/ff05b5bf" class="post-meta-item leancloud_visitors" data-flag-title="第一篇博客" title="阅读次数">
+            <span id="/d23bcc14" class="post-meta-item leancloud_visitors" data-flag-title="2024-12-06-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +277,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/ff05b5bf#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ff05b5bf" itemprop="commentCount"></span>
+    <a title="valine" href="/d23bcc14#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/d23bcc14" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>645</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -309,43 +308,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>为什么写博客？博客写什么？</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ff05b5bf">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h2 id="densing-law-of-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04315">Densing Law of LLMs</a></h2>
+<p>首推刘导的position
+paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B
+model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把
+<code>capability/parameters</code>定义为一个知识密度指标。模型的知识密度实际上每过100天就翻倍。</p>
+<p>这个定律和摩尔定律是相辅相成的：人类能训出越来越大的模型，同时相同大小模型的能力也在提升。一个是算力，一个是算力效率。如果花3个月才能训出来一个400B模型，讲道理就算是白训了……因为数据版本落后一个dense
+law区间了</p>
+<blockquote>
+<p>感觉知识密度随时间的曲线在 o1-based
+model开始出现以后，又会有一个薄发。</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/dense-law.png"></p>
+<h2 id="nvila-efficient-frontier-visual-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04468"><strong>NVILA: Efficient
+Frontier Visual Language Models</strong></a></h2>
+<p>nvidia新出的VLM family，最近感觉nvidia
+research做得有点风生水起的感觉，是不是来openAI情报了。</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/nvila.png"></p>
+<h2 id="hunyuanvideo-a-systematic-framework-for-large-video-generative-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.03603">HunyuanVideo: A Systematic
+Framework For Large Video Generative Models</a></h2>
+<p>tecent的video generation model总算出了，感觉video
+generation这个领域从学界巨头卷，逐渐演变成公司卷了。主要是私有数据的构造速度和质量确实差太多了……</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/huanyuan.png"></p>
+
     </div>
 
     
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/390c7717.html" rel="bookmark">2024-12-05-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d6ce1c29.html" rel="bookmark">2024-12-04-insights</a></div>
+    </li>
+  </ul>
+
 
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/390c7717" rel="prev" title="2024-12-05-insights">
+      <i class="fa fa-chevron-left"></i> 2024-12-05-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
-      
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/132/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/132/">132</a><span class="page-number current">133</span>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -396,6 +433,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#densing-law-of-llms"><span class="nav-number">1.</span> <span class="nav-text">Densing Law of LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nvila-efficient-frontier-visual-language-models"><span class="nav-number">2.</span> <span class="nav-text">NVILA: Efficient
+Frontier Visual Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hunyuanvideo-a-systematic-framework-for-large-video-generative-models"><span class="nav-number">3.</span> <span class="nav-text">HunyuanVideo: A Systematic
+Framework For Large Video Generative Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,7 +450,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">132</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,19 +493,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/d23bcc14" title="2024-12-06-insights" target="_blank">2024-12-06-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/390c7717" title="2024-12-05-insights" target="_blank">2024-12-05-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d6ce1c29" title="2024-12-04-insights" target="_blank">2024-12-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/34120750" title="2024-12-03-insights" target="_blank">2024-12-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dbd06c6e" title="2024-12-02-insights" target="_blank">2024-12-02-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/295429a8" title="2024-11-28-insights" target="_blank">2024-11-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -490,6 +526,10 @@
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -519,11 +559,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/page/133/index.html" selected>
+        <option value="zh-CN" data-href="/d23bcc14" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/page/133/index.html" selected>
+        <option value="en" data-href="/en/d23bcc14" selected>
           English
         </option>
       
@@ -545,12 +585,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">277k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:12</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
