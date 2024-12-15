@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive bias，我只能做挑选了 Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMsyejin choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数据">
+  <meta name="description" content="今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive bias，我只能做挑选了 Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs yejin choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-11-13-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/b5af4c2b">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive bias，我只能做挑选了 Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMsyejin choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数据">
+<meta property="og:description" content="今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive bias，我只能做挑选了 Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs yejin choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:13-11:17/lumos.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:13-11:17/multiiot.png">
@@ -314,25 +314,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive bias，我只能做挑选了</p>
-<h2 id="Lumos-Learning-Agents-with-Unified-Data-Modular-Design-and-Open-Source-LLMs"><a href="#Lumos-Learning-Agents-with-Unified-Data-Modular-Design-and-Open-Source-LLMs" class="headerlink" title="Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.05657">Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs</a></h2><p>yejin choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数据都是分三个部分</p>
+        <p>今天的论文数量罕见的少，大家难道都在憋大招嘛……不过虽然论文少，但是有意思的很多，很多我都想写出去。不过鉴于我们的inductive
+bias，我只能做挑选了</p>
+<h2 id="lumos-learning-agents-with-unified-data-modular-design-and-open-source-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.05657">Lumos: Learning Agents with
+Unified Data, Modular Design, and Open-Source LLMs</a></h2>
+<p>yejin
+choi也来蹭Agent热度了，大概是造了一大波Agent数据。每个数据都是分三个部分</p>
 <ul>
 <li>plan：模型把任务拆成多个subgoal，每个subgoal都会变成实际的、和工具调用相关的东西</li>
 <li>grounding：一个subtask-handle模型会把subgoal实际变成多步工具调用</li>
 <li>execution：实际执行工具，获得结果</li>
 </ul>
-<p>作者发现在用这样的数据训练以后，效果很好，并且可以泛化到没见过的Agent任务上。同时LLama 7B的效果在很多任务上超过了GPT 4</p>
+<p>作者发现在用这样的数据训练以后，效果很好，并且可以泛化到没见过的Agent任务上。同时LLama
+7B的效果在很多任务上超过了GPT 4</p>
 <p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/lumos.png"></p>
-<h2 id="MultiIoT-Towards-Large-scale-Multisensory-Learning-for-the-Internet-of-Things"><a href="#MultiIoT-Towards-Large-scale-Multisensory-Learning-for-the-Internet-of-Things" class="headerlink" title="MultiIoT: Towards Large-scale Multisensory Learning for the Internet of Things"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.06217.pdf">MultiIoT: Towards Large-scale Multisensory Learning for the Internet of Things</a></h2><blockquote>
-<p>IoT：Internet of Thing。很多智能设备相互连接组成的系统，他们通过各种传感器或者什么组件收集和传递信息</p>
+<h2 id="multiiot-towards-large-scale-multisensory-learning-for-the-internet-of-things"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.06217.pdf">MultiIoT: Towards
+Large-scale Multisensory Learning for the Internet of Things</a></h2>
+<blockquote>
+<p>IoT：Internet of
+Thing。很多智能设备相互连接组成的系统，他们通过各种传感器或者什么组件收集和传递信息</p>
 </blockquote>
 <p>stanford对IoT数据集出手了。这是一个数据集类的工作，作者说现在的IoT是一个趋势，但是学界基本没有上规模的数据和测试，也就没法探索这个领域是不是scaling的。作者收集了一个横跨12个模态，8大类task，包含1.15M数据的大数据集，全是IoT任务。认为这会促进这个领域发展</p>
 <p>我相信，这绝对会促进这个领域的发展。这也是我把这篇论文选上的原因。学界很多时候不需要创新性很高，但正正需要这样的苦活累活、基础活</p>
 <p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/multiiot.png"></p>
-<h2 id="Let’s-Reinforce-Step-by-Step"><a href="#Let’s-Reinforce-Step-by-Step" class="headerlink" title="Let’s Reinforce Step by Step"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.05821.pdf">Let’s Reinforce Step by Step</a></h2><p>MIT，有趣的小短文。如果大家之前看过OpenAI出品的Let’s verify step by step，我写过一篇<a href="/d074522f.html" title="论文阅读[精读]-Let’s Verify Step by Step">Verify-step-by-step阅读笔记</a>。这篇是直接推广，作者把OPT拿过来在数学数据集上fine-tune了一波，然后搞了个OpenAI定义的那个PRM，接着用PRM的step reward搞了PPO</p>
-<p>有趣的发现：对于GSM8K这种简单数据集效果不错，但是升级到MATH这种困难的数据集以后，效果就拉了？作者说这对于学界做step reward的RL有指导意义，然后就跑路了</p>
+<h2 id="lets-reinforce-step-by-step"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.05821.pdf">Let’s Reinforce Step by
+Step</a></h2>
+<p>MIT，有趣的小短文。如果大家之前看过OpenAI出品的Let's verify step by
+step，我写过一篇<a href="/d074522f.html" title="论文阅读[精读]-Let’s Verify Step by Step">Verify-step-by-step阅读笔记</a>。这篇是直接推广，作者把OPT拿过来在数学数据集上fine-tune了一波，然后搞了个OpenAI定义的那个PRM，接着用PRM的step
+reward搞了PPO</p>
+<p>有趣的发现：对于GSM8K这种简单数据集效果不错，但是升级到MATH这种困难的数据集以后，效果就拉了？作者说这对于学界做step
+reward的RL有指导意义，然后就跑路了</p>
 <blockquote>
-<p>我个人感觉啊，和OPT 1.3B有关。基座模型换成LLaMA2 70B或者Wizard LM，没准就work了。这是个not work yet的工作</p>
+<p>我个人感觉啊，和OPT 1.3B有关。基座模型换成LLaMA2 70B或者Wizard
+LM，没准就work了。这是个not work yet的工作</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/reinforce_step_by_step.png"></p>
 <!-- flag of hidden posts -->
@@ -434,7 +448,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Lumos-Learning-Agents-with-Unified-Data-Modular-Design-and-Open-Source-LLMs"><span class="nav-number">1.</span> <span class="nav-text">Lumos: Learning Agents with Unified Data, Modular Design, and Open-Source LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MultiIoT-Towards-Large-scale-Multisensory-Learning-for-the-Internet-of-Things"><span class="nav-number">2.</span> <span class="nav-text">MultiIoT: Towards Large-scale Multisensory Learning for the Internet of Things</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let%E2%80%99s-Reinforce-Step-by-Step"><span class="nav-number">3.</span> <span class="nav-text">Let’s Reinforce Step by Step</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lumos-learning-agents-with-unified-data-modular-design-and-open-source-llms"><span class="nav-number">1.</span> <span class="nav-text">Lumos: Learning Agents with
+Unified Data, Modular Design, and Open-Source LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multiiot-towards-large-scale-multisensory-learning-for-the-internet-of-things"><span class="nav-number">2.</span> <span class="nav-text">MultiIoT: Towards
+Large-scale Multisensory Learning for the Internet of Things</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lets-reinforce-step-by-step"><span class="nav-number">3.</span> <span class="nav-text">Let’s Reinforce Step by
+Step</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +466,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">132</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,6 +509,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/7dbea4cd" title="重读STaR，与o1随想" target="_blank">重读STaR，与o1随想</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f59cd890" title="2024-12-13-insights" target="_blank">2024-12-13-insights</a>
         </li>
       
@@ -525,10 +546,6 @@
       
         <li class="recent_posts_li">
           <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aa29fa81" title="2023-12-31总结(年度总结)" target="_blank">2023-12-31总结(年度总结)</a>
         </li>
       
     </ul>
@@ -584,12 +601,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">262k</span>
+    <span title="站点总字数">285k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:58</span>
+    <span title="站点阅读时长">4:19</span>
 </div>
 
 <i class="fa fa-user-md"></i>
