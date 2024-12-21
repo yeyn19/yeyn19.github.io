@@ -96,8 +96,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/7dbea4cd">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/f1e00e18">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -233,7 +233,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/7dbea4cd" class="post-title-link" itemprop="url">重读STaR，与o1随想</a>
+            <a href="/f1e00e18" class="post-title-link" itemprop="url">论文阅读[粗读]-Are Emergent Abilities of Large Language Models a Mirage?</a>
         </h2>
 
         <div class="post-meta">
@@ -243,14 +243,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-12-14 13:05:36" itemprop="dateCreated datePublished" datetime="2024-12-14T13:05:36+08:00">2024-12-14</time>
+              <time title="创建时间：2023-05-05 14:36:22" itemprop="dateCreated datePublished" datetime="2023-05-05T14:36:22+08:00">2023-05-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-12-15 15:22:07" itemprop="dateModified" datetime="2024-12-15T15:22:07+08:00">2024-12-15</time>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -263,7 +263,7 @@
             </span>
 
           
-            <span id="/7dbea4cd" class="post-meta-item leancloud_visitors" data-flag-title="重读STaR，与o1随想" title="阅读次数">
+            <span id="/f1e00e18" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-Are Emergent Abilities of Large Language Models a Mirage?" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +278,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/7dbea4cd#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/7dbea4cd" itemprop="commentCount"></span>
+    <a title="valine" href="/f1e00e18#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/f1e00e18" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,14 +289,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>8.3k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>8 分钟</span>
+              <span>2 分钟</span>
             </span>
 
 
@@ -309,30 +309,1128 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-            <img src="/../../files/images/o1_thinking/less-structure.png" itemprop="contentUrl">
-        </div>
-          <p>半年没写论文阅读笔记，其实笔记草稿写了不少，都没转正。主要觉得像是机械的翻译，没有思想在里面，不如不发。最近大家开始陆陆续续放出来o1-like的模型了，其实翻过头看，大家的思考方式还是几年前的STaR，去年我也写过
-<a href="/8622e2d1.html" title="论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning">一篇阅读笔记</a> 介绍。</p>
-<p>今天不妨来重新思考一下STaR，连接上跟进的几篇STaR-like的工作，谈谈我对于o1的理解吧。参考文献:</p>
-<ul>
-<li>STaR: Self-Taught Reasoner Bootstrapping Reasoning With
-Reasoning</li>
-<li>Quiet-STaR: Language Models Can Teach Themselves to Think Before
-Speaking</li>
-<li>Beyond Human Data: Scaling Self-Training for Problem-Solving with
-Language Models</li>
-<li>Training Chain-of-Thought via Latent-Variable Inference</li>
-<li>Rest Meets ReAct: Self-Improvement for Multi-Step Reasoning LLM
-Agent</li>
-<li>Search, Verify and Feedback: Towards Next Generation Post-training
-Paradigm of Foundation Models via Verifier Engineering</li>
-<li>Training Language Models to Self-Correct via Reinforcement
-Learning</li>
-</ul>
+          <p>前两天看论文解释了emergent
+ability的出现原因猜想和复现，论文主要表达”涌现“没什么复杂的。我也聊聊我的看法。</p>
+<p><img src="../files/images/emergent_ability_isnt_mirage/reason.png"></p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/7dbea4cd#more" rel="contents">
+              <a class="btn" href="/f1e00e18#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/9ece5113">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/9ece5113" class="post-title-link" itemprop="url">大模型的Emergent-Abilities和最优传输</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-15 14:35:27" itemprop="dateCreated datePublished" datetime="2023-04-15T14:35:27+08:00">2023-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/9ece5113" class="post-meta-item leancloud_visitors" data-flag-title="大模型的Emergent-Abilities和最优传输" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/9ece5113#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/9ece5113" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>5.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>5 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>之前看了阿西莫夫的小说《最后的问题》，里面讲到了宇宙里最令人绝望的定律”熵增定律“。今天讲讲人工智能领域最让人绝望的规律”emergent
+abilities“，在结合最优传输说说我对这个现象的理解，最后聊几个有趣的话题。参考：</p>
+<blockquote>
+<p>Emergent Abilities of Large Language Models</p>
+<p>Can LLMs Critique and Iterate on Their Own Outputs?</p>
+<p>压缩下一个token通向超过人类的智能</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/9ece5113#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/4a3bcbdb">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/4a3bcbdb" class="post-title-link" itemprop="url">论文阅读[粗读]-Generative Agents: Interactive Simulacra of Human Behavior</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-12 13:52:40" itemprop="dateCreated datePublished" datetime="2023-04-12T13:52:40+08:00">2023-04-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4a3bcbdb" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-Generative Agents: Interactive Simulacra of Human Behavior" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4a3bcbdb#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4a3bcbdb" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>6.1k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天讲一篇很有意思的论文，如果让25个GPT假装NPC在游戏里自由生活、交流、发展会怎么样呢？</p>
+<p><img src="../files/images/Generative_Agents/intro.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/4a3bcbdb#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/5d2d4022">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/5d2d4022" class="post-title-link" itemprop="url">论文阅读[粗读]-强化学习和RLHF中的PPO算法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-04-11 10:45:02" itemprop="dateCreated datePublished" datetime="2023-04-11T10:45:02+08:00">2023-04-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/5d2d4022" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-强化学习和RLHF中的PPO算法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/5d2d4022#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/5d2d4022" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>6 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天讲讲强化学习里的经典算法PPO，也是现在Gym库里默认的强化学习算法，最后再讲讲RLHF中的PPO算法是怎么算的。参考</p>
+<blockquote>
+<p>Proximal Policy Optimization Algorithms</p>
+<p>Trust Region Policy Optimization</p>
+<p>A (Long) peek into Reinforcement Learning</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/5d2d4022#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/8622e2d1">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/8622e2d1" class="post-title-link" itemprop="url">论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-20 11:45:21" itemprop="dateCreated datePublished" datetime="2023-03-20T11:45:21+08:00">2023-03-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-12-15 15:37:56" itemprop="dateModified" datetime="2024-12-15T15:37:56+08:00">2024-12-15</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/8622e2d1" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-STaR: Self-Taught Reasoner Bootstrapping Reasoning With Reasoning" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/8622e2d1#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/8622e2d1" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？</p>
+<p><img src="../files/images/STaR/intro.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/8622e2d1#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/4e410eb8">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/4e410eb8" class="post-title-link" itemprop="url">3-17总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-17 21:34:29" itemprop="dateCreated datePublished" datetime="2023-03-17T21:34:29+08:00">2023-03-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4e410eb8" class="post-meta-item leancloud_visitors" data-flag-title="3-17总结" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4e410eb8#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4e410eb8" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>772</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>转眼又是一周过去了，时间过得越来越快了。今天被同学提醒：开学已经第四周了，感觉好像才开学一样。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/4e410eb8#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/1a72430d">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/1a72430d" class="post-title-link" itemprop="url">GPT4技术报告解读:应用报告</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-15 13:25:20" itemprop="dateCreated datePublished" datetime="2023-03-15T13:25:20+08:00">2023-03-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/1a72430d" class="post-meta-item leancloud_visitors" data-flag-title="GPT4技术报告解读:应用报告" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/1a72430d#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/1a72430d" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天openAI发布了GPT-4。直接把PaLM卷到开放API了，相信google是真的被卷麻了。</p>
+<p>GPT4附赠了一个98页的报告(没有论文)，报告前面是性能和应用报告，中间是一些附录，最后是技术报告。我就按顺序来给大家讲讲，先讲应用报告。相信很多公众号大概都吹了一波GPT4，我希望我的讲解可以更深入一些，把问题、难点和领域更多地呈现给大家。</p>
+<p><img src="../files/images/GPT4/exam_score.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/1a72430d#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/78ff6196">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/78ff6196" class="post-title-link" itemprop="url">论文阅读[粗读]-Toolformer: Language Models Can Teach Themselves to Use Tools</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-14 09:44:17" itemprop="dateCreated datePublished" datetime="2023-03-14T09:44:17+08:00">2023-03-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/78ff6196" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[粗读]-Toolformer: Language Models Can Teach Themselves to Use Tools" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/78ff6196#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/78ff6196" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>上次讲了多模态大模型，今天讲另一个有意思的大模型工作：toolformer——如何让大模型自己学会去使用工具。在使用工具的情况下，
+6.7B的GPT J效果远胜175B的GPT 3.5</p>
+<p><img src="../files/images/toolformer/intro.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/78ff6196#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/728d9a40">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/728d9a40" class="post-title-link" itemprop="url">我对ChatGPT和近期NLP新形势的想法</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-04 14:52:18" itemprop="dateCreated datePublished" datetime="2023-03-04T14:52:18+08:00">2023-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/728d9a40" class="post-meta-item leancloud_visitors" data-flag-title="我对ChatGPT和近期NLP新形势的想法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/728d9a40#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/728d9a40" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>过完新年，时间过去不长，没想到NLP领域却出现了新的风暴——ChatGPT(GPT-3.5-turbo)。ChatGPT自身是instructGPT+GPT3.5的结合体，大概在去年12月，就是我得新冠那时候推出。我记得我当时还顶着高烧听n+e学长做分享，但没想到后来会到火出圈的程度。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/728d9a40#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+
+      
+            
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/cf5a0a9e">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/cf5a0a9e" class="post-title-link" itemprop="url">论文阅读[精读]-Language Is Not All You Need: Aligning Perception with Language Models</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-04 14:03:41" itemprop="dateCreated datePublished" datetime="2023-03-04T14:03:41+08:00">2023-03-04</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/cf5a0a9e" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-Language Is Not All You Need: Aligning Perception with Language Models" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/cf5a0a9e#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/cf5a0a9e" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.5k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天来讲一篇前两天刚挂上的多模态预训练的论文,这个模型KOSMOS可以直接输入文本、图像模态的信息，也可以平滑的进行多模态的任务，甚至是智商测试。值得一提的是，模型甚至只用1.3B</p>
+<p><img src="../files/images/KOSMOS_1/intro.png"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/cf5a0a9e#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -359,7 +1457,7 @@ Learning</li>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/133/">133</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -795,6 +1893,61 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
