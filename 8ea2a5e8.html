@@ -24,17 +24,23 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/archives/2024/page/2/index.html">
+  <meta name="description" content="Aria-UI: Visual Grounding for GUI Instructions 一篇GUI Grounding的工作，作者用一套pipeline，在电脑、手机等不同平台采集了各种ui元素的位置坐标，训练了一个Grounding模型。用这个模型做Grounding，gpt4o做planning，在各个下游数据集上都表现很好。  之前有uground、osatlas，都是这个方向的工作，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2024-12-24-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/8ea2a5e8">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="Aria-UI: Visual Grounding for GUI Instructions 一篇GUI Grounding的工作，作者用一套pipeline，在电脑、手机等不同平台采集了各种ui元素的位置坐标，训练了一个Grounding模型。用这个模型做Grounding，gpt4o做planning，在各个下游数据集上都表现很好。  之前有uground、osatlas，都是这个方向的工作，">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-23-12-27/aria-ui.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-23-12-27/learnlm.png">
+<meta property="article:published_time" content="2024-12-24T05:15:01.000Z">
+<meta property="article:modified_time" content="2024-12-24T08:16:11.276Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-23-12-27/aria-ui.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/archives/2024/page/2/">
+<link rel="canonical" href="https://www.yynnyy.cn/8ea2a5e8.html">
 
 
 <script id="page-configurations">
@@ -42,12 +48,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 随缘随笔 <br> Insights Flow</title>
+  <title>2024-12-24-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,58 +217,166 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/8ea2a5e8">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2024-12-24-insights
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-12-24 13:15:01 / 修改时间：16:16:11" itemprop="dateCreated datePublished" datetime="2024-12-24T13:15:01+08:00">2024-12-24</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/8ea2a5e8" class="post-meta-item leancloud_visitors" data-flag-title="2024-12-24-insights" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">非常好! 目前共计 134 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/8ea2a5e8#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/8ea2a5e8" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>471</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+        <h2 id="aria-ui-visual-grounding-for-gui-instructions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.16256">Aria-UI: Visual Grounding for
+GUI Instructions</a></h2>
+<p>一篇GUI
+Grounding的工作，作者用一套pipeline，在电脑、手机等不同平台采集了各种ui元素的位置坐标，训练了一个Grounding模型。用这个模型做Grounding，gpt4o做planning，在各个下游数据集上都表现很好。</p>
+<blockquote>
+<p>之前有uground、osatlas，都是这个方向的工作，seeclick的分被越刷越高了。</p>
+</blockquote>
+<p><img src="../../files/images/arxiv-insights/2024-12-23-12-27/aria-ui.png"></p>
+<h2 id="learnlm-improving-gemini-for-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.16429"><strong>LearnLM: Improving
+Gemini for Learning</strong></a></h2>
+<p>gemini team.
+一篇很有实际意义的工作，作者提到已有的LM，描述知识时都是陈述式的，并没有解释或引导式的倾向。在教学领域，我们其实更希望LM可以引导、解释性的进行教学。作者把这个要求建模成了instruction
+following的形式，发现由此微调出来的Gemini在教学领域效果很好。</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-23-12-27/learnlm.png"></p>
+<h2 id="openai-o1-system-card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.16720">OpenAI o1 System Card</a></h2>
+<p>o3出来了，o1的system card终于上了arxiv。不过是system
+card，什么时候出个technical report</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6c7ebe91.html" rel="bookmark">2024-12-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/87490592.html" rel="bookmark">2024-12-20-insights</a></div>
+    </li>
+  </ul>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2024-01-15T10:58:32+08:00" content="2024-01-15">
-          01-15
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/f4243ee6" itemprop="url">
-            <span itemprop="name">arxiv-insights</span>
-          </a>
-      </div>
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
 
-    </header>
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/6c7ebe91" rel="prev" title="2024-12-23-insights">
+      <i class="fa fa-chevron-left"></i> 2024-12-23-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
-
-
-    </div>
-  </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2024/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2024/">1</a><span class="page-number current">2</span>
-  </nav>
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -313,6 +427,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#aria-ui-visual-grounding-for-gui-instructions"><span class="nav-number">1.</span> <span class="nav-text">Aria-UI: Visual Grounding for
+GUI Instructions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#learnlm-improving-gemini-for-learning"><span class="nav-number">2.</span> <span class="nav-text">LearnLM: Improving
+Gemini for Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openai-o1-system-card"><span class="nav-number">3.</span> <span class="nav-text">OpenAI o1 System Card</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -327,7 +444,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -370,19 +487,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8ea2a5e8" title="2024-12-24-insights" target="_blank">2024-12-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6c7ebe91" title="2024-12-23-insights" target="_blank">2024-12-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/87490592" title="2024-12-20-insights" target="_blank">2024-12-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2be4859" title="2024-12-19-insights" target="_blank">2024-12-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d7c2367" title="2024-12-18-insights" target="_blank">2024-12-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -407,6 +520,10 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -436,11 +553,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/archives/2024/page/2/index.html" selected>
+        <option value="zh-CN" data-href="/8ea2a5e8" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/archives/2024/page/2/index.html" selected>
+        <option value="en" data-href="/en/8ea2a5e8" selected>
           English
         </option>
       
