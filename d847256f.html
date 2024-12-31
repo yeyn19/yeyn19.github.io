@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-cont">
+  <meta name="description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements 作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-con">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-15-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/d847256f">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-cont">
+<meta property="og:description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements 作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-con">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/format.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/search.png">
@@ -316,27 +316,31 @@
       
         <p>最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀</p>
 <p>今天也是沧海遗珠，哪个都想选呀</p>
-<h2 id="Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><a href="#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements" class="headerlink" title="Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</a></h2><p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p>
+<h2 id="Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</a></h2>
+<p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p>
 <blockquote>
 <p>这个和yejin choi一个月前那个How I learned to start worrying about prompt formatting思路很像……时隔多年，大家终于准备对prompt tuning动手了吗</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png"></p>
-<h2 id="Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><a href="#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning" class="headerlink" title="Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</a></h2><p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png">
+<h2 id="Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</a></h2>
+<p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p>
 <p>这个任务会让模型学会对ICL样本顺序不敏感，并在下游中表现更好。</p>
 <blockquote>
 <p>感觉这个任务能work，是不是也能用在比如prompt+paraphrase里，让模型对于SFT的instruction也变得不敏感？</p>
 </blockquote>
-<h2 id="INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><a href="#INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning" class="headerlink" title="INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</a></h2><p>之前讲了wenzhu chen的position paper “large search model”。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
+<h2 id="INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</a></h2>
+<p>之前讲了wenzhu chen的position paper “large search model”。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
 <blockquote>
 <p>这画图，是在致敬T0吗？不过要是真的这么solid，那倒是也不愧</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png"></p>
-<h2 id="Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty"><a href="#Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty" class="headerlink" title="Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</a></h2><p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png">
+<h2 id="Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</a></h2>
+<p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p>
 <ol>
 <li>模型基本没有能力表达自己的不确定性</li>
 <li>这种不确定性的丧失可能来源于RLHF，因为人类偏好不看好”表达不确定性“的回答</li>
 </ol>
-<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/unwilling.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-15-01-19/unwilling.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -353,13 +357,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a905b16c.html" rel="bookmark">2024-12-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/46c7da52.html" rel="bookmark">2024-12-30-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6160ced6.html" rel="bookmark">2024-12-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8ea2a5e8.html" rel="bookmark">2024-12-24-insights</a></div>
     </li>
   </ul>
 
@@ -494,15 +498,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/a905b16c" title="2024-12-31-insights" target="_blank">2024-12-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/46c7da52" title="2024-12-30-insights" target="_blank">2024-12-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6160ced6" title="2024-12-25-insights" target="_blank">2024-12-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8ea2a5e8" title="2024-12-24-insights" target="_blank">2024-12-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -586,12 +590,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">271k</span>
+    <span title="站点总字数">285k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:06</span>
+    <span title="站点阅读时长">4:19</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？ 作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分不">
+  <meta name="description" content="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models 作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？ 作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/14d78ae8">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？ 作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分不">
+<meta property="og:description" content="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models 作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？ 作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-01-01-05/self-play.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-01-01-05/hallucination.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>480</span>
+              <span>490</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,15 +313,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models"><a href="#Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models" class="headerlink" title="Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.01335.pdf">Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models</a></h2><p>作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？</p>
+        <h2 id="Self-Play-Fine-Tuning-Converts-Weak-Language-Models-to-Strong-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.01335.pdf">Self-Play Fine-Tuning Converts Weak Language Models to Strong Language Models</a></h2>
+<p>作者提出了一个简单的问题：如果我们只有人类标注的数据，没有人类的preference，能做RLHF吗？</p>
 <p>作者提出了一个自我博弈的框架， 基于一个朴素的思路：让模型看自己能不能区分在同一个query下自己生成的文本和人类生成的文本。理论上如果区分不出来了 ，就说明达到了人类的水平。在训练中表明，这样训出来的模型效果甚至比用GPT4做preference的DPO要好</p>
 <blockquote>
 <p>有趣，感觉这个方法背后藏着更多的真理等待去挖掘……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/self-play.png"></p>
-<h2 id="A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models"><a href="#A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models" class="headerlink" title="A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.01313.pdf">A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models</a></h2><p>hallucination指的是模型过于自信，一直预测next-token，最后预测出来看起来正常，但其实不存在，或者前后不一致的事物，或者说出来不正确的fact。</p>
-<p>这个领域早就有了，但是最近才变得比较火。这是篇survey的文章，重在”新”，想要入行的可以看一下~</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-01-01-05/hallucination.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-01-01-05/self-play.png">
+<h2 id="A-Comprehensive-Survey-of-Hallucination-Mitigation-Techniques-in-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.01313.pdf">A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models</a></h2>
+<p>hallucination指的是模型过于自信，一直预测next-token，最后预测出来看起来正常，但其实不存在，或者前后不一致的事物，或者说出来不正确的fact。</p>
+<p>这个领域早就有了，但是最近才变得比较火。这是篇survey的文章，重在&quot;新&quot;，想要入行的可以看一下~</p>
+<img src="../../files/images/arxiv-insights/2024-01-01-01-05/hallucination.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -338,13 +340,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a905b16c.html" rel="bookmark">2024-12-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/46c7da52.html" rel="bookmark">2024-12-30-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6160ced6.html" rel="bookmark">2024-12-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8ea2a5e8.html" rel="bookmark">2024-12-24-insights</a></div>
     </li>
   </ul>
 
@@ -479,15 +481,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/a905b16c" title="2024-12-31-insights" target="_blank">2024-12-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/46c7da52" title="2024-12-30-insights" target="_blank">2024-12-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6160ced6" title="2024-12-25-insights" target="_blank">2024-12-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8ea2a5e8" title="2024-12-24-insights" target="_blank">2024-12-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -571,12 +573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">271k</span>
+    <span title="站点总字数">285k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:06</span>
+    <span title="站点阅读时长">4:19</span>
 </div>
 
 <i class="fa fa-user-md"></i>
