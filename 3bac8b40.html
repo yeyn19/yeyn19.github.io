@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！ Modeling Caption Diversity in Contrastive Vision-Language Pretraining meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发">
+  <meta name="description" content="最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！ Modeling Caption Diversity in Contrastive Vision-Language Pretrainingmeta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-02-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3bac8b40">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！ Modeling Caption Diversity in Contrastive Vision-Language Pretraining meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发">
+<meta property="og:description" content="最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！ Modeling Caption Diversity in Contrastive Vision-Language Pretrainingmeta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-29-05-03/llip.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-29-05-03/wild-chat.png">
@@ -314,20 +314,14 @@
 
       
         <p>最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！</p>
-<h2 id="modeling-caption-diversity-in-contrastive-vision-language-pretraining"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00740"><strong>Modeling Caption
-Diversity in Contrastive Vision-Language Pretraining</strong></a></h2>
-<p>meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现，对于不匹配的图像文本对，也许某些局部或者说concept是匹配的，clip
-loss会带来误判。于是作者找到了另外一个方案，把一个image变成多个vector，然后每个token分开算loss。希望在caption内部的每个token和图片embedding的每个位置对应是正样本。由此可以建模出不同的concept。作者发现这种方案比传统clip效果好很多</p>
+<h2 id="Modeling-Caption-Diversity-in-Contrastive-Vision-Language-Pretraining"><a href="#Modeling-Caption-Diversity-in-Contrastive-Vision-Language-Pretraining" class="headerlink" title="Modeling Caption Diversity in Contrastive Vision-Language Pretraining"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00740"><strong>Modeling Caption Diversity in Contrastive Vision-Language Pretraining</strong></a></h2><p>meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现，对于不匹配的图像文本对，也许某些局部或者说concept是匹配的，clip loss会带来误判。于是作者找到了另外一个方案，把一个image变成多个vector，然后每个token分开算loss。希望在caption内部的每个token和图片embedding的每个位置对应是正样本。由此可以建模出不同的concept。作者发现这种方案比传统clip效果好很多</p>
 <blockquote>
 <p>有点神奇，这个更像是把image embedding做了个bag-of-word假设？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/llip.png"></p>
-<h2 id="wildchat-1m-chatgpt-interaction-logs-in-the-wild"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.01470"><strong>WildChat: 1M ChatGPT
-Interaction Logs in the Wild</strong></a></h2>
-<p>有点顶级：作者通过给用户免费用ChatGPT的方式，收集到了1M的用户和ChatGPT的对话记录，这个数据集没做任何处理，所以包含了一些toxic的内容。</p>
+<h2 id="WildChat-1M-ChatGPT-Interaction-Logs-in-the-Wild"><a href="#WildChat-1M-ChatGPT-Interaction-Logs-in-the-Wild" class="headerlink" title="WildChat: 1M ChatGPT Interaction Logs in the Wild"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.01470"><strong>WildChat: 1M ChatGPT Interaction Logs in the Wild</strong></a></h2><p>有点顶级：作者通过给用户免费用ChatGPT的方式，收集到了1M的用户和ChatGPT的对话记录，这个数据集没做任何处理，所以包含了一些toxic的内容。</p>
 <blockquote>
-<p>这算不算花钱买论文？话说我挺好奇这样收集的用户case会不会比self-instruct生出来的1M
-query diverse很多</p>
+<p>这算不算花钱买论文？话说我挺好奇这样收集的用户case会不会比self-instruct生出来的1M query diverse很多</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/wild-chat.png"></p>
 <!-- flag of hidden posts -->
@@ -346,13 +340,13 @@ query diverse很多</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/425fe08e.html" rel="bookmark">2025-01-08-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b354bb03.html" rel="bookmark">2025-01-07-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5c96d03d.html" rel="bookmark">2025-01-06-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/babf1b79.html" rel="bookmark">2025-01-03-insights</a></div>
     </li>
   </ul>
 
@@ -429,9 +423,7 @@ query diverse很多</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#modeling-caption-diversity-in-contrastive-vision-language-pretraining"><span class="nav-number">1.</span> <span class="nav-text">Modeling Caption
-Diversity in Contrastive Vision-Language Pretraining</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wildchat-1m-chatgpt-interaction-logs-in-the-wild"><span class="nav-number">2.</span> <span class="nav-text">WildChat: 1M ChatGPT
-Interaction Logs in the Wild</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Modeling-Caption-Diversity-in-Contrastive-Vision-Language-Pretraining"><span class="nav-number">1.</span> <span class="nav-text">Modeling Caption Diversity in Contrastive Vision-Language Pretraining</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WildChat-1M-ChatGPT-Interaction-Logs-in-the-Wild"><span class="nav-number">2.</span> <span class="nav-text">WildChat: 1M ChatGPT Interaction Logs in the Wild</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -489,15 +481,15 @@ Interaction Logs in the Wild</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/425fe08e" title="2025-01-08-insights" target="_blank">2025-01-08-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b354bb03" title="2025-01-07-insights" target="_blank">2025-01-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5c96d03d" title="2025-01-06-insights" target="_blank">2025-01-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/babf1b79" title="2025-01-03-insights" target="_blank">2025-01-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -581,12 +573,12 @@ Interaction Logs in the Wild</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">271k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

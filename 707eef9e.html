@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Priority Sampling of Large Language Models for Compilers 作者发现，场景的multi sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。">
+  <meta name="description" content="Priority Sampling of Large Language Models for Compilers作者发现，场景的multi sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。 作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-03-01-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/707eef9e">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Priority Sampling of Large Language Models for Compilers 作者发现，场景的multi sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。">
+<meta property="og:description" content="Priority Sampling of Large Language Models for Compilers作者发现，场景的multi sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。 作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-26-03-01/sampling.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-26-03-01/multi.png">
@@ -313,15 +313,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="priority-sampling-of-large-language-models-for-compilers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.18734.pdf">Priority Sampling of Large
-Language Models for Compilers</a></h2>
-<p>作者发现，场景的multi
-sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。</p>
+        <h2 id="Priority-Sampling-of-Large-Language-Models-for-Compilers"><a href="#Priority-Sampling-of-Large-Language-Models-for-Compilers" class="headerlink" title="Priority Sampling of Large Language Models for Compilers"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.18734.pdf">Priority Sampling of Large Language Models for Compilers</a></h2><p>作者发现，场景的multi sample技术有一个怪圈：temperature小的时候全是一样的样本，temperature大的时候全是乱七八糟的样本。作者希望设计一套算法，可以在后面解码的时候再decoding算法层面做一些类似树形结构的优化，使得sample出来更多高质量的样本。</p>
 <p>作者进行了尝试，并且取得了很不错的效果</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/sampling.png" style="zoom:33%;"></p>
-<h2 id="archer-training-language-model-agents-via-hierarchical-multi-turn-rl"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.19446.pdf">ArCHer: Training Language
-Model Agents via Hierarchical Multi-Turn RL</a></h2>
-<p>Berkeley的工作。作者认为目前的RLHF更多关注单轮对话，对于多轮对话没有很好的建模方法。作者设计了一套适用于多轮对话的RL方法，并取得了相对不错的效果</p>
+<h2 id="ArCHer-Training-Language-Model-Agents-via-Hierarchical-Multi-Turn-RL"><a href="#ArCHer-Training-Language-Model-Agents-via-Hierarchical-Multi-Turn-RL" class="headerlink" title="ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.19446.pdf">ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL</a></h2><p>Berkeley的工作。作者认为目前的RLHF更多关注单轮对话，对于多轮对话没有很好的建模方法。作者设计了一套适用于多轮对话的RL方法，并取得了相对不错的效果</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/multi.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -339,13 +334,13 @@ Model Agents via Hierarchical Multi-Turn RL</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/425fe08e.html" rel="bookmark">2025-01-08-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b354bb03.html" rel="bookmark">2025-01-07-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5c96d03d.html" rel="bookmark">2025-01-06-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/babf1b79.html" rel="bookmark">2025-01-03-insights</a></div>
     </li>
   </ul>
 
@@ -422,9 +417,7 @@ Model Agents via Hierarchical Multi-Turn RL</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-sampling-of-large-language-models-for-compilers"><span class="nav-number">1.</span> <span class="nav-text">Priority Sampling of Large
-Language Models for Compilers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#archer-training-language-model-agents-via-hierarchical-multi-turn-rl"><span class="nav-number">2.</span> <span class="nav-text">ArCHer: Training Language
-Model Agents via Hierarchical Multi-Turn RL</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Priority-Sampling-of-Large-Language-Models-for-Compilers"><span class="nav-number">1.</span> <span class="nav-text">Priority Sampling of Large Language Models for Compilers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ArCHer-Training-Language-Model-Agents-via-Hierarchical-Multi-Turn-RL"><span class="nav-number">2.</span> <span class="nav-text">ArCHer: Training Language Model Agents via Hierarchical Multi-Turn RL</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,15 +475,15 @@ Model Agents via Hierarchical Multi-Turn RL</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/425fe08e" title="2025-01-08-insights" target="_blank">2025-01-08-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b354bb03" title="2025-01-07-insights" target="_blank">2025-01-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5c96d03d" title="2025-01-06-insights" target="_blank">2025-01-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/babf1b79" title="2025-01-03-insights" target="_blank">2025-01-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -574,12 +567,12 @@ Model Agents via Hierarchical Multi-Turn RL</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">271k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>
