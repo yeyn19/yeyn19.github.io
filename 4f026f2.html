@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -321,45 +321,60 @@
       
         <p>今天分享一篇上次adpter tuning的后文，进一步提升了效果、减小了参数量，发表在NeurlPS 2021上。了解这篇工作，需要先了解 <a href="/6b5172a2.html" title="论文阅读[精读]-Parameter-Efficient Transfer Learning for NLP">Adpter Tuning笔记</a></p>
 <span id="more"></span>
-<p><img src="../files/images/compacter/author.png"></p>
+<img src="../files/images/compacter/author.png">
 <p>本来以为作者是之前adpter的作者团队，结果发现竟然一个重合的都没有……</p>
-<p><img src="../files/images/compacter/compare.png"></p>
+<img src="../files/images/compacter/compare.png">
 <p>作者分析了一下已有的一些delta tuning方法和fine-tune。发现大多不如fine-tune好，作者想对adpter做一些改进，提升一下效果，减少一些参数。</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Kronecker-Product"><a href="#Kronecker-Product" class="headerlink" title="Kronecker Product"></a>Kronecker Product</h3><p>首先普及一下矩阵的Kronecker Product</p>
-<script type="math/tex; mode=display">
-A \otimes B = 
-\left(
-\begin{array}{lll}
- a_{11}B & ... & a_{1f}B \\
-  & ... & \\
- a_{m1}B & ... & a_{mf}B \\
-\end{array}
-\right)</script><p>相当于把A的每一个元素都和B乘一下，然后$A^{m\times f},B^{p\times q}$就会变成$mp \times fq$的矩阵。注意，相当于用更少的参数表达了更大的矩阵</p>
+<h2 id="方法">方法</h2>
+<h3 id="Kronecker-Product">Kronecker Product</h3>
+<p>首先普及一下矩阵的Kronecker Product<br>
+$$<br>
+A \otimes B =<br>
+\left(<br>
+\begin{array}{lll}<br>
+a_{11}B &amp; … &amp; a_{1f}B \<br>
+&amp; … &amp; \<br>
+a_{m1}B &amp; … &amp; a_{mf}B \<br>
+\end{array}<br>
+\right)<br>
+$$<br>
+相当于把A的每一个元素都和B乘一下，然后$A^{m\times f},B^{p\times q}$就会变成$mp \times fq$的矩阵。注意，相当于用更少的参数表达了更大的矩阵</p>
 <p>接下来，就是通过上面的方法来进行矩阵乘的优化</p>
-<h3 id="parameterized-hypercomplex-multiplication-layers-PHM"><a href="#parameterized-hypercomplex-multiplication-layers-PHM" class="headerlink" title="parameterized hypercomplex multiplication layers (PHM)"></a>parameterized hypercomplex multiplication layers (PHM)</h3><p><img src="../files/images/compacter/multiply.png"></p>
-<p>首先，作者想要达到全连接层的效果</p>
-<script type="math/tex; mode=display">
-y^d = W^{d\times k}x^k + b</script><p>然后主要就是优化$W$</p>
-<p>如果找到一个d,k的公约数n的话，$W$形状的矩阵可以视为</p>
-<script type="math/tex; mode=display">
-W_j = \sum_{i=1}^n A_i \otimes B_i^j,\quad A\in \mathbb{R}^{n\times n},\quad B\in \mathbb{R}^{\frac{d}{n}\times \frac{k}{n}}</script><p>之所以要变成n个加在一起，好喜爱那个是为了增加自由度，让这个矩阵的表达能力和一个真正的大矩阵w的表达能力一样？</p>
-<h3 id="应用于adpter-LPHM"><a href="#应用于adpter-LPHM" class="headerlink" title="应用于adpter(LPHM)"></a>应用于adpter(LPHM)</h3><p>为了用于实际的adpter tuning，其实就是就是把全连接层换了。同时作者还做了几个重要的修改:</p>
+<h3 id="parameterized-hypercomplex-multiplication-layers-PHM">parameterized hypercomplex multiplication layers (PHM)</h3>
+<img src="../files/images/compacter/multiply.png">
+<p>首先，作者想要达到全连接层的效果<br>
+$$<br>
+y^d = W^{d\times k}x^k + b<br>
+$$<br>
+然后主要就是优化$W$</p>
+<p>如果找到一个d,k的公约数n的话，$W$形状的矩阵可以视为<br>
+$$<br>
+W_j = \sum_{i=1}^n A_i \otimes B_i^j,\quad A\in \mathbb{R}^{n\times n},\quad B\in \mathbb{R}^{\frac{d}{n}\times \frac{k}{n}}<br>
+$$<br>
+之所以要变成n个加在一起，好喜爱那个是为了增加自由度，让这个矩阵的表达能力和一个真正的大矩阵w的表达能力一样？</p>
+<h3 id="应用于adpter-LPHM">应用于adpter(LPHM)</h3>
+<p>为了用于实际的adpter tuning，其实就是就是把全连接层换了。同时作者还做了几个重要的修改:</p>
 <ul>
 <li>所有的adpter层中，对于子矩阵A是共享参数的，这是为了更好的捕捉所谓的通用知识</li>
 <li>然后每个adpter有单独的B，为了简化B的大小，可以把B变成秩更小的形式</li>
 </ul>
-<script type="math/tex; mode=display">
-B^{m\times n} = s \times t^{T},</script><p>s和t都是r个列向量，这样B的参数总共需要$r\times(m+n)$。这里的简化是基于上次adpter的实验中 <em>单独的adpter层的影响很小</em> 的结论，总而言之,最终的公式化简成了</p>
-<script type="math/tex; mode=display">
-A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作者对比了一下复杂度，发现和正常的adpter相比，可以把参数减少到大约$\frac{1}{n}$</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>几个行的解释：</p>
+<p>$$<br>
+B^{m\times n} = s \times t^{T},<br>
+$$</p>
+<p>s和t都是r个列向量，这样B的参数总共需要$r\times(m+n)$。这里的简化是基于上次adpter的实验中 <em>单独的adpter层的影响很小</em> 的结论，总而言之,最终的公式化简成了<br>
+$$<br>
+A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,<br>
+$$<br>
+作者对比了一下复杂度，发现和正常的adpter相比，可以把参数减少到大约$\frac{1}{n}$</p>
+<h2 id="实验">实验</h2>
+<p>几个行的解释：</p>
 <ul>
 <li>compacter++:正常的adpter在每个transformer block加两次，这里探索只在最后的feedforward层后面加一次，就是比正常的参数更好</li>
 <li>PHM-Adapter：正常PHM矩阵乘的adpter，没有做A的共享参数，没有对B进行矩阵分解</li>
-<li>Intrinsic-SAID: 这个方式是想把模型的参数进行重参数化，然后需要用的额外参数非常少$0.009\%$。这个方法我后面可能也会做分享 <a href="/476791e1.html" title="论文阅读笔记-Intrinsic-Dimension相关">Intrinsic Dimension笔记</a></li>
+<li>Intrinsic-SAID: 这个方式是想把模型的参数进行重参数化，然后需要用的额外参数非常少$0.009%$。这个方法我后面可能也会做分享 <a href="/476791e1.html" title="论文阅读笔记-Intrinsic-Dimension相关">Intrinsic Dimension笔记</a></li>
 <li>BitFit：和adpter另外的路子，只训练一些额外的bias，锁定正常参数</li>
 </ul>
-<p><img src="../files/images/compacter/result.png"></p>
+<img src="../files/images/compacter/result.png">
 <p>可以发现，作者对比了2021常见的几个方法，compacter方法最好：</p>
 <ul>
 <li>发现共享A信息的compacter效果更好，这也说明了在不同adpter层间确实需要有一些共通的知识在</li>
@@ -374,10 +389,11 @@ A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作�
 <li>Intrinsic-ASID虽然参数少，但训练过程并不高效</li>
 <li>BitFit方法虽然效果稍差，但其实训练过程是很高效的</li>
 </ul>
-<p><img src="../files/images/compacter/efficient.png"></p>
+<img src="../files/images/compacter/efficient.png">
 <p>作者还额外提了一下，在少数据情况下，compacter比传统fine-tune的效果更好</p>
-<p><img src="../files/images/compacter/low_data.png"></p>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这个文章其实主要的idea还是沿用了adpter，但是思考通过优化矩阵乘的效率来减少参数很精妙，尤其是利用上了PHM共享A参数学习通用知识这个点，更是很妙。</p>
+<img src="../files/images/compacter/low_data.png">
+<h2 id="我的思考">我的思考</h2>
+<p>这个文章其实主要的idea还是沿用了adpter，但是思考通过优化矩阵乘的效率来减少参数很精妙，尤其是利用上了PHM共享A参数学习通用知识这个点，更是很妙。</p>
 <p>我其实有几点好奇，文中没有说：</p>
 <ul>
 <li>B的分解秩r的大小对模型结果的影响。因为小的r显然会使得B的表征能力下降，但如果模型效果不下滑，是不是说明模型其实在下游中用到的知识真的是很少的？</li>
@@ -395,7 +411,7 @@ A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作�
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3e784f99.html" rel="bookmark">论文阅读[粗读]-Exploring Universal Intrinsic Task Subspace via Prompt Tuning</a></div>
@@ -554,15 +570,15 @@ A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作�
       
       
         <li class="recent_posts_li">
+          <a href="/ad9d8bb0" title="2025-01-09-insights" target="_blank">2025-01-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/425fe08e" title="2025-01-08-insights" target="_blank">2025-01-08-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/b354bb03" title="2025-01-07-insights" target="_blank">2025-01-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5c96d03d" title="2025-01-06-insights" target="_blank">2025-01-06-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -646,12 +662,12 @@ A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">271k</span>
+    <span title="站点总字数">286k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:20</span>
 </div>
 
 <i class="fa fa-user-md"></i>

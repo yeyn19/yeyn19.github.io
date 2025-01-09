@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="K-Level Reasoning with Large Language ModelsFuru Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。 所以，已有Agent工作大多focus在1-">
+  <meta name="description" content="K-Level Reasoning with Large Language Models Furu Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。 所以，已有Agent工作大多focus在1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-05-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a4039661">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="K-Level Reasoning with Large Language ModelsFuru Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。 所以，已有Agent工作大多focus在1-">
+<meta property="og:description" content="K-Level Reasoning with Large Language Models Furu Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。 所以，已有Agent工作大多focus在1">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/K-Level.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/codeact.png">
@@ -313,18 +313,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="K-Level-Reasoning-with-Large-Language-Models"><a href="#K-Level-Reasoning-with-Large-Language-Models" class="headerlink" title="K-Level Reasoning with Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01521.pdf">K-Level Reasoning with Large Language Models</a></h2><p>Furu Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。</p>
+        <h2 id="K-Level-Reasoning-with-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01521.pdf">K-Level Reasoning with Large Language Models</a></h2>
+<p>Furu Wei的论文，作者提到一个事情：目前的Agent大约只考虑了最近的决策，没有考虑到大家的决策对环境的影响。其实在博弈学里面有个递归定义的k-level thinking的概念：考虑了所有(k-1)-level的博弈者情况下的决策，0-level指随机决策。</p>
 <p>所以，已有Agent工作大多focus在1-level thinking，作者探索了k-level thinking是否在LLM上可能。发现在模拟任务上效果不错</p>
 <blockquote>
 <p>主要是这玩意儿确实不好在真实场景评测，是吧……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/K-Level.png"></p>
-<h2 id="Executable-Code-Actions-Elicit-Better-LLM-Agents"><a href="#Executable-Code-Actions-Elicit-Better-LLM-Agents" class="headerlink" title="Executable Code Actions Elicit Better LLM Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01030.pdf">Executable Code Actions Elicit Better LLM Agents</a></h2><p>Heng Ji老师的工作，将ReACT推广到了python中。因为目前的Tool-Agent都是需要用json-schema从pre-defined tools中进行多步调用。如果我们给模型code-intepreter，可以让模型自己写代码去做多步工具调用，自己决定是不是需要添加逻辑，会更好吗？</p>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/K-Level.png">
+<h2 id="Executable-Code-Actions-Elicit-Better-LLM-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.01030.pdf">Executable Code Actions Elicit Better LLM Agents</a></h2>
+<p>Heng Ji老师的工作，将ReACT推广到了python中。因为目前的Tool-Agent都是需要用json-schema从pre-defined tools中进行多步调用。如果我们给模型code-intepreter，可以让模型自己写代码去做多步工具调用，自己决定是不是需要添加逻辑，会更好吗？</p>
 <p>作者对比了CodeAct和ReAct，发现效果好很多。然后，按照toolBench的形式造SFT数据集、训SFT模型</p>
 <blockquote>
 <p>目前的XAgent等工作其实都是支持了code-intepreter，不过确实值得专门把这些形式拿出来对比一下</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/codeact.png"></p>
+<img src="../../files/images/arxiv-insights/2024-02-05-02-09/codeact.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +343,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ad9d8bb0.html" rel="bookmark">2025-01-09-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/425fe08e.html" rel="bookmark">2025-01-08-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b354bb03.html" rel="bookmark">2025-01-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5c96d03d.html" rel="bookmark">2025-01-06-insights</a></div>
     </li>
   </ul>
 
@@ -482,15 +484,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/ad9d8bb0" title="2025-01-09-insights" target="_blank">2025-01-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/425fe08e" title="2025-01-08-insights" target="_blank">2025-01-08-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/b354bb03" title="2025-01-07-insights" target="_blank">2025-01-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5c96d03d" title="2025-01-06-insights" target="_blank">2025-01-06-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -574,12 +576,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">271k</span>
+    <span title="站点总字数">286k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:20</span>
 </div>
 
 <i class="fa fa-user-md"></i>
