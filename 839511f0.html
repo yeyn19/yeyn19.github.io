@@ -319,15 +319,14 @@
 <p>今天想要在侧边栏添加近期文章，在网上找了一些已有方法，发现他们都有一个问题：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;# recent posts #&#125;</span><br><span class="line">&#123;% if theme.recent_posts %&#125;</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;links-of-blogroll motion-element &#123;&#123; &quot;</span><span class="attr">links-of-blogroll-</span>&quot; + <span class="attr">theme.recent_posts_layout</span>  &#125;&#125;&quot;&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;links-of-blogroll-title&quot;</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- modify icon to fire by szw --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">&quot;fa fa-history fa-&#123;&#123; theme.recent_posts_icon | lower &#125;&#125;&quot;</span> <span class="attr">aria-hidden</span>=<span class="string">&quot;true&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span></span><br><span class="line">      &#123;&#123; theme.recent_posts_title &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">&quot;links-of-blogroll-list&quot;</span>&gt;</span></span><br><span class="line">      &#123;% set posts = site.posts.sort(&#x27;-date&#x27;) %&#125;</span><br><span class="line">      &#123;% for post in posts.slice(&#x27;0&#x27;, &#x27;5&#x27;).toArray() %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">&quot;recent_posts_li&quot;</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(post.path) &#125;&#125;&quot;</span> <span class="attr">title</span>=<span class="string">&quot;&#123;&#123; post.title &#125;&#125;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&#123;&#123; post.title &#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">      &#123;% endfor %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure></div>
 <p>里面的循环都没有添加<code>toArray()</code>函数，不知道前面的人怎么跑起来的……最终效果如下：</p>
-<p><img src="../files/images/近期文章.png"></p>
+<img src="../files/images/近期文章.png">
 <h2 id="本月更新情况添加不同月份">本月更新情况添加不同月份</h2>
-<p>之前在 <a href="/c344b452.html" title="给hexo添加日历">给hexo添加日历</a>
-里面讲了怎么添加本月的更新情况。由于现在七月要到了，我们还想看上个月的更新情况，所以就添加一个按钮。简单实现一个逻辑：</p>
+<p>之前在 <a href="/c344b452.html" title="给hexo添加日历">给hexo添加日历</a> 里面讲了怎么添加本月的更新情况。由于现在七月要到了，我们还想看上个月的更新情况，所以就添加一个按钮。简单实现一个逻辑：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="HTML"><figure class="iseeu highlight /html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;上月&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;tips(-1)&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></div>
 <p>如果点击按钮，就触发下列script：</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="JAVASCRIPT"><figure class="iseeu highlight /javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">    <span class="keyword">var</span> now_id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">var</span> max_id = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">function</span> <span class="title function_">tips</span>(<span class="params">num</span>)&#123;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(now_id).<span class="property">hidden</span> = <span class="string">&quot;hidden&quot;</span>;</span><br><span class="line">        now_id += num;</span><br><span class="line">        <span class="keyword">if</span> (now_id &gt; max_id) &#123;now_id = max_id;&#125;</span><br><span class="line">        <span class="keyword">if</span> (now_id &lt; <span class="number">0</span>) &#123;now_id = <span class="number">0</span>;&#125;</span><br><span class="line">        <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(now_id).<span class="property">hidden</span> = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></div>
 <p>会把现在的id加一或者减一，然后用不同table的hidden属性切换显示……简单粗暴。需要给每个月份计算出table，然后富裕一个id。最终成品大概长这样:</p>
-<p><img src="../files/images/更新情况按钮.png"></p>
+<img src="../files/images/更新情况按钮.png">
 
     </div>
 
@@ -338,7 +337,7 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b4c23497.html" rel="bookmark">配置LaTeX环境:Windows,Mac,WSL</a></div>
@@ -496,15 +495,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/762fb4fe" title="2025-01-15-insights" target="_blank">2025-01-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/99eddfc0" title="2025-01-14-insights" target="_blank">2025-01-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/7b31c4b9" title="2025-01-13-insights" target="_blank">2025-01-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/90067fba" title="2025-01-10-insights" target="_blank">2025-01-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/ad9d8bb0" title="2025-01-09-insights" target="_blank">2025-01-09-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -588,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">286k</span>
+    <span title="站点总字数">287k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:20</span>
+    <span title="站点阅读时长">4:21</span>
 </div>
 
 <i class="fa fa-user-md"></i>
