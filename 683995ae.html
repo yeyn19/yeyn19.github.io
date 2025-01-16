@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Do pretrained Transformers Really Learn In-context by Gradient Descent?之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。 作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者">
+  <meta name="description" content="Do pretrained Transformers Really Learn In-context by Gradient Descent? 之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。 作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-13-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/683995ae">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Do pretrained Transformers Really Learn In-context by Gradient Descent?之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。 作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者">
+<meta property="og:description" content="Do pretrained Transformers Really Learn In-context by Gradient Descent? 之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。 作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-13/GD.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-13/sentinel-token.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>423</span>
+              <span>425</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,10 +313,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><a href="#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent" class="headerlink" title="Do pretrained Transformers Really Learn In-context by Gradient Descent?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers Really Learn In-context by Gradient Descent?</a></h2><p>之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。</p>
+        <h2 id="do-pretrained-transformers-really-learn-in-context-by-gradient-descent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers
+Really Learn In-context by Gradient Descent?</a></h2>
+<p>之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。</p>
 <p>作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-13/GD.png"></p>
-<h2 id="Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><a href="#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens" class="headerlink" title="Context Compression for Auto-regressive Transformers with Sentinel Tokens"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08152">Context Compression for Auto-regressive Transformers with Sentinel Tokens</a></h2><p>作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p>
+<h2 id="context-compression-for-auto-regressive-transformers-with-sentinel-tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08152">Context Compression for
+Auto-regressive Transformers with Sentinel Tokens</a></h2>
+<p>作者瞄准长文本领域attention计算的<span class="math inline">\(n^2\)</span>复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-13/sentinel-token.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -417,7 +421,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><span class="nav-number">1.</span> <span class="nav-text">Do pretrained Transformers Really Learn In-context by Gradient Descent?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><span class="nav-number">2.</span> <span class="nav-text">Context Compression for Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#do-pretrained-transformers-really-learn-in-context-by-gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">Do pretrained Transformers
+Really Learn In-context by Gradient Descent?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#context-compression-for-auto-regressive-transformers-with-sentinel-tokens"><span class="nav-number">2.</span> <span class="nav-text">Context Compression for
+Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -567,12 +573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">286k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:20</span>
 </div>
 
 <i class="fa fa-user-md"></i>

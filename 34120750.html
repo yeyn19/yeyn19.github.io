@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="618篇论文，最恐怖的一集……我说为什么arxiv卡到晚上才更新…… Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels这篇工作探索的问题，有点像是weak-to-strong generalization。作者想到：目前的sft可以成功，是因为ground tru">
+  <meta name="description" content="618篇论文，最恐怖的一集……我说为什么arxiv卡到晚上才更新…… Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels 这篇工作探索的问题，有点像是weak-to-strong generalization。作者想到：目前的sft可以成功，是因为ground tr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-12-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/34120750">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="618篇论文，最恐怖的一集……我说为什么arxiv卡到晚上才更新…… Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels这篇工作探索的问题，有点像是weak-to-strong generalization。作者想到：目前的sft可以成功，是因为ground tru">
+<meta property="og:description" content="618篇论文，最恐怖的一集……我说为什么arxiv卡到晚上才更新…… Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels 这篇工作探索的问题，有点像是weak-to-strong generalization。作者想到：目前的sft可以成功，是因为ground tr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/revise.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/museum.png">
@@ -316,16 +316,29 @@
 
       
         <p>618篇论文，最恐怖的一集……我说为什么arxiv卡到晚上才更新……</p>
-<h2 id="Learning-Locally-Revising-Globally-Global-Reviser-for-Federated-Learning-with-Noisy-Labels"><a href="#Learning-Locally-Revising-Globally-Global-Reviser-for-Federated-Learning-with-Noisy-Labels" class="headerlink" title="Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.00452">Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels</a></h2><p>这篇工作探索的问题，有点像是weak-to-strong generalization。作者想到：目前的sft可以成功，是因为ground truth没什么错误。如果ground truth带噪声呢？作者发现，模型学习噪声数据的速度更慢，通过这个速度的差异，可以想到一些算法去减少学习噪声。</p>
+<h2 id="learning-locally-revising-globally-global-reviser-for-federated-learning-with-noisy-labels"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.00452">Learning Locally, Revising
+Globally: Global Reviser for Federated Learning with Noisy
+Labels</a></h2>
+<p>这篇工作探索的问题，有点像是weak-to-strong
+generalization。作者想到：目前的sft可以成功，是因为ground
+truth没什么错误。如果ground
+truth带噪声呢？作者发现，模型学习噪声数据的速度更慢，通过这个速度的差异，可以想到一些算法去减少学习噪声。</p>
 <blockquote>
-<p>不过从另一个角度来说，这个方案也“误杀”了一些worth-learning hard data</p>
+<p>不过从另一个角度来说，这个方案也“误杀”了一些worth-learning hard
+data</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/revise.png" style="zoom:33%;"></p>
-<h2 id="Understanding-the-World’s-Museums-through-Vision-Language-Reasoning"><a href="#Understanding-the-World’s-Museums-through-Vision-Language-Reasoning" class="headerlink" title="Understanding the World’s Museums through Vision-Language Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.01370">Understanding the World’s Museums through Vision-Language Reasoning</a></h2><p>一篇很有现实意义的工作，作者从全世界的各个博物馆收集65M个展品图片，由此构造了200M的展品问答，都是关于展品内容、背后的历史文化知识的。希望可以让模型理解博物馆背后的历史意义和文化价值。</p>
+<h2 id="understanding-the-worlds-museums-through-vision-language-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.01370">Understanding the World’s
+Museums through Vision-Language Reasoning</a></h2>
+<p>一篇很有现实意义的工作，作者从全世界的各个博物馆收集65M个展品图片，由此构造了200M的展品问答，都是关于展品内容、背后的历史文化知识的。希望可以让模型理解博物馆背后的历史意义和文化价值。</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/museum.png"></p>
-<h2 id="Yi-Lightning-Technical-Report"><a href="#Yi-Lightning-Technical-Report" class="headerlink" title="Yi-Lightning Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.01253">Yi-Lightning Technical Report</a></h2><p>Yi最新模型的technical report，这次也不说参数量了</p>
+<h2 id="yi-lightning-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.01253">Yi-Lightning Technical
+Report</a></h2>
+<p>Yi最新模型的technical report，这次也不说参数量了</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/yi-lightning.png" style="zoom:33%;"></p>
-<h2 id="Playable-Game-Generation"><a href="#Playable-Game-Generation" class="headerlink" title="Playable Game Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.00887"><strong>Playable Game Generation</strong></a></h2><p>腾讯出的GameNGen，这块现在越来越卷了</p>
+<h2 id="playable-game-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.00887"><strong>Playable Game
+Generation</strong></a></h2>
+<p>腾讯出的GameNGen，这块现在越来越卷了</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/playgen.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -426,7 +439,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Locally-Revising-Globally-Global-Reviser-for-Federated-Learning-with-Noisy-Labels"><span class="nav-number">1.</span> <span class="nav-text">Learning Locally, Revising Globally: Global Reviser for Federated Learning with Noisy Labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-the-World%E2%80%99s-Museums-through-Vision-Language-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Understanding the World’s Museums through Vision-Language Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yi-Lightning-Technical-Report"><span class="nav-number">3.</span> <span class="nav-text">Yi-Lightning Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Playable-Game-Generation"><span class="nav-number">4.</span> <span class="nav-text">Playable Game Generation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-locally-revising-globally-global-reviser-for-federated-learning-with-noisy-labels"><span class="nav-number">1.</span> <span class="nav-text">Learning Locally, Revising
+Globally: Global Reviser for Federated Learning with Noisy
+Labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-the-worlds-museums-through-vision-language-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Understanding the World’s
+Museums through Vision-Language Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#yi-lightning-technical-report"><span class="nav-number">3.</span> <span class="nav-text">Yi-Lightning Technical
+Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#playable-game-generation"><span class="nav-number">4.</span> <span class="nav-text">Playable Game
+Generation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -576,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">272k</span>
+    <span title="站点总字数">286k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:07</span>
+    <span title="站点阅读时长">4:20</span>
 </div>
 
 <i class="fa fa-user-md"></i>
