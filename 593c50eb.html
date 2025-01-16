@@ -321,52 +321,35 @@
 <p>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</p>
 </blockquote>
 <p>生成模型都是想要通过训练集获取数据的分布(比如人脸数据集就是人脸长什么样)，再通过采样一个和源数据集分布相同的数据进行生成。</p>
-<h2 id="经典方法">经典方法</h2>
-<p>作者谈到了经典生成模型里两种形式:</p>
+<h2 id="经典方法"><a href="#经典方法" class="headerlink" title="经典方法"></a>经典方法</h2><p>作者谈到了经典生成模型里两种形式:</p>
 <ul>
-<li><strong>likelihood-based models</strong>: 直接获取源数据集中数据的分布，或者用某种上下界来近似。auto-regressive， energe-based model, flow model, VAE都是这种情况
-<ul>
+<li><strong>likelihood-based models</strong>: 直接获取源数据集中数据的分布，或者用某种上下界来近似。auto-regressive， energe-based model, flow model, VAE都是这种情况<ul>
 <li>问题是：需要保证分布是归一化的，因此很难大规模地应用在各种任务上（需要改模型结构）。或者，用某种上下界来估计分布，因此会有偏差。</li>
 </ul>
 </li>
-<li><strong>implicit generative models</strong>：隐式表示数据集中数据的分布。比如GAN，通过一个分类器的得分来表示和原数据集分布的区别，进而让模型来学习。
-<ul>
+<li><strong>implicit generative models</strong>：隐式表示数据集中数据的分布。比如GAN，通过一个分类器的得分来表示和原数据集分布的区别，进而让模型来学习。<ul>
 <li>问题是：需要对抗训练，很难收敛。生成的内容也比较容易崩溃。</li>
 </ul>
 </li>
 </ul>
-<h2 id="score-function-score-based-model-score-matching">score function,  score-based model, score matching</h2>
-<p>我们定义这个score:<br>
-$$<br>
-score = \bigtriangledown_x \log p(x)<br>
-$$<br>
-好处在于，因为是对于导数的模拟，因此，这个score不需要归一化。不管怎么样都是一个归一的分布。score based model就是在逼近这个分布：<br>
-$$<br>
-s_\theta(x) \approx \bigtriangledown_x \log p(x)<br>
-$$</p>
-<h4 id="如何逼近？">如何逼近？</h4>
-<p>可以看出，score model是对概率分布的对数导数做估计，需要找一个满足这个条件的分布方法——Fisher-deivergence:<br>
-$$<br>
-\text{Fisher Distance} = E_{P(x)} || \bigtriangledown_x\log p(x) - s_\theta||^2_2<br>
-$$<br>
-这个可以衡量两个分布的距离：</p>
+<h2 id="score-function-score-based-model-score-matching"><a href="#score-function-score-based-model-score-matching" class="headerlink" title="score function,  score-based model, score matching"></a>score function,  score-based model, score matching</h2><p>我们定义这个score:</p>
+<script type="math/tex; mode=display">
+score = \bigtriangledown_x \log p(x)</script><p>好处在于，因为是对于导数的模拟，因此，这个score不需要归一化。不管怎么样都是一个归一的分布。score based model就是在逼近这个分布：</p>
+<script type="math/tex; mode=display">
+s_\theta(x) \approx \bigtriangledown_x \log p(x)</script><h4 id="如何逼近？"><a href="#如何逼近？" class="headerlink" title="如何逼近？"></a>如何逼近？</h4><p>可以看出，score model是对概率分布的对数导数做估计，需要找一个满足这个条件的分布方法——Fisher-deivergence:</p>
+<script type="math/tex; mode=display">
+\text{Fisher Distance} = E_{P(x)} || \bigtriangledown_x\log p(x) - s_\theta||^2_2</script><p>这个可以衡量两个分布的距离：</p>
 <ul>
 <li>越“接近“的分布距离越小</li>
 <li>相同的分布距离是0</li>
 </ul>
 <p>通过优化fisher距离，我们就能让score based model学到训练集的数据分布了。同时，通过一些score matching的算法，我们不需要知道原始数据集的$\bigtriangledown_x\log p(x)$就能优化，也不需要对抗的训练。</p>
-<h2 id="Langevin-dynamics">Langevin dynamics</h2>
-<p>训练完成以后，如何采样呢？<br>
-$$<br>
-x_{i+1} = x_i + \epsilon \bigtriangledown_x\log p(x) + \sqrt{2\epsilon} z_i<br>
-$$</p>
-<p>$$<br>
-z_i \in N(0,1), x_0 \in N(0,1),<br>
-$$</p>
-<p>通过多部迭代，可以保证一个随机的点最终会以$p(x)$的概率存在在空间中</p>
+<h2 id="Langevin-dynamics"><a href="#Langevin-dynamics" class="headerlink" title="Langevin dynamics"></a>Langevin dynamics</h2><p>训练完成以后，如何采样呢？</p>
+<script type="math/tex; mode=display">
+x_{i+1} = x_i + \epsilon \bigtriangledown_x\log p(x) + \sqrt{2\epsilon} z_i</script><script type="math/tex; mode=display">
+z_i \in N(0,1), x_0 \in N(0,1),</script><p>通过多部迭代，可以保证一个随机的点最终会以$p(x)$的概率存在在空间中</p>
 <p>其中上面的导数部分用score based model近似。这样，我们不需要额外的计算就可以采样了</p>
-<h2 id="score-based-model-问题与解决">score-based model 问题与解决</h2>
-<p>刚才的 fisher-rao distance存在的问题是：</p>
+<h2 id="score-based-model-问题与解决"><a href="#score-based-model-问题与解决" class="headerlink" title="score-based model 问题与解决"></a>score-based model 问题与解决</h2><p>刚才的 fisher-rao distance存在的问题是：</p>
 <ul>
 <li>由于使用2阶距离，对于本身p比较小的位置。训练时的导数过小，可能学不到。</li>
 </ul>
@@ -380,32 +363,22 @@ $$</p>
 </ul>
 <p>这个思路很好，但是有几个衍生的问题：</p>
 <ul>
-<li>&quot;噪声&quot;取多大？</li>
+<li>“噪声”取多大？</li>
 </ul>
 <p>有一个折中的办法：</p>
 <ul>
 <li>多步加噪声，每次都是上一轮分布再叠加一个噪声。这样后面的分布趋向于随机分布。前面的分布和原始分布非常接近。</li>
 </ul>
-<p>这种情况下，我们的score-based model 也需要相应的改变：<br>
-$$<br>
-S_\theta(x) \rightarrow S_\theta(x,t)<br>
-$$</p>
-<p>$$<br>
-S_\theta(x,t) \approx \bigtriangledown_x\log p(x,t)<br>
-$$</p>
-<p>可以逼近每一个采样步骤的分布。在学习这个score model时，我们需要考虑所有的噪声分布，加权：<br>
-$$<br>
-\sum_{i=1}^L \lambda_i E_{P(x,i)} || \bigtriangledown_x\log p(x,i) - S_\theta(x,i)||^2_2<br>
-$$<br>
-其中，权重一般就选取每一轮高斯噪声的方差：<br>
-$$<br>
-\lambda_i = \sigma_i^2<br>
-$$<br>
-同时，在采样的过程中，我们修改原始的Langevin dynamics采样:<br>
-$$<br>
-x_{i+1} = x_i + \epsilon S_\theta(x,T-i) + \sqrt{2\epsilon} z_i<br>
-$$<br>
-让每一步点都按照不同的分布进行行走。最终逐步去噪到一个原始分布的点。这个算法叫做<strong>annealed Langevin dynamics</strong></p>
+<p>这种情况下，我们的score-based model 也需要相应的改变：</p>
+<script type="math/tex; mode=display">
+S_\theta(x) \rightarrow S_\theta(x,t)</script><script type="math/tex; mode=display">
+S_\theta(x,t) \approx \bigtriangledown_x\log p(x,t)</script><p>可以逼近每一个采样步骤的分布。在学习这个score model时，我们需要考虑所有的噪声分布，加权：</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^L \lambda_i E_{P(x,i)} || \bigtriangledown_x\log p(x,i) - S_\theta(x,i)||^2_2</script><p>其中，权重一般就选取每一轮高斯噪声的方差：</p>
+<script type="math/tex; mode=display">
+\lambda_i = \sigma_i^2</script><p>同时，在采样的过程中，我们修改原始的Langevin dynamics采样:</p>
+<script type="math/tex; mode=display">
+x_{i+1} = x_i + \epsilon S_\theta(x,T-i) + \sqrt{2\epsilon} z_i</script><p>让每一步点都按照不同的分布进行行走。最终逐步去噪到一个原始分布的点。这个算法叫做<strong>annealed Langevin dynamics</strong></p>
 <p>博客后面关于微分方程的部分我打算在论文阅读完以后写上</p>
 
     </div>
@@ -575,15 +548,15 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/9d180ffd" title="2025-01-16-insights" target="_blank">2025-01-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/762fb4fe" title="2025-01-15-insights" target="_blank">2025-01-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/99eddfc0" title="2025-01-14-insights" target="_blank">2025-01-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7b31c4b9" title="2025-01-13-insights" target="_blank">2025-01-13-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -667,12 +640,12 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">272k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

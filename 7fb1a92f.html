@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近一周去旅游了，回来一看竟然欠了680多篇论文？？？别急，慢慢补…… Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language Models SFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数">
+  <meta name="description" content="最近一周去旅游了，回来一看竟然欠了680多篇论文？？？别急，慢慢补…… Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language ModelsSFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-19-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/7fb1a92f">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近一周去旅游了，回来一看竟然欠了680多篇论文？？？别急，慢慢补…… Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language Models SFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数">
+<meta property="og:description" content="最近一周去旅游了，回来一看竟然欠了680多篇论文？？？别急，慢慢补…… Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language ModelsSFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数据">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-19-02-23/select.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-19-02-23/tree-search.png">
@@ -314,12 +314,10 @@
 
       
         <p>最近一周去旅游了，回来一看竟然欠了680多篇论文？？？别急，慢慢补……</p>
-<h2 id="Smaller-Language-Models-are-capable-of-selecting-Instruction-Tuning-Training-Data-for-Larger-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10430.pdf">Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language Models</a></h2>
-<p>SFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数据的固有属性，并尝试用较小的模型选择SFT数据，并发现：即使用350M模型帮13B模型选择数据，效果仍然很好</p>
-<img src="../../files/images/arxiv-insights/2024-02-19-02-23/select.png" style="zoom:33%;">
-<h2 id="When-is-Tree-Search-Useful-for-LLM-Planning-It-Depends-on-the-Discriminator"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10890.pdf">When is Tree Search Useful for LLM Planning? It Depends on the Discriminator</a></h2>
-<p>作者探索了Agent里面的Tree-search和reflection两种方法，发现：只有当外界的反馈准确率超过90%时，Tree-search的能力才能显现出来，目前的LLM-vote基本上没有达到这个水平。所以，目前的Tree-search类方法可能得不偿失，在需要10倍计算量的基础上，提升并不明显。</p>
-<img src="../../files/images/arxiv-insights/2024-02-19-02-23/tree-search.png">
+<h2 id="Smaller-Language-Models-are-capable-of-selecting-Instruction-Tuning-Training-Data-for-Larger-Language-Models"><a href="#Smaller-Language-Models-are-capable-of-selecting-Instruction-Tuning-Training-Data-for-Larger-Language-Models" class="headerlink" title="Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10430.pdf">Smaller Language Models are capable of selecting Instruction-Tuning Training Data for Larger Language Models</a></h2><p>SFT的数据选择对结果的影响很大，引入一些不好的SFT数据，反而会使得模型的效果更差。作者认为，数据的质量是数据的固有属性，并尝试用较小的模型选择SFT数据，并发现：即使用350M模型帮13B模型选择数据，效果仍然很好</p>
+<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/select.png" style="zoom:33%;"></p>
+<h2 id="When-is-Tree-Search-Useful-for-LLM-Planning-It-Depends-on-the-Discriminator"><a href="#When-is-Tree-Search-Useful-for-LLM-Planning-It-Depends-on-the-Discriminator" class="headerlink" title="When is Tree Search Useful for LLM Planning? It Depends on the Discriminator"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.10890.pdf">When is Tree Search Useful for LLM Planning? It Depends on the Discriminator</a></h2><p>作者探索了Agent里面的Tree-search和reflection两种方法，发现：只有当外界的反馈准确率超过90%时，Tree-search的能力才能显现出来，目前的LLM-vote基本上没有达到这个水平。所以，目前的Tree-search类方法可能得不偿失，在需要10倍计算量的基础上，提升并不明显。</p>
+<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/tree-search.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -336,13 +334,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9d180ffd.html" rel="bookmark">2025-01-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/762fb4fe.html" rel="bookmark">2025-01-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/99eddfc0.html" rel="bookmark">2025-01-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/7b31c4b9.html" rel="bookmark">2025-01-13-insights</a></div>
     </li>
   </ul>
 
@@ -477,15 +475,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9d180ffd" title="2025-01-16-insights" target="_blank">2025-01-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/762fb4fe" title="2025-01-15-insights" target="_blank">2025-01-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/99eddfc0" title="2025-01-14-insights" target="_blank">2025-01-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7b31c4b9" title="2025-01-13-insights" target="_blank">2025-01-13-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -569,12 +567,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">272k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>

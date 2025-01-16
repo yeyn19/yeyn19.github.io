@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="上周五好像是美国独立日，没有论文 Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge 很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结">
+  <meta name="description" content="上周五好像是美国独立日，没有论文 Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结果">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-07-08-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4cd2aec2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="上周五好像是美国独立日，没有论文 Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge 很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结">
+<meta property="og:description" content="上周五好像是美国独立日，没有论文 Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结果">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-07-08-07-12/visual-prompt.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-07-08-07-12/constraint.png">
@@ -314,18 +314,16 @@
 
       
         <p>上周五好像是美国独立日，没有论文</p>
-<h2 id="Rethinking-Visual-Prompting-for-Multimodal-Large-Language-Models-with-External-Knowledge"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.04681">Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge</a></h2>
-<p>很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结果直接在hidden-state而不是text层面结合呢？作者发现这样更省token，而且效果也挺好</p>
+<h2 id="Rethinking-Visual-Prompting-for-Multimodal-Large-Language-Models-with-External-Knowledge"><a href="#Rethinking-Visual-Prompting-for-Multimodal-Large-Language-Models-with-External-Knowledge" class="headerlink" title="Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.04681">Rethinking Visual Prompting for Multimodal Large Language Models with External Knowledge</a></h2><p>很有趣的工作：之前microsoft有一篇工作让一个VLM结合一堆CV domain model(比如OCR)的输出去加强回答的质量。这次作者更进一步：能不能让domain model的结果直接在hidden-state而不是text层面结合呢？作者发现这样更省token，而且效果也挺好</p>
 <blockquote>
 <p>抽象一下，这就像是《变形金刚2》里面那个组合机器人，把一堆模型黏合在一起了？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-08-07-12/visual-prompt.png">
-<h2 id="Benchmarking-Complex-Instruction-Following-with-Multiple-Constraints-Composition"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.03978">Benchmarking Complex Instruction-Following with Multiple Constraints Composition</a></h2>
-<p>黄民烈老师的文章，作者想要增强模型的instruction following能力，作者构造了一些constraint类型，然后根据原始query构造对应的instruction，然后搞了个benchmark，对应让模型来看是否满足所有要求。</p>
+<p><img src="../../files/images/arxiv-insights/2024-07-08-07-12/visual-prompt.png"></p>
+<h2 id="Benchmarking-Complex-Instruction-Following-with-Multiple-Constraints-Composition"><a href="#Benchmarking-Complex-Instruction-Following-with-Multiple-Constraints-Composition" class="headerlink" title="Benchmarking Complex Instruction-Following with Multiple Constraints Composition"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.03978">Benchmarking Complex Instruction-Following with Multiple Constraints Composition</a></h2><p>黄民烈老师的文章，作者想要增强模型的instruction following能力，作者构造了一些constraint类型，然后根据原始query构造对应的instruction，然后搞了个benchmark，对应让模型来看是否满足所有要求。</p>
 <blockquote>
 <p>和前几天那个自己写代码检查输出是否满足要求的工作有点像，也许可以结合一下？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-08-07-12/constraint.png">
+<p><img src="../../files/images/arxiv-insights/2024-07-08-07-12/constraint.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +340,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9d180ffd.html" rel="bookmark">2025-01-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/762fb4fe.html" rel="bookmark">2025-01-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/99eddfc0.html" rel="bookmark">2025-01-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/7b31c4b9.html" rel="bookmark">2025-01-13-insights</a></div>
     </li>
   </ul>
 
@@ -483,15 +481,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9d180ffd" title="2025-01-16-insights" target="_blank">2025-01-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/762fb4fe" title="2025-01-15-insights" target="_blank">2025-01-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/99eddfc0" title="2025-01-14-insights" target="_blank">2025-01-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7b31c4b9" title="2025-01-13-insights" target="_blank">2025-01-13-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -575,12 +573,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">272k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:07</span>
 </div>
 
 <i class="fa fa-user-md"></i>
