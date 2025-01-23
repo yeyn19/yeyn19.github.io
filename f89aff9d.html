@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation 推荐一下我参与的小品工作：如何基于LLM Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：  已有工作几乎没有生成repo-level的doc的 使用GPT4、甚至3.5">
+  <meta name="description" content="RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation推荐一下我参与的小品工作：如何基于LLM Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：  已有工作几乎没有生成repo-level的doc的 使用GPT4、甚至3.5，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-27-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/f89aff9d">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation 推荐一下我参与的小品工作：如何基于LLM Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：  已有工作几乎没有生成repo-level的doc的 使用GPT4、甚至3.5">
+<meta property="og:description" content="RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation推荐一下我参与的小品工作：如何基于LLM Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：  已有工作几乎没有生成repo-level的doc的 使用GPT4、甚至3.5，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-26-03-01/repoagent.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-26-03-01/LearnAct.png">
@@ -313,25 +313,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="repoagent-an-llm-powered-open-source-framework-for-repository-level-code-documentation-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.16667.pdf">RepoAgent: An LLM-Powered
-Open-Source Framework for Repository-level Code Documentation
-Generation</a></h2>
-<p>推荐一下我参与的小品工作：如何基于LLM
-Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：</p>
-<ol type="1">
+        <h2 id="RepoAgent-An-LLM-Powered-Open-Source-Framework-for-Repository-level-Code-Documentation-Generation"><a href="#RepoAgent-An-LLM-Powered-Open-Source-Framework-for-Repository-level-Code-Documentation-Generation" class="headerlink" title="RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.16667.pdf">RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation</a></h2><p>推荐一下我参与的小品工作：如何基于LLM Agent来自动帮助仓库生成和维护documentation。我们核心发现在于：</p>
+<ol>
 <li>已有工作几乎没有生成repo-level的doc的</li>
 <li>使用GPT4、甚至3.5，得到的效果远超之前的工作</li>
 <li>生成documentation实际上效果非常好</li>
 </ol>
 <p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/repoagent.png"></p>
-<h2 id="empowering-large-language-model-agents-through-action-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.15809.pdf">Empowering Large Language
-Model Agents through Action Learning</a></h2>
-<p>作者思考的问题在于，很多场景的action space是固定的，
-模型不能从过去的trace里学习、组合新的action。所以作者设计了一套迭代式的action
-space更新方法，并在ALFWorld场景进行了测试</p>
+<h2 id="Empowering-Large-Language-Model-Agents-through-Action-Learning"><a href="#Empowering-Large-Language-Model-Agents-through-Action-Learning" class="headerlink" title="Empowering Large Language Model Agents through Action Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.15809.pdf">Empowering Large Language Model Agents through Action Learning</a></h2><p>作者思考的问题在于，很多场景的action space是固定的， 模型不能从过去的trace里学习、组合新的action。所以作者设计了一套迭代式的action space更新方法，并在ALFWorld场景进行了测试</p>
 <blockquote>
-<p>这个思路有点像之前CREATOR的工具创造，以及vogayer里面的skill
-library</p>
+<p>这个思路有点像之前CREATOR的工具创造，以及vogayer里面的skill library</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/LearnAct.png"></p>
 <!-- flag of hidden posts -->
@@ -433,10 +424,7 @@ library</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#repoagent-an-llm-powered-open-source-framework-for-repository-level-code-documentation-generation"><span class="nav-number">1.</span> <span class="nav-text">RepoAgent: An LLM-Powered
-Open-Source Framework for Repository-level Code Documentation
-Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#empowering-large-language-model-agents-through-action-learning"><span class="nav-number">2.</span> <span class="nav-text">Empowering Large Language
-Model Agents through Action Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RepoAgent-An-LLM-Powered-Open-Source-Framework-for-Repository-level-Code-Documentation-Generation"><span class="nav-number">1.</span> <span class="nav-text">RepoAgent: An LLM-Powered Open-Source Framework for Repository-level Code Documentation Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Empowering-Large-Language-Model-Agents-through-Action-Learning"><span class="nav-number">2.</span> <span class="nav-text">Empowering Large Language Model Agents through Action Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -586,12 +574,12 @@ Model Agents through Action Learning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>

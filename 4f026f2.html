@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -319,65 +319,44 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天分享一篇上次adpter
-tuning的后文，进一步提升了效果、减小了参数量，发表在NeurlPS
-2021上。了解这篇工作，需要先了解 <a href="/6b5172a2.html" title="论文阅读[精读]-Parameter-Efficient Transfer Learning for NLP">Adpter Tuning笔记</a></p>
+        <p>今天分享一篇上次adpter tuning的后文，进一步提升了效果、减小了参数量，发表在NeurlPS 2021上。了解这篇工作，需要先了解 <a href="/6b5172a2.html" title="论文阅读[精读]-Parameter-Efficient Transfer Learning for NLP">Adpter Tuning笔记</a></p>
 <span id="more"></span>
 <p><img src="../files/images/compacter/author.png"></p>
 <p>本来以为作者是之前adpter的作者团队，结果发现竟然一个重合的都没有……</p>
 <p><img src="../files/images/compacter/compare.png"></p>
-<p>作者分析了一下已有的一些delta
-tuning方法和fine-tune。发现大多不如fine-tune好，作者想对adpter做一些改进，提升一下效果，减少一些参数。</p>
-<h2 id="方法">方法</h2>
-<h3 id="kronecker-product">Kronecker Product</h3>
-<p>首先普及一下矩阵的Kronecker Product <span class="math display">\[
-A \otimes B =
+<p>作者分析了一下已有的一些delta tuning方法和fine-tune。发现大多不如fine-tune好，作者想对adpter做一些改进，提升一下效果，减少一些参数。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="Kronecker-Product"><a href="#Kronecker-Product" class="headerlink" title="Kronecker Product"></a>Kronecker Product</h3><p>首先普及一下矩阵的Kronecker Product</p>
+<script type="math/tex; mode=display">
+A \otimes B = 
 \left(
 \begin{array}{lll}
-a_{11}B &amp; ... &amp; a_{1f}B \\
-  &amp; ... &amp; \\
-a_{m1}B &amp; ... &amp; a_{mf}B \\
+ a_{11}B & ... & a_{1f}B \\
+  & ... & \\
+ a_{m1}B & ... & a_{mf}B \\
 \end{array}
-\right)
-\]</span> 相当于把A的每一个元素都和B乘一下，然后<span class="math inline">\(A^{m\times f},B^{p\times q}\)</span>就会变成<span class="math inline">\(mp \times
-fq\)</span>的矩阵。注意，相当于用更少的参数表达了更大的矩阵</p>
+\right)</script><p>相当于把A的每一个元素都和B乘一下，然后$A^{m\times f},B^{p\times q}$就会变成$mp \times fq$的矩阵。注意，相当于用更少的参数表达了更大的矩阵</p>
 <p>接下来，就是通过上面的方法来进行矩阵乘的优化</p>
-<h3 id="parameterized-hypercomplex-multiplication-layers-phm">parameterized
-hypercomplex multiplication layers (PHM)</h3>
-<p><img src="../files/images/compacter/multiply.png"></p>
-<p>首先，作者想要达到全连接层的效果 <span class="math display">\[
-y^d = W^{d\times k}x^k + b
-\]</span> 然后主要就是优化<span class="math inline">\(W\)</span></p>
-<p>如果找到一个d,k的公约数n的话，<span class="math inline">\(W\)</span>形状的矩阵可以视为 <span class="math display">\[
-W_j = \sum_{i=1}^n A_i \otimes B_i^j,\quad A\in \mathbb{R}^{n\times
-n},\quad B\in \mathbb{R}^{\frac{d}{n}\times \frac{k}{n}}
-\]</span>
-之所以要变成n个加在一起，好喜爱那个是为了增加自由度，让这个矩阵的表达能力和一个真正的大矩阵w的表达能力一样？</p>
-<h3 id="应用于adpterlphm">应用于adpter(LPHM)</h3>
-<p>为了用于实际的adpter
-tuning，其实就是就是把全连接层换了。同时作者还做了几个重要的修改:</p>
+<h3 id="parameterized-hypercomplex-multiplication-layers-PHM"><a href="#parameterized-hypercomplex-multiplication-layers-PHM" class="headerlink" title="parameterized hypercomplex multiplication layers (PHM)"></a>parameterized hypercomplex multiplication layers (PHM)</h3><p><img src="../files/images/compacter/multiply.png"></p>
+<p>首先，作者想要达到全连接层的效果</p>
+<script type="math/tex; mode=display">
+y^d = W^{d\times k}x^k + b</script><p>然后主要就是优化$W$</p>
+<p>如果找到一个d,k的公约数n的话，$W$形状的矩阵可以视为</p>
+<script type="math/tex; mode=display">
+W_j = \sum_{i=1}^n A_i \otimes B_i^j,\quad A\in \mathbb{R}^{n\times n},\quad B\in \mathbb{R}^{\frac{d}{n}\times \frac{k}{n}}</script><p>之所以要变成n个加在一起，好喜爱那个是为了增加自由度，让这个矩阵的表达能力和一个真正的大矩阵w的表达能力一样？</p>
+<h3 id="应用于adpter-LPHM"><a href="#应用于adpter-LPHM" class="headerlink" title="应用于adpter(LPHM)"></a>应用于adpter(LPHM)</h3><p>为了用于实际的adpter tuning，其实就是就是把全连接层换了。同时作者还做了几个重要的修改:</p>
 <ul>
 <li>所有的adpter层中，对于子矩阵A是共享参数的，这是为了更好的捕捉所谓的通用知识</li>
 <li>然后每个adpter有单独的B，为了简化B的大小，可以把B变成秩更小的形式</li>
 </ul>
-<p><span class="math display">\[
-B^{m\times n} = s \times t^{T},
-\]</span></p>
-<p>s和t都是r个列向量，这样B的参数总共需要<span class="math inline">\(r\times(m+n)\)</span>。这里的简化是基于上次adpter的实验中
-<em>单独的adpter层的影响很小</em> 的结论，总而言之,最终的公式化简成了
-<span class="math display">\[
-A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,
-\]</span>
-作者对比了一下复杂度，发现和正常的adpter相比，可以把参数减少到大约<span class="math inline">\(\frac{1}{n}\)</span></p>
-<h2 id="实验">实验</h2>
-<p>几个行的解释：</p>
+<script type="math/tex; mode=display">
+B^{m\times n} = s \times t^{T},</script><p>s和t都是r个列向量，这样B的参数总共需要$r\times(m+n)$。这里的简化是基于上次adpter的实验中 <em>单独的adpter层的影响很小</em> 的结论，总而言之,最终的公式化简成了</p>
+<script type="math/tex; mode=display">
+A^l(x)=\text{LPHM}^{U^l} (\text{GeLU}(\text{LPHM}^{D^l} (x)))+x,</script><p>作者对比了一下复杂度，发现和正常的adpter相比，可以把参数减少到大约$\frac{1}{n}$</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>几个行的解释：</p>
 <ul>
-<li>compacter++:正常的adpter在每个transformer
-block加两次，这里探索只在最后的feedforward层后面加一次，就是比正常的参数更好</li>
+<li>compacter++:正常的adpter在每个transformer block加两次，这里探索只在最后的feedforward层后面加一次，就是比正常的参数更好</li>
 <li>PHM-Adapter：正常PHM矩阵乘的adpter，没有做A的共享参数，没有对B进行矩阵分解</li>
-<li>Intrinsic-SAID:
-这个方式是想把模型的参数进行重参数化，然后需要用的额外参数非常少<span class="math inline">\(0.009\%\)</span>。这个方法我后面可能也会做分享
-<a href="/476791e1.html" title="论文阅读笔记-Intrinsic-Dimension相关">Intrinsic Dimension笔记</a></li>
+<li>Intrinsic-SAID: 这个方式是想把模型的参数进行重参数化，然后需要用的额外参数非常少$0.009\%$。这个方法我后面可能也会做分享 <a href="/476791e1.html" title="论文阅读笔记-Intrinsic-Dimension相关">Intrinsic Dimension笔记</a></li>
 <li>BitFit：和adpter另外的路子，只训练一些额外的bias，锁定正常参数</li>
 </ul>
 <p><img src="../files/images/compacter/result.png"></p>
@@ -398,17 +377,13 @@ block加两次，这里探索只在最后的feedforward层后面加一次，就�
 <p><img src="../files/images/compacter/efficient.png"></p>
 <p>作者还额外提了一下，在少数据情况下，compacter比传统fine-tune的效果更好</p>
 <p><img src="../files/images/compacter/low_data.png"></p>
-<h2 id="我的思考">我的思考</h2>
-<p>这个文章其实主要的idea还是沿用了adpter，但是思考通过优化矩阵乘的效率来减少参数很精妙，尤其是利用上了PHM共享A参数学习通用知识这个点，更是很妙。</p>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><p>这个文章其实主要的idea还是沿用了adpter，但是思考通过优化矩阵乘的效率来减少参数很精妙，尤其是利用上了PHM共享A参数学习通用知识这个点，更是很妙。</p>
 <p>我其实有几点好奇，文中没有说：</p>
 <ul>
 <li>B的分解秩r的大小对模型结果的影响。因为小的r显然会使得B的表征能力下降，但如果模型效果不下滑，是不是说明模型其实在下游中用到的知识真的是很少的？</li>
-<li>模型高层和低层对应的B的影响的实验，参考正常adpter，因为这个实验的backbone模型是T5，之前是BERT。adpter提到的特性可以应用于其他的pre-train
-model吗？</li>
+<li>模型高层和低层对应的B的影响的实验，参考正常adpter，因为这个实验的backbone模型是T5，之前是BERT。adpter提到的特性可以应用于其他的pre-train model吗？</li>
 <li>单纯是否共享A参数的对模型效果影响的对比实验。如果这种层间通用知识真的有用，能不能在预训练阶段把模型结构就有所改进呢？</li>
-<li>compacter在少数据表现好的特性，是delta
-tuning共有的吗？因为我觉得其实delta
-tuning的上限就是fine-tune，所以超越fine-tune是不是代表，在这个下游任务上，现有数据集其实还没碰触到数据的边际效应递减</li>
+<li>compacter在少数据表现好的特性，是delta tuning共有的吗？因为我觉得其实delta tuning的上限就是fine-tune，所以超越fine-tune是不是代表，在这个下游任务上，现有数据集其实还没碰触到数据的边际效应递减</li>
 </ul>
 
     </div>
@@ -521,8 +496,7 @@ tuning的上限就是fine-tune，所以超越fine-tune是不是代表，在这�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#kronecker-product"><span class="nav-number">1.1.</span> <span class="nav-text">Kronecker Product</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterized-hypercomplex-multiplication-layers-phm"><span class="nav-number">1.2.</span> <span class="nav-text">parameterized
-hypercomplex multiplication layers (PHM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8Eadpterlphm"><span class="nav-number">1.3.</span> <span class="nav-text">应用于adpter(LPHM)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Kronecker-Product"><span class="nav-number">1.1.</span> <span class="nav-text">Kronecker Product</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parameterized-hypercomplex-multiplication-layers-PHM"><span class="nav-number">1.2.</span> <span class="nav-text">parameterized hypercomplex multiplication layers (PHM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%94%E7%94%A8%E4%BA%8Eadpter-LPHM"><span class="nav-number">1.3.</span> <span class="nav-text">应用于adpter(LPHM)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">2.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">3.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -672,12 +646,12 @@ hypercomplex multiplication layers (PHM)</span></a></li><li class="nav-item nav-
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>

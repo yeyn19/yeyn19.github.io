@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Memory Layers at Scale Meta一篇很牛的工作，研究的是Memory layer。memory layer的核心逻辑是，在模型中添加额外的kv lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv lookup，然后训了1TB token，发现在这个scaling规模性，做memory layer的正收益非常明显。  DeepSee">
+  <meta name="description" content="Memory Layers at ScaleMeta一篇很牛的工作，研究的是Memory layer。memory layer的核心逻辑是，在模型中添加额外的kv lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv lookup，然后训了1TB token，发现在这个scaling规模性，做memory layer的正收益非常明显。  DeepSeek">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-12-16-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/13b513d4">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Memory Layers at Scale Meta一篇很牛的工作，研究的是Memory layer。memory layer的核心逻辑是，在模型中添加额外的kv lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv lookup，然后训了1TB token，发现在这个scaling规模性，做memory layer的正收益非常明显。  DeepSee">
+<meta property="og:description" content="Memory Layers at ScaleMeta一篇很牛的工作，研究的是Memory layer。memory layer的核心逻辑是，在模型中添加额外的kv lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv lookup，然后训了1TB token，发现在这个scaling规模性，做memory layer的正收益非常明显。  DeepSeek">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-16-12-20/memory-layer.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-16-12-20/deepseek-vl2.png">
@@ -313,17 +313,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="memory-layers-at-scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.10047">Memory Layers at Scale</a></h2>
-<p>Meta一篇很牛的工作，研究的是Memory layer。memory
-layer的核心逻辑是，在模型中添加额外的kv
-lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv
-lookup，然后训了1TB token，发现在这个scaling规模性，做memory
-layer的正收益非常明显。</p>
+        <h2 id="Memory-Layers-at-Scale"><a href="#Memory-Layers-at-Scale" class="headerlink" title="Memory Layers at Scale"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.10047">Memory Layers at Scale</a></h2><p>Meta一篇很牛的工作，研究的是Memory layer。memory layer的核心逻辑是，在模型中添加额外的kv lookup，这个实现不会增加前向时的flops。但是会增加空间占用。作者足足给了128B的kv lookup，然后训了1TB token，发现在这个scaling规模性，做memory layer的正收益非常明显。</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-16-12-20/memory-layer.png"></p>
-<h2 id="deepseek-vl2-mixture-of-experts-vision-language-models-for-advanced-multimodal-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.10302"><strong>DeepSeek-VL2:
-Mixture-of-Experts Vision-Language Models for Advanced Multimodal
-Understanding</strong></a></h2>
-<p>一年前deepseek-vl做得很早，但是一直没有新的更新，今天更新了v2，和qwen2-vl刷到了同一水平。虽然还是级联的结构，但竟然是moe。</p>
+<h2 id="DeepSeek-VL2-Mixture-of-Experts-Vision-Language-Models-for-Advanced-Multimodal-Understanding"><a href="#DeepSeek-VL2-Mixture-of-Experts-Vision-Language-Models-for-Advanced-Multimodal-Understanding" class="headerlink" title="DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.10302"><strong>DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding</strong></a></h2><p>一年前deepseek-vl做得很早，但是一直没有新的更新，今天更新了v2，和qwen2-vl刷到了同一水平。虽然还是级联的结构，但竟然是moe。</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-16-12-20/deepseek-vl2.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -424,9 +416,7 @@ Understanding</strong></a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#memory-layers-at-scale"><span class="nav-number">1.</span> <span class="nav-text">Memory Layers at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepseek-vl2-mixture-of-experts-vision-language-models-for-advanced-multimodal-understanding"><span class="nav-number">2.</span> <span class="nav-text">DeepSeek-VL2:
-Mixture-of-Experts Vision-Language Models for Advanced Multimodal
-Understanding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Layers-at-Scale"><span class="nav-number">1.</span> <span class="nav-text">Memory Layers at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-VL2-Mixture-of-Experts-Vision-Language-Models-for-Advanced-Multimodal-Understanding"><span class="nav-number">2.</span> <span class="nav-text">DeepSeek-VL2: Mixture-of-Experts Vision-Language Models for Advanced Multimodal Understanding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -576,12 +566,12 @@ Understanding</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>

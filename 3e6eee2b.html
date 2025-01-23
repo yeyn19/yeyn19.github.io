@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="DebugBench: Evaluating Debugging Capability of Large Language Models 推荐我们的论文: 现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。 在本篇工作中，作为初步的评测我们首先构造了一个4000多条数据的b">
+  <meta name="description" content="DebugBench: Evaluating Debugging Capability of Large Language Models推荐我们的论文: 现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。 在本篇工作中，作为初步的评测我们首先构造了一个4000多条数据的be">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-10-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3e6eee2b">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="DebugBench: Evaluating Debugging Capability of Large Language Models 推荐我们的论文: 现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。 在本篇工作中，作为初步的评测我们首先构造了一个4000多条数据的b">
+<meta property="og:description" content="DebugBench: Evaluating Debugging Capability of Large Language Models推荐我们的论文: 现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。 在本篇工作中，作为初步的评测我们首先构造了一个4000多条数据的be">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/debugbench.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/agent-align.png">
@@ -313,27 +313,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="debugbench-evaluating-debugging-capability-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04621">DebugBench: Evaluating Debugging
-Capability of Large Language Models</a></h2>
-<p>推荐我们的论文:
-现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM
-copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。</p>
+        <h2 id="DebugBench-Evaluating-Debugging-Capability-of-Large-Language-Models"><a href="#DebugBench-Evaluating-Debugging-Capability-of-Large-Language-Models" class="headerlink" title="DebugBench: Evaluating Debugging Capability of Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04621">DebugBench: Evaluating Debugging Capability of Large Language Models</a></h2><p>推荐我们的论文: 现在的研究大多着力于LLM写代码解决任务的能力。然而，在实际的人和LLM copilot开发的过程中，debug也是一个同样重要的场景。可是，目前的研究基本没有着力于这方面的。</p>
 <p>在本篇工作中，作为初步的评测我们首先构造了一个4000多条数据的benchmark，制作了18类的常见bug场景，评测模型能否debug。发现</p>
 <ul>
 <li>目前的模型，尤其是开源模型，做得很不好</li>
 <li>对于不同类型的bug，模型表现差很多</li>
-<li>coding能力强的模型，其debug能力也强一些。自己会写的代码，
-能debug的概率也更高</li>
+<li>coding能力强的模型，其debug能力也强一些。自己会写的代码， 能debug的概率也更高</li>
 </ul>
 <blockquote>
 <p>分到software engineer track了……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/debugbench.png"></p>
-<h2 id="agent-alignment-in-evolving-social-norms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04620.pdf">Agent Alignment in Evolving
-Social Norms</a></h2>
-<p>复旦xipeng
-qiu的论文，作者讲的是，能不能把self-evolve的方法，用自然选择的方式实现？作者用类似于之前
-西部小镇的方法试了试，发现效果不错</p>
+<h2 id="Agent-Alignment-in-Evolving-Social-Norms"><a href="#Agent-Alignment-in-Evolving-Social-Norms" class="headerlink" title="Agent Alignment in Evolving Social Norms"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04620.pdf">Agent Alignment in Evolving Social Norms</a></h2><p>复旦xipeng qiu的论文，作者讲的是，能不能把self-evolve的方法，用自然选择的方式实现？作者用类似于之前 西部小镇的方法试了试，发现效果不错</p>
 <blockquote>
 <p>我之前分享过这个，multiagent开山之作： <a href="/4a3bcbdb.html" title="论文阅读[粗读]-Generative Agents: Interactive Simulacra of Human Behavior">西部小镇论文阅读笔记</a></p>
 </blockquote>
@@ -437,9 +428,7 @@ qiu的论文，作者讲的是，能不能把self-evolve的方法，用自然选
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#debugbench-evaluating-debugging-capability-of-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">DebugBench: Evaluating Debugging
-Capability of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-alignment-in-evolving-social-norms"><span class="nav-number">2.</span> <span class="nav-text">Agent Alignment in Evolving
-Social Norms</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DebugBench-Evaluating-Debugging-Capability-of-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">DebugBench: Evaluating Debugging Capability of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agent-Alignment-in-Evolving-Social-Norms"><span class="nav-number">2.</span> <span class="nav-text">Agent Alignment in Evolving Social Norms</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -589,12 +578,12 @@ Social Norms</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">274k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:09</span>
 </div>
 
 <i class="fa fa-user-md"></i>
