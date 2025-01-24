@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了…… CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看">
+  <meta name="description" content="最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了…… CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models 推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-11-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3b6fbae3">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了…… CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看">
+<meta property="og:description" content="最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了…… CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models 推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-27-12-01/characterGLM.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-11-27-12-01/LLama-vid.png">
@@ -313,15 +313,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research line现在发展到哪一步了……</p>
-<h2 id="CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models"><a href="#CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models" class="headerlink" title="CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.16832.pdf">CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models</a></h2><p>推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看多了……</p>
-<p>这个工作还是黄老师的主线：对话系统。作者在ChatGLM的基础上训了Character-based Dialogues模型，可以选择role、偏好等等。在人类实验上，作者达到了opensource SOTA，甚至超过了大多数close-source model，包括GPT系。作者开源了其中的6B版本</p>
+        <p>最近医学相关的论文好多呀，标题里一堆Medicine、Radiology的关键词，其实我一个都没读过，不知道这个research
+line现在发展到哪一步了……</p>
+<h2 id="characterglm-customizing-chinese-conversational-ai-characters-with-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.16832.pdf">CharacterGLM: Customizing
+Chinese Conversational AI Characters with Large Language Models</a></h2>
+<p>推荐一下唐杰、黄民烈老师的工作，这个头像比上次那个老虎的好看多了……</p>
+<p>这个工作还是黄老师的主线：对话系统。作者在ChatGLM的基础上训了Character-based
+Dialogues模型，可以选择role、偏好等等。在人类实验上，作者达到了opensource
+SOTA，甚至超过了大多数close-source
+model，包括GPT系。作者开源了其中的6B版本</p>
 <p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/characterGLM.png"></p>
-<h2 id="LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models"><a href="#LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models" class="headerlink" title="LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17043.pdf">LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models</a></h2><p>作者谈到目前的VLM基本上是把图片编码成多个patch-token，这里有个问题：对于vedio，seq-length也太长了。作者搞了简单的办法，直接把一个图片变成了2 token，这样假如一秒一帧，甚至可以存一个1h的视频进去。作者在vedio、image 等benchmark测试了，基本都是SOTA</p>
+<h2 id="llama-vid-an-image-is-worth-2-tokens-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17043.pdf">LLaMA-VID: An Image is Worth
+2 Tokens in Large Language Models</a></h2>
+<p>作者谈到目前的VLM基本上是把图片编码成多个patch-token，这里有个问题：对于vedio，seq-length也太长了。作者搞了简单的办法，直接把一个图片变成了2
+token，这样假如一秒一帧，甚至可以存一个1h的视频进去。作者在vedio、image
+等benchmark测试了，基本都是SOTA</p>
 <p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/LLama-vid.png" style="zoom: 33%;"></p>
-<h2 id="Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop"><a href="#Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop" class="headerlink" title="Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.16822.pdf">Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop</a></h2><p>作者谈到，近期有一个趋势就是在模型自己生成的数据上训练，去得到一个next-generation of model。然而，这种方法长久吗？作者设计了一系列实验，来探索这个问题。发现在初期，模型的quality和diversity会上升，但随后会下降。最终的稳定性取决于数据中真实数据的比例</p>
+<h2 id="large-language-models-suffer-from-their-own-output-an-analysis-of-the-self-consuming-training-loop"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.16822.pdf">Large Language Models Suffer
+From Their Own Output: An Analysis of the Self-Consuming Training
+Loop</a></h2>
+<p>作者谈到，近期有一个趋势就是在模型自己生成的数据上训练，去得到一个next-generation
+of
+model。然而，这种方法长久吗？作者设计了一系列实验，来探索这个问题。发现在初期，模型的quality和diversity会上升，但随后会下降。最终的稳定性取决于数据中真实数据的比例</p>
 <blockquote>
-<p> 让我想起了不久前的另一篇论文Self-Consuming Generative Models Go MAD，是在cv领域探索这个事情</p>
+<p>让我想起了不久前的另一篇论文Self-Consuming Generative Models Go
+MAD，是在cv领域探索这个事情</p>
 </blockquote>
 <!-- flag of hidden posts -->
     </div>
@@ -339,13 +355,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb9c1.html" rel="bookmark">2025-01-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e2d3a2b8.html" rel="bookmark">2025-01-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d11c986.html" rel="bookmark">2025-01-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9e419bb.html" rel="bookmark">2025-01-20-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +438,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CharacterGLM-Customizing-Chinese-Conversational-AI-Characters-with-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">CharacterGLM: Customizing Chinese Conversational AI Characters with Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLaMA-VID-An-Image-is-Worth-2-Tokens-in-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">LLaMA-VID: An Image is Worth 2 Tokens in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Large-Language-Models-Suffer-From-Their-Own-Output-An-Analysis-of-the-Self-Consuming-Training-Loop"><span class="nav-number">3.</span> <span class="nav-text">Large Language Models Suffer From Their Own Output: An Analysis of the Self-Consuming Training Loop</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#characterglm-customizing-chinese-conversational-ai-characters-with-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">CharacterGLM: Customizing
+Chinese Conversational AI Characters with Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llama-vid-an-image-is-worth-2-tokens-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">LLaMA-VID: An Image is Worth
+2 Tokens in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#large-language-models-suffer-from-their-own-output-an-analysis-of-the-self-consuming-training-loop"><span class="nav-number">3.</span> <span class="nav-text">Large Language Models Suffer
+From Their Own Output: An Analysis of the Self-Consuming Training
+Loop</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -480,15 +500,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d11c986" title="2025-01-22-insights" target="_blank">2025-01-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/9e419bb" title="2025-01-20-insights" target="_blank">2025-01-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -572,12 +592,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

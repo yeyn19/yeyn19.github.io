@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer EnvironmentsTao Yu老师的工作：作者在windows&#x2F;mac os&#x2F;ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369 task的数据集，发现目前的Agent在这些任务上非常差。  经典的bench">
+  <meta name="description" content="OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments Tao Yu老师的工作：作者在windows&#x2F;mac os&#x2F;ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369 task的数据集，发现目前的Agent在这些任务上非常差。  经典的benc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-04-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/27b48d05">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer EnvironmentsTao Yu老师的工作：作者在windows&#x2F;mac os&#x2F;ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369 task的数据集，发现目前的Agent在这些任务上非常差。  经典的bench">
+<meta property="og:description" content="OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments Tao Yu老师的工作：作者在windows&#x2F;mac os&#x2F;ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369 task的数据集，发现目前的Agent在这些任务上非常差。  经典的benc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-08-04-12/osworld.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-08-04-12/rho.png">
@@ -313,23 +313,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="OSWORLD-Benchmarking-Multimodal-Agents-for-Open-Ended-Tasks-in-Real-Computer-Environments"><a href="#OSWORLD-Benchmarking-Multimodal-Agents-for-Open-Ended-Tasks-in-Real-Computer-Environments" class="headerlink" title="OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07972.pdf">OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</a></h2><p>Tao Yu老师的工作：作者在windows/mac os/ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369 task的数据集，发现目前的Agent在这些任务上非常差。</p>
+        <h2 id="osworld-benchmarking-multimodal-agents-for-open-ended-tasks-in-real-computer-environments"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07972.pdf">OSWORLD: Benchmarking
+Multimodal Agents for Open-Ended Tasks in Real Computer
+Environments</a></h2>
+<p>Tao Yu老师的工作：作者在windows/mac
+os/ubuntu几个系统上搭建了模拟环境，可以进行各种操作。然后定义了一个含有369
+task的数据集，发现目前的Agent在这些任务上非常差。</p>
 <blockquote>
-<p>经典的benchmark类型的论文……下一篇工作就是标10万条数据，发现在in domain做的和4v一样好……再下一篇是rl+self-train以后out-domain效果也不错</p>
+<p>经典的benchmark类型的论文……下一篇工作就是标10万条数据，发现在in
+domain做的和4v一样好……再下一篇是rl+self-train以后out-domain效果也不错</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/osworld.png"></p>
-<h2 id="Best-Practices-and-Lessons-Learned-on-Synthetic-Data-for-Language-Models"><a href="#Best-Practices-and-Lessons-Learned-on-Synthetic-Data-for-Language-Models" class="headerlink" title="Best Practices and Lessons Learned on Synthetic Data for Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07503.pdf">Best Practices and Lessons Learned on Synthetic Data for Language Models</a></h2><p>deepmind的综述性文章：作者归纳了近期所有training on synthetic data类型的论文，分析了一些insight和趋势，并且给出了他们自己在这个方向上的经验。</p>
-<h2 id="RHO-1-Not-All-Tokens-Are-What-You-Need"><a href="#RHO-1-Not-All-Tokens-Are-What-You-Need" class="headerlink" title="RHO-1: Not All Tokens Are What You Need"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07965.pdf">RHO-1: Not All Tokens Are What You Need</a></h2><p>Weizhu Chen的论文，作者发现训练语料里的很多token是完全的噪声，对训练只会取得负面的影响。所有一个直觉就是：找到“噪声token”不去计算loss会不会更好呢？</p>
-<ol>
-<li>作者找到了一个高质量语料，认为里面全是”token”</li>
-<li><p>然后训练一个模型去分类哪些token是好token和坏token。</p>
-</li>
-<li><p>接下来把continue pretrain语料里做一个分类，坏token不计算loss</p>
-</li>
+<h2 id="best-practices-and-lessons-learned-on-synthetic-data-for-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07503.pdf">Best Practices and Lessons
+Learned on Synthetic Data for Language Models</a></h2>
+<p>deepmind的综述性文章：作者归纳了近期所有training on synthetic
+data类型的论文，分析了一些insight和趋势，并且给出了他们自己在这个方向上的经验。</p>
+<h2 id="rho-1-not-all-tokens-are-what-you-need"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.07965.pdf">RHO-1: Not All Tokens Are
+What You Need</a></h2>
+<p>Weizhu
+Chen的论文，作者发现训练语料里的很多token是完全的噪声，对训练只会取得负面的影响。所有一个直觉就是：找到“噪声token”不去计算loss会不会更好呢？</p>
+<ol type="1">
+<li><p>作者找到了一个高质量语料，认为里面全是"token"</p></li>
+<li><p>然后训练一个模型去分类哪些token是好token和坏token。</p></li>
+<li><p>接下来把continue
+pretrain语料里做一个分类，坏token不计算loss</p></li>
 </ol>
-<p>作者发现这样训了2Btoken以后，和之前deepseek math的500Btoken效果一样。7B模型MATH acc 50%。</p>
+<p>作者发现这样训了2Btoken以后，和之前deepseek
+math的500Btoken效果一样。7B模型MATH acc 50%。</p>
 <blockquote>
-<p>一个7B GSM8K 80%，一个7B MATH 50%，仿佛变成什么凭证了吗……好像是黄老师那个ToRA先起的头</p>
+<p>一个7B GSM8K 80%，一个7B MATH
+50%，仿佛变成什么凭证了吗……好像是黄老师那个ToRA先起的头</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/rho.png"></p>
 <!-- flag of hidden posts -->
@@ -348,13 +361,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb9c1.html" rel="bookmark">2025-01-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e2d3a2b8.html" rel="bookmark">2025-01-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d11c986.html" rel="bookmark">2025-01-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9e419bb.html" rel="bookmark">2025-01-20-insights</a></div>
     </li>
   </ul>
 
@@ -431,7 +444,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OSWORLD-Benchmarking-Multimodal-Agents-for-Open-Ended-Tasks-in-Real-Computer-Environments"><span class="nav-number">1.</span> <span class="nav-text">OSWORLD: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Best-Practices-and-Lessons-Learned-on-Synthetic-Data-for-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Best Practices and Lessons Learned on Synthetic Data for Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RHO-1-Not-All-Tokens-Are-What-You-Need"><span class="nav-number">3.</span> <span class="nav-text">RHO-1: Not All Tokens Are What You Need</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#osworld-benchmarking-multimodal-agents-for-open-ended-tasks-in-real-computer-environments"><span class="nav-number">1.</span> <span class="nav-text">OSWORLD: Benchmarking
+Multimodal Agents for Open-Ended Tasks in Real Computer
+Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#best-practices-and-lessons-learned-on-synthetic-data-for-language-models"><span class="nav-number">2.</span> <span class="nav-text">Best Practices and Lessons
+Learned on Synthetic Data for Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rho-1-not-all-tokens-are-what-you-need"><span class="nav-number">3.</span> <span class="nav-text">RHO-1: Not All Tokens Are
+What You Need</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -489,15 +506,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d11c986" title="2025-01-22-insights" target="_blank">2025-01-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/9e419bb" title="2025-01-20-insights" target="_blank">2025-01-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -581,12 +598,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

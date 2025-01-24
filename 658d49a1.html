@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Premise Order Matters in Reasoning with Large Language ModelsDenny Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：  If A then B. If B then C. A is True, What is C? If B then C. If A then B. A">
+  <meta name="description" content="Premise Order Matters in Reasoning with Large Language Models Denny Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：  If A then B. If B then C. A is True, What is C? If B then C. If A then B. A">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-15-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/658d49a1">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Premise Order Matters in Reasoning with Large Language ModelsDenny Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：  If A then B. If B then C. A is True, What is C? If B then C. If A then B. A">
+<meta property="og:description" content="Premise Order Matters in Reasoning with Large Language Models Denny Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：  If A then B. If B then C. A is True, What is C? If B then C. If A then B. A">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/r-gsm.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/tell-me-more.png">
@@ -313,14 +313,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Premise-Order-Matters-in-Reasoning-with-Large-Language-Models"><a href="#Premise-Order-Matters-in-Reasoning-with-Large-Language-Models" class="headerlink" title="Premise Order Matters in Reasoning with Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.08939.pdf">Premise Order Matters in Reasoning with Large Language Models</a></h2><p>Denny Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：</p>
+        <h2 id="premise-order-matters-in-reasoning-with-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.08939.pdf">Premise Order Matters in
+Reasoning with Large Language Models</a></h2>
+<p>Denny
+Zhou的论文，作者发现在推理任务中，先决条件的相对位置虽然不影响语义，但是对模型的效果影响非常大。具体来说：</p>
 <blockquote>
 <p>If A then B. If B then C. A is True, What is C?</p>
 <p>If B then C. If A then B. A is True, What is C?</p>
 </blockquote>
-<p>这两个题目是等价的，但模型就回答不出来第二个。从这个思路出发，作者做了一个R-GSM benchmark，把GSM8K题目里面的条件的相对位置改了改，发现模型效果直接崩了……</p>
+<p>这两个题目是等价的，但模型就回答不出来第二个。从这个思路出发，作者做了一个R-GSM
+benchmark，把GSM8K题目里面的条件的相对位置改了改，发现模型效果直接崩了……</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-12-02-16/r-gsm.png"></p>
-<h2 id="Tell-Me-More-Towards-Implicit-User-Intention-Understanding-of-Language-Model-Driven-Agents"><a href="#Tell-Me-More-Towards-Implicit-User-Intention-Understanding-of-Language-Model-Driven-Agents" class="headerlink" title="Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.09205.pdf">Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents</a></h2><p>推荐我们组的工作。我们发现很多情况下，一个任务做不出来，不是Agent能力不够强，而是最开始下达的任务就有问题：问题无解、问题模糊等等。在这种情况下，如何让Agent主动地去让用户表达清楚自己的需求就非常重要了。</p>
+<h2 id="tell-me-more-towards-implicit-user-intention-understanding-of-language-model-driven-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.09205.pdf">Tell Me More! Towards
+Implicit User Intention Understanding of Language Model Driven
+Agents</a></h2>
+<p>推荐我们组的工作。我们发现很多情况下，一个任务做不出来，不是Agent能力不够强，而是最开始下达的任务就有问题：问题无解、问题模糊等等。在这种情况下，如何让Agent主动地去让用户表达清楚自己的需求就非常重要了。</p>
 <p>我们在XAgent框架下进行了尝试，发现赋予Agent主动和人类交互去表达观点的能力以后，模型的能力有了一个很大地提升</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-12-02-16/tell-me-more.png"></p>
 <!-- flag of hidden posts -->
@@ -339,13 +346,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb9c1.html" rel="bookmark">2025-01-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e2d3a2b8.html" rel="bookmark">2025-01-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d11c986.html" rel="bookmark">2025-01-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9e419bb.html" rel="bookmark">2025-01-20-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +429,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Premise-Order-Matters-in-Reasoning-with-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Premise Order Matters in Reasoning with Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tell-Me-More-Towards-Implicit-User-Intention-Understanding-of-Language-Model-Driven-Agents"><span class="nav-number">2.</span> <span class="nav-text">Tell Me More! Towards Implicit User Intention Understanding of Language Model Driven Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#premise-order-matters-in-reasoning-with-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Premise Order Matters in
+Reasoning with Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tell-me-more-towards-implicit-user-intention-understanding-of-language-model-driven-agents"><span class="nav-number">2.</span> <span class="nav-text">Tell Me More! Towards
+Implicit User Intention Understanding of Language Model Driven
+Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -480,15 +490,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d11c986" title="2025-01-22-insights" target="_blank">2025-01-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/9e419bb" title="2025-01-20-insights" target="_blank">2025-01-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -572,12 +582,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">274k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:09</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>
