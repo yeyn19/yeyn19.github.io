@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天来讲讲被称为transformer &quot;后继有模&quot;的retentive network网络：速度更快、占用更少、效果更好。">
+  <meta name="description" content="今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读[粗读]-Retentive Network: A Successor to Transformer for Large Language Models">
 <meta property="og:url" content="https://www.yynnyy.cn/1c5cf63c">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天来讲讲被称为transformer &quot;后继有模&quot;的retentive network网络：速度更快、占用更少、效果更好。">
+<meta property="og:description" content="今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/retentive_network/performance.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/retentive_network/authors.png">
@@ -304,7 +304,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.9k</span>
+              <span>2.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -324,124 +324,91 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天来讲讲被称为transformer "后继有模"的retentive
-network网络：速度更快、占用更少、效果更好。</p>
+        <p>今天来讲讲被称为transformer “后继有模”的retentive network网络：速度更快、占用更少、效果更好。</p>
 <p><img src="../files/images/retentive_network/performance.png"></p>
 <span id="more"></span>
-<h2 id="introduction">Introduction</h2>
-<p>作者团队来自清华，竟然是同学</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>作者团队来自清华，竟然是同学</p>
 <p><img src="../files/images/retentive_network/authors.png"></p>
-<p>作者在这个地方主要讲到了一个"不可能三角"：性能、训练并行性、低的inference成本</p>
+<p>作者在这个地方主要讲到了一个”不可能三角”：性能、训练并行性、低的inference成本</p>
 <p><img src="../files/images/retentive_network/triangle.png" style="zoom:25%;"></p>
 <p><img src="../files/images/retentive_network/complexity.png" style="zoom:50%;"></p>
 <p>性能比较好理解。</p>
-<p>训练并行性主要分两种：数据并行和训练并行，RNN当然可以数据并行，就是开一个很大的batch
-size。主要问题RNN的下一个状态依赖于上一个状态，因此算第i个位置时，必须把前面&lt;i的位置全算完。相比之下，auto-regressive
-transformer按照causal mask的形式，只需要一次前向，就能把所有位置的hidden
-state算出来，因此比如seq_length是2048时，就要快2000倍</p>
+<p>训练并行性主要分两种：数据并行和训练并行，RNN当然可以数据并行，就是开一个很大的batch size。主要问题RNN的下一个状态依赖于上一个状态，因此算第i个位置时，必须把前面&lt;i的位置全算完。相比之下，auto-regressive transformer按照causal mask的形式，只需要一次前向，就能把所有位置的hidden state算出来，因此比如seq_length是2048时，就要快2000倍</p>
 <p>推理成本主要是针对时间说的，</p>
 <ul>
-<li>正常的transformer做矩阵运算，n-&gt;d的映射需要复杂度<span class="math inline">\(O(n^2d)\)</span>做矩阵运算,
-因此一次前向总体复杂度大概是<span class="math inline">\(n^2d+nd^2\)</span>算上multi-head
-attention的版本，平均一个token是<span class="math inline">\(O(n)\)</span></li>
-<li>而对于RNN来说，<span class="math inline">\(h_t = f(Ux_t +
-Wh_{t-1})\)</span>其中由于x和h都是一维的，因此最后的复杂度是<span class="math inline">\(O(nd^2)\)</span>就比transformer，平均一个token需要占<span class="math inline">\(O(1)\)</span></li>
+<li>正常的transformer做矩阵运算，n-&gt;d的映射需要复杂度$O(n^2d)$做矩阵运算, 因此一次前向总体复杂度大概是$n^2d+nd^2$算上multi-head attention的版本，平均一个token是$O(n)$</li>
+<li>而对于RNN来说，$h<em>t = f(Ux_t + Wh</em>{t-1})$其中由于x和h都是一维的，因此最后的复杂度是$O(nd^2)$就比transformer，平均一个token需要占$O(1)$</li>
 </ul>
-<h2 id="method">method</h2>
-<blockquote>
+<h2 id="method"><a href="#method" class="headerlink" title="method"></a>method</h2><blockquote>
 <p>这一部分默认读者对tranformer的计算方式很了解</p>
 </blockquote>
 <p>那么作者是怎么在持有transformer特性的基础上，利用起RNN的推理成本的特性呢？作者也想要用一个RNN的形式</p>
-<h3 id="retention算子">retention算子</h3>
-<p><span class="math display">\[
+<h3 id="retention算子"><a href="#retention算子" class="headerlink" title="retention算子"></a>retention算子</h3><script type="math/tex; mode=display">
 s_n = A s_{n-1} + K^T_n v_n \\
-o_n = Q_ns_n = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m)
-\]</span></p>
-<p>其中<span class="math inline">\(A \in
-\mathcal{R}^{d*d},K_n,v_n,s_n,Q_n \in
-\mathcal{R}^{1*d}\)</span>。V就是每个单词的词向量，s就相当于RNN里面的中间向量，而o就是RNN里面的输出向量。上面的下面那行是说最后总体o计算可以变换成一个累加的形式</p>
-<p>Q、K可以类比transformer里的query、key的作用，计算也是一致的 <span class="math display">\[
-Q = XW_Q, K = XW_K
-\]</span></p>
-<p>这里看起来就是一个传统的RNN，但是如果我们假设计算时使用的A矩阵可以满足
-<span class="math display">\[
-A = \Lambda (\lambda e^{i\theta}) \Lambda^{-1}
-\]</span> 另外，我们假设<span class="math inline">\(\lambda\)</span>是标量 <span class="math display">\[
+o_n = Q_ns_n = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m)</script><p>其中$A \in \mathcal{R}^{d<em>d},K_n,v_n,s_n,Q_n \in \mathcal{R}^{1</em>d}$。V就是每个单词的词向量，s就相当于RNN里面的中间向量，而o就是RNN里面的输出向量。上面的下面那行是说最后总体o计算可以变换成一个累加的形式</p>
+<p>Q、K可以类比transformer里的query、key的作用，计算也是一致的</p>
+<script type="math/tex; mode=display">
+Q = XW_Q, K = XW_K</script><p>这里看起来就是一个传统的RNN，但是如果我们假设计算时使用的A矩阵可以满足</p>
+<script type="math/tex; mode=display">
+A = \Lambda (\lambda e^{i\theta}) \Lambda^{-1}</script><p>另外，我们假设$\lambda$是标量</p>
+<script type="math/tex; mode=display">
 \begin{aligned}
-o_n &amp; = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m) \\
-&amp; = \sum_{m=1}^n (Q_n  \Lambda^{n-m} (\lambda e^{i\theta})
-\Lambda^{-(n-m)}  K_m^Tv_m) \\
-&amp; = \sum_{m=1}^n \lambda^{n-m} (Q_n e^{in\theta}) (K_m e^{im\theta})
-V_m
-\end{aligned}
-\]</span>
-这样一下这个加和的形式看起来变成了矩阵乘的形式，而且如果把<span class="math inline">\(\lambda\)</span>看做一个类似mask矩阵的东西，其实用类似transformer的大号的矩阵乘就能把所有位置都算出来，具体算法的形式类似这样</p>
+o_n & = \sum_{m=1}^n (Q_n A^{n-m}K_m^Tv_m) \\
+& = \sum_{m=1}^n (Q_n  \Lambda^{n-m} (\lambda e^{i\theta}) \Lambda^{-(n-m)}  K_m^Tv_m) \\
+& = \sum_{m=1}^n \lambda^{n-m} (Q_n e^{in\theta}) (K_m e^{im\theta}) V_m
+\end{aligned}</script><p>这样一下这个加和的形式看起来变成了矩阵乘的形式，而且如果把$\lambda$看做一个类似mask矩阵的东西，其实用类似transformer的大号的矩阵乘就能把所有位置都算出来，具体算法的形式类似这样</p>
 <p><img src="../files/images/retentive_network/algo.png" style="zoom:50%;"></p>
 <p>上面的和下面的两种算法的结果是完全相等的</p>
 <p>接下来作者讲了几个优化</p>
-<h3 id="chunk">chunk</h3>
-<p>首先是，如果seq
-length很长，上面的化简算法里的矩阵维度就太高了，想要把里面的分块计算(chunk)，之前有爆料GPT4之类的模型也大概是这个思路化简的。</p>
+<h3 id="chunk"><a href="#chunk" class="headerlink" title="chunk"></a>chunk</h3><p>首先是，如果seq length很长，上面的化简算法里的矩阵维度就太高了，想要把里面的分块计算(chunk)，之前有爆料GPT4之类的模型也大概是这个思路化简的。</p>
 <p><img src="../files/images/retentive_network/chunk.png" style="zoom:50%;"></p>
 <p>所以块内inner-chunk就是直接按上面的算法，块间需要按照RNN的形式Autoregressive计算。换句话说，这里节省占用空间，但是需要每块先后的算，算是一个权衡吧</p>
-<h3 id="multi-head">multi-head</h3>
-<p>其次，作者类比multihead attention，搞了一个multihead retention</p>
+<h3 id="multi-head"><a href="#multi-head" class="headerlink" title="multi-head"></a>multi-head</h3><p>其次，作者类比multihead attention，搞了一个multihead retention</p>
 <p><img src="../files/images/retentive_network/gate.png" style="zoom:50%;"></p>
-<p>其实本质上也是在化简矩阵维度，先分成多个head，每个head使用不同的衰减系数<span class="math inline">\(\lambda\)</span>，然后在每个head算完以后都给这个head做一个linear变换</p>
+<p>其实本质上也是在化简矩阵维度，先分成多个head，每个head使用不同的衰减系数$\lambda$，然后在每个head算完以后都给这个head做一个linear变换</p>
 <p>之所以用group_norm，是因为每个head的衰减系数不一样，也就是说绝对值会有点区别</p>
 <p><img src="../files/images/retentive_network/code.png" style="zoom:50%;"></p>
-<h3 id="retentive-network">retentive network</h3>
-<p>在retention算子说完以后，整体的网络就和transformer一致，只是attention算子变成了retention算子
-<span class="math display">\[
+<h3 id="retentive-network"><a href="#retentive-network" class="headerlink" title="retentive network"></a>retentive network</h3><p>在retention算子说完以后，整体的网络就和transformer一致，只是attention算子变成了retention算子</p>
+<script type="math/tex; mode=display">
 Y^l = MSR(LN(X^l)) + X^l \\
-X^{l+1} = FFN(LN(Y^l)) + Y^l
-\]</span> 总体而言</p>
+X^{l+1} = FFN(LN(Y^l)) + Y^l</script><p>总体而言</p>
 <ul>
-<li><p>他训练时使用矩阵化简的形式，可以一次算出来所有位置</p></li>
-<li><p>推理时使用矩阵化简前那个RNN的形式，因此推理的时间和空间复杂度都很低</p></li>
+<li><p>他训练时使用矩阵化简的形式，可以一次算出来所有位置</p>
+</li>
+<li><p>推理时使用矩阵化简前那个RNN的形式，因此推理的时间和空间复杂度都很低</p>
+</li>
 </ul>
 <blockquote>
 <p>神奇的数学</p>
 </blockquote>
-<h2 id="experiment">Experiment</h2>
-<p>实验部分很详尽，基本都是在证明RetNet性能强、速度快、占用低。</p>
+<h2 id="Experiment"><a href="#Experiment" class="headerlink" title="Experiment"></a>Experiment</h2><p>实验部分很详尽，基本都是在证明RetNet性能强、速度快、占用低。</p>
 <p><img src="../files/images/retentive_network/size.png" style="zoom:50%;"></p>
 <p>作者做了scale实验，发现RetNet的scale增长更快。感觉还挺有意思的，难道说运用了Recurrent的方式，真的能进一步增强模型的表征能力？</p>
 <p><img src="../files/images/retentive_network/inhenced.png" style="zoom:50%;"></p>
-<p>另外作者还和一些最近的改进transformer工作做了PPL对比，说明他的效果是真的好，而不是只比"香草"好</p>
+<p>另外作者还和一些最近的改进transformer工作做了PPL对比，说明他的效果是真的好，而不是只比”香草”好</p>
 <p>这些实验应该不是本篇工作主要focus的点，这里就跳过了。做的还是很好的，大家可以自己读一读原文。</p>
-<h2 id="我的思考">我的思考</h2>
-<ul>
-<li><p>其实我们可以想想，这个方法在生活第n个token时，前面所有的状态仅由一个hidden
-dim维的向量决定，用来生成下一个hidden
-state。这个学习任务比起Autoregressive
-transformer需要同时看到前面所有位置的hidden
-state信息，学习任务可以说是更简单。</p></li>
+<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
+<li><p>其实我们可以想想，这个方法在生活第n个token时，前面所有的状态仅由一个hidden dim维的向量决定，用来生成下一个hidden state。这个学习任务比起Autoregressive transformer需要同时看到前面所有位置的hidden state信息，学习任务可以说是更简单。</p>
+</li>
 <li><p>从这个角度出发，估计训练效率更高，但其实表示能力应该更弱才对。然后，传统的RNN其实都是类似这个形式，所以我其实比较好奇两个问题：</p>
 <ul>
 <li>经典的RNN结构在相同的训练量下，和RetNet比是不是效果基本相同呢？</li>
-<li>不知道后面有没有人尝试训一下30B、70B的版本？另外，这个6.7B的版本应该过的总token数是100B
-token，LLaMA
-6.7B的训练量是1.0T，差一个数量级。不知道能不能和LLaMA比，因为LLaMA也是带了各种transformer变体。我理解这种看到flatten
-former state的形式，在更难得任务上可能会撞到瓶颈</li>
-</ul></li>
+<li>不知道后面有没有人尝试训一下30B、70B的版本？另外，这个6.7B的版本应该过的总token数是100B token，LLaMA 6.7B的训练量是1.0T，差一个数量级。不知道能不能和LLaMA比，因为LLaMA也是带了各种transformer变体。我理解这种看到flatten former state的形式，在更难得任务上可能会撞到瓶颈</li>
+</ul>
+</li>
 <li><p>最后，作者没有提到两个优势</p>
 <ul>
-<li>那就是按照现在这个chunk训练、RNN推理的模式，其实是不受到最大seq
-length影响的，因此天生就能搞到巨长的最大长度</li>
+<li>那就是按照现在这个chunk训练、RNN推理的模式，其实是不受到最大seq length影响的，因此天生就能搞到巨长的最大长度</li>
 </ul>
 <blockquote>
-<p>听说Claude 2那个100k的版本就是 低层优化+硬训
-的，不知道anthropic看到这篇会不会直接出手</p>
+<p>听说Claude 2那个100k的版本就是 低层优化+硬训 的，不知道anthropic看到这篇会不会直接出手</p>
 </blockquote>
 <ul>
-<li>再就是，这套方法不需要position
-embedding，我一直觉得transformer引入各种position
-embedding变体不够优雅，这个看起来舒服多了</li>
-</ul></li>
-<li><p>最后吐槽一句，现在的论文名字真得起的大一点，昨天看到一个：copy is
-all you need，今天看到一个 a sucessor to
-transformer。还是得这样的才能显眼</p></li>
+<li>再就是，这套方法不需要position embedding，我一直觉得transformer引入各种position embedding变体不够优雅，这个看起来舒服多了</li>
+</ul>
+</li>
+<li><p>最后吐槽一句，现在的论文名字真得起的大一点，昨天看到一个：copy is all you need，今天看到一个 a sucessor to transformer。还是得这样的才能显眼</p>
+</li>
 </ul>
 
     </div>
@@ -456,7 +423,7 @@ transformer。还是得这样的才能显眼</p></li>
       <div class="popular-posts-title"><a href="/abce9d24.html" rel="bookmark">论文阅读[粗读]-Extending Context Window of Large Language Models via Position Interpolation</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
@@ -555,7 +522,7 @@ transformer。还是得这样的才能显眼</p></li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#retention%E7%AE%97%E5%AD%90"><span class="nav-number">2.1.</span> <span class="nav-text">retention算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chunk"><span class="nav-number">2.2.</span> <span class="nav-text">chunk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-head"><span class="nav-number">2.3.</span> <span class="nav-text">multi-head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#retentive-network"><span class="nav-number">2.4.</span> <span class="nav-text">retentive network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#retention%E7%AE%97%E5%AD%90"><span class="nav-number">2.1.</span> <span class="nav-text">retention算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chunk"><span class="nav-number">2.2.</span> <span class="nav-text">chunk</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#multi-head"><span class="nav-number">2.3.</span> <span class="nav-text">multi-head</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#retentive-network"><span class="nav-number">2.4.</span> <span class="nav-text">retentive network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -613,15 +580,15 @@ transformer。还是得这样的才能显眼</p></li>
       
       
         <li class="recent_posts_li">
+          <a href="/eb3802c2" title="2025-01-27-insights" target="_blank">2025-01-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d11c986" title="2025-01-22-insights" target="_blank">2025-01-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -705,12 +672,12 @@ transformer。还是得这样的才能显眼</p></li>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">277k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>

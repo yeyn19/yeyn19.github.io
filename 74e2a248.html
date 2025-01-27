@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness 推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：  输入两个response pair 先提取里面所有的陈述 对于所有的陈述转换成对应">
+  <meta name="description" content="RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：  输入两个response pair 先提取里面所有的陈述 对于所有的陈述转换成对应的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-28-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/74e2a248">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness 推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：  输入两个response pair 先提取里面所有的陈述 对于所有的陈述转换成对应">
+<meta property="og:description" content="RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：  输入两个response pair 先提取里面所有的陈述 对于所有的陈述转换成对应的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/rlaif-v.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/thread.png">
@@ -313,11 +313,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="rlaif-v-aligning-mllms-through-open-source-ai-feedback-for-super-gpt-4v-trustworthiness"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17220">RLAIF-V: Aligning MLLMs through
-Open-Source AI Feedback for Super GPT-4V Trustworthiness</a></h2>
-<p>推荐我们组的工作：方法论有点像是之前那篇LLM fact
-check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
-<ol type="1">
+        <h2 id="RLAIF-V-Aligning-MLLMs-through-Open-Source-AI-Feedback-for-Super-GPT-4V-Trustworthiness"><a href="#RLAIF-V-Aligning-MLLMs-through-Open-Source-AI-Feedback-for-Super-GPT-4V-Trustworthiness" class="headerlink" title="RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17220">RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness</a></h2><p>推荐我们组的工作：方法论有点像是之前那篇LLM fact check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
+<ol>
 <li>输入两个response pair</li>
 <li>先提取里面所有的陈述</li>
 <li>对于所有的陈述转换成对应的问题</li>
@@ -326,11 +323,7 @@ check。作者定义了一套自动对模型评分给feedback的pipeline：</p>
 </ol>
 <p>作者发现，根据这套pipeline，可以极大地进行self-training，减少模型的hallicination</p>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/rlaif-v.png"></p>
-<h2 id="thread-thinking-deeper-with-recursive-spawning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17402">THREAD: Thinking Deeper with
-Recursive Spawning</a></h2>
-<p>挺久没推reasoning领域的论文了，不过这个mit的工作看起来还挺有趣的：作者从之前tree
-of
-thought那些地方得到了灵感，很多任务在做拆解等时是可以并行的，所以作者定义了一个thread的概念，模型做出分解后，子线程就可以自己跑自己的了，直到最后拿到一个答案。然后上层线程可以汇总下层的信息做出后面的决策、或者换新的方法。</p>
+<h2 id="THREAD-Thinking-Deeper-with-Recursive-Spawning"><a href="#THREAD-Thinking-Deeper-with-Recursive-Spawning" class="headerlink" title="THREAD: Thinking Deeper with Recursive Spawning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.17402">THREAD: Thinking Deeper with Recursive Spawning</a></h2><p>挺久没推reasoning领域的论文了，不过这个mit的工作看起来还挺有趣的：作者从之前tree of thought那些地方得到了灵感，很多任务在做拆解等时是可以并行的，所以作者定义了一个thread的概念，模型做出分解后，子线程就可以自己跑自己的了，直到最后拿到一个答案。然后上层线程可以汇总下层的信息做出后面的决策、或者换新的方法。</p>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/thread.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -348,13 +341,13 @@ thought那些地方得到了灵感，很多任务在做拆解等时是可以并�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/eb3802c2.html" rel="bookmark">2025-01-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fb9c1.html" rel="bookmark">2025-01-24-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e2d3a2b8.html" rel="bookmark">2025-01-23-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d11c986.html" rel="bookmark">2025-01-22-insights</a></div>
     </li>
   </ul>
 
@@ -431,9 +424,7 @@ thought那些地方得到了灵感，很多任务在做拆解等时是可以并�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rlaif-v-aligning-mllms-through-open-source-ai-feedback-for-super-gpt-4v-trustworthiness"><span class="nav-number">1.</span> <span class="nav-text">RLAIF-V: Aligning MLLMs through
-Open-Source AI Feedback for Super GPT-4V Trustworthiness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#thread-thinking-deeper-with-recursive-spawning"><span class="nav-number">2.</span> <span class="nav-text">THREAD: Thinking Deeper with
-Recursive Spawning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RLAIF-V-Aligning-MLLMs-through-Open-Source-AI-Feedback-for-Super-GPT-4V-Trustworthiness"><span class="nav-number">1.</span> <span class="nav-text">RLAIF-V: Aligning MLLMs through Open-Source AI Feedback for Super GPT-4V Trustworthiness</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#THREAD-Thinking-Deeper-with-Recursive-Spawning"><span class="nav-number">2.</span> <span class="nav-text">THREAD: Thinking Deeper with Recursive Spawning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,15 +482,15 @@ Recursive Spawning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/eb3802c2" title="2025-01-27-insights" target="_blank">2025-01-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d11c986" title="2025-01-22-insights" target="_blank">2025-01-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -583,12 +574,12 @@ Recursive Spawning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">277k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
