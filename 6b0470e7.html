@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Randomized Autoregressive Visual Generation字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image patch打乱顺序，竟然可以提升生成的效果？  why   Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales作者发现">
+  <meta name="description" content="Randomized Autoregressive Visual Generation 字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image patch打乱顺序，竟然可以提升生成的效果？  why   Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales 作者">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-11-04-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/6b0470e7">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Randomized Autoregressive Visual Generation字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image patch打乱顺序，竟然可以提升生成的效果？  why   Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales作者发现">
+<meta property="og:description" content="Randomized Autoregressive Visual Generation 字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image patch打乱顺序，竟然可以提升生成的效果？  why   Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales 作者">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-04-11-08/rar.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-04-11-08/double-correct.png">
@@ -315,32 +315,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Randomized-Autoregressive-Visual-Generation"><a href="#Randomized-Autoregressive-Visual-Generation" class="headerlink" title="Randomized Autoregressive Visual Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00776">Randomized Autoregressive Visual Generation</a></h2><p>字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image patch打乱顺序，竟然可以提升生成的效果？</p>
+        <h2 id="randomized-autoregressive-visual-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00776">Randomized Autoregressive Visual
+Generation</a></h2>
+<p>字节的工作，作者发现，在auto-regressive生成过程中，简单地做一下数据增强，把不同的image
+patch打乱顺序，竟然可以提升生成的效果？</p>
 <blockquote>
 <p>why</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/rar.png"></p>
-<h2 id="Beyond-Accuracy-Ensuring-Correct-Predictions-With-Correct-Rationales"><a href="#Beyond-Accuracy-Ensuring-Correct-Predictions-With-Correct-Rationales" class="headerlink" title="Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00132">Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales</a></h2><p>作者发现，已有的工作基本只会把CoT中的结果做评价，而不关注rational的正确性。作者提了一个概念叫做double-correct。即过程和结果都正确。作者构造了一个数据集，可以自动化地给出正确的mutl-hop rational，由此训了个模型。</p>
+<h2 id="beyond-accuracy-ensuring-correct-predictions-with-correct-rationales"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00132">Beyond Accuracy: Ensuring
+Correct Predictions With Correct Rationales</a></h2>
+<p>作者发现，已有的工作基本只会把CoT中的结果做评价，而不关注rational的正确性。作者提了一个概念叫做double-correct。即过程和结果都正确。作者构造了一个数据集，可以自动化地给出正确的mutl-hop
+rational，由此训了个模型。</p>
 <blockquote>
-<p>感觉这个观点和openAI那个”don’t supervise thought”有点冲突，不知道哪边更有道理……</p>
+<p>感觉这个观点和openAI那个"don't supervise
+thought"有点冲突，不知道哪边更有道理……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/double-correct.png" style="zoom:33%;"></p>
-<h2 id="Right-this-way-Can-VLMs-Guide-Us-to-See-More-to-Answer-Questions"><a href="#Right-this-way-Can-VLMs-Guide-Us-to-See-More-to-Answer-Questions" class="headerlink" title="Right this way: Can VLMs Guide Us to See More to Answer Questions?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00394"><em>Right</em> this way: Can VLMs Guide Us to See More to Answer Questions?</a></h2><p>一篇挺好玩的小品工作：作者考虑到，在vlm中，模型能不能在信息不够的情况下主动对人的照片提出一些建议，进而更好的获取信息。作者设计了一套pipeline，发现训练的模型确实效果不错</p>
+<h2 id="right-this-way-can-vlms-guide-us-to-see-more-to-answer-questions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00394"><em>Right</em> this way: Can
+VLMs Guide Us to See More to Answer Questions?</a></h2>
+<p>一篇挺好玩的小品工作：作者考虑到，在vlm中，模型能不能在信息不够的情况下主动对人的照片提出一些建议，进而更好的获取信息。作者设计了一套pipeline，发现训练的模型确实效果不错</p>
 <p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/see-more.png"></p>
-<h2 id="GameGen-X-Interactive-Open-world-Game-Video-Generation"><a href="#GameGen-X-Interactive-Open-world-Game-Video-Generation" class="headerlink" title="GameGen-X: Interactive Open-world Game Video Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00769"><strong>GameGen-X: Interactive Open-world Game Video Generation</strong></a></h2><p>前两天有个生成Minecraft游戏的初创公司，今天挂出来一篇一样的。作者找了150个游戏的视频，用4o标了caption，训了一个模型可以玩”假游戏”。</p>
+<h2 id="gamegen-x-interactive-open-world-game-video-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00769"><strong>GameGen-X: Interactive
+Open-world Game Video Generation</strong></a></h2>
+<p>前两天有个生成Minecraft游戏的初创公司，今天挂出来一篇一样的。作者找了150个游戏的视频，用4o标了caption，训了一个模型可以玩"假游戏"。</p>
 <blockquote>
 <p>感觉GameGen真是个好方向啊，感觉有点变成scaling的比拼了</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/gamegen-x.png"></p>
-<h2 id="GPT-for-Games-An-Updated-Scoping-Review-2020-2024"><a href="#GPT-for-Games-An-Updated-Scoping-Review-2020-2024" class="headerlink" title="GPT for Games: An Updated Scoping Review (2020-2024)"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00308">GPT for Games: An Updated Scoping Review (2020-2024)</a></h2><p>一篇综述文章，瞄准了AI+Game，作者调研了已有的GPT game的工作，发现大致分为以下几种：</p>
-<ol>
+<h2 id="gpt-for-games-an-updated-scoping-review-2020-2024"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.00308">GPT for Games: An Updated
+Scoping Review (2020-2024)</a></h2>
+<p>一篇综述文章，瞄准了AI+Game，作者调研了已有的GPT
+game的工作，发现大致分为以下几种：</p>
+<ol type="1">
 <li>辅助游戏内容生成</li>
 <li>参与游戏设计</li>
 <li>GPT玩游戏</li>
 <li>GPT模拟用户画像，帮助更好地迭代游戏</li>
 </ol>
 <blockquote>
-<p>感觉还挺好玩的……claude computer use出来以后，有没有来一波claude玩游戏的</p>
+<p>感觉还挺好玩的……claude computer
+use出来以后，有没有来一波claude玩游戏的</p>
 </blockquote>
 <!-- flag of hidden posts -->
     </div>
@@ -358,13 +373,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f5f13271.html" rel="bookmark">2025-01-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1a33594f.html" rel="bookmark">2025-01-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/eb3802c2.html" rel="bookmark">2025-01-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fb9c1.html" rel="bookmark">2025-01-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2d3a2b8.html" rel="bookmark">2025-01-23-insights</a></div>
     </li>
   </ul>
 
@@ -441,7 +456,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Randomized-Autoregressive-Visual-Generation"><span class="nav-number">1.</span> <span class="nav-text">Randomized Autoregressive Visual Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Accuracy-Ensuring-Correct-Predictions-With-Correct-Rationales"><span class="nav-number">2.</span> <span class="nav-text">Beyond Accuracy: Ensuring Correct Predictions With Correct Rationales</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Right-this-way-Can-VLMs-Guide-Us-to-See-More-to-Answer-Questions"><span class="nav-number">3.</span> <span class="nav-text">Right this way: Can VLMs Guide Us to See More to Answer Questions?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GameGen-X-Interactive-Open-world-Game-Video-Generation"><span class="nav-number">4.</span> <span class="nav-text">GameGen-X: Interactive Open-world Game Video Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-for-Games-An-Updated-Scoping-Review-2020-2024"><span class="nav-number">5.</span> <span class="nav-text">GPT for Games: An Updated Scoping Review (2020-2024)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#randomized-autoregressive-visual-generation"><span class="nav-number">1.</span> <span class="nav-text">Randomized Autoregressive Visual
+Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-accuracy-ensuring-correct-predictions-with-correct-rationales"><span class="nav-number">2.</span> <span class="nav-text">Beyond Accuracy: Ensuring
+Correct Predictions With Correct Rationales</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#right-this-way-can-vlms-guide-us-to-see-more-to-answer-questions"><span class="nav-number">3.</span> <span class="nav-text">Right this way: Can
+VLMs Guide Us to See More to Answer Questions?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gamegen-x-interactive-open-world-game-video-generation"><span class="nav-number">4.</span> <span class="nav-text">GameGen-X: Interactive
+Open-world Game Video Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-for-games-an-updated-scoping-review-2020-2024"><span class="nav-number">5.</span> <span class="nav-text">GPT for Games: An Updated
+Scoping Review (2020-2024)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,7 +476,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -499,15 +519,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f5f13271" title="2025-01-29-insights" target="_blank">2025-01-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/1a33594f" title="2025-01-28-insights" target="_blank">2025-01-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/eb3802c2" title="2025-01-27-insights" target="_blank">2025-01-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/fb9c1" title="2025-01-24-insights" target="_blank">2025-01-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2d3a2b8" title="2025-01-23-insights" target="_blank">2025-01-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -532,10 +556,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -591,12 +611,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">277k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
 <i class="fa fa-user-md"></i>
