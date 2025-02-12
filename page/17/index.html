@@ -219,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/6c02904f">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/68247c98">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -233,7 +233,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/6c02904f" class="post-title-link" itemprop="url">2023-09-29总结</a>
+            <a href="/68247c98" class="post-title-link" itemprop="url">论文阅读[精读]-Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics</a>
         </h2>
 
         <div class="post-meta">
@@ -243,7 +243,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-09-29 19:06:44" itemprop="dateCreated datePublished" datetime="2023-09-29T19:06:44+08:00">2023-09-29</time>
+              <time title="创建时间：2023-11-28 15:34:13" itemprop="dateCreated datePublished" datetime="2023-11-28T15:34:13+08:00">2023-11-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
@@ -258,12 +258,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+                  <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
                 </span>
             </span>
 
           
-            <span id="/6c02904f" class="post-meta-item leancloud_visitors" data-flag-title="2023-09-29总结" title="阅读次数">
+            <span id="/68247c98" class="post-meta-item leancloud_visitors" data-flag-title="论文阅读[精读]-Dataset Cartography: Mapping and Diagnosing Datasets with Training Dynamics" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +278,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/6c02904f#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/6c02904f" itemprop="commentCount"></span>
+    <a title="valine" href="/68247c98#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/68247c98" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,14 +289,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>408</span>
+              <span>4.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
 
@@ -309,17 +309,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>今天第一次尝试将Arxiv最新论文同步到博客。</p>
-<p>扫描Arxiv的工作现在基本每天都做，最开始可能还要追溯到两年多前。曾经用过各种各样的方式完成这件事：</p>
-<ul>
-<li>最开始是超哥带着大家每天扫描，每人按日期做分工</li>
-<li>后面一段时间我自己每天刷一刷</li>
-<li>后来形成习惯了，要写一个飞书文档同步进去，后来觉得太麻烦，最后就不了了之了</li>
-</ul>
-<p>从今天开始，试着每天把新扫描到的有趣的论文更新到博客，看看大家的反应如何。可能一个良性的循环是：一方面有人反馈我有遗漏，或者推荐哪篇论文，我就可以仔细看看，或者写一些阅读笔记。</p>
+        <div>
+            <img src="/../../files/images/Dataset-Cartography/intro.png" itemprop="contentUrl">
+        </div>
+          <p>读得论文多了，写的笔记反而更少了……很多篇论文都想写，最后哪个都没写出来。今天来讲讲yejin Choi 2020年的一个论文：如何用模型自己在训练过程中的表现作为自监督信号，衡量训练集中每一条数据的质量？</p>
+<blockquote>
+<p>很难想象这是yejin choi三年前思考的问题，我直到最近读到这篇论文，还觉得思路很新颖、很精妙</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/6c02904f#more" rel="contents">
+              <a class="btn" href="/68247c98#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -346,7 +345,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/133/">133</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/16/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/16/">16</a><span class="page-number current">17</span><a class="page-number" href="/page/18/">18</a><span class="space">&hellip;</span><a class="page-number" href="/page/136/">136</a><a class="extend next" rel="next" href="/page/18/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -417,7 +416,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -460,6 +459,18 @@
       
       
         <li class="recent_posts_li">
+          <a href="/2939c349" title="2025-02-12-insights" target="_blank">2025-02-12-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e15cbcf3" title="2025-02-06-insights" target="_blank">2025-02-06-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/77577b7" title="2025-02-03-insights" target="_blank">2025-02-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c86ac67b" title="2025-01-30-insights" target="_blank">2025-01-30-insights</a>
         </li>
       
@@ -485,18 +496,6 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -552,12 +551,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
@@ -782,6 +781,61 @@ if (document.querySelectorAll('pre.mermaid').length) {
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
