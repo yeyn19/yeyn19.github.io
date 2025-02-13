@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>786</span>
+              <span>776</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,26 +314,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</a></h2>
-<p>这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
+        <h2 id="mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of
+Large Language Models via Knowledge Consistent Alignment</a></h2>
+<p>这是之前self-knowledge research
+line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
 <p>作者想到了一个专门为模型定制数据的pipeline：</p>
 <ul>
 <li>先让turbo针对query生成知识点</li>
 <li>对于每个知识点，让turbo生成自己的理解passage</li>
 <li>让turbo根据上面的passage提问题</li>
-<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成&quot;sorry message&quot;之类的不同形式</li>
+<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成"sorry
+message"之类的不同形式</li>
 </ul>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/kca.png">
-<h2 id="Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/kca.png"></p>
+<h2 id="escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost:
+Early-stopping Self-Consistency for Multi-step Reasoning</a></h2>
 <p>作者认为经典的self-consistency方法(CoT多次，选一个一致性最高的答案)的成本太高，有一个直觉：如果生成了一部分样本，发现已经一致性很高了，是不是就可以early-stopping呢？</p>
 <p>作者开发了一套in-batch的self-consistency，如果一个batch内sample的数据已经一致了，就早停。在下游任务上表现不错</p>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/esc.png">
-<h2 id="MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</a></h2>
-<p>解码加速research line，作者认为传统的投机推理需要额外的draft model。作者的想法是能不能让一个模型有多个decoding head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/esc.png"></p>
+<h2 id="medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference
+Acceleration Framework with Multiple Decoding Heads</a></h2>
+<p>解码加速research line，作者认为传统的投机推理需要额外的draft
+model。作者的想法是能不能让一个模型有多个decoding
+head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
 <blockquote>
 <p>我没完全看懂，不过看起来是很有创新的工作</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/medusa.png">
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/medusa.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -350,13 +357,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c6fba877.html" rel="bookmark">2025-02-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e9ed7cd.html" rel="bookmark">2025-02-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2939c349.html" rel="bookmark">2025-02-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e15cbcf3.html" rel="bookmark">2025-02-06-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/77577b7.html" rel="bookmark">2025-02-03-insights</a></div>
     </li>
   </ul>
 
@@ -433,7 +440,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of
+Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost:
+Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference
+Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,7 +458,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,27 +501,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c6fba877" title="2025-02-13-insights" target="_blank">2025-02-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9ed7cd" title="2025-02-07-insights" target="_blank">2025-02-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2939c349" title="2025-02-12-insights" target="_blank">2025-02-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/e15cbcf3" title="2025-02-06-insights" target="_blank">2025-02-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/77577b7" title="2025-02-03-insights" target="_blank">2025-02-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c86ac67b" title="2025-01-30-insights" target="_blank">2025-01-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f5f13271" title="2025-01-29-insights" target="_blank">2025-01-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1a33594f" title="2025-01-28-insights" target="_blank">2025-01-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -528,6 +530,14 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -583,12 +593,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <i class="fa fa-user-md"></i>

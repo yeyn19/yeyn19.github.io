@@ -316,28 +316,42 @@
 
       
         <p>这周虽然周二，但论文却不是很多，感觉准备憋个大的</p>
-<h2 id="Phi-3-Technical-Report-A-Highly-Capable-Language-Model-Locally-on-Your-Phone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14219.pdf">Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone</a></h2>
-<p>刷榜第一人phi-3来了。3B模型，训了3T Token，由于高质量数据和合成数据，效果接近Mixtral 8x7B。另外作者还尝试了更大号的，发现效果更好</p>
+<h2 id="phi-3-technical-report-a-highly-capable-language-model-locally-on-your-phone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14219.pdf">Phi-3 Technical Report: A
+Highly Capable Language Model Locally on Your Phone</a></h2>
+<p>刷榜第一人phi-3来了。3B模型，训了3T
+Token，由于高质量数据和合成数据，效果接近Mixtral
+8x7B。另外作者还尝试了更大号的，发现效果更好</p>
 <blockquote>
 <p>我一直感觉phi团队是不是在往外抖落OpenAI机密……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-22-04-26/phi-3.png">
-<h2 id="Self-Supervised-Alignment-with-Mutual-Information-Learning-to-Follow-Principles-without-Preference-Labels"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14313.pdf">Self-Supervised Alignment with Mutual Information Learning to Follow Principles without Preference Labels</a></h2>
-<p>Goodman的论文，是RLHF领域的，最近挺少推这个方向的论文了。不过这篇思路挺有意思的。思路有点像之前港大的一篇self evolve的工作：输入一个query以后，先让模型生成这个query的一些可能要求作为constitution，以及生成一个response。然后让模型测试这个response是否满足要求。$P(response|query, constitution)$作为feedback，由此来对齐模型</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-22-04-26/phi-3.png"></p>
+<h2 id="self-supervised-alignment-with-mutual-information-learning-to-follow-principles-without-preference-labels"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14313.pdf">Self-Supervised Alignment
+with Mutual Information Learning to Follow Principles without Preference
+Labels</a></h2>
+<p>Goodman的论文，是RLHF领域的，最近挺少推这个方向的论文了。不过这篇思路挺有意思的。思路有点像之前港大的一篇self
+evolve的工作：输入一个query以后，先让模型生成这个query的一些可能要求作为constitution，以及生成一个response。然后让模型测试这个response是否满足要求。<span class="math inline">\(P(response|query,
+constitution)\)</span>作为feedback，由此来对齐模型</p>
 <blockquote>
-<p>这个事情和LeCun之前那个model as both rewarder/generator有点像。其实是把model-as-rewarder的能力蒸馏到model-as-generator里面了？</p>
+<p>这个事情和LeCun之前那个model as both
+rewarder/generator有点像。其实是把model-as-rewarder的能力蒸馏到model-as-generator里面了？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-22-04-26/constitutions.png">
-<h2 id="Better-Synthetic-Data-by-Retrieving-and-Transforming-Existing-Datasets"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14361.pdf">Better Synthetic Data by Retrieving and Transforming Existing Datasets</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-04-22-04-26/constitutions.png"></p>
+<h2 id="better-synthetic-data-by-retrieving-and-transforming-existing-datasets"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.14361.pdf">Better Synthetic Data by
+Retrieving and Transforming Existing Datasets</a></h2>
 <p>牛逼哥的新作，他是经典作者少。作者发现，目前的研究主要是数据瓶颈，大家都使用合成数据，但是合成出来的数据往往质量低、diversity、复杂度不够。所以，另一个路线是把已有数据做转化。作者想到：能不能根据我想要的数据格式自动转换数据呢？</p>
-<p>作者设计了retrieve的框架，根据target task从一大堆已有的SFT数据里自动寻找最像的instance，然后转化对应的数据到target task format。发现这张做出来的合成数据质量就会很高</p>
+<p>作者设计了retrieve的框架，根据target
+task从一大堆已有的SFT数据里自动寻找最像的instance，然后转化对应的数据到target
+task format。发现这张做出来的合成数据质量就会很高</p>
 <blockquote>
 <p>很聪明的想法</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-22-04-26/synthetic.png">
-<h2 id="Mixture-of-Lora-Experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.13628.pdf">Mixture of Lora Experts</a></h2>
-<p>猜猜是谁起的名字，起名仙人好像就那么几位……我不太懂lora这个领域，我理解作者的意思是，训练时搞出来多个不同的moe lora，然后测试时可以根据router的结果动态的把几个lora的权重缝合在一起变成一个ensembled lora再跑前向，这样计算量不会增加多少，但是效果不错。</p>
-<img src="../../files/images/arxiv-insights/2024-04-22-04-26/mol.png" style="zoom:50%;">
+<p><img src="../../files/images/arxiv-insights/2024-04-22-04-26/synthetic.png"></p>
+<h2 id="mixture-of-lora-experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.13628.pdf">Mixture of Lora
+Experts</a></h2>
+<p>猜猜是谁起的名字，起名仙人好像就那么几位……我不太懂lora这个领域，我理解作者的意思是，训练时搞出来多个不同的moe
+lora，然后测试时可以根据router的结果动态的把几个lora的权重缝合在一起变成一个ensembled
+lora再跑前向，这样计算量不会增加多少，但是效果不错。</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-22-04-26/mol.png" style="zoom:50%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -354,13 +368,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c6fba877.html" rel="bookmark">2025-02-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e9ed7cd.html" rel="bookmark">2025-02-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2939c349.html" rel="bookmark">2025-02-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e15cbcf3.html" rel="bookmark">2025-02-06-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/77577b7.html" rel="bookmark">2025-02-03-insights</a></div>
     </li>
   </ul>
 
@@ -437,7 +451,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Phi-3-Technical-Report-A-Highly-Capable-Language-Model-Locally-on-Your-Phone"><span class="nav-number">1.</span> <span class="nav-text">Phi-3 Technical Report: A Highly Capable Language Model Locally on Your Phone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-Supervised-Alignment-with-Mutual-Information-Learning-to-Follow-Principles-without-Preference-Labels"><span class="nav-number">2.</span> <span class="nav-text">Self-Supervised Alignment with Mutual Information Learning to Follow Principles without Preference Labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Better-Synthetic-Data-by-Retrieving-and-Transforming-Existing-Datasets"><span class="nav-number">3.</span> <span class="nav-text">Better Synthetic Data by Retrieving and Transforming Existing Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixture-of-Lora-Experts"><span class="nav-number">4.</span> <span class="nav-text">Mixture of Lora Experts</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#phi-3-technical-report-a-highly-capable-language-model-locally-on-your-phone"><span class="nav-number">1.</span> <span class="nav-text">Phi-3 Technical Report: A
+Highly Capable Language Model Locally on Your Phone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-supervised-alignment-with-mutual-information-learning-to-follow-principles-without-preference-labels"><span class="nav-number">2.</span> <span class="nav-text">Self-Supervised Alignment
+with Mutual Information Learning to Follow Principles without Preference
+Labels</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#better-synthetic-data-by-retrieving-and-transforming-existing-datasets"><span class="nav-number">3.</span> <span class="nav-text">Better Synthetic Data by
+Retrieving and Transforming Existing Datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mixture-of-lora-experts"><span class="nav-number">4.</span> <span class="nav-text">Mixture of Lora
+Experts</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -452,7 +471,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -495,27 +514,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c6fba877" title="2025-02-13-insights" target="_blank">2025-02-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9ed7cd" title="2025-02-07-insights" target="_blank">2025-02-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2939c349" title="2025-02-12-insights" target="_blank">2025-02-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/e15cbcf3" title="2025-02-06-insights" target="_blank">2025-02-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/77577b7" title="2025-02-03-insights" target="_blank">2025-02-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c86ac67b" title="2025-01-30-insights" target="_blank">2025-01-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f5f13271" title="2025-01-29-insights" target="_blank">2025-01-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1a33594f" title="2025-01-28-insights" target="_blank">2025-01-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -532,6 +543,14 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -587,12 +606,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <i class="fa fa-user-md"></i>
