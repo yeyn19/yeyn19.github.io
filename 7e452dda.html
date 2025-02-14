@@ -313,27 +313,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="time-is-encoded-in-the-weights-of-finetuned-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.13401.pdf">Time is Encoded in the
-Weights of Finetuned Language Models</a></h2>
-<p>Noah A. Smith的论文，很好玩。最近有一个research
-line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：</p>
+        <h2 id="Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.13401.pdf">Time is Encoded in the Weights of Finetuned Language Models</a></h2>
+<p>Noah A. Smith的论文，很好玩。最近有一个research line一直在研究LLM能不能认知到时间。作者用类似word-embedding的model-Oriented方式做这件事情，方法很直观：</p>
 <ul>
 <li>首先收集一段时间内的所有数据，形成一个数据集</li>
-<li>然后finetune模型，减去预训练权重，获得一个差值作为time
-embedding</li>
+<li>然后finetune模型，减去预训练权重，获得一个差值作为time embedding</li>
 <li>每个时间段都能得到这些time embedding</li>
 </ul>
 <p>作者研究，这些权重是不是线性可加的，效果好不好？发现这个直观的方法效果竟然还不错</p>
 <blockquote>
 <p>这种用预训练数据集自己的归纳偏置的方式似乎还能训练一大堆其他的vector？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png"></p>
-<h2 id="the-truth-is-in-there-improving-reasoning-in-language-models-with-layer-selective-rank-reduction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.13558.pdf">The Truth is in There:
-Improving Reasoning in Language Models with Layer-Selective Rank
-Reduction</a></h2>
-<p>microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain
-model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？</p>
-<p><img src="../../files/images/arxiv-insights/2023-12-18-12-22/laser.png"></p>
+<img src="../../files/images/arxiv-insights/2023-12-18-12-22/time-embedding.png">
+<h2 id="The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.13558.pdf">The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction</a></h2>
+<p>microsoft的研究，这个更怪。作者说，目前的研究主要希望增加模型参数、增加训练数据多少来提升模型(推理)能力。作者发现一个反直觉的现象，把pretrain model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好？</p>
+<img src="../../files/images/arxiv-insights/2023-12-18-12-22/laser.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -350,13 +344,13 @@ model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2427b30e.html" rel="bookmark">2025-02-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c6fba877.html" rel="bookmark">2025-02-13-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e9ed7cd.html" rel="bookmark">2025-02-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2939c349.html" rel="bookmark">2025-02-12-insights</a></div>
     </li>
   </ul>
 
@@ -433,10 +427,7 @@ model拿过来，在一些Attention层把矩阵分解一波，效果竟然更好
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#time-is-encoded-in-the-weights-of-finetuned-language-models"><span class="nav-number">1.</span> <span class="nav-text">Time is Encoded in the
-Weights of Finetuned Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-truth-is-in-there-improving-reasoning-in-language-models-with-layer-selective-rank-reduction"><span class="nav-number">2.</span> <span class="nav-text">The Truth is in There:
-Improving Reasoning in Language Models with Layer-Selective Rank
-Reduction</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Time-is-Encoded-in-the-Weights-of-Finetuned-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Time is Encoded in the Weights of Finetuned Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Truth-is-in-There-Improving-Reasoning-in-Language-Models-with-Layer-Selective-Rank-Reduction"><span class="nav-number">2.</span> <span class="nav-text">The Truth is in There: Improving Reasoning in Language Models with Layer-Selective Rank Reduction</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +442,7 @@ Reduction</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -494,6 +485,10 @@ Reduction</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/2427b30e" title="2025-02-14-insights" target="_blank">2025-02-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c6fba877" title="2025-02-13-insights" target="_blank">2025-02-13-insights</a>
         </li>
       
@@ -527,10 +522,6 @@ Reduction</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>

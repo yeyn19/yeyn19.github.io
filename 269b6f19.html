@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>992</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,42 +315,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="investigating-memorization-in-video-diffusion-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21669"><strong>Investigating
-Memorization in Video Diffusion Models</strong></a></h2>
-<p>Text2video
-model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/video-mem.png"></p>
-<h2 id="mmdocbench-benchmarking-large-vision-language-models-for-fine-grained-visual-document-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21311"><strong>MMDocBench: Benchmarking
-Large Vision-Language Models for Fine-Grained Visual Document
-Understanding</strong></a></h2>
-<p>作者提了一个点：目前的doc
-qa基本上都是high-level的，关注整个页面、或者一大段文字的内容。没有benchmark去关注页面很局部的信息，作者由此搞了个fine-grained
-doc qa，基本都是信息在页面里很小很不起眼。</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/mmdoc.png"></p>
-<h2 id="mind-your-step-by-step-chain-of-thought-can-reduce-performance-on-tasks-where-thinking-makes-humans-worse"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21333"><strong>Mind Your Step (by
-Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking
-Makes Humans Worse</strong></a></h2>
-<p>之前有个方向叫inverse scaling
-law：找到一些参数更大的模型反而表现更差的任务。作者搞了个inverse的CoT版本：找到用了CoT反而效果更差的任务。作者更近一步，先去找对人来说“用了CoT反而效果更差的任务”，再去看模型表现和人是否是一致的。核心发现是：</p>
-<ol type="1">
+        <h2 id="Investigating-Memorization-in-Video-Diffusion-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21669"><strong>Investigating Memorization in Video Diffusion Models</strong></a></h2>
+<p>Text2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/video-mem.png">
+<h2 id="MMDocBench-Benchmarking-Large-Vision-Language-Models-for-Fine-Grained-Visual-Document-Understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21311"><strong>MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding</strong></a></h2>
+<p>作者提了一个点：目前的doc qa基本上都是high-level的，关注整个页面、或者一大段文字的内容。没有benchmark去关注页面很局部的信息，作者由此搞了个fine-grained doc qa，基本都是信息在页面里很小很不起眼。</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/mmdoc.png">
+<h2 id="Mind-Your-Step-by-Step-Chain-of-Thought-can-Reduce-Performance-on-Tasks-where-Thinking-Makes-Humans-Worse"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21333"><strong>Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse</strong></a></h2>
+<p>之前有个方向叫inverse scaling law：找到一些参数更大的模型反而表现更差的任务。作者搞了个inverse的CoT版本：找到用了CoT反而效果更差的任务。作者更近一步，先去找对人来说“用了CoT反而效果更差的任务”，再去看模型表现和人是否是一致的。核心发现是：</p>
+<ol>
 <li>能找到不少这样的任务，让o1比4o掉35%</li>
 <li>模型和人的表现不完全一致，但大体是类似的。</li>
 </ol>
 <blockquote>
-<p>还挺好玩的……以后来个"Inverse CoT scaling-law can be U-shaped"
-[doge]</p>
+<p>还挺好玩的……以后来个&quot;Inverse CoT scaling-law can be U-shaped&quot; [doge]</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/inverse_cot.png"></p>
-<h2 id="deploying-ten-thousand-robots-scalable-imitation-learning-for-lifelong-multi-agent-path-finding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21415">Deploying Ten Thousand Robots:
-Scalable Imitation Learning for Lifelong Multi-Agent Path
-Finding</a></h2>
-<p>一篇比较传统AI的工作：作者研究了MAPF问题，如何同时规划多个agent的路径，使得互相不会卡位置死锁，同时移动很高效。作者探索的是life
-long场景，也就是说位置要求会发生多次。在这个领域中，非AI的search
-方法跑得很慢，但是效果比AI方法好。作者试图把search方法的trace作为数据，蒸馏到AI里，发现还真可以。不过，前提是scale，之前也有类似的工作，但scale的不够好</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/inverse_cot.png">
+<h2 id="Deploying-Ten-Thousand-Robots-Scalable-Imitation-Learning-for-Lifelong-Multi-Agent-Path-Finding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21415">Deploying Ten Thousand Robots: Scalable Imitation Learning for Lifelong Multi-Agent Path Finding</a></h2>
+<p>一篇比较传统AI的工作：作者研究了MAPF问题，如何同时规划多个agent的路径，使得互相不会卡位置死锁，同时移动很高效。作者探索的是life long场景，也就是说位置要求会发生多次。在这个领域中，非AI的search 方法跑得很慢，但是效果比AI方法好。作者试图把search方法的trace作为数据，蒸馏到AI里，发现还真可以。不过，前提是scale，之前也有类似的工作，但scale的不够好</p>
 <blockquote>
 <p>话说这套方法论还挺好玩的，挺有AAAI风格的</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/lmapf.png"></p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/lmapf.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -367,13 +353,13 @@ long场景，也就是说位置要求会发生多次。在这个领域中，非A
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2427b30e.html" rel="bookmark">2025-02-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c6fba877.html" rel="bookmark">2025-02-13-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e9ed7cd.html" rel="bookmark">2025-02-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2939c349.html" rel="bookmark">2025-02-12-insights</a></div>
     </li>
   </ul>
 
@@ -450,14 +436,7 @@ long场景，也就是说位置要求会发生多次。在这个领域中，非A
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#investigating-memorization-in-video-diffusion-models"><span class="nav-number">1.</span> <span class="nav-text">Investigating
-Memorization in Video Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmdocbench-benchmarking-large-vision-language-models-for-fine-grained-visual-document-understanding"><span class="nav-number">2.</span> <span class="nav-text">MMDocBench: Benchmarking
-Large Vision-Language Models for Fine-Grained Visual Document
-Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mind-your-step-by-step-chain-of-thought-can-reduce-performance-on-tasks-where-thinking-makes-humans-worse"><span class="nav-number">3.</span> <span class="nav-text">Mind Your Step (by
-Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking
-Makes Humans Worse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploying-ten-thousand-robots-scalable-imitation-learning-for-lifelong-multi-agent-path-finding"><span class="nav-number">4.</span> <span class="nav-text">Deploying Ten Thousand Robots:
-Scalable Imitation Learning for Lifelong Multi-Agent Path
-Finding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigating-Memorization-in-Video-Diffusion-Models"><span class="nav-number">1.</span> <span class="nav-text">Investigating Memorization in Video Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMDocBench-Benchmarking-Large-Vision-Language-Models-for-Fine-Grained-Visual-Document-Understanding"><span class="nav-number">2.</span> <span class="nav-text">MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mind-Your-Step-by-Step-Chain-of-Thought-can-Reduce-Performance-on-Tasks-where-Thinking-Makes-Humans-Worse"><span class="nav-number">3.</span> <span class="nav-text">Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploying-Ten-Thousand-Robots-Scalable-Imitation-Learning-for-Lifelong-Multi-Agent-Path-Finding"><span class="nav-number">4.</span> <span class="nav-text">Deploying Ten Thousand Robots: Scalable Imitation Learning for Lifelong Multi-Agent Path Finding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -472,7 +451,7 @@ Finding</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -515,6 +494,10 @@ Finding</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/2427b30e" title="2025-02-14-insights" target="_blank">2025-02-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c6fba877" title="2025-02-13-insights" target="_blank">2025-02-13-insights</a>
         </li>
       
@@ -548,10 +531,6 @@ Finding</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
