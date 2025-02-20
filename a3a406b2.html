@@ -318,106 +318,127 @@
         <div>
             <img src="/../../files/images/LLaMA2/GAtt.png" itemprop="contentUrl">
         </div>
-        <p>语言模型的RLHF(PPO)的基本流程的算法我们在 <a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">强化学习和RLHF中的PPO算法</a> 中介绍过了，主要分为三个阶段，下面我们来讲讲Llama 2分别做了哪些创新吧</p>
+        <p>语言模型的RLHF(PPO)的基本流程的算法我们在 <a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">强化学习和RLHF中的PPO算法</a>
+中介绍过了，主要分为三个阶段，下面我们来讲讲Llama
+2分别做了哪些创新吧</p>
 <span id="more"></span>
-<h2 id="SFT">SFT</h2>
+<h2 id="sft">SFT</h2>
 <h3 id="data-and-train">data and train</h3>
-<p>首先，作者和之前的论文保持一致，认为SFT的训练数据数量不是问题，关键是质量。然而，作者还是收集了27650条instruction tuning的数据，emmm，这好像是我见过的最多的。</p>
-<p>作者在180条数据上做了仔细检查，比对了human的结果和SFT model生成的结果，发现大致在一个水平。</p>
+<p>首先，作者和之前的论文保持一致，认为SFT的训练数据数量不是问题，关键是质量。然而，作者还是收集了27650条instruction
+tuning的数据，emmm，这好像是我见过的最多的。</p>
+<p>作者在180条数据上做了仔细检查，比对了human的结果和SFT
+model生成的结果，发现大致在一个水平。</p>
 <blockquote>
-<p>训练方式就是传统的crossentropy，然后作者只在assistant message上计算梯度</p>
+<p>训练方式就是传统的crossentropy，然后作者只在assistant
+message上计算梯度</p>
 </blockquote>
 <h2 id="reward-model-training">reward model training</h2>
 <p>首先作者需要human paired data。标注了大概100万条数据</p>
-<p>标注过程和后面的过程是绑定的，就是先标注一波，然后做RLHF。下一波标注的时候pair data来自新模型。主要是因为human标注需要时间，以及更高效地利用数据</p>
+<p>标注过程和后面的过程是绑定的，就是先标注一波，然后做RLHF。下一波标注的时候pair
+data来自新模型。主要是因为human标注需要时间，以及更高效地利用数据</p>
 <p>另外，作者为了让human永远有选项选，提供了四种偏序关系可以选择。</p>
-<img src="../files/images/LLaMA2/margin.png" style="zoom:50%;">
+<p><img src="../files/images/LLaMA2/margin.png" style="zoom:50%;"></p>
 <h3 id="margin">margin</h3>
-<p>接下来，在训练RewardModel时，作者利用起了之前human标注的多种偏序关系，具体是这样<br>
-$$<br>
-\mathcal{L} = - \log(\frac{1}{1 + e^{-(r_\text{good} - r_\text{bad})}})<br>
-$$<br>
-这个loss是一个Bradley-Terry模型crossentropy loss的导出形式，希望好的数据的reward更高</p>
-<p>如果已知human的偏序不止一种的话，就可以额外加一点偏差值<br>
-$$<br>
-\mathcal{L} = - \log(\frac{1}{1 + e^{-(r_\text{good} - r_\text{bad} - \text{margin})}})<br>
-$$<br>
-就是说，比如significant better，就希望差得更远，通过更大的gradient来保证。作者做了消融实验，看在测试集上reward model的分类acc，发现效果确实更好</p>
-<img src="../files/images/LLaMA2/effect_of_margin.png" style="zoom:50%;">
+<p>接下来，在训练RewardModel时，作者利用起了之前human标注的多种偏序关系，具体是这样
+<span class="math display">\[
+\mathcal{L} = - \log(\frac{1}{1 + e^{-(r_\text{good} - r_\text{bad})}})
+\]</span> 这个loss是一个Bradley-Terry模型crossentropy
+loss的导出形式，希望好的数据的reward更高</p>
+<p>如果已知human的偏序不止一种的话，就可以额外加一点偏差值 <span class="math display">\[
+\mathcal{L} = - \log(\frac{1}{1 + e^{-(r_\text{good} - r_\text{bad} -
+\text{margin})}})
+\]</span> 就是说，比如significant
+better，就希望差得更远，通过更大的gradient来保证。作者做了消融实验，看在测试集上reward
+model的分类acc，发现效果确实更好</p>
+<p><img src="../files/images/LLaMA2/effect_of_margin.png" style="zoom:50%;"></p>
 <h3 id="performance">performance</h3>
 <p>衡量reward model好坏的指标就是测试集分类acc，</p>
-<img src="../files/images/LLaMA2/different_order.png" style="zoom:50%;">
-<p>首先报告了在各种偏序关系下测试集上的reward model分类结果，发现区分还是挺明显的。基本上human认为显著区别的，模型都能区分。</p>
+<p><img src="../files/images/LLaMA2/different_order.png" style="zoom:50%;"></p>
+<p>首先报告了在各种偏序关系下测试集上的reward
+model分类结果，发现区分还是挺明显的。基本上human认为显著区别的，模型都能区分。</p>
 <p>接下来作者做了一个scale实验，发现用更大的模型、更多的训练数据可以训练出更准确reward模型。最重要的是：</p>
 <blockquote>
 <p>仍未观察到收敛现象。也就是说，还能接着提规模涨指标</p>
 </blockquote>
-<img src="../files/images/LLaMA2/scale_of_reward_model.png" style="zoom:50%;">
-<h2 id="RL">RL</h2>
-<p>最后的RL阶段。和前面提到的，由于human标注是一波一波来的，作者也就是一波波训的reward model和RL模型。称之为RLHF-v1到RLHF-v5</p>
+<p><img src="../files/images/LLaMA2/scale_of_reward_model.png" style="zoom:50%;"></p>
+<h2 id="rl">RL</h2>
+<p>最后的RL阶段。和前面提到的，由于human标注是一波一波来的，作者也就是一波波训的reward
+model和RL模型。称之为RLHF-v1到RLHF-v5</p>
 <p>主体方法上，作者尝试两种方法</p>
 <h3 id="rejection-sampling">rejection sampling</h3>
 <p>这是一个看起来很稳定的算法，和之前讲到的 <a href="/feddc200.html" title="论文阅读[精读]-RRHF: Rank Responses to Align Language Models with Human Feedback without tears">RRHF阅读笔记</a> 非常像</p>
-<p>每个iter中，先对每一个prompt采样K个样本，然后用打分模型打一波分，找到最好的样本，然后按照SFT的方式计算crossentropy loss。</p>
+<p>每个iter中，先对每一个prompt采样K个样本，然后用打分模型打一波分，找到最好的样本，然后按照SFT的方式计算crossentropy
+loss。</p>
 <p>为了训练的稳定，选取最好样本时是从前面的所有iter里，而不是当前iter里选最好样本(所以其实是K*iter选1)。其实就是退化版的RRHF，不过省下了非常多的训练资源</p>
-<img src="../files/images/LLaMA2/avg_score.png" style="zoom:50%;">
+<p><img src="../files/images/LLaMA2/avg_score.png" style="zoom:50%;"></p>
 <p>作者实验了一下，用最开始的SFT对应prompt多次sample样本，对应的最高score持续提升，这就是这个算法的优化空间。</p>
 <p>同时，这个算法的效果和sample样本时选取的算法也是高度相关的，更高的diversity更可能找到更好的样本，但是数据少时表现更不稳定。</p>
 <p>作者做了实验(注意左右两图的纵坐标不一样)，和上面一样看多次采样的最高reward。发现这个最佳温度是在变化的，因此作者是每个iter都分别找最佳温度，再sample。</p>
-<img src="../files/images/LLaMA2/temperature.png" style="zoom:50%;">
-<h3 id="PPO">PPO</h3>
+<p><img src="../files/images/LLaMA2/temperature.png" style="zoom:50%;"></p>
+<h3 id="ppo">PPO</h3>
 <p>作者没怎么使用经典的PPO算法，可能是因为训练不稳定？</p>
 <p>只在最后一次迭代，也就是RLHF-V5之前用了一下。</p>
-<p>流程是这样：训出来RLHF-V4以后，先用PPO增强一波，得到V4-PPO，然后用V4-PPO做rejection sample训练，得出来RLHF-V5</p>
-<h3 id="performance-2">performance</h3>
-<img src="../files/images/LLaMA2/rlhf_method.png" style="zoom:50%;">
+<p>流程是这样：训出来RLHF-V4以后，先用PPO增强一波，得到V4-PPO，然后用V4-PPO做rejection
+sample训练，得出来RLHF-V5</p>
+<h3 id="performance-1">performance</h3>
+<p><img src="../files/images/LLaMA2/rlhf_method.png" style="zoom:50%;"></p>
 <p>作者首先报告了RLHF的平均水平，这个图坐标是指：战胜ChatGPT-0301的百分比。两个轴分别是帮助性和无害性数据的结果</p>
 <blockquote>
 <p>50%就是说和ChatGPT差不多</p>
 </blockquote>
 <p>可以看出来，效果不错，每轮都在加强。</p>
-<img src="../files/images/LLaMA2/between_other.png" style="zoom:50%;">
+<p><img src="../files/images/LLaMA2/between_other.png" style="zoom:50%;"></p>
 <p>除了机器自评以外，作者在直接让human实验，每个模型的规模级别，都和同规模的类似模型进行了比较。可以看到</p>
 <ul>
 <li>基本都是赢了</li>
 <li>不过在vicuna 33b上，似乎差不太多？</li>
 <li>70b基本和chatGPT一样</li>
 </ul>
-<p>我非常好奇的是，有没有更详细的PPO和rejection sample的对比实验，比如PPO+SFT-V1，不过作者没有报告</p>
-<h2 id="Ghost-attention-GAtt">Ghost attention(GAtt)</h2>
+<p>我非常好奇的是，有没有更详细的PPO和rejection
+sample的对比实验，比如PPO+SFT-V1，不过作者没有报告</p>
+<h2 id="ghost-attentiongatt">Ghost attention(GAtt)</h2>
 <p>最后还有一个创新点,就是封面那个图。在多轮对话中，模型经常在后面的轮数就忘了最前面的全局prompt</p>
-<p>解决方法也很简单：作者把最前面的system message在每个user message前面都复制了一份。作者手动创造了一些好这么做的prompt比如“answer only with emojis”, “act as <em>Napoleon</em>”。然后在SFT query随机中掺杂上这些需求，然后让模型生成这些数据</p>
-<p>作者把这件事情默默用在了iter train过程中，就是说在RL用的prompt里掺杂了这些东西，然后每轮对话都加，但是reward model训练没用上，所以不影响reward model的训练稳定性。</p>
+<p>解决方法也很简单：作者把最前面的system message在每个user
+message前面都复制了一份。作者手动创造了一些好这么做的prompt比如“answer
+only with emojis”, "act as <em>Napoleon</em>"。然后在SFT
+query随机中掺杂上这些需求，然后让模型生成这些数据</p>
+<p>作者把这件事情默默用在了iter
+train过程中，就是说在RL用的prompt里掺杂了这些东西，然后每轮对话都加，但是reward
+model训练没用上，所以不影响reward model的训练稳定性。</p>
 <p>测试时没有这个trick，只在system prompt加一次，看能不能维持住</p>
-<img src="../files/images/LLaMA2/gatt_performance.png" style="zoom:50%;">
+<p><img src="../files/images/LLaMA2/gatt_performance.png" style="zoom:50%;"></p>
 <p>可以发现，不加GAtt，基本上两轮以后前面的prompt已经忘完了，加上以后就一直不忘。</p>
 <p>另外，作者在附录里提到一个有趣的事情：</p>
 <blockquote>
-<p>ChatGPT对system prompt也很看重，如果不加system prompt，对比Llama2的win rate就会从44%暴跌到36%</p>
+<p>ChatGPT对system prompt也很看重，如果不加system
+prompt，对比Llama2的win rate就会从44%暴跌到36%</p>
 </blockquote>
 <p>难道说，MOE真的重出江湖？</p>
 <h2 id="我的思考">我的思考</h2>
 <ul>
 <li>RLHF部分的探索非常详尽，很久没看到做这么多实验的论文了。够solid</li>
-<li>看Llama2的总体情况，scaling trend依旧存在，这就给更大更强的Llama3 留出空间了，不知道什么时候能推出</li>
+<li>看Llama2的总体情况，scaling trend依旧存在，这就给更大更强的Llama3
+留出空间了，不知道什么时候能推出</li>
 </ul>
 <blockquote>
-<p>另外，听说OpenAI打算开源一个叫G3PO的模型，不知道啥时候出来…</p>
+<p>另外，听说OpenAI打算开源一个叫G3PO的模型，不知道啥时候出来...</p>
 </blockquote>
 <ul>
-<li>
-<p>里面提到的rejection sample非常新颖。其实最近有一些工作就是想用类似SFT的方式来做RL，其实本质上都是对Reward model的对抗训练，差不太多：PRO、RRHF等等。</p>
-</li>
-<li>
-<p>这里我抛出来一个问题：既然RLHF是在显式地对抗reward model，那我们能不能在运行时进行对抗呢？</p>
-</li>
+<li><p>里面提到的rejection
+sample非常新颖。其实最近有一些工作就是想用类似SFT的方式来做RL，其实本质上都是对Reward
+model的对抗训练，差不太多：PRO、RRHF等等。</p></li>
+<li><p>这里我抛出来一个问题：既然RLHF是在显式地对抗reward
+model，那我们能不能在运行时进行对抗呢？</p></li>
 </ul>
 <blockquote>
-<p>human preference虽然不会变，但是还有很多preference和下游绑定的任务。其实这就是LLM搜索类的算法：ToT里面引入了一些这种in-context对抗的特性，后面我们会进一步指出和解决这个问题。</p>
+<p>human
+preference虽然不会变，但是还有很多preference和下游绑定的任务。其实这就是LLM搜索类的算法：ToT里面引入了一些这种in-context对抗的特性，后面我们会进一步指出和解决这个问题。</p>
 </blockquote>
 <ul>
-<li>类似RRHF和rejection sample，是在多个样本中learning from best of N，那么显然这个方法的效率取决于最优score寻找的过程，相同搜索资源下，最优score越高，用这类算法的效果就越好。那么，这是不是也预示着我们需要一个更好的搜索算法呢？</li>
-<li>虽然叫&quot;开源&quot;，但其实Llama 2不是完全开源的……pretrain数据和SFT数据就没给</li>
+<li>类似RRHF和rejection sample，是在多个样本中learning from best of
+N，那么显然这个方法的效率取决于最优score寻找的过程，相同搜索资源下，最优score越高，用这类算法的效果就越好。那么，这是不是也预示着我们需要一个更好的搜索算法呢？</li>
+<li>虽然叫"开源"，但其实Llama
+2不是完全开源的……pretrain数据和SFT数据就没给</li>
 </ul>
 
     </div>
@@ -530,7 +551,7 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SFT"><span class="nav-number">1.</span> <span class="nav-text">SFT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-and-train"><span class="nav-number">1.1.</span> <span class="nav-text">data and train</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reward-model-training"><span class="nav-number">2.</span> <span class="nav-text">reward model training</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#margin"><span class="nav-number">2.1.</span> <span class="nav-text">margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance"><span class="nav-number">2.2.</span> <span class="nav-text">performance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RL"><span class="nav-number">3.</span> <span class="nav-text">RL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rejection-sampling"><span class="nav-number">3.1.</span> <span class="nav-text">rejection sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PPO"><span class="nav-number">3.2.</span> <span class="nav-text">PPO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-2"><span class="nav-number">3.3.</span> <span class="nav-text">performance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ghost-attention-GAtt"><span class="nav-number">4.</span> <span class="nav-text">Ghost attention(GAtt)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sft"><span class="nav-number">1.</span> <span class="nav-text">SFT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#data-and-train"><span class="nav-number">1.1.</span> <span class="nav-text">data and train</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reward-model-training"><span class="nav-number">2.</span> <span class="nav-text">reward model training</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#margin"><span class="nav-number">2.1.</span> <span class="nav-text">margin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance"><span class="nav-number">2.2.</span> <span class="nav-text">performance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rl"><span class="nav-number">3.</span> <span class="nav-text">RL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rejection-sampling"><span class="nav-number">3.1.</span> <span class="nav-text">rejection sampling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ppo"><span class="nav-number">3.2.</span> <span class="nav-text">PPO</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#performance-1"><span class="nav-number">3.3.</span> <span class="nav-text">performance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ghost-attentiongatt"><span class="nav-number">4.</span> <span class="nav-text">Ghost attention(GAtt)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -545,7 +566,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -588,6 +609,14 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/b42e7575" title="2025-02-20-insights" target="_blank">2025-02-20-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/d1d938be" title="2025-02-19-insights" target="_blank">2025-02-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3e1b5380" title="2025-02-18-insights" target="_blank">2025-02-18-insights</a>
         </li>
       
@@ -617,14 +646,6 @@ $$<br>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -680,12 +701,12 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <i class="fa fa-user-md"></i>
