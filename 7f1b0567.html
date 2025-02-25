@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天有74篇论文，有趣的有3篇 Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做了">
+  <meta name="description" content="今天有74篇论文，有趣的有3篇 Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention 这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-19-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/7f1b0567">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天有74篇论文，有趣的有3篇 Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做了">
+<meta property="og:description" content="今天有74篇论文，有趣的有3篇 Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention 这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-19/elicit.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-19/calibration.png">
@@ -314,11 +314,21 @@
 
       
         <p>今天有74篇论文，有趣的有3篇</p>
-<h2 id="Superiority-of-Softmax-Unveiling-the-Performance-Edge-Over-Linear-Attention"><a href="#Superiority-of-Softmax-Unveiling-the-Performance-Edge-Over-Linear-Attention" class="headerlink" title="Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11685.pdf">Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention</a></h2><p>这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做了一系列证明来说明softmax算子在表征能力上为什么会提高Transformer数学结构的上限。</p>
-<h2 id="Eliciting-Human-Preferences-with-Language-Models"><a href="#Eliciting-Human-Preferences-with-Language-Models" class="headerlink" title="Eliciting Human Preferences with Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11589.pdf">Eliciting Human Preferences with Language Models</a></h2><p>stanford、MiT、Anthropic的联合论文，探讨了一个简单的问题：align领域能不能做active learning，不是模型去被动的生成答案让human去打分，而是模型去主动地和human沟通来做对齐。</p>
+<h2 id="superiority-of-softmax-unveiling-the-performance-edge-over-linear-attention"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11685.pdf">Superiority of Softmax:
+Unveiling the Performance Edge Over Linear Attention</a></h2>
+<p>这是一篇数学论文，里面一个模型图都没有。讲的问题是Linear
+Transformer获得了线性的复杂度，但基本上表现都比不上普通Transformer，作者认为这里面的根本原因就是softmax算子。接下来作者做了一系列证明来说明softmax算子在表征能力上为什么会提高Transformer数学结构的上限。</p>
+<h2 id="eliciting-human-preferences-with-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11589.pdf">Eliciting Human Preferences
+with Language Models</a></h2>
+<p>stanford、MiT、Anthropic的联合论文，探讨了一个简单的问题：align领域能不能做active
+learning，不是模型去被动的生成答案让human去打分，而是模型去主动地和human沟通来做对齐。</p>
 <p>很新颖、很符合直觉的想法，我很喜欢，我愿意颁给他ICLR Oral</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-19/elicit.png"></p>
-<h2 id="Investigating-Uncertainty-Calibration-of-Aligned-Language-Models-under-the-Multiple-Choice-Setting"><a href="#Investigating-Uncertainty-Calibration-of-Aligned-Language-Models-under-the-Multiple-Choice-Setting" class="headerlink" title="Investigating Uncertainty Calibration of Aligned Language Models under the Multiple-Choice Setting"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11732.pdf">Investigating Uncertainty Calibration of Aligned Language Models under the Multiple-Choice Setting</a></h2><p>朱军老师组的作品。探索了一个简单的问题：为什么LLM emergent出来的calibration的性质，在RLHF以后消失了呢？</p>
+<h2 id="investigating-uncertainty-calibration-of-aligned-language-models-under-the-multiple-choice-setting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.11732.pdf">Investigating Uncertainty
+Calibration of Aligned Language Models under the Multiple-Choice
+Setting</a></h2>
+<p>朱军老师组的作品。探索了一个简单的问题：为什么LLM
+emergent出来的calibration的性质，在RLHF以后消失了呢？</p>
 <p>作者详细探索了这个现象，同时提出了一个简单的办法可以从一个RLHF模型中恢复出来calibration的性质，是一个很有意思的思路。</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-19/calibration.png"></p>
 <!-- flag of hidden posts -->
@@ -420,7 +430,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Superiority-of-Softmax-Unveiling-the-Performance-Edge-Over-Linear-Attention"><span class="nav-number">1.</span> <span class="nav-text">Superiority of Softmax: Unveiling the Performance Edge Over Linear Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eliciting-Human-Preferences-with-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Eliciting Human Preferences with Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigating-Uncertainty-Calibration-of-Aligned-Language-Models-under-the-Multiple-Choice-Setting"><span class="nav-number">3.</span> <span class="nav-text">Investigating Uncertainty Calibration of Aligned Language Models under the Multiple-Choice Setting</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#superiority-of-softmax-unveiling-the-performance-edge-over-linear-attention"><span class="nav-number">1.</span> <span class="nav-text">Superiority of Softmax:
+Unveiling the Performance Edge Over Linear Attention</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#eliciting-human-preferences-with-language-models"><span class="nav-number">2.</span> <span class="nav-text">Eliciting Human Preferences
+with Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#investigating-uncertainty-calibration-of-aligned-language-models-under-the-multiple-choice-setting"><span class="nav-number">3.</span> <span class="nav-text">Investigating Uncertainty
+Calibration of Aligned Language Models under the Multiple-Choice
+Setting</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -570,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">273k</span>
+    <span title="站点总字数">288k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:08</span>
+    <span title="站点阅读时长">4:22</span>
 </div>
 
 <i class="fa fa-user-md"></i>
