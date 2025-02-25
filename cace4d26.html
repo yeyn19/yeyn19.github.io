@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA 简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把ac">
+  <meta name="description" content="Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把acc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-03-26-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/cace4d26">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA 简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把ac">
+<meta property="og:description" content="Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把acc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/Synthesize.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/emerge.png">
@@ -314,37 +314,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="synthesize-step-by-step-tools-templates-and-llms-as-data-generators-for-reasoning-based-chart-vqa"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16385.pdf">Synthesize Step-by-Step:
-Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart
-VQA</a></h2>
-<p>简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split
-+ program-of-thought类型的数据。由此训练baseline
-model，把acc从38%提升到了54%。</p>
+        <h2 id="Synthesize-Step-by-Step-Tools-Templates-and-LLMs-as-Data-Generators-for-Reasoning-Based-Chart-VQA"><a href="#Synthesize-Step-by-Step-Tools-Templates-and-LLMs-as-Data-Generators-for-Reasoning-Based-Chart-VQA" class="headerlink" title="Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16385.pdf">Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA</a></h2><p>简单来说，Chart-VQA领域的metamath。作者用LLM构造了大量的subtask-split + program-of-thought类型的数据。由此训练baseline model，把acc从38%提升到了54%。</p>
 <blockquote>
 <p>作者似乎没画scaling曲线，不知道如果数据量再增大十倍会怎么样</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/Synthesize.png"></p>
-<h2 id="understanding-emergent-abilities-of-language-models-from-the-loss-perspective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.15796.pdf">Understanding Emergent
-Abilities of Language Models from the Loss Perspective</a></h2>
-<p>tangjie老师的文章。作者发现，模型所谓的”emergent
-ability“几乎就是一个pertrain
-loss的函数，和模型大小、训练规模无关。只需要用pretrain
-loss，就可以几乎无损地预测出来模型的表现。</p>
-<p>由此，可以认为emergent
-ability是一种loss低于某个阈值的以后的特殊现象，我们其实很难用某个loss区间的结论去评估另一个loss区间模型的性能</p>
+<h2 id="Understanding-Emergent-Abilities-of-Language-Models-from-the-Loss-Perspective"><a href="#Understanding-Emergent-Abilities-of-Language-Models-from-the-Loss-Perspective" class="headerlink" title="Understanding Emergent Abilities of Language Models from the Loss Perspective"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.15796.pdf">Understanding Emergent Abilities of Language Models from the Loss Perspective</a></h2><p>tangjie老师的文章。作者发现，模型所谓的”emergent ability“几乎就是一个pertrain loss的函数，和模型大小、训练规模无关。只需要用pretrain loss，就可以几乎无损地预测出来模型的表现。</p>
+<p>由此，可以认为emergent ability是一种loss低于某个阈值的以后的特殊现象，我们其实很难用某个loss区间的结论去评估另一个loss区间模型的性能</p>
 <blockquote>
-<p>这么看，真有一种"音障"的感觉了……</p>
+<p>这么看，真有一种”音障”的感觉了……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/emerge.png"></p>
-<h2 id="if-clip-could-talk-understanding-vision-language-model-representations-through-their-preferred-concept-descriptions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16442.pdf">If CLIP Could Talk:
-Understanding Vision-Language Model Representations Through Their
-Preferred Concept Descriptions</a></h2>
-<p>很好玩的工作：作者想要思考目前的VLM模型是怎么通过语言模态理解vision
-concept的，他们设计了两阶段的方法：</p>
-<ol type="1">
+<h2 id="If-CLIP-Could-Talk-Understanding-Vision-Language-Model-Representations-Through-Their-Preferred-Concept-Descriptions"><a href="#If-CLIP-Could-Talk-Understanding-Vision-Language-Model-Representations-Through-Their-Preferred-Concept-Descriptions" class="headerlink" title="If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.16442.pdf">If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions</a></h2><p>很好玩的工作：作者想要思考目前的VLM模型是怎么通过语言模态理解vision concept的，他们设计了两阶段的方法：</p>
+<ol>
 <li>训练一个模型去拟合VLM的表示空间，具体来说，用rl算法让一个text模型生成concept的表示，用cosine相似度匹配得分。</li>
-<li>训练好了以后，用模型去你拟合各种vision
-concept的表示，然后观察VLM如何通过文本来描述他对于视觉的感知</li>
+<li>训练好了以后，用模型去你拟合各种vision concept的表示，然后观察VLM如何通过文本来描述他对于视觉的感知</li>
 </ol>
 <p>作者发现，实际上VLM对于视觉concept的感知并不是视觉的(shape/color)，很多时候都是基于hallicinate的、猜测的结果</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/concept.png"></p>
@@ -364,13 +348,13 @@ concept的表示，然后观察VLM如何通过文本来描述他对于视觉的�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5207be31.html" rel="bookmark">2025-02-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bdc5d50f.html" rel="bookmark">2025-02-24-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5bec1e4b.html" rel="bookmark">2025-02-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b42e7575.html" rel="bookmark">2025-02-20-insights</a></div>
     </li>
   </ul>
 
@@ -447,12 +431,7 @@ concept的表示，然后观察VLM如何通过文本来描述他对于视觉的�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#synthesize-step-by-step-tools-templates-and-llms-as-data-generators-for-reasoning-based-chart-vqa"><span class="nav-number">1.</span> <span class="nav-text">Synthesize Step-by-Step:
-Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart
-VQA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#understanding-emergent-abilities-of-language-models-from-the-loss-perspective"><span class="nav-number">2.</span> <span class="nav-text">Understanding Emergent
-Abilities of Language Models from the Loss Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-clip-could-talk-understanding-vision-language-model-representations-through-their-preferred-concept-descriptions"><span class="nav-number">3.</span> <span class="nav-text">If CLIP Could Talk:
-Understanding Vision-Language Model Representations Through Their
-Preferred Concept Descriptions</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Synthesize-Step-by-Step-Tools-Templates-and-LLMs-as-Data-Generators-for-Reasoning-Based-Chart-VQA"><span class="nav-number">1.</span> <span class="nav-text">Synthesize Step-by-Step: Tools, Templates and LLMs as Data Generators for Reasoning-Based Chart VQA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Understanding-Emergent-Abilities-of-Language-Models-from-the-Loss-Perspective"><span class="nav-number">2.</span> <span class="nav-text">Understanding Emergent Abilities of Language Models from the Loss Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#If-CLIP-Could-Talk-Understanding-Vision-Language-Model-Representations-Through-Their-Preferred-Concept-Descriptions"><span class="nav-number">3.</span> <span class="nav-text">If CLIP Could Talk: Understanding Vision-Language Model Representations Through Their Preferred Concept Descriptions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -510,15 +489,15 @@ Preferred Concept Descriptions</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/5207be31" title="2025-02-25-insights" target="_blank">2025-02-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bdc5d50f" title="2025-02-24-insights" target="_blank">2025-02-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5bec1e4b" title="2025-02-21-insights" target="_blank">2025-02-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b42e7575" title="2025-02-20-insights" target="_blank">2025-02-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -602,12 +581,12 @@ Preferred Concept Descriptions</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>

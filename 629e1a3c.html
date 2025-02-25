@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scaling Retrieval-Based Language Models with a Trillion-Token Datastore 刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best paper。今天这个也是研究RAG中的dataset-size scaling，更进一步，作者还研究了同时考虑训练flop和inference flop下的最优模型参数，发现和LL">
+  <meta name="description" content="Scaling Retrieval-Based Language Models with a Trillion-Token Datastore刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best paper。今天这个也是研究RAG中的dataset-size scaling，更进一步，作者还研究了同时考虑训练flop和inference flop下的最优模型参数，发现和LLM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-07-19-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/629e1a3c">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Scaling Retrieval-Based Language Models with a Trillion-Token Datastore 刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best paper。今天这个也是研究RAG中的dataset-size scaling，更进一步，作者还研究了同时考虑训练flop和inference flop下的最优模型参数，发现和LL">
+<meta property="og:description" content="Scaling Retrieval-Based Language Models with a Trillion-Token Datastore刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best paper。今天这个也是研究RAG中的dataset-size scaling，更进一步，作者还研究了同时考虑训练flop和inference flop下的最优模型参数，发现和LLM">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-07-15-07-19/rag-scaling.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-07-15-07-19/metabench.png">
@@ -314,27 +314,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="scaling-retrieval-based-language-models-with-a-trillion-token-datastore"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12854">Scaling Retrieval-Based Language
-Models with a Trillion-Token Datastore</a></h2>
-<p>刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best
-paper。今天这个也是研究RAG中的dataset-size
-scaling，更进一步，作者还研究了同时考虑训练flop和inference
-flop下的最优模型参数，发现和LLM-only的模式是不同的。</p>
+        <h2 id="Scaling-Retrieval-Based-Language-Models-with-a-Trillion-Token-Datastore"><a href="#Scaling-Retrieval-Based-Language-Models-with-a-Trillion-Token-Datastore" class="headerlink" title="Scaling Retrieval-Based Language Models with a Trillion-Token Datastore"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12854">Scaling Retrieval-Based Language Models with a Trillion-Token Datastore</a></h2><p>刘奕群老师之前做过一个RAG的scaling law研究，刚刚拿了best paper。今天这个也是研究RAG中的dataset-size scaling，更进一步，作者还研究了同时考虑训练flop和inference flop下的最优模型参数，发现和LLM-only的模式是不同的。</p>
 <p><img src="../../files/images/arxiv-insights/2024-07-15-07-19/rag-scaling.png"></p>
-<h2 id="metabench-a-sparse-benchmark-to-measure-general-ability-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12844">metabench: A Sparse Benchmark to
-Measure General Ability in Large Language Models</a></h2>
-<p>我很喜欢的工作：如果大家还记得observational scaling
-law的论文，作者通过多个LLM在多个benchmark的得分直接分解出了每个benchmark的特征值，再做scaling
-prediction。这篇工作在instance-level做，作者认为目前的benchmark有很多的冗余、重复的知识，能不能在已有benchmark上找到一个子集，使得只用子集的得分就能确定完整benchmark的得分呢？作者发现，只用3%的数据就能得到接近99%的准确率……</p>
+<h2 id="metabench-A-Sparse-Benchmark-to-Measure-General-Ability-in-Large-Language-Models"><a href="#metabench-A-Sparse-Benchmark-to-Measure-General-Ability-in-Large-Language-Models" class="headerlink" title="metabench: A Sparse Benchmark to Measure General Ability in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12844">metabench: A Sparse Benchmark to Measure General Ability in Large Language Models</a></h2><p>我很喜欢的工作：如果大家还记得observational scaling law的论文，作者通过多个LLM在多个benchmark的得分直接分解出了每个benchmark的特征值，再做scaling prediction。这篇工作在instance-level做，作者认为目前的benchmark有很多的冗余、重复的知识，能不能在已有benchmark上找到一个子集，使得只用子集的得分就能确定完整benchmark的得分呢？作者发现，只用3%的数据就能得到接近99%的准确率……</p>
 <blockquote>
 <p>这算什么？testing time core set吗……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-07-15-07-19/metabench.png"></p>
-<h2 id="self-guide-better-task-specific-instruction-following-via-self-synthetic-finetuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12874">SELF-GUIDE: Better Task-Specific
-Instruction Following via Self-Synthetic Finetuning</a></h2>
-<p>Neubig的工作，一篇合成数据的小品文章：作者认为在合成数据生成的过程中，最好不要依赖别的模型、也不依赖人。作者的思路是每个任务有一些input
-output pairs，然后由此构造更多的input output
-pair，最后生成更多的SFT数据</p>
+<h2 id="SELF-GUIDE-Better-Task-Specific-Instruction-Following-via-Self-Synthetic-Finetuning"><a href="#SELF-GUIDE-Better-Task-Specific-Instruction-Following-via-Self-Synthetic-Finetuning" class="headerlink" title="SELF-GUIDE: Better Task-Specific Instruction Following via Self-Synthetic Finetuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.12874">SELF-GUIDE: Better Task-Specific Instruction Following via Self-Synthetic Finetuning</a></h2><p>Neubig的工作，一篇合成数据的小品文章：作者认为在合成数据生成的过程中，最好不要依赖别的模型、也不依赖人。作者的思路是每个任务有一些input output pairs，然后由此构造更多的input output pair，最后生成更多的SFT数据</p>
 <p><img src="../../files/images/arxiv-insights/2024-07-15-07-19/self-guide.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -352,13 +339,13 @@ pair，最后生成更多的SFT数据</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5207be31.html" rel="bookmark">2025-02-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bdc5d50f.html" rel="bookmark">2025-02-24-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5bec1e4b.html" rel="bookmark">2025-02-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b42e7575.html" rel="bookmark">2025-02-20-insights</a></div>
     </li>
   </ul>
 
@@ -435,10 +422,7 @@ pair，最后生成更多的SFT数据</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-retrieval-based-language-models-with-a-trillion-token-datastore"><span class="nav-number">1.</span> <span class="nav-text">Scaling Retrieval-Based Language
-Models with a Trillion-Token Datastore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metabench-a-sparse-benchmark-to-measure-general-ability-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">metabench: A Sparse Benchmark to
-Measure General Ability in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-guide-better-task-specific-instruction-following-via-self-synthetic-finetuning"><span class="nav-number">3.</span> <span class="nav-text">SELF-GUIDE: Better Task-Specific
-Instruction Following via Self-Synthetic Finetuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Retrieval-Based-Language-Models-with-a-Trillion-Token-Datastore"><span class="nav-number">1.</span> <span class="nav-text">Scaling Retrieval-Based Language Models with a Trillion-Token Datastore</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#metabench-A-Sparse-Benchmark-to-Measure-General-Ability-in-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">metabench: A Sparse Benchmark to Measure General Ability in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SELF-GUIDE-Better-Task-Specific-Instruction-Following-via-Self-Synthetic-Finetuning"><span class="nav-number">3.</span> <span class="nav-text">SELF-GUIDE: Better Task-Specific Instruction Following via Self-Synthetic Finetuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,15 +480,15 @@ Instruction Following via Self-Synthetic Finetuning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/5207be31" title="2025-02-25-insights" target="_blank">2025-02-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bdc5d50f" title="2025-02-24-insights" target="_blank">2025-02-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5bec1e4b" title="2025-02-21-insights" target="_blank">2025-02-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b42e7575" title="2025-02-20-insights" target="_blank">2025-02-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -588,12 +572,12 @@ Instruction Following via Self-Synthetic Finetuning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">287k</span>
+    <span title="站点总字数">273k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:21</span>
+    <span title="站点阅读时长">4:08</span>
 </div>
 
 <i class="fa fa-user-md"></i>
