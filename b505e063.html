@@ -314,20 +314,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="harder-tasks-need-more-experts-dynamic-routing-in-moe-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07652.pdf">Harder Tasks Need More
-Experts: Dynamic Routing in MoE Models</a></h2>
+        <h2 id="Harder-Tasks-Need-More-Experts-Dynamic-Routing-in-MoE-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07652.pdf">Harder Tasks Need More Experts: Dynamic Routing in MoE Models</a></h2>
 <p>之前的MoE模型都是有一个router，返回这个token对于每个expert的softmax概率，然后取前两名激活。</p>
 <p>作者这里想的问题是：能不能把topk换成top-p?即softmax里激活的experts总体概率大于某个阈值？这样可以把困难的token分配更多的资源，简单的token分配更少的experts。作者发现这样训练出来的模型效果比之前的更好</p>
-<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/top-p.png"></p>
-<h2 id="stabletoolbench-towards-stable-large-scale-benchmarking-on-tool-learning-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07714.pdf">StableToolBench: Towards
-Stable Large-Scale Benchmarking on Tool Learning of Large Language
-Models</a></h2>
+<img src="../../files/images/arxiv-insights/2024-03-11-03-15/top-p.png">
+<h2 id="StableToolBench-Towards-Stable-Large-Scale-Benchmarking-on-Tool-Learning-of-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07714.pdf">StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models</a></h2>
 <p>推荐一下我们组的工作：之前很火的ToolBench面临一个比较大的问题，每时每刻16000个API都有一些不能用。所以，每一篇工作的方法实际上都是无法复现的，因为测试时间不同。所以这篇工作制作了一个fake版本的toolbench，用3.5假装一个tool，根据曾经这个tool的输入输出给定一个输出，这样测试就相对比较稳定了。</p>
-<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/stable-toolbench.png" style="zoom:33%;"></p>
-<h2 id="branch-train-mix-mixing-expert-llms-into-a-mixture-of-experts-llm"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07816.pdf">Branch-Train-MiX: Mixing
-Expert LLMs into a Mixture-of-Experts LLM</a></h2>
+<img src="../../files/images/arxiv-insights/2024-03-11-03-15/stable-toolbench.png" style="zoom:33%;">
+<h2 id="Branch-Train-MiX-Mixing-Expert-LLMs-into-a-Mixture-of-Experts-LLM"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.07816.pdf">Branch-Train-MiX: Mixing Expert LLMs into a Mixture-of-Experts LLM</a></h2>
 <p>Meta的新论文，名字像是在致敬之前的Branch-train-merge。作者从一个checkpoint出发，在几个不同的数据subset上分别训练一下变成几个不同的模型，最后把他们的FFN拿出来merge在一起，变成了一个MoE模型。很有趣的思路</p>
-<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/branch-train-mix.png"></p>
+<img src="../../files/images/arxiv-insights/2024-03-11-03-15/branch-train-mix.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -344,13 +340,13 @@ Expert LLMs into a Mixture-of-Experts LLM</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d7fdde75.html" rel="bookmark">2025-03-05-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/383fb54b.html" rel="bookmark">2025-03-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/dae3ae32.html" rel="bookmark">2025-03-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a7f93581.html" rel="bookmark">2025-02-28-insights</a></div>
     </li>
   </ul>
 
@@ -427,11 +423,7 @@ Expert LLMs into a Mixture-of-Experts LLM</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#harder-tasks-need-more-experts-dynamic-routing-in-moe-models"><span class="nav-number">1.</span> <span class="nav-text">Harder Tasks Need More
-Experts: Dynamic Routing in MoE Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stabletoolbench-towards-stable-large-scale-benchmarking-on-tool-learning-of-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">StableToolBench: Towards
-Stable Large-Scale Benchmarking on Tool Learning of Large Language
-Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#branch-train-mix-mixing-expert-llms-into-a-mixture-of-experts-llm"><span class="nav-number">3.</span> <span class="nav-text">Branch-Train-MiX: Mixing
-Expert LLMs into a Mixture-of-Experts LLM</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Harder-Tasks-Need-More-Experts-Dynamic-Routing-in-MoE-Models"><span class="nav-number">1.</span> <span class="nav-text">Harder Tasks Need More Experts: Dynamic Routing in MoE Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StableToolBench-Towards-Stable-Large-Scale-Benchmarking-on-Tool-Learning-of-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">StableToolBench: Towards Stable Large-Scale Benchmarking on Tool Learning of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branch-Train-MiX-Mixing-Expert-LLMs-into-a-Mixture-of-Experts-LLM"><span class="nav-number">3.</span> <span class="nav-text">Branch-Train-MiX: Mixing Expert LLMs into a Mixture-of-Experts LLM</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -489,15 +481,15 @@ Expert LLMs into a Mixture-of-Experts LLM</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/d7fdde75" title="2025-03-05-insights" target="_blank">2025-03-05-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/383fb54b" title="2025-03-04-insights" target="_blank">2025-03-04-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/dae3ae32" title="2025-03-03-insights" target="_blank">2025-03-03-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a7f93581" title="2025-02-28-insights" target="_blank">2025-02-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
