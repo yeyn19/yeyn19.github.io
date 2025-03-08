@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>487</span>
+              <span>491</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,17 +314,22 @@
 
       
         <p>今天135篇论文，重量级。EMNLP的余波还在。很多论文我不太感兴趣，分享两篇有趣论文</p>
-<h2 id="FiLM-Fill-in-Language-Models-for-Any-Order-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.09930.pdf">FiLM: Fill-in Language Models for Any-Order Generation</a></h2>
+<h2 id="film-fill-in-language-models-for-any-order-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.09930.pdf">FiLM: Fill-in Language
+Models for Any-Order Generation</a></h2>
 <p>Yejin Choi的论文，不知道是不是打算发在COML上:)</p>
-<p>这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。</p>
+<p>这篇瞄准了auto-regressive的建模方式，训了一个模型通过fillng
+in的形式做文本建模，每次解码一个[MASK]，最终恢复出来文本。发现在scaling以后，他的表现和left-to-right的效果变得接近，同时做in-filling的能力远胜。</p>
 <blockquote>
 <p>有点像是去年比较火的Diffusion-LM的感觉？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-10-17/FiLM.png">
-<h2 id="Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.09832.pdf">Merging Experts into One: Improving Computational Efficiency of Mixture of Experts</a></h2>
-<p>作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging Experts into One的办法。</p>
-<p>计算资源省了几倍，效果甚至还涨了($83.3% &gt; 82.6%$)</p>
-<img src="../../files/images/arxiv-insights/2023-10-17/MEO.png">
+<p><img src="../../files/images/arxiv-insights/2023-10-17/FiLM.png"></p>
+<h2 id="merging-experts-into-one-improving-computational-efficiency-of-mixture-of-experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2310.09832.pdf">Merging Experts into One:
+Improving Computational Efficiency of Mixture of Experts</a></h2>
+<p>作者提出了一个问题：MoE虽然好，但是experts多起来以后计算资源膨胀还是很多的。作者想要找到一个算法，可以增加专家数量时计算复杂度涨的不多，提出了一个Merging
+Experts into One的办法。</p>
+<p>计算资源省了几倍，效果甚至还涨了(<span class="math inline">\(83.3\%
+&gt; 82.6\%\)</span>)</p>
+<p><img src="../../files/images/arxiv-insights/2023-10-17/MEO.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +346,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d3080e48.html" rel="bookmark">2025-03-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3cca6576.html" rel="bookmark">2025-03-06-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d7fdde75.html" rel="bookmark">2025-03-05-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/383fb54b.html" rel="bookmark">2025-03-04-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dae3ae32.html" rel="bookmark">2025-03-03-insights</a></div>
     </li>
   </ul>
 
@@ -424,7 +429,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FiLM-Fill-in-Language-Models-for-Any-Order-Generation"><span class="nav-number">1.</span> <span class="nav-text">FiLM: Fill-in Language Models for Any-Order Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Merging-Experts-into-One-Improving-Computational-Efficiency-of-Mixture-of-Experts"><span class="nav-number">2.</span> <span class="nav-text">Merging Experts into One: Improving Computational Efficiency of Mixture of Experts</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#film-fill-in-language-models-for-any-order-generation"><span class="nav-number">1.</span> <span class="nav-text">FiLM: Fill-in Language
+Models for Any-Order Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#merging-experts-into-one-improving-computational-efficiency-of-mixture-of-experts"><span class="nav-number">2.</span> <span class="nav-text">Merging Experts into One:
+Improving Computational Efficiency of Mixture of Experts</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,15 +489,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/d3080e48" title="2025-03-07-insights" target="_blank">2025-03-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/3cca6576" title="2025-03-06-insights" target="_blank">2025-03-06-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d7fdde75" title="2025-03-05-insights" target="_blank">2025-03-05-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/383fb54b" title="2025-03-04-insights" target="_blank">2025-03-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dae3ae32" title="2025-03-03-insights" target="_blank">2025-03-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
