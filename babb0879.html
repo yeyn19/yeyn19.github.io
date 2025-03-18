@@ -302,7 +302,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -324,137 +324,123 @@
 
       
         <p>这篇论文是朱军老师组做的工作，非常的数学。</p>
-<h2 id="introduction">Introduction</h2>
+<h2 id="Introduction">Introduction</h2>
 <ul>
 <li>DPM生成很慢，这是因为逆过程对方差的估计花了额外的时间</li>
 <li>本文发现最优的期望和方差竟有解析形式（iDDPM岂不是优化了个寂寞…）</li>
 <li>本文用蒙特卡洛模拟最优方差，预计算</li>
 <li>在获得更高质量图片的同时得到了80倍的速度提升(对，效果甚至更好)</li>
 <li>本文在选取快速路径时用动态规划</li>
-<li>本文是plug-and-play的，任何DPM模型拿过来换个<span class="math inline">\(\sigma\)</span>就行</li>
+<li>本文是plug-and-play的，任何DPM模型拿过来换个$\sigma$就行</li>
 </ul>
-<h2 id="background">Background</h2>
+<h2 id="Background">Background</h2>
 <p>重新说了一下DDIM里的推广形式：</p>
-<p><img src="../files/images/Analytic-DPM/ddim.png"></p>
-<p>其中<span class="math inline">\(\overline{\alpha}:=\prod_{i=1}^N
-\alpha_i, \overline{\beta} := 1-\overline{\alpha}\)</span></p>
+<img src="../files/images/Analytic-DPM/ddim.png">
+<p>其中$\overline{\alpha}:=\prod_{i=1}^N \alpha_i, \overline{\beta} := 1-\overline{\alpha}$</p>
 <ul>
-<li>当<span class="math inline">\(\lambda_n^2 = \tilde{\beta_n} :=
-\frac{\overline{\beta}_{n}}{\overline{\beta}_{n-1}}\beta_n\)</span>时，模型就会推导出DDPM</li>
-<li>当<span class="math inline">\(\lambda_n^2 \equiv
-0\)</span>时，就是DDIM</li>
+<li>当$\lambda_n^2 = \tilde{\beta_n} := \frac{\overline{\beta}<em>{n}}{\overline{\beta}</em>{n-1}}\beta_n$时，模型就会推导出DDPM</li>
+<li>当$\lambda_n^2 \equiv 0$时，就是DDIM</li>
 </ul>
-<p>上面这种前项过程的逆过程是一个马尔科夫过程： <span class="math display">\[
-p(x_{0:N}) = p(x_N) \prod_{n=1}^N p(x_{n-1}|x_n), \quad p(x_N) \sim
-\mathcal{N}(0,I) \\
-p(x_{n-1}|x_n) = \mathcal{N}(x_{n-1}| \mu_n(x_n),\sigma_n^2 I)
-\]</span> 其中<span class="math inline">\(\mu_n(x_n)\)</span>用一个score
-based model来学习<span class="math inline">\(s_n(x_n)\)</span>， <span class="math display">\[
-\mu_n(x_n) =
-\tilde{\mu}_n\left(  x_n,\frac{1}{\sqrt{\overline{\alpha_n}}} (x_n
-+\overline{\beta_n} s_n(x_n) ) \right)
-\]</span> 如果认为<span class="math inline">\(s_n(x_n) =
--\frac{1}{\sqrt{\overline{\beta_n}}}
-\epsilon_n(x_n)\)</span>，这和DDPM的推导结果是一致的</p>
+<p>上面这种前项过程的逆过程是一个马尔科夫过程：<br>
+$$<br>
+p(x_{0:N}) = p(x_N) \prod_{n=1}^N p(x_{n-1}|x_n), \quad p(x_N) \sim \mathcal{N}(0,I) \<br>
+p(x_{n-1}|x_n) = \mathcal{N}(x_{n-1}| \mu_n(x_n),\sigma_n^2 I)<br>
+$$<br>
+其中$\mu_n(x_n)$用一个score based model来学习$s_n(x_n)$，<br>
+$$<br>
+\mu_n(x_n) = \tilde{\mu}_n\left(  x_n,\frac{1}{\sqrt{\overline{\alpha_n}}} (x_n +\overline{\beta_n} s_n(x_n) ) \right)<br>
+$$<br>
+如果认为$s_n(x_n) = -\frac{1}{\sqrt{\overline{\beta_n}}} \epsilon_n(x_n)$，这和DDPM的推导结果是一致的</p>
 <p>对于方差的估计：</p>
 <ul>
-<li>DDPM使用<span class="math inline">\(\sigma_n^2 = \beta_n或\sigma_n^2
-= \tilde{\beta}_n\)</span></li>
-<li>DDIM使用<span class="math inline">\(\sigma_n^2 =
-\lambda_n^2\)</span></li>
+<li>DDPM使用$\sigma_n^2 = \beta_n或\sigma_n^2 = \tilde{\beta}_n$</li>
+<li>DDIM使用$\sigma_n^2 = \lambda_n^2$</li>
 </ul>
 <p>作者说，这实际上是一个负优化</p>
-<h2 id="analytic-estimate-of-the-optimal-reverse-variance">ANALYTIC
-ESTIMATE OF THE OPTIMAL REVERSE VARIANCE</h2>
+<h2 id="ANALYTIC-ESTIMATE-OF-THE-OPTIMAL-REVERSE-VARIANCE">ANALYTIC ESTIMATE OF THE OPTIMAL REVERSE VARIANCE</h2>
 <p>接下来引入文章的本体，作者证明了上述定义的DPM的逆过程的均值、方差的最优形式：</p>
-<p><img src="../files/images/Analytic-DPM/best.png"></p>
+<img src="../files/images/Analytic-DPM/best.png">
 <p>这个结论的证明非常复杂，感兴趣的同学可以看附录A</p>
 <ul>
-<li><p>只要按照上面的式子进行去噪，就能得到最好的结果，到达模型的极限能力</p></li>
-<li><p>对应的SDE的连续时间形式，也有类似的结论，参考附录(目前用不上)</p></li>
-<li><p>可以看出，上面的均值部分和已有方法的优化的<span class="math inline">\(\mathcal{L}_{LVB}\)</span>具有一样的形式，因此现在的DDPM等模型的训练就是在逼近最优的均值，训练没有问题。</p></li>
+<li>
+<p>只要按照上面的式子进行去噪，就能得到最好的结果，到达模型的极限能力</p>
+</li>
+<li>
+<p>对应的SDE的连续时间形式，也有类似的结论，参考附录(目前用不上)</p>
+</li>
+<li>
+<p>可以看出，上面的均值部分和已有方法的优化的$\mathcal{L}_{LVB}$具有一样的形式，因此现在的DDPM等模型的训练就是在逼近最优的均值，训练没有问题。</p>
+</li>
 </ul>
-<p>接下来，作者就要把之前的手动设计的方差替换为解析的形式，对于后面的密度项，作者使用蒙特卡洛进行估计
-<span class="math display">\[
-\Gamma_n = \frac{1}{M}\sum_{m=1}^{M} \frac{ || s_n(x_{n,m})||^2 } {d} ,
-\quad s_{n,m}\mathop{\sim}^{i.i.d} q_n{x_n}
-\]</span></p>
-<p><span class="math display">\[
-\hat{\sigma}^2_n = \lambda_n^2 + \left(
-\sqrt{\frac{\overline{\beta_n}}{\alpha_n}} -
-\sqrt{\overline{\beta}_{n-1} - \lambda_n^2 } \right)^2 (1 -
-\overline{\beta}_{n}\Gamma_n)
-\]</span></p>
+<p>接下来，作者就要把之前的手动设计的方差替换为解析的形式，对于后面的密度项，作者使用蒙特卡洛进行估计<br>
+$$<br>
+\Gamma_n = \frac{1}{M}\sum_{m=1}^{M} \frac{ || s_n(x_{n,m})||^2 } {d} , \quad s_{n,m}\mathop{\sim}^{i.i.d} q_n{x_n}<br>
+$$</p>
+<p>$$<br>
+\hat{\sigma}^2_n = \lambda_n^2 + \left( \sqrt{\frac{\overline{\beta_n}}{\alpha_n}} - \sqrt{\overline{\beta}<em>{n-1} - \lambda_n^2 } \right)^2 (1 - \overline{\beta}</em>{n}\Gamma_n)<br>
+$$</p>
 <ul>
 <li>这个方差和训练无关。在模型训练以后，可以预计算出来每一步的方差，再统一的进行infer</li>
 <li>随着蒙特卡洛采样数M的增大，这个估计会越来越准确，逐渐逼近最优的方差。作者提到，取M=10,100基本上就收敛了</li>
 </ul>
-<p><img src="../files/images/Analytic-DPM/sigma.png"></p>
+<img src="../files/images/Analytic-DPM/sigma.png">
 <p>下面这个图</p>
 <ul>
 <li>显示出了作者的估计值和DDIM和DDPM手动设计的方差的区别</li>
-<li>显示了作者的方差对于<span class="math inline">\(L_{vb}\)</span>是最小的，这个应该是针对一次infer而言。</li>
+<li>显示了作者的方差对于$L_{vb}$是最小的，这个应该是针对一次infer而言。</li>
 </ul>
-<h3 id="bounding-the-optimal-reverse-variance-to-reduce-bias">BOUNDING
-THE OPTIMAL REVERSE VARIANCE TO REDUCE BIAS</h3>
-<p><img src="../files/images/Analytic-DPM/bias.png"></p>
+<h3 id="BOUNDING-THE-OPTIMAL-REVERSE-VARIANCE-TO-REDUCE-BIAS">BOUNDING THE OPTIMAL REVERSE VARIANCE TO REDUCE BIAS</h3>
+<img src="../files/images/Analytic-DPM/bias.png">
 <p>这一部分，作者分析了他的逼近形式和真正的最优形式之间的bias：</p>
 <ul>
 <li>由于模型的训练，会带来不可避免的误差(因为不可能有完全没误差的模型)</li>
 <li>如果在sample时选取一个较短的路径，左边的coefficient部分会变大</li>
 </ul>
 <p>接下来，作者尝试能不能减小误差，作者又证明了真实方差的上下界</p>
-<p><img src="../files/images/Analytic-DPM/bound.png"></p>
+<img src="../files/images/Analytic-DPM/bound.png">
 <ul>
-<li>这个上下界都是确定的、和模型训练无关的，在选定了<span class="math inline">\(\beta_n\)</span>之后就唯一确定了。</li>
+<li>这个上下界都是确定的、和模型训练无关的，在选定了$\beta_n$之后就唯一确定了。</li>
 <li>同时作者证明了(12)中的上界是一个比较接近真实值的上界。</li>
 </ul>
-<p>因此，作者才计算完拟合的方差<span class="math inline">\(\hat{\sigma}_n\)</span>之后可以用上下界再做一次CLIP。</p>
-<h2 id="analytic-estimation-of-the-optimal-trajectory">ANALYTIC
-ESTIMATION OF THE OPTIMAL TRAJECTORY</h2>
+<p>因此，作者才计算完拟合的方差$\hat{\sigma}_n$之后可以用上下界再做一次CLIP。</p>
+<h2 id="ANALYTIC-ESTIMATION-OF-THE-OPTIMAL-TRAJECTORY">ANALYTIC ESTIMATION OF THE OPTIMAL TRAJECTORY</h2>
 <p>这一部分，作者讲了在一个缩减的去噪路径中优化的方法。还是先提到了DDIM优化的故事线：</p>
 <ul>
-<li>其中 $1 = _1 &lt; _2 ... &lt; _K = N
-$,把一个长为N的路径变成了长为K的采样路径</li>
+<li>其中 $1 = \tau_1 &lt; \tau_2 … &lt; \tau_K = N $,把一个长为N的路径变成了长为K的采样路径</li>
 </ul>
-<p><img src="../files/images/Analytic-DPM/ddim_infer.png"></p>
-<p>在这个过程中，我们的<span class="math inline">\(\lambda^2_{\tau_{k-1}|
-\tau_k}\)</span>也可以变成拟合的新形式：</p>
+<img src="../files/images/Analytic-DPM/ddim_infer.png">
+<p>在这个过程中，我们的$\lambda^2_{\tau_{k-1}| \tau_k}$也可以变成拟合的新形式：</p>
 <ul>
-<li>其中的<span class="math inline">\(\Gamma_{\tau_{k}}\)</span>可以在<span class="math inline">\(\tau_{k-1} \sim \tau_{k}\)</span>之间通用</li>
+<li>其中的$\Gamma_{\tau_{k}}$可以在$\tau_{k-1} \sim \tau_{k}$之间通用</li>
 </ul>
-<p><span class="math display">\[
-\hat{\sigma}^2_{\tau_{k-1}| \tau_k} = \lambda_{\tau_{k-1}| \tau_k}^2 +
-\left( \sqrt{\frac{\overline{\beta_{\tau_k}}}{\alpha_{\tau_{k-1}|
-\tau_k}}} - \sqrt{\overline{\beta}_{\tau_{k-1}} - \lambda_{\tau_{k-1}|
-\tau_k}^2 } \right)^2 (1 -
-\overline{\beta}_{\tau_{k-1}}\Gamma_{\tau_{k}})
-\]</span></p>
+<p>$$<br>
+\hat{\sigma}^2_{\tau_{k-1}| \tau_k} = \lambda_{\tau_{k-1}| \tau_k}^2 + \left( \sqrt{\frac{\overline{\beta_{\tau_k}}}{\alpha_{\tau_{k-1}| \tau_k}}} - \sqrt{\overline{\beta}<em>{\tau</em>{k-1}} - \lambda_{\tau_{k-1}| \tau_k}^2 } \right)^2 (1 - \overline{\beta}<em>{\tau</em>{k-1}}\Gamma_{\tau_{k}})<br>
+$$</p>
 <p>上面的推广是显然的，然而，路径的选取大有说法，</p>
-<p><img src="../files/images/Analytic-DPM/min.png"></p>
+<img src="../files/images/Analytic-DPM/min.png">
 <p>作者竟然推导出了一个K路径中模拟的偏差的下界：</p>
 <ul>
-<li>其中<span class="math inline">\(J(\tau_{k-1},\tau_k) = \log
-(\frac{\sigma^{*2}_{\tau_{k-1}| \tau_k}}{\lambda_{\tau_{k-1}|
-\tau_k}^2})\)</span>,c是一个和路径选择无关的量</li>
-<li>如果把<span class="math inline">\(\sigma^{*} \sim
-\hat{\sigma}\)</span>的话，这个最小值就是可计算的，只要路径被选定</li>
+<li>其中$J(\tau_{k-1},\tau_k) = \log (\frac{\sigma^{*2}<em>{\tau</em>{k-1}| \tau_k}}{\lambda_{\tau_{k-1}| \tau_k}^2})$,c是一个和路径选择无关的量</li>
+<li>如果把$\sigma^{*} \sim \hat{\sigma}$的话，这个最小值就是可计算的，只要路径被选定</li>
 </ul>
 <p>甚至，这是一个动态规划问题，从T里选取K个数，要求K个数的损失之和最小，每个数的损失都是确定的。在模型训练完、K被选定后，可以执行一次算法，得出具体怎么选会得到最小的损失</p>
-<p><img src="../files/images/Analytic-DPM/DP.png"></p>
-<h2 id="relationship-between-the-score-function-and-the-data-covariance-matrix">RELATIONSHIP
-BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</h2>
-<p>这一部分是说了score
-function和协方差矩阵之间的关系。今天作者在ICML的另一篇论文推广了这个优化，这篇就不讲了。</p>
-<h2 id="experiment">Experiment</h2>
+<img src="../files/images/Analytic-DPM/DP.png">
+<h2 id="RELATIONSHIP-BETWEEN-THE-SCORE-FUNCTION-AND-THE-DATA-COVARIANCE-MATRIX">RELATIONSHIP BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</h2>
+<p>这一部分是说了score function和协方差矩阵之间的关系。今天作者在ICML的另一篇论文推广了这个优化，这篇就不讲了。</p>
+<h2 id="Experiment">Experiment</h2>
 <p>这里作者用了：</p>
 <ul>
-<li><p>自己在CIFAR-10上分别用cosine和linear两种<span class="math inline">\(\beta\)</span>炼出来的CIFAR-10(LS),
-CIFAR-10(CS)</p></li>
-<li><p>DDPM和DDIM在ImageNet上预训练的开源模型，分别使用和不使用Analytic方差</p></li>
-<li><p>作者在全部模型上CLIP了方差，因为这个上下界是恒存在的</p></li>
+<li>
+<p>自己在CIFAR-10上分别用cosine和linear两种$\beta$炼出来的CIFAR-10(LS), CIFAR-10(CS)</p>
+</li>
+<li>
+<p>DDPM和DDIM在ImageNet上预训练的开源模型，分别使用和不使用Analytic方差</p>
+</li>
+<li>
+<p>作者在全部模型上CLIP了方差，因为这个上下界是恒存在的</p>
+</li>
 </ul>
-<p><img src="../files/images/Analytic-DPM/result.png"></p>
+<img src="../files/images/Analytic-DPM/result.png">
 <p>这个结论是很明显的，可以说是吊打：</p>
 <ul>
 <li>凡是加上了拟合方差的，基本上都比不加要好</li>
@@ -474,11 +460,10 @@ CIFAR-10(CS)</p></li>
 <ul>
 <li>一个直观的想法就是，如果方差里也引入模型，效果会更好。iDDPM就是用模型来学习方差，但收敛难（参考GAN）</li>
 <li>这篇文章结论就是：用学均值的模型，可以顺便用一个蒙特卡洛模拟来近似最优的方差！不需要额外学！</li>
-</ul></li>
-<li>这篇文章正文没有一个图片，就拿了ICLR outstanding
-paper，值得唏嘘。正文10页，附录29页，基本全是数学证明，可见AI的本质是数学（</li>
-<li>作者在附录中的future
-work里说后面要做speech领域，用上面说的最优形式的连续时间推广形式。我们是不是想办法看看NLP怎么用</li>
+</ul>
+</li>
+<li>这篇文章正文没有一个图片，就拿了ICLR outstanding paper，值得唏嘘。正文10页，附录29页，基本全是数学证明，可见AI的本质是数学（</li>
+<li>作者在附录中的future work里说后面要做speech领域，用上面说的最优形式的连续时间推广形式。我们是不是想办法看看NLP怎么用</li>
 </ul>
 
     </div>
@@ -490,7 +475,7 @@ work里说后面要做speech领域，用上面说的最优形式的连续时间�
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
@@ -591,11 +576,7 @@ work里说后面要做speech领域，用上面说的最优形式的连续时间�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analytic-estimate-of-the-optimal-reverse-variance"><span class="nav-number">3.</span> <span class="nav-text">ANALYTIC
-ESTIMATE OF THE OPTIMAL REVERSE VARIANCE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bounding-the-optimal-reverse-variance-to-reduce-bias"><span class="nav-number">3.1.</span> <span class="nav-text">BOUNDING
-THE OPTIMAL REVERSE VARIANCE TO REDUCE BIAS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analytic-estimation-of-the-optimal-trajectory"><span class="nav-number">4.</span> <span class="nav-text">ANALYTIC
-ESTIMATION OF THE OPTIMAL TRAJECTORY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relationship-between-the-score-function-and-the-data-covariance-matrix"><span class="nav-number">5.</span> <span class="nav-text">RELATIONSHIP
-BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">6.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%83%B3%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">我的想法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ANALYTIC-ESTIMATE-OF-THE-OPTIMAL-REVERSE-VARIANCE"><span class="nav-number">3.</span> <span class="nav-text">ANALYTIC ESTIMATE OF THE OPTIMAL REVERSE VARIANCE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#BOUNDING-THE-OPTIMAL-REVERSE-VARIANCE-TO-REDUCE-BIAS"><span class="nav-number">3.1.</span> <span class="nav-text">BOUNDING THE OPTIMAL REVERSE VARIANCE TO REDUCE BIAS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ANALYTIC-ESTIMATION-OF-THE-OPTIMAL-TRAJECTORY"><span class="nav-number">4.</span> <span class="nav-text">ANALYTIC ESTIMATION OF THE OPTIMAL TRAJECTORY</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RELATIONSHIP-BETWEEN-THE-SCORE-FUNCTION-AND-THE-DATA-COVARIANCE-MATRIX"><span class="nav-number">5.</span> <span class="nav-text">RELATIONSHIP BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">6.</span> <span class="nav-text">Experiment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%83%B3%E6%B3%95"><span class="nav-number">7.</span> <span class="nav-text">我的想法</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -610,7 +591,7 @@ BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li cla
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -653,19 +634,15 @@ BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li cla
       
       
         <li class="recent_posts_li">
+          <a href="/e38d8a05" title="2025-03-18-insights" target="_blank">2025-03-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1286d188" title="2025-03-17-insights" target="_blank">2025-03-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/f9b16a8b" title="2025-03-14-insights" target="_blank">2025-03-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1b6d71f2" title="2025-03-13-insights" target="_blank">2025-03-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4af1acc" title="2025-03-12-insights" target="_blank">2025-03-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -690,6 +667,10 @@ BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li cla
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -745,12 +726,12 @@ BETWEEN THE SCORE FUNCTION AND THE DATA COVARIANCE MATRIX</span></a></li><li cla
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">289k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>

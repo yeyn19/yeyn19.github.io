@@ -313,20 +313,12 @@
 
       
         <p>最近把读过的所有论文重新整理分类了一遍，在o1出来以后，之前prompt、reasoning、prm、sefl-training这些工作看起来得按照新的逻辑去分类了</p>
-<h2 id="optimizing-latent-goal-by-learning-from-trajectory-preference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.02125"><strong>Optimizing Latent Goal
-by Learning from Trajectory Preference</strong></a></h2>
-<p>一篇Minecraft
-agent的工作，作者提了有趣的观点：很多时候任务做不好，不是因为policy不够好，而是因为没有理解instruction的内容。换句话说，用prompt
-tuning的方法就能提分。作者想到，能不能解耦开policy和instruction
-embedding呢？有一个专门的instruction
-following层可以把自然语言instruction翻译成instruction
-embedding，再去执行embedding。微调时只tune前面那个层。发现在下游任务上，和全参数微调效果差不多</p>
+<h2 id="Optimizing-Latent-Goal-by-Learning-from-Trajectory-Preference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.02125"><strong>Optimizing Latent Goal by Learning from Trajectory Preference</strong></a></h2>
+<p>一篇Minecraft agent的工作，作者提了有趣的观点：很多时候任务做不好，不是因为policy不够好，而是因为没有理解instruction的内容。换句话说，用prompt tuning的方法就能提分。作者想到，能不能解耦开policy和instruction embedding呢？有一个专门的instruction following层可以把自然语言instruction翻译成instruction embedding，再去执行embedding。微调时只tune前面那个层。发现在下游任务上，和全参数微调效果差不多</p>
 <blockquote>
-<p>作者这个建模方式是把他理解成单轮，其实我感觉是不是可以把这个建模成多轮，在agent执行任务前可以用一个小对话组织整个instruction，这样模型有权利自己问一些问题给用户。这个领域，之前有一篇叫star-gate（STaR-GATE:
-Teaching Language Models to Ask Clarifying
-Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
+<p>作者这个建模方式是把他理解成单轮，其实我感觉是不是可以把这个建模成多轮，在agent执行任务前可以用一个小对话组织整个instruction，这样模型有权利自己问一些问题给用户。这个领域，之前有一篇叫star-gate（STaR-GATE: Teaching Language Models to Ask Clarifying Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/latent-goal.png"></p>
+<img src="../../files/images/arxiv-insights/2024-12-02-12-06/latent-goal.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -343,13 +335,13 @@ Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e38d8a05.html" rel="bookmark">2025-03-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1286d188.html" rel="bookmark">2025-03-17-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f9b16a8b.html" rel="bookmark">2025-03-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1b6d71f2.html" rel="bookmark">2025-03-13-insights</a></div>
     </li>
   </ul>
 
@@ -426,8 +418,7 @@ Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#optimizing-latent-goal-by-learning-from-trajectory-preference"><span class="nav-number">1.</span> <span class="nav-text">Optimizing Latent Goal
-by Learning from Trajectory Preference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-Latent-Goal-by-Learning-from-Trajectory-Preference"><span class="nav-number">1.</span> <span class="nav-text">Optimizing Latent Goal by Learning from Trajectory Preference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -442,7 +433,7 @@ by Learning from Trajectory Preference</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -485,19 +476,15 @@ by Learning from Trajectory Preference</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/e38d8a05" title="2025-03-18-insights" target="_blank">2025-03-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1286d188" title="2025-03-17-insights" target="_blank">2025-03-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/f9b16a8b" title="2025-03-14-insights" target="_blank">2025-03-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1b6d71f2" title="2025-03-13-insights" target="_blank">2025-03-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4af1acc" title="2025-03-12-insights" target="_blank">2025-03-12-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -522,6 +509,10 @@ by Learning from Trajectory Preference</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -577,12 +568,12 @@ by Learning from Trajectory Preference</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">289k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>
