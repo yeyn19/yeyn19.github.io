@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>689</span>
+              <span>681</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,18 +313,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Goku-Flow-Based-Video-Generative-Foundation-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.04896"><strong>Goku: Flow Based Video Generative Foundation Models</strong></a></h2>
-<p>字节新出的工作，可以同时生成图片和视频，这里面用到了rectified flow Transformers。这篇工作，还要追溯到<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2403.03206">Scaling Rectified Flow Transformers for High-Resolution Image Synthesis</a>, stable diffusion 3用到的技术。大概意思是，正常diffusion里面，每个timestep的加噪都是独立的(把图片添加一个随机噪声，不同step重新随机，只是绝对值不同)。但是，如果使得不同time step里面的加噪是一个线性的过程呢？这就是flow的意思。</p>
+        <h2 id="goku-flow-based-video-generative-foundation-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.04896"><strong>Goku: Flow Based Video
+Generative Foundation Models</strong></a></h2>
+<p>字节新出的工作，可以同时生成图片和视频，这里面用到了rectified flow
+Transformers。这篇工作，还要追溯到<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2403.03206">Scaling Rectified Flow
+Transformers for High-Resolution Image Synthesis</a>, stable diffusion
+3用到的技术。大概意思是，正常diffusion里面，每个timestep的加噪都是独立的(把图片添加一个随机噪声，不同step重新随机，只是绝对值不同)。但是，如果使得不同time
+step里面的加噪是一个线性的过程呢？这就是flow的意思。</p>
 <blockquote>
 <p>话说这个东西好像是现在diffusion的新趋势，我已经很久没看diffusion的论文了……落伍了呀</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-02-10-02-14/goku.png">
-<h2 id="Scalable-Oversight-for-Superhuman-AI-via-Recursive-Self-Critiquing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.04675">Scalable Oversight for Superhuman AI via Recursive Self-Critiquing</a></h2>
-<p>这篇工作名字起得很大气，内容和之前OpenAI一篇叫&quot;LLM Critics Help Catch LLM Bugs&quot;的工作很类似：如果模型水平超越人类了，那么人就无法给模型生成的结果进行反馈。但是，如果人去改另一个模型给目标模型的反馈，这个任务是否会更容易呢，这个setting就是critique of critique？作者还尝试了递归的场景(critique of critique of critique of …)</p>
+<p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/goku.png"></p>
+<h2 id="scalable-oversight-for-superhuman-ai-via-recursive-self-critiquing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.04675">Scalable Oversight for
+Superhuman AI via Recursive Self-Critiquing</a></h2>
+<p>这篇工作名字起得很大气，内容和之前OpenAI一篇叫"LLM Critics Help Catch
+LLM
+Bugs"的工作很类似：如果模型水平超越人类了，那么人就无法给模型生成的结果进行反馈。但是，如果人去改另一个模型给目标模型的反馈，这个任务是否会更容易呢，这个setting就是critique
+of critique？作者还尝试了递归的场景(critique of critique of critique of
+...)</p>
 <blockquote>
-<p>如果大家对这类scalable oversight 领域的工作感兴趣，推荐先去读一下OpenAI的那个工作，写的真的挺好的……</p>
+<p>如果大家对这类scalable oversight
+领域的工作感兴趣，推荐先去读一下OpenAI的那个工作，写的真的挺好的……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-02-10-02-14/Recursive-Self-Critiquing.png">
+<p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/Recursive-Self-Critiquing.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c4fe13b.html" rel="bookmark">2025-03-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e38d8a05.html" rel="bookmark">2025-03-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1286d188.html" rel="bookmark">2025-03-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f9b16a8b.html" rel="bookmark">2025-03-14-insights</a></div>
     </li>
   </ul>
 
@@ -424,7 +435,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Goku-Flow-Based-Video-Generative-Foundation-Models"><span class="nav-number">1.</span> <span class="nav-text">Goku: Flow Based Video Generative Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scalable-Oversight-for-Superhuman-AI-via-Recursive-Self-Critiquing"><span class="nav-number">2.</span> <span class="nav-text">Scalable Oversight for Superhuman AI via Recursive Self-Critiquing</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#goku-flow-based-video-generative-foundation-models"><span class="nav-number">1.</span> <span class="nav-text">Goku: Flow Based Video
+Generative Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scalable-oversight-for-superhuman-ai-via-recursive-self-critiquing"><span class="nav-number">2.</span> <span class="nav-text">Scalable Oversight for
+Superhuman AI via Recursive Self-Critiquing</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,15 +495,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c4fe13b" title="2025-03-19-insights" target="_blank">2025-03-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/e38d8a05" title="2025-03-18-insights" target="_blank">2025-03-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/1286d188" title="2025-03-17-insights" target="_blank">2025-03-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f9b16a8b" title="2025-03-14-insights" target="_blank">2025-03-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
