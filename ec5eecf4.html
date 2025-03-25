@@ -314,21 +314,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="BOND-Aligning-LLMs-with-Best-of-NDistillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.14622">BOND: Aligning LLMs with Best-of-NDistillation</a></h2>
-<p>看名字就像是deepmind那个self-train团队的工作，果然是。作者探索的是模型对于一个question生成一堆答案，选最好的做训练来提升模型能力。大家会想到：这不就是llama2 align部分提到的reject-sample training吗？还真是，但是作者奉送了一个新的训练算法，让效果比正常的SFT好很多</p>
-<img src="../../files/images/arxiv-insights/2024-07-22-07-26/bon.png">
-<h2 id="Generalization-v-s-Memorization-Tracing-Language-Models’-Capabilities-Back-to-Pretraining-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.14985">Generalization v.s. Memorization: Tracing Language Models’ Capabilities Back to Pretraining Data</a></h2>
-<p>王威廉老师的工作，作者探索了之前grokking领域的general回路和memory回路的问题，作者想到：对于一个特定的输入，模型用什么回路是否和该问题在pretrain corpus的出现频率有关。所以，作者统计了每个test instance中的n-gram在预训练数据集的出现次数，证明了这个现象，并且发现，对于越大的模型，出现次数多的n-gram对于结果的提升越明显，也是就说模型获得更强的训练集泛化性</p>
+        <h2 id="bond-aligning-llms-with-best-of-ndistillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.14622">BOND: Aligning LLMs with
+Best-of-NDistillation</a></h2>
+<p>看名字就像是deepmind那个self-train团队的工作，果然是。作者探索的是模型对于一个question生成一堆答案，选最好的做训练来提升模型能力。大家会想到：这不就是llama2
+align部分提到的reject-sample
+training吗？还真是，但是作者奉送了一个新的训练算法，让效果比正常的SFT好很多</p>
+<p><img src="../../files/images/arxiv-insights/2024-07-22-07-26/bon.png"></p>
+<h2 id="generalization-v.s.-memorization-tracing-language-models-capabilities-back-to-pretraining-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.14985">Generalization v.s.
+Memorization: Tracing Language Models’ Capabilities Back to Pretraining
+Data</a></h2>
+<p>王威廉老师的工作，作者探索了之前grokking领域的general回路和memory回路的问题，作者想到：对于一个特定的输入，模型用什么回路是否和该问题在pretrain
+corpus的出现频率有关。所以，作者统计了每个test
+instance中的n-gram在预训练数据集的出现次数，证明了这个现象，并且发现，对于越大的模型，出现次数多的n-gram对于结果的提升越明显，也是就说模型获得更强的训练集泛化性</p>
 <blockquote>
-<p>我之前似乎看到一篇在VLM里做这件事的工作：好像叫 VLM can not zero-shot</p>
+<p>我之前似乎看到一篇在VLM里做这件事的工作：好像叫 VLM can not
+zero-shot</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-22-07-26/memory-gen.png">
-<h2 id="dMel-Speech-Tokenization-made-Simple"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.15835">dMel: Speech Tokenization made Simple</a></h2>
-<p>Apple的论文， 最近越来越多见到他们的工作了，苹果这是下狠心准备狠狠进军AI研究了吗。这篇瞄准speech tokenizer领域。细节我没开看懂，看起来作者找到了一种无损的、且压缩率高的tokenize方案，并且效果也很不错。这是准备朝着apple-omni发力了？</p>
+<p><img src="../../files/images/arxiv-insights/2024-07-22-07-26/memory-gen.png"></p>
+<h2 id="dmel-speech-tokenization-made-simple"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.15835">dMel: Speech Tokenization made
+Simple</a></h2>
+<p>Apple的论文，
+最近越来越多见到他们的工作了，苹果这是下狠心准备狠狠进军AI研究了吗。这篇瞄准speech
+tokenizer领域。细节我没开看懂，看起来作者找到了一种无损的、且压缩率高的tokenize方案，并且效果也很不错。这是准备朝着apple-omni发力了？</p>
 <blockquote>
 <p>话说现在研究大模型真是越来越难了……什么模态的知识都要学，想起了被《信号处理原理》支配的恐惧……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-22-07-26/dmel.png">
+<p><img src="../../files/images/arxiv-insights/2024-07-22-07-26/dmel.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -345,13 +356,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/867ac7ce.html" rel="bookmark">2025-03-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/69b8acf0.html" rel="bookmark">2025-03-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c4fe13b.html" rel="bookmark">2025-03-19-insights</a></div>
     </li>
   </ul>
 
@@ -428,7 +439,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOND-Aligning-LLMs-with-Best-of-NDistillation"><span class="nav-number">1.</span> <span class="nav-text">BOND: Aligning LLMs with Best-of-NDistillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Generalization-v-s-Memorization-Tracing-Language-Models%E2%80%99-Capabilities-Back-to-Pretraining-Data"><span class="nav-number">2.</span> <span class="nav-text">Generalization v.s. Memorization: Tracing Language Models’ Capabilities Back to Pretraining Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dMel-Speech-Tokenization-made-Simple"><span class="nav-number">3.</span> <span class="nav-text">dMel: Speech Tokenization made Simple</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bond-aligning-llms-with-best-of-ndistillation"><span class="nav-number">1.</span> <span class="nav-text">BOND: Aligning LLMs with
+Best-of-NDistillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#generalization-v.s.-memorization-tracing-language-models-capabilities-back-to-pretraining-data"><span class="nav-number">2.</span> <span class="nav-text">Generalization v.s.
+Memorization: Tracing Language Models’ Capabilities Back to Pretraining
+Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dmel-speech-tokenization-made-simple"><span class="nav-number">3.</span> <span class="nav-text">dMel: Speech Tokenization made
+Simple</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -486,15 +501,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/867ac7ce" title="2025-03-21-insights" target="_blank">2025-03-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/69b8acf0" title="2025-03-20-insights" target="_blank">2025-03-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c4fe13b" title="2025-03-19-insights" target="_blank">2025-03-19-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -583,7 +598,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>

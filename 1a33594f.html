@@ -314,22 +314,28 @@
 
       
         <p>最近icml风格的无图论文多起来了</p>
-<h2 id="Eagle-2-Building-Post-Training-Data-Strategies-from-Scratch-for-Frontier-Vision-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.14818">Eagle 2: Building Post-Training Data Strategies from Scratch for Frontier Vision-Language Models</a></h2>
+<h2 id="eagle-2-building-post-training-data-strategies-from-scratch-for-frontier-vision-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.14818">Eagle 2: Building Post-Training
+Data Strategies from Scratch for Frontier Vision-Language
+Models</a></h2>
 <p>nvidia出的vlm工作，作者这次比较良心，给出了训练数据的设计思路，和对于各种数据的消融实验结果。开源了模型</p>
 <blockquote>
 <p>如果数据也开源的话……</p>
 </blockquote>
-<h2 id="Scaling-laws-for-decoding-images-from-brain-activity"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.15322"><strong>Scaling laws for decoding images from brain activity</strong></a></h2>
+<h2 id="scaling-laws-for-decoding-images-from-brain-activity"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.15322"><strong>Scaling laws for
+decoding images from brain activity</strong></a></h2>
 <p>meta的工作，感觉还是挺系统性的。作者对比了四种不同脑波解码设备的数据，用大约2.3M数据做了peer-to-peer的对比，发现：</p>
-<ol>
+<ol type="1">
 <li>deep learning的方法，在数据含有噪声的情况下尤其有用</li>
-<li>脑波解码领域可以画出scaling law曲线，而且在2.3M这个阶段仍然没有观察到收敛。这个很重要，说明大家可以投资去标注230M数据了</li>
+<li>脑波解码领域可以画出scaling
+law曲线，而且在2.3M这个阶段仍然没有观察到收敛。这个很重要，说明大家可以投资去标注230M数据了</li>
 <li>四种设备里，精确度最高的EEG相对表现最好</li>
 </ol>
-<img src="../../files/images/arxiv-insights/2025-01-27-01-31/brain-decoding.png">
-<h2 id="Visual-Generation-Without-Guidance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.15420">Visual Generation Without Guidance</a></h2>
-<p>zhujun老师的工作，之前diffusion model能火起来，应该说classifier guidance功不可没。就是说在生成狗的时候，每一步的中间状态，都有一个classifier给出是不是狗的一个信心值，这个信心值是可以求导回到中间过程中的，在生成的时候把这个梯度实时融入进去，就可以生成看起来特别像狗的照片。这篇工作说的是，能不能把这个classifier引入到训练中来，这样在推理的时候可以不依靠classifier一直在线了呢？</p>
-<img src="../../files/images/arxiv-insights/2025-01-27-01-31/classifier-free.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-01-27-01-31/brain-decoding.png"></p>
+<h2 id="visual-generation-without-guidance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.15420">Visual Generation Without
+Guidance</a></h2>
+<p>zhujun老师的工作，之前diffusion model能火起来，应该说classifier
+guidance功不可没。就是说在生成狗的时候，每一步的中间状态，都有一个classifier给出是不是狗的一个信心值，这个信心值是可以求导回到中间过程中的，在生成的时候把这个梯度实时融入进去，就可以生成看起来特别像狗的照片。这篇工作说的是，能不能把这个classifier引入到训练中来，这样在推理的时候可以不依靠classifier一直在线了呢？</p>
+<p><img src="../../files/images/arxiv-insights/2025-01-27-01-31/classifier-free.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -346,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/867ac7ce.html" rel="bookmark">2025-03-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/69b8acf0.html" rel="bookmark">2025-03-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c4fe13b.html" rel="bookmark">2025-03-19-insights</a></div>
     </li>
   </ul>
 
@@ -429,7 +435,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Eagle-2-Building-Post-Training-Data-Strategies-from-Scratch-for-Frontier-Vision-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Eagle 2: Building Post-Training Data Strategies from Scratch for Frontier Vision-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-laws-for-decoding-images-from-brain-activity"><span class="nav-number">2.</span> <span class="nav-text">Scaling laws for decoding images from brain activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Generation-Without-Guidance"><span class="nav-number">3.</span> <span class="nav-text">Visual Generation Without Guidance</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#eagle-2-building-post-training-data-strategies-from-scratch-for-frontier-vision-language-models"><span class="nav-number">1.</span> <span class="nav-text">Eagle 2: Building Post-Training
+Data Strategies from Scratch for Frontier Vision-Language
+Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-for-decoding-images-from-brain-activity"><span class="nav-number">2.</span> <span class="nav-text">Scaling laws for
+decoding images from brain activity</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-generation-without-guidance"><span class="nav-number">3.</span> <span class="nav-text">Visual Generation Without
+Guidance</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -487,15 +497,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/867ac7ce" title="2025-03-21-insights" target="_blank">2025-03-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/69b8acf0" title="2025-03-20-insights" target="_blank">2025-03-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c4fe13b" title="2025-03-19-insights" target="_blank">2025-03-19-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -584,7 +594,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>

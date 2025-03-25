@@ -315,18 +315,22 @@
 
       
         <p>引用还能往下掉吗……</p>
-<h2 id="Retrieval-is-Accurate-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17532.pdf">Retrieval is Accurate Generation</a></h2>
+<h2 id="retrieval-is-accurate-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17532.pdf">Retrieval is Accurate
+Generation</a></h2>
 <p>作者认为，之前的语言模型认为下一个token出自于一个固定的词表(实际上是把prefix编码，再和词表空间通过点乘获取logits，再根据softmax获取选词概率)。作者想的是，下一个token能不能出自于rag出来的某个n-gram？为了实现这个目的，在loss和训练任务上都得改。最终在很多事实任务上取得了非常好的效果</p>
 <blockquote>
 <p>看之前没想到这么好玩……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-02-26-03-01/gen.png">
-<h2 id="Massive-Activations-in-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17762.pdf">Massive Activations in Large Language Models</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/gen.png"></p>
+<h2 id="massive-activations-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17762.pdf">Massive Activations in Large
+Language Models</a></h2>
 <p>meta的新研究。作者观察了llama中activation的原始数据，发现总会在一些层中有一些token的激活程度比别人大好几个数量级，占绝对优势。作者发现这个现象对于维持模型的表现至关重要。</p>
-<img src="../../files/images/arxiv-insights/2024-02-26-03-01/massive.png">
-<h2 id="The-Era-of-1-bit-LLMs-All-Large-Language-Models-are-in-1-58-Bits"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17764.pdf">The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</a></h2>
-<p>如果大家还记得我之前分享过 BitNet，这次Furu Wei把他放宽到了1.58bit，即每个weight可能是[-1,0,1]。作者发现，这样训出来的模型表现和BF16模型几乎没有区别。另外，在这种情况下，实际上“矩阵乘法”是伪命题，因为只需要实现加法。这可以在硬件上极度加速运算速度</p>
-<img src="../../files/images/arxiv-insights/2024-02-26-03-01/bit.png">
+<p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/massive.png"></p>
+<h2 id="the-era-of-1-bit-llms-all-large-language-models-are-in-1.58-bits"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.17764.pdf">The Era of 1-bit LLMs: All
+Large Language Models are in 1.58 Bits</a></h2>
+<p>如果大家还记得我之前分享过 BitNet，这次Furu
+Wei把他放宽到了1.58bit，即每个weight可能是[-1,0,1]。作者发现，这样训出来的模型表现和BF16模型几乎没有区别。另外，在这种情况下，实际上“矩阵乘法”是伪命题，因为只需要实现加法。这可以在硬件上极度加速运算速度</p>
+<p><img src="../../files/images/arxiv-insights/2024-02-26-03-01/bit.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -343,13 +347,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/867ac7ce.html" rel="bookmark">2025-03-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/69b8acf0.html" rel="bookmark">2025-03-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c4fe13b.html" rel="bookmark">2025-03-19-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +430,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Retrieval-is-Accurate-Generation"><span class="nav-number">1.</span> <span class="nav-text">Retrieval is Accurate Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Massive-Activations-in-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Massive Activations in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Era-of-1-bit-LLMs-All-Large-Language-Models-are-in-1-58-Bits"><span class="nav-number">3.</span> <span class="nav-text">The Era of 1-bit LLMs: All Large Language Models are in 1.58 Bits</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#retrieval-is-accurate-generation"><span class="nav-number">1.</span> <span class="nav-text">Retrieval is Accurate
+Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#massive-activations-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Massive Activations in Large
+Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-era-of-1-bit-llms-all-large-language-models-are-in-1.58-bits"><span class="nav-number">3.</span> <span class="nav-text">The Era of 1-bit LLMs: All
+Large Language Models are in 1.58 Bits</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,15 +491,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/867ac7ce" title="2025-03-21-insights" target="_blank">2025-03-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/69b8acf0" title="2025-03-20-insights" target="_blank">2025-03-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c4fe13b" title="2025-03-19-insights" target="_blank">2025-03-19-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -581,7 +588,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -319,39 +319,57 @@
 
       
         <p>有种微妙的感觉，似乎最近大家变得越来越接近AGI了…难道是因为NeruIPS论文开始往外挂了？</p>
-<h2 id="Image-Understanding-Makes-for-A-Good-Tokenizer-for-Image-Generation"><a href>Image Understanding Makes for A Good Tokenizer for Image Generation</a></h2>
-<p>字节的工作，作者发现VAE中的encoder，做出来的词表作为image generation的输入，可以促进图像生成的水平</p>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/tokenizer.png">
-<h2 id="Analyzing-The-Language-of-Visual-Tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05001"><strong>Analyzing The Language of Visual Tokens</strong></a></h2>
+<h2 id="image-understanding-makes-for-a-good-tokenizer-for-image-generation"><a href>Image Understanding Makes for A Good Tokenizer for Image
+Generation</a></h2>
+<p>字节的工作，作者发现VAE中的encoder，做出来的词表作为image
+generation的输入，可以促进图像生成的水平</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/tokenizer.png"></p>
+<h2 id="analyzing-the-language-of-visual-tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05001"><strong>Analyzing The Language
+of Visual Tokens</strong></a></h2>
 <p>很有趣的工作！大家都知道目前VLM基本都是把图片编码成多个token丢给LLM，那么。这些token本身会不会形成语言呢？作者做了很多分析，得出了好玩的结论</p>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/visual-language.png">
-<h2 id="ReCapture-Generative-Video-Camera-Controls-for-User-Provided-Videos-using-Masked-Video-Fine-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05003">ReCapture: Generative Video Camera Controls for User-Provided Videos using Masked Video Fine-Tuning</a></h2>
-<p>前几天pika搞了个 camera-control，今天学术复刻版就出来了。可以输入一个原视频，然后生成一个你想要的分镜的版本</p>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/camera-control.png">
-<h2 id="Scaling-Laws-for-Pre-training-Agents-and-World-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04434"><strong>Scaling Laws for Pre-training Agents and World Models</strong></a></h2>
-<p>名字够狂，再一看：microsoft research。作者讨论的是，在今天很火的agent-sft和world-modelling这两个领域，是否存在数据、模型参数的scaling law，进而套用chinchilla那套compute optimal理论呢？作者发现还真是</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/visual-language.png"></p>
+<h2 id="recapture-generative-video-camera-controls-for-user-provided-videos-using-masked-video-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05003">ReCapture: Generative Video
+Camera Controls for User-Provided Videos using Masked Video
+Fine-Tuning</a></h2>
+<p>前几天pika搞了个
+camera-control，今天学术复刻版就出来了。可以输入一个原视频，然后生成一个你想要的分镜的版本</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/camera-control.png"></p>
+<h2 id="scaling-laws-for-pre-training-agents-and-world-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04434"><strong>Scaling Laws for
+Pre-training Agents and World Models</strong></a></h2>
+<p>名字够狂，再一看：microsoft
+research。作者讨论的是，在今天很火的agent-sft和world-modelling这两个领域，是否存在数据、模型参数的scaling
+law，进而套用chinchilla那套compute optimal理论呢？作者发现还真是</p>
 <blockquote>
 <p>有公式做题就是快……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/world-model-scaling.png">
-<h2 id="Vision-Language-Models-are-In-Context-Value-Learners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04549"><strong>Vision Language Models are In-Context Value Learners</strong></a></h2>
-<p>deepmind的工作，前几天字节有个工作发现autoregressive image generation中，把patch顺序做shuffle有正面影响（Randomized Autoregressive Visual Generation）。今天deepmind搞了个新东西？如果把视频中的帧打乱，让一个value model通过Autoregressive的方式预测每一帧原来的视频时间呢？作者认为这是一个in-context的过程，随着给的图片越来越多，模型在context中学习到了任务</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/world-model-scaling.png"></p>
+<h2 id="vision-language-models-are-in-context-value-learners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04549"><strong>Vision Language Models
+are In-Context Value Learners</strong></a></h2>
+<p>deepmind的工作，前几天字节有个工作发现autoregressive image
+generation中，把patch顺序做shuffle有正面影响（Randomized Autoregressive
+Visual
+Generation）。今天deepmind搞了个新东西？如果把视频中的帧打乱，让一个value
+model通过Autoregressive的方式预测每一帧原来的视频时间呢？作者认为这是一个in-context的过程，随着给的图片越来越多，模型在context中学习到了任务</p>
 <blockquote>
 <p>很有意思！因为视频帧恰好具有独特性，基本上不会找到相同的两个帧……所以，这是小学的选词造句对吧，但是只能看一遍</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/gvl.png">
-<h2 id="HourVideo-1-Hour-Video-Language-Understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04998">HourVideo: 1-Hour Video-Language Understanding</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/gvl.png"></p>
+<h2 id="hourvideo-1-hour-video-language-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04998">HourVideo: 1-Hour Video-Language
+Understanding</a></h2>
 <p>李飞飞的工作，作者设计了一万到题，都是20min-120min的视频，涉及到视频理解的放放面面。</p>
 <blockquote>
 <p>感觉最近很多人都搞了类似的东西，这个时候可能就是比谁名气大了……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/hour.png">
-<h2 id="Few-Shot-Task-Learning-through-Inverse-Generative-Modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04987">Few-Shot Task Learning through Inverse Generative Modeling</a></h2>
-<p>一篇挺怪的动作，作者认为，已有的agent policy model可以给出concept去生成动作。如果我已经有了policy，在没见过的concept的demonstration上反过来求梯度，能不能生成对应的concept呢？</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/hour.png"></p>
+<h2 id="few-shot-task-learning-through-inverse-generative-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.04987">Few-Shot Task Learning through
+Inverse Generative Modeling</a></h2>
+<p>一篇挺怪的动作，作者认为，已有的agent policy
+model可以给出concept去生成动作。如果我已经有了policy，在没见过的concept的demonstration上反过来求梯度，能不能生成对应的concept呢？</p>
 <blockquote>
-<p>有点怪，主要是，这件事依赖于有unseen concept的demonstration,什么时候会这样呢？</p>
+<p>有点怪，主要是，这件事依赖于有unseen
+concept的demonstration,什么时候会这样呢？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-04-11-08/igm.png">
+<p><img src="../../files/images/arxiv-insights/2024-11-04-11-08/igm.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -368,13 +386,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/867ac7ce.html" rel="bookmark">2025-03-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/69b8acf0.html" rel="bookmark">2025-03-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c4fe13b.html" rel="bookmark">2025-03-19-insights</a></div>
     </li>
   </ul>
 
@@ -451,7 +469,15 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Image-Understanding-Makes-for-A-Good-Tokenizer-for-Image-Generation"><span class="nav-number">1.</span> <span class="nav-text">Image Understanding Makes for A Good Tokenizer for Image Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Analyzing-The-Language-of-Visual-Tokens"><span class="nav-number">2.</span> <span class="nav-text">Analyzing The Language of Visual Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReCapture-Generative-Video-Camera-Controls-for-User-Provided-Videos-using-Masked-Video-Fine-Tuning"><span class="nav-number">3.</span> <span class="nav-text">ReCapture: Generative Video Camera Controls for User-Provided Videos using Masked Video Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Laws-for-Pre-training-Agents-and-World-Models"><span class="nav-number">4.</span> <span class="nav-text">Scaling Laws for Pre-training Agents and World Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vision-Language-Models-are-In-Context-Value-Learners"><span class="nav-number">5.</span> <span class="nav-text">Vision Language Models are In-Context Value Learners</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HourVideo-1-Hour-Video-Language-Understanding"><span class="nav-number">6.</span> <span class="nav-text">HourVideo: 1-Hour Video-Language Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Few-Shot-Task-Learning-through-Inverse-Generative-Modeling"><span class="nav-number">7.</span> <span class="nav-text">Few-Shot Task Learning through Inverse Generative Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#image-understanding-makes-for-a-good-tokenizer-for-image-generation"><span class="nav-number">1.</span> <span class="nav-text">Image Understanding Makes for A Good Tokenizer for Image
+Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#analyzing-the-language-of-visual-tokens"><span class="nav-number">2.</span> <span class="nav-text">Analyzing The Language
+of Visual Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recapture-generative-video-camera-controls-for-user-provided-videos-using-masked-video-fine-tuning"><span class="nav-number">3.</span> <span class="nav-text">ReCapture: Generative Video
+Camera Controls for User-Provided Videos using Masked Video
+Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-for-pre-training-agents-and-world-models"><span class="nav-number">4.</span> <span class="nav-text">Scaling Laws for
+Pre-training Agents and World Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vision-language-models-are-in-context-value-learners"><span class="nav-number">5.</span> <span class="nav-text">Vision Language Models
+are In-Context Value Learners</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hourvideo-1-hour-video-language-understanding"><span class="nav-number">6.</span> <span class="nav-text">HourVideo: 1-Hour Video-Language
+Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#few-shot-task-learning-through-inverse-generative-modeling"><span class="nav-number">7.</span> <span class="nav-text">Few-Shot Task Learning through
+Inverse Generative Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -509,15 +535,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/867ac7ce" title="2025-03-21-insights" target="_blank">2025-03-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/69b8acf0" title="2025-03-20-insights" target="_blank">2025-03-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c4fe13b" title="2025-03-19-insights" target="_blank">2025-03-19-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -606,7 +632,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:22</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>
