@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Enhancing Large Vision Language Models with Self-Training on Image Comprehension 和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个captio">
+  <meta name="description" content="Enhancing Large Vision Language Models with Self-Training on Image Comprehension和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-31-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/49795642">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Enhancing Large Vision Language Models with Self-Training on Image Comprehension 和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个captio">
+<meta property="og:description" content="Enhancing Large Vision Language Models with Self-Training on Image Comprehension和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/self-training-image-comprehension.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/key.png">
@@ -314,23 +314,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="enhancing-large-vision-language-models-with-self-training-on-image-comprehension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19716">Enhancing Large Vision Language
-Models with Self-Training on Image Comprehension</a></h2>
-<p>和昨天组里的工作类似，也是一篇self-training增强image
-caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption，由此构造正/负样本。发现效果很好，可以很大程度地减少hallucination</p>
+        <h2 id="Enhancing-Large-Vision-Language-Models-with-Self-Training-on-Image-Comprehension"><a href="#Enhancing-Large-Vision-Language-Models-with-Self-Training-on-Image-Comprehension" class="headerlink" title="Enhancing Large Vision Language Models with Self-Training on Image Comprehension"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19716">Enhancing Large Vision Language Models with Self-Training on Image Comprehension</a></h2><p>和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption，由此构造正/负样本。发现效果很好，可以很大程度地减少hallucination</p>
 <blockquote>
 <p>眼前一亮，有一种人类智慧的感觉</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/self-training-image-comprehension.png"></p>
-<h2 id="beyond-imitation-learning-key-reasoning-steps-from-dual-chain-of-thoughts-in-reasoning-distillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19737">Beyond Imitation: Learning Key
-Reasoning Steps from Dual Chain-of-Thoughts in Reasoning
-Distillation</a></h2>
-<p>作者提出了一套双模型的机制，一个弱模型先对问题进行回答，对于错误的回答，让强模型根据正确答案进行修正。作者认为，这种改动的地方才是最重要“key
-reasoning steps"，会让模型表现出来很好的效果。</p>
+<h2 id="Beyond-Imitation-Learning-Key-Reasoning-Steps-from-Dual-Chain-of-Thoughts-in-Reasoning-Distillation"><a href="#Beyond-Imitation-Learning-Key-Reasoning-Steps-from-Dual-Chain-of-Thoughts-in-Reasoning-Distillation" class="headerlink" title="Beyond Imitation: Learning Key Reasoning Steps from Dual Chain-of-Thoughts in Reasoning Distillation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19737">Beyond Imitation: Learning Key Reasoning Steps from Dual Chain-of-Thoughts in Reasoning Distillation</a></h2><p>作者提出了一套双模型的机制，一个弱模型先对问题进行回答，对于错误的回答，让强模型根据正确答案进行修正。作者认为，这种改动的地方才是最重要“key reasoning steps”，会让模型表现出来很好的效果。</p>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/key.png"></p>
-<h2 id="is-in-context-learning-sufficient-for-instruction-following-in-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19874">Is In-Context Learning
-Sufficient for Instruction Following in LLMs?</a></h2>
-<p>这篇工作follow了之前那篇urial的工作：探索模型能不能仅仅通过in-context样本“显得像是做过align”。作者尝试了添加更多样本，但是发现在align场景下，增加in-context并不能显著提升align得分。</p>
+<h2 id="Is-In-Context-Learning-Sufficient-for-Instruction-Following-in-LLMs"><a href="#Is-In-Context-Learning-Sufficient-for-Instruction-Following-in-LLMs" class="headerlink" title="Is In-Context Learning Sufficient for Instruction Following in LLMs?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19874">Is In-Context Learning Sufficient for Instruction Following in LLMs?</a></h2><p>这篇工作follow了之前那篇urial的工作：探索模型能不能仅仅通过in-context样本“显得像是做过align”。作者尝试了添加更多样本，但是发现在align场景下，增加in-context并不能显著提升align得分。</p>
 <blockquote>
 <p>我主要想问，为什么他们有GPT4-base的score呀……</p>
 </blockquote>
@@ -351,13 +342,13 @@ Sufficient for Instruction Following in LLMs?</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8b64b789.html" rel="bookmark">2025-03-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/64a6dcb7.html" rel="bookmark">2025-03-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
     </li>
   </ul>
 
@@ -434,11 +425,7 @@ Sufficient for Instruction Following in LLMs?</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#enhancing-large-vision-language-models-with-self-training-on-image-comprehension"><span class="nav-number">1.</span> <span class="nav-text">Enhancing Large Vision Language
-Models with Self-Training on Image Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-imitation-learning-key-reasoning-steps-from-dual-chain-of-thoughts-in-reasoning-distillation"><span class="nav-number">2.</span> <span class="nav-text">Beyond Imitation: Learning Key
-Reasoning Steps from Dual Chain-of-Thoughts in Reasoning
-Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#is-in-context-learning-sufficient-for-instruction-following-in-llms"><span class="nav-number">3.</span> <span class="nav-text">Is In-Context Learning
-Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhancing-Large-Vision-Language-Models-with-Self-Training-on-Image-Comprehension"><span class="nav-number">1.</span> <span class="nav-text">Enhancing Large Vision Language Models with Self-Training on Image Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Imitation-Learning-Key-Reasoning-Steps-from-Dual-Chain-of-Thoughts-in-Reasoning-Distillation"><span class="nav-number">2.</span> <span class="nav-text">Beyond Imitation: Learning Key Reasoning Steps from Dual Chain-of-Thoughts in Reasoning Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Is-In-Context-Learning-Sufficient-for-Instruction-Following-in-LLMs"><span class="nav-number">3.</span> <span class="nav-text">Is In-Context Learning Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,15 +483,15 @@ Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/64a6dcb7" title="2025-03-26-insights" target="_blank">2025-03-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -588,12 +575,12 @@ Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

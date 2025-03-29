@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Investigating Memorization in Video Diffusion Models Text2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样  MMDocBench: Benchmarking Large Vi">
+  <meta name="description" content="Investigating Memorization in Video Diffusion ModelsText2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样  MMDocBench: Benchmarking Large Vis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-30-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/269b6f19">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Investigating Memorization in Video Diffusion Models Text2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样  MMDocBench: Benchmarking Large Vi">
+<meta property="og:description" content="Investigating Memorization in Video Diffusion ModelsText2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样  MMDocBench: Benchmarking Large Vis">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-28-11-01/video-mem.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-28-11-01/mmdoc.png">
@@ -315,38 +315,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="investigating-memorization-in-video-diffusion-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21669"><strong>Investigating
-Memorization in Video Diffusion Models</strong></a></h2>
-<p>Text2video
-model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样</p>
+        <h2 id="Investigating-Memorization-in-Video-Diffusion-Models"><a href="#Investigating-Memorization-in-Video-Diffusion-Models" class="headerlink" title="Investigating Memorization in Video Diffusion Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21669"><strong>Investigating Memorization in Video Diffusion Models</strong></a></h2><p>Text2video model是否只是在背诵训练数据？作者发现，还真是。作者搞了一些阴间prompt，差不多能定位到训练数据集的某些video，然后让模型去生成。发现模型就是在抄袭对应的训练数据，而且13个被测模型都是这样</p>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/video-mem.png"></p>
-<h2 id="mmdocbench-benchmarking-large-vision-language-models-for-fine-grained-visual-document-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21311"><strong>MMDocBench: Benchmarking
-Large Vision-Language Models for Fine-Grained Visual Document
-Understanding</strong></a></h2>
-<p>作者提了一个点：目前的doc
-qa基本上都是high-level的，关注整个页面、或者一大段文字的内容。没有benchmark去关注页面很局部的信息，作者由此搞了个fine-grained
-doc qa，基本都是信息在页面里很小很不起眼。</p>
+<h2 id="MMDocBench-Benchmarking-Large-Vision-Language-Models-for-Fine-Grained-Visual-Document-Understanding"><a href="#MMDocBench-Benchmarking-Large-Vision-Language-Models-for-Fine-Grained-Visual-Document-Understanding" class="headerlink" title="MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21311"><strong>MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding</strong></a></h2><p>作者提了一个点：目前的doc qa基本上都是high-level的，关注整个页面、或者一大段文字的内容。没有benchmark去关注页面很局部的信息，作者由此搞了个fine-grained doc qa，基本都是信息在页面里很小很不起眼。</p>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/mmdoc.png"></p>
-<h2 id="mind-your-step-by-step-chain-of-thought-can-reduce-performance-on-tasks-where-thinking-makes-humans-worse"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21333"><strong>Mind Your Step (by
-Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking
-Makes Humans Worse</strong></a></h2>
-<p>之前有个方向叫inverse scaling
-law：找到一些参数更大的模型反而表现更差的任务。作者搞了个inverse的CoT版本：找到用了CoT反而效果更差的任务。作者更近一步，先去找对人来说“用了CoT反而效果更差的任务”，再去看模型表现和人是否是一致的。核心发现是：</p>
-<ol type="1">
+<h2 id="Mind-Your-Step-by-Step-Chain-of-Thought-can-Reduce-Performance-on-Tasks-where-Thinking-Makes-Humans-Worse"><a href="#Mind-Your-Step-by-Step-Chain-of-Thought-can-Reduce-Performance-on-Tasks-where-Thinking-Makes-Humans-Worse" class="headerlink" title="Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21333"><strong>Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse</strong></a></h2><p>之前有个方向叫inverse scaling law：找到一些参数更大的模型反而表现更差的任务。作者搞了个inverse的CoT版本：找到用了CoT反而效果更差的任务。作者更近一步，先去找对人来说“用了CoT反而效果更差的任务”，再去看模型表现和人是否是一致的。核心发现是：</p>
+<ol>
 <li>能找到不少这样的任务，让o1比4o掉35%</li>
 <li>模型和人的表现不完全一致，但大体是类似的。</li>
 </ol>
 <blockquote>
-<p>还挺好玩的……以后来个"Inverse CoT scaling-law can be U-shaped"
-[doge]</p>
+<p>还挺好玩的……以后来个”Inverse CoT scaling-law can be U-shaped” [doge]</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/inverse_cot.png"></p>
-<h2 id="deploying-ten-thousand-robots-scalable-imitation-learning-for-lifelong-multi-agent-path-finding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21415">Deploying Ten Thousand Robots:
-Scalable Imitation Learning for Lifelong Multi-Agent Path
-Finding</a></h2>
-<p>一篇比较传统AI的工作：作者研究了MAPF问题，如何同时规划多个agent的路径，使得互相不会卡位置死锁，同时移动很高效。作者探索的是life
-long场景，也就是说位置要求会发生多次。在这个领域中，非AI的search
-方法跑得很慢，但是效果比AI方法好。作者试图把search方法的trace作为数据，蒸馏到AI里，发现还真可以。不过，前提是scale，之前也有类似的工作，但scale的不够好</p>
+<h2 id="Deploying-Ten-Thousand-Robots-Scalable-Imitation-Learning-for-Lifelong-Multi-Agent-Path-Finding"><a href="#Deploying-Ten-Thousand-Robots-Scalable-Imitation-Learning-for-Lifelong-Multi-Agent-Path-Finding" class="headerlink" title="Deploying Ten Thousand Robots: Scalable Imitation Learning for Lifelong Multi-Agent Path Finding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21415">Deploying Ten Thousand Robots: Scalable Imitation Learning for Lifelong Multi-Agent Path Finding</a></h2><p>一篇比较传统AI的工作：作者研究了MAPF问题，如何同时规划多个agent的路径，使得互相不会卡位置死锁，同时移动很高效。作者探索的是life long场景，也就是说位置要求会发生多次。在这个领域中，非AI的search 方法跑得很慢，但是效果比AI方法好。作者试图把search方法的trace作为数据，蒸馏到AI里，发现还真可以。不过，前提是scale，之前也有类似的工作，但scale的不够好</p>
 <blockquote>
 <p>话说这套方法论还挺好玩的，挺有AAAI风格的</p>
 </blockquote>
@@ -367,13 +349,13 @@ long场景，也就是说位置要求会发生多次。在这个领域中，非A
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8b64b789.html" rel="bookmark">2025-03-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/64a6dcb7.html" rel="bookmark">2025-03-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8f9167b4.html" rel="bookmark">2025-03-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/60530c8a.html" rel="bookmark">2025-03-24-insights</a></div>
     </li>
   </ul>
 
@@ -450,14 +432,7 @@ long场景，也就是说位置要求会发生多次。在这个领域中，非A
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#investigating-memorization-in-video-diffusion-models"><span class="nav-number">1.</span> <span class="nav-text">Investigating
-Memorization in Video Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmdocbench-benchmarking-large-vision-language-models-for-fine-grained-visual-document-understanding"><span class="nav-number">2.</span> <span class="nav-text">MMDocBench: Benchmarking
-Large Vision-Language Models for Fine-Grained Visual Document
-Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mind-your-step-by-step-chain-of-thought-can-reduce-performance-on-tasks-where-thinking-makes-humans-worse"><span class="nav-number">3.</span> <span class="nav-text">Mind Your Step (by
-Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking
-Makes Humans Worse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deploying-ten-thousand-robots-scalable-imitation-learning-for-lifelong-multi-agent-path-finding"><span class="nav-number">4.</span> <span class="nav-text">Deploying Ten Thousand Robots:
-Scalable Imitation Learning for Lifelong Multi-Agent Path
-Finding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigating-Memorization-in-Video-Diffusion-Models"><span class="nav-number">1.</span> <span class="nav-text">Investigating Memorization in Video Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMDocBench-Benchmarking-Large-Vision-Language-Models-for-Fine-Grained-Visual-Document-Understanding"><span class="nav-number">2.</span> <span class="nav-text">MMDocBench: Benchmarking Large Vision-Language Models for Fine-Grained Visual Document Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mind-Your-Step-by-Step-Chain-of-Thought-can-Reduce-Performance-on-Tasks-where-Thinking-Makes-Humans-Worse"><span class="nav-number">3.</span> <span class="nav-text">Mind Your Step (by Step): Chain-of-Thought can Reduce Performance on Tasks where Thinking Makes Humans Worse</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deploying-Ten-Thousand-Robots-Scalable-Imitation-Learning-for-Lifelong-Multi-Agent-Path-Finding"><span class="nav-number">4.</span> <span class="nav-text">Deploying Ten Thousand Robots: Scalable Imitation Learning for Lifelong Multi-Agent Path Finding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -515,15 +490,15 @@ Finding</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/64a6dcb7" title="2025-03-26-insights" target="_blank">2025-03-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8f9167b4" title="2025-03-25-insights" target="_blank">2025-03-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/60530c8a" title="2025-03-24-insights" target="_blank">2025-03-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -607,12 +582,12 @@ Finding</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">289k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
