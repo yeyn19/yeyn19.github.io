@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.8k</span>
+              <span>7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -323,128 +323,209 @@
 <span id="more"></span>
 <p><img src="../files/images/PPO/authors.png"></p>
 <p>这是2017年的论文，作者团队是openAI。讲PPO，必须先说明一大堆前置知识。我先简单说说前置知识，不保证正确。</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><p>强化学习领域就是让智能体agent和环境e一直交互，最终强化智能体。</p>
+<h2 id="前置知识">前置知识</h2>
+<p>强化学习领域就是让智能体agent和环境e一直交互，最终强化智能体。</p>
 <p>强化学习的一次交互为多个state，action链式连接。</p>
-<p>强化学习优化的对象叫做return。环境对于每个action给出的反馈叫做reward。return是所有未来state的reward指数衰减</p>
-<script type="math/tex; mode=display">
-return_i = \sum_{t=i}^T \gamma^{t-i} Reward_t</script><ul>
+<p>强化学习优化的对象叫做return。环境对于每个action给出的反馈叫做reward。return是所有未来state的reward指数衰减
+<span class="math display">\[
+return_i = \sum_{t=i}^T \gamma^{t-i} Reward_t
+\]</span></p>
+<ul>
 <li>return是个未来函数，只有跑完后面才知道前面的reward。我们只能用模型模拟或者求期望</li>
-<li>在很多情况下，环境也不能给出密集的reward，很有可能只有交互结束才能给一个reward(比如下棋)，这个领域叫sparse reward</li>
-<li>$\gamma$是时间衰减函数，说明未来的收益要衰减。这是因为未来有不确定性，所以未来的回报没有现在的重要。至于为什么用指数衰减，这是未了后面的数学推导更简单</li>
+<li>在很多情况下，环境也不能给出密集的reward，很有可能只有交互结束才能给一个reward(比如下棋)，这个领域叫sparse
+reward</li>
+<li><span class="math inline">\(\gamma\)</span>是时间衰减函数，说明未来的收益要衰减。这是因为未来有不确定性，所以未来的回报没有现在的重要。至于为什么用指数衰减，这是未了后面的数学推导更简单</li>
 </ul>
-<p>强化学习分为两大类方法，基于动作的policy method和基于评估的value method</p>
-<h3 id="value-method"><a href="#value-method" class="headerlink" title="value method"></a>value method</h3><p>这是指用一个模型来拟合value。要知道value，要先知道Q(s,a)</p>
-<p>Q(s,a)是衡量模型在状态s做出动作a到底好不好，值就等于未来状态return。$Q<em>\pi(s_t,a) = return</em>{t+1}$</p>
-<p>Q(s,a)包含动作a，不好。把a积分掉(或者离散情况下就是$\sum$)以后得到$V<em>\pi(S) = \sum</em>{a} \pi(a|s)Q(s,a)$</p>
-<p>另外，$\text{Adavantage}_{a} = Q(s,a) - V(s)$专门表示采取动作a带来了多少额外收益</p>
-<p>经典的Q-learning用模型去学习Q(s,a)，怎么学？通过贝尔曼方程，根据Q的定义</p>
-<script type="math/tex; mode=display">
+<p>强化学习分为两大类方法，基于动作的policy method和基于评估的value
+method</p>
+<h3 id="value-method">value method</h3>
+<p>这是指用一个模型来拟合value。要知道value，要先知道Q(s,a)</p>
+<p>Q(s,a)是衡量模型在状态s做出动作a到底好不好，值就等于未来状态return。<span class="math inline">\(Q_\pi(s_t,a) = return_{t+1}\)</span></p>
+<p>Q(s,a)包含动作a，不好。把a积分掉(或者离散情况下就是<span class="math inline">\(\sum\)</span>)以后得到<span class="math inline">\(V_\pi(S) = \sum_{a} \pi(a|s)Q(s,a)\)</span></p>
+<p>另外，<span class="math inline">\(\text{Adavantage}_{a} = Q(s,a) -
+V(s)\)</span>专门表示采取动作a带来了多少额外收益</p>
+<p>经典的Q-learning用模型去学习Q(s,a)，怎么学？通过贝尔曼方程，根据Q的定义
+<span class="math display">\[
 V(S_t) = R_{t+1} + \gamma V(S_{t+1}) \\
 ...\\
-V(S_{T-1}) = R_T</script><script type="math/tex; mode=display">
-Q^*(s_t,a_t) = R_t + \gamma \max_{a\in A} Q^*(s_{t+1},a)</script><ul>
-<li>$Q^<em>$是指最好的Q，就是说$s_t$采取动作$a_t$以后最好的结果就是$Q^</em>(s_t,a_t)$了</li>
-</ul>
-<p>这衍生出了TD-error(temporal difference):等式右边的V估计更准确，因为右边计算用到了真实的回报$R_{t+1}$。通过这个归纳偏置就可以学习$Q^*$了:</p>
+V(S_{T-1}) = R_T
+\]</span></p>
+<p><span class="math display">\[
+Q^*(s_t,a_t) = R_t + \gamma \max_{a\in A} Q^*(s_{t+1},a)
+\]</span></p>
 <ul>
-<li><p>用一个模型拟合$Q_\theta(s_t,a_t)$</p>
-</li>
-<li><p>在状态$s<em>t$中通过$\epsilon-\text{greedy}$采样一个动作。采样方法是指有$\epsilon$概率采取一个随机动作，剩下的时候按照$Q</em>\theta(s_t,a_t)$最大的$a_t$采取动作</p>
-</li>
-<li>执行$a<em>t$，进入$s</em>{t+1}$并得到回报$R_t$</li>
-<li>对于$Q<em>\theta(s_t,a_t)$的更好的估计是$R_t + \gamma \max</em>{a\in A} Q<em>\theta(s</em>{t+1},a)$。用做target，然后用mse loss优化就行</li>
+<li><span class="math inline">\(Q^*\)</span>是指最好的Q，就是说<span class="math inline">\(s_t\)</span>采取动作<span class="math inline">\(a_t\)</span>以后最好的结果就是<span class="math inline">\(Q^*(s_t,a_t)\)</span>了</li>
+</ul>
+<p>这衍生出了TD-error(temporal
+difference):等式右边的V估计更准确，因为右边计算用到了真实的回报<span class="math inline">\(R_{t+1}\)</span>。通过这个归纳偏置就可以学习<span class="math inline">\(Q^*\)</span>了:</p>
+<ul>
+<li><p>用一个模型拟合<span class="math inline">\(Q_\theta(s_t,a_t)\)</span></p></li>
+<li><p>在状态<span class="math inline">\(s_t\)</span>中通过<span class="math inline">\(\epsilon-\text{greedy}\)</span>采样一个动作。采样方法是指有<span class="math inline">\(\epsilon\)</span>概率采取一个随机动作，剩下的时候按照<span class="math inline">\(Q_\theta(s_t,a_t)\)</span>最大的<span class="math inline">\(a_t\)</span>采取动作</p></li>
+<li><p>执行<span class="math inline">\(a_t\)</span>，进入<span class="math inline">\(s_{t+1}\)</span>并得到回报<span class="math inline">\(R_t\)</span></p></li>
+<li><p>对于<span class="math inline">\(Q_\theta(s_t,a_t)\)</span>的更好的估计是<span class="math inline">\(R_t + \gamma \max_{a\in A}
+Q_\theta(s_{t+1},a)\)</span>。用做target，然后用mse
+loss优化就行</p></li>
 </ul>
 <p>Q-learning里的最经典的算法叫做deep-Q Network，大概做了几个改进:</p>
 <ul>
-<li>经验重放：就是说实际在环境里跑交互太慢了，我可以提前跑，跑完把状态转移对$(s<em>t,a_t,s</em>{t+1},R_t)$存下来，然后再多次更新、多次利用</li>
-<li>periodically update target，就是我算loss的时候那个target里的$Q^*$不用现在的参数，而是用一段时间之前的参数，每隔一段时间同步一次。这是为了减小loss尖峰带来的影响，让训练更稳定</li>
+<li>经验重放：就是说实际在环境里跑交互太慢了，我可以提前跑，跑完把状态转移对<span class="math inline">\((s_t,a_t,s_{t+1},R_t)\)</span>存下来，然后再多次更新、多次利用</li>
+<li>periodically update target，就是我算loss的时候那个target里的<span class="math inline">\(Q^*\)</span>不用现在的参数，而是用一段时间之前的参数，每隔一段时间同步一次。这是为了减小loss尖峰带来的影响，让训练更稳定</li>
 </ul>
-<h3 id="policy-method"><a href="#policy-method" class="headerlink" title="policy method"></a>policy method</h3><p>前面提到Q-learning等方法学习Q，然后采取动作是用$\epsilon-\text{greedy}$解码。这里的思路是说我不学Q，我学习一个agent $\pi(a|s_t)$输入一个状态，我返回在这个状态下做所有动作的概率分布。</p>
-<p>优化的目标当然就是让好的动作概率更大，坏的动作概率小</p>
-<script type="math/tex; mode=display">
-\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a| s)Q_{\pi(s,a)} \right)</script><p>经典的REINFORCE算法就是一大堆数学推导，最后使得</p>
-<script type="math/tex; mode=display">
-\Delta \mathcal{J}(\theta) = \mathbb{E}_{\pi \theta} \left[ \Delta \ln \pi(a|s) Q_\pi(s,a) \right]</script><p>$\Delta \mathcal{J}(\theta) $是$\theta$的函数，可以看做loss，用梯度上升来做参数更新</p>
-<p>很优雅，用了log换元。但是上面的式子要求期望，还是有两个$\sum$，显然没法直接算。一个简单的方法就是用蒙特卡洛近似，就是在环境里跑完一大堆状态转移，然后倒着算回来所有的$Q_\pi(s,a)$(这里视为这个是数字，和$\theta$无关，是一个近似)。再拿上面的式子就能训练$\pi$ 了</p>
+<h3 id="policy-method">policy method</h3>
+<p>前面提到Q-learning等方法学习Q，然后采取动作是用<span class="math inline">\(\epsilon-\text{greedy}\)</span>解码。这里的思路是说我不学Q，我学习一个agent
+<span class="math inline">\(\pi(a|s_t)\)</span>输入一个状态，我返回在这个状态下做所有动作的概率分布。</p>
+<p>优化的目标当然就是让好的动作概率更大，坏的动作概率小 <span class="math display">\[
+\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a|
+s)Q_{\pi(s,a)} \right)
+\]</span> 经典的REINFORCE算法就是一大堆数学推导，最后使得 <span class="math display">\[
+\Delta \mathcal{J}(\theta) = \mathbb{E}_{\pi \theta} \left[ \Delta \ln
+\pi(a|s) Q_\pi(s,a) \right]
+\]</span> $() <span class="math inline">\(是\)</span>$的函数，可以看做loss，用梯度上升来做参数更新</p>
+<p>很优雅，用了log换元。但是上面的式子要求期望，还是有两个<span class="math inline">\(\sum\)</span>，显然没法直接算。一个简单的方法就是用蒙特卡洛近似，就是在环境里跑完一大堆状态转移，然后倒着算回来所有的<span class="math inline">\(Q_\pi(s,a)\)</span>(这里视为这个是数字，和<span class="math inline">\(\theta\)</span>无关，是一个近似)。再拿上面的式子就能训练<span class="math inline">\(\pi\)</span> 了</p>
 <p>上面的reinforce算法有个问题：上面的梯度受到环境影响大，方差大不稳定，要找个东西减小方差，这叫做baseline方法。</p>
-<p>一个思路就是用上面提到的advantage$=Q(s,a) - V(s)$代替Q(s,a)。</p>
-<h3 id="actor-critic"><a href="#actor-critic" class="headerlink" title="actor-critic"></a>actor-critic</h3><p>上面说我们蒙特卡洛模拟，然后反着求Q，这个Q的估计显然是不准确的，有解决办法吗？我们搞ai就是working is all you need：我们用另一个模型拟合$V_\theta(S)$。这种两个模型的方法就是actor-critic。一个演员采取行动，一个裁判进行打分。</p>
-<p>经典的actor-critic是用另一个模型来拟合$Q(s,a)$。Q的参数更新就用上面讲到的Q-learning里的temporal difference (TD-error)，然后$\pi$的参数更新用模型输出的Q来算$\mathcal{J}(\theta)$。注意这里要把Q的输出的梯度detach掉，就是不要反向传播到Q的参数里。</p>
+<p>一个思路就是用上面提到的advantage<span class="math inline">\(=Q(s,a)
+- V(s)\)</span>代替Q(s,a)。</p>
+<h3 id="actor-critic">actor-critic</h3>
+<p>上面说我们蒙特卡洛模拟，然后反着求Q，这个Q的估计显然是不准确的，有解决办法吗？我们搞ai就是working
+is all you need：我们用另一个模型拟合<span class="math inline">\(V_\theta(S)\)</span>。这种两个模型的方法就是actor-critic。一个演员采取行动，一个裁判进行打分。</p>
+<p>经典的actor-critic是用另一个模型来拟合<span class="math inline">\(Q(s,a)\)</span>。Q的参数更新就用上面讲到的Q-learning里的temporal
+difference (TD-error)，然后<span class="math inline">\(\pi\)</span>的参数更新用模型输出的Q来算<span class="math inline">\(\mathcal{J}(\theta)\)</span>。注意这里要把Q的输出的梯度detach掉，就是不要反向传播到Q的参数里。</p>
 <p>这种双模型的方法是现在RL的最常用的方法。简单区分几种方法，来自知乎：</p>
 <blockquote>
-<p>actor就好比是你，critic就好比你妈。你做一件事情，比如抓蜜蜂，结果被蜇疼了，下次你再抓蜜蜂的概率就减小了，这个就是policy gradient。你刚手伸出去要去抓蜜蜂，你妈就说，别抓，十有八九会被蜇疼。你听了后停止了抓蜜蜂，并且下次抓蜜蜂的概率减小了，这个就是actor-critic。你每次看见蜜蜂的时候都问你妈，抓蜜蜂好还是不抓蜜蜂好？你妈说不抓蜜蜂好，通常你听你妈的话就不抓蜜蜂了，偶尔心情不好的时候（以$\epsilon$的概率）还要去抓蜜蜂，这个就是Q-learning。那么妈妈是怎么知道抓蜜蜂会疼的？当然她也是抓过蜜蜂的（Q-value update）</p>
+<p>actor就好比是你，critic就好比你妈。你做一件事情，比如抓蜜蜂，结果被蜇疼了，下次你再抓蜜蜂的概率就减小了，这个就是policy
+gradient。你刚手伸出去要去抓蜜蜂，你妈就说，别抓，十有八九会被蜇疼。你听了后停止了抓蜜蜂，并且下次抓蜜蜂的概率减小了，这个就是actor-critic。你每次看见蜜蜂的时候都问你妈，抓蜜蜂好还是不抓蜜蜂好？你妈说不抓蜜蜂好，通常你听你妈的话就不抓蜜蜂了，偶尔心情不好的时候（以<span class="math inline">\(\epsilon\)</span>的概率）还要去抓蜜蜂，这个就是Q-learning。那么妈妈是怎么知道抓蜜蜂会疼的？当然她也是抓过蜜蜂的（Q-value
+update）</p>
 </blockquote>
-<h2 id="PPO"><a href="#PPO" class="headerlink" title="PPO"></a>PPO</h2><p>下面正式开始PPO讲解。PPO基于更早的一个叫TRPO(trust region)的算法。可以理解成一个actor-critic方法，大概做了几个改进。</p>
-<p>Trust region是一篇数学很多的论文，大概讲的事情是</p>
-<script type="math/tex; mode=display">
-\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a| s)A_t \right)</script><p>上面的估计是很不稳定的，要想办法用另一个让它变稳定：用一个叫做的方法，可以用另一个分布来估计原始的分布。</p>
-<script type="math/tex; mode=display">
-\mathcal{J}(\theta) \sim \mathbb{E}_{\sim \pi_{\theta_{old}}} \left[ \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}A_t \right]</script><p>这样这个分布的采用使用$\theta_{old}$就在数学上成立了。然后训练时我们每隔一段时间更新一次$\theta$，在这段时间内用之前跑出来的状态转移对进行训练就行。极大地提高了训练效率。</p>
-<p>我们希望两个分布不要差太远，这是因为上式可以一阶等价于$\mathcal{J}(\theta)$，因此需要分布很接近才行。因此可以再给loss加一个KL散度惩罚。</p>
-<script type="math/tex; mode=display">
-\mathbb{E}_t \left[ \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}A_t - KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·| s_t))  \right]</script><p>这就是论文里说的代理训练目标</p>
-<p>PPO把这个分式重新命名了一下</p>
-<script type="math/tex; mode=display">
-r_t(\theta) = \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}</script><p>把TRPO中的loss称为 $L^{CPI} = \mathbb{E} \left[ r_t(\theta) A_t  \right]$ </p>
-<p>然后提出了两个变体</p>
-<script type="math/tex; mode=display">
-L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta, 1-\epsilon, 1+ \epsilon)A_t ) \right]</script><script type="math/tex; mode=display">
-L^{KLPEN} = \mathbb{E}_t \left[ r_t(\theta) A_t - \beta KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·| s_t))  \right]</script><p>这两个变体都能使得训练更稳定。其中变体二的超参数$\beta$是自适应的:</p>
+<h2 id="ppo">PPO</h2>
+<p>下面正式开始PPO讲解。PPO基于更早的一个叫TRPO(trust
+region)的算法。可以理解成一个actor-critic方法，大概做了几个改进。</p>
+<p>Trust region是一篇数学很多的论文，大概讲的事情是 <span class="math display">\[
+\mathcal{J}(\theta) = \sum_{s\in S} \left( \sum_{a\in A} \pi(a| s)A_t
+\right)
+\]</span>
+上面的估计是很不稳定的，要想办法用另一个让它变稳定：用一个叫做的方法，可以用另一个分布来估计原始的分布。
+<span class="math display">\[
+\mathcal{J}(\theta) \sim \mathbb{E}_{\sim \pi_{\theta_{old}}} \left[
+\frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t | s_t)}A_t \right]
+\]</span> 这样这个分布的采用使用<span class="math inline">\(\theta_{old}\)</span>就在数学上成立了。然后训练时我们每隔一段时间更新一次<span class="math inline">\(\theta\)</span>，在这段时间内用之前跑出来的状态转移对进行训练就行。极大地提高了训练效率。</p>
+<p>我们希望两个分布不要差太远，这是因为上式可以一阶等价于<span class="math inline">\(\mathcal{J}(\theta)\)</span>，因此需要分布很接近才行。因此可以再给loss加一个KL散度惩罚。
+<span class="math display">\[
+\mathbb{E}_t \left[ \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t
+| s_t)}A_t - KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·|
+s_t))  \right]
+\]</span> 这就是论文里说的代理训练目标</p>
+<p>PPO把这个分式重新命名了一下 <span class="math display">\[
+r_t(\theta) = \frac{\pi_\theta(a_t | s_t)}{\pi_{\theta_{old}}(a_t |
+s_t)}
+\]</span> 把TRPO中的loss称为 <span class="math inline">\(L^{CPI} =
+\mathbb{E} \left[ r_t(\theta) A_t  \right]\)</span></p>
+<p>然后提出了两个变体 <span class="math display">\[
+L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta,
+1-\epsilon, 1+ \epsilon)A_t ) \right]
+\]</span></p>
+<p><span class="math display">\[
+L^{KLPEN} = \mathbb{E}_t \left[ r_t(\theta) A_t - \beta
+KL(\pi_{\theta}(·| s_t), \pi_{\theta_{old}}(·| s_t))  \right]
+\]</span></p>
+<p>这两个变体都能使得训练更稳定。其中变体二的超参数<span class="math inline">\(\beta\)</span>是自适应的:</p>
 <ul>
-<li>$\beta \rightarrow \frac{\beta}{2}$ 如果 $本次KL/1.5 &gt; 平均KL $</li>
-<li>$\beta \rightarrow 2\beta$ 如果 $本次KL*1.5 &lt; 平均KL $</li>
+<li><span class="math inline">\(\beta \rightarrow
+\frac{\beta}{2}\)</span> 如果 $本次KL/1.5 &gt; 平均KL $</li>
+<li><span class="math inline">\(\beta \rightarrow 2\beta\)</span> 如果
+$本次KL*1.5 &lt; 平均KL $</li>
 </ul>
 <p>除此之外，模型的更新就和actor-critic方法没什么别的区别了。</p>
 <ul>
-<li><p>它使用了经验重放，交互用的链可以更新多次(4 epoch)再同步参数$\theta_{old}$</p>
-</li>
-<li><p>他的更新用的不是Q,而是Advantage $A_t$，这是为了减少方差，稳定训练。</p>
-</li>
+<li><p>它使用了经验重放，交互用的链可以更新多次(4 epoch)再同步参数<span class="math inline">\(\theta_{old}\)</span></p></li>
+<li><p>他的更新用的不是Q,而是Advantage <span class="math inline">\(A_t\)</span>，这是为了减少方差，稳定训练。</p></li>
 </ul>
-<script type="math/tex; mode=display">
-A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda \gamma)^{T-t+1} \delta_{T-1}
-\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)</script><script type="math/tex; mode=display">
-\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)</script><ul>
-<li>其中$V(s)$是需要训练的第二个模型。然后训练流程是先用$\pi$跑完一整轮，得到$V(s_1),…V(s_T)$再倒过来算出所有的$A_t$，再把$A_t$拿过来训练$\pi$</li>
-<li>V的值同样通过TD-error的mse-loss进行更新$V_\text{target}$注意计算要用到那个慢更新的优化，用的是一段时间以前的参数算的V</li>
-</ul>
-<h2 id="RLHF中的PPO"><a href="#RLHF中的PPO" class="headerlink" title="RLHF中的PPO"></a>RLHF中的PPO</h2><p>上面讲完了PPO，那RLHF中的PPO又是怎么算的呢？这一部分我是根据代码阅读的结果来讲的，实际上可能每边都有每边的实现，我讲其中一种。</p>
-<p>RLHF算法分3个大块：SFT，reward model training, RLHF。我这里讲最后一个部分，也就是说我们已经有了一个reward model可以给任何一个(query, response)对输出一个 $r \in [-1,1]$的讲理，越高说明越好越符合人的期望输出。这个就是假的”环境”，可以给反馈</p>
-<h3 id="what-is-model"><a href="#what-is-model" class="headerlink" title="what is model"></a>what is model</h3><p>首先，PPO明显是需要两个模型policy model， value model。怎么实现呢？</p>
+<p><span class="math display">\[
+A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda
+\gamma)^{T-t+1} \delta_{T-1}
+\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)
+\]</span></p>
+<p><span class="math display">\[
+\delta_t = r_t + \gamma V(s_{t+1})  - V(s_t)
+\]</span></p>
 <ul>
-<li>policy model其实就是语言模型自己，我们把一次response生成的每个token生成视为一个状态转移，然后action就是对应的token t。</li>
-<li>value model这里和语言模型是共享参数的，我们在最后语言模型的hidden state层后面加一个 model_dim -&gt; 1的映射（正常是 model_dim-&gt;vocab_size-&gt;softmax映射到词表），所以所有的状态下都有一个float的输出，把这个当做$V(s_t)$</li>
+<li>其中<span class="math inline">\(V(s)\)</span>是需要训练的第二个模型。然后训练流程是先用<span class="math inline">\(\pi\)</span>跑完一整轮，得到<span class="math inline">\(V(s_1),...V(s_T)\)</span>再倒过来算出所有的<span class="math inline">\(A_t\)</span>，再把<span class="math inline">\(A_t\)</span>拿过来训练<span class="math inline">\(\pi\)</span></li>
+<li>V的值同样通过TD-error的mse-loss进行更新<span class="math inline">\(V_\text{target}\)</span>注意计算要用到那个慢更新的优化，用的是一段时间以前的参数算的V</li>
+</ul>
+<h2 id="rlhf中的ppo">RLHF中的PPO</h2>
+<p>上面讲完了PPO，那RLHF中的PPO又是怎么算的呢？这一部分我是根据代码阅读的结果来讲的，实际上可能每边都有每边的实现，我讲其中一种。</p>
+<p>RLHF算法分3个大块：SFT，reward model training,
+RLHF。我这里讲最后一个部分，也就是说我们已经有了一个reward
+model可以给任何一个(query, response)对输出一个 <span class="math inline">\(r \in
+[-1,1]\)</span>的讲理，越高说明越好越符合人的期望输出。这个就是假的"环境"，可以给反馈</p>
+<h3 id="what-is-model">what is model</h3>
+<p>首先，PPO明显是需要两个模型policy model， value
+model。怎么实现呢？</p>
+<ul>
+<li>policy
+model其实就是语言模型自己，我们把一次response生成的每个token生成视为一个状态转移，然后action就是对应的token
+t。</li>
+<li>value model这里和语言模型是共享参数的，我们在最后语言模型的hidden
+state层后面加一个 model_dim -&gt; 1的映射（正常是
+model_dim-&gt;vocab_size-&gt;softmax映射到词表），所以所有的状态下都有一个float的输出，把这个当做<span class="math inline">\(V(s_t)\)</span></li>
 <li>至于两个模型要不要共享参数，是个实验问题。我只能说，如果不共享参数的话，首先需要存两份，然后每次交互都要跑两次前向，反向传播也是，这个在尤其是大模型场景下，对算力的消耗是多很多的。</li>
 </ul>
-<p>我们需要记载一个最开始的模型的参数，这个开始是指原始的LLM语言模型的参数$\pi_{start}$，这是为了让RLHF阶段的更新不要太多，不要丢失语言模型原本的语言、推理能力</p>
-<h3 id="advantage"><a href="#advantage" class="headerlink" title="advantage"></a>advantage</h3><p>然后就是reward的计算</p>
+<p>我们需要记载一个最开始的模型的参数，这个开始是指原始的LLM语言模型的参数<span class="math inline">\(\pi_{start}\)</span>，这是为了让RLHF阶段的更新不要太多，不要丢失语言模型原本的语言、推理能力</p>
+<h3 id="advantage">advantage</h3>
+<p>然后就是reward的计算</p>
 <ul>
-<li>对于正常的token，除了最后一个token以外，reward就是引入模型分布和原始分布的KL散度$KL(\pi<em>\theta(r|q), \pi</em>{\theta_{start}}(r|q))$</li>
+<li>对于正常的token，除了最后一个token以外，reward就是引入模型分布和原始分布的KL散度<span class="math inline">\(KL(\pi_\theta(r|q),
+\pi_{\theta_{start}}(r|q))\)</span></li>
 <li>对于最后一个token，额外引入最终response的reward，就是reward和KL散度的和。</li>
 </ul>
-<p>KL散度怎么算？其实就是$\log P(·|s)$的差值。其实就是你的模型的输出logit $[seq-length, vocab-size]$。过完log-softmax层，然后把你实际取的token的对应位置的值取出来，得到一个 logprobs $[seq-length,float]$。把现在的参数$\theta$和之前参数$\theta_{start}$的对应logprobs都取出来，然后直接做减法就行，得出来seq-length长度的序列，就是对应每个位置的KL散度reward</p>
-<p>有了所有未知的reward以后，就可以用PPO的方法倒过来算出所有位置的advantage $A<em>t$，注意这里的$A_t$计算需要用到Value-old输出$V</em>{old}(s_t)$而不是现在的$\theta$的输出，这是为了训练更稳定</p>
-<script type="math/tex; mode=display">
-A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda \gamma)^{T-t+1} \delta_{T-1}</script><script type="math/tex; mode=display">
-\delta_t = r_t + \gamma V_{old}(s_{t+1})  - V_{old}(s_t)</script><h3 id="value-model-loss"><a href="#value-model-loss" class="headerlink" title="value model loss"></a>value model loss</h3><p>接下来计算Value的loss，使用$loss_{V} = ||V(s_t) - A(s_t)||^2$作为loss，这里可以进行一下clip使得更新不要太大</p>
-<script type="math/tex; mode=display">
-loss_{V-clip} = ||clip(V(s_t), V_{old}-\epsilon_1, V_{old}+\epsilon_1 ) - A(s_t)||^2</script><script type="math/tex; mode=display">
-loss_{V} = \frac{loss_{V} + loss_{V-clip}}{2}</script><h3 id="policy-model-loss"><a href="#policy-model-loss" class="headerlink" title="policy model loss"></a>policy model loss</h3><p>接下来计算policy的梯度。首先是openAI定义的那个$r_t(\theta)$。因为是除法，相当于lo概率的减法再e指数。直接用之前算KL时那个log-softmax的输出减法再指数就行，得出来也是seq-length长度的链。</p>
-<script type="math/tex; mode=display">
-L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta, 1-\epsilon_2, 1+ \epsilon_2)A_t ) \right]</script><script type="math/tex; mode=display">
-loss_{pg} = - L^{CLIP}</script><p>然后要注意！这里的L本来按policy gradient算法是要最大化的，所以在AI框架实现中最后要取个符号作为loss(或者就直接用负的，然后换成$\max$)</p>
-<p>最终得到最终的优化目标</p>
-<script type="math/tex; mode=display">
-loss = loss_{pg} + \alpha · loss_{V}</script><h3 id="训练框架"><a href="#训练框架" class="headerlink" title="训练框架"></a>训练框架</h3><ul>
-<li>1.初始化模型$\theta$，用一个预训练LLM来初始化。同时初始化value model,其实就是加个linear层。</li>
-<li>2.用现在的$\theta$跑一堆response数据。query就是采样自你的query数据集</li>
-<li>3.把repsonse送进reward model打分。注意reward model要锁参，然后这里记得detach。</li>
-<li>4.存下来2，3出来的 (query,response,reward)对，记录现在的$\theta$为$\theta_{old}$</li>
-<li>5.对4的数据做几个epoch的更新(比如4个)，每个epoch<ul>
-<li>按上述方法算出 $loss_{pg}, loss_V$</li>
+<p>KL散度怎么算？其实就是<span class="math inline">\(\log
+P(·|s)\)</span>的差值。其实就是你的模型的输出logit <span class="math inline">\([seq-length,
+vocab-size]\)</span>。过完log-softmax层，然后把你实际取的token的对应位置的值取出来，得到一个
+logprobs <span class="math inline">\([seq-length,float]\)</span>。把现在的参数<span class="math inline">\(\theta\)</span>和之前参数<span class="math inline">\(\theta_{start}\)</span>的对应logprobs都取出来，然后直接做减法就行，得出来seq-length长度的序列，就是对应每个位置的KL散度reward</p>
+<p>有了所有未知的reward以后，就可以用PPO的方法倒过来算出所有位置的advantage
+<span class="math inline">\(A_t\)</span>，注意这里的<span class="math inline">\(A_t\)</span>计算需要用到Value-old输出<span class="math inline">\(V_{old}(s_t)\)</span>而不是现在的<span class="math inline">\(\theta\)</span>的输出，这是为了训练更稳定 <span class="math display">\[
+A_t = \delta_t + (\lambda \gamma) \delta_{t+1} + ... + (\lambda
+\gamma)^{T-t+1} \delta_{T-1}
+\]</span></p>
+<p><span class="math display">\[
+\delta_t = r_t + \gamma V_{old}(s_{t+1})  - V_{old}(s_t)
+\]</span></p>
+<h3 id="value-model-loss">value model loss</h3>
+<p>接下来计算Value的loss，使用<span class="math inline">\(loss_{V} =
+||V(s_t) -
+A(s_t)||^2\)</span>作为loss，这里可以进行一下clip使得更新不要太大 <span class="math display">\[
+loss_{V-clip} = ||clip(V(s_t), V_{old}-\epsilon_1, V_{old}+\epsilon_1 )
+- A(s_t)||^2
+\]</span></p>
+<p><span class="math display">\[
+loss_{V} = \frac{loss_{V} + loss_{V-clip}}{2}
+\]</span></p>
+<h3 id="policy-model-loss">policy model loss</h3>
+<p>接下来计算policy的梯度。首先是openAI定义的那个<span class="math inline">\(r_t(\theta)\)</span>。因为是除法，相当于lo概率的减法再e指数。直接用之前算KL时那个log-softmax的输出减法再指数就行，得出来也是seq-length长度的链。
+<span class="math display">\[
+L^{CLIP} = \mathbb{E} \left[ \min(r_t(\theta) A_t, clip(r_t(\theta,
+1-\epsilon_2, 1+ \epsilon_2)A_t ) \right]
+\]</span> <span class="math display">\[
+loss_{pg} = - L^{CLIP}
+\]</span></p>
+<p>然后要注意！这里的L本来按policy
+gradient算法是要最大化的，所以在AI框架实现中最后要取个符号作为loss(或者就直接用负的，然后换成<span class="math inline">\(\max\)</span>)</p>
+<p>最终得到最终的优化目标 <span class="math display">\[
+loss = loss_{pg} + \alpha · loss_{V}
+\]</span></p>
+<h3 id="训练框架">训练框架</h3>
+<ul>
+<li>1.初始化模型<span class="math inline">\(\theta\)</span>，用一个预训练LLM来初始化。同时初始化value
+model,其实就是加个linear层。</li>
+<li>2.用现在的<span class="math inline">\(\theta\)</span>跑一堆response数据。query就是采样自你的query数据集</li>
+<li>3.把repsonse送进reward model打分。注意reward
+model要锁参，然后这里记得detach。</li>
+<li>4.存下来2，3出来的 (query,response,reward)对，记录现在的<span class="math inline">\(\theta\)</span>为<span class="math inline">\(\theta_{old}\)</span></li>
+<li>5.对4的数据做几个epoch的更新(比如4个)，每个epoch
+<ul>
+<li>按上述方法算出 <span class="math inline">\(loss_{pg},
+loss_V\)</span></li>
 <li>不管是不是分离的policy、value model，反正进行梯度更新</li>
-</ul>
-</li>
+</ul></li>
 <li>6.删除刚才的跑出来的数据集4，节省空间。回到2</li>
 </ul>
 
@@ -558,7 +639,7 @@ loss = loss_{pg} + \alpha · loss_{V}</script><h3 id="训练框架"><a href="#�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">前置知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#value-method"><span class="nav-number">1.1.</span> <span class="nav-text">value method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#policy-method"><span class="nav-number">1.2.</span> <span class="nav-text">policy method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#actor-critic"><span class="nav-number">1.3.</span> <span class="nav-text">actor-critic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PPO"><span class="nav-number">2.</span> <span class="nav-text">PPO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RLHF%E4%B8%AD%E7%9A%84PPO"><span class="nav-number">3.</span> <span class="nav-text">RLHF中的PPO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-model"><span class="nav-number">3.1.</span> <span class="nav-text">what is model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#advantage"><span class="nav-number">3.2.</span> <span class="nav-text">advantage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value-model-loss"><span class="nav-number">3.3.</span> <span class="nav-text">value model loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#policy-model-loss"><span class="nav-number">3.4.</span> <span class="nav-text">policy model loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6"><span class="nav-number">3.5.</span> <span class="nav-text">训练框架</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">前置知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#value-method"><span class="nav-number">1.1.</span> <span class="nav-text">value method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#policy-method"><span class="nav-number">1.2.</span> <span class="nav-text">policy method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#actor-critic"><span class="nav-number">1.3.</span> <span class="nav-text">actor-critic</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ppo"><span class="nav-number">2.</span> <span class="nav-text">PPO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rlhf%E4%B8%AD%E7%9A%84ppo"><span class="nav-number">3.</span> <span class="nav-text">RLHF中的PPO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#what-is-model"><span class="nav-number">3.1.</span> <span class="nav-text">what is model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#advantage"><span class="nav-number">3.2.</span> <span class="nav-text">advantage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#value-model-loss"><span class="nav-number">3.3.</span> <span class="nav-text">value model loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#policy-model-loss"><span class="nav-number">3.4.</span> <span class="nav-text">policy model loss</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E6%A1%86%E6%9E%B6"><span class="nav-number">3.5.</span> <span class="nav-text">训练框架</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -616,15 +697,15 @@ loss = loss_{pg} + \alpha · loss_{V}</script><h3 id="训练框架"><a href="#�
       
       
         <li class="recent_posts_li">
+          <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/64a6dcb7" title="2025-03-26-insights" target="_blank">2025-03-26-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -708,12 +789,12 @@ loss = loss_{pg} + \alpha · loss_{V}</script><h3 id="训练框架"><a href="#�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:23</span>
 </div>
 
 <i class="fa fa-user-md"></i>
