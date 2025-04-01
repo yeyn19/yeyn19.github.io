@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="发现好多天没更新阅读笔记了，写一个manyshot ICL的笔记吧：最近看到的论文里最有意思的一篇 DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception 有趣的思路：作者在思考目前的VLM做不好是不是因为这种&quot;llava系&quot;模型架构设计里面image encoder的损失比较大，">
+  <meta name="description" content="发现好多天没更新阅读笔记了，写一个manyshot ICL的笔记吧：最近看到的论文里最有意思的一篇 DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception有趣的思路：作者在思考目前的VLM做不好是不是因为这种”llava系”模型架构设计里面image encoder的损失比较大，所">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-27-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/85e9f9c5">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="发现好多天没更新阅读笔记了，写一个manyshot ICL的笔记吧：最近看到的论文里最有意思的一篇 DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception 有趣的思路：作者在思考目前的VLM做不好是不是因为这种&quot;llava系&quot;模型架构设计里面image encoder的损失比较大，">
+<meta property="og:description" content="发现好多天没更新阅读笔记了，写一个manyshot ICL的笔记吧：最近看到的论文里最有意思的一篇 DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception有趣的思路：作者在思考目前的VLM做不好是不是因为这种”llava系”模型架构设计里面image encoder的损失比较大，所">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/deem.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-27-05-31/grokking.png">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>888</span>
+              <span>884</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,34 +314,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>发现好多天没更新阅读笔记了，写一个manyshot
-ICL的笔记吧：最近看到的论文里最有意思的一篇</p>
-<h2 id="deem-diffusion-models-serve-as-the-eyes-of-large-language-models-for-image-perception"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15232">DEEM: Diffusion Models Serve as
-the EyEs of Large Language Models for Image Perception</a></h2>
-<p>有趣的思路：作者在思考目前的VLM做不好是不是因为这种"llava系"模型架构设计里面image
-encoder的损失比较大，所以作者想要直接调整image
-encoder的效果。作者构造了一种类似re-consturction的思路：把image
-encoder的embedding丢给一个图片解码模型，从解码出目标图片的loss里反馈image
-embedding的梯度反过来优化image
-encoder。通过这种"reverse"的思路，减少了VLM的hallucination</p>
+        <p>发现好多天没更新阅读笔记了，写一个manyshot ICL的笔记吧：最近看到的论文里最有意思的一篇</p>
+<h2 id="DEEM-Diffusion-Models-Serve-as-the-EyEs-of-Large-Language-Models-for-Image-Perception"><a href="#DEEM-Diffusion-Models-Serve-as-the-EyEs-of-Large-Language-Models-for-Image-Perception" class="headerlink" title="DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15232">DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception</a></h2><p>有趣的思路：作者在思考目前的VLM做不好是不是因为这种”llava系”模型架构设计里面image encoder的损失比较大，所以作者想要直接调整image encoder的效果。作者构造了一种类似re-consturction的思路：把image encoder的embedding丢给一个图片解码模型，从解码出目标图片的loss里反馈image embedding的梯度反过来优化image encoder。通过这种”reverse”的思路，减少了VLM的hallucination</p>
 <blockquote>
-<p>感觉有点奇怪……有点像是andrew前几天那个的在embedding层加CLIP
-loss思路的对偶版本</p>
+<p>感觉有点奇怪……有点像是andrew前几天那个的在embedding层加CLIP loss思路的对偶版本</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/deem.png"></p>
-<h2 id="grokked-transformers-are-implicit-reasoners-a-mechanistic-journey-to-the-edge-of-generalization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15071">Grokked Transformers are
-Implicit Reasoners: A Mechanistic Journey to the Edge of
-Generalization</a></h2>
-<p>grokking领域的论文，好久没关注这个方向了。这个方向讲的东西是，随着训练量加大，在训练集早就已经过拟合的情况下，模型在测试集的表现会不会逐步上升、或者突变，Ilya曾经研究过这个。今天这篇论文讲的是transformer
-reasoning这个领域会不会存在grokking的性质。作者在合成的场景下验证了这个事情。</p>
+<h2 id="Grokked-Transformers-are-Implicit-Reasoners-A-Mechanistic-Journey-to-the-Edge-of-Generalization"><a href="#Grokked-Transformers-are-Implicit-Reasoners-A-Mechanistic-Journey-to-the-Edge-of-Generalization" class="headerlink" title="Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15071">Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization</a></h2><p>grokking领域的论文，好久没关注这个方向了。这个方向讲的东西是，随着训练量加大，在训练集早就已经过拟合的情况下，模型在测试集的表现会不会逐步上升、或者突变，Ilya曾经研究过这个。今天这篇论文讲的是transformer reasoning这个领域会不会存在grokking的性质。作者在合成的场景下验证了这个事情。</p>
 <blockquote>
 <p>有没有试着再更泛的agent任务上试验一下？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/grokking.png"></p>
-<h2 id="stacking-your-transformers-a-closer-look-at-model-growth-for-efficient-llm-pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15319">Stacking Your Transformers: A
-Closer Look at Model Growth for Efficient LLM Pre-Training</a></h2>
-<p>Jie Fu的论文，最近怎么好多这种"a closer look
-at..."格式。作者聚焦于用小模型启动训练一个大模型这个研究方向，分析了目前方法的的主要瓶颈，同时提出了一个新的<span class="math inline">\(G_{stack}\)</span>算子，从scaling的角度分析他对于不同大小、不同训练量的模型都效果不错</p>
+<h2 id="Stacking-Your-Transformers-A-Closer-Look-at-Model-Growth-for-Efficient-LLM-Pre-Training"><a href="#Stacking-Your-Transformers-A-Closer-Look-at-Model-Growth-for-Efficient-LLM-Pre-Training" class="headerlink" title="Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.15319">Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training</a></h2><p>Jie Fu的论文，最近怎么好多这种”a closer look at…”格式。作者聚焦于用小模型启动训练一个大模型这个研究方向，分析了目前方法的的主要瓶颈，同时提出了一个新的$G_{stack}$算子，从scaling的角度分析他对于不同大小、不同训练量的模型都效果不错</p>
 <p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/growth.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -359,13 +343,13 @@ at..."格式。作者聚焦于用小模型启动训练一个大模型这个研�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a3657857.html" rel="bookmark">2025-04-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/47f4180e.html" rel="bookmark">2025-03-31-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8b64b789.html" rel="bookmark">2025-03-27-insights</a></div>
     </li>
   </ul>
 
@@ -442,11 +426,7 @@ at..."格式。作者聚焦于用小模型启动训练一个大模型这个研�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#deem-diffusion-models-serve-as-the-eyes-of-large-language-models-for-image-perception"><span class="nav-number">1.</span> <span class="nav-text">DEEM: Diffusion Models Serve as
-the EyEs of Large Language Models for Image Perception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grokked-transformers-are-implicit-reasoners-a-mechanistic-journey-to-the-edge-of-generalization"><span class="nav-number">2.</span> <span class="nav-text">Grokked Transformers are
-Implicit Reasoners: A Mechanistic Journey to the Edge of
-Generalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stacking-your-transformers-a-closer-look-at-model-growth-for-efficient-llm-pre-training"><span class="nav-number">3.</span> <span class="nav-text">Stacking Your Transformers: A
-Closer Look at Model Growth for Efficient LLM Pre-Training</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DEEM-Diffusion-Models-Serve-as-the-EyEs-of-Large-Language-Models-for-Image-Perception"><span class="nav-number">1.</span> <span class="nav-text">DEEM: Diffusion Models Serve as the EyEs of Large Language Models for Image Perception</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grokked-Transformers-are-Implicit-Reasoners-A-Mechanistic-Journey-to-the-Edge-of-Generalization"><span class="nav-number">2.</span> <span class="nav-text">Grokked Transformers are Implicit Reasoners: A Mechanistic Journey to the Edge of Generalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacking-Your-Transformers-A-Closer-Look-at-Model-Growth-for-Efficient-LLM-Pre-Training"><span class="nav-number">3.</span> <span class="nav-text">Stacking Your Transformers: A Closer Look at Model Growth for Efficient LLM Pre-Training</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -504,15 +484,15 @@ Closer Look at Model Growth for Efficient LLM Pre-Training</span></a></li></ol><
       
       
         <li class="recent_posts_li">
+          <a href="/a3657857" title="2025-04-01-insights" target="_blank">2025-04-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -596,12 +576,12 @@ Closer Look at Model Growth for Efficient LLM Pre-Training</span></a></li></ol><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models 很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点">
+  <meta name="description" content="Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-12-23-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/6c7ebe91">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models 很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点">
+<meta property="og:description" content="Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-23-12-27/bon.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-23-12-27/webllm.png">
@@ -313,18 +313,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="inference-aware-fine-tuning-for-best-of-n-sampling-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.15287"><strong>Inference-Aware
-Fine-Tuning for Best-of-N Sampling in Large Language
-Models</strong></a></h2>
-<p>很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点，因为他知道一会要投票。作者发现这样训完，模型的inference-time-scaling能力被进一步激发了</p>
+        <h2 id="Inference-Aware-Fine-Tuning-for-Best-of-N-Sampling-in-Large-Language-Models"><a href="#Inference-Aware-Fine-Tuning-for-Best-of-N-Sampling-in-Large-Language-Models" class="headerlink" title="Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.15287"><strong>Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models</strong></a></h2><p>很有洞见性的工作！作者发现，目前的o1类模型一般都要套个best-of-N的壳，但是我们训练的时候模型其实不知道外面有这个inferencetime-scaling的壳。如果我们在训练的时候就让模型适应有个壳呢？比如让模型学着说的diverse一点，因为他知道一会要投票。作者发现这样训完，模型的inference-time-scaling能力被进一步激发了</p>
 <blockquote>
 <p>有意思！</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-12-23-12-27/bon.png"></p>
-<h2 id="webllm-a-high-performance-in-browser-llm-inference-engine"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.15803">WebLLM: A High-Performance
-In-Browser LLM Inference Engine</a></h2>
-<p>乍一看，以为是GUI Agent操作网页，仔细一看：是在网页里面跑llm
-infer。不愧是tianqi</p>
+<h2 id="WebLLM-A-High-Performance-In-Browser-LLM-Inference-Engine"><a href="#WebLLM-A-High-Performance-In-Browser-LLM-Inference-Engine" class="headerlink" title="WebLLM: A High-Performance In-Browser LLM Inference Engine"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.15803">WebLLM: A High-Performance In-Browser LLM Inference Engine</a></h2><p>乍一看，以为是GUI Agent操作网页，仔细一看：是在网页里面跑llm infer。不愧是tianqi</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-23-12-27/webllm.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -342,13 +336,13 @@ infer。不愧是tianqi</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a3657857.html" rel="bookmark">2025-04-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/47f4180e.html" rel="bookmark">2025-03-31-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8b64b789.html" rel="bookmark">2025-03-27-insights</a></div>
     </li>
   </ul>
 
@@ -425,10 +419,7 @@ infer。不愧是tianqi</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-aware-fine-tuning-for-best-of-n-sampling-in-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Inference-Aware
-Fine-Tuning for Best-of-N Sampling in Large Language
-Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webllm-a-high-performance-in-browser-llm-inference-engine"><span class="nav-number">2.</span> <span class="nav-text">WebLLM: A High-Performance
-In-Browser LLM Inference Engine</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Inference-Aware-Fine-Tuning-for-Best-of-N-Sampling-in-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Inference-Aware Fine-Tuning for Best-of-N Sampling in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebLLM-A-High-Performance-In-Browser-LLM-Inference-Engine"><span class="nav-number">2.</span> <span class="nav-text">WebLLM: A High-Performance In-Browser LLM Inference Engine</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -486,15 +477,15 @@ In-Browser LLM Inference Engine</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/a3657857" title="2025-04-01-insights" target="_blank">2025-04-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -578,12 +569,12 @@ In-Browser LLM Inference Engine</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scaling Laws of Synthetic Data for Language Models 最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来">
+  <meta name="description" content="Scaling Laws of Synthetic Data for Language Models最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-03-26-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/64a6dcb7">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Scaling Laws of Synthetic Data for Language Models 最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来">
+<meta property="og:description" content="Scaling Laws of Synthetic Data for Language Models最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来发">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/syn-scale.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/research.png">
@@ -313,30 +313,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="scaling-laws-of-synthetic-data-for-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19551">Scaling Laws of Synthetic Data
-for Language Models</a></h2>
-<p>最近蛮少见scaling
-law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling
-曲线，看起来更平缓。然后越大的模型，需要越多的合成数据</p>
+        <h2 id="Scaling-Laws-of-Synthetic-Data-for-Language-Models"><a href="#Scaling-Laws-of-Synthetic-Data-for-Language-Models" class="headerlink" title="Scaling Laws of Synthetic Data for Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19551">Scaling Laws of Synthetic Data for Language Models</a></h2><p>最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据</p>
 <blockquote>
-<p>一年多前，大家还觉得合成数据训练会“疯牛病”，后来发现是数据质量太差，现在又开始研究起scaling
-law了。所以，认知都是会随着时间的发展而改变的呀</p>
+<p>一年多前，大家还觉得合成数据训练会“疯牛病”，后来发现是数据质量太差，现在又开始研究起scaling law了。所以，认知都是会随着时间的发展而改变的呀</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-24-03-28/syn-scale.png"></p>
-<h2 id="gemma-3-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19786">Gemma 3 Technical
-Report</a></h2>
-<p>gemma3带着他10行的作者名单来了，是的，还有400M的vision
-encoder……能不能把前几天那个1B的原生双模态合版进来</p>
+<h2 id="Gemma-3-Technical-Report"><a href="#Gemma-3-Technical-Report" class="headerlink" title="Gemma 3 Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19786">Gemma 3 Technical Report</a></h2><p>gemma3带着他10行的作者名单来了，是的，还有400M的vision encoder……能不能把前几天那个1B的原生双模态合版进来</p>
 <blockquote>
 <p>话说现在的端侧模型已经涨到27B了吗。</p>
 </blockquote>
-<h2 id="research-learning-to-reason-with-search-for-llms-via-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19470">ReSearch: Learning to Reason
-with Search for LLMs via Reinforcement Learning</a></h2>
-<p>最近有一些做o1 +
-deep-research的工作，这篇算是看着比较顺眼的。作者行文有点致敬老前辈r1，然后就是在grpo里添加了一个search的action，揉在一起训练。把分摁上去了</p>
+<h2 id="ReSearch-Learning-to-Reason-with-Search-for-LLMs-via-Reinforcement-Learning"><a href="#ReSearch-Learning-to-Reason-with-Search-for-LLMs-via-Reinforcement-Learning" class="headerlink" title="ReSearch: Learning to Reason with Search for LLMs via Reinforcement Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19470">ReSearch: Learning to Reason with Search for LLMs via Reinforcement Learning</a></h2><p>最近有一些做o1 + deep-research的工作，这篇算是看着比较顺眼的。作者行文有点致敬老前辈r1，然后就是在grpo里添加了一个search的action，揉在一起训练。把分摁上去了</p>
 <blockquote>
-<p>话说deep research
-里其实还能写代码来着……大家好像对这个都视而不见了</p>
+<p>话说deep research 里其实还能写代码来着……大家好像对这个都视而不见了</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-24-03-28/research.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
@@ -355,13 +343,13 @@ deep-research的工作，这篇算是看着比较顺眼的。作者行文有点�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a3657857.html" rel="bookmark">2025-04-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/47f4180e.html" rel="bookmark">2025-03-31-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8b64b789.html" rel="bookmark">2025-03-27-insights</a></div>
     </li>
   </ul>
 
@@ -438,10 +426,7 @@ deep-research的工作，这篇算是看着比较顺眼的。作者行文有点�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-of-synthetic-data-for-language-models"><span class="nav-number">1.</span> <span class="nav-text">Scaling Laws of Synthetic Data
-for Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gemma-3-technical-report"><span class="nav-number">2.</span> <span class="nav-text">Gemma 3 Technical
-Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#research-learning-to-reason-with-search-for-llms-via-reinforcement-learning"><span class="nav-number">3.</span> <span class="nav-text">ReSearch: Learning to Reason
-with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Laws-of-Synthetic-Data-for-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Scaling Laws of Synthetic Data for Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gemma-3-Technical-Report"><span class="nav-number">2.</span> <span class="nav-text">Gemma 3 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReSearch-Learning-to-Reason-with-Search-for-LLMs-via-Reinforcement-Learning"><span class="nav-number">3.</span> <span class="nav-text">ReSearch: Learning to Reason with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -499,15 +484,15 @@ with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/a3657857" title="2025-04-01-insights" target="_blank">2025-04-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8b64b789" title="2025-03-27-insights" target="_blank">2025-03-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -591,12 +576,12 @@ with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">275k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:23</span>
+    <span title="站点阅读时长">4:10</span>
 </div>
 
 <i class="fa fa-user-md"></i>
