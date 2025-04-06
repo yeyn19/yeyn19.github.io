@@ -24,17 +24,24 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/archives/2025/03/index.html">
+  <meta name="description" content="Scaling Language-Free Visual Representation Learning Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025-04-02-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/4852c354">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="Scaling Language-Free Visual Representation Learning Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/agent-s2.png">
+<meta property="article:published_time" content="2025-04-02T12:18:59.000Z">
+<meta property="article:modified_time" content="2025-04-06T04:10:43.795Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/archives/2025/03/">
+<link rel="canonical" href="https://www.yynnyy.cn/4852c354.html">
 
 
 <script id="page-configurations">
@@ -42,12 +49,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 随缘随笔 <br> Insights Flow</title>
+  <title>2025-04-02-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,73 +218,170 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/4852c354">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ava.JPG">
+      <meta itemprop="name" content="叶奕宁 </br> Yining_Ye">
+      <meta itemprop="description" content="高效率工作，低效率生活</br> work swiftly, live softly">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2025-04-02-insights
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-04-02 20:18:59" itemprop="dateCreated datePublished" datetime="2025-04-02T20:18:59+08:00">2025-04-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-04-06 12:10:43" itemprop="dateModified" datetime="2025-04-06T12:10:43+08:00">2025-04-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/4852c354" class="post-meta-item leancloud_visitors" data-flag-title="2025-04-02-insights" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">非常好! 目前共计 133 篇日志。 继续努力。</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/4852c354#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/4852c354" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>592</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2025</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2025-03-31T11:11:53+08:00" content="2025-03-31">
-          03-31
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/47f4180e" itemprop="url">
-            <span itemprop="name">2025-03-31-insights</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated" datetime="2025-03-29T22:54:56+08:00" content="2025-03-29">
-          03-29
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/7a6fec04" itemprop="url">
-            <span itemprop="name">2025-03-28-insights</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h2 id="Scaling-Language-Free-Visual-Representation-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.01017">Scaling Language-Free Visual Representation Learning</a></h2>
+<p>Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好</p>
+<blockquote>
+<p>再等等看……没准这个月的llama4，会是ssl encoder？</p>
+</blockquote>
+<img src="../../files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png">
+<h2 id="Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00509">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</a></h2>
+<p>如果大家记得之前有一篇叫gsm8k-zero的工作，发现把简单数学题改成不需要数学的形式，模型效果会直接变烂。字节这篇新工作也是类似的，作者发现简单把题目了一些动词改成类似的形式，也是直接烂掉。</p>
+<img src="../../files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png" style="zoom:33%;">
+<h2 id="Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00906">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</a></h2>
+<p>agent s2应该是框架agent的新巅峰了，其实已经出来有段时间了，但是论文今天才挂出来。作者对于planning和grounding有专门的agent module去增强，达到了目前最强的效果。</p>
+<img src="../../files/images/arxiv-insights/2025-03-31-04-04/agent-s2.png" style="zoom:33%;">
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/454cb313.html" rel="bookmark">2025-04-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a790a86a.html" rel="bookmark">2025-04-03-insights</a></div>
+    </li>
+  </ul>
+
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/7dbea4cd" rel="prev" title="重读STaR，与o1随想">
+      <i class="fa fa-chevron-left"></i> 重读STaR，与o1随想
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/a790a86a" rel="next" title="2025-04-03-insights">
+      2025-04-03-insights <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -328,6 +432,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Language-Free-Visual-Representation-Learning"><span class="nav-number">1.</span> <span class="nav-text">Scaling Language-Free Visual Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><span class="nav-number">2.</span> <span class="nav-text">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><span class="nav-number">3.</span> <span class="nav-text">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,15 +490,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/a3657857" title="2025-04-01-insights" target="_blank">2025-04-01-insights</a>
+          <a href="/454cb313" title="2025-04-04-insights" target="_blank">2025-04-04-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
+          <a href="/a790a86a" title="2025-04-03-insights" target="_blank">2025-04-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
+          <a href="/4852c354" title="2025-04-02-insights" target="_blank">2025-04-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -451,11 +556,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/archives/2025/03/index.html" selected>
+        <option value="zh-CN" data-href="/4852c354" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/archives/2025/03/index.html" selected>
+        <option value="en" data-href="/en/4852c354" selected>
           English
         </option>
       
@@ -477,12 +582,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <i class="fa fa-user-md"></i>

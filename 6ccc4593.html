@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天论文也不少，找了三篇研究的问题比较有意思的。 Humans and language models diverge when predicting repeating textLLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？ 作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内">
+  <meta name="description" content="今天论文也不少，找了三篇研究的问题比较有意思的。 Humans and language models diverge when predicting repeating text LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？ 作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-11-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/6ccc4593">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天论文也不少，找了三篇研究的问题比较有意思的。 Humans and language models diverge when predicting repeating textLLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？ 作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内">
+<meta property="og:description" content="今天论文也不少，找了三篇研究的问题比较有意思的。 Humans and language models diverge when predicting repeating text LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？ 作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-11/diverge.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-11/much.png">
@@ -315,20 +315,23 @@
 
       
         <p>今天论文也不少，找了三篇研究的问题比较有意思的。</p>
-<h2 id="Humans-and-language-models-diverge-when-predicting-repeating-text"><a href="#Humans-and-language-models-diverge-when-predicting-repeating-text" class="headerlink" title="Humans and language models diverge when predicting repeating text"></a>Humans and language models diverge when predicting repeating text</h2><p>LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？</p>
+<h2 id="Humans-and-language-models-diverge-when-predicting-repeating-text">Humans and language models diverge when predicting repeating text</h2>
+<p>LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？</p>
 <p>作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内部，发现是什么导致了这种现象。挺有意思的一篇实验论文</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/diverge.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-11/diverge.png">
 <span id="more"></span>
-<h2 id="Text-Embeddings-Reveal-Almost-As-Much-As-Text"><a href="#Text-Embeddings-Reveal-Almost-As-Much-As-Text" class="headerlink" title="Text Embeddings Reveal (Almost) As Much As Text"></a>Text Embeddings Reveal (Almost) As Much As Text</h2><p>EMNLP的论文。大家都知道dense embedding含有原始输入的信息，但是具体含有多少信息？作者尝试了一个反向训练的办法，从dense embedding反向解码输入，发现基本上32 token的embedding都可以无损解码出来。(即使dense embedding不是通过reconstruction进行训练的)</p>
+<h2 id="Text-Embeddings-Reveal-Almost-As-Much-As-Text">Text Embeddings Reveal (Almost) As Much As Text</h2>
+<p>EMNLP的论文。大家都知道dense embedding含有原始输入的信息，但是具体含有多少信息？作者尝试了一个反向训练的办法，从dense embedding反向解码输入，发现基本上32 token的embedding都可以无损解码出来。(即使dense embedding不是通过reconstruction进行训练的)</p>
 <blockquote>
 <p>language modeling is compression?</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/much.png"></p>
-<h2 id="SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues"><a href="#SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues" class="headerlink" title="SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"></a>SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</h2><p>和之前微软的那篇CodePlan有点像，也是在多文件场景下做code refine。作者爬了很多github issue和pull request的代码修改对，做了一个benchmark，看模型在多文件修改场景下的表现。</p>
+<img src="../../files/images/arxiv-insights/2023-10-11/much.png">
+<h2 id="SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</h2>
+<p>和之前微软的那篇CodePlan有点像，也是在多文件场景下做code refine。作者爬了很多github issue和pull request的代码修改对，做了一个benchmark，看模型在多文件修改场景下的表现。</p>
 <blockquote>
 <p>单文件下表现很好的模型，在多文件场景下都原形毕露了……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/swe.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-11/swe.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -345,13 +348,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a3657857.html" rel="bookmark">2025-04-01-insights</a></div>
+      <div class="popular-posts-title"><a href="/454cb313.html" rel="bookmark">2025-04-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/47f4180e.html" rel="bookmark">2025-03-31-insights</a></div>
+      <div class="popular-posts-title"><a href="/a790a86a.html" rel="bookmark">2025-04-03-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/7a6fec04.html" rel="bookmark">2025-03-28-insights</a></div>
+      <div class="popular-posts-title"><a href="/4852c354.html" rel="bookmark">2025-04-02-insights</a></div>
     </li>
   </ul>
 
@@ -486,15 +489,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/a3657857" title="2025-04-01-insights" target="_blank">2025-04-01-insights</a>
+          <a href="/454cb313" title="2025-04-04-insights" target="_blank">2025-04-04-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/47f4180e" title="2025-03-31-insights" target="_blank">2025-03-31-insights</a>
+          <a href="/a790a86a" title="2025-04-03-insights" target="_blank">2025-04-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/7a6fec04" title="2025-03-28-insights" target="_blank">2025-03-28-insights</a>
+          <a href="/4852c354" title="2025-04-02-insights" target="_blank">2025-04-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -578,12 +581,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">275k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:10</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <i class="fa fa-user-md"></i>
