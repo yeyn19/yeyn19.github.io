@@ -313,16 +313,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Encode-Once-and-Decode-in-Parallel-Efficient-Transformer-Decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.13112.pdf">Encode Once and Decode in Parallel: Efficient Transformer Decoding</a></h2>
-<p>作者发现之前的instruction tuning常常会finetune encoder-decoder模型，然后一直都是instruction+input放进encoder。但是实际情况是input往往会由于不同的instruction去复用很多遍。能不能变成encoder只输入input？这样的话可以做到多个instruction可以并行输出output。</p>
-<img src="../../files/images/arxiv-insights/2024-03-18-03-22/pid.png" style="zoom:33%;">
-<h2 id="Reverse-Training-to-Nurse-the-Reversal-Curse"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.13799.pdf">Reverse Training to Nurse the Reversal Curse</a></h2>
-<p>之前有一篇比较火的工作讨论了大模型的逆转魔咒：gpt可以说A-&gt;B, 但很难反着说B-&gt;A。这是因为语料里天然有A-&gt;B这种auto-regressive的模式。</p>
+        <h2 id="encode-once-and-decode-in-parallel-efficient-transformer-decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.13112.pdf">Encode Once and Decode in
+Parallel: Efficient Transformer Decoding</a></h2>
+<p>作者发现之前的instruction tuning常常会finetune
+encoder-decoder模型，然后一直都是instruction+input放进encoder。但是实际情况是input往往会由于不同的instruction去复用很多遍。能不能变成encoder只输入input？这样的话可以做到多个instruction可以并行输出output。</p>
+<p><img src="../../files/images/arxiv-insights/2024-03-18-03-22/pid.png" style="zoom:33%;"></p>
+<h2 id="reverse-training-to-nurse-the-reversal-curse"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.13799.pdf">Reverse Training to Nurse
+the Reversal Curse</a></h2>
+<p>之前有一篇比较火的工作讨论了大模型的逆转魔咒：gpt可以说A-&gt;B,
+但很难反着说B-&gt;A。这是因为语料里天然有A-&gt;B这种auto-regressive的模式。</p>
 <p>meta的研究员尝试把训练数据按照某种方式做一部分reverse，发现这样正着和反着的数据一起训练的模型在任务上表现出来相当不错的效果。</p>
 <blockquote>
 <p>我猜测是训练数据的模式可能会影响模型“存数据”的形式？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-18-03-22/inverse.png">
+<p><img src="../../files/images/arxiv-insights/2024-03-18-03-22/inverse.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -339,13 +343,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ae7b0810.html" rel="bookmark">2025-04-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/454cb313.html" rel="bookmark">2025-04-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a790a86a.html" rel="bookmark">2025-04-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4852c354.html" rel="bookmark">2025-04-02-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +426,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Encode-Once-and-Decode-in-Parallel-Efficient-Transformer-Decoding"><span class="nav-number">1.</span> <span class="nav-text">Encode Once and Decode in Parallel: Efficient Transformer Decoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reverse-Training-to-Nurse-the-Reversal-Curse"><span class="nav-number">2.</span> <span class="nav-text">Reverse Training to Nurse the Reversal Curse</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#encode-once-and-decode-in-parallel-efficient-transformer-decoding"><span class="nav-number">1.</span> <span class="nav-text">Encode Once and Decode in
+Parallel: Efficient Transformer Decoding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reverse-training-to-nurse-the-reversal-curse"><span class="nav-number">2.</span> <span class="nav-text">Reverse Training to Nurse
+the Reversal Curse</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +443,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,6 +486,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/ae7b0810" title="2025-04-07-insights" target="_blank">2025-04-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/454cb313" title="2025-04-04-insights" target="_blank">2025-04-04-insights</a>
         </li>
       
@@ -513,10 +523,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -572,12 +578,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
 <i class="fa fa-user-md"></i>

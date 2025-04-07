@@ -314,18 +314,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="MoE-Pruner-Pruning-Mixture-of-Experts-Large-Language-Model-using-the-Hints-from-Its-Router"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.12013"><strong>MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router</strong></a></h2>
-<p>挺好玩的工作。在MoE prune领域，作者发现：已有的MoE都是router算出来一个专家一个得分，然后把得分前两名的专家embedding拿来，按照router得分做加权平均。如果专家本身是可以线性叠加的，那我直接把专家的权重按照router得分线性叠加，把一堆专家变成一个专家会怎样。作者在mixtral上试了试，发现效果出奇的好。</p>
-<img src="../../files/images/arxiv-insights/2024-10-14-10-18/moe-prune.png" style="zoom:33%;">
-<h2 id="Stabilize-the-Latent-Space-for-Image-Autoregressive-Modeling-A-Unified-Perspective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.12490">Stabilize the Latent Space for Image Autoregressive Modeling: A Unified Perspective</a></h2>
-<p>如果只看CL track，估计就没有这篇论文了。最近有些生成理解统一架构的工作出来，这篇工作更聚焦一些，关注了transformer架构做图片生成。作者把LDM等latent space训练稳定的方法归因到了latent space本身稳定性上。由此魔改了一番transformer，发现效果神奇地挺好</p>
-<img src="../../files/images/arxiv-insights/2024-10-14-10-18/digit.png">
-<h2 id="Proactive-Agent-Shifting-LLM-Agents-from-Reactive-Responses-to-Active-Assistance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.AI/recent?skip=770&amp;show=50"><strong>Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance</strong></a></h2>
-<p>推荐哥们的工作，其实做了挺久了。作者提到一个问题：目前的agent都是接收式的，下达一个指令，完成一个指令。但在真实世界中，模型如果和人共享一个context，那模型有没有能力直接想到人会有的需求呢？作者标注了6000多数据，让人verify了可能的任务，然后对应训练了reward model。最终在测试集上，发现训练出来的proactive model有F1 66%的可能提到和人类一样的query</p>
+        <h2 id="moe-pruner-pruning-mixture-of-experts-large-language-model-using-the-hints-from-its-router"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.12013"><strong>MoE-Pruner: Pruning
+Mixture-of-Experts Large Language Model using the Hints from Its
+Router</strong></a></h2>
+<p>挺好玩的工作。在MoE
+prune领域，作者发现：已有的MoE都是router算出来一个专家一个得分，然后把得分前两名的专家embedding拿来，按照router得分做加权平均。如果专家本身是可以线性叠加的，那我直接把专家的权重按照router得分线性叠加，把一堆专家变成一个专家会怎样。作者在mixtral上试了试，发现效果出奇的好。</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/moe-prune.png" style="zoom:33%;"></p>
+<h2 id="stabilize-the-latent-space-for-image-autoregressive-modeling-a-unified-perspective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.12490">Stabilize the Latent Space for
+Image Autoregressive Modeling: A Unified Perspective</a></h2>
+<p>如果只看CL
+track，估计就没有这篇论文了。最近有些生成理解统一架构的工作出来，这篇工作更聚焦一些，关注了transformer架构做图片生成。作者把LDM等latent
+space训练稳定的方法归因到了latent
+space本身稳定性上。由此魔改了一番transformer，发现效果神奇地挺好</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/digit.png"></p>
+<h2 id="proactive-agent-shifting-llm-agents-from-reactive-responses-to-active-assistance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.AI/recent?skip=770&amp;show=50"><strong>Proactive
+Agent: Shifting LLM Agents from Reactive Responses to Active
+Assistance</strong></a></h2>
+<p>推荐哥们的工作，其实做了挺久了。作者提到一个问题：目前的agent都是接收式的，下达一个指令，完成一个指令。但在真实世界中，模型如果和人共享一个context，那模型有没有能力直接想到人会有的需求呢？作者标注了6000多数据，让人verify了可能的任务，然后对应训练了reward
+model。最终在测试集上，发现训练出来的proactive model有F1
+66%的可能提到和人类一样的query</p>
 <blockquote>
 <p>copilot变pilot了</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-14-10-18/proactive.png">
+<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/proactive.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +353,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ae7b0810.html" rel="bookmark">2025-04-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/454cb313.html" rel="bookmark">2025-04-04-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a790a86a.html" rel="bookmark">2025-04-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4852c354.html" rel="bookmark">2025-04-02-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +436,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MoE-Pruner-Pruning-Mixture-of-Experts-Large-Language-Model-using-the-Hints-from-Its-Router"><span class="nav-number">1.</span> <span class="nav-text">MoE-Pruner: Pruning Mixture-of-Experts Large Language Model using the Hints from Its Router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stabilize-the-Latent-Space-for-Image-Autoregressive-Modeling-A-Unified-Perspective"><span class="nav-number">2.</span> <span class="nav-text">Stabilize the Latent Space for Image Autoregressive Modeling: A Unified Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Proactive-Agent-Shifting-LLM-Agents-from-Reactive-Responses-to-Active-Assistance"><span class="nav-number">3.</span> <span class="nav-text">Proactive Agent: Shifting LLM Agents from Reactive Responses to Active Assistance</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#moe-pruner-pruning-mixture-of-experts-large-language-model-using-the-hints-from-its-router"><span class="nav-number">1.</span> <span class="nav-text">MoE-Pruner: Pruning
+Mixture-of-Experts Large Language Model using the Hints from Its
+Router</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stabilize-the-latent-space-for-image-autoregressive-modeling-a-unified-perspective"><span class="nav-number">2.</span> <span class="nav-text">Stabilize the Latent Space for
+Image Autoregressive Modeling: A Unified Perspective</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#proactive-agent-shifting-llm-agents-from-reactive-responses-to-active-assistance"><span class="nav-number">3.</span> <span class="nav-text">Proactive
+Agent: Shifting LLM Agents from Reactive Responses to Active
+Assistance</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +499,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/ae7b0810" title="2025-04-07-insights" target="_blank">2025-04-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/454cb313" title="2025-04-04-insights" target="_blank">2025-04-04-insights</a>
         </li>
       
@@ -516,10 +536,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,12 +591,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
 <i class="fa fa-user-md"></i>
