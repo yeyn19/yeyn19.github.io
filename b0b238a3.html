@@ -24,23 +24,18 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scaling Laws of Synthetic Data for Language Models 最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来">
-<meta property="og:type" content="article">
-<meta property="og:title" content="2025-03-26-insights">
-<meta property="og:url" content="https://www.yynnyy.cn/64a6dcb7">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="2025-04-09-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/b0b238a3">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Scaling Laws of Synthetic Data for Language Models 最近蛮少见scaling law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling 曲线，看起来更平缓。然后越大的模型，需要越多的合成数据  一年多前，大家还觉得合成数据训练会“疯牛病”，后来">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/syn-scale.png">
-<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/research.png">
-<meta property="article:published_time" content="2025-03-26T03:04:51.000Z">
-<meta property="article:modified_time" content="2025-03-31T03:12:08.127Z">
+<meta property="article:published_time" content="2025-04-09T03:11:45.000Z">
+<meta property="article:modified_time" content="2025-04-09T06:56:49.223Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/syn-scale.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/64a6dcb7.html">
+<link rel="canonical" href="https://www.yynnyy.cn/b0b238a3.html">
 
 
 <script id="page-configurations">
@@ -53,7 +48,7 @@
   };
 </script>
 
-  <title>2025-03-26-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
+  <title>2025-04-09-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -224,7 +219,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/64a6dcb7">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/b0b238a3">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -237,7 +232,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2025-03-26-insights
+          2025-04-09-insights
         </h1>
 
         <div class="post-meta">
@@ -246,16 +241,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2025-03-26 11:04:51" itemprop="dateCreated datePublished" datetime="2025-03-26T11:04:51+08:00">2025-03-26</time>
+              <time title="创建时间：2025-04-09 11:11:45 / 修改时间：14:56:49" itemprop="dateCreated datePublished" datetime="2025-04-09T11:11:45+08:00">2025-04-09</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-03-31 11:12:08" itemprop="dateModified" datetime="2025-03-31T11:12:08+08:00">2025-03-31</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -267,7 +256,7 @@
             </span>
 
           
-            <span id="/64a6dcb7" class="post-meta-item leancloud_visitors" data-flag-title="2025-03-26-insights" title="阅读次数">
+            <span id="/b0b238a3" class="post-meta-item leancloud_visitors" data-flag-title="2025-04-09-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -282,8 +271,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/64a6dcb7#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/64a6dcb7" itemprop="commentCount"></span>
+    <a title="valine" href="/b0b238a3#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/b0b238a3" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -293,7 +282,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>543</span>
+              <span>0</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,33 +302,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="scaling-laws-of-synthetic-data-for-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19551">Scaling Laws of Synthetic Data
-for Language Models</a></h2>
-<p>最近蛮少见scaling
-law的工作了，可能是都被公司挖走默默搞去了。作者研究的问题是，模型在合成数据上训练，效果什么时候会收敛？大致结论是，合成数据的效果收益来源于另一个scaling
-曲线，看起来更平缓。然后越大的模型，需要越多的合成数据</p>
-<blockquote>
-<p>一年多前，大家还觉得合成数据训练会“疯牛病”，后来发现是数据质量太差，现在又开始研究起scaling
-law了。所以，认知都是会随着时间的发展而改变的呀</p>
-</blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-03-24-03-28/syn-scale.png"></p>
-<h2 id="gemma-3-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19786">Gemma 3 Technical
-Report</a></h2>
-<p>gemma3带着他10行的作者名单来了，是的，还有400M的vision
-encoder……能不能把前几天那个1B的原生双模态合版进来</p>
-<blockquote>
-<p>话说现在的端侧模型已经涨到27B了吗。</p>
-</blockquote>
-<h2 id="research-learning-to-reason-with-search-for-llms-via-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.19470">ReSearch: Learning to Reason
-with Search for LLMs via Reinforcement Learning</a></h2>
-<p>最近有一些做o1 +
-deep-research的工作，这篇算是看着比较顺眼的。作者行文有点致敬老前辈r1，然后就是在grpo里添加了一个search的action，揉在一起训练。把分摁上去了</p>
-<blockquote>
-<p>话说deep research
-里其实还能写代码来着……大家好像对这个都视而不见了</p>
-</blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-03-24-03-28/research.png" style="zoom:33%;"></p>
-<!-- flag of hidden posts -->
+        
+
     </div>
 
     
@@ -353,9 +317,6 @@ deep-research的工作，这篇算是看着比较顺眼的。作者行文有点�
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b0b238a3.html" rel="bookmark">2025-04-09-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5f70539d.html" rel="bookmark">2025-04-08-insights</a></div>
@@ -376,6 +337,13 @@ deep-research的工作，这篇算是看着比较顺眼的。作者行文有点�
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/5f70539d" rel="prev" title="2025-04-08-insights">
+      <i class="fa fa-chevron-left"></i> 2025-04-08-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
     
   </article>
@@ -438,10 +406,6 @@ deep-research的工作，这篇算是看着比较顺眼的。作者行文有点�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-of-synthetic-data-for-language-models"><span class="nav-number">1.</span> <span class="nav-text">Scaling Laws of Synthetic Data
-for Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gemma-3-technical-report"><span class="nav-number">2.</span> <span class="nav-text">Gemma 3 Technical
-Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#research-learning-to-reason-with-search-for-llms-via-reinforcement-learning"><span class="nav-number">3.</span> <span class="nav-text">ReSearch: Learning to Reason
-with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -565,11 +529,11 @@ with Search for LLMs via Reinforcement Learning</span></a></li></ol></div>
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/64a6dcb7" selected>
+        <option value="zh-CN" data-href="/b0b238a3" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/64a6dcb7" selected>
+        <option value="en" data-href="/en/b0b238a3" selected>
           English
         </option>
       
