@@ -314,29 +314,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>总算是把过年出去玩欠的账补回来了，总体来说，一共有三天（1.31, 2.4,
-2.5）的论文再也回不来了，可能这就是天道有缺吧……</p>
-<h2 id="confidence-improves-self-consistency-in-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06233">Confidence Improves
-Self-Consistency in LLMs</a></h2>
-<p>o1出来以后，consistency这种传统test time
-scaling领域好像关注度一下变低了。这篇是一个改进self-consistency的工作，作者发现在投票时，直接把模型生成的ppl做加权，就会比正常的consistency做的好</p>
+        <p>总算是把过年出去玩欠的账补回来了，总体来说，一共有三天（1.31, 2.4, 2.5）的论文再也回不来了，可能这就是天道有缺吧……</p>
+<h2 id="Confidence-Improves-Self-Consistency-in-LLMs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06233">Confidence Improves Self-Consistency in LLMs</a></h2>
+<p>o1出来以后，consistency这种传统test time scaling领域好像关注度一下变低了。这篇是一个改进self-consistency的工作，作者发现在投票时，直接把模型生成的ppl做加权，就会比正常的consistency做的好</p>
 <blockquote>
-<p>怎么感觉有点眼熟，去年有个叫more agents is all you
-need的工作，好像也在讲这个</p>
+<p>怎么感觉有点眼熟，去年有个叫more agents is all you need的工作，好像也在讲这个</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/confidence.png" style="zoom:33%;"></p>
-<h2 id="towards-internet-scale-training-for-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06776"><strong>Towards Internet-Scale
-Training For Agents</strong></a></h2>
-<p>这篇工作挺有趣的，是一篇合成数据的工作。作者想要让LLM自动合成web
-navigation的数据，就让模型自己根据网站生成query，自己做，再自己打分，最后把做的比较好的query训练回去。发现通过这种方案，提升了下游任务的效果。</p>
+<img src="../../files/images/arxiv-insights/2025-02-10-02-14/confidence.png" style="zoom:33%;">
+<h2 id="Towards-Internet-Scale-Training-For-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06776"><strong>Towards Internet-Scale Training For Agents</strong></a></h2>
+<p>这篇工作挺有趣的，是一篇合成数据的工作。作者想要让LLM自动合成web navigation的数据，就让模型自己根据网站生成query，自己做，再自己打分，最后把做的比较好的query训练回去。发现通过这种方案，提升了下游任务的效果。</p>
 <blockquote>
 <p>这个领域，最近有AgentTrek，OS-Genesis都挺不错的。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/training_data.png"></p>
-<h2 id="appvlm-a-lightweight-vision-language-model-for-online-app-control"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06395">AppVLM: A Lightweight Vision
-Language Model for Online App Control</a></h2>
+<img src="../../files/images/arxiv-insights/2025-02-10-02-14/training_data.png">
+<h2 id="AppVLM-A-Lightweight-Vision-Language-Model-for-Online-App-Control"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06395">AppVLM: A Lightweight Vision Language Model for Online App Control</a></h2>
 <p>这篇工作和我们TARS做的有点像，作者构造了一套先sft再reft的方案，在Androidcontrol训练集训完以后，去androidworld在线测试集测试，把好的trace训回去。发现通过这种方案，大致可以继续提高模型的效果</p>
-<p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/appvlm.png"></p>
+<img src="../../files/images/arxiv-insights/2025-02-10-02-14/appvlm.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -353,13 +346,13 @@ Language Model for Online App Control</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6b0007ed.html" rel="bookmark">2025-04-15-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c26cd3.html" rel="bookmark">2025-04-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/62eba797.html" rel="bookmark">2025-04-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8d29cca9.html" rel="bookmark">2025-04-10-insights</a></div>
     </li>
   </ul>
 
@@ -436,10 +429,7 @@ Language Model for Online App Control</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#confidence-improves-self-consistency-in-llms"><span class="nav-number">1.</span> <span class="nav-text">Confidence Improves
-Self-Consistency in LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#towards-internet-scale-training-for-agents"><span class="nav-number">2.</span> <span class="nav-text">Towards Internet-Scale
-Training For Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#appvlm-a-lightweight-vision-language-model-for-online-app-control"><span class="nav-number">3.</span> <span class="nav-text">AppVLM: A Lightweight Vision
-Language Model for Online App Control</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Confidence-Improves-Self-Consistency-in-LLMs"><span class="nav-number">1.</span> <span class="nav-text">Confidence Improves Self-Consistency in LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Internet-Scale-Training-For-Agents"><span class="nav-number">2.</span> <span class="nav-text">Towards Internet-Scale Training For Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AppVLM-A-Lightweight-Vision-Language-Model-for-Online-App-Control"><span class="nav-number">3.</span> <span class="nav-text">AppVLM: A Lightweight Vision Language Model for Online App Control</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,7 +444,7 @@ Language Model for Online App Control</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,6 +487,10 @@ Language Model for Online App Control</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
         </li>
       
@@ -530,10 +524,6 @@ Language Model for Online App Control</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -589,7 +579,7 @@ Language Model for Online App Control</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

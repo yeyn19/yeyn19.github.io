@@ -320,123 +320,129 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天读了一篇编译，接下来回到老本行，来一篇diffusion
-model。这篇工作很有名，有点碰瓷DDPM的意思，其中“IMPLICIT”的意思是隐含。和DDPM的“probabilistic”相比，意思是减少随机性，加速采样。作者自己在AI
-Time上有个报告，好挺好的。</p>
+        <p>今天读了一篇编译，接下来回到老本行，来一篇diffusion model。这篇工作很有名，有点碰瓷DDPM的意思，其中“IMPLICIT”的意思是隐含。和DDPM的“probabilistic”相比，意思是减少随机性，加速采样。作者自己在AI Time上有个报告，好挺好的。</p>
 <blockquote>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.bilibili.com/video/BV1M44y1B7bp?spm_id_from=333.999.0.0&amp;vd_source=8d8e22a2686676c4db7b7429ce8a2e98">宋佳铭DDIM报告</a></p>
 </blockquote>
-<p>这篇工作和别的diffusion
-model工作一样，比较数学，很多推导我就不详细写了，可以从附录里看。</p>
-<h2 id="introduction">Introduction</h2>
+<p>这篇工作和别的diffusion model工作一样，比较数学，很多推导我就不详细写了，可以从附录里看。</p>
+<h2 id="Introduction">Introduction</h2>
 <p>大概意思就是：</p>
 <ul>
 <li>GAN很好，但今年的DDPM也不差</li>
 </ul>
 <blockquote>
-<p>21年有一篇OpenAI的 BEAT
-GANS，用了DDIM，关注度很高，意思就是DDPM真的比GAN好</p>
+<p>21年有一篇OpenAI的 BEAT GANS，用了DDIM，关注度很高，意思就是DDPM真的比GAN好</p>
 </blockquote>
 <ul>
-<li>DDPM的问题是慢
+<li>
+<p>DDPM的问题是慢</p>
 <ul>
 <li>在CIFAR-10做32x32要20h</li>
 <li>在CIFAR-10做256x256要1000h</li>
-</ul></li>
-<li>本文解决这个问题,通过一个非马尔科夫的过程</li>
 </ul>
-<h2 id="background">Background</h2>
+</li>
+<li>
+<p>本文解决这个问题,通过一个非马尔科夫的过程</p>
+</li>
+</ul>
+<h2 id="Background">Background</h2>
 <p>作者先讲了一般的DDPM是怎么搞的，这个叙述方式挺好的，讲讲重点</p>
-<p>有一个公式： <span class="math display">\[
-q(x_{1:T} | x_0) := \prod_{t=1}^T q(x_t |x_{t-1}) \\
-q(x_t |x_{t-1}) := N(\sqrt{\frac{\alpha_t}{\alpha_{t-1}} } x_{t-1},(1-
-\frac{\alpha_t}{\alpha_{t-1}})I)
-\]</span> 也就是说，正常的DDPM是一个马尔科夫过程，想要从<span class="math inline">\(X_0\)</span>得到后面，需要一步一步加噪声。这个噪声是一个高斯分布，其均值和<span class="math inline">\(X_{t-1}\)</span>有关，是sample出来的。</p>
-<p>反向的公式是： <span class="math display">\[
-q(x_{t−1}|x_t,x_0) = N(x_{t−1};μ_t(x_t,x_0),\hat{\beta_t} I),
-\]</span> 其中 <span class="math display">\[
-\text{均值:} \mu_t(x_t,x_0) = \frac{ \sqrt{ \overline{\alpha_{t-1}}
-}\beta_t }{1 - \overline{\alpha_{t}}} x_0 + \frac{\sqrt{\alpha_t} (1 -
-\overline{\alpha_{t-1}} )}{1 - \overline{\alpha_{t}}} x_t \\
-\text{方差:} \hat{\beta_t} = \frac{1 - \overline{\alpha_{t-1}}}{1 -
-\overline{\alpha_{t}}}\beta_t
-\]</span></p>
-<p>另一方面，由于这个高斯分布的传递性，我们可以把<span class="math inline">\(x_t\)</span>视为单位高斯分布和<span class="math inline">\(x_0\)</span>的线性叠加： <span class="math display">\[
-x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon, \quad
-\epsilon \sim N(0,I)
-\]</span> 我们在训练时我们想要让 <span class="math inline">\(\log
-p_\theta(x_0) \to \log q(x_0)\)</span>，也就是说，我们想要优化： <span class="math display">\[
-L_{t-1} = E_q [ \frac{1}{2\sigma^2} || \mu_t(x_t,x_0) -
-\mu_\theta(x_t,t)||^2]
-\]</span> 其中</p>
+<p>有一个公式：<br>
+$$<br>
+q(x_{1:T} | x_0) := \prod_{t=1}^T q(x_t |x_{t-1}) \<br>
+q(x_t |x_{t-1}) := N(\sqrt{\frac{\alpha_t}{\alpha_{t-1}} } x_{t-1},(1- \frac{\alpha_t}{\alpha_{t-1}})I)<br>
+$$<br>
+也就是说，正常的DDPM是一个马尔科夫过程，想要从$X_0$得到后面，需要一步一步加噪声。这个噪声是一个高斯分布，其均值和$X_{t-1}$有关，是sample出来的。</p>
+<p>反向的公式是：<br>
+$$<br>
+q(x_{t−1}|x_t,x_0) = N(x_{t−1};μ_t(x_t,x_0),\hat{\beta_t} I),<br>
+$$<br>
+其中<br>
+$$<br>
+\text{均值:} \mu_t(x_t,x_0) = \frac{ \sqrt{ \overline{\alpha_{t-1}} }\beta_t }{1 - \overline{\alpha_{t}}} x_0 + \frac{\sqrt{\alpha_t} (1 - \overline{\alpha_{t-1}} )}{1 - \overline{\alpha_{t}}} x_t \<br>
+\text{方差:} \hat{\beta_t} = \frac{1 - \overline{\alpha_{t-1}}}{1 - \overline{\alpha_{t}}}\beta_t<br>
+$$</p>
+<p>另一方面，由于这个高斯分布的传递性，我们可以把$x_t$视为单位高斯分布和$x_0$的线性叠加：<br>
+$$<br>
+x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon, \quad \epsilon \sim N(0,I)<br>
+$$<br>
+我们在训练时我们想要让 $\log p_\theta(x_0) \to \log q(x_0)$，也就是说，我们想要优化：<br>
+$$<br>
+L_{t-1} = E_q [ \frac{1}{2\sigma^2} || \mu_t(x_t,x_0) - \mu_\theta(x_t,t)||^2]<br>
+$$<br>
+其中</p>
 <ul>
-<li><p>左边是实际马尔科夫链对<span class="math inline">\(x_{t-1}\)</span>的估计，可计算</p></li>
-<li><p>右边是我们的去噪模型<span class="math inline">\(\theta\)</span>对<span class="math inline">\(x_{t-1}\)</span>的估计，可计算</p></li>
+<li>
+<p>左边是实际马尔科夫链对$x_{t-1}$的估计，可计算</p>
+</li>
+<li>
+<p>右边是我们的去噪模型$\theta$对$x_{t-1}$的估计，可计算</p>
+</li>
 </ul>
-<p>这里我们套入上面<span class="math inline">\(x_t\)</span>的公式，看做<span class="math inline">\(x_t,\epsilon\)</span>的函数，进行一波化简，最终得到
-<span class="math display">\[
-L_{t-1} = C * \frac{1}{2\sigma^2} || \epsilon -
-\mu_\theta(\sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t},t)||^2
-\]</span> 忽略常数C，同时对所有的L进行优化： <span class="math display">\[
-L_{\text{simple}} = \sum_{t=1}^T L_t
-\]</span> 就能学出DDPM模型了</p>
-<h2 id="variational-inference-for-non-markovian-forward-processes">VARIATIONAL
-INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES</h2>
-<p><img src="../files/images/DDIM/compare.png"></p>
+<p>这里我们套入上面$x_t$的公式，看做$x_t,\epsilon$的函数，进行一波化简，最终得到<br>
+$$<br>
+L_{t-1} = C * \frac{1}{2\sigma^2} || \epsilon - \mu_\theta(\sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t},t)||^2<br>
+$$<br>
+忽略常数C，同时对所有的L进行优化：<br>
+$$<br>
+L_{\text{simple}} = \sum_{t=1}^T L_t<br>
+$$<br>
+就能学出DDPM模型了</p>
+<h2 id="VARIATIONAL-INFERENCE-FOR-NON-MARKOVIAN-FORWARD-PROCESSES">VARIATIONAL INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES</h2>
+<img src="../files/images/DDIM/compare.png">
 <p>上面全是DDPM的数学推导。接下来，作者讲了他的贡献。它发现：</p>
 <ul>
-<li>DDPM中的loss<span class="math inline">\(L_\lambda\)</span>只依赖于<span class="math inline">\(q(x_t|x_0)\)</span>，和<span class="math inline">\(q(x_{1:T}
-|x_0)\)</span>无关。这样符合边缘分布的可能性有很多，作者选取了一个非马尔科夫的过程</li>
+<li>DDPM中的loss$L_\lambda$只依赖于$q(x_t|x_0)$，和$q(x_{1:T} |x_0)$无关。这样符合边缘分布的可能性有很多，作者选取了一个非马尔科夫的过程</li>
 </ul>
-<p><span class="math display">\[
-q_\sigma(x_{1:T} |x_0) := q(x_{T} |x_0) \prod_{t=2}^T q_\sigma (x_{t−1}
-|x_t , x_0 ) \\
-q_\sigma (x_{t−1} |x_t , x_0 ) = N \left( \sqrt{\alpha_{t-1}}x_0 +
-\sqrt{1 - \alpha_{t-1} - \sigma^2_t} \times \frac{x_t -
-\sqrt{\alpha_t}x_0}{\sqrt{1-\alpha_t}}  , \sigma_t^2 I\right)
-\]</span></p>
-<p>接下来，对于 <span class="math inline">\(x_0 \sim q(x_0) , \epsilon_t
-\sim N (0, I)\)</span>我们可以获取其对应的<span class="math inline">\(X_t\)</span>，由 <span class="math display">\[
-x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon_t
-\]</span> 如果我们有一个对<span class="math inline">\(\epsilon_t\)</span>的预测器<span class="math inline">\(\epsilon_\theta^{(t)}(x_t)\)</span>输入不含<span class="math inline">\(X_0\)</span>。我们可以用他来预测<span class="math inline">\(X_0\)</span>： <span class="math display">\[
-f^{(t)}(x_t) := (x_t − \sqrt{1 − \alpha_t} ·
-\epsilon^{(t)}(x_t))/\sqrt{\alpha_t}
-\]</span> 由此，这个去噪的过程可以看做： <span class="math display">\[
-p_\theta^{(t)}(x_{t-1} | x_t) = q_\sigma (x_{t−1} |x_t , f^{(t)}(x_t) )
-\]</span> 式子右边只和<span class="math inline">\(x_t,\epsilon\)</span>有关</p>
+<p>$$<br>
+q_\sigma(x_{1:T} |x_0) := q(x_{T} |x_0) \prod_{t=2}^T q_\sigma (x_{t−1} |x_t , x_0 ) \<br>
+q_\sigma (x_{t−1} |x_t , x_0 ) = N \left( \sqrt{\alpha_{t-1}}x_0 + \sqrt{1 - \alpha_{t-1} - \sigma^2_t} \times \frac{x_t - \sqrt{\alpha_t}x_0}{\sqrt{1-\alpha_t}}  , \sigma_t^2 I\right)<br>
+$$</p>
+<p>接下来，对于 $x_0 \sim q(x_0) , \epsilon_t \sim N (0, I)$我们可以获取其对应的$X_t$，由<br>
+$$<br>
+x_t = \sqrt{\hat\alpha_t} x_0 + \sqrt{1 - \hat\alpha_t} \epsilon_t<br>
+$$<br>
+如果我们有一个对$\epsilon_t$的预测器$\epsilon_\theta^{(t)}(x_t)$输入不含$X_0$。我们可以用他来预测$X_0$：<br>
+$$<br>
+f^{(t)}(x_t) := (x_t − \sqrt{1 − \alpha_t} · \epsilon^{(t)}(x_t))/\sqrt{\alpha_t}<br>
+$$<br>
+由此，这个去噪的过程可以看做：<br>
+$$<br>
+p_\theta^{(t)}(x_{t-1} | x_t) = q_\sigma (x_{t−1} |x_t , f^{(t)}(x_t) )<br>
+$$<br>
+式子右边只和$x_t,\epsilon$有关</p>
 <p>作者接下来证明了这个算法的train过程用到的loss和DDPM是等价的(差一个常数)。<strong>也就是说，训好的DDPM模型可以认为是训好的DDIM模型</strong></p>
 <h2 id="sample">sample</h2>
 <p>这个模型是怎么infer的呢？</p>
-<p><img src="../files/images/DDIM/infer.png"></p>
-<p>进一步展开、化简刚才的<span class="math inline">\(p_\theta^{(t)}(x_{t-1} |
-x_t)\)</span>，我们可以得到</p>
-<p><img src="../files/images/DDIM/form2.png"></p>
-<p><img src="../files/images/DDIM/form.png"></p>
-<p>这个式子里面只有最右边的部分是带有随机成分的。而且当 <span class="math display">\[
-\sigma_t = \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 −
-\alpha_{t}/\alpha_{t-1}}
-\]</span> 时退化为DDPM</p>
-<p>如果我们取<span class="math inline">\(\sigma_t =
-0\)</span>。式子有确定性的输出，这个模型称作DDIM。</p>
-<h3 id="accelerated-generation-processes">ACCELERATED GENERATION
-PROCESSES</h3>
+<img src="../files/images/DDIM/infer.png">
+<p>进一步展开、化简刚才的$p_\theta^{(t)}(x_{t-1} | x_t)$，我们可以得到</p>
+<img src="../files/images/DDIM/form2.png">
+<img src="../files/images/DDIM/form.png">
+<p>这个式子里面只有最右边的部分是带有随机成分的。而且当<br>
+$$<br>
+\sigma_t = \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 − \alpha_{t}/\alpha_{t-1}}<br>
+$$<br>
+时退化为DDPM</p>
+<p>如果我们取$\sigma_t = 0$。式子有确定性的输出，这个模型称作DDIM。</p>
+<h3 id="ACCELERATED-GENERATION-PROCESSES">ACCELERATED GENERATION PROCESSES</h3>
 <p>说完了采样，那么加速在哪呢？</p>
 <p>作者证明了：</p>
 <ul>
-<li>上面的逆过程不需要从<span class="math inline">\(T,T-1,...,1,0\)</span>一路下降，其实选取一个递减的子集也是可以的！</li>
+<li>上面的逆过程不需要从$T,T-1,…,1,0$一路下降，其实选取一个递减的子集也是可以的！</li>
 </ul>
 <h2 id="实验">实验</h2>
-<p>实验部分，作者实际上选取了： <span class="math display">\[
-\sigma_t = \eta \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 −
-\alpha_{t}/\alpha_{t-1}}
-\]</span> 其中<span class="math inline">\(\eta\)</span>是超参，0代表是DDIM，1代表是DDPM。另一个变量是选取的子集S的大小(<span class="math inline">\(|S|=1000\)</span>代表没有简化)，跑了这个图：</p>
-<p><img src="../files/images/DDIM/re.png"></p>
-<p>可以看出，DDIM在步数少的时候表现最好。最下面那个<span class="math inline">\(\hat\sigma\)</span>代表原始的DDPM祖先采样。可以看出，衰减非常明显</p>
+<p>实验部分，作者实际上选取了：<br>
+$$<br>
+\sigma_t = \eta \sqrt{(1 − \alpha_{t−1})/(1 −  \alpha_{t})}\sqrt{1 − \alpha_{t}/\alpha_{t-1}}<br>
+$$<br>
+其中$\eta$是超参，0代表是DDIM，1代表是DDPM。另一个变量是选取的子集S的大小($|S|=1000$代表没有简化)，跑了这个图：</p>
+<img src="../files/images/DDIM/re.png">
+<p>可以看出，DDIM在步数少的时候表现最好。最下面那个$\hat\sigma$代表原始的DDPM祖先采样。可以看出，衰减非常明显</p>
 <p>作者还提到了这个方法的另一个优势：</p>
 <ul>
 <li>由于确定性的增加，相同的初始噪声映射到基本相同的结果。可以方便做图片的修改。</li>
 </ul>
-<p><img src="../files/images/DDIM/change.png"></p>
+<img src="../files/images/DDIM/change.png">
 <h2 id="我的思考">我的思考</h2>
 <ul>
 <li>虽然证明和数学过程很复杂，但结论却是惊人的简单：同样的DDPM，换一个采样方法，就能加速50倍</li>
@@ -456,7 +462,7 @@ PROCESSES</h3>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/49dce4ad.html" rel="bookmark">论文阅读[精读]-SSD-LM: Semi-autoregressive Simplex-based Diffusion Language Model for Text Generation and Modular Control</a></div>
@@ -557,9 +563,7 @@ PROCESSES</h3>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#variational-inference-for-non-markovian-forward-processes"><span class="nav-number">3.</span> <span class="nav-text">VARIATIONAL
-INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sample"><span class="nav-number">4.</span> <span class="nav-text">sample</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#accelerated-generation-processes"><span class="nav-number">4.1.</span> <span class="nav-text">ACCELERATED GENERATION
-PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">2.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VARIATIONAL-INFERENCE-FOR-NON-MARKOVIAN-FORWARD-PROCESSES"><span class="nav-number">3.</span> <span class="nav-text">VARIATIONAL INFERENCE FOR NON-MARKOVIAN FORWARD PROCESSES</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sample"><span class="nav-number">4.</span> <span class="nav-text">sample</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ACCELERATED-GENERATION-PROCESSES"><span class="nav-number">4.1.</span> <span class="nav-text">ACCELERATED GENERATION PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -574,7 +578,7 @@ PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="na
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -617,6 +621,10 @@ PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="na
       
       
         <li class="recent_posts_li">
+          <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
         </li>
       
@@ -650,10 +658,6 @@ PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="na
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -709,7 +713,7 @@ PROCESSES</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="na
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

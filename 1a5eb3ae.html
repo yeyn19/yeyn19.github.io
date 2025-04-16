@@ -313,17 +313,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="multimodal-latent-language-modeling-with-next-token-diffusion"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08635">Multimodal Latent Language
-Modeling with Next-Token Diffusion</a></h2>
-<p>推荐一手朋友的工作，这篇工作的研究的是让模型直接把上一轮的hiddenstate拼回去，而不是查找到最接近的词向量，这是因为图片声音等模态的内容，不能像文本一样有天生的离散性质。能不能做呢？之前大家用词向量，是因为由此就可以转化成crossentropy
-loss让训练非常稳定，现在如果直接把词向量这个设计去掉、变成出口层的diffusion
-head，会带来训练的不稳定。但是作者发现，稍微对vae模块做一些改动，就可以使得vae地输出有一些往vqvae靠拢的性质。</p>
-<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/delta-vae.png"></p>
-<h2 id="streamchat-chatting-with-streaming-video"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08646">StreamChat: Chatting with
-Streaming Video</a></h2>
-<p>一篇很有趣的工作，关于streaming video
-chat场景。这个场景已经不稀奇了，一堆人在研究。这篇牛的地方在于，他考虑一个情况：在模型说话的时候，视频也是在变化的，能不能让模型一边回答，同时一边持续关注视频，可能说一半再改口这样呢？</p>
-<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/streaming.png"></p>
+        <h2 id="Multimodal-Latent-Language-Modeling-with-Next-Token-Diffusion"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08635">Multimodal Latent Language Modeling with Next-Token Diffusion</a></h2>
+<p>推荐一手朋友的工作，这篇工作的研究的是让模型直接把上一轮的hiddenstate拼回去，而不是查找到最接近的词向量，这是因为图片声音等模态的内容，不能像文本一样有天生的离散性质。能不能做呢？之前大家用词向量，是因为由此就可以转化成crossentropy loss让训练非常稳定，现在如果直接把词向量这个设计去掉、变成出口层的diffusion head，会带来训练的不稳定。但是作者发现，稍微对vae模块做一些改动，就可以使得vae地输出有一些往vqvae靠拢的性质。</p>
+<img src="../../files/images/arxiv-insights/2024-12-09-12-13/delta-vae.png">
+<h2 id="StreamChat-Chatting-with-Streaming-Video"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08646">StreamChat: Chatting with Streaming Video</a></h2>
+<p>一篇很有趣的工作，关于streaming video chat场景。这个场景已经不稀奇了，一堆人在研究。这篇牛的地方在于，他考虑一个情况：在模型说话的时候，视频也是在变化的，能不能让模型一边回答，同时一边持续关注视频，可能说一半再改口这样呢？</p>
+<img src="../../files/images/arxiv-insights/2024-12-09-12-13/streaming.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -340,13 +335,13 @@ chat场景。这个场景已经不稀奇了，一堆人在研究。这篇牛的�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6b0007ed.html" rel="bookmark">2025-04-15-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c26cd3.html" rel="bookmark">2025-04-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/62eba797.html" rel="bookmark">2025-04-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8d29cca9.html" rel="bookmark">2025-04-10-insights</a></div>
     </li>
   </ul>
 
@@ -423,9 +418,7 @@ chat场景。这个场景已经不稀奇了，一堆人在研究。这篇牛的�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#multimodal-latent-language-modeling-with-next-token-diffusion"><span class="nav-number">1.</span> <span class="nav-text">Multimodal Latent Language
-Modeling with Next-Token Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#streamchat-chatting-with-streaming-video"><span class="nav-number">2.</span> <span class="nav-text">StreamChat: Chatting with
-Streaming Video</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multimodal-Latent-Language-Modeling-with-Next-Token-Diffusion"><span class="nav-number">1.</span> <span class="nav-text">Multimodal Latent Language Modeling with Next-Token Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StreamChat-Chatting-with-Streaming-Video"><span class="nav-number">2.</span> <span class="nav-text">StreamChat: Chatting with Streaming Video</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +433,7 @@ Streaming Video</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +476,10 @@ Streaming Video</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
         </li>
       
@@ -516,10 +513,6 @@ Streaming Video</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,7 +568,7 @@ Streaming Video</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

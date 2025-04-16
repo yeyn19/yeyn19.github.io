@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State 来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用\(T\)位置的hidden state预测 \(t \geq T+2\)位置的token。在GPT-J-6B上实验，发现准确率超过">
+  <meta name="description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State 来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48%">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-11-09-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/63030322">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State 来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用\(T\)位置的hidden state预测 \(t \geq T+2\)位置的token。在GPT-J-6B上实验，发现准确率超过">
+<meta property="og:description" content="今天论文不多，不过有意思的不少 Future Lens: Anticipating Subsequent Tokens from a Single Hidden State 来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48%">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/teal.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023:11:06-11:10/circuit.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>498</span>
+              <span>494</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,22 +314,14 @@
 
       
         <p>今天论文不多，不过有意思的不少</p>
-<h2 id="future-lens-anticipating-subsequent-tokens-from-a-single-hidden-state"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04897.pdf">Future Lens: Anticipating
-Subsequent Tokens from a Single Hidden State</a></h2>
-<p>来自南洋理工大学的论文：hidden
-state真的只包含下一个token的信息吗？作者尝试用<span class="math inline">\(T\)</span>位置的hidden state预测 <span class="math inline">\(t \geq
-T+2\)</span>位置的token。在GPT-J-6B上实验，发现准确率超过48%</p>
-<h2 id="teal-tokenize-and-embed-all-for-multi-modal-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04589.pdf">TEAL: Tokenize and Embed ALL
-for Multi-modal Large Language Models</a></h2>
-<p>作者提到目前的多模态模型对于多模态的输入和非语言模态的输出都比较差。作者认为这件事是因为tokenizer。作者提出了一个Tokenize
-and Embed
-ALl(TEAL)的方法，把所有模态的数据tokenize到一个统一的词表。最后也可以按照无损的形式解码回来。发现极大地改善了上述问题</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/teal.png"></p>
-<h2 id="uncovering-causal-variables-in-transformers-using-circuit-probing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04354.pdf">Uncovering Causal Variables
-in Transformers using Circuit Probing</a></h2>
-<p>作者提出了一个有趣的办法，
-通过截断一些计算路径，看看模型会不会丧失某个能力，来嗅探该计算路径代表了什么。</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:06-11:10/circuit.png"></p>
+<h2 id="Future-Lens-Anticipating-Subsequent-Tokens-from-a-Single-Hidden-State"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04897.pdf">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</a></h2>
+<p>来自南洋理工大学的论文：hidden state真的只包含下一个token的信息吗？作者尝试用$T$位置的hidden state预测 $t \geq T+2$位置的token。在GPT-J-6B上实验，发现准确率超过48%</p>
+<h2 id="TEAL-Tokenize-and-Embed-ALL-for-Multi-modal-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04589.pdf">TEAL: Tokenize and Embed ALL for Multi-modal Large Language Models</a></h2>
+<p>作者提到目前的多模态模型对于多模态的输入和非语言模态的输出都比较差。作者认为这件事是因为tokenizer。作者提出了一个Tokenize and Embed ALl(TEAL)的方法，把所有模态的数据tokenize到一个统一的词表。最后也可以按照无损的形式解码回来。发现极大地改善了上述问题</p>
+<img src="../../files/images/arxiv-insights/2023:11:06-11:10/teal.png">
+<h2 id="Uncovering-Causal-Variables-in-Transformers-using-Circuit-Probing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.04354.pdf">Uncovering Causal Variables in Transformers using Circuit Probing</a></h2>
+<p>作者提出了一个有趣的办法， 通过截断一些计算路径，看看模型会不会丧失某个能力，来嗅探该计算路径代表了什么。</p>
+<img src="../../files/images/arxiv-insights/2023:11:06-11:10/circuit.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -346,13 +338,13 @@ in Transformers using Circuit Probing</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/6b0007ed.html" rel="bookmark">2025-04-15-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c26cd3.html" rel="bookmark">2025-04-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/62eba797.html" rel="bookmark">2025-04-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8d29cca9.html" rel="bookmark">2025-04-10-insights</a></div>
     </li>
   </ul>
 
@@ -429,10 +421,7 @@ in Transformers using Circuit Probing</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#future-lens-anticipating-subsequent-tokens-from-a-single-hidden-state"><span class="nav-number">1.</span> <span class="nav-text">Future Lens: Anticipating
-Subsequent Tokens from a Single Hidden State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#teal-tokenize-and-embed-all-for-multi-modal-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">TEAL: Tokenize and Embed ALL
-for Multi-modal Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uncovering-causal-variables-in-transformers-using-circuit-probing"><span class="nav-number">3.</span> <span class="nav-text">Uncovering Causal Variables
-in Transformers using Circuit Probing</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Future-Lens-Anticipating-Subsequent-Tokens-from-a-Single-Hidden-State"><span class="nav-number">1.</span> <span class="nav-text">Future Lens: Anticipating Subsequent Tokens from a Single Hidden State</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TEAL-Tokenize-and-Embed-ALL-for-Multi-modal-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">TEAL: Tokenize and Embed ALL for Multi-modal Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uncovering-Causal-Variables-in-Transformers-using-Circuit-Probing"><span class="nav-number">3.</span> <span class="nav-text">Uncovering Causal Variables in Transformers using Circuit Probing</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,7 +436,7 @@ in Transformers using Circuit Probing</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,6 +479,10 @@ in Transformers using Circuit Probing</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
         </li>
       
@@ -523,10 +516,6 @@ in Transformers using Circuit Probing</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -582,7 +571,7 @@ in Transformers using Circuit Probing</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">290k</span>
+    <span title="站点总字数">291k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
