@@ -313,19 +313,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天肉眼可见多了一堆planning token、MCTS类的工作……OpenAI又引领学术界发展了</p>
-<h2 id="Language-Models-“Grok”-to-Copy"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.09281">Language Models “Grok” to Copy</a></h2>
+        <p>今天肉眼可见多了一堆planning
+token、MCTS类的工作……OpenAI又引领学术界发展了</p>
+<h2 id="language-models-grok-to-copy"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.09281">Language Models “Grok” to
+Copy</a></h2>
 <p>作者探索了LLM在训练中学习copy的能力：从context中直接找到一些片段来抄袭。像下面这个sample，上下文是50组随机数（有些组是重复的），然后输入其中一个的前缀，比较牛的模型可能就会发现降低ppl的好方式是抄袭前面出现过的串。作者发现不同训练阶段模型的表现类似于grokking现象：在训练集上很快过拟合，在测试集表现一坨；但是过了很久以后，在测试集上突然领悟了</p>
 <blockquote>
 <p>大家对于grokking的解释一般是”学习快但上限低的记忆回路和学习慢但上限高的泛化回路互相竞争“。但在这个场景中，记忆回路按理来说也可以解决？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-09-16-09-20/grok.png">
-<h2 id="Rethinking-KenLM-Good-and-Bad-Model-Ensembles-for-Efficient-Text-Quality-Filtering-in-Large-Web-Corpora"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.09613">Rethinking KenLM: Good and Bad Model Ensembles for Efficient Text Quality Filtering in Large Web Corpora</a></h2>
-<p>一篇挺专的论文：如何从预训练语料里挖掘高质量数据。已有工作kenlm的方案是用一个在高质量语料上训练的n-gram LM作为数据筛，作者认为这种方案只看到了好的语料，没看到坏的语料，没有对比学习的思路在里面。所以作者训练了两个kenlm，一个在好语料一个在坏语料，综合两个模型的结果，最终的筛选质量比fasText高。</p>
+<p><img src="../../files/images/arxiv-insights/2024-09-16-09-20/grok.png"></p>
+<h2 id="rethinking-kenlm-good-and-bad-model-ensembles-for-efficient-text-quality-filtering-in-large-web-corpora"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.09613">Rethinking KenLM: Good and Bad
+Model Ensembles for Efficient Text Quality Filtering in Large Web
+Corpora</a></h2>
+<p>一篇挺专的论文：如何从预训练语料里挖掘高质量数据。已有工作kenlm的方案是用一个在高质量语料上训练的n-gram
+LM作为数据筛，作者认为这种方案只看到了好的语料，没看到坏的语料，没有对比学习的思路在里面。所以作者训练了两个kenlm，一个在好语料一个在坏语料，综合两个模型的结果，最终的筛选质量比fasText高。</p>
 <blockquote>
 <p>感觉挺不错的小品工作，说起来upstage AI最近论文都挺好的</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-09-16-09-20/kenlm.png">
+<p><img src="../../files/images/arxiv-insights/2024-09-16-09-20/kenlm.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +347,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8037bcee.html" rel="bookmark">2025-04-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6b0007ed.html" rel="bookmark">2025-04-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c26cd3.html" rel="bookmark">2025-04-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/62eba797.html" rel="bookmark">2025-04-11-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +430,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Models-%E2%80%9CGrok%E2%80%9D-to-Copy"><span class="nav-number">1.</span> <span class="nav-text">Language Models “Grok” to Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rethinking-KenLM-Good-and-Bad-Model-Ensembles-for-Efficient-Text-Quality-Filtering-in-Large-Web-Corpora"><span class="nav-number">2.</span> <span class="nav-text">Rethinking KenLM: Good and Bad Model Ensembles for Efficient Text Quality Filtering in Large Web Corpora</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#language-models-grok-to-copy"><span class="nav-number">1.</span> <span class="nav-text">Language Models “Grok” to
+Copy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rethinking-kenlm-good-and-bad-model-ensembles-for-efficient-text-quality-filtering-in-large-web-corpora"><span class="nav-number">2.</span> <span class="nav-text">Rethinking KenLM: Good and Bad
+Model Ensembles for Efficient Text Quality Filtering in Large Web
+Corpora</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +448,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,19 +491,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/62eba797" title="2025-04-11-insights" target="_blank">2025-04-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8d29cca9" title="2025-04-10-insights" target="_blank">2025-04-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -520,6 +524,10 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,7 +583,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

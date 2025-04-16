@@ -319,80 +319,91 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇讲了一种借鉴Discrete Diffusion model来建模一个order-agnostic autoregressive模型的方法，在text8数据集取得不错的效果。</p>
+        <p>这篇讲了一种借鉴Discrete Diffusion model来建模一个order-agnostic
+autoregressive模型的方法，在text8数据集取得不错的效果。</p>
 <span id="more"></span>
-<img src="../files/images/ARDM/author.png">
+<p><img src="../files/images/ARDM/author.png"></p>
 <p>这篇论文发表在ICLR22上，作者来自google brain。</p>
 <h2 id="background">background</h2>
 <p>首先梳理几个概念</p>
-<h3 id="ARM">ARM</h3>
-<p>自回归数据集里的每句话:<br>
-$$<br>
-\log p(x) = \sum_{t=1}^D \log p(x_t | x_{&lt;t})<br>
-$$<br>
+<h3 id="arm">ARM</h3>
+<p>自回归数据集里的每句话: <span class="math display">\[
+\log p(x) = \sum_{t=1}^D \log p(x_t | x_{&lt;t})
+\]</span>
 用一个上三角矩阵把每句话mask住做D次predict就能算出模型对本次数据的loss</p>
-<h3 id="Order-Agnostic-ARMs">Order Agnostic ARMs</h3>
-<p>XLNet采用这个结构，就是说模型不是从左到右预测的，而是按照任何一个顺序都可以:<br>
-$$<br>
-\begin{aligned}<br>
-\log p(x)  &amp; = \log \mathbb{E}<em>{\sigma \sim \mathcal{U}(S_D)} \sum</em>{t=1}^D p(x_{\sigma(t)} | x_{\sigma(&lt;t)})\<br>
-&amp; \geq \mathbb{E}<em>{\sigma \sim \mathcal{U}(S_D)} \sum</em>{t=1}^D \log p(x_{\sigma(t)} | x_{\sigma(&lt;t)})<br>
-\end{aligned}<br>
-$$<br>
-这个公式里，$\sigma$是对$1,2,…D$的一个重排。大概就是给定一个重排，按照这个重排的前一部分信息，生成剩下的每一个位置$\sigma(t)$的量。</p>
+<h3 id="order-agnostic-arms">Order Agnostic ARMs</h3>
+<p>XLNet采用这个结构，就是说模型不是从左到右预测的，而是按照任何一个顺序都可以:
+<span class="math display">\[
+\begin{aligned}
+\log p(x)  &amp; = \log \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)}
+\sum_{t=1}^D p(x_{\sigma(t)} | x_{\sigma(&lt;t)})\\
+&amp; \geq \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \sum_{t=1}^D \log
+p(x_{\sigma(t)} | x_{\sigma(&lt;t)})
+\end{aligned}
+\]</span> 这个公式里，<span class="math inline">\(\sigma\)</span>是对<span class="math inline">\(1,2,...D\)</span>的一个重排。大概就是给定一个重排，按照这个重排的前一部分信息，生成剩下的每一个位置<span class="math inline">\(\sigma(t)\)</span>的量。</p>
 <p>式子中的不等式来自杰森不等式</p>
 <blockquote>
 <p>从左到右可以看做一种特定的重排。上面式子相当于对所有重排的总的loss的期望，训练时任选一个重排就行</p>
 </blockquote>
-<h3 id="Discrete-Diffusion">Discrete Diffusion</h3>
-<p>这里引用的是21年的论文,大概就是把MLM视为某种diffusion model，是文本领域diffusion model的一种解法</p>
-<h2 id="AUTOREGRESSIVE-DIFFUSION-MODELS">AUTOREGRESSIVE DIFFUSION MODELS</h2>
+<h3 id="discrete-diffusion">Discrete Diffusion</h3>
+<p>这里引用的是21年的论文,大概就是把MLM视为某种diffusion
+model，是文本领域diffusion model的一种解法</p>
+<h2 id="autoregressive-diffusion-models">AUTOREGRESSIVE DIFFUSION
+MODELS</h2>
 <h3 id="method">method</h3>
 <p>这一部分讲本文的方法</p>
-<p>上来就是loss的公式计算，作者用了不同的推导方式：<br>
-$$<br>
-\begin{aligned}<br>
-\log p(x)  &amp; \geq \mathbb{E}<em>{\sigma \sim \mathcal{U}(S_D)} \sum</em>{t=1}^D \log p(x_{\sigma(t)} | x_{\sigma(&lt;t)}) \<br>
-&amp; = \mathbb{E}<em>{\sigma \sim \mathcal{U}(S_D)} D \times \mathbb{E}</em>{t \sim \mathcal{U}(1,2,…D)} \log p(x_{\sigma(t)} | x_{\sigma(&lt;t)}) \<br>
-&amp; = D \times \mathbb{E}<em>{t \sim \mathcal{U}(1,2,…D)} \mathbb{E}</em>{\sigma \sim \mathcal{U}(S_D)} \frac{1}{D-t+1} \sum_{k\in \sigma(&gt; t)} \log p(x_{k} | x_{\sigma(&lt;t)})<br>
-\end{aligned}<br>
-$$<br>
-这个公式有几个特点：</p>
+<p>上来就是loss的公式计算，作者用了不同的推导方式： <span class="math display">\[
+\begin{aligned}
+\log p(x)  &amp; \geq \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)}
+\sum_{t=1}^D \log p(x_{\sigma(t)} | x_{\sigma(&lt;t)}) \\
+&amp; = \mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} D \times \mathbb{E}_{t
+\sim \mathcal{U}(1,2,..D)} \log p(x_{\sigma(t)} | x_{\sigma(&lt;t)}) \\
+&amp; = D \times \mathbb{E}_{t \sim \mathcal{U}(1,2,..D)}
+\mathbb{E}_{\sigma \sim \mathcal{U}(S_D)} \frac{1}{D-t+1} \sum_{k\in
+\sigma(&gt; t)} \log p(x_{k} | x_{\sigma(&lt;t)})
+\end{aligned}
+\]</span> 这个公式有几个特点：</p>
 <ul>
 <li>他进一步考虑了XLNet中没有考虑的时间t</li>
 <li>他把”重排中剩下位置“当成了”很多个原子的生成过程的并行“的形式</li>
 </ul>
 <p>具体而言他定义了：</p>
-<img src="../files/images/ARDM/equ.png">
-<p>上面的式子就比较好理解了：$\mathcal{L}_t$的计算只和$t,\sigma$有关，可以视为把句子mask住一些位置，然后预测剩下的每一个位置的loss之和(BERT loss之和)，再加上一个正则量</p>
+<p><img src="../files/images/ARDM/equ.png"></p>
+<p>上面的式子就比较好理解了：<span class="math inline">\(\mathcal{L}_t\)</span>的计算只和<span class="math inline">\(t,\sigma\)</span>有关，可以视为把句子mask住一些位置，然后预测剩下的每一个位置的loss之和(BERT
+loss之和)，再加上一个正则量</p>
 <p>具体训练中，作者直接使用transformer结构，然后就直接用下面的算法进行训练和预测：</p>
-<img src="../files/images/ARDM/algo.png">
+<p><img src="../files/images/ARDM/algo.png"></p>
 <p>其中：</p>
 <ul>
-<li>m是一个布尔向量，代表重排$\sigma$的前t-1个位置是1</li>
-<li>m是一个布尔向量，代表重排$\sigma$的第t个位置是1</li>
-<li>$\bigodot$是指和布尔向量乘，布尔0位置置为0</li>
-<li>$\mathcal{C}$是一个cat分布，代表以$f(m\bigodot n)$的概率分别取K(词表大小)个值中的一个</li>
+<li>m是一个布尔向量，代表重排<span class="math inline">\(\sigma\)</span>的前t-1个位置是1</li>
+<li>m是一个布尔向量，代表重排<span class="math inline">\(\sigma\)</span>的第t个位置是1</li>
+<li><span class="math inline">\(\bigodot\)</span>是指和布尔向量乘，布尔0位置置为0</li>
+<li><span class="math inline">\(\mathcal{C}\)</span>是一个cat分布，代表以<span class="math inline">\(f(m\bigodot
+n)\)</span>的概率分别取K(词表大小)个值中的一个</li>
 </ul>
-<p>对于NLP而言，可以直接设定一个词表K外的词K+1代表MASK，word embedding为a,然后就能在代码上比较统一:<br>
-$$<br>
-\text{mask}(x,m) = m \bigodot x + (1-m)\bigodot a<br>
-$$</p>
-<h3 id="PARALLELIZED-ARDMS">PARALLELIZED ARDMS</h3>
+<p>对于NLP而言，可以直接设定一个词表K外的词K+1代表MASK，word
+embedding为a,然后就能在代码上比较统一: <span class="math display">\[
+\text{mask}(x,m) = m \bigodot x + (1-m)\bigodot a
+\]</span></p>
+<h3 id="parallelized-ardms">PARALLELIZED ARDMS</h3>
 <p>这一部分，作者分析了上面公式中的并行性的特点带来更快的解码速度。因为如果有t个位置的结果以后，解码剩下的位置都是并行的，</p>
-<p>如果假设$L_{t,t+k} = \sum_{i=1}^k\mathcal{L}_{t+i} \approx k \mathcal{L}_t$,视为解码所需要的代价</p>
-<p>那么用一个动态规划算法，就能算出使得代价最小的并行化解码方法(固定解码步骤$c$)。下图就是把一个20步的解码只用5步来完成</p>
-<img src="../files/images/ARDM/dp.png">
-<h2 id="Experiment">Experiment</h2>
-<p>这一部分作者，用bpc的NLL loss来对比了作者的方法OA-ARDM,和之前的离散diffusion方法$D3PM-*$，所有模型用的结构是一样的，只有训练方法和采样方法不一样</p>
-<img src="../files/images/ARDM/result.png">
+<p>如果假设<span class="math inline">\(L_{t,t+k} =
+\sum_{i=1}^k\mathcal{L}_{t+i} \approx k
+\mathcal{L}_t\)</span>,视为解码所需要的代价</p>
+<p>那么用一个动态规划算法，就能算出使得代价最小的并行化解码方法(固定解码步骤<span class="math inline">\(c\)</span>)。下图就是把一个20步的解码只用5步来完成</p>
+<p><img src="../files/images/ARDM/dp.png"></p>
+<h2 id="experiment">Experiment</h2>
+<p>这一部分作者，用bpc的NLL
+loss来对比了作者的方法OA-ARDM,和之前的离散diffusion方法<span class="math inline">\(D3PM-*\)</span>，所有模型用的结构是一样的，只有训练方法和采样方法不一样</p>
+<p><img src="../files/images/ARDM/result.png"></p>
 <ul>
 <li>可以看到主试验的结果基本完胜 Austin 21的方法。</li>
-<li>值得一题的是，效果没有从左到右的auto-regressive好(一个普通transformer baseline结果是1.35)</li>
+<li>值得一题的是，效果没有从左到右的auto-regressive好(一个普通transformer
+baseline结果是1.35)</li>
 <li>另一方面就是新的结果由于比较好的并行性，只用20步的解码就可以达到之前大概250步的结果</li>
 <li>实验用的数据集是text8，解码的例子如下：</li>
 </ul>
-<img src="../files/images/ARDM/example.png">
+<p><img src="../files/images/ARDM/example.png"></p>
 
     </div>
 
@@ -504,7 +515,8 @@ $$</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.</span> <span class="nav-text">background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ARM"><span class="nav-number">1.1.</span> <span class="nav-text">ARM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Order-Agnostic-ARMs"><span class="nav-number">1.2.</span> <span class="nav-text">Order Agnostic ARMs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Discrete-Diffusion"><span class="nav-number">1.3.</span> <span class="nav-text">Discrete Diffusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AUTOREGRESSIVE-DIFFUSION-MODELS"><span class="nav-number">2.</span> <span class="nav-text">AUTOREGRESSIVE DIFFUSION MODELS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">2.1.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PARALLELIZED-ARDMS"><span class="nav-number">2.2.</span> <span class="nav-text">PARALLELIZED ARDMS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">1.</span> <span class="nav-text">background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#arm"><span class="nav-number">1.1.</span> <span class="nav-text">ARM</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#order-agnostic-arms"><span class="nav-number">1.2.</span> <span class="nav-text">Order Agnostic ARMs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#discrete-diffusion"><span class="nav-number">1.3.</span> <span class="nav-text">Discrete Diffusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autoregressive-diffusion-models"><span class="nav-number">2.</span> <span class="nav-text">AUTOREGRESSIVE DIFFUSION
+MODELS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#method"><span class="nav-number">2.1.</span> <span class="nav-text">method</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#parallelized-ardms"><span class="nav-number">2.2.</span> <span class="nav-text">PARALLELIZED ARDMS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#experiment"><span class="nav-number">3.</span> <span class="nav-text">Experiment</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -519,7 +531,7 @@ $$</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -562,19 +574,15 @@ $$</p>
       
       
         <li class="recent_posts_li">
+          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/62eba797" title="2025-04-11-insights" target="_blank">2025-04-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8d29cca9" title="2025-04-10-insights" target="_blank">2025-04-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -599,6 +607,10 @@ $$</p>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -654,7 +666,7 @@ $$</p>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

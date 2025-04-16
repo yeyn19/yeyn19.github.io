@@ -315,15 +315,26 @@
 
       
         <p>今天出了一堆论文，但大家都在讨论sora……发布应该避开最近两周</p>
-<h2 id="Language-Guided-Image-Tokenization-for-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05796">Language-Guided Image Tokenization for Generation</a></h2>
-<p>这个工作很有意思，作者提到已有的vqvae 图片tokenizer，都是输入图片吐出token sequence，都会损失信息。如果让tokenizer这一层可以用上image caption这种额外的图片信号呢？作者发现这么搞，出来的tokenizer效果比纯的image tokenizer好很多。问题在于，测试时也需要image caption存在。</p>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/tokenizer.png">
-<h2 id="Policy-Agnostic-RL-Offline-RL-and-Online-RL-Fine-Tuning-of-Any-Class-and-Backbone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.06685"><strong>Policy Agnostic RL: Offline RL and Online RL Fine-Tuning of Any Class and Backbone</strong></a></h2>
+<h2 id="language-guided-image-tokenization-for-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05796">Language-Guided Image
+Tokenization for Generation</a></h2>
+<p>这个工作很有意思，作者提到已有的vqvae
+图片tokenizer，都是输入图片吐出token
+sequence，都会损失信息。如果让tokenizer这一层可以用上image
+caption这种额外的图片信号呢？作者发现这么搞，出来的tokenizer效果比纯的image
+tokenizer好很多。问题在于，测试时也需要image caption存在。</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/tokenizer.png"></p>
+<h2 id="policy-agnostic-rl-offline-rl-and-online-rl-fine-tuning-of-any-class-and-backbone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.06685"><strong>Policy Agnostic RL:
+Offline RL and Online RL Fine-Tuning of Any Class and
+Backbone</strong></a></h2>
 <p>kumar又出新作品了，虽然我看不太懂。作者提到现在的各路rl算法都是和模型结构深度绑定的，比如diffusion-policy、gaussian-policy、autoregressive-policy，想用一个算法跑起来几乎不可能。这里面的核心问题在于rl中的<code>policy improvement</code>这个step对于不同policy有不同的定义和问题。既然这样，如果把这个过程统一成SFT范式可以吗？虽然和rl的原始定义不太一致，但是训练却很稳定，真给他训出来了。</p>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/agnostic.png">
-<h2 id="PROCESSBENCH-Identifying-Process-Errors-in-Mathematical-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.06559">PROCESSBENCH: Identifying Process Errors in Mathematical Reasoning</a></h2>
-<p>Qwen团队的作品，一个衡量各家prm的benchmark。作者在3400道竞赛级别数学题上，用不同模型标注了trace，然后找人给出了 process reward，由此构造了一个prm测试集。作者发现，仅仅在gsm8k MATH这种简单题的prm标注上训出来的prm，其实泛化不到竞赛题上。然后基模换成qwq这种o1-based model，能好不少，不过比起真o1还是差远了。</p>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/process-bench.png">
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/agnostic.png"></p>
+<h2 id="processbench-identifying-process-errors-in-mathematical-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.06559">PROCESSBENCH: Identifying
+Process Errors in Mathematical Reasoning</a></h2>
+<p>Qwen团队的作品，一个衡量各家prm的benchmark。作者在3400道竞赛级别数学题上，用不同模型标注了trace，然后找人给出了
+process reward，由此构造了一个prm测试集。作者发现，仅仅在gsm8k
+MATH这种简单题的prm标注上训出来的prm，其实泛化不到竞赛题上。然后基模换成qwq这种o1-based
+model，能好不少，不过比起真o1还是差远了。</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/process-bench.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -340,13 +351,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/8037bcee.html" rel="bookmark">2025-04-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6b0007ed.html" rel="bookmark">2025-04-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/84c26cd3.html" rel="bookmark">2025-04-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/62eba797.html" rel="bookmark">2025-04-11-insights</a></div>
     </li>
   </ul>
 
@@ -423,7 +434,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Guided-Image-Tokenization-for-Generation"><span class="nav-number">1.</span> <span class="nav-text">Language-Guided Image Tokenization for Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Policy-Agnostic-RL-Offline-RL-and-Online-RL-Fine-Tuning-of-Any-Class-and-Backbone"><span class="nav-number">2.</span> <span class="nav-text">Policy Agnostic RL: Offline RL and Online RL Fine-Tuning of Any Class and Backbone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PROCESSBENCH-Identifying-Process-Errors-in-Mathematical-Reasoning"><span class="nav-number">3.</span> <span class="nav-text">PROCESSBENCH: Identifying Process Errors in Mathematical Reasoning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#language-guided-image-tokenization-for-generation"><span class="nav-number">1.</span> <span class="nav-text">Language-Guided Image
+Tokenization for Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#policy-agnostic-rl-offline-rl-and-online-rl-fine-tuning-of-any-class-and-backbone"><span class="nav-number">2.</span> <span class="nav-text">Policy Agnostic RL:
+Offline RL and Online RL Fine-Tuning of Any Class and
+Backbone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#processbench-identifying-process-errors-in-mathematical-reasoning"><span class="nav-number">3.</span> <span class="nav-text">PROCESSBENCH: Identifying
+Process Errors in Mathematical Reasoning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -481,19 +496,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6b0007ed" title="2025-04-15-insights" target="_blank">2025-04-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/84c26cd3" title="2025-04-14-insights" target="_blank">2025-04-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/62eba797" title="2025-04-11-insights" target="_blank">2025-04-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8d29cca9" title="2025-04-10-insights" target="_blank">2025-04-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -518,6 +529,10 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -573,7 +588,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">290k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
