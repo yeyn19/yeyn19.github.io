@@ -316,28 +316,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="SeedEdit-Align-Image-Re-Generation-to-Image-Editing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06686"><strong>SeedEdit: Align Image Re-Generation to Image Editing</strong></a></h2>
-<p>字节的工作，主要做image editing的任务：用一个自然语言的修图指令，就可以对图片做微调。作者认为在这个任务里有两个关键点，一个是模型能不能遵循指令，另一个是模型能不能生成和原图一样的图片。</p>
-<img src="../../files/images/arxiv-insights/2024-11-11-11-15/seededit.png">
-<h2 id="Moving-Off-the-Grid-Scene-Grounded-Video-Representations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05927">Moving Off-the-Grid: Scene-Grounded Video Representations</a></h2>
+        <h2 id="seededit-align-image-re-generation-to-image-editing"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06686"><strong>SeedEdit: Align Image
+Re-Generation to Image Editing</strong></a></h2>
+<p>字节的工作，主要做image
+editing的任务：用一个自然语言的修图指令，就可以对图片做微调。作者认为在这个任务里有两个关键点，一个是模型能不能遵循指令，另一个是模型能不能生成和原图一样的图片。</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/seededit.png"></p>
+<h2 id="moving-off-the-grid-scene-grounded-video-representations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05927">Moving Off-the-Grid:
+Scene-Grounded Video Representations</a></h2>
 <p>作者提到，目前的VLM或者CV模型，都是把图片的空间信息编码到固定的token上，叫做on-the-grid。这会导致模型给特定的patch学到特定的含义（比如太阳总会出现在上面的patch里）。由此，作者设计了一套off-the-grid的方案，可以提升图像embedding的鲁棒性和质量</p>
-<img src="../../files/images/arxiv-insights/2024-11-11-11-15/off-the-grid.png">
-<h2 id="I2VControl-Camera-Precise-Video-Camera-Control-with-Adjustable-Motion-Strength"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06525"><strong>I2VControl-Camera: Precise Video Camera Control with Adjustable Motion Strength</strong></a></h2>
-<p>上周出了个pika camera-control的复刻版，这周又来了个复刻版，感觉这个方向变得火了起来。</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/off-the-grid.png"></p>
+<h2 id="i2vcontrol-camera-precise-video-camera-control-with-adjustable-motion-strength"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06525"><strong>I2VControl-Camera:
+Precise Video Camera Control with Adjustable Motion
+Strength</strong></a></h2>
+<p>上周出了个pika
+camera-control的复刻版，这周又来了个复刻版，感觉这个方向变得火了起来。</p>
 <blockquote>
-<p>说回来，video generation camera-control和GameNGen那种生成游戏画面，感觉都是给视频生成多了个输入维度，但是在不同的场景……不知道有没有人做个多场景统一的camera-control出来</p>
+<p>说回来，video generation
+camera-control和GameNGen那种生成游戏画面，感觉都是给视频生成多了个输入维度，但是在不同的场景……不知道有没有人做个多场景统一的camera-control出来</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-11-11-15/camera-control.png">
-<h2 id="Is-Your-LLM-Secretly-a-World-Model-of-the-Internet-Model-Based-Planning-for-Web-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06559"><strong>Is Your LLM Secretly a World Model of the Internet? Model-Based Planning for Web Agents</strong></a></h2>
-<p>一个挺有趣的GUI Agent工作，作者思考了一个问题：模型能不能设想一个action结果是什么呢？如果可以的话，让模型在自己的思考空间做推理，然后选择自己打分高的设想，去真的执行会怎样？作者把这个方案叫做webDreamer，发现还真能在online环境里提分</p>
-<img src="../../files/images/arxiv-insights/2024-11-11-11-15/web-dreamer.png">
-<h2 id="Stronger-Models-are-NOT-Stronger-Teachers-for-Instruction-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.07133">Stronger Models are NOT Stronger Teachers for Instruction Tuning</a></h2>
-<p>作者提到，目前的SFT数据，主要就是找一个比较牛的模型在一堆instruction上sample response，再丢给小模型学。然而这里面有个关键的假设：强的模型标的数据，训出来的小模型就会更强。</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/camera-control.png"></p>
+<h2 id="is-your-llm-secretly-a-world-model-of-the-internet-model-based-planning-for-web-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.06559"><strong>Is Your LLM Secretly a
+World Model of the Internet? Model-Based Planning for Web
+Agents</strong></a></h2>
+<p>一个挺有趣的GUI
+Agent工作，作者思考了一个问题：模型能不能设想一个action结果是什么呢？如果可以的话，让模型在自己的思考空间做推理，然后选择自己打分高的设想，去真的执行会怎样？作者把这个方案叫做webDreamer，发现还真能在online环境里提分</p>
+<p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/web-dreamer.png"></p>
+<h2 id="stronger-models-are-not-stronger-teachers-for-instruction-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.07133">Stronger Models are NOT Stronger
+Teachers for Instruction Tuning</a></h2>
+<p>作者提到，目前的SFT数据，主要就是找一个比较牛的模型在一堆instruction上sample
+response，再丢给小模型学。然而这里面有个关键的假设：强的模型标的数据，训出来的小模型就会更强。</p>
 <p>作者做了一大堆实验，发现竟然不是这样？</p>
 <blockquote>
 <p>为什么呢，难道真有 knowledge boundary的说法？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-11-11-11-15/llm-paradox.png">
+<p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/llm-paradox.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -437,7 +449,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SeedEdit-Align-Image-Re-Generation-to-Image-Editing"><span class="nav-number">1.</span> <span class="nav-text">SeedEdit: Align Image Re-Generation to Image Editing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Moving-Off-the-Grid-Scene-Grounded-Video-Representations"><span class="nav-number">2.</span> <span class="nav-text">Moving Off-the-Grid: Scene-Grounded Video Representations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I2VControl-Camera-Precise-Video-Camera-Control-with-Adjustable-Motion-Strength"><span class="nav-number">3.</span> <span class="nav-text">I2VControl-Camera: Precise Video Camera Control with Adjustable Motion Strength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Is-Your-LLM-Secretly-a-World-Model-of-the-Internet-Model-Based-Planning-for-Web-Agents"><span class="nav-number">4.</span> <span class="nav-text">Is Your LLM Secretly a World Model of the Internet? Model-Based Planning for Web Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stronger-Models-are-NOT-Stronger-Teachers-for-Instruction-Tuning"><span class="nav-number">5.</span> <span class="nav-text">Stronger Models are NOT Stronger Teachers for Instruction Tuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#seededit-align-image-re-generation-to-image-editing"><span class="nav-number">1.</span> <span class="nav-text">SeedEdit: Align Image
+Re-Generation to Image Editing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moving-off-the-grid-scene-grounded-video-representations"><span class="nav-number">2.</span> <span class="nav-text">Moving Off-the-Grid:
+Scene-Grounded Video Representations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i2vcontrol-camera-precise-video-camera-control-with-adjustable-motion-strength"><span class="nav-number">3.</span> <span class="nav-text">I2VControl-Camera:
+Precise Video Camera Control with Adjustable Motion
+Strength</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#is-your-llm-secretly-a-world-model-of-the-internet-model-based-planning-for-web-agents"><span class="nav-number">4.</span> <span class="nav-text">Is Your LLM Secretly a
+World Model of the Internet? Model-Based Planning for Web
+Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stronger-models-are-not-stronger-teachers-for-instruction-tuning"><span class="nav-number">5.</span> <span class="nav-text">Stronger Models are NOT Stronger
+Teachers for Instruction Tuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -592,7 +611,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
 <i class="fa fa-user-md"></i>

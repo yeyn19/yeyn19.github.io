@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>645</span>
+              <span>640</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,21 +314,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Enhancing-Large-Vision-Language-Models-with-Self-Training-on-Image-Comprehension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19716">Enhancing Large Vision Language Models with Self-Training on Image Comprehension</a></h2>
-<p>和昨天组里的工作类似，也是一篇self-training增强image caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption，由此构造正/负样本。发现效果很好，可以很大程度地减少hallucination</p>
+        <h2 id="enhancing-large-vision-language-models-with-self-training-on-image-comprehension"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19716">Enhancing Large Vision Language
+Models with Self-Training on Image Comprehension</a></h2>
+<p>和昨天组里的工作类似，也是一篇self-training增强image
+caption能力的论文，作者考虑了另外一个归纳偏置：更差的图片的caption倾向于更差，所以作者使用一个图片和他的低分辨率等corrupt版本生成多个caption，由此构造正/负样本。发现效果很好，可以很大程度地减少hallucination</p>
 <blockquote>
 <p>眼前一亮，有一种人类智慧的感觉</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-05-27-05-31/self-training-image-comprehension.png">
-<h2 id="Beyond-Imitation-Learning-Key-Reasoning-Steps-from-Dual-Chain-of-Thoughts-in-Reasoning-Distillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19737">Beyond Imitation: Learning Key Reasoning Steps from Dual Chain-of-Thoughts in Reasoning Distillation</a></h2>
-<p>作者提出了一套双模型的机制，一个弱模型先对问题进行回答，对于错误的回答，让强模型根据正确答案进行修正。作者认为，这种改动的地方才是最重要“key reasoning steps&quot;，会让模型表现出来很好的效果。</p>
-<img src="../../files/images/arxiv-insights/2024-05-27-05-31/key.png">
-<h2 id="Is-In-Context-Learning-Sufficient-for-Instruction-Following-in-LLMs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19874">Is In-Context Learning Sufficient for Instruction Following in LLMs?</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/self-training-image-comprehension.png"></p>
+<h2 id="beyond-imitation-learning-key-reasoning-steps-from-dual-chain-of-thoughts-in-reasoning-distillation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19737">Beyond Imitation: Learning Key
+Reasoning Steps from Dual Chain-of-Thoughts in Reasoning
+Distillation</a></h2>
+<p>作者提出了一套双模型的机制，一个弱模型先对问题进行回答，对于错误的回答，让强模型根据正确答案进行修正。作者认为，这种改动的地方才是最重要“key
+reasoning steps"，会让模型表现出来很好的效果。</p>
+<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/key.png"></p>
+<h2 id="is-in-context-learning-sufficient-for-instruction-following-in-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19874">Is In-Context Learning
+Sufficient for Instruction Following in LLMs?</a></h2>
 <p>这篇工作follow了之前那篇urial的工作：探索模型能不能仅仅通过in-context样本“显得像是做过align”。作者尝试了添加更多样本，但是发现在align场景下，增加in-context并不能显著提升align得分。</p>
 <blockquote>
 <p>我主要想问，为什么他们有GPT4-base的score呀……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-05-27-05-31/example.png">
+<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/example.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -428,7 +434,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Enhancing-Large-Vision-Language-Models-with-Self-Training-on-Image-Comprehension"><span class="nav-number">1.</span> <span class="nav-text">Enhancing Large Vision Language Models with Self-Training on Image Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Imitation-Learning-Key-Reasoning-Steps-from-Dual-Chain-of-Thoughts-in-Reasoning-Distillation"><span class="nav-number">2.</span> <span class="nav-text">Beyond Imitation: Learning Key Reasoning Steps from Dual Chain-of-Thoughts in Reasoning Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Is-In-Context-Learning-Sufficient-for-Instruction-Following-in-LLMs"><span class="nav-number">3.</span> <span class="nav-text">Is In-Context Learning Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#enhancing-large-vision-language-models-with-self-training-on-image-comprehension"><span class="nav-number">1.</span> <span class="nav-text">Enhancing Large Vision Language
+Models with Self-Training on Image Comprehension</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-imitation-learning-key-reasoning-steps-from-dual-chain-of-thoughts-in-reasoning-distillation"><span class="nav-number">2.</span> <span class="nav-text">Beyond Imitation: Learning Key
+Reasoning Steps from Dual Chain-of-Thoughts in Reasoning
+Distillation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#is-in-context-learning-sufficient-for-instruction-following-in-llms"><span class="nav-number">3.</span> <span class="nav-text">Is In-Context Learning
+Sufficient for Instruction Following in LLMs?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -583,7 +593,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:24</span>
+    <span title="站点阅读时长">4:25</span>
 </div>
 
 <i class="fa fa-user-md"></i>
