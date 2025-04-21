@@ -314,34 +314,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近换了AI track和CV track才发现：有这么多人在研究diffusion
-model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge]</p>
-<h2 id="improving-multimodal-large-language-models-using-continual-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19925">Improving Multimodal Large
-Language Models Using Continual Learning</a></h2>
-<p>这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia
-2.8B中尝试了不同的方案，看看能否在llava中恢复LLM的能力。</p>
+        <p>最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge]</p>
+<h2 id="Improving-Multimodal-Large-Language-Models-Using-Continual-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19925">Improving Multimodal Large Language Models Using Continual Learning</a></h2>
+<p>这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不同的方案，看看能否在llava中恢复LLM的能力。</p>
 <blockquote>
-<p>目前看到的工作好像都是通过掺一些text-only数据去缓解这个问题。话说我有个更high
-level的问题：随着模型参数量增大（或者预训练token量变大），有没有可能灾难性遗忘这个问题会自然消失呢？只要记忆力够(或者印象够深刻)，就不会忘东西了?</p>
+<p>目前看到的工作好像都是通过掺一些text-only数据去缓解这个问题。话说我有个更high level的问题：随着模型参数量增大（或者预训练token量变大），有没有可能灾难性遗忘这个问题会自然消失呢？只要记忆力够(或者印象够深刻)，就不会忘东西了?</p>
 </blockquote>
-<h2 id="groundit-grounding-diffusion-transformers-via-noisy-patch-transplantation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20474">GrounDiT: Grounding Diffusion
-Transformers via Noisy Patch Transplantation</a></h2>
+<h2 id="GrounDiT-Grounding-Diffusion-Transformers-via-Noisy-Patch-Transplantation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20474">GrounDiT: Grounding Diffusion Transformers via Noisy Patch Transplantation</a></h2>
 <p>作者搞了一个新的任务：如果输入的text不只是text，而是对于其中的某些名词，额外指定了在图片中的位置，模型能不能正确生成呢？作者发现还真可以。</p>
 <blockquote>
 <p>感觉现在的text2image在发掘VLM任务里面的对偶任务：像这个任务，其实是VLM里面的REG任务，把text中的名词对应到图片中的指定位置。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/ground-dit.png"></p>
-<h2 id="mardini-masked-autoregressive-diffusion-for-video-generation-at-scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20280"><strong>MarDini: Masked
-Autoregressive Diffusion for Video Generation at Scale</strong></a></h2>
-<p>Meta的工作，作者设计了一个巧妙的方案，拆分了视频生成中的空间信息和时间信息两个维度。具体来说，作者把同一个视频搞出来了低清晰度和高清晰度两个版本，在低清版本中实现时序的consistency，在高清版本中实现空间的consistency，最终用端到端的diffusion
-loss对视频生成做建模</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/ground-dit.png">
+<h2 id="MarDini-Masked-Autoregressive-Diffusion-for-Video-Generation-at-Scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20280"><strong>MarDini: Masked Autoregressive Diffusion for Video Generation at Scale</strong></a></h2>
+<p>Meta的工作，作者设计了一个巧妙的方案，拆分了视频生成中的空间信息和时间信息两个维度。具体来说，作者把同一个视频搞出来了低清晰度和高清晰度两个版本，在低清版本中实现时序的consistency，在高清版本中实现空间的consistency，最终用端到端的diffusion loss对视频生成做建模</p>
 <blockquote>
 <p>聪明！</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/mad.png"></p>
-<h2 id="gpt-4o-system-card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21276">GPT-4o System Card</a></h2>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/mad.png">
+<h2 id="GPT-4o-System-Card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21276">GPT-4o System Card</a></h2>
 <p>OpenAI出手，必须推荐。虽然但是，没讲技术方法，讲了所有的安全性测试和对齐方面的探索</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/fmri.png"></p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/fmri.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -358,13 +351,13 @@ loss对视频生成做建模</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb09c196.html" rel="bookmark">2025-04-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9efe8c5d.html" rel="bookmark">2025-04-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6ff5d7d0.html" rel="bookmark">2025-04-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8037bcee.html" rel="bookmark">2025-04-16-insights</a></div>
     </li>
   </ul>
 
@@ -441,10 +434,7 @@ loss对视频生成做建模</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-multimodal-large-language-models-using-continual-learning"><span class="nav-number">1.</span> <span class="nav-text">Improving Multimodal Large
-Language Models Using Continual Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groundit-grounding-diffusion-transformers-via-noisy-patch-transplantation"><span class="nav-number">2.</span> <span class="nav-text">GrounDiT: Grounding Diffusion
-Transformers via Noisy Patch Transplantation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mardini-masked-autoregressive-diffusion-for-video-generation-at-scale"><span class="nav-number">3.</span> <span class="nav-text">MarDini: Masked
-Autoregressive Diffusion for Video Generation at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-4o-system-card"><span class="nav-number">4.</span> <span class="nav-text">GPT-4o System Card</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-Multimodal-Large-Language-Models-Using-Continual-Learning"><span class="nav-number">1.</span> <span class="nav-text">Improving Multimodal Large Language Models Using Continual Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GrounDiT-Grounding-Diffusion-Transformers-via-Noisy-Patch-Transplantation"><span class="nav-number">2.</span> <span class="nav-text">GrounDiT: Grounding Diffusion Transformers via Noisy Patch Transplantation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MarDini-Masked-Autoregressive-Diffusion-for-Video-Generation-at-Scale"><span class="nav-number">3.</span> <span class="nav-text">MarDini: Masked Autoregressive Diffusion for Video Generation at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-4o-System-Card"><span class="nav-number">4.</span> <span class="nav-text">GPT-4o System Card</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,15 +492,15 @@ Autoregressive Diffusion for Video Generation at Scale</span></a></li><li class=
       
       
         <li class="recent_posts_li">
+          <a href="/fb09c196" title="2025-04-21-insights" target="_blank">2025-04-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9efe8c5d" title="2025-04-18-insights" target="_blank">2025-04-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6ff5d7d0" title="2025-04-17-insights" target="_blank">2025-04-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
         </li>
       
         <li class="recent_posts_li">

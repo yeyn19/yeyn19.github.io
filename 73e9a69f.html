@@ -314,27 +314,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="latent-action-pretraining-from-videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11758"><strong>Latent Action
-Pretraining from Videos</strong></a></h2>
+        <h2 id="Latent-Action-Pretraining-from-Videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11758"><strong>Latent Action Pretraining from Videos</strong></a></h2>
 <p>很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?</p>
 <blockquote>
 <p>这个工作里面可能还蕴含着很多秘密……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/lapa.png"></p>
-<h2 id="videgothink-assessing-egocentric-video-understanding-capabilities-for-embodied-ai"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11623"><strong>VidEgoThink: Assessing
-Egocentric Video Understanding Capabilities for Embodied
-AI</strong></a></h2>
+<img src="../../files/images/arxiv-insights/2024-10-14-10-18/lapa.png">
+<h2 id="VidEgoThink-Assessing-Egocentric-Video-Understanding-Capabilities-for-Embodied-AI"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11623"><strong>VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI</strong></a></h2>
 <p>之前读过一篇小众的论文”GUIWorld“，这篇工作是把它换到了第一人称视频的场景下。作者找到了一堆第一人称视角完成任务的数据，搭建了一个benchmark，涵盖了从qa、planning到grounding的各种任务。</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/videgothink.png"></p>
-<h2 id="speculative-knowledge-distillation-bridging-the-teacher-student-gap-through-interleaved-sampling"><a href><strong>Speculative Knowledge Distillation: Bridging the
-Teacher-Student Gap Through Interleaved Sampling</strong></a></h2>
-<p>一篇关于蒸馏的工作，但作者提到另一个视角：蒸馏中学生和老师之间的knowledge
-gap带来的影响。作者认为如果让学生强行学习老师的分布，会带来严重的knowledge
-mismatch。所以，能不能让老师改学生的输出，只把关键地方改对呢？作者设计了类似投机推理的框架，老师看过去，觉得大差不差得token就不管，差很多的token再来借入。最后发现效果很好</p>
+<img src="../../files/images/arxiv-insights/2024-10-14-10-18/videgothink.png">
+<h2 id="Speculative-Knowledge-Distillation-Bridging-the-Teacher-Student-Gap-Through-Interleaved-Sampling"><a href><strong>Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling</strong></a></h2>
+<p>一篇关于蒸馏的工作，但作者提到另一个视角：蒸馏中学生和老师之间的knowledge gap带来的影响。作者认为如果让学生强行学习老师的分布，会带来严重的knowledge mismatch。所以，能不能让老师改学生的输出，只把关键地方改对呢？作者设计了类似投机推理的框架，老师看过去，觉得大差不差得token就不管，差很多的token再来借入。最后发现效果很好</p>
 <blockquote>
 <p>这是不仅仅学下棋，还要求老师把学生的烂局救活呀。感觉最近学界有个趋势：尽量不要改变模型本身的知识范围</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/skd.png"></p>
+<img src="../../files/images/arxiv-insights/2024-10-14-10-18/skd.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -351,13 +345,13 @@ mismatch。所以，能不能让老师改学生的输出，只把关键地方改
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb09c196.html" rel="bookmark">2025-04-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9efe8c5d.html" rel="bookmark">2025-04-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6ff5d7d0.html" rel="bookmark">2025-04-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8037bcee.html" rel="bookmark">2025-04-16-insights</a></div>
     </li>
   </ul>
 
@@ -434,11 +428,7 @@ mismatch。所以，能不能让老师改学生的输出，只把关键地方改
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#latent-action-pretraining-from-videos"><span class="nav-number">1.</span> <span class="nav-text">Latent Action
-Pretraining from Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#videgothink-assessing-egocentric-video-understanding-capabilities-for-embodied-ai"><span class="nav-number">2.</span> <span class="nav-text">VidEgoThink: Assessing
-Egocentric Video Understanding Capabilities for Embodied
-AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speculative-knowledge-distillation-bridging-the-teacher-student-gap-through-interleaved-sampling"><span class="nav-number">3.</span> <span class="nav-text">Speculative Knowledge Distillation: Bridging the
-Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Latent-Action-Pretraining-from-Videos"><span class="nav-number">1.</span> <span class="nav-text">Latent Action Pretraining from Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VidEgoThink-Assessing-Egocentric-Video-Understanding-Capabilities-for-Embodied-AI"><span class="nav-number">2.</span> <span class="nav-text">VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speculative-Knowledge-Distillation-Bridging-the-Teacher-Student-Gap-Through-Interleaved-Sampling"><span class="nav-number">3.</span> <span class="nav-text">Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,15 +486,15 @@ Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fb09c196" title="2025-04-21-insights" target="_blank">2025-04-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9efe8c5d" title="2025-04-18-insights" target="_blank">2025-04-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6ff5d7d0" title="2025-04-17-insights" target="_blank">2025-04-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
         </li>
       
         <li class="recent_posts_li">

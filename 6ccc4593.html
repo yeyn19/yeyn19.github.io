@@ -315,33 +315,23 @@
 
       
         <p>今天论文也不少，找了三篇研究的问题比较有意思的。</p>
-<h2 id="humans-and-language-models-diverge-when-predicting-repeating-text">Humans
-and language models diverge when predicting repeating text</h2>
-<p>LLM使用next token
-prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？</p>
+<h2 id="Humans-and-language-models-diverge-when-predicting-repeating-text">Humans and language models diverge when predicting repeating text</h2>
+<p>LLM使用next token prefiction任务进行训练，作者探究了一个问题：如果输入一直重复，人和LLM的表现会一致吗？</p>
 <p>作者发现前面几次语言模型的表现比较接近，但是后面就会体现出差距。作者深入forward内部，发现是什么导致了这种现象。挺有意思的一篇实验论文</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/diverge.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-11/diverge.png">
 <span id="more"></span>
-<h2 id="text-embeddings-reveal-almost-as-much-as-text">Text Embeddings
-Reveal (Almost) As Much As Text</h2>
-<p>EMNLP的论文。大家都知道dense
-embedding含有原始输入的信息，但是具体含有多少信息？作者尝试了一个反向训练的办法，从dense
-embedding反向解码输入，发现基本上32
-token的embedding都可以无损解码出来。(即使dense
-embedding不是通过reconstruction进行训练的)</p>
+<h2 id="Text-Embeddings-Reveal-Almost-As-Much-As-Text">Text Embeddings Reveal (Almost) As Much As Text</h2>
+<p>EMNLP的论文。大家都知道dense embedding含有原始输入的信息，但是具体含有多少信息？作者尝试了一个反向训练的办法，从dense embedding反向解码输入，发现基本上32 token的embedding都可以无损解码出来。(即使dense embedding不是通过reconstruction进行训练的)</p>
 <blockquote>
 <p>language modeling is compression?</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/much.png"></p>
-<h2 id="swe-bench-can-language-models-resolve-real-world-github-issues">SWE-bench:
-Can Language Models Resolve Real-World GitHub Issues?</h2>
-<p>和之前微软的那篇CodePlan有点像，也是在多文件场景下做code
-refine。作者爬了很多github issue和pull
-request的代码修改对，做了一个benchmark，看模型在多文件修改场景下的表现。</p>
+<img src="../../files/images/arxiv-insights/2023-10-11/much.png">
+<h2 id="SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</h2>
+<p>和之前微软的那篇CodePlan有点像，也是在多文件场景下做code refine。作者爬了很多github issue和pull request的代码修改对，做了一个benchmark，看模型在多文件修改场景下的表现。</p>
 <blockquote>
 <p>单文件下表现很好的模型，在多文件场景下都原形毕露了……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023-10-11/swe.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-11/swe.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -358,13 +348,13 @@ request的代码修改对，做了一个benchmark，看模型在多文件修改�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fb09c196.html" rel="bookmark">2025-04-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9efe8c5d.html" rel="bookmark">2025-04-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6ff5d7d0.html" rel="bookmark">2025-04-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8037bcee.html" rel="bookmark">2025-04-16-insights</a></div>
     </li>
   </ul>
 
@@ -441,10 +431,7 @@ request的代码修改对，做了一个benchmark，看模型在多文件修改�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#humans-and-language-models-diverge-when-predicting-repeating-text"><span class="nav-number">1.</span> <span class="nav-text">Humans
-and language models diverge when predicting repeating text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#text-embeddings-reveal-almost-as-much-as-text"><span class="nav-number">2.</span> <span class="nav-text">Text Embeddings
-Reveal (Almost) As Much As Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swe-bench-can-language-models-resolve-real-world-github-issues"><span class="nav-number">3.</span> <span class="nav-text">SWE-bench:
-Can Language Models Resolve Real-World GitHub Issues?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Humans-and-language-models-diverge-when-predicting-repeating-text"><span class="nav-number">1.</span> <span class="nav-text">Humans and language models diverge when predicting repeating text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Text-Embeddings-Reveal-Almost-As-Much-As-Text"><span class="nav-number">2.</span> <span class="nav-text">Text Embeddings Reveal (Almost) As Much As Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWE-bench-Can-Language-Models-Resolve-Real-World-GitHub-Issues"><span class="nav-number">3.</span> <span class="nav-text">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,15 +489,15 @@ Can Language Models Resolve Real-World GitHub Issues?</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fb09c196" title="2025-04-21-insights" target="_blank">2025-04-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9efe8c5d" title="2025-04-18-insights" target="_blank">2025-04-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6ff5d7d0" title="2025-04-17-insights" target="_blank">2025-04-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8037bcee" title="2025-04-16-insights" target="_blank">2025-04-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
