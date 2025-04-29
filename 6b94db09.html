@@ -317,79 +317,81 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="sde-与-ode">SDE 与 ODE</h2>
-<h3 id="sde">SDE</h3>
-<p>sde是随机微分方程，可以理解成一个加噪声的过程： <span class="math display">\[
-dx = f(x,t)dt + g(x,t)dw
-\]</span> 可以认为是一个原始分布<span class="math inline">\(P_x(0)\)</span>随着时间的推移进行变化。同时dw是一个布朗运动的过程，g是scale函数。每一个是时间概率也会加上一个布朗噪声。</p>
+        <h2 id="SDE-与-ODE">SDE 与 ODE</h2>
+<h3 id="SDE">SDE</h3>
+<p>sde是随机微分方程，可以理解成一个加噪声的过程：<br>
+$$<br>
+dx = f(x,t)dt + g(x,t)dw<br>
+$$<br>
+可以认为是一个原始分布$P_x(0)$随着时间的推移进行变化。同时dw是一个布朗运动的过程，g是scale函数。每一个是时间概率也会加上一个布朗噪声。</p>
 <p>对于一个确定的初始分布，这个扩散过程最终会把x的分布变成一个和初始分布无关的量。</p>
 <p>下面观察几种已有方法：</p>
-<p>观察传统SMLD的扩散公式： <span class="math display">\[
-x_i = x_{i-1} + \sqrt{\sigma_i^2 - \sigma_{i-1}^2} z_{i-1},\quad i =
-1,2..N
-\]</span> 如果考虑连续形式，将 <span class="math inline">\(x_i =
-x(t_i),x_{i-1} = x(t_{i-1}), t_{i-1} \to
-t_i\)</span>时，通过求导和逼近，可以有： <span class="math display">\[
-dx = \sqrt{\frac{d[\sigma^2(t)]}{dt}}dw
-\]</span>
+<p>观察传统SMLD的扩散公式：<br>
+$$<br>
+x_i = x_{i-1} + \sqrt{\sigma_i^2 - \sigma_{i-1}^2} z_{i-1},\quad i = 1,2…N<br>
+$$<br>
+如果考虑连续形式，将 $x_i = x(t_i),x_{i-1} = x(t_{i-1}), t_{i-1} \to t_i$时，通过求导和逼近，可以有：<br>
+$$<br>
+dx = \sqrt{\frac{d[\sigma^2(t)]}{dt}}dw<br>
+$$<br>
 这是一个一届的近似，这是一个非常简单的sde方程。有如下特征：</p>
 <ul>
 <li>方差趋近于无穷</li>
 </ul>
-<p>另一方面，对于DDPM模型的公式： <span class="math display">\[
-x_i =  \sqrt{1 - \beta_i} x_{i-1} + \sqrt{\beta_i}z_{i-1},\quad i =
-1,2..N
-\]</span> 同样有等价的SDE方程： <span class="math display">\[
-dx = -\frac{1}{2}\beta(t)xdt + \sqrt{\beta(t)}dw
-\]</span> 这个方程的方差趋向于1.</p>
-<h3 id="ode">ODE</h3>
+<p>另一方面，对于DDPM模型的公式：<br>
+$$<br>
+x_i =  \sqrt{1 - \beta_i} x_{i-1} + \sqrt{\beta_i}z_{i-1},\quad i = 1,2…N<br>
+$$<br>
+同样有等价的SDE方程：<br>
+$$<br>
+dx = -\frac{1}{2}\beta(t)xdt + \sqrt{\beta(t)}dw<br>
+$$<br>
+这个方程的方差趋向于1.</p>
+<h3 id="ODE">ODE</h3>
 <p>所谓的ode，就是想让这个扩散过程和随机变量z无关。</p>
-<h2 id="解sde">解SDE</h2>
-<p>对于一个SDE，有一个对应的解： <span class="math display">\[
-dx = [f(x,t) - g^2(t)\bigtriangledown_x \log p_t(x)]dt + g(t)d\hat{w}
-\]</span>
+<h2 id="解SDE">解SDE</h2>
+<p>对于一个SDE，有一个对应的解：<br>
+$$<br>
+dx = [f(x,t) - g^2(t)\bigtriangledown_x \log p_t(x)]dt + g(t)d\hat{w}<br>
+$$<br>
 如果忽略上面方程中dw的项，逆过程就会和随机变量无关，是ode。然而，这样采样效果会变差。</p>
 <p>也就是说：</p>
 <ul>
-<li><p>一方面，SDE的逆扩散也是SDE。</p></li>
-<li><p>另一方面，如果我们有了一个网络去拟合<span class="math inline">\(\bigtriangledown_x \log
-p_t(x)\)</span>，那么我们就可以通过上面的公式把一个随机分布恢复去噪成<span class="math inline">\(P_0\)</span></p></li>
+<li>
+<p>一方面，SDE的逆扩散也是SDE。</p>
+</li>
+<li>
+<p>另一方面，如果我们有了一个网络去拟合$\bigtriangledown_x \log p_t(x)$，那么我们就可以通过上面的公式把一个随机分布恢复去噪成$P_0$</p>
+</li>
 </ul>
-<p>对于SMLD和DDPM，作者证明了论文中给出的解法都是符合上面的通解公式的。其中DDPM的<em>ancestral
-sampling</em>是通解公式的一种一阶近似。</p>
+<p>对于SMLD和DDPM，作者证明了论文中给出的解法都是符合上面的通解公式的。其中DDPM的<em>ancestral sampling</em>是通解公式的一种一阶近似。</p>
 <p>作者还给出了一种效果更好的去噪方法：PC</p>
-<p><img src="../files/images/diffusion_model/pc.png"></p>
+<img src="../files/images/diffusion_model/pc.png">
 <p>可以看出:</p>
 <ul>
 <li>原始的 SMLD只有红色部分</li>
-<li>原始的DDPM只有蓝色部分(这个和原始的ancestral
-sampling是一阶近似)。</li>
+<li>原始的DDPM只有蓝色部分(这个和原始的ancestral sampling是一阶近似)。</li>
 </ul>
-<p>​
-总体而言，这个PC方法相当于是在离散时间下先走按照原来的导数方向走一步概率。由于时间粒度太粗，这个实际SDE解有变差，因此再用多步的Langevin
-dynamics纠正这个偏差。也就是：预测-纠正</p>
-<p>​
-作者通过实验证明了这种带纠正的方法PC同时提升了SMLD和DDPM的效果。注意：计算量增加了</p>
+<p>​	总体而言，这个PC方法相当于是在离散时间下先走按照原来的导数方向走一步概率。由于时间粒度太粗，这个实际SDE解有变差，因此再用多步的Langevin dynamics纠正这个偏差。也就是：预测-纠正</p>
+<p>​	作者通过实验证明了这种带纠正的方法PC同时提升了SMLD和DDPM的效果。注意：计算量增加了</p>
 <h2 id="可控生成">可控生成</h2>
-<p>也就是在给定y下预测<span class="math inline">\(P_t(x(t)|
-y)\)</span>。y可以是标签，也可以是一个遮罩。由于： <span class="math display">\[
-P_t(x(t)| y) \propto P_t(x) \times P_t(y|x(t))
-\]</span> 可以发现: <span class="math display">\[
-\bigtriangledown_x\log P_t(x(t)| y) = \bigtriangledown_x\log P_t(x(t)) +
-\bigtriangledown_x\log P_t(y | x(t))
-\]</span></p>
+<p>也就是在给定y下预测$P_t(x(t)| y)$。y可以是标签，也可以是一个遮罩。由于：<br>
+$$<br>
+P_t(x(t)| y) \propto P_t(x) \times P_t(y|x(t))<br>
+$$<br>
+可以发现:<br>
+$$<br>
+\bigtriangledown_x\log P_t(x(t)| y) = \bigtriangledown_x\log P_t(x(t)) + \bigtriangledown_x\log P_t(y | x(t))<br>
+$$</p>
 <ul>
 <li>左边是不考虑y的正常 score model输出，</li>
 <li>右边是一个额外的分类器的输出。这个分类器需要对每一个时间t能有输出，因此可以先把训练集中数据做出不同t下的噪声形式，再训练分类器。</li>
 </ul>
 <p>生成时，我们将上面的公式作为score带入SDE的通解就可以进行可控地生成了。</p>
-<p><img src="../files/images/diffusion_model/label.png"></p>
-<p><img src="../files/images/diffusion_model/mask.png"></p>
+<img src="../files/images/diffusion_model/label.png">
+<img src="../files/images/diffusion_model/mask.png">
 <h2 id="总结与点评">总结与点评</h2>
-<p>​ 总体而言，这篇论文读着很”爽“，让我感觉”不愧是outstanding
-paper“，”ICLR亦有差距“。这篇文章比较详细地给出了DDPM的数学背景，并且联系起了score-based
-model和DDPM。
-另一方面，作者提出的PC方法简单易用，又真的可以极大提高效果，good。</p>
+<p>​	总体而言，这篇论文读着很”爽“，让我感觉”不愧是outstanding paper“，”ICLR亦有差距“。这篇文章比较详细地给出了DDPM的数学背景，并且联系起了score-based model和DDPM。 另一方面，作者提出的PC方法简单易用，又真的可以极大提高效果，good。</p>
 <p>我在想，既然这些DDPM、SLMD方法都是对于SDE方程的一阶近似解，那么：</p>
 <ul>
 <li>一阶近似解有无数种，哪种最好？</li>
@@ -510,7 +512,7 @@ model和DDPM。
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sde-%E4%B8%8E-ode"><span class="nav-number">1.</span> <span class="nav-text">SDE 与 ODE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sde"><span class="nav-number">1.1.</span> <span class="nav-text">SDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ode"><span class="nav-number">1.2.</span> <span class="nav-text">ODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3sde"><span class="nav-number">2.</span> <span class="nav-text">解SDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%8E%A7%E7%94%9F%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">可控生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E7%82%B9%E8%AF%84"><span class="nav-number">4.</span> <span class="nav-text">总结与点评</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SDE-%E4%B8%8E-ODE"><span class="nav-number">1.</span> <span class="nav-text">SDE 与 ODE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SDE"><span class="nav-number">1.1.</span> <span class="nav-text">SDE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ODE"><span class="nav-number">1.2.</span> <span class="nav-text">ODE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3SDE"><span class="nav-number">2.</span> <span class="nav-text">解SDE</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%8E%A7%E7%94%9F%E6%88%90"><span class="nav-number">3.</span> <span class="nav-text">可控生成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93%E4%B8%8E%E7%82%B9%E8%AF%84"><span class="nav-number">4.</span> <span class="nav-text">总结与点评</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -568,15 +570,15 @@ model和DDPM。
       
       
         <li class="recent_posts_li">
-          <a href="/fb09c196" title="2025-04-21-insights" target="_blank">2025-04-21-insights</a>
+          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/9efe8c5d" title="2025-04-18-insights" target="_blank">2025-04-18-insights</a>
+          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/6ff5d7d0" title="2025-04-17-insights" target="_blank">2025-04-17-insights</a>
+          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -665,7 +667,7 @@ model和DDPM。
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <i class="fa fa-user-md"></i>

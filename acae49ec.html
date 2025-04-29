@@ -317,34 +317,21 @@
 
       
         <p>ICLR的投稿论文质量就是高，感觉逐渐出现了一些看起来像是o1的工作</p>
-<h2 id="learning-how-hard-to-think-input-adaptive-allocation-of-lm-computation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04707"><strong>Learning How Hard to
-Think: Input-Adaptive Allocation of LM Computation</strong></a></h2>
-<p>Jacob
-Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种方法，可以在保证最优效果的前提下，省下来超过50%的计算资源</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/adaptive.png" style="zoom:33%;"></p>
-<h2 id="beyond-scalar-reward-model-learning-generative-judge-from-preference-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03742"><strong>Beyond Scalar Reward
-Model: Learning Generative Judge from Preference Data</strong></a></h2>
-<p>liuyiqun老师转型了，去搞post-training了。这次是generative reward
-model，是说让reward
-model也是生成式的、CoT的，而不是从human偏序里蒸馏出来的float。虽然不是第一篇，但我很喜欢这个方向，现在看见就转</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/gen-r.png"></p>
-<h2 id="swe-bench-multimodal-do-ai-systems-generalize-to-visual-software-domains"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03859"><strong>SWE-bench Multimodal: Do
-AI Systems Generalize to Visual Software Domains?</strong></a></h2>
+<h2 id="Learning-How-Hard-to-Think-Input-Adaptive-Allocation-of-LM-Computation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04707"><strong>Learning How Hard to Think: Input-Adaptive Allocation of LM Computation</strong></a></h2>
+<p>Jacob Andreas的工作：作者探索了能否根据任务难度动态申请计算空间，然后让模型决定做CoT、self-consistency之类的inference-scaling技术。通过这种方法，可以在保证最优效果的前提下，省下来超过50%的计算资源</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/adaptive.png" style="zoom:33%;">
+<h2 id="Beyond-Scalar-Reward-Model-Learning-Generative-Judge-from-Preference-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03742"><strong>Beyond Scalar Reward Model: Learning Generative Judge from Preference Data</strong></a></h2>
+<p>liuyiqun老师转型了，去搞post-training了。这次是generative reward model，是说让reward model也是生成式的、CoT的，而不是从human偏序里蒸馏出来的float。虽然不是第一篇，但我很喜欢这个方向，现在看见就转</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/gen-r.png">
+<h2 id="SWE-bench-Multimodal-Do-AI-Systems-Generalize-to-Visual-Software-Domains"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.03859"><strong>SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?</strong></a></h2>
 <p>我最开始看到这篇工作，还以为是让模型通过键鼠操作vscode来编程……仔细一看是解决多模态的编程问题。作者构建了一个新的bench，输入的问题描述或者testcase里最少有一张图片，需要多模态模型运用多模态能力来理解或者解决问题</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/swe-m.png"></p>
-<h2 id="inference-scaling-for-long-context-retrieval-augmented-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04343"><strong>Inference Scaling for
-Long-Context Retrieval Augmented Generation</strong></a></h2>
-<p>Deepmind的工作：作者结合了之前的many-shot
-ICL，认为其是RAG的inference-time
-compute领域的一种scaling方案。另一种方案是使用不同的RAG
-prompt抽取很多次做一堆infer。对于每个query，都可以使用这两种方案做各种实验，比如100-shot，或者用10个rag
-prompt做10次10-shot拼成一个100-shot，总体budget一致。作者经过研究，发现如果给所有budget做到optimal的情况下，performance和context-length是可以符合scaling
-law的</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/inference-rag.png"></p>
-<h2 id="grounding-partially-defined-events-in-multimodal-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.05267">Grounding Partially-Defined
-Events in Multimodal Data</a></h2>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/swe-m.png">
+<h2 id="Inference-Scaling-for-Long-Context-Retrieval-Augmented-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.04343"><strong>Inference Scaling for Long-Context Retrieval Augmented Generation</strong></a></h2>
+<p>Deepmind的工作：作者结合了之前的many-shot ICL，认为其是RAG的inference-time compute领域的一种scaling方案。另一种方案是使用不同的RAG prompt抽取很多次做一堆infer。对于每个query，都可以使用这两种方案做各种实验，比如100-shot，或者用10个rag prompt做10次10-shot拼成一个100-shot，总体budget一致。作者经过研究，发现如果给所有budget做到optimal的情况下，performance和context-length是可以符合scaling law的</p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/inference-rag.png">
+<h2 id="Grounding-Partially-Defined-Events-in-Multimodal-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.05267">Grounding Partially-Defined Events in Multimodal Data</a></h2>
 <p>作者标注了一个dense数据集，可以把caption中的各种实体、事件链接到时间信息，并进一步在空间中给出坐标，包含大约15h的标注视频。</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-07-10-11/multivent-G.png" style="zoom:33%;"></p>
+<img src="../../files/images/arxiv-insights/2024-10-07-10-11/multivent-G.png" style="zoom:33%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -361,13 +348,13 @@ Events in Multimodal Data</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fb09c196.html" rel="bookmark">2025-04-21-insights</a></div>
+      <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9efe8c5d.html" rel="bookmark">2025-04-18-insights</a></div>
+      <div class="popular-posts-title"><a href="/fffc11ab.html" rel="bookmark">2025-04-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6ff5d7d0.html" rel="bookmark">2025-04-17-insights</a></div>
+      <div class="popular-posts-title"><a href="/103e7a95.html" rel="bookmark">2025-04-22-insights</a></div>
     </li>
   </ul>
 
@@ -444,12 +431,7 @@ Events in Multimodal Data</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#learning-how-hard-to-think-input-adaptive-allocation-of-lm-computation"><span class="nav-number">1.</span> <span class="nav-text">Learning How Hard to
-Think: Input-Adaptive Allocation of LM Computation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-scalar-reward-model-learning-generative-judge-from-preference-data"><span class="nav-number">2.</span> <span class="nav-text">Beyond Scalar Reward
-Model: Learning Generative Judge from Preference Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#swe-bench-multimodal-do-ai-systems-generalize-to-visual-software-domains"><span class="nav-number">3.</span> <span class="nav-text">SWE-bench Multimodal: Do
-AI Systems Generalize to Visual Software Domains?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-scaling-for-long-context-retrieval-augmented-generation"><span class="nav-number">4.</span> <span class="nav-text">Inference Scaling for
-Long-Context Retrieval Augmented Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#grounding-partially-defined-events-in-multimodal-data"><span class="nav-number">5.</span> <span class="nav-text">Grounding Partially-Defined
-Events in Multimodal Data</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-How-Hard-to-Think-Input-Adaptive-Allocation-of-LM-Computation"><span class="nav-number">1.</span> <span class="nav-text">Learning How Hard to Think: Input-Adaptive Allocation of LM Computation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-Scalar-Reward-Model-Learning-Generative-Judge-from-Preference-Data"><span class="nav-number">2.</span> <span class="nav-text">Beyond Scalar Reward Model: Learning Generative Judge from Preference Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SWE-bench-Multimodal-Do-AI-Systems-Generalize-to-Visual-Software-Domains"><span class="nav-number">3.</span> <span class="nav-text">SWE-bench Multimodal: Do AI Systems Generalize to Visual Software Domains?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inference-Scaling-for-Long-Context-Retrieval-Augmented-Generation"><span class="nav-number">4.</span> <span class="nav-text">Inference Scaling for Long-Context Retrieval Augmented Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grounding-Partially-Defined-Events-in-Multimodal-Data"><span class="nav-number">5.</span> <span class="nav-text">Grounding Partially-Defined Events in Multimodal Data</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -507,15 +489,15 @@ Events in Multimodal Data</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
-          <a href="/fb09c196" title="2025-04-21-insights" target="_blank">2025-04-21-insights</a>
+          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/9efe8c5d" title="2025-04-18-insights" target="_blank">2025-04-18-insights</a>
+          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/6ff5d7d0" title="2025-04-17-insights" target="_blank">2025-04-17-insights</a>
+          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -604,7 +586,7 @@ Events in Multimodal Data</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:24</span>
 </div>
 
 <i class="fa fa-user-md"></i>
