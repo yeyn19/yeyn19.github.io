@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Many-Shot In-Context Learning deepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human generate数据不足，于是作者尝试了让模型自己生成ma">
+  <meta name="description" content="Many-Shot In-Context Learningdeepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human generate数据不足，于是作者尝试了让模型自己生成man">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-04-18-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/30961dcc">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Many-Shot In-Context Learning deepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human generate数据不足，于是作者尝试了让模型自己生成ma">
+<meta property="og:description" content="Many-Shot In-Context Learningdeepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human generate数据不足，于是作者尝试了让模型自己生成man">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-15-04-19/many-shot.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-15-04-19/usaco.png">
@@ -314,28 +314,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="many-shot-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.11018.pdf">Many-Shot In-Context
-Learning</a></h2>
-<p>deepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence
-length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human
-generate数据不足，于是作者尝试了让模型自己生成many-shot中对应的数据，发现效果也不差。</p>
+        <h2 id="Many-Shot-In-Context-Learning"><a href="#Many-Shot-In-Context-Learning" class="headerlink" title="Many-Shot In-Context Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.11018.pdf">Many-Shot In-Context Learning</a></h2><p>deepmind的论文，起名字还得是他们。作者认为既然目前模型的sequence length越来越长，测试的时候为什么还非得是5-shot、3-shot呢？作者直接尝试了所谓的many-shot场景，发现效果提升很明显。然而，在这个场景下的瓶颈是实际上是shot对应的human generate数据不足，于是作者尝试了让模型自己生成many-shot中对应的数据，发现效果也不差。</p>
 <blockquote>
 <p>挺有趣的工作，这算是给gemini那个report洗白吗……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-15-04-19/many-shot.png"></p>
-<h2 id="can-language-models-solve-olympiad-programming"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.10952.pdf">Can Language Models Solve
-Olympiad Programming?</a></h2>
-<p>Shunyu
-Yao的新论文，构建了一个包含307道oi题的benchmark，发现GPT4只能解决7%。经过各种prompt
-Agent框架后，也只有20%。另外作者发现通过一些简单的hint，可以解决大部分之前解决不了的题目，揭示了还有很大的提升空间。</p>
+<h2 id="Can-Language-Models-Solve-Olympiad-Programming"><a href="#Can-Language-Models-Solve-Olympiad-Programming" class="headerlink" title="Can Language Models Solve Olympiad Programming?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.10952.pdf">Can Language Models Solve Olympiad Programming?</a></h2><p>Shunyu Yao的新论文，构建了一个包含307道oi题的benchmark，发现GPT4只能解决7%。经过各种prompt Agent框架后，也只有20%。另外作者发现通过一些简单的hint，可以解决大部分之前解决不了的题目，揭示了还有很大的提升空间。</p>
 <blockquote>
-<p>怎么感觉从SWEbench开始，shunyu
-yao总在研究benchmark。这是某种神奇的科研shortcut吗……</p>
+<p>怎么感觉从SWEbench开始，shunyu yao总在研究benchmark。这是某种神奇的科研shortcut吗……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-15-04-19/usaco.png"></p>
-<h2 id="pack-of-llms-model-fusion-at-test-time-via-perplexity-optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.11531.pdf">Pack of LLMs: Model Fusion
-at Test-Time via Perplexity Optimization</a></h2>
-<p>作者研究了一个挺好玩的东西：由于不同模型的知识都不太一样，能不能在解码时根据query来动态融合不同模型的知识和能力呢？作者设计了一套基于ppl的方法，对ppl低的模型赋予更高的权重，这样可以考虑到不同模型对于目标语料的熟悉程度。发现效果不错</p>
+<h2 id="Pack-of-LLMs-Model-Fusion-at-Test-Time-via-Perplexity-Optimization"><a href="#Pack-of-LLMs-Model-Fusion-at-Test-Time-via-Perplexity-Optimization" class="headerlink" title="Pack of LLMs: Model Fusion at Test-Time via Perplexity Optimization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.11531.pdf">Pack of LLMs: Model Fusion at Test-Time via Perplexity Optimization</a></h2><p>作者研究了一个挺好玩的东西：由于不同模型的知识都不太一样，能不能在解码时根据query来动态融合不同模型的知识和能力呢？作者设计了一套基于ppl的方法，对ppl低的模型赋予更高的权重，这样可以考虑到不同模型对于目标语料的熟悉程度。发现效果不错</p>
 <p><img src="../../files/images/arxiv-insights/2024-04-15-04-19/pack-llm.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -353,13 +342,13 @@ at Test-Time via Perplexity Optimization</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/71cea5c.html" rel="bookmark">2025-04-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f2e261ec.html" rel="bookmark">2025-04-25-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fffc11ab.html" rel="bookmark">2025-04-23-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/103e7a95.html" rel="bookmark">2025-04-22-insights</a></div>
     </li>
   </ul>
 
@@ -436,10 +425,7 @@ at Test-Time via Perplexity Optimization</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#many-shot-in-context-learning"><span class="nav-number">1.</span> <span class="nav-text">Many-Shot In-Context
-Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#can-language-models-solve-olympiad-programming"><span class="nav-number">2.</span> <span class="nav-text">Can Language Models Solve
-Olympiad Programming?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pack-of-llms-model-fusion-at-test-time-via-perplexity-optimization"><span class="nav-number">3.</span> <span class="nav-text">Pack of LLMs: Model Fusion
-at Test-Time via Perplexity Optimization</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Many-Shot-In-Context-Learning"><span class="nav-number">1.</span> <span class="nav-text">Many-Shot In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Can-Language-Models-Solve-Olympiad-Programming"><span class="nav-number">2.</span> <span class="nav-text">Can Language Models Solve Olympiad Programming?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pack-of-LLMs-Model-Fusion-at-Test-Time-via-Perplexity-Optimization"><span class="nav-number">3.</span> <span class="nav-text">Pack of LLMs: Model Fusion at Test-Time via Perplexity Optimization</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,7 +440,7 @@ at Test-Time via Perplexity Optimization</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,6 +483,14 @@ at Test-Time via Perplexity Optimization</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/71cea5c" title="2025-04-28-insights" target="_blank">2025-04-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f2e261ec" title="2025-04-25-insights" target="_blank">2025-04-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
         </li>
       
@@ -526,14 +520,6 @@ at Test-Time via Perplexity Optimization</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -589,12 +575,12 @@ at Test-Time via Perplexity Optimization</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">291k</span>
+    <span title="站点总字数">276k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:25</span>
+    <span title="站点阅读时长">4:11</span>
 </div>
 
 <i class="fa fa-user-md"></i>
