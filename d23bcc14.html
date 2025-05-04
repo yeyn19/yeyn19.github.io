@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Densing Law of LLMs首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;para">
+  <meta name="description" content="Densing Law of LLMs 首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;par">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-12-06-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/d23bcc14">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Densing Law of LLMs首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;para">
+<meta property="og:description" content="Densing Law of LLMs 首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 capability&#x2F;par">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/dense-law.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-02-12-06/nvila.png">
@@ -314,15 +314,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Densing-Law-of-LLMs"><a href="#Densing-Law-of-LLMs" class="headerlink" title="Densing Law of LLMs"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04315">Densing Law of LLMs</a></h2><p>首推刘导的position paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把 <code>capability/parameters</code>定义为一个知识密度指标。模型的知识密度实际上每过100天就翻倍。</p>
-<p>这个定律和摩尔定律是相辅相成的：人类能训出越来越大的模型，同时相同大小模型的能力也在提升。一个是算力，一个是算力效率。如果花3个月才能训出来一个400B模型，讲道理就算是白训了……因为数据版本落后一个dense law区间了</p>
+        <h2 id="densing-law-of-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04315">Densing Law of LLMs</a></h2>
+<p>首推刘导的position
+paper，已经宣传一段时间了。摩尔定律认为，每过18个月，芯片的晶体管数就翻一番，代表着人类的算力随着时间指数发展。实际上，观察相同大小（参数量）的模型，会发现比如都是7B
+model，其能力也随着时间变得越来越强。具体分析，每过100天，新模型的能力就和之前2倍参数量模型的性能差不多。所以，如果把
+<code>capability/parameters</code>定义为一个知识密度指标。模型的知识密度实际上每过100天就翻倍。</p>
+<p>这个定律和摩尔定律是相辅相成的：人类能训出越来越大的模型，同时相同大小模型的能力也在提升。一个是算力，一个是算力效率。如果花3个月才能训出来一个400B模型，讲道理就算是白训了……因为数据版本落后一个dense
+law区间了</p>
 <blockquote>
-<p>感觉知识密度随时间的曲线在 o1-based model开始出现以后，又会有一个薄发。</p>
+<p>感觉知识密度随时间的曲线在 o1-based
+model开始出现以后，又会有一个薄发。</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/dense-law.png"></p>
-<h2 id="NVILA-Efficient-Frontier-Visual-Language-Models"><a href="#NVILA-Efficient-Frontier-Visual-Language-Models" class="headerlink" title="NVILA: Efficient Frontier Visual Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04468"><strong>NVILA: Efficient Frontier Visual Language Models</strong></a></h2><p>nvidia新出的VLM family，最近感觉nvidia research做得有点风生水起的感觉，是不是来openAI情报了。</p>
+<h2 id="nvila-efficient-frontier-visual-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.04468"><strong>NVILA: Efficient
+Frontier Visual Language Models</strong></a></h2>
+<p>nvidia新出的VLM family，最近感觉nvidia
+research做得有点风生水起的感觉，是不是来openAI情报了。</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/nvila.png"></p>
-<h2 id="HunyuanVideo-A-Systematic-Framework-For-Large-Video-Generative-Models"><a href="#HunyuanVideo-A-Systematic-Framework-For-Large-Video-Generative-Models" class="headerlink" title="HunyuanVideo: A Systematic Framework For Large Video Generative Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.03603">HunyuanVideo: A Systematic Framework For Large Video Generative Models</a></h2><p>tecent的video generation model总算出了，感觉video generation这个领域从学界巨头卷，逐渐演变成公司卷了。主要是私有数据的构造速度和质量确实差太多了……</p>
+<h2 id="hunyuanvideo-a-systematic-framework-for-large-video-generative-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.03603">HunyuanVideo: A Systematic
+Framework For Large Video Generative Models</a></h2>
+<p>tecent的video generation model总算出了，感觉video
+generation这个领域从学界巨头卷，逐渐演变成公司卷了。主要是私有数据的构造速度和质量确实差太多了……</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/huanyuan.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -340,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/71cea5c.html" rel="bookmark">2025-04-28-insights</a></div>
+      <div class="popular-posts-title"><a href="/95c41ad1.html" rel="bookmark">2025-05-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f2e261ec.html" rel="bookmark">2025-04-25-insights</a></div>
+      <div class="popular-posts-title"><a href="/7ef3a1d2.html" rel="bookmark">2025-05-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
+      <div class="popular-posts-title"><a href="/d5457568.html" rel="bookmark">2025-04-30-insights</a></div>
     </li>
   </ul>
 
@@ -423,7 +435,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Densing-Law-of-LLMs"><span class="nav-number">1.</span> <span class="nav-text">Densing Law of LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NVILA-Efficient-Frontier-Visual-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">NVILA: Efficient Frontier Visual Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HunyuanVideo-A-Systematic-Framework-For-Large-Video-Generative-Models"><span class="nav-number">3.</span> <span class="nav-text">HunyuanVideo: A Systematic Framework For Large Video Generative Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#densing-law-of-llms"><span class="nav-number">1.</span> <span class="nav-text">Densing Law of LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nvila-efficient-frontier-visual-language-models"><span class="nav-number">2.</span> <span class="nav-text">NVILA: Efficient
+Frontier Visual Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hunyuanvideo-a-systematic-framework-for-large-video-generative-models"><span class="nav-number">3.</span> <span class="nav-text">HunyuanVideo: A Systematic
+Framework For Large Video Generative Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -481,23 +495,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/71cea5c" title="2025-04-28-insights" target="_blank">2025-04-28-insights</a>
+          <a href="/95c41ad1" title="2025-05-02-insights" target="_blank">2025-05-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/f2e261ec" title="2025-04-25-insights" target="_blank">2025-04-25-insights</a>
+          <a href="/7ef3a1d2" title="2025-05-01-insights" target="_blank">2025-05-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
+          <a href="/d5457568" title="2025-04-30-insights" target="_blank">2025-04-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -518,6 +524,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -573,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

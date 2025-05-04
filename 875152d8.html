@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务  V-STaR: Training Verifiers for S">
+  <meta name="description" content="InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning 最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务  V-STaR: Training Verifiers for">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/875152d8">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务  V-STaR: Training Verifiers for S">
+<meta property="og:description" content="InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning 最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务  V-STaR: Training Verifiers for">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/InternLM-Math.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-12-02-16/v-star.png">
@@ -313,9 +313,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="InternLM-Math-Open-Math-Large-Language-Models-Toward-Verifiable-Reasoning"><a href="#InternLM-Math-Open-Math-Large-Language-Models-Toward-Verifiable-Reasoning" class="headerlink" title="InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.06332.pdf">InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning</a></h2><p>最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务</p>
+        <h2 id="internlm-math-open-math-large-language-models-toward-verifiable-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.06332.pdf">InternLM-Math: Open Math
+Large Language Models Toward Verifiable Reasoning</a></h2>
+<p>最新出的数学模型，优势在于他把solving、proof、verifier、rewarding等任务统一成了seq2seq形式，所以这个模型训练完了以后天然可以做各种math的数学任务</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-12-02-16/InternLM-Math.png" style="zoom: 33%;"></p>
-<h2 id="V-STaR-Training-Verifiers-for-Self-Taught-Reasoners"><a href="#V-STaR-Training-Verifiers-for-Self-Taught-Reasoners" class="headerlink" title="V-STaR: Training Verifiers for Self-Taught Reasoners"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.06457.pdf">V-STaR: Training Verifiers for Self-Taught Reasoners</a></h2><p>大家都知道STaR：生成一堆样本，然后把答案正确的样本作为正样本去SFT。STaR没有考虑答案错误的负样本</p>
+<h2 id="v-star-training-verifiers-for-self-taught-reasoners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.06457.pdf">V-STaR: Training Verifiers
+for Self-Taught Reasoners</a></h2>
+<p>大家都知道STaR：生成一堆样本，然后把答案正确的样本作为正样本去SFT。STaR没有考虑答案错误的负样本</p>
 <p>微软和deepmind的新工作考虑了负样本，用一个verifier评判答案的好坏，进而使用DPO算法去优化模型，在下游任务上得到了比STaR更好的效果。简单来说</p>
 <blockquote>
 <p>之前的ReFT论文用了PPO，没有用verifier。之前deepmind那篇PRM，用了verifier，但没有用DPO(用的self-train)</p>
@@ -338,13 +342,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/71cea5c.html" rel="bookmark">2025-04-28-insights</a></div>
+      <div class="popular-posts-title"><a href="/95c41ad1.html" rel="bookmark">2025-05-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f2e261ec.html" rel="bookmark">2025-04-25-insights</a></div>
+      <div class="popular-posts-title"><a href="/7ef3a1d2.html" rel="bookmark">2025-05-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
+      <div class="popular-posts-title"><a href="/d5457568.html" rel="bookmark">2025-04-30-insights</a></div>
     </li>
   </ul>
 
@@ -421,7 +425,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#InternLM-Math-Open-Math-Large-Language-Models-Toward-Verifiable-Reasoning"><span class="nav-number">1.</span> <span class="nav-text">InternLM-Math: Open Math Large Language Models Toward Verifiable Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V-STaR-Training-Verifiers-for-Self-Taught-Reasoners"><span class="nav-number">2.</span> <span class="nav-text">V-STaR: Training Verifiers for Self-Taught Reasoners</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#internlm-math-open-math-large-language-models-toward-verifiable-reasoning"><span class="nav-number">1.</span> <span class="nav-text">InternLM-Math: Open Math
+Large Language Models Toward Verifiable Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-star-training-verifiers-for-self-taught-reasoners"><span class="nav-number">2.</span> <span class="nav-text">V-STaR: Training Verifiers
+for Self-Taught Reasoners</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -436,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -479,23 +485,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/71cea5c" title="2025-04-28-insights" target="_blank">2025-04-28-insights</a>
+          <a href="/95c41ad1" title="2025-05-02-insights" target="_blank">2025-05-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/f2e261ec" title="2025-04-25-insights" target="_blank">2025-04-25-insights</a>
+          <a href="/7ef3a1d2" title="2025-05-01-insights" target="_blank">2025-05-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
+          <a href="/d5457568" title="2025-04-30-insights" target="_blank">2025-04-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -516,6 +514,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -571,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

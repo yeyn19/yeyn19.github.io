@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training刘洋老师的工作，在致敬之前deepmind那个”ReAct meets ReFT”，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释为">
+  <meta name="description" content="ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training 刘洋老师的工作，在致敬之前deepmind那个&quot;ReAct meets ReFT&quot;，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-03-22-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/c325ed5c">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training刘洋老师的工作，在致敬之前deepmind那个”ReAct meets ReFT”，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释为">
+<meta property="og:description" content="ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training 刘洋老师的工作，在致敬之前deepmind那个&quot;ReAct meets ReFT&quot;，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-18-03-22/actre.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-18-03-22/mathverse.png">
@@ -314,12 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="ReAct-Meets-ActRe-Autonomous-Annotations-of-Agent-Trajectories-for-Contrastive-Self-Training"><a href="#ReAct-Meets-ActRe-Autonomous-Annotations-of-Agent-Trajectories-for-Contrastive-Self-Training" class="headerlink" title="ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14589.pdf">ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training</a></h2><p>刘洋老师的工作，在致敬之前deepmind那个”ReAct meets ReFT”，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释为什么会使用这个action，由此生成一条thought-action-obs数据。作者用这个方法随机采样很多了action-trace，然后来反向增强CoT-ReAct模型。在ALFWrold和Webshopping上取得了不错的效果。</p>
+        <h2 id="react-meets-actre-autonomous-annotations-of-agent-trajectories-for-contrastive-self-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14589.pdf">ReAct Meets ActRe:
+Autonomous Annotations of Agent Trajectories for Contrastive
+Self-Training</a></h2>
+<p>刘洋老师的工作，在致敬之前deepmind那个"ReAct meets
+ReFT"，作者想到了一个神奇办法：如果我找一个后验的模型，可以看到一个action-observation以后，用一个thought来解释为什么会使用这个action，由此生成一条thought-action-obs数据。作者用这个方法随机采样很多了action-trace，然后来反向增强CoT-ReAct模型。在ALFWrold和Webshopping上取得了不错的效果。</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-18-03-22/actre.png" style="zoom:33%;"></p>
-<h2 id="MATHVERSE-Does-Your-Multi-modal-LLM-Truly-See-the-Diagrams-in-Visual-Math-Problems"><a href="#MATHVERSE-Does-Your-Multi-modal-LLM-Truly-See-the-Diagrams-in-Visual-Math-Problems" class="headerlink" title="MATHVERSE: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14624.pdf">MATHVERSE: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?</a></h2><p>很多研究发现VLM可以做几何题，但是有一个bias是几何体里面关于vision的信息其实在文本里描述过了(只看text能把原图几乎一样的画出来)。作者发现，把几何题里面的图片去掉只给文本，目前模型的acc甚至还能上涨5个点。</p>
+<h2 id="mathverse-does-your-multi-modal-llm-truly-see-the-diagrams-in-visual-math-problems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14624.pdf">MATHVERSE: Does Your
+Multi-modal LLM Truly See the Diagrams in Visual Math Problems?</a></h2>
+<p>很多研究发现VLM可以做几何题，但是有一个bias是几何体里面关于vision的信息其实在文本里描述过了(只看text能把原图几乎一样的画出来)。作者发现，把几何题里面的图片去掉只给文本，目前模型的acc甚至还能上涨5个点。</p>
 <p>从这个思路出发，作者构建了一个几何题benchmark，有2k题目。每个题目根据文本模态多少的程度，设计了6个模式。作者测了一波目前的vlm，发现基本全炸了</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-18-03-22/mathverse.png"></p>
-<h2 id="Lexicon-Level-Contrastive-Visual-Grounding-Improves-Language-Modeling"><a href="#Lexicon-Level-Contrastive-Visual-Grounding-Improves-Language-Modeling" class="headerlink" title="Lexicon-Level Contrastive Visual-Grounding Improves Language Modeling"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14551.pdf">Lexicon-Level Contrastive Visual-Grounding Improves Language Modeling</a></h2><p>Jacob Andreas的论文，作者认为目前的PLM训练都是在比人类多很多数量级的语料上降ppl，效率很低。这是因为人类的训练是多模态原生的，模态之间能做对比学习。作者类似的模仿这个思路，找了一个(image-text)数据集，用一个锁参的clip encoder计算image embedding。然后用llm在上面训练text的ppl，并且要求前几层的hidden-state可以对齐到image embedding空间去，和别的image embedding做对比学习。发现不仅学习速度快，学习效率也很高</p>
+<h2 id="lexicon-level-contrastive-visual-grounding-improves-language-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.14551.pdf">Lexicon-Level Contrastive
+Visual-Grounding Improves Language Modeling</a></h2>
+<p>Jacob
+Andreas的论文，作者认为目前的PLM训练都是在比人类多很多数量级的语料上降ppl，效率很低。这是因为人类的训练是多模态原生的，模态之间能做对比学习。作者类似的模仿这个思路，找了一个(image-text)数据集，用一个锁参的clip
+encoder计算image
+embedding。然后用llm在上面训练text的ppl，并且要求前几层的hidden-state可以对齐到image
+embedding空间去，和别的image
+embedding做对比学习。发现不仅学习速度快，学习效率也很高</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-18-03-22/lexicon.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -337,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/71cea5c.html" rel="bookmark">2025-04-28-insights</a></div>
+      <div class="popular-posts-title"><a href="/95c41ad1.html" rel="bookmark">2025-05-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f2e261ec.html" rel="bookmark">2025-04-25-insights</a></div>
+      <div class="popular-posts-title"><a href="/7ef3a1d2.html" rel="bookmark">2025-05-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
+      <div class="popular-posts-title"><a href="/d5457568.html" rel="bookmark">2025-04-30-insights</a></div>
     </li>
   </ul>
 
@@ -420,7 +433,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReAct-Meets-ActRe-Autonomous-Annotations-of-Agent-Trajectories-for-Contrastive-Self-Training"><span class="nav-number">1.</span> <span class="nav-text">ReAct Meets ActRe: Autonomous Annotations of Agent Trajectories for Contrastive Self-Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MATHVERSE-Does-Your-Multi-modal-LLM-Truly-See-the-Diagrams-in-Visual-Math-Problems"><span class="nav-number">2.</span> <span class="nav-text">MATHVERSE: Does Your Multi-modal LLM Truly See the Diagrams in Visual Math Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Lexicon-Level-Contrastive-Visual-Grounding-Improves-Language-Modeling"><span class="nav-number">3.</span> <span class="nav-text">Lexicon-Level Contrastive Visual-Grounding Improves Language Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#react-meets-actre-autonomous-annotations-of-agent-trajectories-for-contrastive-self-training"><span class="nav-number">1.</span> <span class="nav-text">ReAct Meets ActRe:
+Autonomous Annotations of Agent Trajectories for Contrastive
+Self-Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mathverse-does-your-multi-modal-llm-truly-see-the-diagrams-in-visual-math-problems"><span class="nav-number">2.</span> <span class="nav-text">MATHVERSE: Does Your
+Multi-modal LLM Truly See the Diagrams in Visual Math Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lexicon-level-contrastive-visual-grounding-improves-language-modeling"><span class="nav-number">3.</span> <span class="nav-text">Lexicon-Level Contrastive
+Visual-Grounding Improves Language Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -435,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -478,23 +495,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/71cea5c" title="2025-04-28-insights" target="_blank">2025-04-28-insights</a>
+          <a href="/95c41ad1" title="2025-05-02-insights" target="_blank">2025-05-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/f2e261ec" title="2025-04-25-insights" target="_blank">2025-04-25-insights</a>
+          <a href="/7ef3a1d2" title="2025-05-01-insights" target="_blank">2025-05-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
+          <a href="/d5457568" title="2025-04-30-insights" target="_blank">2025-04-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -515,6 +524,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -570,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

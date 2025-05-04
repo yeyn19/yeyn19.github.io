@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv NEFTune: Noisy Embeddings Improve Instruction Finetuning作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？  感觉这里面肯定隐藏着更深层次的原因 FireAct: Toward Language Agent Fine-tuning作者首次探索了">
+  <meta name="description" content="今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv NEFTune: Noisy Embeddings Improve Instruction Finetuning 作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？  感觉这里面肯定隐藏着更深层次的原因 FireAct: Toward Language Agent Fine-tuning 作者首次探">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-10-10-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/830e2ead">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv NEFTune: Noisy Embeddings Improve Instruction Finetuning作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？  感觉这里面肯定隐藏着更深层次的原因 FireAct: Toward Language Agent Fine-tuning作者首次探索了">
+<meta property="og:description" content="今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv NEFTune: Noisy Embeddings Improve Instruction Finetuning 作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？  感觉这里面肯定隐藏着更深层次的原因 FireAct: Toward Language Agent Fine-tuning 作者首次探">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-10/noise-finetune.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-10-10/FIREACT.png">
@@ -315,13 +315,21 @@
 
       
         <p>今天竟有172篇论文？EMNLP放榜了，大家纷纷挂Arxiv</p>
-<h2 id="NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning"><a href="#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning" class="headerlink" title="NEFTune: Noisy Embeddings Improve Instruction Finetuning"></a>NEFTune: Noisy Embeddings Improve Instruction Finetuning</h2><p>作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？</p>
+<h2 id="neftune-noisy-embeddings-improve-instruction-finetuning">NEFTune:
+Noisy Embeddings Improve Instruction Finetuning</h2>
+<p>作者发现，仅仅在finetune时给embedding添加噪声，竟能大范围提高模型表现？</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-10/noise-finetune.png"></p>
 <p>感觉这里面肯定隐藏着更深层次的原因</p>
-<h2 id="FireAct-Toward-Language-Agent-Fine-tuning"><a href="#FireAct-Toward-Language-Agent-Fine-tuning" class="headerlink" title="FireAct: Toward Language Agent Fine-tuning"></a>FireAct: Toward Language Agent Fine-tuning</h2><p>作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升</p>
+<h2 id="fireact-toward-language-agent-fine-tuning">FireAct: Toward
+Language Agent Fine-tuning</h2>
+<p>作者首次探索了在Agent里引入finetune会带来什么，发现仅仅500条GPT4标注数据就可以让模型在下游任务上获得非常大的提升</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-10/FIREACT.png"></p>
-<h2 id="EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling"><a href="#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling" class="headerlink" title="EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling"></a>EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling</h2><p>作者目标直指crossentropy loss，发现换掉这个，表现猛涨</p>
-<p>具体来说作者选择用earth mover distance来表征损失，有点像之前的维因斯坦GAN。</p>
+<h2 id="emo-earth-mover-distance-optimization-for-auto-regressive-language-modeling">EMO:
+Earth Mover Distance Optimization for Auto-Regressive Language
+Modeling</h2>
+<p>作者目标直指crossentropy loss，发现换掉这个，表现猛涨</p>
+<p>具体来说作者选择用earth mover
+distance来表征损失，有点像之前的维因斯坦GAN。</p>
 <p><img src="../../files/images/arxiv-insights/2023-10-10/DEMD.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -339,13 +347,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/71cea5c.html" rel="bookmark">2025-04-28-insights</a></div>
+      <div class="popular-posts-title"><a href="/95c41ad1.html" rel="bookmark">2025-05-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f2e261ec.html" rel="bookmark">2025-04-25-insights</a></div>
+      <div class="popular-posts-title"><a href="/7ef3a1d2.html" rel="bookmark">2025-05-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1d200ad2.html" rel="bookmark">2025-04-24-insights</a></div>
+      <div class="popular-posts-title"><a href="/d5457568.html" rel="bookmark">2025-04-30-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +430,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NEFTune-Noisy-Embeddings-Improve-Instruction-Finetuning"><span class="nav-number">1.</span> <span class="nav-text">NEFTune: Noisy Embeddings Improve Instruction Finetuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FireAct-Toward-Language-Agent-Fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">FireAct: Toward Language Agent Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EMO-Earth-Mover-Distance-Optimization-for-Auto-Regressive-Language-Modeling"><span class="nav-number">3.</span> <span class="nav-text">EMO: Earth Mover Distance Optimization for Auto-Regressive Language Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#neftune-noisy-embeddings-improve-instruction-finetuning"><span class="nav-number">1.</span> <span class="nav-text">NEFTune:
+Noisy Embeddings Improve Instruction Finetuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fireact-toward-language-agent-fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">FireAct: Toward
+Language Agent Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emo-earth-mover-distance-optimization-for-auto-regressive-language-modeling"><span class="nav-number">3.</span> <span class="nav-text">EMO:
+Earth Mover Distance Optimization for Auto-Regressive Language
+Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,23 +492,15 @@
       
       
         <li class="recent_posts_li">
-          <a href="/71cea5c" title="2025-04-28-insights" target="_blank">2025-04-28-insights</a>
+          <a href="/95c41ad1" title="2025-05-02-insights" target="_blank">2025-05-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/f2e261ec" title="2025-04-25-insights" target="_blank">2025-04-25-insights</a>
+          <a href="/7ef3a1d2" title="2025-05-01-insights" target="_blank">2025-05-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/1d200ad2" title="2025-04-24-insights" target="_blank">2025-04-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fffc11ab" title="2025-04-23-insights" target="_blank">2025-04-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/103e7a95" title="2025-04-22-insights" target="_blank">2025-04-22-insights</a>
+          <a href="/d5457568" title="2025-04-30-insights" target="_blank">2025-04-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -517,6 +521,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -572,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">276k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:11</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>
