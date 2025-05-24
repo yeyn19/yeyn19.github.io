@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>758</span>
+              <span>768</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,15 +314,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="leopard-a-vision-language-model-for-text-rich-multi-image-tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01744">LEOPARD : A Vision Language
-Model for Text-Rich Multi-Image Tasks</a></h2>
-<p>一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual
-token数量的pipeline，取得了不错的效果</p>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/text-rich.png"></p>
-<h2 id="visual-perception-in-text-strings"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01733"><strong>Visual Perception in
-Text Strings</strong></a></h2>
-<p>阴间大队的又一力作，作者发现，ascii字符渲染出来的图片天然有文字、图片两种表示，而且其转换是无损的。所以，VLM在这种ascii
-art场景表现如何呢？作者发现：</p>
+        <h2 id="LEOPARD-A-Vision-Language-Model-for-Text-Rich-Multi-Image-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01744">LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks</a></h2>
+<p>一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果</p>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/text-rich.png">
+<h2 id="Visual-Perception-in-Text-Strings"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01733"><strong>Visual Perception in Text Strings</strong></a></h2>
+<p>阴间大队的又一力作，作者发现，ascii字符渲染出来的图片天然有文字、图片两种表示，而且其转换是无损的。所以，VLM在这种ascii art场景表现如何呢？作者发现：</p>
 <ul>
 <li>4o表现傲视群雄</li>
 <li>在同时给出两种模态输入以后，没有模型能有提升，大家还是只会使用图片模态。经过SFT，提升也不明显</li>
@@ -330,20 +326,14 @@ art场景表现如何呢？作者发现：</p>
 <blockquote>
 <p>我感觉作者这个故事这么讲有点小，可以讲一个“探索MLLM对于模态fusion的能力，由此需要去找一个各模态无损压缩的场景……”</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/ascii.png"></p>
-<h2 id="when-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-an-analysis-of-openai-o1"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01792">When a language model is
-optimized for reasoning, does it still show embers of autoregression? An
-analysis of OpenAI o1</a></h2>
-<p>shunyu yao参与的工作，这篇工作其实有个前文叫"Embers of
-Autoregression"，大致探索了LLM在各种任务上是不是在罕见词场景下做的更差，然后发现所有模型都在罕见词场景下都非常的差。作者这次试了试o1，看看会不会缓解这个问题：</p>
-<ol type="1">
-<li>发现o1已经好了很多，不过仍然受到了这个影响。换句话说，通过inference
-scaling，可能仍然难以解决预训练分布带来的bias</li>
-<li>o1表现出来一些有趣的性质，在常见词上thinking
-token很少，罕见词问题thinking token会更多。也许thinking
-token的数量变化，能发现模型大致衡量到了问题的难度</li>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/ascii.png">
+<h2 id="When-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-An-analysis-of-OpenAI-o1"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01792">When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1</a></h2>
+<p>shunyu yao参与的工作，这篇工作其实有个前文叫&quot;Embers of Autoregression&quot;，大致探索了LLM在各种任务上是不是在罕见词场景下做的更差，然后发现所有模型都在罕见词场景下都非常的差。作者这次试了试o1，看看会不会缓解这个问题：</p>
+<ol>
+<li>发现o1已经好了很多，不过仍然受到了这个影响。换句话说，通过inference scaling，可能仍然难以解决预训练分布带来的bias</li>
+<li>o1表现出来一些有趣的性质，在常见词上thinking token很少，罕见词问题thinking token会更多。也许thinking token的数量变化，能发现模型大致衡量到了问题的难度</li>
 </ol>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/eoa.png"></p>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/eoa.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -360,13 +350,13 @@ token的数量变化，能发现模型大致衡量到了问题的难度</li>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c95d732d.html" rel="bookmark">2025-05-20-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/acaa3ee6.html" rel="bookmark">2025-05-19-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5da1656b.html" rel="bookmark">2025-05-16-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b696de68.html" rel="bookmark">2025-05-15-insights</a></div>
     </li>
   </ul>
 
@@ -443,11 +433,7 @@ token的数量变化，能发现模型大致衡量到了问题的难度</li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#leopard-a-vision-language-model-for-text-rich-multi-image-tasks"><span class="nav-number">1.</span> <span class="nav-text">LEOPARD : A Vision Language
-Model for Text-Rich Multi-Image Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visual-perception-in-text-strings"><span class="nav-number">2.</span> <span class="nav-text">Visual Perception in
-Text Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#when-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-an-analysis-of-openai-o1"><span class="nav-number">3.</span> <span class="nav-text">When a language model is
-optimized for reasoning, does it still show embers of autoregression? An
-analysis of OpenAI o1</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LEOPARD-A-Vision-Language-Model-for-Text-Rich-Multi-Image-Tasks"><span class="nav-number">1.</span> <span class="nav-text">LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Perception-in-Text-Strings"><span class="nav-number">2.</span> <span class="nav-text">Visual Perception in Text Strings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#When-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-An-analysis-of-OpenAI-o1"><span class="nav-number">3.</span> <span class="nav-text">When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -462,7 +448,7 @@ analysis of OpenAI o1</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -505,19 +491,15 @@ analysis of OpenAI o1</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/c95d732d" title="2025-05-20-insights" target="_blank">2025-05-20-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/acaa3ee6" title="2025-05-19-insights" target="_blank">2025-05-19-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5da1656b" title="2025-05-16-insights" target="_blank">2025-05-16-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b696de68" title="2025-05-15-insights" target="_blank">2025-05-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5954b556" title="2025-05-14-insights" target="_blank">2025-05-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -542,6 +524,10 @@ analysis of OpenAI o1</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
