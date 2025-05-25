@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Pre-Trained Video Generative Models as World Simulators 之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world simluator的部分。实际上，一个好的world simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss  Distillatio">
+  <meta name="description" content="Pre-Trained Video Generative Models as World Simulators之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world simluator的部分。实际上，一个好的world simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss  Distillation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-02-13-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/c6fba877">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Pre-Trained Video Generative Models as World Simulators 之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world simluator的部分。实际上，一个好的world simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss  Distillatio">
+<meta property="og:description" content="Pre-Trained Video Generative Models as World Simulators之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world simluator的部分。实际上，一个好的world simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss  Distillation">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/ws.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/distill.png">
@@ -314,21 +314,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="pre-trained-video-generative-models-as-world-simulators"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07825"><strong>Pre-Trained Video
-Generative Models as World Simulators</strong></a></h2>
-<p>之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world
-simluator的部分。实际上，一个好的world
-simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss</p>
+        <h2 id="Pre-Trained-Video-Generative-Models-as-World-Simulators"><a href="#Pre-Trained-Video-Generative-Models-as-World-Simulators" class="headerlink" title="Pre-Trained Video Generative Models as World Simulators"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07825"><strong>Pre-Trained Video Generative Models as World Simulators</strong></a></h2><p>之前大家一直在说，能不能用视频生成模型仿造一个世界，在里面训练policy？这篇工作仔细探索了world simluator的部分。实际上，一个好的world simluator，需要的是对于不同水平的policy，都能一致地生成内容。作者由此专门添加了loss</p>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/ws.png" style="zoom:33%;"></p>
-<h2 id="distillation-scaling-laws"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.08606">Distillation Scaling
-Laws</a></h2>
-<p>做了大量的实验来画出一张图：不同大小的teacher/student场景下做蒸馏，会发生什么情况呢？作者发现，蒸馏基本也是符合scaling
-law曲线的。这个曲线的意义在于，对于没有见过的Student和teacher，大致就可以估算出来蒸馏出来的最终loss会是多少。</p>
+<h2 id="Distillation-Scaling-Laws"><a href="#Distillation-Scaling-Laws" class="headerlink" title="Distillation Scaling Laws"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.08606">Distillation Scaling Laws</a></h2><p>做了大量的实验来画出一张图：不同大小的teacher/student场景下做蒸馏，会发生什么情况呢？作者发现，蒸馏基本也是符合scaling law曲线的。这个曲线的意义在于，对于没有见过的Student和teacher，大致就可以估算出来蒸馏出来的最终loss会是多少。</p>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/distill.png" style="zoom:50%;"></p>
-<h2 id="worldgui-dynamic-testing-for-comprehensive-desktop-gui-automation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.08047">WorldGUI: Dynamic Testing for
-Comprehensive Desktop GUI Automation</a></h2>
-<p>一篇GUI
-Agent的工作，作者发现已有的GUI工作基本都是从桌面开始，同时对应软件往往是固定的设置。这篇工作中，作者设计了一个benchmark，特点是app的状态各种各样，看看模型是否对这些情况鲁棒。</p>
+<h2 id="WorldGUI-Dynamic-Testing-for-Comprehensive-Desktop-GUI-Automation"><a href="#WorldGUI-Dynamic-Testing-for-Comprehensive-Desktop-GUI-Automation" class="headerlink" title="WorldGUI: Dynamic Testing for Comprehensive Desktop GUI Automation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.08047">WorldGUI: Dynamic Testing for Comprehensive Desktop GUI Automation</a></h2><p>一篇GUI Agent的工作，作者发现已有的GUI工作基本都是从桌面开始，同时对应软件往往是固定的设置。这篇工作中，作者设计了一个benchmark，特点是app的状态各种各样，看看模型是否对这些情况鲁棒。</p>
 <blockquote>
 <p>感觉现在学界挺缺少深入到专业app的数据和task的。比如ps这种软件……话说之前有个工作叫GUIWorld</p>
 </blockquote>
@@ -349,13 +339,13 @@ Agent的工作，作者发现已有的GUI工作基本都是从桌面开始，同
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/226ac82e.html" rel="bookmark">2025-05-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/cda8a310.html" rel="bookmark">2025-05-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/269f1813.html" rel="bookmark">2025-05-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c95d732d.html" rel="bookmark">2025-05-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/acaa3ee6.html" rel="bookmark">2025-05-19-insights</a></div>
     </li>
   </ul>
 
@@ -432,10 +422,7 @@ Agent的工作，作者发现已有的GUI工作基本都是从桌面开始，同
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pre-trained-video-generative-models-as-world-simulators"><span class="nav-number">1.</span> <span class="nav-text">Pre-Trained Video
-Generative Models as World Simulators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#distillation-scaling-laws"><span class="nav-number">2.</span> <span class="nav-text">Distillation Scaling
-Laws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#worldgui-dynamic-testing-for-comprehensive-desktop-gui-automation"><span class="nav-number">3.</span> <span class="nav-text">WorldGUI: Dynamic Testing for
-Comprehensive Desktop GUI Automation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pre-Trained-Video-Generative-Models-as-World-Simulators"><span class="nav-number">1.</span> <span class="nav-text">Pre-Trained Video Generative Models as World Simulators</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Distillation-Scaling-Laws"><span class="nav-number">2.</span> <span class="nav-text">Distillation Scaling Laws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WorldGUI-Dynamic-Testing-for-Comprehensive-Desktop-GUI-Automation"><span class="nav-number">3.</span> <span class="nav-text">WorldGUI: Dynamic Testing for Comprehensive Desktop GUI Automation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -450,7 +437,7 @@ Comprehensive Desktop GUI Automation</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,6 +480,14 @@ Comprehensive Desktop GUI Automation</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/226ac82e" title="2025-05-23-insights" target="_blank">2025-05-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/cda8a310" title="2025-05-22-insights" target="_blank">2025-05-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/269f1813" title="2025-05-21-insights" target="_blank">2025-05-21-insights</a>
         </li>
       
@@ -522,14 +517,6 @@ Comprehensive Desktop GUI Automation</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -585,12 +572,12 @@ Comprehensive Desktop GUI Automation</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">280k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="265篇，最恐怖的一集 Dissecting Human and LLM Preferences 作者对比了human preference和model vote preference的区别,发现  人类的偏好相对于模型偏好来说：对错误不敏感，偏好支持query陈述的response，当模型承认不会时打低分。 类似大小的模型似乎有相同的偏好倾向，无论训练方式是什么 通过拟合judger的偏好，再仅">
+  <meta name="description" content="265篇，最恐怖的一集 Dissecting Human and LLM Preferences作者对比了human preference和model vote preference的区别,发现  人类的偏好相对于模型偏好来说：对错误不敏感，偏好支持query陈述的response，当模型承认不会时打低分。 类似大小的模型似乎有相同的偏好倾向，无论训练方式是什么 通过拟合judger的偏好，再仅仅">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-20-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/1a46e4e4">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="265篇，最恐怖的一集 Dissecting Human and LLM Preferences 作者对比了human preference和model vote preference的区别,发现  人类的偏好相对于模型偏好来说：对错误不敏感，偏好支持query陈述的response，当模型承认不会时打低分。 类似大小的模型似乎有相同的偏好倾向，无论训练方式是什么 通过拟合judger的偏好，再仅">
+<meta property="og:description" content="265篇，最恐怖的一集 Dissecting Human and LLM Preferences作者对比了human preference和model vote preference的区别,发现  人类的偏好相对于模型偏好来说：对错误不敏感，偏好支持query陈述的response，当模型承认不会时打低分。 类似大小的模型似乎有相同的偏好倾向，无论训练方式是什么 通过拟合judger的偏好，再仅仅">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-19-02-23/preference.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-19-02-23/vision-flan.png">
@@ -315,29 +315,21 @@
 
       
         <p>265篇，最恐怖的一集</p>
-<h2 id="dissecting-human-and-llm-preferences"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.11296.pdf">Dissecting Human and LLM
-Preferences</a></h2>
-<p>作者对比了human preference和model vote preference的区别,发现</p>
-<ol type="1">
+<h2 id="Dissecting-Human-and-LLM-Preferences"><a href="#Dissecting-Human-and-LLM-Preferences" class="headerlink" title="Dissecting Human and LLM Preferences"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.11296.pdf">Dissecting Human and LLM Preferences</a></h2><p>作者对比了human preference和model vote preference的区别,发现</p>
+<ol>
 <li>人类的偏好相对于模型偏好来说：对错误不敏感，偏好支持query陈述的response，当模型承认不会时打低分。</li>
 <li>类似大小的模型似乎有相同的偏好倾向，无论训练方式是什么</li>
-<li>通过拟合judger的偏好，再仅仅换一换generator system
-prompt的情况下，实际上就能极大地提高模型的Performance</li>
+<li>通过拟合judger的偏好，再仅仅换一换generator system prompt的情况下，实际上就能极大地提高模型的Performance</li>
 </ol>
 <p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/preference.png" style="zoom:33%;"></p>
-<h2 id="vision-flan-scaling-human-labeled-tasks-in-visual-instruction-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.11690.pdf">Vision-Flan: Scaling
-Human-Labeled Tasks in Visual Instruction Tuning</a></h2>
-<p>meta的论文，作者发现目前的vision
-SFT阶段中，GPT-4v的数据不是关键，更diverse的query才是。作者收集了187个任务，大约1.6M的instance，由此进行了SFT，发现效果远胜于之前的模型。并得出了三点结论：</p>
-<ol type="1">
+<h2 id="Vision-Flan-Scaling-Human-Labeled-Tasks-in-Visual-Instruction-Tuning"><a href="#Vision-Flan-Scaling-Human-Labeled-Tasks-in-Visual-Instruction-Tuning" class="headerlink" title="Vision-Flan: Scaling Human-Labeled Tasks in Visual Instruction Tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.11690.pdf">Vision-Flan: Scaling Human-Labeled Tasks in Visual Instruction Tuning</a></h2><p>meta的论文，作者发现目前的vision SFT阶段中，GPT-4v的数据不是关键，更diverse的query才是。作者收集了187个任务，大约1.6M的instance，由此进行了SFT，发现效果远胜于之前的模型。并得出了三点结论：</p>
+<ol>
 <li>GPT-4v的response不能让模型学会通用的visual能力，但是会让response的格式更符合human的预期</li>
 <li>格式更符合human预期的问题，只需要1000条GPT-4v的response就能学到</li>
 <li>真正的通用visual能力，来源于更diverse的query</li>
 </ol>
 <p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/vision-flan.png" style="zoom:33%;"></p>
-<h2 id="reformatted-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.12219.pdf">Reformatted
-Alignment</a></h2>
-<p>作者发现，目前的SFT数据的格式并不完美，如果用一些更好的方式组织response，可以极大地降低模型hallucinate，提升模型效果。具体来说，对于GSM8k，仅仅把response格式换一下，acc就能从55%涨到65%</p>
+<h2 id="Reformatted-Alignment"><a href="#Reformatted-Alignment" class="headerlink" title="Reformatted Alignment"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.12219.pdf">Reformatted Alignment</a></h2><p>作者发现，目前的SFT数据的格式并不完美，如果用一些更好的方式组织response，可以极大地降低模型hallucinate，提升模型效果。具体来说，对于GSM8k，仅仅把response格式换一下，acc就能从55%涨到65%</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/reformat.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -355,13 +347,13 @@ Alignment</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/226ac82e.html" rel="bookmark">2025-05-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/cda8a310.html" rel="bookmark">2025-05-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/269f1813.html" rel="bookmark">2025-05-21-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/c95d732d.html" rel="bookmark">2025-05-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/acaa3ee6.html" rel="bookmark">2025-05-19-insights</a></div>
     </li>
   </ul>
 
@@ -438,10 +430,7 @@ Alignment</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dissecting-human-and-llm-preferences"><span class="nav-number">1.</span> <span class="nav-text">Dissecting Human and LLM
-Preferences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vision-flan-scaling-human-labeled-tasks-in-visual-instruction-tuning"><span class="nav-number">2.</span> <span class="nav-text">Vision-Flan: Scaling
-Human-Labeled Tasks in Visual Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reformatted-alignment"><span class="nav-number">3.</span> <span class="nav-text">Reformatted
-Alignment</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dissecting-Human-and-LLM-Preferences"><span class="nav-number">1.</span> <span class="nav-text">Dissecting Human and LLM Preferences</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vision-Flan-Scaling-Human-Labeled-Tasks-in-Visual-Instruction-Tuning"><span class="nav-number">2.</span> <span class="nav-text">Vision-Flan: Scaling Human-Labeled Tasks in Visual Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reformatted-Alignment"><span class="nav-number">3.</span> <span class="nav-text">Reformatted Alignment</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,7 +445,7 @@ Alignment</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -499,6 +488,14 @@ Alignment</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/226ac82e" title="2025-05-23-insights" target="_blank">2025-05-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/cda8a310" title="2025-05-22-insights" target="_blank">2025-05-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/269f1813" title="2025-05-21-insights" target="_blank">2025-05-21-insights</a>
         </li>
       
@@ -528,14 +525,6 @@ Alignment</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -591,12 +580,12 @@ Alignment</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">280k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <i class="fa fa-user-md"></i>
