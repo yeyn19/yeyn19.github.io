@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge] Improving Multimodal Large Language Models Using Continual Learning这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不同">
+  <meta name="description" content="最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge] Improving Multimodal Large Language Models Using Continual Learning 这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/1b009b13">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge] Improving Multimodal Large Language Models Using Continual Learning这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不同">
+<meta property="og:description" content="最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge] Improving Multimodal Large Language Models Using Continual Learning 这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-28-11-01/ground-dit.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-28-11-01/mad.png">
@@ -314,22 +314,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近换了AI track和CV track才发现：有这么多人在研究diffusion model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge]</p>
-<h2 id="Improving-Multimodal-Large-Language-Models-Using-Continual-Learning"><a href="#Improving-Multimodal-Large-Language-Models-Using-Continual-Learning" class="headerlink" title="Improving Multimodal Large Language Models Using Continual Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19925">Improving Multimodal Large Language Models Using Continual Learning</a></h2><p>这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia 2.8B中尝试了不同的方案，看看能否在llava中恢复LLM的能力。</p>
+        <p>最近换了AI track和CV track才发现：有这么多人在研究diffusion
+model啊……感觉比研究LLM的人还多。还有研究stock prediction的 [doge]</p>
+<h2 id="improving-multimodal-large-language-models-using-continual-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19925">Improving Multimodal Large
+Language Models Using Continual Learning</a></h2>
+<p>这是一篇研究VLM中的灾难性遗忘的工作，作者在pythia
+2.8B中尝试了不同的方案，看看能否在llava中恢复LLM的能力。</p>
 <blockquote>
-<p>目前看到的工作好像都是通过掺一些text-only数据去缓解这个问题。话说我有个更high level的问题：随着模型参数量增大（或者预训练token量变大），有没有可能灾难性遗忘这个问题会自然消失呢？只要记忆力够(或者印象够深刻)，就不会忘东西了?</p>
+<p>目前看到的工作好像都是通过掺一些text-only数据去缓解这个问题。话说我有个更high
+level的问题：随着模型参数量增大（或者预训练token量变大），有没有可能灾难性遗忘这个问题会自然消失呢？只要记忆力够(或者印象够深刻)，就不会忘东西了?</p>
 </blockquote>
-<h2 id="GrounDiT-Grounding-Diffusion-Transformers-via-Noisy-Patch-Transplantation"><a href="#GrounDiT-Grounding-Diffusion-Transformers-via-Noisy-Patch-Transplantation" class="headerlink" title="GrounDiT: Grounding Diffusion Transformers via Noisy Patch Transplantation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20474">GrounDiT: Grounding Diffusion Transformers via Noisy Patch Transplantation</a></h2><p>作者搞了一个新的任务：如果输入的text不只是text，而是对于其中的某些名词，额外指定了在图片中的位置，模型能不能正确生成呢？作者发现还真可以。</p>
+<h2 id="groundit-grounding-diffusion-transformers-via-noisy-patch-transplantation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20474">GrounDiT: Grounding Diffusion
+Transformers via Noisy Patch Transplantation</a></h2>
+<p>作者搞了一个新的任务：如果输入的text不只是text，而是对于其中的某些名词，额外指定了在图片中的位置，模型能不能正确生成呢？作者发现还真可以。</p>
 <blockquote>
 <p>感觉现在的text2image在发掘VLM任务里面的对偶任务：像这个任务，其实是VLM里面的REG任务，把text中的名词对应到图片中的指定位置。</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/ground-dit.png"></p>
-<h2 id="MarDini-Masked-Autoregressive-Diffusion-for-Video-Generation-at-Scale"><a href="#MarDini-Masked-Autoregressive-Diffusion-for-Video-Generation-at-Scale" class="headerlink" title="MarDini: Masked Autoregressive Diffusion for Video Generation at Scale"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20280"><strong>MarDini: Masked Autoregressive Diffusion for Video Generation at Scale</strong></a></h2><p>Meta的工作，作者设计了一个巧妙的方案，拆分了视频生成中的空间信息和时间信息两个维度。具体来说，作者把同一个视频搞出来了低清晰度和高清晰度两个版本，在低清版本中实现时序的consistency，在高清版本中实现空间的consistency，最终用端到端的diffusion loss对视频生成做建模</p>
+<h2 id="mardini-masked-autoregressive-diffusion-for-video-generation-at-scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.20280"><strong>MarDini: Masked
+Autoregressive Diffusion for Video Generation at Scale</strong></a></h2>
+<p>Meta的工作，作者设计了一个巧妙的方案，拆分了视频生成中的空间信息和时间信息两个维度。具体来说，作者把同一个视频搞出来了低清晰度和高清晰度两个版本，在低清版本中实现时序的consistency，在高清版本中实现空间的consistency，最终用端到端的diffusion
+loss对视频生成做建模</p>
 <blockquote>
 <p>聪明！</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/mad.png"></p>
-<h2 id="GPT-4o-System-Card"><a href="#GPT-4o-System-Card" class="headerlink" title="GPT-4o System Card"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21276">GPT-4o System Card</a></h2><p>OpenAI出手，必须推荐。虽然但是，没讲技术方法，讲了所有的安全性测试和对齐方面的探索</p>
+<h2 id="gpt-4o-system-card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.21276">GPT-4o System Card</a></h2>
+<p>OpenAI出手，必须推荐。虽然但是，没讲技术方法，讲了所有的安全性测试和对齐方面的探索</p>
 <p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/fmri.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -347,13 +358,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c443036a.html" rel="bookmark">2025-05-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/226ac82e.html" rel="bookmark">2025-05-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cda8a310.html" rel="bookmark">2025-05-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/269f1813.html" rel="bookmark">2025-05-21-insights</a></div>
     </li>
   </ul>
 
@@ -430,7 +441,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-Multimodal-Large-Language-Models-Using-Continual-Learning"><span class="nav-number">1.</span> <span class="nav-text">Improving Multimodal Large Language Models Using Continual Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GrounDiT-Grounding-Diffusion-Transformers-via-Noisy-Patch-Transplantation"><span class="nav-number">2.</span> <span class="nav-text">GrounDiT: Grounding Diffusion Transformers via Noisy Patch Transplantation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MarDini-Masked-Autoregressive-Diffusion-for-Video-Generation-at-Scale"><span class="nav-number">3.</span> <span class="nav-text">MarDini: Masked Autoregressive Diffusion for Video Generation at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT-4o-System-Card"><span class="nav-number">4.</span> <span class="nav-text">GPT-4o System Card</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-multimodal-large-language-models-using-continual-learning"><span class="nav-number">1.</span> <span class="nav-text">Improving Multimodal Large
+Language Models Using Continual Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#groundit-grounding-diffusion-transformers-via-noisy-patch-transplantation"><span class="nav-number">2.</span> <span class="nav-text">GrounDiT: Grounding Diffusion
+Transformers via Noisy Patch Transplantation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mardini-masked-autoregressive-diffusion-for-video-generation-at-scale"><span class="nav-number">3.</span> <span class="nav-text">MarDini: Masked
+Autoregressive Diffusion for Video Generation at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-4o-system-card"><span class="nav-number">4.</span> <span class="nav-text">GPT-4o System Card</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +502,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c443036a" title="2025-05-26-insights" target="_blank">2025-05-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/226ac82e" title="2025-05-23-insights" target="_blank">2025-05-23-insights</a>
         </li>
       
@@ -497,18 +515,6 @@
       
         <li class="recent_posts_li">
           <a href="/269f1813" title="2025-05-21-insights" target="_blank">2025-05-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c95d732d" title="2025-05-20-insights" target="_blank">2025-05-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/acaa3ee6" title="2025-05-19-insights" target="_blank">2025-05-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da1656b" title="2025-05-16-insights" target="_blank">2025-05-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -525,6 +531,14 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -580,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

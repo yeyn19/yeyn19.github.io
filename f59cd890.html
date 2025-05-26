@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Spectral Image Tokenizer一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的">
+  <meta name="description" content="Spectral Image Tokenizer 一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-12-13-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/f59cd890">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Spectral Image Tokenizer一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的">
+<meta property="og:description" content="Spectral Image Tokenizer 一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-09-12-13/spectral.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-12-09-12-13/phi-4.png">
@@ -314,21 +314,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Spectral-Image-Tokenizer"><a href="#Spectral-Image-Tokenizer" class="headerlink" title="Spectral Image Tokenizer"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09607">Spectral Image Tokenizer</a></h2><p>一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的patch）。那我到频域上按照不同频域生成，是不是就有casual性质了？作者试了一下dwt，发现效果好不少</p>
+        <h2 id="spectral-image-tokenizer"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09607">Spectral Image
+Tokenizer</a></h2>
+<p>一篇google research的工作，标得单位不是Google DeepMind。作者认为，old
+school的Autoregressive image
+generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的patch）。那我到频域上按照不同频域生成，是不是就有casual性质了？作者试了一下dwt，发现效果好不少</p>
 <p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/spectral.png"></p>
-<h2 id="Phi-4-Technical-Report"><a href="#Phi-4-Technical-Report" class="headerlink" title="Phi-4 Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08905">Phi-4 Technical Report</a></h2><p>之前主打小模型的phi系列，第四代也变成14B了，果然参数少就是没前途吗。phi4研习了gpt4合成预训练数据的老路，MATH都给你刷到80分。</p>
+<h2 id="phi-4-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08905">Phi-4 Technical Report</a></h2>
+<p>之前主打小模型的phi系列，第四代也变成14B了，果然参数少就是没前途吗。phi4研习了gpt4合成预训练数据的老路，MATH都给你刷到80分。</p>
 <blockquote>
-<p> 这次在很多任务上超过了teacher model(gpt4)，说明合成数据的前途一片光明。不过这是为什么呢……</p>
+<p>这次在很多任务上超过了teacher
+model(gpt4)，说明合成数据的前途一片光明。不过这是为什么呢……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/phi-4.png"></p>
-<h2 id="Imitate-Explore-and-Self-Improve-A-Reproduction-Report-on-Slow-thinking-Reasoning-Systems"><a href="#Imitate-Explore-and-Self-Improve-A-Reproduction-Report-on-Slow-thinking-Reasoning-Systems" class="headerlink" title="Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09413">Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems</a></h2><p>BAAI出的o1-like model，方法论和STaR几乎一样:</p>
-<ol>
+<h2 id="imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09413">Imitate, Explore, and
+Self-Improve: A Reproduction Report on Slow-thinking Reasoning
+Systems</a></h2>
+<p>BAAI出的o1-like model，方法论和STaR几乎一样:</p>
+<ol type="1">
 <li>找一个base model，在o1 distill数据上获得基础的推理diversity</li>
-<li>然后持续地找数据集在上面”练功”，生成一堆reasoning trace然后按照答案分类成正负样本</li>
+<li>然后持续地找数据集在上面"练功"，生成一堆reasoning
+trace然后按照答案分类成正负样本</li>
 <li>最后把数据训练回去，发现可以涨分</li>
 </ol>
 <blockquote>
-<p>大家的探索最近聚焦在了这个形态，问题在于：除了第一步是需要o1才能蒸馏的，后面两步都是”古已有之”的思路。</p>
+<p>大家的探索最近聚焦在了这个形态，问题在于：除了第一步是需要o1才能蒸馏的，后面两步都是"古已有之"的思路。</p>
 <p>那么o1蒸馏出的数据为何可以做出来第一步呢？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/baai-o1.png"></p>
@@ -348,13 +358,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c443036a.html" rel="bookmark">2025-05-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/226ac82e.html" rel="bookmark">2025-05-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cda8a310.html" rel="bookmark">2025-05-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/269f1813.html" rel="bookmark">2025-05-21-insights</a></div>
     </li>
   </ul>
 
@@ -431,7 +441,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spectral-Image-Tokenizer"><span class="nav-number">1.</span> <span class="nav-text">Spectral Image Tokenizer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phi-4-Technical-Report"><span class="nav-number">2.</span> <span class="nav-text">Phi-4 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Imitate-Explore-and-Self-Improve-A-Reproduction-Report-on-Slow-thinking-Reasoning-Systems"><span class="nav-number">3.</span> <span class="nav-text">Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spectral-image-tokenizer"><span class="nav-number">1.</span> <span class="nav-text">Spectral Image
+Tokenizer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phi-4-technical-report"><span class="nav-number">2.</span> <span class="nav-text">Phi-4 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems"><span class="nav-number">3.</span> <span class="nav-text">Imitate, Explore, and
+Self-Improve: A Reproduction Report on Slow-thinking Reasoning
+Systems</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -446,7 +459,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,6 +502,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c443036a" title="2025-05-26-insights" target="_blank">2025-05-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/226ac82e" title="2025-05-23-insights" target="_blank">2025-05-23-insights</a>
         </li>
       
@@ -498,18 +515,6 @@
       
         <li class="recent_posts_li">
           <a href="/269f1813" title="2025-05-21-insights" target="_blank">2025-05-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c95d732d" title="2025-05-20-insights" target="_blank">2025-05-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/acaa3ee6" title="2025-05-19-insights" target="_blank">2025-05-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da1656b" title="2025-05-16-insights" target="_blank">2025-05-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -526,6 +531,14 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -581,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

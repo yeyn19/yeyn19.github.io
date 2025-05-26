@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-cont">
+  <meta name="description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements 作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-con">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-15-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/d847256f">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-cont">
+<meta property="og:description" content="最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀 今天也是沧海遗珠，哪个都想选呀 Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements 作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-con">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/format.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-15-01-19/search.png">
@@ -316,23 +316,36 @@
       
         <p>最近ACL和ICML风的论文多了起来，看来是快截稿了，话说ACL匿名期取消了，大家按理说不用慌了呀</p>
 <p>今天也是沧海遗珠，哪个都想选呀</p>
-<h2 id="Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><a href="#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements" class="headerlink" title="Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</a></h2><p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p>
+<h2 id="mind-your-format-towards-consistent-evaluation-of-in-context-learning-improvements"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06766.pdf">Mind Your Format: Towards
+Consistent Evaluation of In-Context Learning Improvements</a></h2>
+<p>作者提到，目前的研究发现模型可以in-context去做一个新的任务。但是，大家似乎对于in-context样本使用什么样的format研究不多。作者做了一系列实验，测试了19个模型，发现format对于模型的表现至关重要。format没选好，效果直接降到random水平。</p>
 <blockquote>
-<p>这个和yejin choi一个月前那个How I learned to start worrying about prompt formatting思路很像……时隔多年，大家终于准备对prompt tuning动手了吗</p>
+<p>这个和yejin choi一个月前那个How I learned to start worrying about
+prompt formatting思路很像……时隔多年，大家终于准备对prompt
+tuning动手了吗</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/format.png"></p>
-<h2 id="Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><a href="#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning" class="headerlink" title="Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</a></h2><p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p>
+<h2 id="batch-icl-effective-efficient-and-order-agnostic-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06469.pdf">Batch-ICL: Effective,
+Efficient, and Order-Agnostic In-Context Learning</a></h2>
+<p>前两个算一篇吧。这篇讲的是，传统的ICL中样本顺序对结果很敏感，这其实是一个meta-cognition的能力。作者找了一个新办法，先把n个ICL样本的学习分解成n次ICL单样本的学习，然后收集n个gradient，把这个gradient对齐到一个zero-shot的样本生成中。</p>
 <p>这个任务会让模型学会对ICL样本顺序不敏感，并在下游中表现更好。</p>
 <blockquote>
 <p>感觉这个任务能work，是不是也能用在比如prompt+paraphrase里，让模型对于SFT的instruction也变得不敏感？</p>
 </blockquote>
-<h2 id="INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><a href="#INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning" class="headerlink" title="INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</a></h2><p>之前讲了wenzhu chen的position paper “large search model”。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
+<h2 id="inters-unlocking-the-power-of-large-language-models-in-search-with-instruction-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06532.pdf">INTERS: Unlocking the Power
+of Large Language Models in Search with Instruction Tuning</a></h2>
+<p>之前讲了wenzhu chen的position paper "large search
+model"。今天人大出了篇论文，归纳了搜索引擎领域常见的43个任务，标注了SFT数据(也可以理解成instruction
+tuning吧)。发现SFT后的各种模型在这类任务中表现巨好</p>
 <blockquote>
 <p>这画图，是在致敬T0吗？不过要是真的这么solid，那倒是也不愧</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/search.png"></p>
-<h2 id="Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty"><a href="#Relying-on-the-Unreliable-The-Impact-of-Language-Models’-Reluctance-to-Express-Uncertainty" class="headerlink" title="Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</a></h2><p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p>
-<ol>
+<h2 id="relying-on-the-unreliable-the-impact-of-language-models-reluctance-to-express-uncertainty"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06730.pdf">Relying on the Unreliable:
+The Impact of Language Models’ Reluctance to Express
+Uncertainty</a></h2>
+<p>这篇工作研究了模型的回答能不能表达自己的不确定性，以及这种表达能不能影响人类自己的判断。作者发现：</p>
+<ol type="1">
 <li>模型基本没有能力表达自己的不确定性</li>
 <li>这种不确定性的丧失可能来源于RLHF，因为人类偏好不看好”表达不确定性“的回答</li>
 </ol>
@@ -353,13 +366,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c443036a.html" rel="bookmark">2025-05-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/226ac82e.html" rel="bookmark">2025-05-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cda8a310.html" rel="bookmark">2025-05-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/269f1813.html" rel="bookmark">2025-05-21-insights</a></div>
     </li>
   </ul>
 
@@ -436,7 +449,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mind-Your-Format-Towards-Consistent-Evaluation-of-In-Context-Learning-Improvements"><span class="nav-number">1.</span> <span class="nav-text">Mind Your Format: Towards Consistent Evaluation of In-Context Learning Improvements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-ICL-Effective-Efficient-and-Order-Agnostic-In-Context-Learning"><span class="nav-number">2.</span> <span class="nav-text">Batch-ICL: Effective, Efficient, and Order-Agnostic In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INTERS-Unlocking-the-Power-of-Large-Language-Models-in-Search-with-Instruction-Tuning"><span class="nav-number">3.</span> <span class="nav-text">INTERS: Unlocking the Power of Large Language Models in Search with Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Relying-on-the-Unreliable-The-Impact-of-Language-Models%E2%80%99-Reluctance-to-Express-Uncertainty"><span class="nav-number">4.</span> <span class="nav-text">Relying on the Unreliable: The Impact of Language Models’ Reluctance to Express Uncertainty</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mind-your-format-towards-consistent-evaluation-of-in-context-learning-improvements"><span class="nav-number">1.</span> <span class="nav-text">Mind Your Format: Towards
+Consistent Evaluation of In-Context Learning Improvements</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#batch-icl-effective-efficient-and-order-agnostic-in-context-learning"><span class="nav-number">2.</span> <span class="nav-text">Batch-ICL: Effective,
+Efficient, and Order-Agnostic In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inters-unlocking-the-power-of-large-language-models-in-search-with-instruction-tuning"><span class="nav-number">3.</span> <span class="nav-text">INTERS: Unlocking the Power
+of Large Language Models in Search with Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relying-on-the-unreliable-the-impact-of-language-models-reluctance-to-express-uncertainty"><span class="nav-number">4.</span> <span class="nav-text">Relying on the Unreliable:
+The Impact of Language Models’ Reluctance to Express
+Uncertainty</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -451,7 +469,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -494,6 +512,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c443036a" title="2025-05-26-insights" target="_blank">2025-05-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/226ac82e" title="2025-05-23-insights" target="_blank">2025-05-23-insights</a>
         </li>
       
@@ -503,18 +525,6 @@
       
         <li class="recent_posts_li">
           <a href="/269f1813" title="2025-05-21-insights" target="_blank">2025-05-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c95d732d" title="2025-05-20-insights" target="_blank">2025-05-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/acaa3ee6" title="2025-05-19-insights" target="_blank">2025-05-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5da1656b" title="2025-05-16-insights" target="_blank">2025-05-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -531,6 +541,14 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -586,12 +604,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
