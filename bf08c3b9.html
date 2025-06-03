@@ -315,27 +315,21 @@
 
       
         <p>是因为周二周三太多了，导致周四没论文了吗……</p>
-<h2 id="rl-on-incorrect-synthetic-data-scales-the-efficiency-of-llm-math-reasoning-by-eight-fold"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14532"><strong>RL on Incorrect
-Synthetic Data Scales the Efficiency of LLM Math Reasoning by
-Eight-Fold</strong></a></h2>
+<h2 id="RL-on-Incorrect-Synthetic-Data-Scales-the-Efficiency-of-LLM-Math-Reasoning-by-Eight-Fold"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.14532"><strong>RL on Incorrect Synthetic Data Scales the Efficiency of LLM Math Reasoning by Eight-Fold</strong></a></h2>
 <p>deepmind那个self-train团队的新作，他们发现一个神奇的现象：经典的self-train，自己sample一大堆，然后在正确的样本上finetune，这个方法在数据越来越多以后反而表现会下降，这是因为对应的假阳样本太多了。作者发现，在训练中引入少量比例的、自己生成的、错误样本反而会让效果变好回来，作者认为这是因为恢复了原本的数据分布。</p>
 <blockquote>
 <p>神奇的self-train……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/rl-negative.png"></p>
-<h2 id="self-play-with-execution-feedback-improving-instruction-following-capabilities-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.CL/recent?skip=100&amp;show=25"><strong>Self-play
-with Execution Feedback: Improving Instruction-following Capabilities of
-Large Language Models</strong></a></h2>
-<p>挺好玩的思路：作者发现instruction-follow领域的一些instruction可以有自动化(代码)的方式检查，所以作者要求模型自己生成了一大堆这样的需求，以及对应的检查代码。然后让模型生成一堆样本，通过自动生成的检查代码给出instruction
-follow得分，进而做dpo。</p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/rl-negative.png">
+<h2 id="Self-play-with-Execution-Feedback-Improving-Instruction-following-Capabilities-of-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.CL/recent?skip=100&amp;show=25"><strong>Self-play with Execution Feedback: Improving Instruction-following Capabilities of Large Language Models</strong></a></h2>
+<p>挺好玩的思路：作者发现instruction-follow领域的一些instruction可以有自动化(代码)的方式检查，所以作者要求模型自己生成了一大堆这样的需求，以及对应的检查代码。然后让模型生成一堆样本，通过自动生成的检查代码给出instruction follow得分，进而做dpo。</p>
 <blockquote>
 <p>这个思路本质上是希望模型学习去按照代码要求生成文本，感觉和前两天deepmind那个NAR论文挺像的？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/self-play.png"></p>
-<h2 id="chatglm-a-family-of-large-language-models-from-glm-130b-to-glm-4-all-tools"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.12793">ChatGLM: A Family of Large
-Language Models from GLM-130B to GLM-4 All Tools</a></h2>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/self-play.png">
+<h2 id="ChatGLM-A-Family-of-Large-Language-Models-from-GLM-130B-to-GLM-4-All-Tools"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.12793">ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools</a></h2>
 <p>把GLM系列的模型整个梳理了一下，整体报告了一下相对的得分和每个模型适用的场景</p>
-<p><img src="../../files/images/arxiv-insights/2024-06-17-06-21/chatglm.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-17-06-21/chatglm.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -352,13 +346,13 @@ Language Models from GLM-130B to GLM-4 All Tools</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/280e761f.html" rel="bookmark">2025-06-02-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/8d3aced.html" rel="bookmark">2025-05-30-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/354858e7.html" rel="bookmark">2025-05-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/da8a33d9.html" rel="bookmark">2025-05-28-insights</a></div>
     </li>
   </ul>
 
@@ -435,12 +429,7 @@ Language Models from GLM-130B to GLM-4 All Tools</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rl-on-incorrect-synthetic-data-scales-the-efficiency-of-llm-math-reasoning-by-eight-fold"><span class="nav-number">1.</span> <span class="nav-text">RL on Incorrect
-Synthetic Data Scales the Efficiency of LLM Math Reasoning by
-Eight-Fold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#self-play-with-execution-feedback-improving-instruction-following-capabilities-of-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Self-play
-with Execution Feedback: Improving Instruction-following Capabilities of
-Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#chatglm-a-family-of-large-language-models-from-glm-130b-to-glm-4-all-tools"><span class="nav-number">3.</span> <span class="nav-text">ChatGLM: A Family of Large
-Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RL-on-Incorrect-Synthetic-Data-Scales-the-Efficiency-of-LLM-Math-Reasoning-by-Eight-Fold"><span class="nav-number">1.</span> <span class="nav-text">RL on Incorrect Synthetic Data Scales the Efficiency of LLM Math Reasoning by Eight-Fold</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Self-play-with-Execution-Feedback-Improving-Instruction-following-Capabilities-of-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Self-play with Execution Feedback: Improving Instruction-following Capabilities of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ChatGLM-A-Family-of-Large-Language-Models-from-GLM-130B-to-GLM-4-All-Tools"><span class="nav-number">3.</span> <span class="nav-text">ChatGLM: A Family of Large Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,7 +444,7 @@ Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -498,19 +487,15 @@ Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/280e761f" title="2025-06-02-insights" target="_blank">2025-06-02-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/8d3aced" title="2025-05-30-insights" target="_blank">2025-05-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/354858e7" title="2025-05-29-insights" target="_blank">2025-05-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/da8a33d9" title="2025-05-28-insights" target="_blank">2025-05-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2b816854" title="2025-05-27-insights" target="_blank">2025-05-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -535,6 +520,10 @@ Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -590,7 +579,7 @@ Language Models from GLM-130B to GLM-4 All Tools</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

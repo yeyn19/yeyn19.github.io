@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>639</span>
+              <span>649</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,25 +314,18 @@
 
       
         <p>今天引用破400了，不知道能不能在毕业的时候破千……</p>
-<h2 id="videotree-adaptive-tree-based-video-representation-for-llm-reasoning-on-long-videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19209">VideoTree: Adaptive Tree-based
-Video Representation for LLM Reasoning on Long Videos</a></h2>
-<p>如果大家还记得之前有篇“walking down memory
-maze”的论文，作者用类似的思路：长视频理解任务中，很多视频内容和问题关系不大，所以能不能把video
-embedding组织成树状结构，然后根据相似度之类的指标根据query组织注意力区域。由此，作者在很多视频理解benchmark上做到了很好的效果</p>
+<h2 id="VideoTree-Adaptive-Tree-based-Video-Representation-for-LLM-Reasoning-on-Long-Videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19209">VideoTree: Adaptive Tree-based Video Representation for LLM Reasoning on Long Videos</a></h2>
+<p>如果大家还记得之前有篇“walking down memory maze”的论文，作者用类似的思路：长视频理解任务中，很多视频内容和问题关系不大，所以能不能把video embedding组织成树状结构，然后根据相似度之类的指标根据query组织注意力区域。由此，作者在很多视频理解benchmark上做到了很好的效果</p>
 <blockquote>
 <p>emm……这个假设会不会是建立在目前benchmark还不够强的基础上</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/video-tree.png"></p>
-<h2 id="weak-to-strong-search-align-large-language-models-via-searching-over-small-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19262">Weak-to-Strong Search: Align
-Large Language Models via Searching over Small Language Models</a></h2>
-<p>作者认为，无论是小模型还是大模型，在对齐前后应该有类似的表现，所以如果有一个rlhf前和后的小模型(比如gpt2或者mixtral
-7B)，他们的logits差值可以体现出来align的效果。那么，如果有一个没有对齐过的大模型用某种搜索算法来最大化这种logits差值，是不是就可以让大模型找到"类似于对齐后"的答案了呢？作者做了实验，发现还真可以</p>
+<img src="../../files/images/arxiv-insights/2024-05-27-05-31/video-tree.png">
+<h2 id="Weak-to-Strong-Search-Align-Large-Language-Models-via-Searching-over-Small-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.19262">Weak-to-Strong Search: Align Large Language Models via Searching over Small Language Models</a></h2>
+<p>作者认为，无论是小模型还是大模型，在对齐前后应该有类似的表现，所以如果有一个rlhf前和后的小模型(比如gpt2或者mixtral 7B)，他们的logits差值可以体现出来align的效果。那么，如果有一个没有对齐过的大模型用某种搜索算法来最大化这种logits差值，是不是就可以让大模型找到&quot;类似于对齐后&quot;的答案了呢？作者做了实验，发现还真可以</p>
 <blockquote>
-<p>这个招数让我想到了之前diffusion领域有个叫 classifier guidance
-decoding的技巧，然后做text style
-transfer的人也有人搞过这个……不知道大家还记不记得</p>
+<p>这个招数让我想到了之前diffusion领域有个叫 classifier guidance decoding的技巧，然后做text style transfer的人也有人搞过这个……不知道大家还记不记得</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-05-27-05-31/weak-to-strong-search.png"></p>
+<img src="../../files/images/arxiv-insights/2024-05-27-05-31/weak-to-strong-search.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -349,13 +342,13 @@ transfer的人也有人搞过这个……不知道大家还记不记得</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/280e761f.html" rel="bookmark">2025-06-02-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/8d3aced.html" rel="bookmark">2025-05-30-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/354858e7.html" rel="bookmark">2025-05-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/da8a33d9.html" rel="bookmark">2025-05-28-insights</a></div>
     </li>
   </ul>
 
@@ -432,9 +425,7 @@ transfer的人也有人搞过这个……不知道大家还记不记得</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#videotree-adaptive-tree-based-video-representation-for-llm-reasoning-on-long-videos"><span class="nav-number">1.</span> <span class="nav-text">VideoTree: Adaptive Tree-based
-Video Representation for LLM Reasoning on Long Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#weak-to-strong-search-align-large-language-models-via-searching-over-small-language-models"><span class="nav-number">2.</span> <span class="nav-text">Weak-to-Strong Search: Align
-Large Language Models via Searching over Small Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#VideoTree-Adaptive-Tree-based-Video-Representation-for-LLM-Reasoning-on-Long-Videos"><span class="nav-number">1.</span> <span class="nav-text">VideoTree: Adaptive Tree-based Video Representation for LLM Reasoning on Long Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Weak-to-Strong-Search-Align-Large-Language-Models-via-Searching-over-Small-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Weak-to-Strong Search: Align Large Language Models via Searching over Small Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +440,7 @@ Large Language Models via Searching over Small Language Models</span></a></li></
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -492,19 +483,15 @@ Large Language Models via Searching over Small Language Models</span></a></li></
       
       
         <li class="recent_posts_li">
+          <a href="/280e761f" title="2025-06-02-insights" target="_blank">2025-06-02-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/8d3aced" title="2025-05-30-insights" target="_blank">2025-05-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/354858e7" title="2025-05-29-insights" target="_blank">2025-05-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/da8a33d9" title="2025-05-28-insights" target="_blank">2025-05-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2b816854" title="2025-05-27-insights" target="_blank">2025-05-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -529,6 +516,10 @@ Large Language Models via Searching over Small Language Models</span></a></li></
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -584,7 +575,7 @@ Large Language Models via Searching over Small Language Models</span></a></li></
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
