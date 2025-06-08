@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="这周二还好，不到200篇 On Speculative Decoding for Multimodal Large Language Models 作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft model竟然效果不错…?  所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是 language-info-comp">
+  <meta name="description" content="这周二还好，不到200篇 On Speculative Decoding for Multimodal Large Language Models 作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft model竟然效果不错..?  所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是 language-info-com">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-04-16-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/2e5f2d7f">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="这周二还好，不到200篇 On Speculative Decoding for Multimodal Large Language Models 作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft model竟然效果不错…?  所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是 language-info-comp">
+<meta property="og:description" content="这周二还好，不到200篇 On Speculative Decoding for Multimodal Large Language Models 作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft model竟然效果不错..?  所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是 language-info-com">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-15-04-19/multimodal.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-15-04-19/compression.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>450</span>
+              <span>451</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,18 +314,27 @@
 
       
         <p>这周二还好，不到200篇</p>
-<h2 id="On-Speculative-Decoding-for-Multimodal-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.08856.pdf">On Speculative Decoding for Multimodal Large Language Models</a></h2>
-<p>作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft model竟然效果不错…?</p>
+<h2 id="on-speculative-decoding-for-multimodal-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.08856.pdf">On Speculative Decoding for
+Multimodal Large Language Models</a></h2>
+<p>作者探索了在MLLM上(LLaVA)使用投机推理，发现神奇的现象：用一个language-only小模型作为draft
+model竟然效果不错..?</p>
 <blockquote>
-<p>所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是 language-info-complete的</p>
+<p>所以现在的MLLM其实是LLM，或者说测试的MLLM任务实际上是
+language-info-complete的</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-15-04-19/multimodal.png">
-<h2 id="Compression-Represents-Intelligence-Linearly"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.09937.pdf"><strong>Compression Represents Intelligence Linearly</strong></a></h2>
-<p>大家都看过那个很火的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=1851s">compression for AGI</a>的视频，但是似乎很少人做过实验。在这里作者真的做了实验，把bpb指标作为横坐标，把downstream performance作为纵坐标测试了各家模型，发现确实如此：压缩率和模型表现几乎是维持线性在增长。</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-15-04-19/multimodal.png"></p>
+<h2 id="compression-represents-intelligence-linearly"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.09937.pdf"><strong>Compression
+Represents Intelligence Linearly</strong></a></h2>
+<p>大家都看过那个很火的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.youtube.com/watch?v=dO4TPJkeaaU&amp;t=1851s">compression
+for
+AGI</a>的视频，但是似乎很少人做过实验。在这里作者真的做了实验，把bpb指标作为横坐标，把downstream
+performance作为纵坐标测试了各家模型，发现确实如此：压缩率和模型表现几乎是维持线性在增长。</p>
 <blockquote>
-<p>有一种骗引用的感觉：想在论文里引用compresson for AGI的地方就引用这篇……其实这个的结论在前几天唐杰老师那个loss for emergent ability里面做过一次了</p>
+<p>有一种骗引用的感觉：想在论文里引用compresson for
+AGI的地方就引用这篇……其实这个的结论在前几天唐杰老师那个loss for emergent
+ability里面做过一次了</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-15-04-19/compression.png">
+<p><img src="../../files/images/arxiv-insights/2024-04-15-04-19/compression.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +351,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/25100658.html" rel="bookmark">2025-06-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c7cc1d21.html" rel="bookmark">2025-06-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/280e761f.html" rel="bookmark">2025-06-02-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8d3aced.html" rel="bookmark">2025-05-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/354858e7.html" rel="bookmark">2025-05-29-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +434,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#On-Speculative-Decoding-for-Multimodal-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">On Speculative Decoding for Multimodal Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Compression-Represents-Intelligence-Linearly"><span class="nav-number">2.</span> <span class="nav-text">Compression Represents Intelligence Linearly</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#on-speculative-decoding-for-multimodal-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">On Speculative Decoding for
+Multimodal Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compression-represents-intelligence-linearly"><span class="nav-number">2.</span> <span class="nav-text">Compression
+Represents Intelligence Linearly</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +451,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +494,14 @@
       
       
         <li class="recent_posts_li">
+          <a href="/25100658" title="2025-06-04-insights" target="_blank">2025-06-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/c7cc1d21" title="2025-06-03-insights" target="_blank">2025-06-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/280e761f" title="2025-06-02-insights" target="_blank">2025-06-02-insights</a>
         </li>
       
@@ -512,14 +531,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,12 +586,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:29</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>892</span>
+              <span>882</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,30 +315,43 @@
 
       
         <p>论文不多，但都挺好玩的</p>
-<h2 id="MM1-Methods-Analysis-Insights-from-Multimodal-LLM-Pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09611.pdf">MM1: Methods, Analysis &amp; Insights from Multimodal LLM Pre-training</a></h2>
+<h2 id="mm1-methods-analysis-insights-from-multimodal-llm-pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09611.pdf">MM1: Methods, Analysis &amp;
+Insights from Multimodal LLM Pre-training</a></h2>
 <p>Apple的大模型，这下不得不推荐了？作者探索了MultiModal模型的训练策略，尝试了各种变体，发现：</p>
-<ol>
-<li>好的模型需要是image-caption 、interleaved image-text、text-only三种数据的混合</li>
+<ol type="1">
+<li>好的模型需要是image-caption 、interleaved
+image-text、text-only三种数据的混合</li>
 <li>image-encoder的分辨率和选型对结果影响最大，aligner和text-decoder其实影响不大</li>
 </ol>
-<p>由此，作者训了一个30B的MultiModal的大模型，有dense和MoE两个变体，并取得了很多的emergent abilities。</p>
+<p>由此，作者训了一个30B的MultiModal的大模型，有dense和MoE两个变体，并取得了很多的emergent
+abilities。</p>
 <blockquote>
 <p>起名字有一种浓浓的apple风格……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-11-03-15/mm1.png">
-<h2 id="AutoLoRA-Automatically-Tuning-Matrix-Ranks-in-Low-Rank-Adaptation-Based-on-Meta-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09113.pdf">AutoLoRA: Automatically Tuning Matrix Ranks in Low-Rank Adaptation Based on Meta Learning</a></h2>
-<p>作者发现，对于lora训练，其中的秩rank是一个影响很大的参数：rank大效果好，参数也多；反之亦然。如何自动地决定rank是多少呢？作者尝试了一个meta learning framework，可以根据任务特征帮助模型决定rank的大小。发现效果不错</p>
+<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/mm1.png"></p>
+<h2 id="autolora-automatically-tuning-matrix-ranks-in-low-rank-adaptation-based-on-meta-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09113.pdf">AutoLoRA: Automatically
+Tuning Matrix Ranks in Low-Rank Adaptation Based on Meta
+Learning</a></h2>
+<p>作者发现，对于lora训练，其中的秩rank是一个影响很大的参数：rank大效果好，参数也多；反之亦然。如何自动地决定rank是多少呢？作者尝试了一个meta
+learning
+framework，可以根据任务特征帮助模型决定rank的大小。发现效果不错</p>
 <blockquote>
 <p>我一直在想，这个问题能不能推广到运行时？比如训练中发现某个层基本梯度很小了，就砍一个rank；某些层总是优化不好，就加一个rank……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-11-03-15/auto-lora.png">
-<h2 id="Quiet-STaR-Language-Models-Can-Teach-Themselves-to-Think-Before-Speaking"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09629.pdf">Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking</a></h2>
-<p>Noah.D Goodman的论文，一做是之前STaR的一作，作者结合了之前有一篇叫&quot;think before you speak&quot;的工作，探索了模型能不能在任何一个token predict之前生成一些thought。</p>
-<p>类似于STaR的思路，作者让模型开放探索，如果thought token对target-next-token logits有帮助，就给正反馈，否则给负反馈。作者发现这样在一个无监督的训练框架在某个数据集上训练以后，效果提升还挺明显的</p>
+<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/auto-lora.png"></p>
+<h2 id="quiet-star-language-models-can-teach-themselves-to-think-before-speaking"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.09629.pdf">Quiet-STaR: Language Models
+Can Teach Themselves to Think Before Speaking</a></h2>
+<p>Noah.D
+Goodman的论文，一做是之前STaR的一作，作者结合了之前有一篇叫"think before
+you speak"的工作，探索了模型能不能在任何一个token
+predict之前生成一些thought。</p>
+<p>类似于STaR的思路，作者让模型开放探索，如果thought
+token对target-next-token
+logits有帮助，就给正反馈，否则给负反馈。作者发现这样在一个无监督的训练框架在某个数据集上训练以后，效果提升还挺明显的</p>
 <blockquote>
 <p>有点神奇</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-03-11-03-15/quiet-star.png">
+<p><img src="../../files/images/arxiv-insights/2024-03-11-03-15/quiet-star.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -355,13 +368,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/25100658.html" rel="bookmark">2025-06-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c7cc1d21.html" rel="bookmark">2025-06-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/280e761f.html" rel="bookmark">2025-06-02-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8d3aced.html" rel="bookmark">2025-05-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/354858e7.html" rel="bookmark">2025-05-29-insights</a></div>
     </li>
   </ul>
 
@@ -438,7 +451,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MM1-Methods-Analysis-Insights-from-Multimodal-LLM-Pre-training"><span class="nav-number">1.</span> <span class="nav-text">MM1: Methods, Analysis &amp; Insights from Multimodal LLM Pre-training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutoLoRA-Automatically-Tuning-Matrix-Ranks-in-Low-Rank-Adaptation-Based-on-Meta-Learning"><span class="nav-number">2.</span> <span class="nav-text">AutoLoRA: Automatically Tuning Matrix Ranks in Low-Rank Adaptation Based on Meta Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quiet-STaR-Language-Models-Can-Teach-Themselves-to-Think-Before-Speaking"><span class="nav-number">3.</span> <span class="nav-text">Quiet-STaR: Language Models Can Teach Themselves to Think Before Speaking</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mm1-methods-analysis-insights-from-multimodal-llm-pre-training"><span class="nav-number">1.</span> <span class="nav-text">MM1: Methods, Analysis &amp;
+Insights from Multimodal LLM Pre-training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#autolora-automatically-tuning-matrix-ranks-in-low-rank-adaptation-based-on-meta-learning"><span class="nav-number">2.</span> <span class="nav-text">AutoLoRA: Automatically
+Tuning Matrix Ranks in Low-Rank Adaptation Based on Meta
+Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#quiet-star-language-models-can-teach-themselves-to-think-before-speaking"><span class="nav-number">3.</span> <span class="nav-text">Quiet-STaR: Language Models
+Can Teach Themselves to Think Before Speaking</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,7 +470,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,6 +513,14 @@
       
       
         <li class="recent_posts_li">
+          <a href="/25100658" title="2025-06-04-insights" target="_blank">2025-06-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/c7cc1d21" title="2025-06-03-insights" target="_blank">2025-06-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/280e761f" title="2025-06-02-insights" target="_blank">2025-06-02-insights</a>
         </li>
       
@@ -525,14 +550,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -588,12 +605,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:29</span>
 </div>
 
 <i class="fa fa-user-md"></i>
