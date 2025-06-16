@@ -312,38 +312,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>陈天奇在MLSys
-22发的另一篇文章，讲的是如何提高输入不对齐时的表现。</p>
+        <p>陈天奇在MLSys 22发的另一篇文章，讲的是如何提高输入不对齐时的表现。</p>
 <span id="more"></span>
 <p><img src="../files/images/CORA/author.png"></p>
 <p>已有的方法面对不对齐的数据，常常是padding到一个长度，这样会造成额外的计算。本文解决这个问题，得到了Pytorch上16倍的速度提升，TensorFlow上1.4倍的性能提升</p>
-<h2 id="introduction">Introduction</h2>
-<p>DL模型的输入常常不对齐，如下图所示：</p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>DL模型的输入常常不对齐，如下图所示：</p>
 <p><img src="../files/images/CORA/padding.png"></p>
-<p>最近有一些编译器开始支持不对齐的数据，但是范围、效果很受限。而经典的cuDNN，oneDNN库都采用了MASK，PADDING的方法。这种方法会带来额外的计算损失(红色部分)，而且随着batch
-size的增大这个损失会更加严重。</p>
-<p>本文提出了一套compiler-based方法解决不对齐数据的问题。稀疏和密集的tensor的研究很多，但大多不能应用到rag
-tensor,同时本文提出CORA (Compiler for Ragged Tensors)：</p>
+<p>最近有一些编译器开始支持不对齐的数据，但是范围、效果很受限。而经典的cuDNN，oneDNN库都采用了MASK，PADDING的方法。这种方法会带来额外的计算损失(红色部分)，而且随着batch size的增大这个损失会更加严重。</p>
+<p>本文提出了一套compiler-based方法解决不对齐数据的问题。稀疏和密集的tensor的研究很多，但大多不能应用到rag tensor,同时本文提出CORA (Compiler for Ragged Tensors)：</p>
 <ul>
-<li>Irregularity in generated
-code：可变的循环带来可变的代码，使得GPU性能下降。
-<ul>
-<li>CORA使用minimal padding方法，来平衡高效代码生成和thread remapping
-strategies</li>
-</ul></li>
-<li>Insufficient compiler
-mechanisms：由于可变循环内的依赖关系复杂，Representing
-transformations效果很差。并且稀疏tensor的优化方法可能不能应用到rag
-tensor，因为后者可能更加稀疏。
-<ul>
+<li>Irregularity in generated code：可变的循环带来可变的代码，使得GPU性能下降。<ul>
+<li>CORA使用minimal padding方法，来平衡高效代码生成和thread remapping strategies</li>
+</ul>
+</li>
+<li>Insufficient compiler mechanisms：由于可变循环内的依赖关系复杂，Representing transformations效果很差。并且稀疏tensor的优化方法可能不能应用到rag tensor，因为后者可能更加稀疏。<ul>
 <li>Cora用uninterpreted functions表示循环边界，来调度operation</li>
-</ul></li>
-<li>Ill-fitting computation abstractions：接口和抽象不匹配的问题。dense
-compilers不能表达rag op，sparse compilers没有办法生成高效的code。
-<ul>
-<li>CORA给padding，thread
-remapping等提供一套抽象，来解决不匹配的问题。</li>
-</ul></li>
+</ul>
+</li>
+<li>Ill-fitting computation abstractions：接口和抽象不匹配的问题。dense compilers不能表达rag op，sparse compilers没有办法生成高效的code。<ul>
+<li>CORA给padding，thread remapping等提供一套抽象，来解决不匹配的问题。</li>
+</ul>
+</li>
 </ul>
 <p>和已有方法对比如下：</p>
 <p><img src="../files/images/CORA/comp.png"></p>
@@ -353,72 +342,52 @@ remapping等提供一套抽象，来解决不匹配的问题。</li>
 <li>为ragged tensor提供了新的API，抽象和scheduleing方法</li>
 <li>进行了详细评测。</li>
 </ul>
-<h2 id="cora-overview">CORA OVERVIEW</h2>
-<p>基于以下的两个灵感：</p>
+<h2 id="CORA-OVERVIEW"><a href="#CORA-OVERVIEW" class="headerlink" title="CORA OVERVIEW"></a>CORA OVERVIEW</h2><p>基于以下的两个灵感：</p>
 <ul>
-<li>ragged operation中的不对齐性在计算前就可以获取到
-<ul>
+<li>ragged operation中的不对齐性在计算前就可以获取到<ul>
 <li>可以在真正计算前预计算不对齐性带来的辅助信息</li>
-</ul></li>
-<li>ragged tensor比起稀疏tensor，可以用<span class="math inline">\(\mathcal{O}(1)\)</span>时间访问（HASH方法虽然可以<span class="math inline">\(\mathcal{O}(1)\)</span>稀疏tensor，但不利于GPU执行）
-<ul>
+</ul>
+</li>
+<li>ragged tensor比起稀疏tensor，可以用$\mathcal{O}(1)$时间访问（HASH方法虽然可以$\mathcal{O}(1)$稀疏tensor，但不利于GPU执行）<ul>
 <li>可以辅助生成高效的代码</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <p><img src="../files/images/CORA/pipeline.png"></p>
 <p>CORA总体执行如上图所示</p>
-<h2 id="术语">术语</h2>
-<ul>
-<li><em>variable loops</em> or <em>vloops</em>
-：如果内部循环的边界是和外层变量有关的</li>
+<h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li><em>variable loops</em> or <em>vloops</em> ：如果内部循环的边界是和外层变量有关的</li>
 <li>vloop nest：包含多个vloop</li>
-<li><em>variable
-dimensions</em>：当存储tensor不用padding时，齐形状取决于外部tensor。这个形状称为variable
-dimensions，或者vdims</li>
+<li><em>variable dimensions</em>：当存储tensor不用padding时，齐形状取决于外部tensor。这个形状称为variable dimensions，或者vdims</li>
 <li>cdims：固定形状</li>
 <li>ragged tensor：有最少一个vdim的tensor</li>
 </ul>
-<h2 id="coras-ragged-api">CORA’S RAGGED API</h2>
-<p><img src="../files/images/CORA/api.png"></p>
-<p>CORA的API要求对于ragged
-tensor描述出vdim是怎么计算的，由外层循环的什么特征来定义。满足此条件后，CORA就可以自动的符合后面计算API的实现。</p>
-<h3 id="scheduling-primitives">Scheduling Primitives</h3>
-<ul>
-<li>Loop
-Scheduling：CORA不允许对vloop交换顺序，因为没有发现有什么实际需求。</li>
-<li>Operation
-Splitting：CORA可以把OP分解成多个OP，后面把拆除的部分并行计算。</li>
-<li>Horizontal
-Fusion：CORA支持hfusion，可以把最外层循环内的几个operator并行计算</li>
-<li>Loop and Storage Padding：对于minimal
-padding(二对齐、四对齐)，可以对齐的存储，并且不浪费很多额外的空间</li>
+<h2 id="CORA’S-RAGGED-API"><a href="#CORA’S-RAGGED-API" class="headerlink" title="CORA’S RAGGED API"></a>CORA’S RAGGED API</h2><p><img src="../files/images/CORA/api.png"></p>
+<p>CORA的API要求对于ragged tensor描述出vdim是怎么计算的，由外层循环的什么特征来定义。满足此条件后，CORA就可以自动的符合后面计算API的实现。</p>
+<h3 id="Scheduling-Primitives"><a href="#Scheduling-Primitives" class="headerlink" title="Scheduling Primitives"></a>Scheduling Primitives</h3><ul>
+<li>Loop Scheduling：CORA不允许对vloop交换顺序，因为没有发现有什么实际需求。</li>
+<li>Operation Splitting：CORA可以把OP分解成多个OP，后面把拆除的部分并行计算。</li>
+<li>Horizontal Fusion：CORA支持hfusion，可以把最外层循环内的几个operator并行计算</li>
+<li>Loop and Storage Padding：对于minimal padding(二对齐、四对齐)，可以对齐的存储，并且不浪费很多额外的空间</li>
 <li>Tensor Dimension Scheduling：CORA允许用户交换tensor的维度</li>
-<li>Load Balancing：CORA允许用户去自己满足<em>thread remapping
-policy</em>，来解决这个问题。</li>
+<li>Load Balancing：CORA允许用户去自己满足<em>thread remapping policy</em>，来解决这个问题。</li>
 </ul>
-<h2 id="coras-ragged-api-lowering">CORA’S RAGGED API LOWERING</h2>
-<p>这一部分讨论把CORA API lower到SSA-based IR的技术</p>
-<h3 id="loop-and-tensor-dimension-fusion">Loop and Tensor Dimension
-Fusion</h3>
-<p><img src="../files/images/CORA/loop.png"></p>
+<h2 id="CORA’S-RAGGED-API-LOWERING"><a href="#CORA’S-RAGGED-API-LOWERING" class="headerlink" title="CORA’S RAGGED API LOWERING"></a>CORA’S RAGGED API LOWERING</h2><p>这一部分讨论把CORA API lower到SSA-based IR的技术</p>
+<h3 id="Loop-and-Tensor-Dimension-Fusion"><a href="#Loop-and-Tensor-Dimension-Fusion" class="headerlink" title="Loop and Tensor Dimension Fusion"></a>Loop and Tensor Dimension Fusion</h3><p><img src="../files/images/CORA/loop.png"></p>
 <p>对于左上角的二重循环，如果想要变成一层循环，就需要计算出边界以及什么时候换。CORA预计算这些信息，再执行计算部分的代码。</p>
-<h3 id="bounds-inference">Bounds Inference</h3>
-<ul>
+<h3 id="Bounds-Inference"><a href="#Bounds-Inference" class="headerlink" title="Bounds Inference"></a>Bounds Inference</h3><ul>
 <li>Variable Loop Fusion：</li>
 <li>Named Dimensions</li>
 </ul>
-<h3 id="storage-access-lowering">Storage Access Lowering</h3>
-<p><img src="../files/images/CORA/shape.png"></p>
+<h3 id="Storage-Access-Lowering"><a href="#Storage-Access-Lowering" class="headerlink" title="Storage Access Lowering"></a>Storage Access Lowering</h3><p><img src="../files/images/CORA/shape.png"></p>
 <p>考虑上面的4维tensor，24维是vdim。</p>
-<p>CORA提供右图左面的组织形式，可以达到快速的<span class="math inline">\(\mathcal{O}(1)\)</span>访问时间，通过预计算。CORA需要存储额外的形状信息。</p>
-<h2 id="implementation">IMPLEMENTATION</h2>
-<p>CORA通过扩展TVM的代码进行实现</p>
+<p>CORA提供右图左面的组织形式，可以达到快速的$\mathcal{O}(1)$访问时间，通过预计算。CORA需要存储额外的形状信息。</p>
+<h2 id="IMPLEMENTATION"><a href="#IMPLEMENTATION" class="headerlink" title="IMPLEMENTATION"></a>IMPLEMENTATION</h2><p>CORA通过扩展TVM的代码进行实现</p>
 <ul>
 <li>Ragged API：目前的代码只支持vdim取决于最外层的dim</li>
 <li>Lowering：这部分代码基于一篇已有工作修改。</li>
 </ul>
-<h2 id="evaluation">Evaluation</h2>
-<p>大概就是CORA更好</p>
+<h2 id="Evaluation"><a href="#Evaluation" class="headerlink" title="Evaluation"></a>Evaluation</h2><p>大概就是CORA更好</p>
 <p><img src="../files/images/CORA/CORA.png"></p>
 
     </div>
@@ -531,8 +500,7 @@ Fusion</h3>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cora-overview"><span class="nav-number">2.</span> <span class="nav-text">CORA OVERVIEW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coras-ragged-api"><span class="nav-number">4.</span> <span class="nav-text">CORA’S RAGGED API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#scheduling-primitives"><span class="nav-number">4.1.</span> <span class="nav-text">Scheduling Primitives</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coras-ragged-api-lowering"><span class="nav-number">5.</span> <span class="nav-text">CORA’S RAGGED API LOWERING</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#loop-and-tensor-dimension-fusion"><span class="nav-number">5.1.</span> <span class="nav-text">Loop and Tensor Dimension
-Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bounds-inference"><span class="nav-number">5.2.</span> <span class="nav-text">Bounds Inference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#storage-access-lowering"><span class="nav-number">5.3.</span> <span class="nav-text">Storage Access Lowering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#implementation"><span class="nav-number">6.</span> <span class="nav-text">IMPLEMENTATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluation"><span class="nav-number">7.</span> <span class="nav-text">Evaluation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORA-OVERVIEW"><span class="nav-number">2.</span> <span class="nav-text">CORA OVERVIEW</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AF%E8%AF%AD"><span class="nav-number">3.</span> <span class="nav-text">术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORA%E2%80%99S-RAGGED-API"><span class="nav-number">4.</span> <span class="nav-text">CORA’S RAGGED API</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scheduling-Primitives"><span class="nav-number">4.1.</span> <span class="nav-text">Scheduling Primitives</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CORA%E2%80%99S-RAGGED-API-LOWERING"><span class="nav-number">5.</span> <span class="nav-text">CORA’S RAGGED API LOWERING</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loop-and-Tensor-Dimension-Fusion"><span class="nav-number">5.1.</span> <span class="nav-text">Loop and Tensor Dimension Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bounds-Inference"><span class="nav-number">5.2.</span> <span class="nav-text">Bounds Inference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Storage-Access-Lowering"><span class="nav-number">5.3.</span> <span class="nav-text">Storage Access Lowering</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IMPLEMENTATION"><span class="nav-number">6.</span> <span class="nav-text">IMPLEMENTATION</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluation"><span class="nav-number">7.</span> <span class="nav-text">Evaluation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -547,7 +515,7 @@ Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -590,6 +558,10 @@ Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href=
       
       
         <li class="recent_posts_li">
+          <a href="/e06b09a5" title="2025-06-16-insights" target="_blank">2025-06-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/642c2e1" title="2025-06-13-insights" target="_blank">2025-06-13-insights</a>
         </li>
       
@@ -623,10 +595,6 @@ Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href=
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -682,12 +650,12 @@ Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href=
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">279k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:14</span>
 </div>
 
 <i class="fa fa-user-md"></i>
