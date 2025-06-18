@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scaling Language-Free Visual Representation LearningLecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好  再">
+  <meta name="description" content="Scaling Language-Free Visual Representation Learning Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-04-02-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4852c354">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Scaling Language-Free Visual Representation LearningLecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好  再">
+<meta property="og:description" content="Scaling Language-Free Visual Representation Learning Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png">
@@ -314,14 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Scaling-Language-Free-Visual-Representation-Learning"><a href="#Scaling-Language-Free-Visual-Representation-Learning" class="headerlink" title="Scaling Language-Free Visual Representation Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.01017">Scaling Language-Free Visual Representation Learning</a></h2><p>Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好</p>
+        <h2 id="scaling-language-free-visual-representation-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.01017">Scaling Language-Free Visual
+Representation Learning</a></h2>
+<p>Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip
+loss一直比ssl
+loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好</p>
 <blockquote>
 <p>再等等看……没准这个月的llama4，会是ssl encoder？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png"></p>
-<h2 id="Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><a href="#Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems" class="headerlink" title="Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00509">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</a></h2><p>如果大家记得之前有一篇叫gsm8k-zero的工作，发现把简单数学题改成不需要数学的形式，模型效果会直接变烂。字节这篇新工作也是类似的，作者发现简单把题目了一些动词改成类似的形式，也是直接烂掉。</p>
+<h2 id="recitation-over-reasoning-how-cutting-edge-language-models-can-fail-on-elementary-school-level-reasoning-problems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00509">Recitation over Reasoning: How
+Cutting-Edge Language Models Can Fail on Elementary School-Level
+Reasoning Problems?</a></h2>
+<p>如果大家记得之前有一篇叫gsm8k-zero的工作，发现把简单数学题改成不需要数学的形式，模型效果会直接变烂。字节这篇新工作也是类似的，作者发现简单把题目了一些动词改成类似的形式，也是直接烂掉。</p>
 <p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png" style="zoom:33%;"></p>
-<h2 id="Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><a href="#Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents" class="headerlink" title="Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00906">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</a></h2><p>agent s2应该是框架agent的新巅峰了，其实已经出来有段时间了，但是论文今天才挂出来。作者对于planning和grounding有专门的agent module去增强，达到了目前最强的效果。</p>
+<h2 id="agent-s2-a-compositional-generalist-specialist-framework-for-computer-use-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00906">Agent S2: A Compositional
+Generalist-Specialist Framework for Computer Use Agents</a></h2>
+<p>agent
+s2应该是框架agent的新巅峰了，其实已经出来有段时间了，但是论文今天才挂出来。作者对于planning和grounding有专门的agent
+module去增强，达到了目前最强的效果。</p>
 <p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/agent-s2.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -339,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa9629b.html" rel="bookmark">2025-06-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e06b09a5.html" rel="bookmark">2025-06-16-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/642c2e1.html" rel="bookmark">2025-06-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e980a9df.html" rel="bookmark">2025-06-12-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +433,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Language-Free-Visual-Representation-Learning"><span class="nav-number">1.</span> <span class="nav-text">Scaling Language-Free Visual Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><span class="nav-number">2.</span> <span class="nav-text">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><span class="nav-number">3.</span> <span class="nav-text">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-language-free-visual-representation-learning"><span class="nav-number">1.</span> <span class="nav-text">Scaling Language-Free Visual
+Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recitation-over-reasoning-how-cutting-edge-language-models-can-fail-on-elementary-school-level-reasoning-problems"><span class="nav-number">2.</span> <span class="nav-text">Recitation over Reasoning: How
+Cutting-Edge Language Models Can Fail on Elementary School-Level
+Reasoning Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-s2-a-compositional-generalist-specialist-framework-for-computer-use-agents"><span class="nav-number">3.</span> <span class="nav-text">Agent S2: A Compositional
+Generalist-Specialist Framework for Computer Use Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,23 +495,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/fa9629b" title="2025-06-17-insights" target="_blank">2025-06-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/e06b09a5" title="2025-06-16-insights" target="_blank">2025-06-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/642c2e1" title="2025-06-13-insights" target="_blank">2025-06-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e980a9df" title="2025-06-12-insights" target="_blank">2025-06-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2b712dc" title="2025-06-11-insights" target="_blank">2025-06-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/ed7579e2" title="2025-06-10-insights" target="_blank">2025-06-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -517,6 +524,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -572,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">279k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:14</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <i class="fa fa-user-md"></i>
