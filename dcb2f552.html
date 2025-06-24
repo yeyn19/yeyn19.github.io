@@ -318,40 +318,52 @@
       
         <p>昨天没等到arxiv更新，结果今天来了163篇，让我想起了10月份AAAI挂arxiv时候的恐惧……</p>
 <p>既然昨天没有，那就算今天的是这两天的，所以今天上限六篇</p>
-<h2 id="Tuning-Language-Models-by-Proxy"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08565.pdf">Tuning Language Models by Proxy</a></h2>
-<p>yejin choi又来活了，这次是parameter efficient tuning. 作者思考，未来的LLM finetune实际上是越来越贵的。不过之前的工作发现，很多时候比如SFT，对模型的改变很小，只是在“elicit latent knowledge”。</p>
+<h2 id="tuning-language-models-by-proxy"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08565.pdf">Tuning Language Models by
+Proxy</a></h2>
+<p>yejin choi又来活了，这次是parameter efficient tuning.
+作者思考，未来的LLM
+finetune实际上是越来越贵的。不过之前的工作发现，很多时候比如SFT，对模型的改变很小，只是在“elicit
+latent knowledge”。</p>
 <p>那么，用线性代数的方法：在大模型的logits上叠加一个小模型微调前后的差值。能不能得到和大模型类似的效果呢？作者发现，用这种方法，只微调一个小模型。能达到微调大模型90%左右的水平</p>
 <blockquote>
 <p>90%，正如GLM4之于GPT4……只能说……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-15-01-19/proxy.png">
-<h2 id="RAG-vs-Fine-tuning-Pipelines-Tradeoffs-and-a-Case-Study-on-Agriculture"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08406.pdf">RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/proxy.png"></p>
+<h2 id="rag-vs-fine-tuning-pipelines-tradeoffs-and-a-case-study-on-agriculture"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.08406.pdf">RAG vs Fine-tuning:
+Pipelines, Tradeoffs, and a Case Study on Agriculture</a></h2>
 <p>微软的研究。作者用了33页就为了讨论一个问题：RAG和finetune谁的效果更好？可以同时存在吗？作者在一个基本还没有AI参与的领域(农业)数据集上探索了各个模型做finetune和RAG的效果。</p>
 <p>发现，两者都能提高效果。然后，即使在某个数据集上finetune了，还是需要再相同的数据集上做RAG。</p>
 <blockquote>
 <p>很好的研究，有scaling的视角。感觉像是OpenAI下放的insights</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-15-01-19/RAG-finetuning.png">
-<h2 id="Flexibly-Scaling-Large-Language-Models’-Contexts-Through-Extensible-Tokenization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.07793.pdf">Flexibly Scaling Large Language Models’ Contexts Through Extensible Tokenization</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/RAG-finetuning.png"></p>
+<h2 id="flexibly-scaling-large-language-models-contexts-through-extensible-tokenization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.07793.pdf">Flexibly Scaling Large
+Language Models’ Contexts Through Extensible Tokenization</a></h2>
 <p>一片长文本的有趣论文，作者这次是对tokenizer出手了。有一个浅显的道理，如果tokenizer一个token代表10个word，是不是同样sequence下token就变多了呢？作者搞了tokenizer作为插件放到了LLM之前</p>
 <blockquote>
 <p>话说这么一想，之前那个activation-beacon，似乎也算是个tokenizer了？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-15-01-19/extense-tokenizer.png">
-<h2 id="Bridging-the-Preference-Gap-between-Retrievers-and-LLMs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06954.pdf">Bridging the Preference Gap between Retrievers and LLMs</a></h2>
-<p>google出的一篇retrieve领域的论文。作者发现已有的finetune RAG类工作，要么就是finetune retriever，要么就是finetune generator，(or both)。那么，如果两者都是通过API买的，不能调。这些工作就抓瞎了</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/extense-tokenizer.png"></p>
+<h2 id="bridging-the-preference-gap-between-retrievers-and-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06954.pdf">Bridging the Preference Gap
+between Retrievers and LLMs</a></h2>
+<p>google出的一篇retrieve领域的论文。作者发现已有的finetune
+RAG类工作，要么就是finetune retriever，要么就是finetune generator，(or
+both)。那么，如果两者都是通过API买的，不能调。这些工作就抓瞎了</p>
 <p>作者的思路是，训练一个映射，或者说re-ranker作为一个bridge链接锁死的retriever和generator。</p>
 <blockquote>
-<p>我感觉这个东西有点像self-knowledge-guided RAG，相当于在学习去建模generator的知识边界，定向补充他不知道的东西？</p>
+<p>我感觉这个东西有点像self-knowledge-guided
+RAG，相当于在学习去建模generator的知识边界，定向补充他不知道的东西？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-15-01-19/BGM.png">
-<h2 id="Human-Instruction-Free-LLM-Self-Alignment-with-Limited-Samples"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06785.pdf">Human-Instruction-Free LLM Self-Alignment with Limited Samples</a></h2>
-<p>大家都知道模型在收到一个query以后，retrieve一些比较像的样本，然后ICL拼在前面，效果会更好。(这个过程也可以理解成RAG) 。那么，这个效果的增量能不能蒸馏回来呢？</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/BGM.png"></p>
+<h2 id="human-instruction-free-llm-self-alignment-with-limited-samples"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.06785.pdf">Human-Instruction-Free LLM
+Self-Alignment with Limited Samples</a></h2>
+<p>大家都知道模型在收到一个query以后，retrieve一些比较像的样本，然后ICL拼在前面，效果会更好。(这个过程也可以理解成RAG)
+。那么，这个效果的增量能不能蒸馏回来呢？</p>
 <p>作者探索了这样的self-training框架：先ICL，把ICL以后生成样本做成训练样本。发现效果竟然还挺好？这是一个不需要任何人参与的SFT流程</p>
 <blockquote>
 <p>挑战，不可能？我觉得这里要讨论一个问题：ICL样本到底是交给了模型遵循format，还是交给模型理解不同的label。前者是align的场景，后者是潜在的数据泄露风险</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-15-01-19/icl-training.png">
+<p><img src="../../files/images/arxiv-insights/2024-01-15-01-19/icl-training.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -368,13 +380,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9fa0a4e0.html" rel="bookmark">2025-06-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/11605228.html" rel="bookmark">2025-06-19-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fea23916.html" rel="bookmark">2025-06-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fa9629b.html" rel="bookmark">2025-06-17-insights</a></div>
     </li>
   </ul>
 
@@ -451,7 +463,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tuning-Language-Models-by-Proxy"><span class="nav-number">1.</span> <span class="nav-text">Tuning Language Models by Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAG-vs-Fine-tuning-Pipelines-Tradeoffs-and-a-Case-Study-on-Agriculture"><span class="nav-number">2.</span> <span class="nav-text">RAG vs Fine-tuning: Pipelines, Tradeoffs, and a Case Study on Agriculture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flexibly-Scaling-Large-Language-Models%E2%80%99-Contexts-Through-Extensible-Tokenization"><span class="nav-number">3.</span> <span class="nav-text">Flexibly Scaling Large Language Models’ Contexts Through Extensible Tokenization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bridging-the-Preference-Gap-between-Retrievers-and-LLMs"><span class="nav-number">4.</span> <span class="nav-text">Bridging the Preference Gap between Retrievers and LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Human-Instruction-Free-LLM-Self-Alignment-with-Limited-Samples"><span class="nav-number">5.</span> <span class="nav-text">Human-Instruction-Free LLM Self-Alignment with Limited Samples</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tuning-language-models-by-proxy"><span class="nav-number">1.</span> <span class="nav-text">Tuning Language Models by
+Proxy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rag-vs-fine-tuning-pipelines-tradeoffs-and-a-case-study-on-agriculture"><span class="nav-number">2.</span> <span class="nav-text">RAG vs Fine-tuning:
+Pipelines, Tradeoffs, and a Case Study on Agriculture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#flexibly-scaling-large-language-models-contexts-through-extensible-tokenization"><span class="nav-number">3.</span> <span class="nav-text">Flexibly Scaling Large
+Language Models’ Contexts Through Extensible Tokenization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bridging-the-preference-gap-between-retrievers-and-llms"><span class="nav-number">4.</span> <span class="nav-text">Bridging the Preference Gap
+between Retrievers and LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#human-instruction-free-llm-self-alignment-with-limited-samples"><span class="nav-number">5.</span> <span class="nav-text">Human-Instruction-Free LLM
+Self-Alignment with Limited Samples</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,7 +483,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -509,6 +526,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9fa0a4e0" title="2025-06-23-insights" target="_blank">2025-06-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/11605228" title="2025-06-19-insights" target="_blank">2025-06-19-insights</a>
         </li>
       
@@ -542,10 +563,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -601,12 +618,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

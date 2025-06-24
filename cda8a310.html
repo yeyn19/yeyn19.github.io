@@ -313,19 +313,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Soft-Thinking-Unlocking-the-Reasoning-Potential-of-LLMs-in-Continuous-Concept-Space"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.15778">Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space</a></h2>
-<p>一篇soft thinking领域的文章。就是说，在o1-model里，如果输出的不是一个token，而是直接拼一个embedding到下一层的输入（而不是logits最大的token的word embedding），效果会更好吗？直觉上肯定更好，因为没人证明在词表空间里想问题是好事，人大概率思考过程也不是文本，但这个领域就是不work。</p>
-<p>这篇工作里，作者想了个怪招：先不一步子迈到直接拼embedding，先试试把概率最大的一些token，根据概率加权后的word embedding拼回去（有点像是在word embedding空间对hidden state做了个奇异值逼进，假设正交的话）。</p>
+        <h2 id="soft-thinking-unlocking-the-reasoning-potential-of-llms-in-continuous-concept-space"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.15778">Soft Thinking: Unlocking the
+Reasoning Potential of LLMs in Continuous Concept Space</a></h2>
+<p>一篇soft
+thinking领域的文章。就是说，在o1-model里，如果输出的不是一个token，而是直接拼一个embedding到下一层的输入（而不是logits最大的token的word
+embedding），效果会更好吗？直觉上肯定更好，因为没人证明在词表空间里想问题是好事，人大概率思考过程也不是文本，但这个领域就是不work。</p>
+<p>这篇工作里，作者想了个怪招：先不一步子迈到直接拼embedding，先试试把概率最大的一些token，根据概率加权后的word
+embedding拼回去（有点像是在word embedding空间对hidden
+state做了个奇异值逼进，假设正交的话）。</p>
 <blockquote>
-<p>这是我见过的类似文章里名字起得最好听的，所以我决定以后都叫这个方向soft thinking了。我怀疑这个是AI领域下一个重大突破，下一个怀疑是openAI / SSI 先搞出来……</p>
+<p>这是我见过的类似文章里名字起得最好听的，所以我决定以后都叫这个方向soft
+thinking了。我怀疑这个是AI领域下一个重大突破，下一个怀疑是openAI / SSI
+先搞出来……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-05-19-05-23/softthink.png">
-<h2 id="Reinforcement-Learning-from-User-Feedback"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.14946">Reinforcement Learning from User Feedback</a></h2>
-<p>meta的工作，作者还是研究了那个老问题：能不能从真实世界的多轮对话的user-response里，提取到对模型回复水平的reward？但区别是，作者不在toy setting，而是直接在realworld setting上做。训了一个二元分类器，对用户回复进行分类（作者把好回复叫做love response）。在做了rl以后，在A/B test上，提升了28%的love-response比例。同时，作者发现了一部分的reward hacking现象</p>
+<p><img src="../../files/images/arxiv-insights/2025-05-19-05-23/softthink.png"></p>
+<h2 id="reinforcement-learning-from-user-feedback"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.14946">Reinforcement Learning from User
+Feedback</a></h2>
+<p>meta的工作，作者还是研究了那个老问题：能不能从真实世界的多轮对话的user-response里，提取到对模型回复水平的reward？但区别是，作者不在toy
+setting，而是直接在realworld
+setting上做。训了一个二元分类器，对用户回复进行分类（作者把好回复叫做love
+response）。在做了rl以后，在A/B
+test上，提升了28%的love-response比例。同时，作者发现了一部分的reward
+hacking现象</p>
 <blockquote>
 <p>字节看了最熟悉的一集……所以，用户是真的可以被hack的吗（如果高兴你就拍拍手？）</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-05-19-05-23/love.png">
+<p><img src="../../files/images/arxiv-insights/2025-05-19-05-23/love.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +355,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9fa0a4e0.html" rel="bookmark">2025-06-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/11605228.html" rel="bookmark">2025-06-19-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fea23916.html" rel="bookmark">2025-06-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fa9629b.html" rel="bookmark">2025-06-17-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +438,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Soft-Thinking-Unlocking-the-Reasoning-Potential-of-LLMs-in-Continuous-Concept-Space"><span class="nav-number">1.</span> <span class="nav-text">Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reinforcement-Learning-from-User-Feedback"><span class="nav-number">2.</span> <span class="nav-text">Reinforcement Learning from User Feedback</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#soft-thinking-unlocking-the-reasoning-potential-of-llms-in-continuous-concept-space"><span class="nav-number">1.</span> <span class="nav-text">Soft Thinking: Unlocking the
+Reasoning Potential of LLMs in Continuous Concept Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinforcement-learning-from-user-feedback"><span class="nav-number">2.</span> <span class="nav-text">Reinforcement Learning from User
+Feedback</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +455,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +498,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9fa0a4e0" title="2025-06-23-insights" target="_blank">2025-06-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/11605228" title="2025-06-19-insights" target="_blank">2025-06-19-insights</a>
         </li>
       
@@ -516,10 +535,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,12 +590,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -313,19 +313,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Universal-Self-Consistency-for-Large-Language-Model-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17311.pdf">Universal Self-Consistency for Large Language Model Generation</a></h2>
-<p>Google的论文，好像有几天没看到他们了。作者谈到一个问题，目前的self-consistency类的方法要求有个标准答案，或者起码可以把set中所有元素聚合成一些cluster，这对于free-form answer是不可行的。</p>
-<p>作者把这个困难offload给模型，让模型自己选。这样就能在free-form answer上做self-consistency了。进一步的，对于数学这种有答案的场景，也不需要符合特定的格式，任何回答都可以。</p>
+        <h2 id="universal-self-consistency-for-large-language-model-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17311.pdf">Universal Self-Consistency
+for Large Language Model Generation</a></h2>
+<p>Google的论文，好像有几天没看到他们了。作者谈到一个问题，目前的self-consistency类的方法要求有个标准答案，或者起码可以把set中所有元素聚合成一些cluster，这对于free-form
+answer是不可行的。</p>
+<p>作者把这个困难offload给模型，让模型自己选。这样就能在free-form
+answer上做self-consistency了。进一步的，对于数学这种有答案的场景，也不需要符合特定的格式，任何回答都可以。</p>
 <blockquote>
 <p>不过我大致看下来，需要context能乘下多个样本才行</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-11-27-12-01/usc.png">
-<h2 id="VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17647.pdf">VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following</a></h2>
-<p>Yejin Choi的论文，作者想了个怪招：如果把MLLM task中的文本instruction用图片的形式和原始图片拼在一起会怎么样？把常见的VQA<em>v2, MME, MM-Vet, and Ref- COCO</em>等任务都这么搞了一遍，发现除了GPT-4V以外的模型全傻了……这说明实际上开源模型和4V差距比想象中大呀</p>
+<p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/usc.png"></p>
+<h2 id="vim-probing-multimodal-large-language-models-for-visual-embedded-instruction-following"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.17647.pdf">VIM: Probing Multimodal
+Large Language Models for Visual Embedded Instruction Following</a></h2>
+<p>Yejin Choi的论文，作者想了个怪招：如果把MLLM
+task中的文本instruction用图片的形式和原始图片拼在一起会怎么样？把常见的VQA<em>v2,
+MME, MM-Vet, and Ref-
+COCO</em>等任务都这么搞了一遍，发现除了GPT-4V以外的模型全傻了……这说明实际上开源模型和4V差距比想象中大呀</p>
 <blockquote>
 <p>我感觉开源模型都是蒸馏的4v，所以只有在数据里有的场景才能和4v比比。只要出怪招，基本都是寄……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2023-11-27-12-01/vim.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2023-11-27-12-01/vim.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +349,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9fa0a4e0.html" rel="bookmark">2025-06-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/11605228.html" rel="bookmark">2025-06-19-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fea23916.html" rel="bookmark">2025-06-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/fa9629b.html" rel="bookmark">2025-06-17-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +432,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Universal-Self-Consistency-for-Large-Language-Model-Generation"><span class="nav-number">1.</span> <span class="nav-text">Universal Self-Consistency for Large Language Model Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VIM-Probing-Multimodal-Large-Language-Models-for-Visual-Embedded-Instruction-Following"><span class="nav-number">2.</span> <span class="nav-text">VIM: Probing Multimodal Large Language Models for Visual Embedded Instruction Following</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#universal-self-consistency-for-large-language-model-generation"><span class="nav-number">1.</span> <span class="nav-text">Universal Self-Consistency
+for Large Language Model Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vim-probing-multimodal-large-language-models-for-visual-embedded-instruction-following"><span class="nav-number">2.</span> <span class="nav-text">VIM: Probing Multimodal
+Large Language Models for Visual Embedded Instruction Following</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +492,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9fa0a4e0" title="2025-06-23-insights" target="_blank">2025-06-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/11605228" title="2025-06-19-insights" target="_blank">2025-06-19-insights</a>
         </li>
       
@@ -516,10 +529,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

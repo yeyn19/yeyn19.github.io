@@ -321,13 +321,15 @@
 
       
         <p>今天来讲一个和方法toolformer很像的文章：如何让模型左脚踩右脚学会做题？</p>
-<img src="../files/images/STaR/intro.png">
+<p><img src="../files/images/STaR/intro.png"></p>
 <span id="more"></span>
 <p>作者团队来自stanford和google，</p>
-<img src="../files/images/STaR/authors.png">
-<h2 id="Introduction">Introduction</h2>
+<p><img src="../files/images/STaR/authors.png"></p>
+<h2 id="introduction">Introduction</h2>
 <p>introduction是一个很经典的论文写作套路。</p>
-<p>作者首先讲了讲做题这个领域。在做题领域，大模型直接做表现基本很差，few-shot版本也很差。(这里的few-shot是指只有 问题-答案 对的情况)。最近有一类方法叫chain-of-thought(CoT)，让模型think step by step，先生成一些思考链再做题，就能极大提高准确率。</p>
+<p>作者首先讲了讲做题这个领域。在做题领域，大模型直接做表现基本很差，few-shot版本也很差。(这里的few-shot是指只有
+问题-答案 对的情况)。最近有一类方法叫chain-of-thought(CoT)，让模型think
+step by step，先生成一些思考链再做题，就能极大提高准确率。</p>
 <p>这里作者就来思考：既然模型可以自己创造思考链，那能不能提高模型“创造思考链”的能力呢？</p>
 <p>于是提出了所谓的self-taught reasoner。最后总结了一下贡献：</p>
 <ul>
@@ -336,30 +338,22 @@
 <li>在很多数据集上做了详细地实验</li>
 <li>是首次提出让LLM自己提升自己的方法</li>
 </ul>
-<img src="../files/images/STaR/method.png">
+<p><img src="../files/images/STaR/method.png"></p>
 <h2 id="method">method</h2>
 <p>那么是什么方法呢？这里要按照是否让模型自我提高分出两类方法。</p>
-<img src="../files/images/STaR/algo.png">
-<h3 id="STaR-Without-Rationalization">STaR Without Rationalization</h3>
+<p><img src="../files/images/STaR/algo.png"></p>
+<h3 id="star-without-rationalization">STaR Without Rationalization</h3>
 <p>这个方法就是algorithm里没有蓝字的部分</p>
 <p>假设我们已经有了CoT，然后接下来就是把CoT转换成自动的过程：</p>
 <ul>
-<li>
-<p>先让人生成一些CoT，然后按照in-context的方式拼在前面</p>
-</li>
-<li>
-<p>对于数据集里的所有数据，都可以生成一个CoT再做</p>
-</li>
-<li>
-<p>对于生成的所有CoT，如果做出了答案，说明是“好的CoT”。将对应的(问题-CoT-ans)返回给模型进行训练</p>
-</li>
-<li>
-<p>持续这个过程</p>
-</li>
+<li><p>先让人生成一些CoT，然后按照in-context的方式拼在前面</p></li>
+<li><p>对于数据集里的所有数据，都可以生成一个CoT再做</p></li>
+<li><p>对于生成的所有CoT，如果做出了答案，说明是“好的CoT”。将对应的(问题-CoT-ans)返回给模型进行训练</p></li>
+<li><p>持续这个过程</p></li>
 </ul>
 <p>这里之所以省掉了人类的大量的CoT标注。其实是有个偏置信息在里面：“生成正确的答案的CoT比正常的CoT质量高”。</p>
 <p>这里其实就是和单步reward的RL有一些相似的观点在里面：不管过程是怎么做出来的，如果最后做对了，就认为过程里的所有步骤都是好的。</p>
-<h3 id="Rationalization">Rationalization</h3>
+<h3 id="rationalization">Rationalization</h3>
 <p>作者又思考了上面算法的问题：这里其实是没有引入额外知识的，只是在激发模型本身理解问题、思考问题的能力。换句话说，如果模型不能再生成新的数据了，上面算法的上限就到了。</p>
 <p>那么怎么引入额外信息呢？就是要关注聚焦于没做出来的题目，一个思路是让人标CoT，这个显然太“贵“了。作者提出的方法就是rationalization。</p>
 <ul>
@@ -376,48 +370,47 @@
 <li>Grade School Math (GSM8K)：全是高中数学题</li>
 </ul>
 <p>和toolformer类似，作者也选用GPT-J 8B作为训练的基础模型</p>
-<img src="../files/images/STaR/CQA_result.png">
+<p><img src="../files/images/STaR/CQA_result.png"></p>
 <p>可以看到，</p>
 <ul>
-<li>
-<p>对于CQA任务来说,STaR+8B模型就能达到finetune+175B的效果。</p>
-</li>
-<li>
-<p>另一个关键点是，即使没有左脚踩右脚，仅仅通过自己生成CoT的方式，效果也很不错</p>
-</li>
-<li>
-<p>注意，这里说的fine-tune指的是直接生成答案。</p>
-</li>
+<li><p>对于CQA任务来说,STaR+8B模型就能达到finetune+175B的效果。</p></li>
+<li><p>另一个关键点是，即使没有左脚踩右脚，仅仅通过自己生成CoT的方式，效果也很不错</p></li>
+<li><p>注意，这里说的fine-tune指的是直接生成答案。</p></li>
 </ul>
-<p>上面的结果可以看出来，在训练中加入CoT是可以让模型更轻松理解题目、提高效果的。作者也做了case study，发现模型经过训练可以生成更合理的reason，做出原来做不出来的题目。</p>
-<img src="../files/images/STaR/more_reasonable.png">
+<p>上面的结果可以看出来，在训练中加入CoT是可以让模型更轻松理解题目、提高效果的。作者也做了case
+study，发现模型经过训练可以生成更合理的reason，做出原来做不出来的题目。</p>
+<p><img src="../files/images/STaR/more_reasonable.png"></p>
 <p>另外几个实验场景也有类似的结果。</p>
 <p>对于数学题，作者还有另外的发现</p>
-<img src="../files/images/STaR/steps.png">
+<p><img src="../files/images/STaR/steps.png"></p>
 <p>作者罗列了答案的解题步骤的计算步骤和模型生成的解题目步骤的计算步骤，发现</p>
 <ul>
 <li>计算步骤数量比较接近</li>
-<li>数量不同时，一般是模型的步骤更少。作者在这里做了case study，发现其实是模型找到了另外的、比正确答案更好的解法。有点神奇……</li>
+<li>数量不同时，一般是模型的步骤更少。作者在这里做了case
+study，发现其实是模型找到了另外的、比正确答案更好的解法。有点神奇……</li>
 </ul>
 <blockquote>
 <p>作者额外提到了一点，这个方法想要有效必须模型本身够强。同样的方法在GPT-2就没有效果。</p>
 </blockquote>
 <h2 id="我的思考">我的思考</h2>
 <ul>
-<li>
-<p>感觉他toolformer类似，都是通过一个已有标注的数据集开始，让模型自己去”看着答案给步骤“。这样相当于对答案做reverse-engineer，让模型自己生成符合自己习惯的办法。</p>
-</li>
-<li>
-<p>也许对于强的模型来说，学简单的例子没什么用处，in-context足以。只有自己做不出来的”困难例子“，才需要模型想办法去学习。</p>
-</li>
+<li><p>感觉他toolformer类似，都是通过一个已有标注的数据集开始，让模型自己去”看着答案给步骤“。这样相当于对答案做reverse-engineer，让模型自己生成符合自己习惯的办法。</p></li>
+<li><p>也许对于强的模型来说，学简单的例子没什么用处，in-context足以。只有自己做不出来的”困难例子“，才需要模型想办法去学习。</p></li>
 </ul>
-<p>🚀 New Chinese blog post: <a target="_blank" rel="external nofollow noopener noreferrer" href="https://yynnyy.cn/7dbea4cd">https://yynnyy.cn/7dbea4cd</a> 🌐</p>
-<p>Exploring the concept of <strong>o1 reasoning</strong>—moving beyond mere data engineering to <strong>verifier engineering</strong>, incentivizing models to discover their own worldviews. Let them self-train, internalize complex reasoning, and gradually “re-invent” knowledge at scale. 💡</p>
+<p>🚀 New Chinese blog post: https://yynnyy.cn/7dbea4cd 🌐</p>
+<p>Exploring the concept of <strong>o1 reasoning</strong>—moving beyond
+mere data engineering to <strong>verifier engineering</strong>,
+incentivizing models to discover their own worldviews. Let them
+self-train, internalize complex reasoning, and gradually “re-invent”
+knowledge at scale. 💡</p>
 <p><strong>Highlights:</strong></p>
 <ul>
 <li>Revisits STaR and related works</li>
-<li>Discusses motivations for self-improvement and problem verification</li>
-<li>Examines next-gen training paradigms that align System1 (memorization) &amp; System2 (reasoning) for better generalization and scalability</li>
+<li>Discusses motivations for self-improvement and problem
+verification</li>
+<li>Examines next-gen training paradigms that align System1
+(memorization) &amp; System2 (reasoning) for better generalization and
+scalability</li>
 <li>Presents 4 concrete challenges in designing o1-like systems</li>
 </ul>
 
@@ -531,7 +524,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#STaR-Without-Rationalization"><span class="nav-number">2.1.</span> <span class="nav-text">STaR Without Rationalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Rationalization"><span class="nav-number">2.2.</span> <span class="nav-text">Rationalization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method"><span class="nav-number">2.</span> <span class="nav-text">method</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#star-without-rationalization"><span class="nav-number">2.1.</span> <span class="nav-text">STaR Without Rationalization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rationalization"><span class="nav-number">2.2.</span> <span class="nav-text">Rationalization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">3.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">4.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -546,7 +539,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -589,6 +582,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/9fa0a4e0" title="2025-06-23-insights" target="_blank">2025-06-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/11605228" title="2025-06-19-insights" target="_blank">2025-06-19-insights</a>
         </li>
       
@@ -622,10 +619,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -681,12 +674,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:27</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
