@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>425</span>
+              <span>423</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,15 +313,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="do-pretrained-transformers-really-learn-in-context-by-gradient-descent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers
-Really Learn In-context by Gradient Descent?</a></h2>
+        <h2 id="Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08540">Do pretrained Transformers Really Learn In-context by Gradient Descent?</a></h2>
 <p>之前有篇论文说transformer-casual-MASK有一个特性，前面放in-context样本，在预测后面的时候，模型的参数类似于对前面的样本做了一些梯度下降。</p>
 <p>作者说明之前推测里面用到的假设实际影响太大，和实际训练模型的setting差距过大。作者用Llama做了实验，发现了这两种假设在实际表现上的不匹配，说明了目前的假设还需要进一步的论证。</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-13/GD.png"></p>
-<h2 id="context-compression-for-auto-regressive-transformers-with-sentinel-tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08152">Context Compression for
-Auto-regressive Transformers with Sentinel Tokens</a></h2>
-<p>作者瞄准长文本领域attention计算的<span class="math inline">\(n^2\)</span>复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p>
-<p><img src="../../files/images/arxiv-insights/2023-10-13/sentinel-token.png"></p>
+<img src="../../files/images/arxiv-insights/2023-10-13/GD.png">
+<h2 id="Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/abs/2310.08152">Context Compression for Auto-regressive Transformers with Sentinel Tokens</a></h2>
+<p>作者瞄准长文本领域attention计算的$n^2$复杂度，想了一个简单的办法：能不能把一些token消除掉，用一个哨兵token代替。然后让矩阵计算的时候变成稀疏的attention矩阵。有点类似之前的sparse-attention</p>
+<img src="../../files/images/arxiv-insights/2023-10-13/sentinel-token.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -338,13 +336,13 @@ Auto-regressive Transformers with Sentinel Tokens</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f598af9a.html" rel="bookmark">2025-07-02-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1eaf1499.html" rel="bookmark">2025-07-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b519c023.html" rel="bookmark">2025-06-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/964b049a.html" rel="bookmark">2025-06-27-insights</a></div>
     </li>
   </ul>
 
@@ -421,9 +419,7 @@ Auto-regressive Transformers with Sentinel Tokens</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#do-pretrained-transformers-really-learn-in-context-by-gradient-descent"><span class="nav-number">1.</span> <span class="nav-text">Do pretrained Transformers
-Really Learn In-context by Gradient Descent?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#context-compression-for-auto-regressive-transformers-with-sentinel-tokens"><span class="nav-number">2.</span> <span class="nav-text">Context Compression for
-Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Do-pretrained-Transformers-Really-Learn-In-context-by-Gradient-Descent"><span class="nav-number">1.</span> <span class="nav-text">Do pretrained Transformers Really Learn In-context by Gradient Descent?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-Compression-for-Auto-regressive-Transformers-with-Sentinel-Tokens"><span class="nav-number">2.</span> <span class="nav-text">Context Compression for Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +434,7 @@ Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -481,23 +477,15 @@ Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/f598af9a" title="2025-07-02-insights" target="_blank">2025-07-02-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1eaf1499" title="2025-07-01-insights" target="_blank">2025-07-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/b519c023" title="2025-06-30-insights" target="_blank">2025-06-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/964b049a" title="2025-06-27-insights" target="_blank">2025-06-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/79896fa4" title="2025-06-26-insights" target="_blank">2025-06-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/92bed4a7" title="2025-06-25-insights" target="_blank">2025-06-25-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -518,6 +506,14 @@ Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -573,7 +569,7 @@ Auto-regressive Transformers with Sentinel Tokens</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -314,33 +314,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="training-a-generally-curious-agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.17543">Training a Generally Curious
-Agent</a></h2>
-<p>这篇工作名字很大，但其实是一个类似于Incontext
-RL的方向，作者视图合成让模型直接in
-context里做得更好的数据，并且按照直接的方式训回去。</p>
-<p><img src="../../files/images/arxiv-insights/2025-02-24-02-28/length.png"></p>
-<h2 id="towards-thinking-optimal-scaling-of-test-time-compute-for-llm-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.18080">Towards Thinking-Optimal Scaling
-of Test-Time Compute for LLM Reasoning</a></h2>
-<p>作者发现，在不同的数据集上，其实都有对应的比较好的thought长度区间，在thought超过某个区间后，效果也不会增长了、甚至会下降。所以，如果让模型给每个数据集学着匹配对应的optimal
-thought
-length是有价值的。所以，作者用了不同长度的种子数据激发模型在不同数据集上用不同长度的thought去infer，然后把答案正确的数据里面，长度最短的训回去，达到了接近qwq-32B的效果</p>
+        <h2 id="Training-a-Generally-Curious-Agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.17543">Training a Generally Curious Agent</a></h2>
+<p>这篇工作名字很大，但其实是一个类似于Incontext RL的方向，作者视图合成让模型直接in context里做得更好的数据，并且按照直接的方式训回去。</p>
+<img src="../../files/images/arxiv-insights/2025-02-24-02-28/length.png">
+<h2 id="Towards-Thinking-Optimal-Scaling-of-Test-Time-Compute-for-LLM-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.18080">Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning</a></h2>
+<p>作者发现，在不同的数据集上，其实都有对应的比较好的thought长度区间，在thought超过某个区间后，效果也不会增长了、甚至会下降。所以，如果让模型给每个数据集学着匹配对应的optimal thought length是有价值的。所以，作者用了不同长度的种子数据激发模型在不同数据集上用不同长度的thought去infer，然后把答案正确的数据里面，长度最短的训回去，达到了接近qwq-32B的效果</p>
 <blockquote>
 <p>如果在rl里面对thought加长度惩罚会怎么样呢？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-24-02-28/length.png"></p>
-<h2 id="agentrm-enhancing-agent-generalization-with-reward-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.18407">AgentRM: Enhancing Agent
-Generalization with Reward Modeling</a></h2>
-<p>推荐实验室的工作。作者探索了在不同agent任务上，是否可以用同一个reward
-model对agent trace进行打分，并且探索agent reward
-model的泛化能力。发现在训练数据scaling到10个场景以后，rm表现出来了跨任务的泛化能力</p>
+<img src="../../files/images/arxiv-insights/2025-02-24-02-28/length.png">
+<h2 id="AgentRM-Enhancing-Agent-Generalization-with-Reward-Modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.18407">AgentRM: Enhancing Agent Generalization with Reward Modeling</a></h2>
+<p>推荐实验室的工作。作者探索了在不同agent任务上，是否可以用同一个reward model对agent trace进行打分，并且探索agent reward model的泛化能力。发现在训练数据scaling到10个场景以后，rm表现出来了跨任务的泛化能力</p>
 <blockquote>
-<p>这个领域是一个非常重要的领域，现在大家都在探索policy model和reward
-model，谁具有更好的泛化性质。如果reward
-model泛化更好的话，理论上我们就可以定义generalization语境下的generate-verify
-gap了</p>
+<p>这个领域是一个非常重要的领域，现在大家都在探索policy model和reward model，谁具有更好的泛化性质。如果reward model泛化更好的话，理论上我们就可以定义generalization语境下的generate-verify gap了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-24-02-28/agentrm.png"></p>
+<img src="../../files/images/arxiv-insights/2025-02-24-02-28/agentrm.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -357,13 +345,13 @@ gap了</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f598af9a.html" rel="bookmark">2025-07-02-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1eaf1499.html" rel="bookmark">2025-07-01-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b519c023.html" rel="bookmark">2025-06-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/964b049a.html" rel="bookmark">2025-06-27-insights</a></div>
     </li>
   </ul>
 
@@ -440,10 +428,7 @@ gap了</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#training-a-generally-curious-agent"><span class="nav-number">1.</span> <span class="nav-text">Training a Generally Curious
-Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#towards-thinking-optimal-scaling-of-test-time-compute-for-llm-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Towards Thinking-Optimal Scaling
-of Test-Time Compute for LLM Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agentrm-enhancing-agent-generalization-with-reward-modeling"><span class="nav-number">3.</span> <span class="nav-text">AgentRM: Enhancing Agent
-Generalization with Reward Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-a-Generally-Curious-Agent"><span class="nav-number">1.</span> <span class="nav-text">Training a Generally Curious Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Thinking-Optimal-Scaling-of-Test-Time-Compute-for-LLM-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Towards Thinking-Optimal Scaling of Test-Time Compute for LLM Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AgentRM-Enhancing-Agent-Generalization-with-Reward-Modeling"><span class="nav-number">3.</span> <span class="nav-text">AgentRM: Enhancing Agent Generalization with Reward Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -458,7 +443,7 @@ Generalization with Reward Modeling</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -501,23 +486,15 @@ Generalization with Reward Modeling</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/f598af9a" title="2025-07-02-insights" target="_blank">2025-07-02-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1eaf1499" title="2025-07-01-insights" target="_blank">2025-07-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/b519c023" title="2025-06-30-insights" target="_blank">2025-06-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/964b049a" title="2025-06-27-insights" target="_blank">2025-06-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/79896fa4" title="2025-06-26-insights" target="_blank">2025-06-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/92bed4a7" title="2025-06-25-insights" target="_blank">2025-06-25-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -538,6 +515,14 @@ Generalization with Reward Modeling</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -593,7 +578,7 @@ Generalization with Reward Modeling</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
