@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>914</span>
+              <span>904</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,22 +315,30 @@
 
       
         <p>这周二的155篇比起上上周的310篇，只能说是远远不及</p>
-<h2 id="Granite-Function-Calling-Model-Introducing-Function-Call-ing-Abilities-via-Multi-task-Learning-of-Granular-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.00121"><strong>Granite-Function Calling Model: Introducing Function Call- ing Abilities via Multi-task Learning of Granular Tasks</strong></a></h2>
-<p>IBM的工作，现在好像挺少看到他们的工作：作者目标是OpenAI的json-mode，搞了一大堆数据，开源了一个20B模型，基本达到了json-mode水平，可以理解json-format，进行function call，甚至还有parallel function call功能</p>
-<img src="../../files/images/arxiv-insights/2024-07-01-07-05/function.png">
-<h2 id="AGENTLESS-Demystifying-LLM-based-Software-Engineering-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.01489">AGENTLESS:Demystifying LLM-based Software Engineering Agents</a></h2>
-<p>又是一篇反套路文，可能也没那么反套路？作者研究了一下SWE-Bench，发现目前大家卷这个bench都是很多复杂pipeline设计，他们想：能不能化简这些框架，搞成简单的code repair任务呢？结果去掉了一堆pipeline设计以后，acc反而达到了27%，而且只花0.34$就能完成任务。同时，作者研究了一下SWE-Bench的case，发现里面有些case是错的、或者又问题，就搞了个新的benchmark SWE-Bench Lite-S</p>
+<h2 id="granite-function-calling-model-introducing-function-call--ing-abilities-via-multi-task-learning-of-granular-tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.00121"><strong>Granite-Function Calling
+Model: Introducing Function Call- ing Abilities via Multi-task Learning
+of Granular Tasks</strong></a></h2>
+<p>IBM的工作，现在好像挺少看到他们的工作：作者目标是OpenAI的json-mode，搞了一大堆数据，开源了一个20B模型，基本达到了json-mode水平，可以理解json-format，进行function
+call，甚至还有parallel function call功能</p>
+<p><img src="../../files/images/arxiv-insights/2024-07-01-07-05/function.png"></p>
+<h2 id="agentlessdemystifying-llm-based-software-engineering-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.01489">AGENTLESS:Demystifying LLM-based
+Software Engineering Agents</a></h2>
+<p>又是一篇反套路文，可能也没那么反套路？作者研究了一下SWE-Bench，发现目前大家卷这个bench都是很多复杂pipeline设计，他们想：能不能化简这些框架，搞成简单的code
+repair任务呢？结果去掉了一堆pipeline设计以后，acc反而达到了27%，而且只花0.34$就能完成任务。同时，作者研究了一下SWE-Bench的case，发现里面有些case是错的、或者又问题，就搞了个新的benchmark
+SWE-Bench Lite-S</p>
 <blockquote>
 <p>遇到科研实在人了……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-01-07-05/AgentLess.png">
-<h2 id="REGMIX-Data-Mixture-as-Regression-for-Language-Model-Pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.01492">REGMIX: Data Mixture as Regression for Language Model Pre-training</a></h2>
-<p>pretrain data selection相关的论文，这个方向的祖师爷是DoReMi。作者这次考虑了一个基本假设：不同大小的模型应该享有相同的&quot;最优数据配比&quot;，即最优数据配比下训练小模型和大模型应该都是最优的。所以作者用不同数据配比训了一堆小模型，在performance上训了一个回归模型，然后找到最优配比，再由此训大模型。作者发现这样搜出来的配比比人工挑出来的配比效果要更好</p>
+<p><img src="../../files/images/arxiv-insights/2024-07-01-07-05/AgentLess.png"></p>
+<h2 id="regmix-data-mixture-as-regression-for-language-model-pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.01492">REGMIX: Data Mixture as
+Regression for Language Model Pre-training</a></h2>
+<p>pretrain data
+selection相关的论文，这个方向的祖师爷是DoReMi。作者这次考虑了一个基本假设：不同大小的模型应该享有相同的"最优数据配比"，即最优数据配比下训练小模型和大模型应该都是最优的。所以作者用不同数据配比训了一堆小模型，在performance上训了一个回归模型，然后找到最优配比，再由此训大模型。作者发现这样搜出来的配比比人工挑出来的配比效果要更好</p>
 <blockquote>
 <p>感觉挺有实用价值的，但是这个假设不一定对：现在有些人觉得小模型capability不够，有些mixture学了也是白学，如果承认这个理论，那这个论文的假设可能不够好？</p>
 <p>……话说我本科有个大作业就是这么刷榜的……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-07-01-07-05/regmix.png">
+<p><img src="../../files/images/arxiv-insights/2024-07-01-07-05/regmix.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +355,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f886dfdd.html" rel="bookmark">2025-07-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1a5ac4a4.html" rel="bookmark">2025-07-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f598af9a.html" rel="bookmark">2025-07-02-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1eaf1499.html" rel="bookmark">2025-07-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b519c023.html" rel="bookmark">2025-06-30-insights</a></div>
     </li>
   </ul>
 
@@ -430,7 +438,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Granite-Function-Calling-Model-Introducing-Function-Call-ing-Abilities-via-Multi-task-Learning-of-Granular-Tasks"><span class="nav-number">1.</span> <span class="nav-text">Granite-Function Calling Model: Introducing Function Call- ing Abilities via Multi-task Learning of Granular Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AGENTLESS-Demystifying-LLM-based-Software-Engineering-Agents"><span class="nav-number">2.</span> <span class="nav-text">AGENTLESS:Demystifying LLM-based Software Engineering Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#REGMIX-Data-Mixture-as-Regression-for-Language-Model-Pre-training"><span class="nav-number">3.</span> <span class="nav-text">REGMIX: Data Mixture as Regression for Language Model Pre-training</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#granite-function-calling-model-introducing-function-call--ing-abilities-via-multi-task-learning-of-granular-tasks"><span class="nav-number">1.</span> <span class="nav-text">Granite-Function Calling
+Model: Introducing Function Call- ing Abilities via Multi-task Learning
+of Granular Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agentlessdemystifying-llm-based-software-engineering-agents"><span class="nav-number">2.</span> <span class="nav-text">AGENTLESS:Demystifying LLM-based
+Software Engineering Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#regmix-data-mixture-as-regression-for-language-model-pre-training"><span class="nav-number">3.</span> <span class="nav-text">REGMIX: Data Mixture as
+Regression for Language Model Pre-training</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +457,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,15 +500,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f886dfdd" title="2025-07-04-insights" target="_blank">2025-07-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/1a5ac4a4" title="2025-07-03-insights" target="_blank">2025-07-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f598af9a" title="2025-07-02-insights" target="_blank">2025-07-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/1eaf1499" title="2025-07-01-insights" target="_blank">2025-07-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b519c023" title="2025-06-30-insights" target="_blank">2025-06-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -521,10 +537,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -580,7 +592,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -314,57 +314,65 @@
       
         <p>主要是阅读了下面这篇博客：</p>
 <blockquote>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://yang-song.github.io/blog/2021/score/">Generative Modeling by Estimating Gradients of the Data Distribution</a></p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://yang-song.github.io/blog/2021/score/">Generative
+Modeling by Estimating Gradients of the Data Distribution</a></p>
 </blockquote>
 <p>这是去年ICLR论文作者对其论文的讲解</p>
 <blockquote>
-<p>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL EQUATIONS</p>
+<p>SCORE-BASED GENERATIVE MODELING THROUGH STOCHASTIC DIFFERENTIAL
+EQUATIONS</p>
 </blockquote>
 <p>生成模型都是想要通过训练集获取数据的分布(比如人脸数据集就是人脸长什么样)，再通过采样一个和源数据集分布相同的数据进行生成。</p>
 <h2 id="经典方法">经典方法</h2>
 <p>作者谈到了经典生成模型里两种形式:</p>
 <ul>
-<li><strong>likelihood-based models</strong>: 直接获取源数据集中数据的分布，或者用某种上下界来近似。auto-regressive， energe-based model, flow model, VAE都是这种情况
+<li><strong>likelihood-based models</strong>:
+直接获取源数据集中数据的分布，或者用某种上下界来近似。auto-regressive，
+energe-based model, flow model, VAE都是这种情况
 <ul>
 <li>问题是：需要保证分布是归一化的，因此很难大规模地应用在各种任务上（需要改模型结构）。或者，用某种上下界来估计分布，因此会有偏差。</li>
-</ul>
-</li>
-<li><strong>implicit generative models</strong>：隐式表示数据集中数据的分布。比如GAN，通过一个分类器的得分来表示和原数据集分布的区别，进而让模型来学习。
+</ul></li>
+<li><strong>implicit generative
+models</strong>：隐式表示数据集中数据的分布。比如GAN，通过一个分类器的得分来表示和原数据集分布的区别，进而让模型来学习。
 <ul>
 <li>问题是：需要对抗训练，很难收敛。生成的内容也比较容易崩溃。</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="score-function-score-based-model-score-matching">score function,  score-based model, score matching</h2>
-<p>我们定义这个score:<br>
-$$<br>
-score = \bigtriangledown_x \log p(x)<br>
-$$<br>
-好处在于，因为是对于导数的模拟，因此，这个score不需要归一化。不管怎么样都是一个归一的分布。score based model就是在逼近这个分布：<br>
-$$<br>
-s_\theta(x) \approx \bigtriangledown_x \log p(x)<br>
-$$</p>
-<h4 id="如何逼近？">如何逼近？</h4>
-<p>可以看出，score model是对概率分布的对数导数做估计，需要找一个满足这个条件的分布方法——Fisher-deivergence:<br>
-$$<br>
-\text{Fisher Distance} = E_{P(x)} || \bigtriangledown_x\log p(x) - s_\theta||^2_2<br>
-$$<br>
-这个可以衡量两个分布的距离：</p>
+<h2 id="score-function-score-based-model-score-matching">score function,
+score-based model, score matching</h2>
+<p>我们定义这个score: <span class="math display">\[
+score = \bigtriangledown_x \log p(x)
+\]</span>
+好处在于，因为是对于导数的模拟，因此，这个score不需要归一化。不管怎么样都是一个归一的分布。score
+based model就是在逼近这个分布： <span class="math display">\[
+s_\theta(x) \approx \bigtriangledown_x \log p(x)
+\]</span></p>
+<h4 id="如何逼近">如何逼近？</h4>
+<p>可以看出，score
+model是对概率分布的对数导数做估计，需要找一个满足这个条件的分布方法——Fisher-deivergence:
+<span class="math display">\[
+\text{Fisher Distance} = E_{P(x)} || \bigtriangledown_x\log p(x) -
+s_\theta||^2_2
+\]</span> 这个可以衡量两个分布的距离：</p>
 <ul>
 <li>越“接近“的分布距离越小</li>
 <li>相同的分布距离是0</li>
 </ul>
-<p>通过优化fisher距离，我们就能让score based model学到训练集的数据分布了。同时，通过一些score matching的算法，我们不需要知道原始数据集的$\bigtriangledown_x\log p(x)$就能优化，也不需要对抗的训练。</p>
-<h2 id="Langevin-dynamics">Langevin dynamics</h2>
-<p>训练完成以后，如何采样呢？<br>
-$$<br>
-x_{i+1} = x_i + \epsilon \bigtriangledown_x\log p(x) + \sqrt{2\epsilon} z_i<br>
-$$</p>
-<p>$$<br>
-z_i \in N(0,1), x_0 \in N(0,1),<br>
-$$</p>
-<p>通过多部迭代，可以保证一个随机的点最终会以$p(x)$的概率存在在空间中</p>
-<p>其中上面的导数部分用score based model近似。这样，我们不需要额外的计算就可以采样了</p>
+<p>通过优化fisher距离，我们就能让score based
+model学到训练集的数据分布了。同时，通过一些score
+matching的算法，我们不需要知道原始数据集的<span class="math inline">\(\bigtriangledown_x\log
+p(x)\)</span>就能优化，也不需要对抗的训练。</p>
+<h2 id="langevin-dynamics">Langevin dynamics</h2>
+<p>训练完成以后，如何采样呢？ <span class="math display">\[
+x_{i+1} = x_i + \epsilon \bigtriangledown_x\log p(x) + \sqrt{2\epsilon}
+z_i
+\]</span></p>
+<p><span class="math display">\[
+z_i \in N(0,1), x_0 \in N(0,1),
+\]</span></p>
+<p>通过多部迭代，可以保证一个随机的点最终会以<span class="math inline">\(p(x)\)</span>的概率存在在空间中</p>
+<p>其中上面的导数部分用score based
+model近似。这样，我们不需要额外的计算就可以采样了</p>
 <h2 id="score-based-model-问题与解决">score-based model 问题与解决</h2>
 <p>刚才的 fisher-rao distance存在的问题是：</p>
 <ul>
@@ -376,36 +384,35 @@ $$</p>
 </ul>
 <p>对于上面的问题，一个解决办法思路：</p>
 <ul>
-<li>能不能对原始分布叠加上一些随机噪音。让高低密度区域不要区分的这么明显，进而让 score model 学到所有位置的分布</li>
+<li>能不能对原始分布叠加上一些随机噪音。让高低密度区域不要区分的这么明显，进而让
+score model 学到所有位置的分布</li>
 </ul>
 <p>这个思路很好，但是有几个衍生的问题：</p>
 <ul>
-<li>&quot;噪声&quot;取多大？</li>
+<li>"噪声"取多大？</li>
 </ul>
 <p>有一个折中的办法：</p>
 <ul>
 <li>多步加噪声，每次都是上一轮分布再叠加一个噪声。这样后面的分布趋向于随机分布。前面的分布和原始分布非常接近。</li>
 </ul>
-<p>这种情况下，我们的score-based model 也需要相应的改变：<br>
-$$<br>
-S_\theta(x) \rightarrow S_\theta(x,t)<br>
-$$</p>
-<p>$$<br>
-S_\theta(x,t) \approx \bigtriangledown_x\log p(x,t)<br>
-$$</p>
-<p>可以逼近每一个采样步骤的分布。在学习这个score model时，我们需要考虑所有的噪声分布，加权：<br>
-$$<br>
-\sum_{i=1}^L \lambda_i E_{P(x,i)} || \bigtriangledown_x\log p(x,i) - S_\theta(x,i)||^2_2<br>
-$$<br>
-其中，权重一般就选取每一轮高斯噪声的方差：<br>
-$$<br>
-\lambda_i = \sigma_i^2<br>
-$$<br>
-同时，在采样的过程中，我们修改原始的Langevin dynamics采样:<br>
-$$<br>
-x_{i+1} = x_i + \epsilon S_\theta(x,T-i) + \sqrt{2\epsilon} z_i<br>
-$$<br>
-让每一步点都按照不同的分布进行行走。最终逐步去噪到一个原始分布的点。这个算法叫做<strong>annealed Langevin dynamics</strong></p>
+<p>这种情况下，我们的score-based model 也需要相应的改变： <span class="math display">\[
+S_\theta(x) \rightarrow S_\theta(x,t)
+\]</span></p>
+<p><span class="math display">\[
+S_\theta(x,t) \approx \bigtriangledown_x\log p(x,t)
+\]</span></p>
+<p>可以逼近每一个采样步骤的分布。在学习这个score
+model时，我们需要考虑所有的噪声分布，加权： <span class="math display">\[
+\sum_{i=1}^L \lambda_i E_{P(x,i)} || \bigtriangledown_x\log p(x,i) -
+S_\theta(x,i)||^2_2
+\]</span> 其中，权重一般就选取每一轮高斯噪声的方差： <span class="math display">\[
+\lambda_i = \sigma_i^2
+\]</span> 同时，在采样的过程中，我们修改原始的Langevin dynamics采样:
+<span class="math display">\[
+x_{i+1} = x_i + \epsilon S_\theta(x,T-i) + \sqrt{2\epsilon} z_i
+\]</span>
+让每一步点都按照不同的分布进行行走。最终逐步去噪到一个原始分布的点。这个算法叫做<strong>annealed
+Langevin dynamics</strong></p>
 <p>博客后面关于微分方程的部分我打算在论文阅读完以后写上</p>
 
     </div>
@@ -517,7 +524,8 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">经典方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#score-function-score-based-model-score-matching"><span class="nav-number">2.</span> <span class="nav-text">score function,  score-based model, score matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%BC%E8%BF%91%EF%BC%9F"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何逼近？</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Langevin-dynamics"><span class="nav-number">3.</span> <span class="nav-text">Langevin dynamics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#score-based-model-%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text">score-based model 问题与解决</span></a></li></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%8F%E5%85%B8%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">经典方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#score-function-score-based-model-score-matching"><span class="nav-number">2.</span> <span class="nav-text">score function,
+score-based model, score matching</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%80%BC%E8%BF%91"><span class="nav-number">2.0.1.</span> <span class="nav-text">如何逼近？</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#langevin-dynamics"><span class="nav-number">3.</span> <span class="nav-text">Langevin dynamics</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#score-based-model-%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">4.</span> <span class="nav-text">score-based model 问题与解决</span></a></li></div>
       </div>
       <!--/noindex-->
 
@@ -532,7 +540,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -575,15 +583,19 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/f886dfdd" title="2025-07-04-insights" target="_blank">2025-07-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/1a5ac4a4" title="2025-07-03-insights" target="_blank">2025-07-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f598af9a" title="2025-07-02-insights" target="_blank">2025-07-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/1eaf1499" title="2025-07-01-insights" target="_blank">2025-07-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b519c023" title="2025-06-30-insights" target="_blank">2025-06-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -608,10 +620,6 @@ $$<br>
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -667,7 +675,7 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

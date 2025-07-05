@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>759</span>
+              <span>749</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,19 +313,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="First-Activations-Matter-Training-Free-Methods-for-Dynamic-Activation-in-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.11393">First Activations Matter: Training-Free Methods for Dynamic Activation in Large Language Models</a></h2>
-<p>这篇工作瞄准的时dynamic activation这个领域，这是一个和MoE对偶的场景：MoE认为我把FFN复制好多份，每次让模型竞争选出来谁是最合适的去激活。这个场景则不复制参数，而是认为正常的参数激活的过程中也是稀疏的，能不能提前预测这个稀疏性，进而干脆不计算可能贡献不大的部分。注意，不计算和不激活是俩概念，不激活还是得算了才知道，所以本质上没有加速；而不计算是真的没有算。</p>
-<p>这篇工作更近一步，尝试了能不能干脆不去训练所谓的&quot;sparse predictor&quot;，而是换成一个预先定义的、参数搜索的算法，竟然效果还不错</p>
+        <h2 id="first-activations-matter-training-free-methods-for-dynamic-activation-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.11393">First Activations Matter:
+Training-Free Methods for Dynamic Activation in Large Language
+Models</a></h2>
+<p>这篇工作瞄准的时dynamic
+activation这个领域，这是一个和MoE对偶的场景：MoE认为我把FFN复制好多份，每次让模型竞争选出来谁是最合适的去激活。这个场景则不复制参数，而是认为正常的参数激活的过程中也是稀疏的，能不能提前预测这个稀疏性，进而干脆不计算可能贡献不大的部分。注意，不计算和不激活是俩概念，不激活还是得算了才知道，所以本质上没有加速；而不计算是真的没有算。</p>
+<p>这篇工作更近一步，尝试了能不能干脆不去训练所谓的"sparse
+predictor"，而是换成一个预先定义的、参数搜索的算法，竟然效果还不错</p>
 <blockquote>
 <p>我也是新知道这个领域，感觉有点像是折叠屏手机里面的大折叠屏和小折叠屏……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-08-19-08-23/dynamic-activation.png">
-<h2 id="FocusLLM-Scaling-LLM’s-Context-by-Parallel-Decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.11745">FocusLLM: Scaling LLM’s Context by Parallel Decoding</a></h2>
-<p>朋友的工作，挺有趣的long context思路：有点类似之前有篇Activation Beacon的工作。如果很长的context对于后文的decoding分别有作用，那么能不能把context分解成多个chunk，然后并行扫描给出hidden state中间结果。并最终让模型参考中间结果做最终的生成。作者发现这是可行的，并且在实际上可以把一个chunk压缩成几个token。</p>
+<p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/dynamic-activation.png"></p>
+<h2 id="focusllm-scaling-llms-context-by-parallel-decoding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2408.11745">FocusLLM: Scaling LLM’s Context
+by Parallel Decoding</a></h2>
+<p>朋友的工作，挺有趣的long context思路：有点类似之前有篇Activation
+Beacon的工作。如果很长的context对于后文的decoding分别有作用，那么能不能把context分解成多个chunk，然后并行扫描给出hidden
+state中间结果。并最终让模型参考中间结果做最终的生成。作者发现这是可行的，并且在实际上可以把一个chunk压缩成几个token。</p>
 <blockquote>
-<p>这里和之前做sentence embedding的核心区别是，在对chunk进行编码时是可以看到之前解码的上下文的，因此模型知道如何保留对local context有用的信息。其实对于很多类似于perplexity的场景，long context的来源就是一些语义无关的chunk</p>
+<p>这里和之前做sentence
+embedding的核心区别是，在对chunk进行编码时是可以看到之前解码的上下文的，因此模型知道如何保留对local
+context有用的信息。其实对于很多类似于perplexity的场景，long
+context的来源就是一些语义无关的chunk</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-08-19-08-23/focusLLM.png">
+<p><img src="../../files/images/arxiv-insights/2024-08-19-08-23/focusLLM.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f886dfdd.html" rel="bookmark">2025-07-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1a5ac4a4.html" rel="bookmark">2025-07-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f598af9a.html" rel="bookmark">2025-07-02-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1eaf1499.html" rel="bookmark">2025-07-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b519c023.html" rel="bookmark">2025-06-30-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +435,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Activations-Matter-Training-Free-Methods-for-Dynamic-Activation-in-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">First Activations Matter: Training-Free Methods for Dynamic Activation in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FocusLLM-Scaling-LLM%E2%80%99s-Context-by-Parallel-Decoding"><span class="nav-number">2.</span> <span class="nav-text">FocusLLM: Scaling LLM’s Context by Parallel Decoding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#first-activations-matter-training-free-methods-for-dynamic-activation-in-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">First Activations Matter:
+Training-Free Methods for Dynamic Activation in Large Language
+Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#focusllm-scaling-llms-context-by-parallel-decoding"><span class="nav-number">2.</span> <span class="nav-text">FocusLLM: Scaling LLM’s Context
+by Parallel Decoding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">133</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,15 +496,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f886dfdd" title="2025-07-04-insights" target="_blank">2025-07-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/1a5ac4a4" title="2025-07-03-insights" target="_blank">2025-07-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/f598af9a" title="2025-07-02-insights" target="_blank">2025-07-02-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/1eaf1499" title="2025-07-01-insights" target="_blank">2025-07-01-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b519c023" title="2025-06-30-insights" target="_blank">2025-06-30-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -516,10 +533,6 @@
       
         <li class="recent_posts_li">
           <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,7 +588,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
