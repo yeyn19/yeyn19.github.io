@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Model as a Game: On Numerical and Spatial Consistency for Generative Games 作者研究的是controlable video generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。">
+  <meta name="description" content="Model as a Game: On Numerical and Spatial Consistency for Generative Games作者研究的是controlable video generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-03-28-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/7a6fec04">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Model as a Game: On Numerical and Spatial Consistency for Generative Games 作者研究的是controlable video generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。">
+<meta property="og:description" content="Model as a Game: On Numerical and Spatial Consistency for Generative Games作者研究的是controlable video generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/maag.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-24-03-28/ui-r1.png">
@@ -313,20 +313,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="model-as-a-game-on-numerical-and-spatial-consistency-for-generative-games"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.21172">Model as a Game: On Numerical
-and Spatial Consistency for Generative Games</a></h2>
-<p>作者研究的是controlable video
-generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map
-module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。</p>
+        <h2 id="Model-as-a-Game-On-Numerical-and-Spatial-Consistency-for-Generative-Games"><a href="#Model-as-a-Game-On-Numerical-and-Spatial-Consistency-for-Generative-Games" class="headerlink" title="Model as a Game: On Numerical and Spatial Consistency for Generative Games"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.21172">Model as a Game: On Numerical and Spatial Consistency for Generative Games</a></h2><p>作者研究的是controlable video generation中，特定在游戏场景里，模型是否遵循数字和固定的地图。作者发现，在模型结构中额外设计number和map module，来记录当前的游戏和地图状态，可以让生成的视频极大地增强一致性。</p>
 <blockquote>
-<p>所以一个极端是纯cg渲染，一个极端是纯ai渲染。中间其实有很多形态，类似于这里的number
-module，或者nerf？这个趋势听着怎么这么像rpa了……</p>
+<p>所以一个极端是纯cg渲染，一个极端是纯ai渲染。中间其实有很多形态，类似于这里的number module，或者nerf？这个趋势听着怎么这么像rpa了……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-24-03-28/maag.png"></p>
-<h2 id="ui-r1-enhancing-action-prediction-of-gui-agents-by-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.21620">UI-R1: Enhancing Action
-Prediction of GUI Agents by Reinforcement Learning</a></h2>
-<p>作者的思路很有意思：在gui-offline场景里，也就是说我提前知道一个好的完成任务的trace，能不能给出前缀，让模型通过rl的方式一直sample，然后奖励所有和target
-action一致的sample呢？作者发现通过这个方案，可以把效果优化的不错。</p>
+<h2 id="UI-R1-Enhancing-Action-Prediction-of-GUI-Agents-by-Reinforcement-Learning"><a href="#UI-R1-Enhancing-Action-Prediction-of-GUI-Agents-by-Reinforcement-Learning" class="headerlink" title="UI-R1: Enhancing Action Prediction of GUI Agents by Reinforcement Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.21620">UI-R1: Enhancing Action Prediction of GUI Agents by Reinforcement Learning</a></h2><p>作者的思路很有意思：在gui-offline场景里，也就是说我提前知道一个好的完成任务的trace，能不能给出前缀，让模型通过rl的方式一直sample，然后奖励所有和target action一致的sample呢？作者发现通过这个方案，可以把效果优化的不错。</p>
 <blockquote>
 <p>谁引用我我推荐谁……话说我之前想过过这个问题，感觉这个方案有个假设是：模型具有完成任务的app知识，因为rl，尤其是小规模的rl，只会激励知识的连接，而不会习得知识。不确定这种方案在扩展到更大题库时，会不会导致灾难性幻觉现象</p>
 </blockquote>
@@ -347,13 +339,13 @@ action一致的sample呢？作者发现通过这个方案，可以把效果优�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d6ca6b23.html" rel="bookmark">2025-07-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3908001d.html" rel="bookmark">2025-07-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/df21cb59.html" rel="bookmark">2025-07-11-insights</a></div>
     </li>
   </ul>
 
@@ -430,9 +422,7 @@ action一致的sample呢？作者发现通过这个方案，可以把效果优�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#model-as-a-game-on-numerical-and-spatial-consistency-for-generative-games"><span class="nav-number">1.</span> <span class="nav-text">Model as a Game: On Numerical
-and Spatial Consistency for Generative Games</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ui-r1-enhancing-action-prediction-of-gui-agents-by-reinforcement-learning"><span class="nav-number">2.</span> <span class="nav-text">UI-R1: Enhancing Action
-Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model-as-a-Game-On-Numerical-and-Spatial-Consistency-for-Generative-Games"><span class="nav-number">1.</span> <span class="nav-text">Model as a Game: On Numerical and Spatial Consistency for Generative Games</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI-R1-Enhancing-Action-Prediction-of-GUI-Agents-by-Reinforcement-Learning"><span class="nav-number">2.</span> <span class="nav-text">UI-R1: Enhancing Action Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,7 +437,7 @@ Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,6 +480,10 @@ Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d6ca6b23" title="2025-07-15-insights" target="_blank">2025-07-15-insights</a>
         </li>
       
@@ -523,10 +517,6 @@ Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -582,12 +572,12 @@ Prediction of GUI Agents by Reinforcement Learning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">281k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <i class="fa fa-user-md"></i>

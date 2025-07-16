@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully 上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高">
+  <meta name="description" content="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3a9b3e16">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully 上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高">
+<meta property="og:description" content="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/SH2.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/concise.png">
@@ -313,19 +313,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="sh2-self-highlighted-hesitation-helps-you-decode-more-truthfully"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.05930.pdf">SH2: Self-Highlighted
-Hesitation Helps You Decode More Truthfully</a></h2>
-<p>上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮。这样的模型可以对此仔细考虑一下，进而提升效果</p>
+        <h2 id="SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully"><a href="#SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully" class="headerlink" title="SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.05930.pdf">SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully</a></h2><p>上交的工作，作者想要解决hallucinate的问题。在selective-classification领域有个叫maxProb的方法，是说logits小的token大概率也会做错。作者从这个规律出发，对于模型uncertainty高的token，链接到文本中并加以高亮。这样的模型可以对此仔细考虑一下，进而提升效果</p>
 <blockquote>
 <p>这个方法和之前的R-Tuning、Align-for-Honesty有点类似，都需要模型前向两次。由前一次的输出指导后一次的生成，得到一个model-oriented的信号。这个范式感觉是truthfulLLM的一个重要概念，以后设计算法不知道是不是都可以走这个路线。</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/SH2.png"></p>
-<h2 id="the-benefits-of-a-concise-chain-of-thought-on-problem-solving-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.05618.pdf">The Benefits of a Concise
-Chain of Thought on Problem-Solving in Large Language Models</a></h2>
-<p>和昨天那个<a href="/d1ac8515.html" title="2024-01-11-insights">CoT越长，效果越好</a>
-的论文相反，这篇得出的结论是如果CoT是简洁的，那么效果反而会更好。使用“Let's
-us think step by step, and be
-concise”在减少token消耗的基础上，提升了效果</p>
+<h2 id="The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models"><a href="#The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models" class="headerlink" title="The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.05618.pdf">The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models</a></h2><p>和昨天那个<a href="/d1ac8515.html" title="2024-01-11-insights">CoT越长，效果越好</a> 的论文相反，这篇得出的结论是如果CoT是简洁的，那么效果反而会更好。使用“Let’s us think step by step, and be concise”在减少token消耗的基础上，提升了效果</p>
 <blockquote>
 <p>看来他们得打一架了</p>
 </blockquote>
@@ -346,13 +339,13 @@ concise”在减少token消耗的基础上，提升了效果</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d6ca6b23.html" rel="bookmark">2025-07-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3908001d.html" rel="bookmark">2025-07-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/df21cb59.html" rel="bookmark">2025-07-11-insights</a></div>
     </li>
   </ul>
 
@@ -429,9 +422,7 @@ concise”在减少token消耗的基础上，提升了效果</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#sh2-self-highlighted-hesitation-helps-you-decode-more-truthfully"><span class="nav-number">1.</span> <span class="nav-text">SH2: Self-Highlighted
-Hesitation Helps You Decode More Truthfully</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-benefits-of-a-concise-chain-of-thought-on-problem-solving-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">The Benefits of a Concise
-Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SH2-Self-Highlighted-Hesitation-Helps-You-Decode-More-Truthfully"><span class="nav-number">1.</span> <span class="nav-text">SH2: Self-Highlighted Hesitation Helps You Decode More Truthfully</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Benefits-of-a-Concise-Chain-of-Thought-on-Problem-Solving-in-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">The Benefits of a Concise Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -446,7 +437,7 @@ Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -489,6 +480,10 @@ Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol
       
       
         <li class="recent_posts_li">
+          <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d6ca6b23" title="2025-07-15-insights" target="_blank">2025-07-15-insights</a>
         </li>
       
@@ -522,10 +517,6 @@ Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -581,12 +572,12 @@ Chain of Thought on Problem-Solving in Large Language Models</span></a></li></ol
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">281k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:15</span>
 </div>
 
 <i class="fa fa-user-md"></i>
