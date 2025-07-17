@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="虽然是周二，不过今天看起来还好，没有论文爆炸 The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context LearningYejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？ 作者做了Llama2和Llama2-chat的t">
+  <meta name="description" content="虽然是周二，不过今天看起来还好，没有论文爆炸 The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？ 作者做了Llama2和Llama2-chat的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-12-05-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/c4f58f62">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="虽然是周二，不过今天看起来还好，没有论文爆炸 The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context LearningYejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？ 作者做了Llama2和Llama2-chat的t">
+<meta property="og:description" content="虽然是周二，不过今天看起来还好，没有论文爆炸 The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？ 作者做了Llama2和Llama2-chat的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-04-12-08/urial.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-04-12-08/IIA.png">
@@ -314,23 +314,35 @@
 
       
         <p>虽然是周二，不过今天看起来还好，没有论文爆炸</p>
-<h2 id="The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning"><a href="#The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning" class="headerlink" title="The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01552.pdf">The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning</a></h2><p>Yejin Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？</p>
-<p>作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。</p>
-<p>再进一步，既然如此简单，那么能不能不训练，直接用in-context learning呢？作者直接用了3-shot样本+system prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好</p>
+<h2 id="the-unlocking-spell-on-base-llms-rethinking-alignment-via-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01552.pdf">The Unlocking Spell on Base
+LLMs: Rethinking Alignment via In-Context Learning</a></h2>
+<p>Yejin
+Choi又来点子了：她发现有研究表明，SFT阶段即使只用1k数据也能获得效果。那么，SFT(+RLHF)的训练到底让模型获得了什么能力？</p>
+<p>作者做了Llama2和Llama2-chat的topk分析，发现：在绝大多数token上，他们的top-k没区别，只有在一些style
+token上会有区别。这说明：SFT也许只是让模型学会了如何在风格上像AI-assistant，但回答问题用的知识、推理等等来源于预训练。</p>
+<p>再进一步，既然如此简单，那么能不能不训练，直接用in-context
+learning呢？作者直接用了3-shot样本+system
+prompt，就让一个没有对齐的模型看起来像是对齐了。在对齐任务上甚至做的更好</p>
 <blockquote>
 <p>不愧 Yejin Choi，个人风格很强</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/urial.png"></p>
-<h2 id="RLHF-and-IIA-Perverse-Incentives"><a href="#RLHF-and-IIA-Perverse-Incentives" class="headerlink" title="RLHF and IIA: Perverse Incentives"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01057.pdf">RLHF and IIA: Perverse Incentives</a></h2><p>是的，摘要就这么短。</p>
+<h2 id="rlhf-and-iia-perverse-incentives"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01057.pdf">RLHF and IIA: Perverse
+Incentives</a></h2>
+<p>是的，摘要就这么短。</p>
 <blockquote>
-<p> IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我”更喜欢梨还是喜欢苹果”，回答是喜欢苹果。这个时候，如果引入橘子，然后问”更喜欢梨还是喜欢苹果”，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。</p>
+<p>IIA叫做无关变量独立性，引入别的的样本不影响原本样本的选择。举个例子：你问我"更喜欢梨还是喜欢苹果"，回答是喜欢苹果。这个时候，如果引入橘子，然后问"更喜欢梨还是喜欢苹果"，答案应该还是喜欢苹果。橘子的引入不影响之前概念的相对关系。</p>
 </blockquote>
 <p>作者认为，RLHF场景引入这个假设是有问题的。</p>
 <blockquote>
-<p> 感觉有道理呀……prompt领域比较火的self-consistency方法，似乎就是建立在非IIA假设上的？</p>
+<p>感觉有道理呀……prompt领域比较火的self-consistency方法，似乎就是建立在非IIA假设上的？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/IIA.png"></p>
-<h2 id="Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars"><a href="#Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars" class="headerlink" title="Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01429.pdf">Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars</a></h2><p>一作是华子。作者主要表达的观点是：目前很多transformer可解释性研究都试图在局部(某attention层)还原computation path，试图找到一些可解释的pattern。然而，作者说明局部可能没有任何pattern，全局的pattern在局部看起来很可能是”类随机的”。因此，局部的可解释性研究可能是有误导性的伪研究，撞运气没准能发现一个”pattern”。</p>
+<h2 id="transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-dyck-grammars"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.01429.pdf">Transformers are
+uninterpretable with myopic methods: a case study with bounded Dyck
+grammars</a></h2>
+<p>一作是华子。作者主要表达的观点是：目前很多transformer可解释性研究都试图在局部(某attention层)还原computation
+path，试图找到一些可解释的pattern。然而，作者说明局部可能没有任何pattern，全局的pattern在局部看起来很可能是"类随机的"。因此，局部的可解释性研究可能是有误导性的伪研究，撞运气没准能发现一个"pattern"。</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +359,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d6ca6b23.html" rel="bookmark">2025-07-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3908001d.html" rel="bookmark">2025-07-14-insights</a></div>
     </li>
   </ul>
 
@@ -430,7 +442,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Unlocking-Spell-on-Base-LLMs-Rethinking-Alignment-via-In-Context-Learning"><span class="nav-number">1.</span> <span class="nav-text">The Unlocking Spell on Base LLMs: Rethinking Alignment via In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RLHF-and-IIA-Perverse-Incentives"><span class="nav-number">2.</span> <span class="nav-text">RLHF and IIA: Perverse Incentives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-Dyck-grammars"><span class="nav-number">3.</span> <span class="nav-text">Transformers are uninterpretable with myopic methods: a case study with bounded Dyck grammars</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-unlocking-spell-on-base-llms-rethinking-alignment-via-in-context-learning"><span class="nav-number">1.</span> <span class="nav-text">The Unlocking Spell on Base
+LLMs: Rethinking Alignment via In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rlhf-and-iia-perverse-incentives"><span class="nav-number">2.</span> <span class="nav-text">RLHF and IIA: Perverse
+Incentives</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#transformers-are-uninterpretable-with-myopic-methods-a-case-study-with-bounded-dyck-grammars"><span class="nav-number">3.</span> <span class="nav-text">Transformers are
+uninterpretable with myopic methods: a case study with bounded Dyck
+grammars</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +461,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,23 +504,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d6ca6b23" title="2025-07-15-insights" target="_blank">2025-07-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3908001d" title="2025-07-14-insights" target="_blank">2025-07-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/df21cb59" title="2025-07-11-insights" target="_blank">2025-07-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/30e3a067" title="2025-07-10-insights" target="_blank">2025-07-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -525,6 +533,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -580,12 +596,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">281k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

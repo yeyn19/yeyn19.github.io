@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="SWE-smith: Scaling Data for Software Engineering Agents大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集&#x2F;sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。  所以，data is">
+  <meta name="description" content="SWE-smith: Scaling Data for Software Engineering Agents 大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集&#x2F;sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。  所以，data is">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-05-01-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/7ef3a1d2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="SWE-smith: Scaling Data for Software Engineering Agents大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集&#x2F;sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。  所以，data is">
+<meta property="og:description" content="SWE-smith: Scaling Data for Software Engineering Agents 大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集&#x2F;sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。  所以，data is">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-04-28-05-02/smith.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-04-28-05-02/prover-v2.png">
@@ -314,17 +314,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="SWE-smith-Scaling-Data-for-Software-Engineering-Agents"><a href="#SWE-smith-Scaling-Data-for-Software-Engineering-Agents" class="headerlink" title="SWE-smith: Scaling Data for Software Engineering Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21798">SWE-smith: Scaling Data for Software Engineering Agents</a></h2><p>大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集/sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。</p>
+        <h2 id="swe-smith-scaling-data-for-software-engineering-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21798">SWE-smith: Scaling Data for
+Software Engineering Agents</a></h2>
+<p>大家都知道swe-bench，是解决真实世界仓库issue的benchmark。但是，有没有对应的训练集/sft数据呢？作者发现，没有。怎么办，作者找了100多个仓库，合成了很多的issue和解决方案。在大规模训练以后，甚至还没有rl，仅仅sft，就刷到了40分。</p>
 <blockquote>
 <p>所以，data is all you need</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-04-28-05-02/smith.png"></p>
-<h2 id="DeepSeek-Prover-V2-Advancing-Formal-Mathematical-Reasoning-via-Reinforcement-Learning-for-Subgoal-Decomposition"><a href="#DeepSeek-Prover-V2-Advancing-Formal-Mathematical-Reasoning-via-Reinforcement-Learning-for-Subgoal-Decomposition" class="headerlink" title="DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21801">DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition</a></h2><p>deepseek新出的lean4 证明模型。这里面的优化暂且不提，但主图很有意思：作者发现，v3等强的ai，用word-based的证明方法，实际上已经接近了lean4模型的能力。尤其是reasoning model以后，可能超越了lean语言的证明能力。</p>
+<h2 id="deepseek-prover-v2-advancing-formal-mathematical-reasoning-via-reinforcement-learning-for-subgoal-decomposition"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21801">DeepSeek-Prover-V2: Advancing
+Formal Mathematical Reasoning via Reinforcement Learning for Subgoal
+Decomposition</a></h2>
+<p>deepseek新出的lean4
+证明模型。这里面的优化暂且不提，但主图很有意思：作者发现，v3等强的ai，用word-based的证明方法，实际上已经接近了lean4模型的能力。尤其是reasoning
+model以后，可能超越了lean语言的证明能力。</p>
 <blockquote>
 <p>如果是这样的话，继续研究lean的意义在哪？是因为更方便去验证证明对不对吗？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-04-28-05-02/prover-v2.png"></p>
-<h2 id="Phi-4-reasoning-Technical-Report"><a href="#Phi-4-reasoning-Technical-Report" class="headerlink" title="Phi-4-reasoning Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21318">Phi-4-reasoning Technical Report</a></h2><p>phi系列的reasoning产品来了。作者发现根据题目的难度选择蒸馏什么数据对o1-sft作用很大，然后通过进一步做一点rl效果会更好</p>
+<h2 id="phi-4-reasoning-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.21318">Phi-4-reasoning Technical
+Report</a></h2>
+<p>phi系列的reasoning产品来了。作者发现根据题目的难度选择蒸馏什么数据对o1-sft作用很大，然后通过进一步做一点rl效果会更好</p>
 <blockquote>
 <p>用o3-mini蒸数据的力量</p>
 </blockquote>
@@ -345,13 +354,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d6ca6b23.html" rel="bookmark">2025-07-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3908001d.html" rel="bookmark">2025-07-14-insights</a></div>
     </li>
   </ul>
 
@@ -428,7 +437,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SWE-smith-Scaling-Data-for-Software-Engineering-Agents"><span class="nav-number">1.</span> <span class="nav-text">SWE-smith: Scaling Data for Software Engineering Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-Prover-V2-Advancing-Formal-Mathematical-Reasoning-via-Reinforcement-Learning-for-Subgoal-Decomposition"><span class="nav-number">2.</span> <span class="nav-text">DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phi-4-reasoning-Technical-Report"><span class="nav-number">3.</span> <span class="nav-text">Phi-4-reasoning Technical Report</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#swe-smith-scaling-data-for-software-engineering-agents"><span class="nav-number">1.</span> <span class="nav-text">SWE-smith: Scaling Data for
+Software Engineering Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepseek-prover-v2-advancing-formal-mathematical-reasoning-via-reinforcement-learning-for-subgoal-decomposition"><span class="nav-number">2.</span> <span class="nav-text">DeepSeek-Prover-V2: Advancing
+Formal Mathematical Reasoning via Reinforcement Learning for Subgoal
+Decomposition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phi-4-reasoning-technical-report"><span class="nav-number">3.</span> <span class="nav-text">Phi-4-reasoning Technical
+Report</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +456,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -486,23 +499,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d6ca6b23" title="2025-07-15-insights" target="_blank">2025-07-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3908001d" title="2025-07-14-insights" target="_blank">2025-07-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/df21cb59" title="2025-07-11-insights" target="_blank">2025-07-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/30e3a067" title="2025-07-10-insights" target="_blank">2025-07-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -523,6 +528,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -578,12 +591,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">281k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

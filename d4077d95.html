@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scaling Laws For Dense Retrieval刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling law吗？作者用constrastive ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果  Long-form factualit">
+  <meta name="description" content="Scaling Laws For Dense Retrieval 刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling law吗？作者用constrastive ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果  Long-form factuali">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-03-28-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/d4077d95">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Scaling Laws For Dense Retrieval刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling law吗？作者用constrastive ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果  Long-form factualit">
+<meta property="og:description" content="Scaling Laws For Dense Retrieval 刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling law吗？作者用constrastive ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果  Long-form factuali">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/retrieve.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-03-25-03-29/safe.png">
@@ -314,16 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Scaling-Laws-For-Dense-Retrieval"><a href="#Scaling-Laws-For-Dense-Retrieval" class="headerlink" title="Scaling Laws For Dense Retrieval"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18684.pdf">Scaling Laws For Dense Retrieval</a></h2><p>刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling law吗？作者用constrastive ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果</p>
+        <h2 id="scaling-laws-for-dense-retrieval"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18684.pdf">Scaling Laws For Dense
+Retrieval</a></h2>
+<p>刘奕群老师的文章：探索了对于dense retrieve任务，也存在scaling
+law吗？作者用constrastive
+ppl观察曲线，发现还真是：模型参数增长、训练数据增长都是符合scaling
+law的。最后，作者探索了在固定budget下如何分配模型参数、训练数据，来取得最好的效果</p>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/retrieve.png"></p>
-<h2 id="Long-form-factuality-in-large-language-models"><a href="#Long-form-factuality-in-large-language-models" class="headerlink" title="Long-form factuality in large language models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18802.pdf">Long-form factuality in large language models</a></h2><p>deepmind这两天的推特顶流论文：作者探索了LLM来自动检查文本中有没有事实性错误。首先把repsonse划分成了多个fact，然后逐一去google检查正确性。作者发现，LLM自动检查的方式和人类有70%一致性，对于不一致的情况，有75%的情况下human错了而LLM是对的。</p>
+<h2 id="long-form-factuality-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18802.pdf">Long-form factuality in
+large language models</a></h2>
+<p>deepmind这两天的推特顶流论文：作者探索了LLM来自动检查文本中有没有事实性错误。首先把repsonse划分成了多个fact，然后逐一去google检查正确性。作者发现，LLM自动检查的方式和人类有70%一致性，对于不一致的情况，有75%的情况下human错了而LLM是对的。</p>
 <blockquote>
 <p>而且，LLM标注比human便宜20倍，最起码在这个任务上。</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/safe.png"></p>
-<h2 id="Mini-Gemini-Mining-the-Potential-of-Multi-modality-Vision-Language-Models"><a href="#Mini-Gemini-Mining-the-Potential-of-Multi-modality-Vision-Language-Models" class="headerlink" title="Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18814.pdf">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</a></h2><p>作者发现目前的VLM效果比不上gemini等闭源VLM，作者认为是1.清晰度不够高，2.vision推理数据太少。所以作者加了高清encoder，并且加了reasoning数据，训了2-30B的模型，发现效果很好。</p>
+<h2 id="mini-gemini-mining-the-potential-of-multi-modality-vision-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2403.18814.pdf">Mini-Gemini: Mining the
+Potential of Multi-modality Vision Language Models</a></h2>
+<p>作者发现目前的VLM效果比不上gemini等闭源VLM，作者认为是1.清晰度不够高，2.vision推理数据太少。所以作者加了高清encoder，并且加了reasoning数据，训了2-30B的模型，发现效果很好。</p>
 <blockquote>
-<p> 这名字取得好，然后模型开源</p>
+<p>这名字取得好，然后模型开源</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-03-25-03-29/mini-gemini.png"></p>
 <!-- flag of hidden posts -->
@@ -342,13 +351,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d6ca6b23.html" rel="bookmark">2025-07-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3908001d.html" rel="bookmark">2025-07-14-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +434,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Laws-For-Dense-Retrieval"><span class="nav-number">1.</span> <span class="nav-text">Scaling Laws For Dense Retrieval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Long-form-factuality-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Long-form factuality in large language models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mini-Gemini-Mining-the-Potential-of-Multi-modality-Vision-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Mini-Gemini: Mining the Potential of Multi-modality Vision Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-laws-for-dense-retrieval"><span class="nav-number">1.</span> <span class="nav-text">Scaling Laws For Dense
+Retrieval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#long-form-factuality-in-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">Long-form factuality in
+large language models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mini-gemini-mining-the-potential-of-multi-modality-vision-language-models"><span class="nav-number">3.</span> <span class="nav-text">Mini-Gemini: Mining the
+Potential of Multi-modality Vision Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">133</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,23 +495,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d6ca6b23" title="2025-07-15-insights" target="_blank">2025-07-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3908001d" title="2025-07-14-insights" target="_blank">2025-07-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/df21cb59" title="2025-07-11-insights" target="_blank">2025-07-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/30e3a067" title="2025-07-10-insights" target="_blank">2025-07-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -520,6 +524,14 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/f4243ee6" title="arxiv-insights" target="_blank">arxiv-insights</a>
         </li>
       
     </ul>
@@ -575,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">281k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:15</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
