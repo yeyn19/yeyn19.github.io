@@ -316,8 +316,7 @@
 
       
         <p>今天两篇论文是同一个作者，所以我算成一篇论文了，那就是一共四篇</p>
-<h2 id="the-art-of-llm-refinement-ask-refine-and-trust"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07961.pdf">The <strong>ART</strong> of
-LLM Refinement: Ask, Refine, and Trust</a></h2>
+<h2 id="The-ART-of-LLM-Refinement-Ask-Refine-and-Trust"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07961.pdf">The <strong>ART</strong> of LLM Refinement: Ask, Refine, and Trust</a></h2>
 <p>meta的论文，讲了一个有意思的框架：目前学界对于LLM到底能不能self-refine持有两派观点，有的人任务模型无法发现自己推理中的错误。作者提出的路径是</p>
 <ul>
 <li>先生成一个CoT和答案</li>
@@ -326,30 +325,25 @@ LLM Refinement: Ask, Refine, and Trust</a></h2>
 <li>最后找一个评判者看refine的答案和原始CoT答案谁好，最终选一个</li>
 </ul>
 <p>作者发现这套框架在GSM8K和StrategyQA上有提升</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/ART.png"></p>
-<h2 id="first-step-advantage-importance-of-starting-right-in-multi-step-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07945.pdf">First Step Advantage:
-Importance of Starting Right in Multi-Step Reasoning</a></h2>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/ART.png">
+<h2 id="First-Step-Advantage-Importance-of-Starting-Right-in-Multi-Step-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07945.pdf">First Step Advantage: Importance of Starting Right in Multi-Step Reasoning</a></h2>
 <p>这个和上一篇是一个作者，例子都不换，够狂。他探究的问题也挺好玩：reasoning中第一个step重要吗？</p>
 <p>作者发现小模型比起大模型，reasoning之所以做错，绝大多数都是第一步就错了。另一方面，作者发现如果找一个大模型把小模型第一步的推理错误纠正过来，效果就能提升超过100%。这个现象在各大大小模型组合上都类似。</p>
 <p>这算什么：好的开始是成功的一半？</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/first_step.png" style="zoom: 50%;"></p>
-<h2 id="the-transient-nature-of-emergent-in-context-learning-in-transformers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08360.pdf">The Transient Nature of
-Emergent In-Context Learning in Transformers</a></h2>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/first_step.png" style="zoom: 50%;">
+<h2 id="The-Transient-Nature-of-Emergent-In-Context-Learning-in-Transformers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08360.pdf">The Transient Nature of Emergent In-Context Learning in Transformers</a></h2>
 <p>这是篇我不太好简单解释的论文，deepmind出品。作者的研究目标是：学界有一种思想是ICL能力是emergent出来的，一旦有就不会消失。是这样吗？</p>
-<p>作者找了一个数据集，让In-context learning与in-weight
-learning都能导致好的结果，发现ICL在训练中会先出现后消失。所以作者觉得ICL能力可能是训练中ICL回路和IWL回路互相竞争的结果</p>
+<p>作者找了一个数据集，让In-context learning与in-weight learning都能导致好的结果，发现ICL在训练中会先出现后消失。所以作者觉得ICL能力可能是训练中ICL回路和IWL回路互相竞争的结果</p>
 <p>我喜欢这篇论文……</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/ICL.png" style="zoom: 50%;"></p>
-<h2 id="in-context-learning-and-gradient-descent-revisited"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07772.pdf">In-context Learning and
-Gradient Descent Revisited</a></h2>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/ICL.png" style="zoom: 50%;">
+<h2 id="In-context-Learning-and-Gradient-Descent-Revisited"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.07772.pdf">In-context Learning and Gradient Descent Revisited</a></h2>
 <p>这篇论文也是讲ICL，沿着之前那个ICL=gradient descend的故事线。</p>
-<p>不过这次作者走得深了一步，发现他们之前有个核心区别：ICL只能看到前面layer的信息流，而GD可以看到deeper
-layer的信息流。</p>
+<p>不过这次作者走得深了一步，发现他们之前有个核心区别：ICL只能看到前面layer的信息流，而GD可以看到deeper layer的信息流。</p>
 <p>再走得深了一步，作者说如果把模型结构和训练任务稍微改一改，那么就更像了。作者试了一下，发现这样训练的模型ICL能力变得很强。神奇……</p>
 <blockquote>
 <p>把这篇和上一篇放在一起看，就更神奇了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/revisit.png"></p>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/revisit.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -366,13 +360,13 @@ layer的信息流。</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/46c3ad58.html" rel="bookmark">2025-07-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2334e093.html" rel="bookmark">2025-07-18-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3dfdd020.html" rel="bookmark">2025-07-16-insights</a></div>
     </li>
   </ul>
 
@@ -449,11 +443,7 @@ layer的信息流。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#the-art-of-llm-refinement-ask-refine-and-trust"><span class="nav-number">1.</span> <span class="nav-text">The ART of
-LLM Refinement: Ask, Refine, and Trust</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#first-step-advantage-importance-of-starting-right-in-multi-step-reasoning"><span class="nav-number">2.</span> <span class="nav-text">First Step Advantage:
-Importance of Starting Right in Multi-Step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-transient-nature-of-emergent-in-context-learning-in-transformers"><span class="nav-number">3.</span> <span class="nav-text">The Transient Nature of
-Emergent In-Context Learning in Transformers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#in-context-learning-and-gradient-descent-revisited"><span class="nav-number">4.</span> <span class="nav-text">In-context Learning and
-Gradient Descent Revisited</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-ART-of-LLM-Refinement-Ask-Refine-and-Trust"><span class="nav-number">1.</span> <span class="nav-text">The ART of LLM Refinement: Ask, Refine, and Trust</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Step-Advantage-Importance-of-Starting-Right-in-Multi-Step-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">First Step Advantage: Importance of Starting Right in Multi-Step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Transient-Nature-of-Emergent-In-Context-Learning-in-Transformers"><span class="nav-number">3.</span> <span class="nav-text">The Transient Nature of Emergent In-Context Learning in Transformers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#In-context-Learning-and-Gradient-Descent-Revisited"><span class="nav-number">4.</span> <span class="nav-text">In-context Learning and Gradient Descent Revisited</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -511,15 +501,15 @@ Gradient Descent Revisited</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/46c3ad58" title="2025-07-21-insights" target="_blank">2025-07-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2334e093" title="2025-07-18-insights" target="_blank">2025-07-18-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3dfdd020" title="2025-07-16-insights" target="_blank">2025-07-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -603,7 +593,7 @@ Gradient Descent Revisited</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
