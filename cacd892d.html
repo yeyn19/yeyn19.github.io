@@ -315,29 +315,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>今天来读一篇MLSys的文章，作者提出了JIT的APOLLO框架，可以同时考虑 memory- /compute-bound 的算子优化，比XLA，TensorFlow原生要快不少。</p>
+        <p>今天来读一篇MLSys的文章，作者提出了JIT的APOLLO框架，可以同时考虑
+memory- /compute-bound 的算子优化，比XLA，TensorFlow原生要快不少。</p>
 <span id="more"></span>
 <blockquote>
 <p>JIT(just-in-time)：和AOT相对，是指边运行边编译，不能支持某些编译优化方法。</p>
 </blockquote>
-<img src="../files/images/APOLLO/comp.png">
-<img src="../files/images/APOLLO/author.png">
+<p><img src="../files/images/APOLLO/comp.png"></p>
+<p><img src="../files/images/APOLLO/author.png"></p>
 <p>作者来自郑州大学、华为、香港大学</p>
-<h2 id="Introduction">Introduction</h2>
+<h2 id="introduction">Introduction</h2>
 <p>这部分说了目前fusion技术面临了三个问题：</p>
 <ul>
-<li>现有的图编译器只考虑了memory-bound op的优化，对于compute-bound op，只是分发到不同的kernel，不做fusion。因此fusion的搜索空间是不完全的</li>
+<li>现有的图编译器只考虑了memory-bound op的优化，对于compute-bound
+op，只是分发到不同的kernel，不做fusion。因此fusion的搜索空间是不完全的</li>
 <li>对于循环loop fusion来说：不同层次的编译器之间存才</li>
 <li>stitching融合技术，把没有依赖的不同算子放到同一个kernel来同时计算，提高硬件的并行性。这种技术对于自定义算子的支持非常差</li>
 </ul>
-<p>本文提出APOLLO框架，把sub-graph进一步看成很多micro-graph，在这个过程中同时考虑memory- /compute-bound 的算子fusion。划分的规则取消了上游图编译器的依赖，规则符合下游编译器的需要。可以符合一个多面体模型，同时也可以扩大规模。</p>
+<p>本文提出APOLLO框架，把sub-graph进一步看成很多micro-graph，在这个过程中同时考虑memory-
+/compute-bound
+的算子fusion。划分的规则取消了上游图编译器的依赖，规则符合下游编译器的需要。可以符合一个多面体模型，同时也可以扩大规模。</p>
 <blockquote>
-<p>APOLLO := Automatic Partition-based Operator fusion framework through Layer by Layer Optimization</p>
+<p>APOLLO := Automatic Partition-based Operator fusion framework through
+Layer by Layer Optimization</p>
 </blockquote>
 <ul>
-<li>首先，用一个<em>polyhedral loop fusion</em>算法让micro-graph内部的算子fusion，并且让有依赖管的数据在更快的local memory里</li>
-<li>接下里用一个<em>memory stitching</em>算法让micro-graph之间的算子fusion，弥补前面polyhedral算法的劣势</li>
-<li>最后，由一个top layer把前两步的结果组合在一起，更好的利用硬件的并行性。</li>
+<li>首先，用一个<em>polyhedral loop
+fusion</em>算法让micro-graph内部的算子fusion，并且让有依赖管的数据在更快的local
+memory里</li>
+<li>接下里用一个<em>memory
+stitching</em>算法让micro-graph之间的算子fusion，弥补前面polyhedral算法的劣势</li>
+<li>最后，由一个top
+layer把前两步的结果组合在一起，更好的利用硬件的并行性。</li>
 </ul>
 <p>APOLLO可以把每一步中间生成的IR传给下一步。本文的贡献总结为：</p>
 <ul>
@@ -346,111 +355,107 @@
 <li>同时考虑数据的局部性、并行性，效果更好</li>
 <li>展现了JIT compilation的水平</li>
 </ul>
-<h2 id="ARCHITECTURE-OF-APOLLO">ARCHITECTURE OF APOLLO</h2>
-<img src="../files/images/APOLLO/APOLLO.png">
+<h2 id="architecture-of-apollo">ARCHITECTURE OF APOLLO</h2>
+<p><img src="../files/images/APOLLO/APOLLO.png"></p>
 <p>用一个例子来说明apollo结构，上图是一个计算图：</p>
 <ul>
-<li>
-<p>计算图可被分成上下两个子图(相互是可以并行执行的)</p>
-</li>
-<li>
-<p>Op5，op3是计算瓶颈的节点</p>
-</li>
-<li>
-<p>Op1,op6是原子的节点</p>
-</li>
-<li>
-<p>Op2,op4,op7是可再分的节点</p>
-</li>
+<li><p>计算图可被分成上下两个子图(相互是可以并行执行的)</p></li>
+<li><p>Op5，op3是计算瓶颈的节点</p></li>
+<li><p>Op1,op6是原子的节点</p></li>
+<li><p>Op2,op4,op7是可再分的节点</p></li>
 </ul>
-<p>对于计算瓶颈节点op5,op3,已有编译器尝尝直接丢给vendor library，并且把，每个子图sub-graph看成孤立的不同部分</p>
-<p>Tensor compilers面临上下游需求不同的问题，比如上游编译器希望op7编译成一个kernel，但如果op71是reduce op，下游编译器很难满足这个需求</p>
-<p>另一个问题是当batchsize小的时候不能利用好硬件的并行性，现有方法经常把同一个子图中的比如op1，op2放到同一个kernel，这和实际的training scenarios不符合。</p>
-<img src="../files/images/APOLLO/arch.png">
+<p>对于计算瓶颈节点op5,op3,已有编译器尝尝直接丢给vendor
+library，并且把，每个子图sub-graph看成孤立的不同部分</p>
+<p>Tensor
+compilers面临上下游需求不同的问题，比如上游编译器希望op7编译成一个kernel，但如果op71是reduce
+op，下游编译器很难满足这个需求</p>
+<p>另一个问题是当batchsize小的时候不能利用好硬件的并行性，现有方法经常把同一个子图中的比如op1，op2放到同一个kernel，这和实际的training
+scenarios不符合。</p>
+<p><img src="../files/images/APOLLO/arch.png"></p>
 <p>本文提出的APOLLO框架如下：</p>
 <ul>
-<li>
-<p>首先把图分成不同子图sub-graph，子图之间没有数据依赖($\mathcal{F}_1,\mathcal{F}_2$)</p>
-</li>
-<li>
-<p>接下来，用一系列基于规则的方法把每个子图分出不同micro-graph($\mathcal{G}_1,\mathcal{G}_2…$)</p>
-</li>
-<li>
-<p>对于每个micro-graph，进行fusion生成IR，用的方法是polyhedral loop fusion heuristic</p>
-</li>
-<li>
-<p>把上一层的结果传给下一层，layer 2 对结果进行grouping，同时根据reducing op进行fusion</p>
-</li>
-<li>
-<p>最终layer 3接受上一层输入，进行子图之间的并行性的优化</p>
-</li>
+<li><p>首先把图分成不同子图sub-graph，子图之间没有数据依赖(<span class="math inline">\(\mathcal{F}_1,\mathcal{F}_2\)</span>)</p></li>
+<li><p>接下来，用一系列基于规则的方法把每个子图分出不同micro-graph(<span class="math inline">\(\mathcal{G}_1,\mathcal{G}_2...\)</span>)</p></li>
+<li><p>对于每个micro-graph，进行fusion生成IR，用的方法是polyhedral loop
+fusion heuristic</p></li>
+<li><p>把上一层的结果传给下一层，layer 2
+对结果进行grouping，同时根据reducing op进行fusion</p></li>
+<li><p>最终layer 3接受上一层输入，进行子图之间的并行性的优化</p></li>
 </ul>
 <h3 id="polyhedral-model">polyhedral model</h3>
 <p>好多篇里都说了这个polyhedral，到底是咋回事呢？这里拓展一下。</p>
-<p>大概就是一个多重循环，里面的所有可能的取值(i,j,k)可以用一个矩阵来表示：<br>
-$$<br>
-A_{3,3} \left(<br>
-\begin{array}{}<br>
-i \ j \ k<br>
-\end{array}<br>
-\right) \geq<br>
-\left(<br>
-\begin{array}{}<br>
-a \ b \ c<br>
-\end{array}<br>
-\right)<br>
-$$<br>
+<p>大概就是一个多重循环，里面的所有可能的取值(i,j,k)可以用一个矩阵来表示：
+<span class="math display">\[
+A_{3,3} \left(
+\begin{array}{}
+i \\ j \\ k
+\end{array}
+\right) \geq
+\left(
+\begin{array}{}
+a \\ b \\ c
+\end{array}
+\right)
+\]</span>
 之类的，总之这种方程在高位空间就是一个多面体，可以认为循环都是在多面体内执行。有什么作用呢？</p>
 <ul>
 <li>循环间的数据依赖大概看成是多面体内内部有一些”线“，如果是水平的、垂直的，那么就不会有冲突，只有“斜线“会带来冲突，但如果我们对这个多面体进行仿射变换，就可以把斜线都变成直线了。</li>
 <li>我们希望循环内可以更多利用cache，同样利用仿射，可以把空间距离近的取值让时间距离也拉进。</li>
 </ul>
 <p>大概就是这个原理，因为有了数学的表示，所有优化也就比较简单。</p>
-<img src="../files/images/APOLLO/model.png">
-<h2 id="PARTITION-PHASE">PARTITION PHASE</h2>
+<p><img src="../files/images/APOLLO/model.png"></p>
+<h2 id="partition-phase">PARTITION PHASE</h2>
 <p>这一部分谈怎么变成micro-graph</p>
 <p>作者首先使用几条规则把图优化成符合多面体模型的图</p>
-<img src="../files/images/APOLLO/duomian.png">
-<p>接下来，要找出计算图中除了用户定义的op和control flow <em>op</em>s以外的op，变成一些子图。</p>
-<h3 id="Opening-Compound-Operators">Opening Compound Operators</h3>
-<p>再接下来，作者把compound op拆解，比如说logsoftmax：<br>
-$$<br>
-S(t_i) = t_i -\ln \sum_{j=1}^N e^{t_j}<br>
-$$<br>
-<img src="../files/images/APOLLO/softmax.png"></p>
+<p><img src="../files/images/APOLLO/duomian.png"></p>
+<p>接下来，要找出计算图中除了用户定义的op和control flow
+<em>op</em>s以外的op，变成一些子图。</p>
+<h3 id="opening-compound-operators">Opening Compound Operators</h3>
+<p>再接下来，作者把compound op拆解，比如说logsoftmax： <span class="math display">\[
+S(t_i) = t_i -\ln \sum_{j=1}^N e^{t_j}
+\]</span> <img src="../files/images/APOLLO/softmax.png"></p>
 <p>其对应蓝色的两个op：减法，和一个循环计算的op，这两个op有数据依赖。</p>
-<p>如果把op3拆开分析，就能把op31和前面的op1，op2融合到一起，，增大fusion的搜索空间，这就是拆解compound op的好处。</p>
-<h3 id="Aggregating-Primitive-Operators">Aggregating Primitive Operators</h3>
+<p>如果把op3拆开分析，就能把op31和前面的op1，op2融合到一起，，增大fusion的搜索空间，这就是拆解compound
+op的好处。</p>
+<h3 id="aggregating-primitive-operators">Aggregating Primitive
+Operators</h3>
 <p>这一部分要分解出很多micro-graph</p>
-<p>首先把primitive op看做micro-graph，然后用aggregation rules去逐步扩大micro-graph。规则大概是下面这样定义的几条：</p>
-<img src="../files/images/APOLLO/aggre.png">
+<p>首先把primitive op看做micro-graph，然后用aggregation
+rules去逐步扩大micro-graph。规则大概是下面这样定义的几条：</p>
+<p><img src="../files/images/APOLLO/aggre.png"></p>
 <p>规则不用覆盖所有op，因为有些op本身就不需要fuse。</p>
-<h2 id="FUSION-PHASE">FUSION PHASE</h2>
+<h2 id="fusion-phase">FUSION PHASE</h2>
 <p>fusion的阶段符合自底向上的顺序</p>
-<h3 id="Layer-I-Polyhedral-Loop-Fusion">Layer I: Polyhedral Loop Fusion</h3>
+<h3 id="layer-i-polyhedral-loop-fusion">Layer I: Polyhedral Loop
+Fusion</h3>
 <p>这一部分讲了micro-graph内部是如何做fusion的。方法很多，很复杂，这里就不细讲了，感觉只有看代码才能深入了解，大概逻辑就是像下图这样：</p>
-<img src="../files/images/APOLLO/fusion.png">
-<h3 id="Layer-II-Memory-Stitching">Layer II: Memory Stitching</h3>
+<p><img src="../files/images/APOLLO/fusion.png"></p>
+<h3 id="layer-ii-memory-stitching">Layer II: Memory Stitching</h3>
 <p>这一部分是说如何把fusion后的micro-graph再fusion，再组装回sub-graph</p>
-<img src="../files/images/APOLLO/memory.png">
-<p>大概思路就是如果一个micro-graph是一个reduce型的micro-graph，那么它也许可以和后面你的micro-graph的中间变量排布在一起，用到更快的local memory。</p>
-<h3 id="Layer-III-Parallelism-Stitching">Layer III: Parallelism Stitching</h3>
+<p><img src="../files/images/APOLLO/memory.png"></p>
+<p>大概思路就是如果一个micro-graph是一个reduce型的micro-graph，那么它也许可以和后面你的micro-graph的中间变量排布在一起，用到更快的local
+memory。</p>
+<h3 id="layer-iii-parallelism-stitching">Layer III: Parallelism
+Stitching</h3>
 <p>这一部分考虑子图之间的并行性，作者观察到并行性大多存在于：</p>
 <ul>
 <li>branches of a multi-head/-tail <em>op</em></li>
 <li>两个子图没有数据的依赖关系。这种可以合并成上面那种</li>
 </ul>
-<p>作者大概考虑了怎么优化 multi-head/-tail <em>op</em>，作者用一个cost模型逐步的选取并行效果最好的节点加入。</p>
-<img src="../files/images/APOLLO/para.png">
-<h2 id="PUTTING-IT-ALL-TOGETHER">PUTTING IT ALL TOGETHER</h2>
+<p>作者大概考虑了怎么优化 multi-head/-tail
+<em>op</em>，作者用一个cost模型逐步的选取并行效果最好的节点加入。</p>
+<p><img src="../files/images/APOLLO/para.png"></p>
+<h2 id="putting-it-all-together">PUTTING IT ALL TOGETHER</h2>
 <ul>
-<li>Auto-Tuning: APOLLO解决了scalability的问题，并且由于peicewise编译速度不慢，因此支持auto-tuning</li>
-<li>Piecewise Compilation：每一层的各个节点之间的编译是并行的，只需要在层交换的时候做一次不同</li>
+<li>Auto-Tuning:
+APOLLO解决了scalability的问题，并且由于peicewise编译速度不慢，因此支持auto-tuning</li>
+<li>Piecewise
+Compilation：每一层的各个节点之间的编译是并行的，只需要在层交换的时候做一次不同</li>
 <li>Code Generation：生成A100 cuda代码。</li>
 </ul>
-<h2 id="Result">Result</h2>
+<h2 id="result">Result</h2>
 <p>大概就是说APOLLO处的代码效果更好</p>
-<img src="../files/images/APOLLO/speed.png">
+<p><img src="../files/images/APOLLO/speed.png"></p>
 <blockquote>
 <p>mindspore：是华为的开源AI框架，APOLLO可以试做是在优化mindspore的编译</p>
 </blockquote>
@@ -570,7 +575,10 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARCHITECTURE-OF-APOLLO"><span class="nav-number">2.</span> <span class="nav-text">ARCHITECTURE OF APOLLO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#polyhedral-model"><span class="nav-number">2.1.</span> <span class="nav-text">polyhedral model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PARTITION-PHASE"><span class="nav-number">3.</span> <span class="nav-text">PARTITION PHASE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Opening-Compound-Operators"><span class="nav-number">3.1.</span> <span class="nav-text">Opening Compound Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Aggregating-Primitive-Operators"><span class="nav-number">3.2.</span> <span class="nav-text">Aggregating Primitive Operators</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FUSION-PHASE"><span class="nav-number">4.</span> <span class="nav-text">FUSION PHASE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-I-Polyhedral-Loop-Fusion"><span class="nav-number">4.1.</span> <span class="nav-text">Layer I: Polyhedral Loop Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-II-Memory-Stitching"><span class="nav-number">4.2.</span> <span class="nav-text">Layer II: Memory Stitching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layer-III-Parallelism-Stitching"><span class="nav-number">4.3.</span> <span class="nav-text">Layer III: Parallelism Stitching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PUTTING-IT-ALL-TOGETHER"><span class="nav-number">5.</span> <span class="nav-text">PUTTING IT ALL TOGETHER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Result"><span class="nav-number">6.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#architecture-of-apollo"><span class="nav-number">2.</span> <span class="nav-text">ARCHITECTURE OF APOLLO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#polyhedral-model"><span class="nav-number">2.1.</span> <span class="nav-text">polyhedral model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#partition-phase"><span class="nav-number">3.</span> <span class="nav-text">PARTITION PHASE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#opening-compound-operators"><span class="nav-number">3.1.</span> <span class="nav-text">Opening Compound Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#aggregating-primitive-operators"><span class="nav-number">3.2.</span> <span class="nav-text">Aggregating Primitive
+Operators</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#fusion-phase"><span class="nav-number">4.</span> <span class="nav-text">FUSION PHASE</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#layer-i-polyhedral-loop-fusion"><span class="nav-number">4.1.</span> <span class="nav-text">Layer I: Polyhedral Loop
+Fusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layer-ii-memory-stitching"><span class="nav-number">4.2.</span> <span class="nav-text">Layer II: Memory Stitching</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#layer-iii-parallelism-stitching"><span class="nav-number">4.3.</span> <span class="nav-text">Layer III: Parallelism
+Stitching</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#putting-it-all-together"><span class="nav-number">5.</span> <span class="nav-text">PUTTING IT ALL TOGETHER</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#result"><span class="nav-number">6.</span> <span class="nav-text">Result</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">7.</span> <span class="nav-text">结论</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -628,15 +636,15 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/adf4165b" title="2025-07-22-insights" target="_blank">2025-07-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/46c3ad58" title="2025-07-21-insights" target="_blank">2025-07-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/2334e093" title="2025-07-18-insights" target="_blank">2025-07-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -720,7 +728,7 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">296k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -316,30 +316,47 @@
 
       
         <p>最近几天，NeruIPS接收的工作陆陆续续都放出来了</p>
-<h2 id="OS-ATLAS-A-Foundation-Action-Model-for-Generalist-GUI-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23218">OS-ATLAS: A Foundation Action Model for Generalist GUI Agents</a></h2>
-<p>之前ICLR的一篇投稿论文，今天挂上arxiv了。有点类似之前那个Multi UI，作者设计了一个爬取引擎，爬了2M图片，13Melement，做了grounding训练。在下游任务上发现，提升了grounding能力以后，GUI Agent能力得到了飞跃。</p>
+<h2 id="os-atlas-a-foundation-action-model-for-generalist-gui-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23218">OS-ATLAS: A Foundation Action
+Model for Generalist GUI Agents</a></h2>
+<p>之前ICLR的一篇投稿论文，今天挂上arxiv了。有点类似之前那个Multi
+UI，作者设计了一个爬取引擎，爬了2M图片，13Melement，做了grounding训练。在下游任务上发现，提升了grounding能力以后，GUI
+Agent能力得到了飞跃。</p>
 <blockquote>
-<p>这两天怎么噌噌出这类论文：昨天一个EDGE，前几天一个Multi UI，在前几天的UGround、AGUVIS</p>
+<p>这两天怎么噌噌出这类论文：昨天一个EDGE，前几天一个Multi
+UI，在前几天的UGround、AGUVIS</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/os-atlas.png">
-<h2 id="ReferEverything-Towards-Segmenting-Everything-We-Can-Speak-of-in-Videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23287"><strong>ReferEverything: Towards Segmenting Everything We Can Speak of in Videos</strong></a></h2>
-<p>作者心很大，想要做video领域的Segment Anything。作者提到，生成模型的representations已经具有通用的表示能力，能不能在尽可能保留向量本身泛化性的基础上，小小地适配到refer任务呢？作者设计了一套pipeline，做到了这件事情。而且事实证明，模型可以效果非常好地refer到通用世界的各种神奇的、开放域的物体上。</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/os-atlas.png"></p>
+<h2 id="refereverything-towards-segmenting-everything-we-can-speak-of-in-videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23287"><strong>ReferEverything: Towards
+Segmenting Everything We Can Speak of in Videos</strong></a></h2>
+<p>作者心很大，想要做video领域的Segment
+Anything。作者提到，生成模型的representations已经具有通用的表示能力，能不能在尽可能保留向量本身泛化性的基础上，小小地适配到refer任务呢？作者设计了一套pipeline，做到了这件事情。而且事实证明，模型可以效果非常好地refer到通用世界的各种神奇的、开放域的物体上。</p>
 <blockquote>
 <p>不过有一说一啊，给出文字描述，输出位置信息的。这个任务叫做grounding……refer任务是给出坐标，描述内容</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/refer-everything.png" style="zoom:33%;">
-<h2 id="Image2Struct-Benchmarking-Structure-Extraction-for-Vision-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.22456">Image2Struct: Benchmarking Structure Extraction for Vision-Language Models</a></h2>
-<p>Percy Liang的工作，最近好像挺少见到他了。作者提了个很简单的方法：很多图片，比如网页、latex、乐谱，都是从结构化数据推导出来的。模型能不能从图片反向渲染源码，再通过把源码重新渲染，和原图做reconstruction，来对VLM给出评测呢？</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/refer-everything.png" style="zoom:33%;"></p>
+<h2 id="image2struct-benchmarking-structure-extraction-for-vision-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.22456">Image2Struct: Benchmarking
+Structure Extraction for Vision-Language Models</a></h2>
+<p>Percy
+Liang的工作，最近好像挺少见到他了。作者提了个很简单的方法：很多图片，比如网页、latex、乐谱，都是从结构化数据推导出来的。模型能不能从图片反向渲染源码，再通过把源码重新渲染，和原图做reconstruction，来对VLM给出评测呢？</p>
 <blockquote>
-<p>这个思路其实在table understanding领域已经有一些工作了。他们会把table的源码丢给Text-LLM，然后用code intepreter集成的方式生成答案，再把答案作为信号蒸馏会VLM里。这里其实是把render engine的规则持续地蒸馏进模型参数里</p>
+<p>这个思路其实在table
+understanding领域已经有一些工作了。他们会把table的源码丢给Text-LLM，然后用code
+intepreter集成的方式生成答案，再把答案作为信号蒸馏会VLM里。这里其实是把render
+engine的规则持续地蒸馏进模型参数里</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/image2struct.png">
-<h2 id="SLOWFAST-VGEN-SLOW-FAST-LEARNING-FOR-ACTION-DRIVEN-LONG-VIDEO-GENERATION"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23277">SLOWFAST-VGEN: SLOW-FAST LEARNING FOR ACTION-DRIVEN LONG VIDEO GENERATION</a></h2>
-<p>一篇视频生成的工作：作者讲了一件事情，在视频生成中，对于action的预测是困难的，能不能用fast slow thinking那套理论来独立地学习对于action的预测，和action发生后世界变化的信息呢？作者构造了200k带有action language标注的video数据，由此训了模型，发现效果很好</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/image2struct.png"></p>
+<h2 id="slowfast-vgen-slow-fast-learning-for-action-driven-long-video-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23277">SLOWFAST-VGEN: SLOW-FAST
+LEARNING FOR ACTION-DRIVEN LONG VIDEO GENERATION</a></h2>
+<p>一篇视频生成的工作：作者讲了一件事情，在视频生成中，对于action的预测是困难的，能不能用fast
+slow
+thinking那套理论来独立地学习对于action的预测，和action发生后世界变化的信息呢？作者构造了200k带有action
+language标注的video数据，由此训了模型，发现效果很好</p>
 <blockquote>
-<p>所以video generation又开始找video LM的逆任务了吗？video LM里有一个 action recognition，抽取视频中所有的action。video generation这边就会有一个&quot;action putting&quot;，把所有action给出来再生成……</p>
+<p>所以video generation又开始找video LM的逆任务了吗？video LM里有一个
+action recognition，抽取视频中所有的action。video
+generation这边就会有一个"action putting"，把所有action给出来再生成……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/fastslow-vgen.png">
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/fastslow-vgen.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -356,13 +373,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/adf4165b.html" rel="bookmark">2025-07-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/46c3ad58.html" rel="bookmark">2025-07-21-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2334e093.html" rel="bookmark">2025-07-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
     </li>
   </ul>
 
@@ -439,7 +456,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#OS-ATLAS-A-Foundation-Action-Model-for-Generalist-GUI-Agents"><span class="nav-number">1.</span> <span class="nav-text">OS-ATLAS: A Foundation Action Model for Generalist GUI Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReferEverything-Towards-Segmenting-Everything-We-Can-Speak-of-in-Videos"><span class="nav-number">2.</span> <span class="nav-text">ReferEverything: Towards Segmenting Everything We Can Speak of in Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Image2Struct-Benchmarking-Structure-Extraction-for-Vision-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Image2Struct: Benchmarking Structure Extraction for Vision-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SLOWFAST-VGEN-SLOW-FAST-LEARNING-FOR-ACTION-DRIVEN-LONG-VIDEO-GENERATION"><span class="nav-number">4.</span> <span class="nav-text">SLOWFAST-VGEN: SLOW-FAST LEARNING FOR ACTION-DRIVEN LONG VIDEO GENERATION</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#os-atlas-a-foundation-action-model-for-generalist-gui-agents"><span class="nav-number">1.</span> <span class="nav-text">OS-ATLAS: A Foundation Action
+Model for Generalist GUI Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#refereverything-towards-segmenting-everything-we-can-speak-of-in-videos"><span class="nav-number">2.</span> <span class="nav-text">ReferEverything: Towards
+Segmenting Everything We Can Speak of in Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#image2struct-benchmarking-structure-extraction-for-vision-language-models"><span class="nav-number">3.</span> <span class="nav-text">Image2Struct: Benchmarking
+Structure Extraction for Vision-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#slowfast-vgen-slow-fast-learning-for-action-driven-long-video-generation"><span class="nav-number">4.</span> <span class="nav-text">SLOWFAST-VGEN: SLOW-FAST
+LEARNING FOR ACTION-DRIVEN LONG VIDEO GENERATION</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -497,15 +518,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/adf4165b" title="2025-07-22-insights" target="_blank">2025-07-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/46c3ad58" title="2025-07-21-insights" target="_blank">2025-07-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/2334e093" title="2025-07-18-insights" target="_blank">2025-07-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -589,7 +610,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">296k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

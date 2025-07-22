@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>708</span>
+              <span>688</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,27 +314,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Spectral-Image-Tokenizer"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09607">Spectral Image Tokenizer</a></h2>
-<p>一篇google research的工作，标得单位不是Google DeepMind。作者认为，old school的Autoregressive image generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的patch）。那我到频域上按照不同频域生成，是不是就有casual性质了？作者试了一下dwt，发现效果好不少</p>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/spectral.png">
-<h2 id="Phi-4-Technical-Report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08905">Phi-4 Technical Report</a></h2>
+        <h2 id="spectral-image-tokenizer"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09607">Spectral Image
+Tokenizer</a></h2>
+<p>一篇google research的工作，标得单位不是Google DeepMind。作者认为，old
+school的Autoregressive image
+generation，都需要把图片按照空间关系切成一个个小patch做tokenize，这个不符合图片的直觉。因为图片的雷达扫描顺序其实没有天然casual的性质（下一个patch依赖于前面的patch）。那我到频域上按照不同频域生成，是不是就有casual性质了？作者试了一下dwt，发现效果好不少</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/spectral.png"></p>
+<h2 id="phi-4-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.08905">Phi-4 Technical Report</a></h2>
 <p>之前主打小模型的phi系列，第四代也变成14B了，果然参数少就是没前途吗。phi4研习了gpt4合成预训练数据的老路，MATH都给你刷到80分。</p>
 <blockquote>
-<p>这次在很多任务上超过了teacher model(gpt4)，说明合成数据的前途一片光明。不过这是为什么呢……</p>
+<p>这次在很多任务上超过了teacher
+model(gpt4)，说明合成数据的前途一片光明。不过这是为什么呢……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/phi-4.png">
-<h2 id="Imitate-Explore-and-Self-Improve-A-Reproduction-Report-on-Slow-thinking-Reasoning-Systems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09413">Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/phi-4.png"></p>
+<h2 id="imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.09413">Imitate, Explore, and
+Self-Improve: A Reproduction Report on Slow-thinking Reasoning
+Systems</a></h2>
 <p>BAAI出的o1-like model，方法论和STaR几乎一样:</p>
-<ol>
+<ol type="1">
 <li>找一个base model，在o1 distill数据上获得基础的推理diversity</li>
-<li>然后持续地找数据集在上面&quot;练功&quot;，生成一堆reasoning trace然后按照答案分类成正负样本</li>
+<li>然后持续地找数据集在上面"练功"，生成一堆reasoning
+trace然后按照答案分类成正负样本</li>
 <li>最后把数据训练回去，发现可以涨分</li>
 </ol>
 <blockquote>
-<p>大家的探索最近聚焦在了这个形态，问题在于：除了第一步是需要o1才能蒸馏的，后面两步都是&quot;古已有之&quot;的思路。</p>
+<p>大家的探索最近聚焦在了这个形态，问题在于：除了第一步是需要o1才能蒸馏的，后面两步都是"古已有之"的思路。</p>
 <p>那么o1蒸馏出的数据为何可以做出来第一步呢？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/baai-o1.png">
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/baai-o1.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -351,13 +358,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/adf4165b.html" rel="bookmark">2025-07-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/46c3ad58.html" rel="bookmark">2025-07-21-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2334e093.html" rel="bookmark">2025-07-18-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d23fbb1e.html" rel="bookmark">2025-07-17-insights</a></div>
     </li>
   </ul>
 
@@ -434,7 +441,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Spectral-Image-Tokenizer"><span class="nav-number">1.</span> <span class="nav-text">Spectral Image Tokenizer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Phi-4-Technical-Report"><span class="nav-number">2.</span> <span class="nav-text">Phi-4 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Imitate-Explore-and-Self-Improve-A-Reproduction-Report-on-Slow-thinking-Reasoning-Systems"><span class="nav-number">3.</span> <span class="nav-text">Imitate, Explore, and Self-Improve: A Reproduction Report on Slow-thinking Reasoning Systems</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#spectral-image-tokenizer"><span class="nav-number">1.</span> <span class="nav-text">Spectral Image
+Tokenizer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#phi-4-technical-report"><span class="nav-number">2.</span> <span class="nav-text">Phi-4 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#imitate-explore-and-self-improve-a-reproduction-report-on-slow-thinking-reasoning-systems"><span class="nav-number">3.</span> <span class="nav-text">Imitate, Explore, and
+Self-Improve: A Reproduction Report on Slow-thinking Reasoning
+Systems</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -492,15 +502,15 @@
       
       
         <li class="recent_posts_li">
+          <a href="/adf4165b" title="2025-07-22-insights" target="_blank">2025-07-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/46c3ad58" title="2025-07-21-insights" target="_blank">2025-07-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/2334e093" title="2025-07-18-insights" target="_blank">2025-07-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d23fbb1e" title="2025-07-17-insights" target="_blank">2025-07-17-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -584,7 +594,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">296k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
