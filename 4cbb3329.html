@@ -314,19 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Over-Reasoning-and-Redundant-Calculation-of-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.11467.pdf">Over-Reasoning and Redundant Calculation of Large Language Models</a></h2>
+        <h2 id="over-reasoning-and-redundant-calculation-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.11467.pdf">Over-Reasoning and Redundant
+Calculation of Large Language Models</a></h2>
 <p>作者发现，在很多任务上，即使很简单，模型还是会生成非常长的CoT浪费计算资源。作者由此改造了一下GSM8K数据集，变成了不需要推理的数据集。发现模型仍然生成很长很冗余的计算，甚至还会做错。</p>
 <blockquote>
 <p>嗯，模型是不是背下来了之前的推理链，闭源模型的所谓”zero-shot“要原形毕露了</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/gsm8k-zero.png">
-<h2 id="WARM-On-the-Benefits-of-Weight-Averaged-Reward-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.12187.pdf">WARM: On the Benefits of Weight Averaged Reward Models</a></h2>
-<p>deepmind的论文，作者发现目前的Reward model都是SFT开始训练的，所以实际上几个不同的rm的参数的线性叠加，基本上会反映到score的线性叠加上。所以，如果用不同的超参训几个rm，然后把参数average作为最终的rm，会不会更鲁棒呢？</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/gsm8k-zero.png"></p>
+<h2 id="warm-on-the-benefits-of-weight-averaged-reward-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.12187.pdf">WARM: On the Benefits of
+Weight Averaged Reward Models</a></h2>
+<p>deepmind的论文，作者发现目前的Reward
+model都是SFT开始训练的，所以实际上几个不同的rm的参数的线性叠加，基本上会反映到score的线性叠加上。所以，如果用不同的超参训几个rm，然后把参数average作为最终的rm，会不会更鲁棒呢？</p>
 <p>作者发现，这样训出来的rm确实更鲁棒，由此搞出来的PPO模型效果更好</p>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/warm.png">
-<h2 id="Drop-your-Decoder-Pre-training-with-Bag-of-Word-Prediction-for-Dense-Passage-Retrieval"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.11248.pdf">Drop your Decoder: Pre-training with Bag-of-Word Prediction for Dense Passage Retrieval</a></h2>
-<p>作者发现传统的Masked Auto-Encoder训练一般是一个encoder和一个decoder，每一部分都是丢失一部分信息。为什么一定要decoder？作者尝试了一个encoder-only的方案，并加入一个额外的cls-loss，直接用cls做预测。发现在retreive任务上，竟然神奇的效果很好</p>
-<img src="../../files/images/arxiv-insights/2024-01-22-01-26/bow.png">
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/warm.png"></p>
+<h2 id="drop-your-decoder-pre-training-with-bag-of-word-prediction-for-dense-passage-retrieval"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.11248.pdf">Drop your Decoder:
+Pre-training with Bag-of-Word Prediction for Dense Passage
+Retrieval</a></h2>
+<p>作者发现传统的Masked
+Auto-Encoder训练一般是一个encoder和一个decoder，每一部分都是丢失一部分信息。为什么一定要decoder？作者尝试了一个encoder-only的方案，并加入一个额外的cls-loss，直接用cls做预测。发现在retreive任务上，竟然神奇的效果很好</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/bow.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -343,13 +349,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/688f19a6.html" rel="bookmark">2025-07-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5514edac.html" rel="bookmark">2025-07-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bad68692.html" rel="bookmark">2025-07-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4f280d22.html" rel="bookmark">2025-07-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a0ea661c.html" rel="bookmark">2025-07-24-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +432,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Over-Reasoning-and-Redundant-Calculation-of-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Over-Reasoning and Redundant Calculation of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WARM-On-the-Benefits-of-Weight-Averaged-Reward-Models"><span class="nav-number">2.</span> <span class="nav-text">WARM: On the Benefits of Weight Averaged Reward Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drop-your-Decoder-Pre-training-with-Bag-of-Word-Prediction-for-Dense-Passage-Retrieval"><span class="nav-number">3.</span> <span class="nav-text">Drop your Decoder: Pre-training with Bag-of-Word Prediction for Dense Passage Retrieval</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#over-reasoning-and-redundant-calculation-of-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Over-Reasoning and Redundant
+Calculation of Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#warm-on-the-benefits-of-weight-averaged-reward-models"><span class="nav-number">2.</span> <span class="nav-text">WARM: On the Benefits of
+Weight Averaged Reward Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#drop-your-decoder-pre-training-with-bag-of-word-prediction-for-dense-passage-retrieval"><span class="nav-number">3.</span> <span class="nav-text">Drop your Decoder:
+Pre-training with Bag-of-Word Prediction for Dense Passage
+Retrieval</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,19 +494,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/688f19a6" title="2025-07-30-insights" target="_blank">2025-07-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5514edac" title="2025-07-29-insights" target="_blank">2025-07-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bad68692" title="2025-07-28-insights" target="_blank">2025-07-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4f280d22" title="2025-07-25-insights" target="_blank">2025-07-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a0ea661c" title="2025-07-24-insights" target="_blank">2025-07-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/42367d65" title="2025-07-23-insights" target="_blank">2025-07-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -576,12 +586,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

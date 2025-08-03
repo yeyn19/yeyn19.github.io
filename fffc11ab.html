@@ -313,18 +313,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Dynamic-Early-Exit-in-Reasoning-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.15895"><strong>Dynamic Early Exit in Reasoning Models</strong></a></h2>
-<p>如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接/thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。</p>
+        <h2 id="dynamic-early-exit-in-reasoning-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.15895"><strong>Dynamic Early Exit in
+Reasoning Models</strong></a></h2>
+<p>如果大家看了前几天那个meta reinforcement
+finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接/thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early
+stopping。</p>
 <blockquote>
 <p>话说我一直挺喜欢omit这个东西的，我的想法是这样：如果我们把o1理解成某种模型自己学到的搜索算法。作为搜索算法，anytime的性质一直是最优的性质，模型能不能学着去优化anytime的算法呢？毕竟这样才可以世纪地去部署</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-04-21-04-25/exit.png">
-<h2 id="LLMs-are-Greedy-Agents-Effects-of-RL-Fine-tuning-on-Decision-Making-Abilities"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.16078">LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities</a></h2>
-<p>这篇工作很有趣：作者研究了llm做decision making的能力，发现总是效果不好。经过近一步分析，发现了三个瓶颈：greediness(大多数action从来不探索), frequency bias(只选择次数最多的，可能是因为context里最多), knowing-doing gap(用qa的形式发现它知道最佳策略，但就是不能根据策略去做)。由此作者设计了一套rl算法，看起来可以解决这些问题</p>
+<p><img src="../../files/images/arxiv-insights/2025-04-21-04-25/exit.png"></p>
+<h2 id="llms-are-greedy-agents-effects-of-rl-fine-tuning-on-decision-making-abilities"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.16078">LLMs are Greedy Agents: Effects
+of RL Fine-tuning on Decision-Making Abilities</a></h2>
+<p>这篇工作很有趣：作者研究了llm做decision
+making的能力，发现总是效果不好。经过近一步分析，发现了三个瓶颈：greediness(大多数action从来不探索),
+frequency bias(只选择次数最多的，可能是因为context里最多), knowing-doing
+gap(用qa的形式发现它知道最佳策略，但就是不能根据策略去做)。由此作者设计了一套rl算法，看起来可以解决这些问题</p>
 <blockquote>
 <p>knowing-doing gap这个见解很深刻，不愧deepmind</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-04-21-04-25/dm.png">
+<p><img src="../../files/images/arxiv-insights/2025-04-21-04-25/dm.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +348,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/688f19a6.html" rel="bookmark">2025-07-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5514edac.html" rel="bookmark">2025-07-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bad68692.html" rel="bookmark">2025-07-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4f280d22.html" rel="bookmark">2025-07-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a0ea661c.html" rel="bookmark">2025-07-24-insights</a></div>
     </li>
   </ul>
 
@@ -424,7 +431,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Early-Exit-in-Reasoning-Models"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Early Exit in Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLMs-are-Greedy-Agents-Effects-of-RL-Fine-tuning-on-Decision-Making-Abilities"><span class="nav-number">2.</span> <span class="nav-text">LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic-early-exit-in-reasoning-models"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Early Exit in
+Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llms-are-greedy-agents-effects-of-rl-fine-tuning-on-decision-making-abilities"><span class="nav-number">2.</span> <span class="nav-text">LLMs are Greedy Agents: Effects
+of RL Fine-tuning on Decision-Making Abilities</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,19 +491,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/688f19a6" title="2025-07-30-insights" target="_blank">2025-07-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5514edac" title="2025-07-29-insights" target="_blank">2025-07-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bad68692" title="2025-07-28-insights" target="_blank">2025-07-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4f280d22" title="2025-07-25-insights" target="_blank">2025-07-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a0ea661c" title="2025-07-24-insights" target="_blank">2025-07-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/42367d65" title="2025-07-23-insights" target="_blank">2025-07-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -574,12 +583,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>589</span>
+              <span>579</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,21 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="AGENTGYM-Evolving-Large-Language-Model-based-Agents-across-Diverse-Environments"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.04151">AGENTGYM: Evolving Large Language Model-based Agents across Diverse Environments</a></h2>
-<p>挺solid的一篇论文，作者找到了一堆Agent类的benchmark，然后造了sft数据，还用类似于wizard的方法构造了更多的instruction，然后训练了一个相对diverse的agent model，同时还给了个agent benchmark。</p>
+        <h2 id="agentgym-evolving-large-language-model-based-agents-across-diverse-environments"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.04151">AGENTGYM: Evolving Large
+Language Model-based Agents across Diverse Environments</a></h2>
+<p>挺solid的一篇论文，作者找到了一堆Agent类的benchmark，然后造了sft数据，还用类似于wizard的方法构造了更多的instruction，然后训练了一个相对diverse的agent
+model，同时还给了个agent benchmark。</p>
 <blockquote>
 <p>一篇工作量顶别人十篇……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/agent-gym.png">
-<h2 id="ReST-MCTS∗-LLM-Self-Training-via-Process-Reward-Guided-Tree-Search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.03816">ReST-MCTS∗: LLM Self-Training via Process Reward Guided Tree Search</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/agent-gym.png"></p>
+<h2 id="rest-mcts-llm-self-training-via-process-reward-guided-tree-search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.03816">ReST-MCTS∗: LLM Self-Training
+via Process Reward Guided Tree Search</a></h2>
 <p>唐杰老师的文章，结合了之前的math-shepherd和ReFT：作者用一个树搜索算法搜出来不同的解决方案，然后由score决定是正/负样本，进而进行dpo之类的self-train算法，在几个reasoning场景下效果不错</p>
 <blockquote>
-<p>我总感觉这种方法的瓶颈是拿不到environment feedback……不知道真实世界是不是可以像围棋那样建模出来“输赢”</p>
+<p>我总感觉这种方法的瓶颈是拿不到environment
+feedback……不知道真实世界是不是可以像围棋那样建模出来“输赢”</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/reft-mcts.png">
-<h2 id="Are-We-Done-with-MMLU"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.04127">Are We Done with MMLU?</a></h2>
-<p>这个名字起的大气，但是作者其实是发现MMLU不够好，比如说&quot;57个学科&quot;其中的病毒学中的问题有55%都是错的……于是作者又找人重新标注了其中3000个问题的答案，发现把错误的题目改掉以后，模型的performance得到了明显的变化。</p>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/error.png">
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/reft-mcts.png"></p>
+<h2 id="are-we-done-with-mmlu"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.04127">Are We Done with MMLU?</a></h2>
+<p>这个名字起的大气，但是作者其实是发现MMLU不够好，比如说"57个学科"其中的病毒学中的问题有55%都是错的……于是作者又找人重新标注了其中3000个问题的答案，发现把错误的题目改掉以后，模型的performance得到了明显的变化。</p>
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/error.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -345,13 +349,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/688f19a6.html" rel="bookmark">2025-07-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5514edac.html" rel="bookmark">2025-07-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bad68692.html" rel="bookmark">2025-07-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4f280d22.html" rel="bookmark">2025-07-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a0ea661c.html" rel="bookmark">2025-07-24-insights</a></div>
     </li>
   </ul>
 
@@ -428,7 +432,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AGENTGYM-Evolving-Large-Language-Model-based-Agents-across-Diverse-Environments"><span class="nav-number">1.</span> <span class="nav-text">AGENTGYM: Evolving Large Language Model-based Agents across Diverse Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReST-MCTS%E2%88%97-LLM-Self-Training-via-Process-Reward-Guided-Tree-Search"><span class="nav-number">2.</span> <span class="nav-text">ReST-MCTS∗: LLM Self-Training via Process Reward Guided Tree Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Are-We-Done-with-MMLU"><span class="nav-number">3.</span> <span class="nav-text">Are We Done with MMLU?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#agentgym-evolving-large-language-model-based-agents-across-diverse-environments"><span class="nav-number">1.</span> <span class="nav-text">AGENTGYM: Evolving Large
+Language Model-based Agents across Diverse Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rest-mcts-llm-self-training-via-process-reward-guided-tree-search"><span class="nav-number">2.</span> <span class="nav-text">ReST-MCTS∗: LLM Self-Training
+via Process Reward Guided Tree Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#are-we-done-with-mmlu"><span class="nav-number">3.</span> <span class="nav-text">Are We Done with MMLU?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -486,19 +492,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/688f19a6" title="2025-07-30-insights" target="_blank">2025-07-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5514edac" title="2025-07-29-insights" target="_blank">2025-07-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bad68692" title="2025-07-28-insights" target="_blank">2025-07-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4f280d22" title="2025-07-25-insights" target="_blank">2025-07-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a0ea661c" title="2025-07-24-insights" target="_blank">2025-07-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/42367d65" title="2025-07-23-insights" target="_blank">2025-07-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -578,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

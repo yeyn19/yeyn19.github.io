@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>533</span>
+              <span>523</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,19 +312,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="In-Context-Learning-Strategies-Emerge-Rationally"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.17859">In-Context Learning Strategies Emerge Rationally</a></h2>
-<p>goodman的工作，作者在试图解释in-context learning行为随着训练的变化。如果大家之前看grokking方向，就知道里面会提出两个回路：</p>
-<ol>
+        <h2 id="in-context-learning-strategies-emerge-rationally"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.17859">In-Context Learning Strategies
+Emerge Rationally</a></h2>
+<p>goodman的工作，作者在试图解释in-context
+learning行为随着训练的变化。如果大家之前看grokking方向，就知道里面会提出两个回路：</p>
+<ol type="1">
 <li>背诵回路，记下所有问题的答案</li>
 <li>generalize回路：学到原理，然后更好地泛化</li>
 </ol>
-<p>作者发现，在训练初期，其实是generalize回路占主导（可能因为他对参数更新的要求更小），但随着训练，逐渐变成背诵回路占主导。因为generalize回路可能没法完全解释所有的特例。作者甚至发现，用一个简单的贝叶斯拟合，即使只有3个参数，就可以高准确率地预测出回路&quot;退化&quot;发生在什么时候。</p>
-<h2 id="LongWriter-Zero-Mastering-Ultra-Long-Text-Generation-via-Reinforcement-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.18841">LongWriter-Zero: Mastering Ultra-Long Text Generation via Reinforcement Learning</a></h2>
-<p>lijunzi的老师的工作，是超长文本生成。这是一个类似r1-zero的工作，作者在pure-rl setting（没有冷启数据）下，把qwen 32B的分数训上去了</p>
+<p>作者发现，在训练初期，其实是generalize回路占主导（可能因为他对参数更新的要求更小），但随着训练，逐渐变成背诵回路占主导。因为generalize回路可能没法完全解释所有的特例。作者甚至发现，用一个简单的贝叶斯拟合，即使只有3个参数，就可以高准确率地预测出回路"退化"发生在什么时候。</p>
+<h2 id="longwriter-zero-mastering-ultra-long-text-generation-via-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.18841">LongWriter-Zero: Mastering
+Ultra-Long Text Generation via Reinforcement Learning</a></h2>
+<p>lijunzi的老师的工作，是超长文本生成。这是一个类似r1-zero的工作，作者在pure-rl
+setting（没有冷启数据）下，把qwen 32B的分数训上去了</p>
 <blockquote>
-<p>话说我一直感觉，ultra-long这个setting应该建模成agent setting，就是给一些plan工具之类的来多轮搞</p>
+<p>话说我一直感觉，ultra-long这个setting应该建模成agent
+setting，就是给一些plan工具之类的来多轮搞</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-06-23-06-27/long-gen.png">
+<p><img src="../../files/images/arxiv-insights/2025-06-23-06-27/long-gen.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +346,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/688f19a6.html" rel="bookmark">2025-07-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5514edac.html" rel="bookmark">2025-07-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bad68692.html" rel="bookmark">2025-07-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4f280d22.html" rel="bookmark">2025-07-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a0ea661c.html" rel="bookmark">2025-07-24-insights</a></div>
     </li>
   </ul>
 
@@ -424,7 +429,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#In-Context-Learning-Strategies-Emerge-Rationally"><span class="nav-number">1.</span> <span class="nav-text">In-Context Learning Strategies Emerge Rationally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LongWriter-Zero-Mastering-Ultra-Long-Text-Generation-via-Reinforcement-Learning"><span class="nav-number">2.</span> <span class="nav-text">LongWriter-Zero: Mastering Ultra-Long Text Generation via Reinforcement Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#in-context-learning-strategies-emerge-rationally"><span class="nav-number">1.</span> <span class="nav-text">In-Context Learning Strategies
+Emerge Rationally</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#longwriter-zero-mastering-ultra-long-text-generation-via-reinforcement-learning"><span class="nav-number">2.</span> <span class="nav-text">LongWriter-Zero: Mastering
+Ultra-Long Text Generation via Reinforcement Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -482,19 +489,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/688f19a6" title="2025-07-30-insights" target="_blank">2025-07-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5514edac" title="2025-07-29-insights" target="_blank">2025-07-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bad68692" title="2025-07-28-insights" target="_blank">2025-07-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4f280d22" title="2025-07-25-insights" target="_blank">2025-07-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a0ea661c" title="2025-07-24-insights" target="_blank">2025-07-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/42367d65" title="2025-07-23-insights" target="_blank">2025-07-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -574,12 +581,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

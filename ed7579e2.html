@@ -314,18 +314,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Thinking-vs-Doing-Agents-that-Reason-by-Scaling-Test-Time-Interaction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.07976">Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction</a></h2>
-<p>Kumar参与的工作，在agent setting上，作者定义了两个tes time scaling的维度：单个step内的thought长度，还是单个step里thought少，但是step多（test-time interaction）？作者发现相比之下，后者的效果更好。由此，作者设计了rl算法，使得agent可以在训练过程中逐渐增加action budget</p>
+        <h2 id="thinking-vs.-doing-agents-that-reason-by-scaling-test-time-interaction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.07976">Thinking vs. Doing: Agents that
+Reason by Scaling Test-Time Interaction</a></h2>
+<p>Kumar参与的工作，在agent setting上，作者定义了两个tes time
+scaling的维度：单个step内的thought长度，还是单个step里thought少，但是step多（test-time
+interaction）？作者发现相比之下，后者的效果更好。由此，作者设计了rl算法，使得agent可以在训练过程中逐渐增加action
+budget</p>
 <blockquote>
 <p>感觉好像claude讲过一遍这个故事了？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-06-09-06-13/tti.png">
-<h2 id="MCPWorld-A-Unified-Benchmarking-Testbed-for-API-GUI-and-Hybrid-Computer-Use-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.07672">MCPWorld: A Unified Benchmarking Testbed for API, GUI, and Hybrid Computer Use Agents</a></h2>
+<p><img src="../../files/images/arxiv-insights/2025-06-09-06-13/tti.png"></p>
+<h2 id="mcpworld-a-unified-benchmarking-testbed-for-api-gui-and-hybrid-computer-use-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.07672">MCPWorld: A Unified Benchmarking
+Testbed for API, GUI, and Hybrid Computer Use Agents</a></h2>
 <p>这篇工作的思路比较有趣，作者认为：完成Agent任务时，既可以通过gui键鼠操作来完成，也可以通过MCP工作调用来完成。只是由于任务不同，天生对于不同的接口有不同的支持性。那么，能不能day1就搭建一个同时支持两种方案的评测集，这样就可以公平的对比MCP-Agent、GUI-Agent、Hybrid-Agent了呢？</p>
-<img src="../../files/images/arxiv-insights/2025-06-09-06-13/mcp-world.png">
-<h2 id="GUI-Reflection-Empowering-Multimodal-GUI-Models-with-Self-Reflection-Behavior"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.08012">GUI-Reflection: Empowering Multimodal GUI Models with Self-Reflection Behavior</a></h2>
-<p>一篇GUI Agent领域的工作，作者具体focus在reflection的行为上：当遇到问题时，能不能发现错误并纠正之前的问题。对于正常的human-sft数据，基本上trace里每个步骤都是正确的，这会导致模型根本没见过错误恢复的数据，online推理时一旦遇到问题，就难以纠正。作者想到的方法是，直接拿sft数据里，构造“犯错”的步骤，让模型学着去恢复。</p>
-<img src="../../files/images/arxiv-insights/2025-06-09-06-13/reflection.png">
+<p><img src="../../files/images/arxiv-insights/2025-06-09-06-13/mcp-world.png"></p>
+<h2 id="gui-reflection-empowering-multimodal-gui-models-with-self-reflection-behavior"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.08012">GUI-Reflection: Empowering
+Multimodal GUI Models with Self-Reflection Behavior</a></h2>
+<p>一篇GUI
+Agent领域的工作，作者具体focus在reflection的行为上：当遇到问题时，能不能发现错误并纠正之前的问题。对于正常的human-sft数据，基本上trace里每个步骤都是正确的，这会导致模型根本没见过错误恢复的数据，online推理时一旦遇到问题，就难以纠正。作者想到的方法是，直接拿sft数据里，构造“犯错”的步骤，让模型学着去恢复。</p>
+<p><img src="../../files/images/arxiv-insights/2025-06-09-06-13/reflection.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +349,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/688f19a6.html" rel="bookmark">2025-07-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5514edac.html" rel="bookmark">2025-07-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/bad68692.html" rel="bookmark">2025-07-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4f280d22.html" rel="bookmark">2025-07-25-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a0ea661c.html" rel="bookmark">2025-07-24-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +432,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Thinking-vs-Doing-Agents-that-Reason-by-Scaling-Test-Time-Interaction"><span class="nav-number">1.</span> <span class="nav-text">Thinking vs. Doing: Agents that Reason by Scaling Test-Time Interaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MCPWorld-A-Unified-Benchmarking-Testbed-for-API-GUI-and-Hybrid-Computer-Use-Agents"><span class="nav-number">2.</span> <span class="nav-text">MCPWorld: A Unified Benchmarking Testbed for API, GUI, and Hybrid Computer Use Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-Reflection-Empowering-Multimodal-GUI-Models-with-Self-Reflection-Behavior"><span class="nav-number">3.</span> <span class="nav-text">GUI-Reflection: Empowering Multimodal GUI Models with Self-Reflection Behavior</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#thinking-vs.-doing-agents-that-reason-by-scaling-test-time-interaction"><span class="nav-number">1.</span> <span class="nav-text">Thinking vs. Doing: Agents that
+Reason by Scaling Test-Time Interaction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mcpworld-a-unified-benchmarking-testbed-for-api-gui-and-hybrid-computer-use-agents"><span class="nav-number">2.</span> <span class="nav-text">MCPWorld: A Unified Benchmarking
+Testbed for API, GUI, and Hybrid Computer Use Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gui-reflection-empowering-multimodal-gui-models-with-self-reflection-behavior"><span class="nav-number">3.</span> <span class="nav-text">GUI-Reflection: Empowering
+Multimodal GUI Models with Self-Reflection Behavior</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -483,19 +493,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/688f19a6" title="2025-07-30-insights" target="_blank">2025-07-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5514edac" title="2025-07-29-insights" target="_blank">2025-07-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/bad68692" title="2025-07-28-insights" target="_blank">2025-07-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4f280d22" title="2025-07-25-insights" target="_blank">2025-07-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a0ea661c" title="2025-07-24-insights" target="_blank">2025-07-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/42367d65" title="2025-07-23-insights" target="_blank">2025-07-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -575,12 +585,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:29</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>
