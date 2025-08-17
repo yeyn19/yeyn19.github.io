@@ -315,30 +315,21 @@
 
       
         <p>今天佳作频出呀</p>
-<h2 id="selective-self-rehearsal-a-fine-tuning-approach-to-improve-generalization-in-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.04787">Selective Self-Rehearsal: A
-Fine-Tuning Approach to Improve Generalization in Large Language
-<strong>Models</strong></a></h2>
+<h2 id="Selective-Self-Rehearsal-A-Fine-Tuning-Approach-to-Improve-Generalization-in-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.04787">Selective Self-Rehearsal: A Fine-Tuning Approach to Improve Generalization in Large Language <strong>Models</strong></a></h2>
 <p>很有趣的工作，感觉里面蕴含着深刻的道理：作者发现，在domain上finetune的模型往往会丢失泛化性。但是，这会不会是因为非知识性的原因呢？一个response的各种paraphrase都是一个意思，但ppl差的很多，如果让模型自己给训练集做一个paraphrase，让所有样本ppl都比较低了，是不是就不会让模型“扭转分布”了？作者发现还真是</p>
 <blockquote>
 <p>但是，如果这个domain和预训练domain差的实在太远，导致paraphrase也无效咋办？是不是只能在预训练阶段掺数据了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-09-09-09-13/Selective-Self-Rehearsal.png"></p>
-<h2 id="improving-pretraining-data-using-perplexity-correlations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.05816"><strong>Improving Pretraining
-Data Using Perplexity Correlations</strong></a></h2>
-<p>这篇工作有点难评，不知道大家还记不记得之前分享过的observable scaling
-law，会根据不同LLM在leaderboard上的表现做协同过滤，算出来leaderboard的特征向量。这篇工作类似，找到一堆llm，一堆training
-corpus subset，根据每个LLM在每个training subset的ppl，和leader
-board上的表现作为训练数据，然后搞一个类似于regression的过程，算出来每个subset的权重，来做预训练数据配比调整</p>
+<img src="../../files/images/arxiv-insights/2024-09-09-09-13/Selective-Self-Rehearsal.png">
+<h2 id="Improving-Pretraining-Data-Using-Perplexity-Correlations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.05816"><strong>Improving Pretraining Data Using Perplexity Correlations</strong></a></h2>
+<p>这篇工作有点难评，不知道大家还记不记得之前分享过的observable scaling law，会根据不同LLM在leaderboard上的表现做协同过滤，算出来leaderboard的特征向量。这篇工作类似，找到一堆llm，一堆training corpus subset，根据每个LLM在每个training subset的ppl，和leader board上的表现作为训练数据，然后搞一个类似于regression的过程，算出来每个subset的权重，来做预训练数据配比调整</p>
 <blockquote>
 <p>有点测试集泄露的嫌疑……但好像又没有。仔细想想doremi大概也是这么个路子，快进了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-09-09-09-13/core.png"></p>
-<h2 id="mmevol-empowering-multimodal-large-language-models-with-evol-instruct"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.05840"><strong>MMEvol: Empowering
-Multimodal Large Language Models with Evol-Instruct</strong></a></h2>
-<p>如果大家还记得Wizard
-LM，就是用一堆种子sft数据，多次迭代，每轮变难一点点。有人复刻了一个VLM版本的，开源了一个seed-163k
-SFT数据，效果还不错</p>
-<p><img src="../../files/images/arxiv-insights/2024-09-09-09-13/mmevol.png"></p>
+<img src="../../files/images/arxiv-insights/2024-09-09-09-13/core.png">
+<h2 id="MMEvol-Empowering-Multimodal-Large-Language-Models-with-Evol-Instruct"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.05840"><strong>MMEvol: Empowering Multimodal Large Language Models with Evol-Instruct</strong></a></h2>
+<p>如果大家还记得Wizard LM，就是用一堆种子sft数据，多次迭代，每轮变难一点点。有人复刻了一个VLM版本的，开源了一个seed-163k SFT数据，效果还不错</p>
+<img src="../../files/images/arxiv-insights/2024-09-09-09-13/mmevol.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -355,13 +346,13 @@ SFT数据，效果还不错</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f8511e6c.html" rel="bookmark">2025-08-11-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c5caea66.html" rel="bookmark">2025-08-08-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/34c1b1eb.html" rel="bookmark">2025-08-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/db03dad5.html" rel="bookmark">2025-08-06-insights</a></div>
     </li>
   </ul>
 
@@ -438,11 +429,7 @@ SFT数据，效果还不错</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#selective-self-rehearsal-a-fine-tuning-approach-to-improve-generalization-in-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Selective Self-Rehearsal: A
-Fine-Tuning Approach to Improve Generalization in Large Language
-Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#improving-pretraining-data-using-perplexity-correlations"><span class="nav-number">2.</span> <span class="nav-text">Improving Pretraining
-Data Using Perplexity Correlations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmevol-empowering-multimodal-large-language-models-with-evol-instruct"><span class="nav-number">3.</span> <span class="nav-text">MMEvol: Empowering
-Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Selective-Self-Rehearsal-A-Fine-Tuning-Approach-to-Improve-Generalization-in-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Selective Self-Rehearsal: A Fine-Tuning Approach to Improve Generalization in Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Improving-Pretraining-Data-Using-Perplexity-Correlations"><span class="nav-number">2.</span> <span class="nav-text">Improving Pretraining Data Using Perplexity Correlations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMEvol-Empowering-Multimodal-Large-Language-Models-with-Evol-Instruct"><span class="nav-number">3.</span> <span class="nav-text">MMEvol: Empowering Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +444,7 @@ Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -500,6 +487,10 @@ Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/f8511e6c" title="2025-08-11-insights" target="_blank">2025-08-11-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c5caea66" title="2025-08-08-insights" target="_blank">2025-08-08-insights</a>
         </li>
       
@@ -509,18 +500,6 @@ Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/db03dad5" title="2025-08-06-insights" target="_blank">2025-08-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/303461d6" title="2025-08-05-insights" target="_blank">2025-08-05-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dff60ae8" title="2025-08-04-insights" target="_blank">2025-08-04-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/39dfc1ac" title="2025-08-01-insights" target="_blank">2025-08-01-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -537,6 +516,14 @@ Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -592,12 +579,12 @@ Multimodal Large Language Models with Evol-Instruct</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">297k</span>
+    <span title="站点总字数">296k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:30</span>
+    <span title="站点阅读时长">4:29</span>
 </div>
 
 <i class="fa fa-user-md"></i>
