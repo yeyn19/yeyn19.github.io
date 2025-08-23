@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>999</span>
+              <span>951</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,28 +314,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Stream-of-Search-SoS-Learning-to-Search-in-Language"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03683.pdf">Stream of Search (SoS): Learning to Search in Language</a></h2>
+        <h2 id="stream-of-search-sos-learning-to-search-in-language"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03683.pdf">Stream of Search (SoS):
+Learning to Search in Language</a></h2>
 <p>Goodman的论文，对ToT猛猛发力。作者发现目前的LLM做ToT类的东西效果不好，作者标了一些数据，包含多种search算法，让模型做search去解决24点(其实是拓展形式，xx点都有可能)。然后SFT之后跟了一个STaR的self-train环节，发现效果还能再涨。</p>
 <blockquote>
 <p>之前还真没咋看到training ToT的文章……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-08-04-12/search.png">
-<h2 id="No-“Zero-Shot”-Without-Exponential-Data-Pretraining-Concept-Frequency-Determines-Multimodal-Model-Performance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.04125.pdf">No “Zero-Shot” Without Exponential Data: Pretraining Concept Frequency Determines Multimodal Model Performance</a></h2>
-<p>随着LLM的发展，大家发现&quot;LLM展现出了zero-shot的能力&quot;。作者质疑这个说法：所谓的&quot;zero-shot&quot;，是真的在pretrain dataset中&quot;zeroshot&quot;吗？</p>
-<p>作者找到了一些所谓的zeroshot的concept，划分了每条数据属于哪些concept，然后测试了各家开放trainset的MLLM的数据集中每个concept的出现次数。发现&quot;zeroshot&quot; performance和训练集中concept出现次数成基本完美的scaling law。甚至，如果按照concept的语义相似度对别的concept加权， 还是完美符合scaling law……</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/search.png"></p>
+<h2 id="no-zero-shot-without-exponential-data-pretraining-concept-frequency-determines-multimodal-model-performance"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.04125.pdf">No “Zero-Shot” Without
+Exponential Data: Pretraining Concept Frequency Determines Multimodal
+Model Performance</a></h2>
+<p>随着LLM的发展，大家发现"LLM展现出了zero-shot的能力"。作者质疑这个说法：所谓的"zero-shot"，是真的在pretrain
+dataset中"zeroshot"吗？</p>
+<p>作者找到了一些所谓的zeroshot的concept，划分了每条数据属于哪些concept，然后测试了各家开放trainset的MLLM的数据集中每个concept的出现次数。发现"zeroshot"
+performance和训练集中concept出现次数成基本完美的scaling
+law。甚至，如果按照concept的语义相似度对别的concept加权，
+还是完美符合scaling law……</p>
 <blockquote>
-<p>这题目不够搞，要是我就取名：zero-shot? $e^n$-shot is all you need!</p>
+<p>这题目不够搞，要是我就取名：zero-shot? <span class="math inline">\(e^n\)</span>-shot is all you need!</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-08-04-12/zeroshot.png">
-<h2 id="Verifiable-by-Design-Aligning-Language-Models-to-Quote-from-Pre-Training-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03862.pdf">Verifiable by Design: Aligning Language Models to Quote from Pre-Training Data</a></h2>
-<p>作者提到， LLM生成的内容，往往需要验证是否来源于可信的训练数据。然而这个验证很困难，作者想了一个怪招：让模型生成和训练数据尽可能符合的n-gram。预设模型生成的和某条数据一致的n-gram就是在&quot;引用&quot;某个训练数据。由此获得了一个三步的方案：</p>
-<ol>
+<p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/zeroshot.png"></p>
+<h2 id="verifiable-by-design-aligning-language-models-to-quote-from-pre-training-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.03862.pdf">Verifiable by Design:
+Aligning Language Models to Quote from Pre-Training Data</a></h2>
+<p>作者提到，
+LLM生成的内容，往往需要验证是否来源于可信的训练数据。然而这个验证很困难，作者想了一个怪招：让模型生成和训练数据尽可能符合的n-gram。预设模型生成的和某条数据一致的n-gram就是在"引用"某个训练数据。由此获得了一个三步的方案：</p>
+<ol type="1">
 <li>让模型对query生成多个response</li>
 <li>每个response根据n-gram计算得分，和越多的训练数据n-gram一致，得分就越高</li>
 <li>得到pairwise data做对齐训练</li>
 </ol>
 <p>作者发现，这样训练完以后的模型神奇的出现了分布外的quote引用能力</p>
-<img src="../../files/images/arxiv-insights/2024-04-08-04-12/quote.png">
+<p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/quote.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -352,13 +361,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/44435a6.html" rel="bookmark">2025-08-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1e78d528.html" rel="bookmark">2025-08-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fca4ce51.html" rel="bookmark">2025-08-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1366a56f.html" rel="bookmark">2025-08-12-insights</a></div>
     </li>
   </ul>
 
@@ -435,7 +444,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stream-of-Search-SoS-Learning-to-Search-in-Language"><span class="nav-number">1.</span> <span class="nav-text">Stream of Search (SoS): Learning to Search in Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#No-%E2%80%9CZero-Shot%E2%80%9D-Without-Exponential-Data-Pretraining-Concept-Frequency-Determines-Multimodal-Model-Performance"><span class="nav-number">2.</span> <span class="nav-text">No “Zero-Shot” Without Exponential Data: Pretraining Concept Frequency Determines Multimodal Model Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Verifiable-by-Design-Aligning-Language-Models-to-Quote-from-Pre-Training-Data"><span class="nav-number">3.</span> <span class="nav-text">Verifiable by Design: Aligning Language Models to Quote from Pre-Training Data</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#stream-of-search-sos-learning-to-search-in-language"><span class="nav-number">1.</span> <span class="nav-text">Stream of Search (SoS):
+Learning to Search in Language</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#no-zero-shot-without-exponential-data-pretraining-concept-frequency-determines-multimodal-model-performance"><span class="nav-number">2.</span> <span class="nav-text">No “Zero-Shot” Without
+Exponential Data: Pretraining Concept Frequency Determines Multimodal
+Model Performance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#verifiable-by-design-aligning-language-models-to-quote-from-pre-training-data"><span class="nav-number">3.</span> <span class="nav-text">Verifiable by Design:
+Aligning Language Models to Quote from Pre-Training Data</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -450,7 +463,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,6 +506,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/44435a6" title="2025-08-18-insights" target="_blank">2025-08-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1e78d528" title="2025-08-14-insights" target="_blank">2025-08-14-insights</a>
         </li>
       
@@ -526,10 +543,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -585,12 +598,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:30</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

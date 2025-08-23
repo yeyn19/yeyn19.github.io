@@ -315,24 +315,34 @@
 
       
         <p>今天去考驾照了，只能说，过了</p>
-<h2 id="Transformers-without-Normalization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10622">Transformers without Normalization</a></h2>
-<p>不是，科研也搞全明星？Jiachen Zhu, Xinlei Chen, Kaiming He, Yann LeCun, Zhuang Liu 谁来都得愣几秒。作者发现，normalization这个设计，从transformer 2017开始，一直就没换过（凡是想换的人，loss必爆nan）。作者这次还真找了办法换掉了，而且效果竟然不掉。</p>
+<h2 id="transformers-without-normalization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10622">Transformers without
+Normalization</a></h2>
+<p>不是，科研也搞全明星？Jiachen Zhu, Xinlei Chen, Kaiming He, Yann
+LeCun, Zhuang Liu
+谁来都得愣几秒。作者发现，normalization这个设计，从transformer
+2017开始，一直就没换过（凡是想换的人，loss必爆nan）。作者这次还真找了办法换掉了，而且效果竟然不掉。</p>
 <blockquote>
 <p>这个东西的意义很大，因为normalization这个算子其实很慢、尤其backward的时候。这下大家又找到加速方案了……下次谁把FFN换成快速算子？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-03-10-03-14/normal.png">
-<h2 id="Uncertainty-in-Action-Confidence-Elicitation-in-Embodied-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10628">Uncertainty in Action: Confidence Elicitation in Embodied Agents</a></h2>
-<p>这篇文章读起来可能有点费解，但我还挺喜欢的。如果大家看过openai之前的那个Teaching models to express their uncertainty in words，这篇文章就是它对偶的agent 版本。作者探索了能否让agent在执行任务中表达自己的不确定性。</p>
+<p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/normal.png"></p>
+<h2 id="uncertainty-in-action-confidence-elicitation-in-embodied-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10628">Uncertainty in Action:
+Confidence Elicitation in Embodied Agents</a></h2>
+<p>这篇文章读起来可能有点费解，但我还挺喜欢的。如果大家看过openai之前的那个Teaching
+models to express their uncertainty in words，这篇文章就是它对偶的agent
+版本。作者探索了能否让agent在执行任务中表达自己的不确定性。</p>
 <blockquote>
 <p>这好像是我第一次看到agent领域的calibration文章。不过我一直认为，agent领域的policy和rm就应该是一个过程</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-03-10-03-14/elicitation.png">
-<h2 id="VisualWebInstruct-Scaling-up-Multimodal-Instruction-Data-through-Web-Search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10582">VisualWebInstruct: Scaling up Multimodal Instruction Data through Web Search</a></h2>
-<p>Wenhu老师的工作，乍一看还以为是deep research训练数据，原来是靠websearch构造sft训练数据。不过作者的流程也挺好玩的，作者主要解决的是VLM sft数据里缺少图片信息的问题。怎么解呢？作者发现，可以用google搜索这个图片相关的网页。这样的话，只要有一大堆图片，就能搜索到一大堆网页，然后对着网页出题了。</p>
+<p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/elicitation.png"></p>
+<h2 id="visualwebinstruct-scaling-up-multimodal-instruction-data-through-web-search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10582">VisualWebInstruct: Scaling up
+Multimodal Instruction Data through Web Search</a></h2>
+<p>Wenhu老师的工作，乍一看还以为是deep
+research训练数据，原来是靠websearch构造sft训练数据。不过作者的流程也挺好玩的，作者主要解决的是VLM
+sft数据里缺少图片信息的问题。怎么解呢？作者发现，可以用google搜索这个图片相关的网页。这样的话，只要有一大堆图片，就能搜索到一大堆网页，然后对着网页出题了。</p>
 <blockquote>
 <p>话说这样的话，另一个baseline是对image做caption，然后对着caption出题。如果websearch的效果更好，说明目前的caption的diversity其实是瓶颈了？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-03-10-03-14/webinstruct.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/webinstruct.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -349,13 +359,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/44435a6.html" rel="bookmark">2025-08-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1e78d528.html" rel="bookmark">2025-08-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fca4ce51.html" rel="bookmark">2025-08-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1366a56f.html" rel="bookmark">2025-08-12-insights</a></div>
     </li>
   </ul>
 
@@ -432,7 +442,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformers-without-Normalization"><span class="nav-number">1.</span> <span class="nav-text">Transformers without Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Uncertainty-in-Action-Confidence-Elicitation-in-Embodied-Agents"><span class="nav-number">2.</span> <span class="nav-text">Uncertainty in Action: Confidence Elicitation in Embodied Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VisualWebInstruct-Scaling-up-Multimodal-Instruction-Data-through-Web-Search"><span class="nav-number">3.</span> <span class="nav-text">VisualWebInstruct: Scaling up Multimodal Instruction Data through Web Search</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#transformers-without-normalization"><span class="nav-number">1.</span> <span class="nav-text">Transformers without
+Normalization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#uncertainty-in-action-confidence-elicitation-in-embodied-agents"><span class="nav-number">2.</span> <span class="nav-text">Uncertainty in Action:
+Confidence Elicitation in Embodied Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#visualwebinstruct-scaling-up-multimodal-instruction-data-through-web-search"><span class="nav-number">3.</span> <span class="nav-text">VisualWebInstruct: Scaling up
+Multimodal Instruction Data through Web Search</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,7 +460,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,6 +503,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/44435a6" title="2025-08-18-insights" target="_blank">2025-08-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1e78d528" title="2025-08-14-insights" target="_blank">2025-08-14-insights</a>
         </li>
       
@@ -523,10 +540,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -582,12 +595,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">296k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:30</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>
