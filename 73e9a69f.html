@@ -24,17 +24,17 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Latent Action Pretraining from Videos 很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?  这个工作里面可能还蕴含着很多秘密">
+  <meta name="description" content="Latent Action Pretraining from Videos很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?  这个工作里面可能还蕴含着很多秘密…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-16-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/73e9a69f">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Latent Action Pretraining from Videos 很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?  这个工作里面可能还蕴含着很多秘密">
+<meta property="og:description" content="Latent Action Pretraining from Videos很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?  这个工作里面可能还蕴含着很多秘密…">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-14-10-18/lapa.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-14-10-18/videgothink.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-10-14-10-18/skd.png">
-<meta property="article:published_time" content="2024-10-22T08:56:27.000Z">
+<meta property="article:published_time" content="2024-10-22T15:56:27.000Z">
 <meta property="article:modified_time" content="2024-10-28T03:47:08.237Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -248,14 +248,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-10-22 16:56:27" itemprop="dateCreated datePublished" datetime="2024-10-22T16:56:27+08:00">2024-10-22</time>
+              <time title="创建时间：2024-10-22 16:56:27" itemprop="dateCreated datePublished" datetime="2024-10-22T16:56:27+01:00">2024-10-22</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-10-28 11:47:08" itemprop="dateModified" datetime="2024-10-28T11:47:08+08:00">2024-10-28</time>
+                <time title="修改时间：2024-10-28 03:47:08" itemprop="dateModified" datetime="2024-10-28T03:47:08+00:00">2024-10-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,23 +314,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="latent-action-pretraining-from-videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11758"><strong>Latent Action
-Pretraining from Videos</strong></a></h2>
-<p>很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?</p>
+        <h2 id="Latent-Action-Pretraining-from-Videos"><a href="#Latent-Action-Pretraining-from-Videos" class="headerlink" title="Latent Action Pretraining from Videos"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11758"><strong>Latent Action Pretraining from Videos</strong></a></h2><p>很新颖的方法：作者想要训练具身机器人模型，但是缺少训练数据。作者发现，世界上有超级多的具身的视频数据，但这些数据都没有标注action，能不能训练一个vq-vae模型把视频映射到codebook，然后后续把这些codebook对齐到不同的action上呢？作者发现还真可以！效果竟然很好?</p>
 <blockquote>
 <p>这个工作里面可能还蕴含着很多秘密……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/lapa.png"></p>
-<h2 id="videgothink-assessing-egocentric-video-understanding-capabilities-for-embodied-ai"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11623"><strong>VidEgoThink: Assessing
-Egocentric Video Understanding Capabilities for Embodied
-AI</strong></a></h2>
-<p>之前读过一篇小众的论文”GUIWorld“，这篇工作是把它换到了第一人称视频的场景下。作者找到了一堆第一人称视角完成任务的数据，搭建了一个benchmark，涵盖了从qa、planning到grounding的各种任务。</p>
+<h2 id="VidEgoThink-Assessing-Egocentric-Video-Understanding-Capabilities-for-Embodied-AI"><a href="#VidEgoThink-Assessing-Egocentric-Video-Understanding-Capabilities-for-Embodied-AI" class="headerlink" title="VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.11623"><strong>VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI</strong></a></h2><p>之前读过一篇小众的论文”GUIWorld“，这篇工作是把它换到了第一人称视频的场景下。作者找到了一堆第一人称视角完成任务的数据，搭建了一个benchmark，涵盖了从qa、planning到grounding的各种任务。</p>
 <p><img src="../../files/images/arxiv-insights/2024-10-14-10-18/videgothink.png"></p>
-<h2 id="speculative-knowledge-distillation-bridging-the-teacher-student-gap-through-interleaved-sampling"><a href><strong>Speculative Knowledge Distillation: Bridging the
-Teacher-Student Gap Through Interleaved Sampling</strong></a></h2>
-<p>一篇关于蒸馏的工作，但作者提到另一个视角：蒸馏中学生和老师之间的knowledge
-gap带来的影响。作者认为如果让学生强行学习老师的分布，会带来严重的knowledge
-mismatch。所以，能不能让老师改学生的输出，只把关键地方改对呢？作者设计了类似投机推理的框架，老师看过去，觉得大差不差得token就不管，差很多的token再来借入。最后发现效果很好</p>
+<h2 id="Speculative-Knowledge-Distillation-Bridging-the-Teacher-Student-Gap-Through-Interleaved-Sampling"><a href="#Speculative-Knowledge-Distillation-Bridging-the-Teacher-Student-Gap-Through-Interleaved-Sampling" class="headerlink" title="Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling"></a><a href><strong>Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling</strong></a></h2><p>一篇关于蒸馏的工作，但作者提到另一个视角：蒸馏中学生和老师之间的knowledge gap带来的影响。作者认为如果让学生强行学习老师的分布，会带来严重的knowledge mismatch。所以，能不能让老师改学生的输出，只把关键地方改对呢？作者设计了类似投机推理的框架，老师看过去，觉得大差不差得token就不管，差很多的token再来借入。最后发现效果很好</p>
 <blockquote>
 <p>这是不仅仅学下棋，还要求老师把学生的烂局救活呀。感觉最近学界有个趋势：尽量不要改变模型本身的知识范围</p>
 </blockquote>
@@ -351,13 +342,13 @@ mismatch。所以，能不能让老师改学生的输出，只把关键地方改
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8a84c36e.html" rel="bookmark">2025-08-22-insights</a></div>
+      <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8e711353.html" rel="bookmark">2025-08-20-insights</a></div>
+      <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/eb865e98.html" rel="bookmark">2025-08-19-insights</a></div>
+      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -434,11 +425,7 @@ mismatch。所以，能不能让老师改学生的输出，只把关键地方改
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#latent-action-pretraining-from-videos"><span class="nav-number">1.</span> <span class="nav-text">Latent Action
-Pretraining from Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#videgothink-assessing-egocentric-video-understanding-capabilities-for-embodied-ai"><span class="nav-number">2.</span> <span class="nav-text">VidEgoThink: Assessing
-Egocentric Video Understanding Capabilities for Embodied
-AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#speculative-knowledge-distillation-bridging-the-teacher-student-gap-through-interleaved-sampling"><span class="nav-number">3.</span> <span class="nav-text">Speculative Knowledge Distillation: Bridging the
-Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Latent-Action-Pretraining-from-Videos"><span class="nav-number">1.</span> <span class="nav-text">Latent Action Pretraining from Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VidEgoThink-Assessing-Egocentric-Video-Understanding-Capabilities-for-Embodied-AI"><span class="nav-number">2.</span> <span class="nav-text">VidEgoThink: Assessing Egocentric Video Understanding Capabilities for Embodied AI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Speculative-Knowledge-Distillation-Bridging-the-Teacher-Student-Gap-Through-Interleaved-Sampling"><span class="nav-number">3.</span> <span class="nav-text">Speculative Knowledge Distillation: Bridging the Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,7 +440,7 @@ Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,23 +483,19 @@ Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8e711353" title="2025-08-20-insights" target="_blank">2025-08-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/eb865e98" title="2025-08-19-insights" target="_blank">2025-08-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/44435a6" title="2025-08-18-insights" target="_blank">2025-08-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1e78d528" title="2025-08-14-insights" target="_blank">2025-08-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -533,6 +516,10 @@ Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -588,12 +575,12 @@ Teacher-Student Gap Through Interleaved Sampling</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">283k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:31</span>
+    <span title="站点阅读时长">4:18</span>
 </div>
 
 <i class="fa fa-user-md"></i>

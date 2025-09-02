@@ -24,15 +24,15 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning 今年ICML的论文：作者认为常见的 VLM结构 里面需要把vision token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好">
+  <meta name="description" content="Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning今年ICML的论文：作者认为常见的 VLM结构 里面需要把vision token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-05-10-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/fed784bd">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning 今年ICML的论文：作者认为常见的 VLM结构 里面需要把vision token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好">
+<meta property="og:description" content="Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning今年ICML的论文：作者认为常见的 VLM结构 里面需要把vision token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-05-06-05-10/memvp.png">
-<meta property="article:published_time" content="2024-05-13T07:37:09.000Z">
+<meta property="article:published_time" content="2024-05-13T14:37:09.000Z">
 <meta property="article:modified_time" content="2024-08-09T09:26:46.960Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -246,14 +246,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2024-05-13 15:37:09" itemprop="dateCreated datePublished" datetime="2024-05-13T15:37:09+08:00">2024-05-13</time>
+              <time title="创建时间：2024-05-13 15:37:09" itemprop="dateCreated datePublished" datetime="2024-05-13T15:37:09+01:00">2024-05-13</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+                <time title="修改时间：2024-08-09 10:26:46" itemprop="dateModified" datetime="2024-08-09T10:26:46+01:00">2024-08-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,10 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="memory-space-visual-prompting-for-efficient-vision-language-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.05615">Memory-Space Visual Prompting
-for Efficient Vision-Language Fine-Tuning</a></h2>
-<p>今年ICML的论文：作者认为常见的 <a href="/fbc665c3.html" title="论文阅读[精读]-MM1: Methods, Analysis &amp; Insights from Multimodal LLM Pre-training">VLM结构</a> 里面需要把vision
-token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好</p>
+        <h2 id="Memory-Space-Visual-Prompting-for-Efficient-Vision-Language-Fine-Tuning"><a href="#Memory-Space-Visual-Prompting-for-Efficient-Vision-Language-Fine-Tuning" class="headerlink" title="Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.05615">Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning</a></h2><p>今年ICML的论文：作者认为常见的 <a href="/fbc665c3.html" title="论文阅读[精读]-MM1: Methods, Analysis &amp; Insights from Multimodal LLM Pre-training">VLM结构</a> 里面需要把vision token拼进模型，开销太大。能不能在FFN层里面注入图片的信息？作者发现这样训出来的模型在保持开销小的同时，效果也很好</p>
 <p><img src="../../files/images/arxiv-insights/2024-05-06-05-10/memvp.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -333,13 +330,13 @@ token拼进模型，开销太大。能不能在FFN层里面注入图片的信息
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8a84c36e.html" rel="bookmark">2025-08-22-insights</a></div>
+      <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8e711353.html" rel="bookmark">2025-08-20-insights</a></div>
+      <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/eb865e98.html" rel="bookmark">2025-08-19-insights</a></div>
+      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -416,8 +413,7 @@ token拼进模型，开销太大。能不能在FFN层里面注入图片的信息
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#memory-space-visual-prompting-for-efficient-vision-language-fine-tuning"><span class="nav-number">1.</span> <span class="nav-text">Memory-Space Visual Prompting
-for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Memory-Space-Visual-Prompting-for-Efficient-Vision-Language-Fine-Tuning"><span class="nav-number">1.</span> <span class="nav-text">Memory-Space Visual Prompting for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -432,7 +428,7 @@ for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -475,23 +471,19 @@ for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8e711353" title="2025-08-20-insights" target="_blank">2025-08-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/eb865e98" title="2025-08-19-insights" target="_blank">2025-08-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/44435a6" title="2025-08-18-insights" target="_blank">2025-08-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1e78d528" title="2025-08-14-insights" target="_blank">2025-08-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -512,6 +504,10 @@ for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -567,12 +563,12 @@ for Efficient Vision-Language Fine-Tuning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">283k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:31</span>
+    <span title="站点阅读时长">4:18</span>
 </div>
 
 <i class="fa fa-user-md"></i>

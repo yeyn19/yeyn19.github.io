@@ -24,15 +24,15 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Zero-shot Concept Bottleneck Models Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了">
+  <meta name="description" content="Zero-shot Concept Bottleneck ModelsConcept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-02-14-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/2427b30e">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Zero-shot Concept Bottleneck Models Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了">
+<meta property="og:description" content="Zero-shot Concept Bottleneck ModelsConcept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/concept.png">
-<meta property="article:published_time" content="2025-02-14T05:04:25.000Z">
+<meta property="article:published_time" content="2025-02-14T13:04:25.000Z">
 <meta property="article:modified_time" content="2025-02-23T04:41:09.688Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -246,14 +246,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-02-14 13:04:25" itemprop="dateCreated datePublished" datetime="2025-02-14T13:04:25+08:00">2025-02-14</time>
+              <time title="创建时间：2025-02-14 13:04:25" itemprop="dateCreated datePublished" datetime="2025-02-14T13:04:25+00:00">2025-02-14</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-02-23 12:41:09" itemprop="dateModified" datetime="2025-02-23T12:41:09+08:00">2025-02-23</time>
+                <time title="修改时间：2025-02-23 04:41:09" itemprop="dateModified" datetime="2025-02-23T04:41:09+00:00">2025-02-23</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -312,11 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="zero-shot-concept-bottleneck-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.09018">Zero-shot Concept Bottleneck
-Models</a></h2>
-<p>Concept
-model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一套不对vlm
-encoder做训练的方案。</p>
+        <h2 id="Zero-shot-Concept-Bottleneck-Models"><a href="#Zero-shot-Concept-Bottleneck-Models" class="headerlink" title="Zero-shot Concept Bottleneck Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.09018">Zero-shot Concept Bottleneck Models</a></h2><p>Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一套不对vlm encoder做训练的方案。</p>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/concept.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -334,13 +330,13 @@ encoder做训练的方案。</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8a84c36e.html" rel="bookmark">2025-08-22-insights</a></div>
+      <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/8e711353.html" rel="bookmark">2025-08-20-insights</a></div>
+      <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/eb865e98.html" rel="bookmark">2025-08-19-insights</a></div>
+      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -417,8 +413,7 @@ encoder做训练的方案。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-shot-concept-bottleneck-models"><span class="nav-number">1.</span> <span class="nav-text">Zero-shot Concept Bottleneck
-Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zero-shot-Concept-Bottleneck-Models"><span class="nav-number">1.</span> <span class="nav-text">Zero-shot Concept Bottleneck Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,7 +428,7 @@ Models</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -476,23 +471,19 @@ Models</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8e711353" title="2025-08-20-insights" target="_blank">2025-08-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/eb865e98" title="2025-08-19-insights" target="_blank">2025-08-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/44435a6" title="2025-08-18-insights" target="_blank">2025-08-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1e78d528" title="2025-08-14-insights" target="_blank">2025-08-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -513,6 +504,10 @@ Models</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -568,12 +563,12 @@ Models</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">283k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:31</span>
+    <span title="站点阅读时长">4:18</span>
 </div>
 
 <i class="fa fa-user-md"></i>
