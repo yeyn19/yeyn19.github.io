@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="MMSearch-R1: Incentivizing LMMs to Search这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google 图片搜索同时文字搜索，可以训练一个search agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好  感觉AI真的进入下半场了，做setting的文章变得越来越多了   Mobile-R1: Toward">
+  <meta name="description" content="MMSearch-R1: Incentivizing LMMs to Search 这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google 图片搜索同时文字搜索，可以训练一个search agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好  感觉AI真的进入下半场了，做setting的文章变得越来越多了   Mobile-R1: Towar">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-06-26-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/79896fa4">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="MMSearch-R1: Incentivizing LMMs to Search这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google 图片搜索同时文字搜索，可以训练一个search agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好  感觉AI真的进入下半场了，做setting的文章变得越来越多了   Mobile-R1: Toward">
+<meta property="og:description" content="MMSearch-R1: Incentivizing LMMs to Search 这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google 图片搜索同时文字搜索，可以训练一个search agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好  感觉AI真的进入下半场了，做setting的文章变得越来越多了   Mobile-R1: Towar">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-06-23-06-27/mmsearch-r1.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-06-23-06-27/mobile-r1.png">
-<meta property="article:published_time" content="2025-06-29T06:59:16.000Z">
+<meta property="article:published_time" content="2025-06-28T23:59:16.000Z">
 <meta property="article:modified_time" content="2025-07-02T06:47:18.509Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -247,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-06-29 07:59:16" itemprop="dateCreated datePublished" datetime="2025-06-29T07:59:16+01:00">2025-06-29</time>
+              <time title="创建时间：2025-06-29 07:59:16" itemprop="dateCreated datePublished" datetime="2025-06-29T07:59:16+08:00">2025-06-29</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-07-02 07:47:18" itemprop="dateModified" datetime="2025-07-02T07:47:18+01:00">2025-07-02</time>
+                <time title="修改时间：2025-07-02 14:47:18" itemprop="dateModified" datetime="2025-07-02T14:47:18+08:00">2025-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -313,12 +313,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="MMSearch-R1-Incentivizing-LMMs-to-Search"><a href="#MMSearch-R1-Incentivizing-LMMs-to-Search" class="headerlink" title="MMSearch-R1: Incentivizing LMMs to Search"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.20670">MMSearch-R1: Incentivizing LMMs to Search</a></h2><p>这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google 图片搜索同时文字搜索，可以训练一个search agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好</p>
+        <h2 id="mmsearch-r1-incentivizing-lmms-to-search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.20670">MMSearch-R1: Incentivizing LMMs
+to Search</a></h2>
+<p>这也是一个做setting的文章。这篇工作考虑的是传统vqa任务，如果能让模型搜google
+图片搜索同时文字搜索，可以训练一个search
+agent吗？作者试了一下，跑了个grpo，发现确实可以，而且效果很好</p>
 <blockquote>
 <p>感觉AI真的进入下半场了，做setting的文章变得越来越多了</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-06-23-06-27/mmsearch-r1.png"></p>
-<h2 id="Mobile-R1-Towards-Interactive-Reinforcement-Learning-for-VLM-Based-Mobile-Agent-via-Task-Level-Rewards"><a href="#Mobile-R1-Towards-Interactive-Reinforcement-Learning-for-VLM-Based-Mobile-Agent-via-Task-Level-Rewards" class="headerlink" title="Mobile-R1: Towards Interactive Reinforcement Learning for VLM-Based Mobile Agent via Task-Level Rewards"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.20332">Mobile-R1: Towards Interactive Reinforcement Learning for VLM-Based Mobile Agent via Task-Level Rewards</a></h2><p>好久不见GUI Agent RL相关工作，作者做了先单步rl+再多步rl的setting，不过就跑了15步GRPO？</p>
+<h2 id="mobile-r1-towards-interactive-reinforcement-learning-for-vlm-based-mobile-agent-via-task-level-rewards"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.20332">Mobile-R1: Towards Interactive
+Reinforcement Learning for VLM-Based Mobile Agent via Task-Level
+Rewards</a></h2>
+<p>好久不见GUI Agent
+RL相关工作，作者做了先单步rl+再多步rl的setting，不过就跑了15步GRPO？</p>
 <p><img src="../../files/images/arxiv-insights/2025-06-23-06-27/mobile-r1.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -336,13 +344,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/72643899.html" rel="bookmark">2025-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -419,7 +427,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MMSearch-R1-Incentivizing-LMMs-to-Search"><span class="nav-number">1.</span> <span class="nav-text">MMSearch-R1: Incentivizing LMMs to Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mobile-R1-Towards-Interactive-Reinforcement-Learning-for-VLM-Based-Mobile-Agent-via-Task-Level-Rewards"><span class="nav-number">2.</span> <span class="nav-text">Mobile-R1: Towards Interactive Reinforcement Learning for VLM-Based Mobile Agent via Task-Level Rewards</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mmsearch-r1-incentivizing-lmms-to-search"><span class="nav-number">1.</span> <span class="nav-text">MMSearch-R1: Incentivizing LMMs
+to Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mobile-r1-towards-interactive-reinforcement-learning-for-vlm-based-mobile-agent-via-task-level-rewards"><span class="nav-number">2.</span> <span class="nav-text">Mobile-R1: Towards Interactive
+Reinforcement Learning for VLM-Based Mobile Agent via Task-Level
+Rewards</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -477,6 +488,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
         </li>
       
@@ -486,10 +501,6 @@
       
         <li class="recent_posts_li">
           <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -569,12 +580,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">283k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:18</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

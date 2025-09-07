@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Truncated Proximal Policy Optimizationseed的一篇工程算法结合的工作。作者发现同步online rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现了">
+  <meta name="description" content="Truncated Proximal Policy Optimization seed的一篇工程算法结合的工作。作者发现同步online rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-06-19-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/11605228">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Truncated Proximal Policy Optimizationseed的一篇工程算法结合的工作。作者发现同步online rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现了">
+<meta property="og:description" content="Truncated Proximal Policy Optimization seed的一篇工程算法结合的工作。作者发现同步online rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-06-16-06-20/T-PPO.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-06-16-06-20/embody.png">
-<meta property="article:published_time" content="2025-06-20T15:07:50.000Z">
+<meta property="article:published_time" content="2025-06-20T08:07:50.000Z">
 <meta property="article:modified_time" content="2025-06-28T07:37:01.154Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -247,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-06-20 16:07:50" itemprop="dateCreated datePublished" datetime="2025-06-20T16:07:50+01:00">2025-06-20</time>
+              <time title="创建时间：2025-06-20 16:07:50" itemprop="dateCreated datePublished" datetime="2025-06-20T16:07:50+08:00">2025-06-20</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-06-28 08:37:01" itemprop="dateModified" datetime="2025-06-28T08:37:01+01:00">2025-06-28</time>
+                <time title="修改时间：2025-06-28 15:37:01" itemprop="dateModified" datetime="2025-06-28T15:37:01+08:00">2025-06-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -313,9 +313,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Truncated-Proximal-Policy-Optimization"><a href="#Truncated-Proximal-Policy-Optimization" class="headerlink" title="Truncated Proximal Policy Optimization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.15050">Truncated Proximal Policy Optimization</a></h2><p>seed的一篇工程算法结合的工作。作者发现同步online rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现了更强的训练效率</p>
+        <h2 id="truncated-proximal-policy-optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.15050">Truncated Proximal Policy
+Optimization</a></h2>
+<p>seed的一篇工程算法结合的工作。作者发现同步online
+rl这类算法，有一个固有的缺陷：一次rollout的时间，受制于batch里最长时间的sample，所有节点都会等着它结束。能不能让超长的样本干脆不roll了，early
+stopping，同时用起来已经生成的token？作者从这里出发设计出来了T-PPO，展现了更强的训练效率</p>
 <p><img src="../../files/images/arxiv-insights/2025-06-16-06-20/T-PPO.png"></p>
-<h2 id="EMBODIED-WEB-AGENTS-Bridging-Physical-Digital-Realms-for-Integrated-Agent-Intelligence"><a href="#EMBODIED-WEB-AGENTS-Bridging-Physical-Digital-Realms-for-Integrated-Agent-Intelligence" class="headerlink" title="EMBODIED WEB AGENTS: Bridging Physical-Digital Realms for Integrated Agent Intelligence"></a><a href>EMBODIED WEB AGENTS: Bridging Physical-Digital Realms for Integrated Agent Intelligence</a></h2><p>这篇工作里，作者搭建了一个新的setting，让模型可以在完成具身任务的过程中搜索网页，由此连接了具身agent和web agent。</p>
+<h2 id="embodied-web-agents-bridging-physical-digital-realms-for-integrated-agent-intelligence"><a href>EMBODIED WEB AGENTS: Bridging Physical-Digital Realms for
+Integrated Agent Intelligence</a></h2>
+<p>这篇工作里，作者搭建了一个新的setting，让模型可以在完成具身任务的过程中搜索网页，由此连接了具身agent和web
+agent。</p>
 <p><img src="../../files/images/arxiv-insights/2025-06-16-06-20/embody.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -333,13 +340,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/72643899.html" rel="bookmark">2025-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -416,7 +423,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Truncated-Proximal-Policy-Optimization"><span class="nav-number">1.</span> <span class="nav-text">Truncated Proximal Policy Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EMBODIED-WEB-AGENTS-Bridging-Physical-Digital-Realms-for-Integrated-Agent-Intelligence"><span class="nav-number">2.</span> <span class="nav-text">EMBODIED WEB AGENTS: Bridging Physical-Digital Realms for Integrated Agent Intelligence</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#truncated-proximal-policy-optimization"><span class="nav-number">1.</span> <span class="nav-text">Truncated Proximal Policy
+Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#embodied-web-agents-bridging-physical-digital-realms-for-integrated-agent-intelligence"><span class="nav-number">2.</span> <span class="nav-text">EMBODIED WEB AGENTS: Bridging Physical-Digital Realms for
+Integrated Agent Intelligence</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -474,6 +483,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
         </li>
       
@@ -483,10 +496,6 @@
       
         <li class="recent_posts_li">
           <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -566,12 +575,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">283k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:18</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>

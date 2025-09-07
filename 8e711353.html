@@ -24,17 +24,17 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要图">
+  <meta name="description" content="MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents 自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-08-20-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/8e711353">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要图">
+<meta property="og:description" content="MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents 自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-18-08-22/mm-browsecomp.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-18-08-22/computerrl.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-18-08-22/grounding.png">
-<meta property="article:published_time" content="2025-08-24T19:56:51.000Z">
+<meta property="article:published_time" content="2025-08-24T12:56:51.000Z">
 <meta property="article:modified_time" content="2025-09-02T09:57:47.674Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
@@ -248,14 +248,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2025-08-24 20:56:51" itemprop="dateCreated datePublished" datetime="2025-08-24T20:56:51+01:00">2025-08-24</time>
+              <time title="创建时间：2025-08-24 20:56:51" itemprop="dateCreated datePublished" datetime="2025-08-24T20:56:51+08:00">2025-08-24</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-02 10:57:47" itemprop="dateModified" datetime="2025-09-02T10:57:47+01:00">2025-09-02</time>
+                <time title="修改时间：2025-09-02 17:57:47" itemprop="dateModified" datetime="2025-09-02T17:57:47+08:00">2025-09-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,19 +314,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="MM-BrowseComp-A-Comprehensive-Benchmark-for-Multimodal-Browsing-Agents"><a href="#MM-BrowseComp-A-Comprehensive-Benchmark-for-Multimodal-Browsing-Agents" class="headerlink" title="MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.13186">MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents</a></h2><p>自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要图</p>
+        <h2 id="mm-browsecomp-a-comprehensive-benchmark-for-multimodal-browsing-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.13186">MM-BrowseComp: A Comprehensive
+Benchmark for Multimodal Browsing Agents</a></h2>
+<p>自从browsecomp出来以后，学界出来了一个又一个xx-browsecomp，不过这个看起来还挺靠谱的。是mmlu团队出品，作者设计了多模态场景的search任务，有两种情况：输入有图（地图侦探算是这类）问一个问题；另一种情况输入没有图但是解决问题需要图</p>
 <blockquote>
 <p>大家又有的刷了……</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-08-18-08-22/mm-browsecomp.png"></p>
-<h2 id="ComputerRL-Scaling-End-to-End-Online-Reinforcement-Learning-for-Computer-Use-Agents"><a href="#ComputerRL-Scaling-End-to-End-Online-Reinforcement-Learning-for-Computer-Use-Agents" class="headerlink" title="ComputerRL: Scaling End-to-End Online Reinforcement Learning for Computer Use Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.AI/recent?skip=255&amp;show=50"><strong>ComputerRL: Scaling End-to-End Online Reinforcement Learning for Computer Use Agents</strong></a></h2><p>唐总出的cua rl工作，通过大规模的sft蒸馏和后面的rl阶段，作者在osworld上做到了48分。 这个不是之前arpo那个training on testset了，是正版rlvr构造出来的</p>
+<h2 id="computerrl-scaling-end-to-end-online-reinforcement-learning-for-computer-use-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/list/cs.AI/recent?skip=255&amp;show=50"><strong>ComputerRL:
+Scaling End-to-End Online Reinforcement Learning for Computer Use
+Agents</strong></a></h2>
+<p>唐总出的cua
+rl工作，通过大规模的sft蒸馏和后面的rl阶段，作者在osworld上做到了48分。
+这个不是之前arpo那个training on testset了，是正版rlvr构造出来的</p>
 <blockquote>
 <p>这个图颇有之前AutoWebBench三阶段训练图的遗风</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-08-18-08-22/computerrl.png"></p>
-<h2 id="V2P-From-Background-Suppression-to-Center-Peaking-for-Robust-GUI-Grounding-Task"><a href="#V2P-From-Background-Suppression-to-Center-Peaking-for-Robust-GUI-Grounding-Task" class="headerlink" title="V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.13634"><strong>V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task</strong></a></h2><p>这是一篇grounding训练的工作，作者的想法是：让模型本身有对屏幕位置的attention模块可以做辅助grounding，并可以单独加loss</p>
+<h2 id="v2p-from-background-suppression-to-center-peaking-for-robust-gui-grounding-task"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.13634"><strong>V2P: From Background
+Suppression to Center Peaking for Robust GUI Grounding
+Task</strong></a></h2>
+<p>这是一篇grounding训练的工作，作者的想法是：让模型本身有对屏幕位置的attention模块可以做辅助grounding，并可以单独加loss</p>
 <blockquote>
-<p>最近似乎有不少这个流派的工作。有人是改attention，也有人把gaussian loss放到rlvr里</p>
+<p>最近似乎有不少这个流派的工作。有人是改attention，也有人把gaussian
+loss放到rlvr里</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-08-18-08-22/grounding.png"></p>
 <!-- flag of hidden posts -->
@@ -345,13 +356,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/72643899.html" rel="bookmark">2025-08-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -428,7 +439,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MM-BrowseComp-A-Comprehensive-Benchmark-for-Multimodal-Browsing-Agents"><span class="nav-number">1.</span> <span class="nav-text">MM-BrowseComp: A Comprehensive Benchmark for Multimodal Browsing Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ComputerRL-Scaling-End-to-End-Online-Reinforcement-Learning-for-Computer-Use-Agents"><span class="nav-number">2.</span> <span class="nav-text">ComputerRL: Scaling End-to-End Online Reinforcement Learning for Computer Use Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V2P-From-Background-Suppression-to-Center-Peaking-for-Robust-GUI-Grounding-Task"><span class="nav-number">3.</span> <span class="nav-text">V2P: From Background Suppression to Center Peaking for Robust GUI Grounding Task</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mm-browsecomp-a-comprehensive-benchmark-for-multimodal-browsing-agents"><span class="nav-number">1.</span> <span class="nav-text">MM-BrowseComp: A Comprehensive
+Benchmark for Multimodal Browsing Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#computerrl-scaling-end-to-end-online-reinforcement-learning-for-computer-use-agents"><span class="nav-number">2.</span> <span class="nav-text">ComputerRL:
+Scaling End-to-End Online Reinforcement Learning for Computer Use
+Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v2p-from-background-suppression-to-center-peaking-for-robust-gui-grounding-task"><span class="nav-number">3.</span> <span class="nav-text">V2P: From Background
+Suppression to Center Peaking for Robust GUI Grounding
+Task</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -486,6 +502,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
         </li>
       
@@ -495,10 +515,6 @@
       
         <li class="recent_posts_li">
           <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/8a84c36e" title="2025-08-22-insights" target="_blank">2025-08-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -578,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">283k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:18</span>
+    <span title="站点阅读时长">4:31</span>
 </div>
 
 <i class="fa fa-user-md"></i>
