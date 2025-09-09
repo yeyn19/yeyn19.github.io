@@ -319,20 +319,16 @@
       
         <p>昨天需要改稿，因此需要编译大段LaTeX代码，因此重新配置了LaTeX环境，在Windows、Mac、WSL上都配了一遍，特此记录。</p>
 <span id="more"></span>
-<h2 id="overleaf">Overleaf</h2>
+<h2 id="Overleaf">Overleaf</h2>
 <p>首先，如果要写LaTeX，首推去远程<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.overleaf.com">overleaf</a>上在线编辑，支持多人合作、各种字体以及自带很多模板，比本地可以说是方便很多了。</p>
-<p><img src="../files/images/latex配置/overleaf.png"></p>
+<img src="../files/images/latex配置/overleaf.png">
 <p>不过，我由于需要编译的文本太长，超出overleaf普通用户的编译时长限制(需要大会员才能继续编译)，因此只能选择本地编译。</p>
-<p>值得一提的是，Overleaf是个开源框架，我们系自己搭了个编译服务器，地址在<a href="stu.cs.tsinghua.edu.cn">这里</a>，用酒井ID登录，应该是没有一大堆的限制，不多我昨天尝试是server
-error了，不知道现在是否还有人在维护……</p>
-<h2 id="在windows-mac-wsl上配置tex-live">在Windows, Mac, WSL上配置TeX
-Live</h2>
-<p>LaTeX是一套排版系统，而<a target="_blank" rel="external nofollow noopener noreferrer" href="https://tug.org/texlive/">TeX
-Live</a>可以视为是一个多平台的LaTeX编译器，帮你把LaTeX源码编译成pdf文档。</p>
-<p><img src="../files/images/latex配置/texlive.png"></p>
+<p>值得一提的是，Overleaf是个开源框架，我们系自己搭了个编译服务器，地址在<a href="stu.cs.tsinghua.edu.cn">这里</a>，用酒井ID登录，应该是没有一大堆的限制，不多我昨天尝试是server error了，不知道现在是否还有人在维护……</p>
+<h2 id="在Windows-Mac-WSL上配置TeX-Live">在Windows, Mac, WSL上配置TeX Live</h2>
+<p>LaTeX是一套排版系统，而<a target="_blank" rel="external nofollow noopener noreferrer" href="https://tug.org/texlive/">TeX Live</a>可以视为是一个多平台的LaTeX编译器，帮你把LaTeX源码编译成pdf文档。</p>
+<img src="../files/images/latex配置/texlive.png">
 <ul>
-<li>Windows安装很简单，去官网直接选择
-<code>install on Windows</code>，有GUI的，安装完好像需要重启电脑。windows特色？？？</li>
+<li>Windows安装很简单，去官网直接选择 <code>install on Windows</code>，有GUI的，安装完好像需要重启电脑。windows特色？？？</li>
 <li>Mac安装也简单：点下面那个<code>install on MacOS</code>,也有GUI</li>
 <li>Linux最简单的方式是,不过由于有4.5GB，可能要考虑给apt换源。</li>
 </ul>
@@ -342,15 +338,13 @@ Live</a>可以视为是一个多平台的LaTeX编译器，帮你把LaTeX源码�
 </blockquote>
 <p>最终如果在终端输入，有如下反应就是成功了:</p>
 <div class="highlight-wrap" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true" data-rel="BASH"><figure class="iseeu highlight /bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tex -v</span><br></pre></td></tr></table></figure></div>
-<p><img src="../files/images/latex配置/out.png"></p>
-<h2 id="vscode配置latex编译">Vscode配置LaTeX编译</h2>
-<p>vscode可以轻松配置链接TeX Live,
-需要安装这两个插件扩展:<code>LaTeX, LaTeX Workshop</code></p>
-<p><img src="../files/images/latex配置/vscode.png"></p>
+<img src="../files/images/latex配置/out.png">
+<h2 id="Vscode配置LaTeX编译">Vscode配置LaTeX编译</h2>
+<p>vscode可以轻松配置链接TeX Live, 需要安装这两个插件扩展:<code>LaTeX, LaTeX Workshop</code></p>
+<img src="../files/images/latex配置/vscode.png">
 <p>需要注意的是，在拓展设置中：</p>
-<p><img src="../files/images/latex配置/setting.png"></p>
-<p>默认是使用latexmk编译器，如果你的项目使用
-例如XeTeX语法，则需要切换选用的编译器。(可以直接点下面的子按钮)</p>
+<img src="../files/images/latex配置/setting.png">
+<p>默认是使用latexmk编译器，如果你的项目使用 例如XeTeX语法，则需要切换选用的编译器。(可以直接点下面的子按钮)</p>
 
     </div>
 
@@ -461,8 +455,7 @@ Live</a>可以视为是一个多平台的LaTeX编译器，帮你把LaTeX源码�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#overleaf"><span class="nav-number">1.</span> <span class="nav-text">Overleaf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8windows-mac-wsl%E4%B8%8A%E9%85%8D%E7%BD%AEtex-live"><span class="nav-number">2.</span> <span class="nav-text">在Windows, Mac, WSL上配置TeX
-Live</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode%E9%85%8D%E7%BD%AElatex%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">Vscode配置LaTeX编译</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overleaf"><span class="nav-number">1.</span> <span class="nav-text">Overleaf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8Windows-Mac-WSL%E4%B8%8A%E9%85%8D%E7%BD%AETeX-Live"><span class="nav-number">2.</span> <span class="nav-text">在Windows, Mac, WSL上配置TeX Live</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vscode%E9%85%8D%E7%BD%AELaTeX%E7%BC%96%E8%AF%91"><span class="nav-number">3.</span> <span class="nav-text">Vscode配置LaTeX编译</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -520,19 +513,19 @@ Live</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#
       
       
         <li class="recent_posts_li">
+          <a href="/e0bcc814" title="2025-09-03-insights" target="_blank">2025-09-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e4491829" title="2025-09-01-insights" target="_blank">2025-09-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -612,7 +605,7 @@ Live</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

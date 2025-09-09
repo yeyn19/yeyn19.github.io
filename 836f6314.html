@@ -35,7 +35,7 @@
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-25-08-29/fvp.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-25-08-29/intern-vl-3.5.png">
 <meta property="article:published_time" content="2025-08-31T14:06:26.000Z">
-<meta property="article:modified_time" content="2025-09-02T09:56:27.657Z">
+<meta property="article:modified_time" content="2025-09-09T16:36:53.591Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>2025-08-26-insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2025-08-26-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -255,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-09-02 17:56:27" itemprop="dateModified" datetime="2025-09-02T17:56:27+08:00">2025-09-02</time>
+                <time title="修改时间：2025-09-10 00:36:53" itemprop="dateModified" datetime="2025-09-10T00:36:53+08:00">2025-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -314,28 +314,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="proximal-supervised-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.17784">Proximal Supervised
-Fine-Tuning</a></h2>
-<p>很有意思的工作，起名就很有pengfei老师的风格。前几天qwen出了一个在rl中掺入sft的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.11408">工作</a>，今天这篇是更近一步。直接把sft数据当成一种“比较offpolicy”的数据，然后一样地做重要性采样。这样可以在sft时候每隔几个mini-batch做个old_pi
-sync。作者发现这样的一个改进，竟然提高了sft的泛化性</p>
+        <h2 id="Proximal-Supervised-Fine-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.17784">Proximal Supervised Fine-Tuning</a></h2>
+<p>很有意思的工作，起名就很有pengfei老师的风格。前几天qwen出了一个在rl中掺入sft的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.11408">工作</a>，今天这篇是更近一步。直接把sft数据当成一种“比较offpolicy”的数据，然后一样地做重要性采样。这样可以在sft时候每隔几个mini-batch做个old_pi sync。作者发现这样的一个改进，竟然提高了sft的泛化性</p>
 <blockquote>
 <p>我隐约记得我在几年前见过类似的工作……当时可能是ppo出来比较火</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-08-25-08-29/psft.png"></p>
-<h2 id="d-visual-pre-training-for-robot-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.17230">4D Visual Pre-training for Robot
-Learning</a></h2>
-<p>许老师的工作，作者提了一个next-point-cloud
-prediction任务，称为4d预训练。然后由此利用起已有的cloud-point数据</p>
-<p><img src="../../files/images/arxiv-insights/2025-08-25-08-29/fvp.png"></p>
-<h2 id="internvl3.5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.18265">InternVL3.5: Advancing
-Open-Source Multimodal Models in Versatility, Reasoning, and
-Efficiency</a></h2>
+<img src="../../files/images/arxiv-insights/2025-08-25-08-29/psft.png">
+<h2 id="4D-Visual-Pre-training-for-Robot-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.17230">4D Visual Pre-training for Robot Learning</a></h2>
+<p>许老师的工作，作者提了一个next-point-cloud prediction任务，称为4d预训练。然后由此利用起已有的cloud-point数据</p>
+<img src="../../files/images/arxiv-insights/2025-08-25-08-29/fvp.png">
+<h2 id="InternVL3-5-Advancing-Open-Source-Multimodal-Models-in-Versatility-Reasoning-and-Efficiency"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.18265">InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</a></h2>
 <p>intern-vl系列的最新工作，一口气开源了一堆size。230B-A28B的超大vlm，vit都有6B参数，好像第一次见到这么大的vit。各个benchmark都效果很好</p>
 <blockquote>
 <p>这才是solid</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-08-25-08-29/intern-vl-3.5.png"></p>
-
+<img src="../../files/images/arxiv-insights/2025-08-25-08-29/intern-vl-3.5.png">
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -351,13 +345,13 @@ Efficiency</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e0bcc814.html" rel="bookmark">2025-09-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e4491829.html" rel="bookmark">2025-09-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/72643899.html" rel="bookmark">2025-08-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6858d817.html" rel="bookmark">2025-08-25-insights</a></div>
     </li>
   </ul>
 
@@ -372,16 +366,6 @@ Efficiency</a></h2>
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/6858d817" rel="prev" title="2025-08-25-insights">
-      <i class="fa fa-chevron-left"></i> 2025-08-25-insights
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/6cad082a" rel="next" title="2025-08-27-insights">
-      2025-08-27-insights <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -444,11 +428,7 @@ Efficiency</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#proximal-supervised-fine-tuning"><span class="nav-number">1.</span> <span class="nav-text">Proximal Supervised
-Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-visual-pre-training-for-robot-learning"><span class="nav-number">2.</span> <span class="nav-text">4D Visual Pre-training for Robot
-Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#internvl3.5-advancing-open-source-multimodal-models-in-versatility-reasoning-and-efficiency"><span class="nav-number">3.</span> <span class="nav-text">InternVL3.5: Advancing
-Open-Source Multimodal Models in Versatility, Reasoning, and
-Efficiency</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Proximal-Supervised-Fine-Tuning"><span class="nav-number">1.</span> <span class="nav-text">Proximal Supervised Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4D-Visual-Pre-training-for-Robot-Learning"><span class="nav-number">2.</span> <span class="nav-text">4D Visual Pre-training for Robot Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InternVL3-5-Advancing-Open-Source-Multimodal-Models-in-Versatility-Reasoning-and-Efficiency"><span class="nav-number">3.</span> <span class="nav-text">InternVL3.5: Advancing Open-Source Multimodal Models in Versatility, Reasoning, and Efficiency</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -506,19 +486,19 @@ Efficiency</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/e0bcc814" title="2025-09-03-insights" target="_blank">2025-09-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e4491829" title="2025-09-01-insights" target="_blank">2025-09-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -598,7 +578,7 @@ Efficiency</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

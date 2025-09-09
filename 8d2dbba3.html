@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>809</span>
+              <span>819</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,31 +315,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="tract-making-first-layer-pre-activations-trainable"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23970">TrAct: Making First-layer
-Pre-Activations Trainable</a></h2>
-<p>很有NeurIPS风格的工作：作者发现，Vison model中第一层vision
-layer的gradient正比于图片本身的像素均值，所以越亮的图片，不管是什么内容，对模型的效果都影响更大。设计了一套方法把这个bias去掉，在第一层添加梯度衰减以后，发现训练速度直接提升了四倍。</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/tract.png"></p>
-<h2 id="egomimic-scaling-imitation-learning-via-egocentric-video"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24221">EgoMimic: Scaling Imitation
-Learning via Egocentric Video</a></h2>
+        <h2 id="TrAct-Making-First-layer-Pre-Activations-Trainable"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.23970">TrAct: Making First-layer Pre-Activations Trainable</a></h2>
+<p>很有NeurIPS风格的工作：作者发现，Vison model中第一层vision layer的gradient正比于图片本身的像素均值，所以越亮的图片，不管是什么内容，对模型的效果都影响更大。设计了一套方法把这个bias去掉，在第一层添加梯度衰减以后，发现训练速度直接提升了四倍。</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/tract.png">
+<h2 id="EgoMimic-Scaling-Imitation-Learning-via-Egocentric-Video"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24221">EgoMimic: Scaling Imitation Learning via Egocentric Video</a></h2>
 <p>作者软硬件联合开发，搞了一套可以用一套方法论收集机器人和人类的第一人称视角、手姿势的框架，由此就可以让具身和人类有一样的视野和数据建模方式了。由此，作者构建了同时包含人和机器人的sft数据，发现训完以后的机器人效果很不错</p>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/ego.png"></p>
-<h2 id="scaling-concept-with-text-guided-diffusion-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24151"><strong>Scaling Concept With
-Text-Guided Diffusion Models</strong></a></h2>
-<p>作者探索了text2image场景中concept的概念。所谓concept，就是说图片里对于某种"元素"的占比，比如一张飞机的图片，加重”plane“的概念，飞机可能会变得更大。如果可以操控模型对于concept的权重，就可以实现很多修图的效果。作者设计了一个pipeline，使得训出来的模型可以按照concept去修改图片</p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/ego.png">
+<h2 id="Scaling-Concept-With-Text-Guided-Diffusion-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24151"><strong>Scaling Concept With Text-Guided Diffusion Models</strong></a></h2>
+<p>作者探索了text2image场景中concept的概念。所谓concept，就是说图片里对于某种&quot;元素&quot;的占比，比如一张飞机的图片，加重”plane“的概念，飞机可能会变得更大。如果可以操控模型对于concept的权重，就可以实现很多修图的效果。作者设计了一个pipeline，使得训出来的模型可以按照concept去修改图片</p>
 <blockquote>
-<p>这等于是显示地建模了concept，主要原因是diffusion
-model没有语言理解的能力。能不能让text2image
-model本身具有语言理解的能力，进而去隐式地学习不同图片的区别呢？</p>
+<p>这等于是显示地建模了concept，主要原因是diffusion model没有语言理解的能力。能不能让text2image model本身具有语言理解的能力，进而去隐式地学习不同图片的区别呢？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/concept.png"></p>
-<h2 id="androidlab-training-and-systematic-benchmarking-of-android-autonomous-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24024">AndroidLab: Training and
-Systematic Benchmarking of Android Autonomous Agents</a></h2>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/concept.png">
+<h2 id="AndroidLab-Training-and-Systematic-Benchmarking-of-Android-Autonomous-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.24024">AndroidLab: Training and Systematic Benchmarking of Android Autonomous Agents</a></h2>
 <p>唐杰老师的新工作，出了一个安卓的benchmark和SFT数据，有点类似之前google的androidControl。</p>
 <blockquote>
 <p>这是准备布局手机场景了，之前出了AutoWebGLM布局网页</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/android.png"></p>
+<img src="../../files/images/arxiv-insights/2024-10-28-11-01/android.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -356,13 +349,13 @@ Systematic Benchmarking of Android Autonomous Agents</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e0bcc814.html" rel="bookmark">2025-09-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e4491829.html" rel="bookmark">2025-09-01-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/72643899.html" rel="bookmark">2025-08-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/6cad082a.html" rel="bookmark">2025-08-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/836f6314.html" rel="bookmark">2025-08-26-insights</a></div>
     </li>
   </ul>
 
@@ -439,11 +432,7 @@ Systematic Benchmarking of Android Autonomous Agents</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tract-making-first-layer-pre-activations-trainable"><span class="nav-number">1.</span> <span class="nav-text">TrAct: Making First-layer
-Pre-Activations Trainable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#egomimic-scaling-imitation-learning-via-egocentric-video"><span class="nav-number">2.</span> <span class="nav-text">EgoMimic: Scaling Imitation
-Learning via Egocentric Video</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-concept-with-text-guided-diffusion-models"><span class="nav-number">3.</span> <span class="nav-text">Scaling Concept With
-Text-Guided Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#androidlab-training-and-systematic-benchmarking-of-android-autonomous-agents"><span class="nav-number">4.</span> <span class="nav-text">AndroidLab: Training and
-Systematic Benchmarking of Android Autonomous Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TrAct-Making-First-layer-Pre-Activations-Trainable"><span class="nav-number">1.</span> <span class="nav-text">TrAct: Making First-layer Pre-Activations Trainable</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EgoMimic-Scaling-Imitation-Learning-via-Egocentric-Video"><span class="nav-number">2.</span> <span class="nav-text">EgoMimic: Scaling Imitation Learning via Egocentric Video</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Concept-With-Text-Guided-Diffusion-Models"><span class="nav-number">3.</span> <span class="nav-text">Scaling Concept With Text-Guided Diffusion Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AndroidLab-Training-and-Systematic-Benchmarking-of-Android-Autonomous-Agents"><span class="nav-number">4.</span> <span class="nav-text">AndroidLab: Training and Systematic Benchmarking of Android Autonomous Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -501,19 +490,19 @@ Systematic Benchmarking of Android Autonomous Agents</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/e0bcc814" title="2025-09-03-insights" target="_blank">2025-09-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e4491829" title="2025-09-01-insights" target="_blank">2025-09-01-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/72643899" title="2025-08-29-insights" target="_blank">2025-08-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/6cad082a" title="2025-08-27-insights" target="_blank">2025-08-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/836f6314" title="2025-08-26-insights" target="_blank">2025-08-26-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/6858d817" title="2025-08-25-insights" target="_blank">2025-08-25-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -593,7 +582,7 @@ Systematic Benchmarking of Android Autonomous Agents</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">298k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
