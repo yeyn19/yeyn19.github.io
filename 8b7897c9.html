@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>747</span>
+              <span>737</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,22 +315,27 @@
 
       
         <p>153篇……足足是昨天的两倍</p>
-<h2 id="Automatic-Instruction-Evolving-for-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.00770">Automatic Instruction Evolving for Large Language Models</a></h2>
+<h2 id="automatic-instruction-evolving-for-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.00770">Automatic Instruction Evolving
+for Large Language Models</a></h2>
 <p>Wizard团队的文章，作者提到之前的eval-instruct方法依赖人人工定义eval的方案，这不一定是最优的，因为人类也不能预期到下游的instruction具体长什么样子。作者希望设计一套“自动设计eval方法”的方法。他真干了，而且效果还行。</p>
 <blockquote>
-<p>如果这个可行，再结合之前那个Mammoth2从预训练数据集里自己挖掘可行的q-a pair……是不是能搞出阿西莫夫那个递归工厂：自己挖掘q-a，再自己进化，甚至挖掘和进化的方法自己也在进化。</p>
+<p>如果这个可行，再结合之前那个Mammoth2从预训练数据集里自己挖掘可行的q-a
+pair……是不是能搞出阿西莫夫那个递归工厂：自己挖掘q-a，再自己进化，甚至挖掘和进化的方法自己也在进化。</p>
 <p>模型自己给人类世界找bug？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/auto-eval.png">
-<h2 id="Reflection-Reinforced-Self-Training-for-Language-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01495"><strong>Reflection-Reinforced Self-Training for Language Agents</strong></a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/auto-eval.png"></p>
+<h2 id="reflection-reinforced-self-training-for-language-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01495"><strong>Reflection-Reinforced
+Self-Training for Language Agents</strong></a></h2>
 <p>我挺喜欢的一篇论文，作者研究了经典的self-training(ReFT)：在问题集合上sample一堆样本，挑出来答案正确的，作为正样本训回模型参数里。作者发现这种方案依赖于生成出来的高质量样本，但实操上并不容易拿到。如果找到另一个模型把错误改对呢？作者发现这种方法可以生成更多好的样本，并且在各个下游任务上都比正常的ReFT好很多</p>
 <blockquote>
 <p>感觉这个可以和之前那个R-Tuning组成双子星……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/re-reft.png">
-<h2 id="MMLU-Pro-A-More-Robust-and-Challenging-Multi-Task-Language-Understanding-Benchmark"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01574"><strong>MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</strong></a></h2>
-<p>挺好的一篇论文，作者发现MMLU现在已经被刷到接近90%，结果变得没那么可行。所以作者想搞一个新的，所以剔除掉了里面歧义的、和过于简单的问题，然后把选项从4个改成了10个，并且提升了对reasoning的依赖。希望以后能成为&quot;下一个MMLU&quot;</p>
-<img src="../../files/images/arxiv-insights/2024-06-03-06-07/mmlu.png">
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/re-reft.png"></p>
+<h2 id="mmlu-pro-a-more-robust-and-challenging-multi-task-language-understanding-benchmark"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.01574"><strong>MMLU-Pro: A More Robust
+and Challenging Multi-Task Language Understanding
+Benchmark</strong></a></h2>
+<p>挺好的一篇论文，作者发现MMLU现在已经被刷到接近90%，结果变得没那么可行。所以作者想搞一个新的，所以剔除掉了里面歧义的、和过于简单的问题，然后把选项从4个改成了10个，并且提升了对reasoning的依赖。希望以后能成为"下一个MMLU"</p>
+<p><img src="../../files/images/arxiv-insights/2024-06-03-06-07/mmlu.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +352,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c71bdc90.html" rel="bookmark">2025-09-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2c2c6793.html" rel="bookmark">2025-09-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cef07cea.html" rel="bookmark">2025-09-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/25c7c7e9.html" rel="bookmark">2025-09-11-insights</a></div>
     </li>
   </ul>
 
@@ -430,7 +435,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Automatic-Instruction-Evolving-for-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Automatic Instruction Evolving for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reflection-Reinforced-Self-Training-for-Language-Agents"><span class="nav-number">2.</span> <span class="nav-text">Reflection-Reinforced Self-Training for Language Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMLU-Pro-A-More-Robust-and-Challenging-Multi-Task-Language-Understanding-Benchmark"><span class="nav-number">3.</span> <span class="nav-text">MMLU-Pro: A More Robust and Challenging Multi-Task Language Understanding Benchmark</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#automatic-instruction-evolving-for-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">Automatic Instruction Evolving
+for Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reflection-reinforced-self-training-for-language-agents"><span class="nav-number">2.</span> <span class="nav-text">Reflection-Reinforced
+Self-Training for Language Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mmlu-pro-a-more-robust-and-challenging-multi-task-language-understanding-benchmark"><span class="nav-number">3.</span> <span class="nav-text">MMLU-Pro: A More Robust
+and Challenging Multi-Task Language Understanding
+Benchmark</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +454,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +497,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2c2c6793" title="2025-09-15-insights" target="_blank">2025-09-15-insights</a>
         </li>
       
@@ -521,10 +534,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -580,12 +589,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">300k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:32</span>
+    <span title="站点阅读时长">4:33</span>
 </div>
 
 <i class="fa fa-user-md"></i>

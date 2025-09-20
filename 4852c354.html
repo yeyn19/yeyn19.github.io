@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -314,18 +314,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Scaling-Language-Free-Visual-Representation-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.01017">Scaling Language-Free Visual Representation Learning</a></h2>
-<p>Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip loss一直比ssl loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好</p>
+        <h2 id="scaling-language-free-visual-representation-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.01017">Scaling Language-Free Visual
+Representation Learning</a></h2>
+<p>Lecun和Saining的工作：他还是对self-supervise念念不忘。看可能还真有点说法：作者发现，vlm里的encoder，之前用clip
+loss一直比ssl
+loss效果好，可能是scaling的不够，在对于数据量、参数量、测试集做了scaling以后，其实是ssl效果更好</p>
 <blockquote>
 <p>再等等看……没准这个月的llama4，会是ssl encoder？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png">
-<h2 id="Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00509">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</a></h2>
+<p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/self-supervise.png"></p>
+<h2 id="recitation-over-reasoning-how-cutting-edge-language-models-can-fail-on-elementary-school-level-reasoning-problems"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00509">Recitation over Reasoning: How
+Cutting-Edge Language Models Can Fail on Elementary School-Level
+Reasoning Problems?</a></h2>
 <p>如果大家记得之前有一篇叫gsm8k-zero的工作，发现把简单数学题改成不需要数学的形式，模型效果会直接变烂。字节这篇新工作也是类似的，作者发现简单把题目了一些动词改成类似的形式，也是直接烂掉。</p>
-<img src="../../files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png" style="zoom:33%;">
-<h2 id="Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00906">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</a></h2>
-<p>agent s2应该是框架agent的新巅峰了，其实已经出来有段时间了，但是论文今天才挂出来。作者对于planning和grounding有专门的agent module去增强，达到了目前最强的效果。</p>
-<img src="../../files/images/arxiv-insights/2025-03-31-04-04/agent-s2.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/paraphrase.png" style="zoom:33%;"></p>
+<h2 id="agent-s2-a-compositional-generalist-specialist-framework-for-computer-use-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.00906">Agent S2: A Compositional
+Generalist-Specialist Framework for Computer Use Agents</a></h2>
+<p>agent
+s2应该是框架agent的新巅峰了，其实已经出来有段时间了，但是论文今天才挂出来。作者对于planning和grounding有专门的agent
+module去增强，达到了目前最强的效果。</p>
+<p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/agent-s2.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -342,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c71bdc90.html" rel="bookmark">2025-09-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2c2c6793.html" rel="bookmark">2025-09-15-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/cef07cea.html" rel="bookmark">2025-09-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/25c7c7e9.html" rel="bookmark">2025-09-11-insights</a></div>
     </li>
   </ul>
 
@@ -425,7 +433,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Language-Free-Visual-Representation-Learning"><span class="nav-number">1.</span> <span class="nav-text">Scaling Language-Free Visual Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Recitation-over-Reasoning-How-Cutting-Edge-Language-Models-Can-Fail-on-Elementary-School-Level-Reasoning-Problems"><span class="nav-number">2.</span> <span class="nav-text">Recitation over Reasoning: How Cutting-Edge Language Models Can Fail on Elementary School-Level Reasoning Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Agent-S2-A-Compositional-Generalist-Specialist-Framework-for-Computer-Use-Agents"><span class="nav-number">3.</span> <span class="nav-text">Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-language-free-visual-representation-learning"><span class="nav-number">1.</span> <span class="nav-text">Scaling Language-Free Visual
+Representation Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#recitation-over-reasoning-how-cutting-edge-language-models-can-fail-on-elementary-school-level-reasoning-problems"><span class="nav-number">2.</span> <span class="nav-text">Recitation over Reasoning: How
+Cutting-Edge Language Models Can Fail on Elementary School-Level
+Reasoning Problems?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agent-s2-a-compositional-generalist-specialist-framework-for-computer-use-agents"><span class="nav-number">3.</span> <span class="nav-text">Agent S2: A Compositional
+Generalist-Specialist Framework for Computer Use Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +452,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">134</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +495,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2c2c6793" title="2025-09-15-insights" target="_blank">2025-09-15-insights</a>
         </li>
       
@@ -516,10 +532,6 @@
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
@@ -575,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">299k</span>
+    <span title="站点总字数">300k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:32</span>
+    <span title="站点阅读时长">4:33</span>
 </div>
 
 <i class="fa fa-user-md"></i>
