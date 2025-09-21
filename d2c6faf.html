@@ -99,8 +99,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -312,62 +312,32 @@
       
         <p>今天三篇有趣的论文</p>
 <span id="more"></span>
-<h2 id="effective-long-context-scaling-of-foundation-models">Effective
-Long-Context Scaling of Foundation Models</h2>
-<p>Meta AI新研究，尝试了long
-seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。</p>
+<h2 id="Effective-Long-Context-Scaling-of-Foundation-Models">Effective Long-Context Scaling of Foundation Models</h2>
+<p>Meta AI新研究，尝试了long seqlength的各种变体，发现Llama2做完训练可以在长样本benchmark超过turbo-16k。作者发现长样本模型并不需要预训练阶段很多的长样本数据，只需要在最后用小数据做一些finetune即可。</p>
 <hr>
-<p>New research in Meta AI, which has explored various variants of long
-sequence length and found that: Llama2, after training, can surpass
-turbo-16k on long sample benchmarks. The authors discovered that long
-sample models do not require a large amount of long sample data during
-the pre-training phase.</p>
+<p>New research in Meta AI, which has explored various variants of long sequence length and found that: Llama2, after training, can surpass turbo-16k on long sample benchmarks. The authors discovered that long sample models do not require a large amount of long sample data during the pre-training phase.</p>
 <p>Fine-tuning with a small amount of data after is sufficient.</p>
-<h2 id="demystifying-clip-data">Demystifying CLIP Data</h2>
-<p>FAIR, Meta AI的作品。作者认为几年前OpenAI
-CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8%
-&gt; 68.3%)。</p>
+<h2 id="Demystifying-CLIP-Data">Demystifying CLIP Data</h2>
+<p>FAIR, Meta AI的作品。作者认为几年前OpenAI CLIP模型是一个数据工程，能力来源于没有开源的400M数据集。这篇文章中，作者搞了个metaCLIP。完全聚焦于数据，没加任何trick。用同样量级的数据做了各种对比实验，打败了CLIP(70.8% &gt; 68.3%)。</p>
 <p>另外，作者做了scale实验，用1B数据打到了72.4%；同时如果模型大小也跟着scale，最高能到ViT-H的80.5%。</p>
 <p>最重要的是，开源！Meta AI is all you need</p>
 <hr>
-<p>Another work by FAIR, Meta AI. The authors believe that a few years
-ago, the OpenAI CLIP model was a fully data-engineering project, its
-capabilities stemming from an close-sourced 400M dataset. In this paper,
-the authors introduced MetaCLIP. It is entirely focused on data, with no
-additional tricks used. Various comparative experiments were conducted
-with the same scale of data, outperforming CLIP (70.8% &gt; 68.3%).</p>
-<p>Additionally, the authors conducted scaling experiments, achieving
-72.4% with 1B data. And if the model size is scaled as well, it can
-reach up to 80.5% with ViT-H.</p>
+<p>Another work by FAIR, Meta AI. The authors believe that a few years ago, the OpenAI CLIP model was a fully data-engineering project, its capabilities stemming from an close-sourced 400M dataset. In this paper, the authors introduced MetaCLIP. It is entirely focused on data, with no additional tricks used. Various comparative experiments were conducted with the same scale of data, outperforming CLIP (70.8% &gt; 68.3%).</p>
+<p>Additionally, the authors conducted scaling experiments, achieving 72.4% with 1B data. And if the model size is scaled as well, it can reach up to 80.5% with ViT-H.</p>
 <p>Most importantly, it is open-source! Meta AI is all you need.</p>
-<h2 id="anymal-an-efficient-and-scalable-any-modality-augmented-language-model">AnyMAL:
-An Efficient and Scalable Any-Modality Augmented Language Model</h2>
+<h2 id="AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model">AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model</h2>
 <p>还是Meta……作者训了一个高效、可扩展的多模态编码器，把2亿图片、220万音频、50万IMU序列、2800万视频都扔进去训练，然后都和Llama2-70B对齐，相当于同时让Llama2可以读懂多模态了，但是只能输出text。</p>
 <p>作者刷了一堆榜，基本全是SOTA。</p>
-<p>插一句，难道GPT-4V就是这么搞的吗？然后用上一篇Demystifying CLIP
-Data里整了一堆闭源的超级数据工程……</p>
+<p>插一句，难道GPT-4V就是这么搞的吗？然后用上一篇Demystifying CLIP Data里整了一堆闭源的超级数据工程……</p>
 <hr>
-<p>Yet another Meta AI research have trained an efficient and scalable
-multimodal encoder. The training utilized 200 million images, 2.2
-million audio files, 500 thousand IMU sequences, and 28 million videos.
-All of these data were aligned with Llama2-70B, essentially enabling
-Llama2 to understand multimodal data( though it can only output
-text)</p>
-<p>The authors archived SOTAs on various leaderboards, primarily
-achieving state-of-the-art results.</p>
-<p>BTW, I have some questions: If this is the approach taken for GPT-4V?
-and refers to the use of a significant amount of closed-sourced super
-data-engineering as discussed in the previous mentioned
-paper(Demystifying CLIP Data) ?</p>
-<h2 id="我的思考my-insights">我的思考(My insights)</h2>
+<p>Yet another Meta AI research have trained an efficient and scalable multimodal encoder. The training utilized 200 million images, 2.2 million audio files, 500 thousand IMU sequences, and 28 million videos. All of these data were aligned with Llama2-70B, essentially enabling Llama2 to understand multimodal data( though it can only output text)</p>
+<p>The authors archived SOTAs on various leaderboards, primarily achieving state-of-the-art results.</p>
+<p>BTW,  I have some questions: If this is the approach taken for GPT-4V? and refers to the use of a significant amount of closed-sourced super data-engineering as discussed in the previous mentioned paper(Demystifying CLIP Data) ?</p>
+<h2 id="我的思考-My-insights">我的思考(My insights)</h2>
 <p>现在Meta已经这么强了吗……我基本上看眼缘挑，挑出来的竟然全是Meta的论文，感觉他们的focus确实好。OpenAI率先闭源，开源界又有Meta这个猛虎，我辈高校科研人员仍需努力呀</p>
 <hr>
-<p>Is Meta already that strong now? Basically, by just picking the Arxiv
-papers today that caught my eye, it turns out they are all from Meta.
-Their focus is indeed good.</p>
-<p>With closed OpenAI taking the lead in and the open-source community
-having the "tiger" as Meta. Me, and the academic research community from
-universities, still need to work harder.</p>
+<p>Is Meta already that strong now? Basically, by just picking the Arxiv papers today that caught my eye, it turns out they are all from Meta. Their focus is indeed good.</p>
+<p>With closed OpenAI taking the lead in and the open-source community having the “tiger” as Meta. Me, and the academic research community from universities, still need to work harder.</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -378,19 +348,19 @@ universities, still need to work harder.</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3610871d.html" rel="bookmark">2025-09-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c71bdc90.html" rel="bookmark">2025-09-16-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2c2c6793.html" rel="bookmark">2025-09-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/cef07cea.html" rel="bookmark">2025-09-12-insights</a></div>
     </li>
   </ul>
 
@@ -467,9 +437,7 @@ universities, still need to work harder.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#effective-long-context-scaling-of-foundation-models"><span class="nav-number">1.</span> <span class="nav-text">Effective
-Long-Context Scaling of Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demystifying-clip-data"><span class="nav-number">2.</span> <span class="nav-text">Demystifying CLIP Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#anymal-an-efficient-and-scalable-any-modality-augmented-language-model"><span class="nav-number">3.</span> <span class="nav-text">AnyMAL:
-An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83my-insights"><span class="nav-number">4.</span> <span class="nav-text">我的思考(My insights)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Effective-Long-Context-Scaling-of-Foundation-Models"><span class="nav-number">1.</span> <span class="nav-text">Effective Long-Context Scaling of Foundation Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Demystifying-CLIP-Data"><span class="nav-number">2.</span> <span class="nav-text">Demystifying CLIP Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AnyMAL-An-Efficient-and-Scalable-Any-Modality-Augmented-Language-Model"><span class="nav-number">3.</span> <span class="nav-text">AnyMAL: An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83-My-insights"><span class="nav-number">4.</span> <span class="nav-text">我的思考(My insights)</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,7 +452,7 @@ An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -527,6 +495,18 @@ An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><
       
       
         <li class="recent_posts_li">
+          <a href="/3610871d" title="2025-09-19-insights" target="_blank">2025-09-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
@@ -536,14 +516,6 @@ An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><
       
         <li class="recent_posts_li">
           <a href="/cef07cea" title="2025-09-12-insights" target="_blank">2025-09-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/25c7c7e9" title="2025-09-11-insights" target="_blank">2025-09-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/ca05acd7" title="2025-09-10-insights" target="_blank">2025-09-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -560,10 +532,6 @@ An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -619,12 +587,12 @@ An Efficient and Scalable Any-Modality Augmented Language Model</span></a></li><
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:32</span>
 </div>
 
 <i class="fa fa-user-md"></i>

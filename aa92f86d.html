@@ -104,8 +104,8 @@
   </style>
 </noscript>
 
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-</head>
+<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,8 +315,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="investigate-consolidate-exploit-a-general-strategy-for-inter-task-agent-self-evolution"><a href>Investigate-Consolidate-Exploit: A General Strategy for
-Inter-Task Agent Self-Evolution</a></h2>
+        <h2 id="Investigate-Consolidate-Exploit-A-General-Strategy-for-Inter-Task-Agent-Self-Evolution"><a href>Investigate-Consolidate-Exploit: A General Strategy for Inter-Task Agent Self-Evolution</a></h2>
 <p>推荐一下我们的论文，不算今天的名额：在Agent领域大家一般都是考虑完成一个任务，即使类Reflection的方案也是一个任务失败以后，能不能再次完成做的更好。实际上，没有人考虑任务间的经验学习。我们认为一个好的Agent系统应该具有两个性质：</p>
 <ul>
 <li>从之前成功的任务中汲取经验</li>
@@ -328,31 +327,22 @@ Inter-Task Agent Self-Evolution</a></h2>
 <li>对于有信心的地方可以直接按照pipeline的形式走，由此可以节省接近85%的token消耗</li>
 </ul>
 <p>由此可见，inter-task evolving的重要意义！</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/ICE.png"></p>
-<h2 id="towards-uncertainty-aware-language-agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14016.pdf">Towards Uncertainty-Aware
-Language Agent</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/ICE.png">
+<h2 id="Towards-Uncertainty-Aware-Language-Agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14016.pdf">Towards Uncertainty-Aware Language Agent</a></h2>
 <p>ICML风的论文，作者提到目前的Agent研究主要是走ReACT路线，通过多步工具调用完成任务。然而，没有Agent研究去表征模型自己的不确定性。作者考虑了模型自己在工具调用中的信心值，最终可以用更少的工具调用完成任务，同时提升效果。</p>
 <blockquote>
-<p>感觉这个和self-knowledge有异曲同工之意，尤其是作者完成的"Agent"任务实际上也是以QA为主。</p>
+<p>感觉这个和self-knowledge有异曲同工之意，尤其是作者完成的&quot;Agent&quot;任务实际上也是以QA为主。</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/uncertainty.png"></p>
-<h2 id="webvoyager-building-an-end-to-end-web-agent-with-large-multimodal-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.13919.pdf">WebVoyager : Building an
-End-to-End Web Agent with Large Multimodal Models</a></h2>
-<p>相信大家都知道Nvidia之前搞的voyager，那么web-voyager是怎会回事呢？大概就是MM-Navigator、APPAgent那套GPT-4V
-based Multimodal ReACT路线加上各种observation-clean的工程优化。</p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/uncertainty.png">
+<h2 id="WebVoyager-Building-an-End-to-End-Web-Agent-with-Large-Multimodal-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.13919.pdf">WebVoyager : Building an End-to-End Web Agent with Large Multimodal Models</a></h2>
+<p>相信大家都知道Nvidia之前搞的voyager，那么web-voyager是怎会回事呢？大概就是MM-Navigator、APPAgent那套GPT-4V based Multimodal ReACT路线加上各种observation-clean的工程优化。</p>
 <blockquote>
-<p>以后有机会我帮大家梳理分享一下Multimodal Agent都做了什么，和Language
-Agent的发展是不是有一些对偶的成分在？</p>
+<p>以后有机会我帮大家梳理分享一下Multimodal Agent都做了什么，和Language Agent的发展是不是有一些对偶的成分在？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/web-voyager.png"></p>
-<h2 id="deepseek-coder-when-the-large-language-model-meets-programming---the-rise-of-code-intelligence"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14196.pdf">DeepSeek-Coder: When the
-Large Language Model Meets Programming - The Rise of Code
-Intelligence</a></h2>
-<p>最新的Code模型，pretrain了2T
-token，在各个任务上都表现很好，开源。另外，我觉得在leetcode
-weekly上做评测是一个很好的形式，这样相对来说就不会被大家喷各种Data
-leakage之类的问题了……</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/DeepSeek-Coder.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/web-voyager.png">
+<h2 id="DeepSeek-Coder-When-the-Large-Language-Model-Meets-Programming-The-Rise-of-Code-Intelligence"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.14196.pdf">DeepSeek-Coder: When the Large Language Model Meets Programming - The Rise of Code Intelligence</a></h2>
+<p>最新的Code模型，pretrain了2T token，在各个任务上都表现很好，开源。另外，我觉得在leetcode weekly上做评测是一个很好的形式，这样相对来说就不会被大家喷各种Data leakage之类的问题了……</p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/DeepSeek-Coder.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -363,19 +353,19 @@ leakage之类的问题了……</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3610871d.html" rel="bookmark">2025-09-19-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/c71bdc90.html" rel="bookmark">2025-09-16-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2c2c6793.html" rel="bookmark">2025-09-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/cef07cea.html" rel="bookmark">2025-09-12-insights</a></div>
     </li>
   </ul>
 
@@ -452,12 +442,7 @@ leakage之类的问题了……</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#investigate-consolidate-exploit-a-general-strategy-for-inter-task-agent-self-evolution"><span class="nav-number">1.</span> <span class="nav-text">Investigate-Consolidate-Exploit: A General Strategy for
-Inter-Task Agent Self-Evolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#towards-uncertainty-aware-language-agent"><span class="nav-number">2.</span> <span class="nav-text">Towards Uncertainty-Aware
-Language Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webvoyager-building-an-end-to-end-web-agent-with-large-multimodal-models"><span class="nav-number">3.</span> <span class="nav-text">WebVoyager : Building an
-End-to-End Web Agent with Large Multimodal Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deepseek-coder-when-the-large-language-model-meets-programming---the-rise-of-code-intelligence"><span class="nav-number">4.</span> <span class="nav-text">DeepSeek-Coder: When the
-Large Language Model Meets Programming - The Rise of Code
-Intelligence</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Investigate-Consolidate-Exploit-A-General-Strategy-for-Inter-Task-Agent-Self-Evolution"><span class="nav-number">1.</span> <span class="nav-text">Investigate-Consolidate-Exploit: A General Strategy for Inter-Task Agent Self-Evolution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Towards-Uncertainty-Aware-Language-Agent"><span class="nav-number">2.</span> <span class="nav-text">Towards Uncertainty-Aware Language Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WebVoyager-Building-an-End-to-End-Web-Agent-with-Large-Multimodal-Models"><span class="nav-number">3.</span> <span class="nav-text">WebVoyager : Building an End-to-End Web Agent with Large Multimodal Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DeepSeek-Coder-When-the-Large-Language-Model-Meets-Programming-The-Rise-of-Code-Intelligence"><span class="nav-number">4.</span> <span class="nav-text">DeepSeek-Coder: When the Large Language Model Meets Programming - The Rise of Code Intelligence</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -472,7 +457,7 @@ Intelligence</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -515,6 +500,18 @@ Intelligence</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/3610871d" title="2025-09-19-insights" target="_blank">2025-09-19-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
@@ -524,14 +521,6 @@ Intelligence</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/cef07cea" title="2025-09-12-insights" target="_blank">2025-09-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/25c7c7e9" title="2025-09-11-insights" target="_blank">2025-09-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/ca05acd7" title="2025-09-10-insights" target="_blank">2025-09-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -548,10 +537,6 @@ Intelligence</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -607,12 +592,12 @@ Intelligence</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">299k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:33</span>
+    <span title="站点阅读时长">4:32</span>
 </div>
 
 <i class="fa fa-user-md"></i>
