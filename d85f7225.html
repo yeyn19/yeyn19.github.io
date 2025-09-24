@@ -313,20 +313,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="showui-one-vision-language-action-model-for-gui-visual-agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.17465"><strong>ShowUI: One
-Vision-Language-Action Model for GUI Visual Agent</strong></a></h2>
-<p>一篇GUI
-Agent的工作，但是不是传统型，这次是改模型结构流的。作者搞了一套叫<code>UI patch-wise connected graph</code>，定义出来图片中的可点击位置，让模型学着只能在这些位置中做点击。用一个2B的qwen2，就把seeclick刷得还挺高的</p>
-<p><img src="../../files/images/arxiv-insights/2024-11-25-11-29/show-ui.png" style="zoom:33%;"></p>
-<h2 id="inference-scaling-flaws-the-limits-of-llm-resampling-with-imperfect-verifiers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.17501"><strong>Inference
-Scaling</strong> F<strong>Laws: The Limits of LLM Resampling with
-Imperfect Verifiers</strong></a></h2>
-<p>普林斯顿的工作，作者发现inference rejected
-sampling是有瑕疵的。如果reward model本身不是完美的，比如test
-case不能覆盖到所有情况，那么通过reward
-model的trace是会有假阳的。问题在于，模型的假阳率到底高不高呢？作者在不同能力的模型上做了实验，发现基础模型的pass@1能力和假阳率强相关。基本存在一个scaling
-law</p>
-<p><img src="../../files/images/arxiv-insights/2024-11-25-11-29/infer-scaling-flaw.png"></p>
+        <h2 id="ShowUI-One-Vision-Language-Action-Model-for-GUI-Visual-Agent"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.17465"><strong>ShowUI: One Vision-Language-Action Model for GUI Visual Agent</strong></a></h2>
+<p>一篇GUI Agent的工作，但是不是传统型，这次是改模型结构流的。作者搞了一套叫<code>UI patch-wise connected graph</code>，定义出来图片中的可点击位置，让模型学着只能在这些位置中做点击。用一个2B的qwen2，就把seeclick刷得还挺高的</p>
+<img src="../../files/images/arxiv-insights/2024-11-25-11-29/show-ui.png" style="zoom:33%;">
+<h2 id="Inference-Scaling-FLaws-The-Limits-of-LLM-Resampling-with-Imperfect-Verifiers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.17501"><strong>Inference Scaling</strong> F<strong>Laws: The Limits of LLM Resampling with Imperfect Verifiers</strong></a></h2>
+<p>普林斯顿的工作，作者发现inference rejected sampling是有瑕疵的。如果reward model本身不是完美的，比如test case不能覆盖到所有情况，那么通过reward model的trace是会有假阳的。问题在于，模型的假阳率到底高不高呢？作者在不同能力的模型上做了实验，发现基础模型的pass@1能力和假阳率强相关。基本存在一个scaling law</p>
+<img src="../../files/images/arxiv-insights/2024-11-25-11-29/infer-scaling-flaw.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -337,13 +329,13 @@ law</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/57121aeb.html" rel="bookmark">2025-09-22-insights</a></div>
@@ -426,10 +418,7 @@ law</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#showui-one-vision-language-action-model-for-gui-visual-agent"><span class="nav-number">1.</span> <span class="nav-text">ShowUI: One
-Vision-Language-Action Model for GUI Visual Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inference-scaling-flaws-the-limits-of-llm-resampling-with-imperfect-verifiers"><span class="nav-number">2.</span> <span class="nav-text">Inference
-Scaling FLaws: The Limits of LLM Resampling with
-Imperfect Verifiers</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ShowUI-One-Vision-Language-Action-Model-for-GUI-Visual-Agent"><span class="nav-number">1.</span> <span class="nav-text">ShowUI: One Vision-Language-Action Model for GUI Visual Agent</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Inference-Scaling-FLaws-The-Limits-of-LLM-Resampling-with-Imperfect-Verifiers"><span class="nav-number">2.</span> <span class="nav-text">Inference Scaling FLaws: The Limits of LLM Resampling with Imperfect Verifiers</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -444,7 +433,7 @@ Imperfect Verifiers</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -487,6 +476,10 @@ Imperfect Verifiers</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/b8d071d5" title="2025-09-23-insights" target="_blank">2025-09-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/57121aeb" title="2025-09-22-insights" target="_blank">2025-09-22-insights</a>
         </li>
       
@@ -496,14 +489,6 @@ Imperfect Verifiers</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -524,6 +509,10 @@ Imperfect Verifiers</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>

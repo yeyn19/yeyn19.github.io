@@ -315,28 +315,21 @@
 
       
         <p>昨天arxiv没更新，没想到今天一更新就是196篇……重量级</p>
-<h2 id="unchosen-experts-can-contribute-too-unleashing-moe-models-power-by-self-contrast"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14507">Unchosen Experts Can Contribute
-Too: Unleashing MoE Models’ Power by Self-Contrast</a></h2>
+<h2 id="Unchosen-Experts-Can-Contribute-Too-Unleashing-MoE-Models’-Power-by-Self-Contrast"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14507">Unchosen Experts Can Contribute Too: Unleashing MoE Models’ Power by Self-Contrast</a></h2>
 <p>作者发现，目前的MoE模型里，没激活的token完全没用上，这里面有优化的空间。作者想了个招数，如果求出不同的激活方式的差值，这个差值应该就考虑未激活专家的内容了。作者发现这种方法不需要额外训练，也基本不用额外引入推理开销，竟然能在所有任务上提升效果？而且涨的还挺多</p>
 <blockquote>
 <p>啊？那训练的时候也可以这么搞吗……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-05-20-05-24/contrast.png"></p>
-<h2 id="simpo-simple-preference-optimization-with-a-reference-free-reward"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14734">SimPO: Simple Preference
-Optimization with a Reference-Free Reward</a></h2>
-<p>Danqi的论文，这下不得不推了：作者想到了一个简单的DPO改进，用模型自己的logits作为隐式的reward，一下子连ref
-model都省了，真成sft了。然后发现这种简单的方案训练出来的模型实际上比已有算法都好，使用llama3作为base
-model，训出来了目前最强的8B模型。</p>
-<p><img src="../../files/images/arxiv-insights/2024-05-20-05-24/simpo.png"></p>
-<h2 id="from-explicit-cot-to-implicit-cot-learning-to-internalize-cot-step-by-step"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14838">From Explicit CoT to Implicit
-CoT: Learning to Internalize CoT Step by Step</a></h2>
-<p>Yejin
-Choi的论文，作者的思路很简单：模型通过多步调用获取CoT的能力，那么模型能不能不用CoT也和之前效果一样呢？作者想了个很简单的办法，先生成CoT的正确样本，在训练的时候逐渐只保留最后的后缀，最终训练数据里就是direct
-answer。作者发现这种方案训练出来的模型在GSM8k上不用CoT，直接就能有50%的acc</p>
+<img src="../../files/images/arxiv-insights/2024-05-20-05-24/contrast.png">
+<h2 id="SimPO-Simple-Preference-Optimization-with-a-Reference-Free-Reward"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14734">SimPO: Simple Preference Optimization with a Reference-Free Reward</a></h2>
+<p>Danqi的论文，这下不得不推了：作者想到了一个简单的DPO改进，用模型自己的logits作为隐式的reward，一下子连ref model都省了，真成sft了。然后发现这种简单的方案训练出来的模型实际上比已有算法都好，使用llama3作为base model，训出来了目前最强的8B模型。</p>
+<img src="../../files/images/arxiv-insights/2024-05-20-05-24/simpo.png">
+<h2 id="From-Explicit-CoT-to-Implicit-CoT-Learning-to-Internalize-CoT-Step-by-Step"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.14838">From Explicit CoT to Implicit CoT: Learning to Internalize CoT Step by Step</a></h2>
+<p>Yejin Choi的论文，作者的思路很简单：模型通过多步调用获取CoT的能力，那么模型能不能不用CoT也和之前效果一样呢？作者想了个很简单的办法，先生成CoT的正确样本，在训练的时候逐渐只保留最后的后缀，最终训练数据里就是direct answer。作者发现这种方案训练出来的模型在GSM8k上不用CoT，直接就能有50%的acc</p>
 <blockquote>
 <p>有点神奇</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-05-20-05-24/cot.png"></p>
+<img src="../../files/images/arxiv-insights/2024-05-20-05-24/cot.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +340,13 @@ answer。作者发现这种方案训练出来的模型在GSM8k上不用CoT，直
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/57121aeb.html" rel="bookmark">2025-09-22-insights</a></div>
@@ -436,10 +429,7 @@ answer。作者发现这种方案训练出来的模型在GSM8k上不用CoT，直
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#unchosen-experts-can-contribute-too-unleashing-moe-models-power-by-self-contrast"><span class="nav-number">1.</span> <span class="nav-text">Unchosen Experts Can Contribute
-Too: Unleashing MoE Models’ Power by Self-Contrast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#simpo-simple-preference-optimization-with-a-reference-free-reward"><span class="nav-number">2.</span> <span class="nav-text">SimPO: Simple Preference
-Optimization with a Reference-Free Reward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#from-explicit-cot-to-implicit-cot-learning-to-internalize-cot-step-by-step"><span class="nav-number">3.</span> <span class="nav-text">From Explicit CoT to Implicit
-CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Unchosen-Experts-Can-Contribute-Too-Unleashing-MoE-Models%E2%80%99-Power-by-Self-Contrast"><span class="nav-number">1.</span> <span class="nav-text">Unchosen Experts Can Contribute Too: Unleashing MoE Models’ Power by Self-Contrast</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SimPO-Simple-Preference-Optimization-with-a-Reference-Free-Reward"><span class="nav-number">2.</span> <span class="nav-text">SimPO: Simple Preference Optimization with a Reference-Free Reward</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#From-Explicit-CoT-to-Implicit-CoT-Learning-to-Internalize-CoT-Step-by-Step"><span class="nav-number">3.</span> <span class="nav-text">From Explicit CoT to Implicit CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -454,7 +444,7 @@ CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -497,6 +487,10 @@ CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/b8d071d5" title="2025-09-23-insights" target="_blank">2025-09-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/57121aeb" title="2025-09-22-insights" target="_blank">2025-09-22-insights</a>
         </li>
       
@@ -506,14 +500,6 @@ CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -534,6 +520,10 @@ CoT: Learning to Internalize CoT Step by Step</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>

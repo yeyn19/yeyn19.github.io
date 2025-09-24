@@ -314,22 +314,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="enabling-large-language-models-to-learn-from-rules"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08883.pdf">Enabling Large Language
-Models to Learn from Rules</a></h2>
-<p>推荐一下师兄的论文，研究了一个挺有意思的推理方面的论文：作者谈到目前的语言模型都是在做learn
-from
-example，从一大堆样本猜测function的作用。但人学习的方式可能不是这样，人会先学习某些规律，再通过应用规律到数据上来进行预测。</p>
+        <h2 id="Enabling-Large-Language-Models-to-Learn-from-Rules"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08883.pdf">Enabling Large Language Models to Learn from Rules</a></h2>
+<p>推荐一下师兄的论文，研究了一个挺有意思的推理方面的论文：作者谈到目前的语言模型都是在做learn from example，从一大堆样本猜测function的作用。但人学习的方式可能不是这样，人会先学习某些规律，再通过应用规律到数据上来进行预测。</p>
 <p>作者探索了语言模型是否也可以使用这种manner来进行学习</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/learn-from-rule.png"></p>
-<h2 id="token-prediction-as-implicit-classification-to-identify-llm-generated-text"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08723.pdf">Token Prediction as Implicit
-Classification to Identify LLM-Generated Text</a></h2>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/learn-from-rule.png">
+<h2 id="Token-Prediction-as-Implicit-Classification-to-Identify-LLM-Generated-Text"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08723.pdf">Token Prediction as Implicit Classification to Identify LLM-Generated Text</a></h2>
 <p>是一篇做LLM文本检测的工作，作者这次直接用一个auto-regressive的next-token-prediction任务来做文本检测，而不是像之前的工作一样用一个classifier。感觉是更直觉的方法呢，我不太了解这个领域，不太清楚经典方法是怎么开展的</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/Token-Prediction.png"></p>
-<h2 id="deed-dynamic-early-exit-on-decoder-for-accelerating-encoder-decoder-transformer-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08623.pdf">DEED: Dynamic Early Exit on
-Decoder for Accelerating Encoder-Decoder Transformer Models</a></h2>
-<p>作者发现目前的ENcode-Decoder模型速度慢，主要是decoder每次需要一个个token生成。作者设计了一个early
-exit的方法，允许decoder根据信心值决定可以提前退出。发现在performance下降法不明显的情况下，做到了减少了60%的用时</p>
-<p><img src="../../files/images/arxiv-insights/2023:11:13-11:17/DEED.png"></p>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/Token-Prediction.png">
+<h2 id="DEED-Dynamic-Early-Exit-on-Decoder-for-Accelerating-Encoder-Decoder-Transformer-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2311.08623.pdf">DEED: Dynamic Early Exit on Decoder for Accelerating Encoder-Decoder Transformer Models</a></h2>
+<p>作者发现目前的ENcode-Decoder模型速度慢，主要是decoder每次需要一个个token生成。作者设计了一个early exit的方法，允许decoder根据信心值决定可以提前退出。发现在performance下降法不明显的情况下，做到了减少了60%的用时</p>
+<img src="../../files/images/arxiv-insights/2023:11:13-11:17/DEED.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -340,13 +334,13 @@ exit的方法，允许decoder根据信心值决定可以提前退出。发现在
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/57121aeb.html" rel="bookmark">2025-09-22-insights</a></div>
@@ -429,10 +423,7 @@ exit的方法，允许decoder根据信心值决定可以提前退出。发现在
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#enabling-large-language-models-to-learn-from-rules"><span class="nav-number">1.</span> <span class="nav-text">Enabling Large Language
-Models to Learn from Rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#token-prediction-as-implicit-classification-to-identify-llm-generated-text"><span class="nav-number">2.</span> <span class="nav-text">Token Prediction as Implicit
-Classification to Identify LLM-Generated Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deed-dynamic-early-exit-on-decoder-for-accelerating-encoder-decoder-transformer-models"><span class="nav-number">3.</span> <span class="nav-text">DEED: Dynamic Early Exit on
-Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Enabling-Large-Language-Models-to-Learn-from-Rules"><span class="nav-number">1.</span> <span class="nav-text">Enabling Large Language Models to Learn from Rules</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Token-Prediction-as-Implicit-Classification-to-Identify-LLM-Generated-Text"><span class="nav-number">2.</span> <span class="nav-text">Token Prediction as Implicit Classification to Identify LLM-Generated Text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DEED-Dynamic-Early-Exit-on-Decoder-for-Accelerating-Encoder-Decoder-Transformer-Models"><span class="nav-number">3.</span> <span class="nav-text">DEED: Dynamic Early Exit on Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -447,7 +438,7 @@ Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -490,6 +481,10 @@ Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol>
       
       
         <li class="recent_posts_li">
+          <a href="/b8d071d5" title="2025-09-23-insights" target="_blank">2025-09-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/57121aeb" title="2025-09-22-insights" target="_blank">2025-09-22-insights</a>
         </li>
       
@@ -499,14 +494,6 @@ Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol>
       
         <li class="recent_posts_li">
           <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -527,6 +514,10 @@ Decoder for Accelerating Encoder-Decoder Transformer Models</span></a></li></ol>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>

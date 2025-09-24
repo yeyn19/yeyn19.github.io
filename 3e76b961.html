@@ -314,28 +314,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="extending-video-masked-autoencoders-to-128-frames"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.13683">Extending Video Masked
-Autoencoders to 128 frames</a></h2>
-<p>作者提到，视频VAE
-Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction
-loss和两种模态的加噪，还真搞出了点东西</p>
-<p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/mae.png"></p>
-<h2 id="multimodal-autoregressive-pre-training-of-large-vision-encoders"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14402">Multimodal Autoregressive
-Pre-training of Large Vision Encoders</a></h2>
-<p>苹果出的一个joint training
-VLM的方法，模型结构和传统VLM差不多，都是几个模块式的。但是作者在VLM
-token上也加了loss，让他去直接预测图片的后面patch。但这个也不算生成理解统一模型，因为还是需要一个prefix
-vison encoder预先看到原始图片生成一堆visual token embedding。</p>
-<p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/aimv2.png"></p>
-<h2 id="revisiting-the-integration-of-convolution-and-attention-for-vision-backbone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14429">Revisiting the Integration of
-Convolution and Attention for Vision Backbone</a></h2>
-<p>一篇研究VLM结构的工作，在今天不太多见，有点kaiming遗风。作者发现，传统VLM中对于conv和attention层基本都是二选一，即使都用，也是在某些地方做二路并行。作者提出一个观点：conv快，attention慢，其实应该在不同颗粒度使用。能不能在pixel
-level大量使用conv，在更高颗粒度使用attention呢？</p>
+        <h2 id="Extending-Video-Masked-Autoencoders-to-128-frames"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.13683">Extending Video Masked Autoencoders to 128 frames</a></h2>
+<p>作者提到，视频VAE Encoder这个领域一直最多做到16帧，作者的目的是拓展到更长视频的编码上。通过联立使用reconstruction loss和两种模态的加噪，还真搞出了点东西</p>
+<img src="../../files/images/arxiv-insights/2024-11-18-11-22/mae.png">
+<h2 id="Multimodal-Autoregressive-Pre-training-of-Large-Vision-Encoders"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14402">Multimodal Autoregressive Pre-training of Large Vision Encoders</a></h2>
+<p>苹果出的一个joint training VLM的方法，模型结构和传统VLM差不多，都是几个模块式的。但是作者在VLM token上也加了loss，让他去直接预测图片的后面patch。但这个也不算生成理解统一模型，因为还是需要一个prefix vison encoder预先看到原始图片生成一堆visual token embedding。</p>
+<img src="../../files/images/arxiv-insights/2024-11-18-11-22/aimv2.png">
+<h2 id="Revisiting-the-Integration-of-Convolution-and-Attention-for-Vision-Backbone"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.14429">Revisiting the Integration of Convolution and Attention for Vision Backbone</a></h2>
+<p>一篇研究VLM结构的工作，在今天不太多见，有点kaiming遗风。作者发现，传统VLM中对于conv和attention层基本都是二选一，即使都用，也是在某些地方做二路并行。作者提出一个观点：conv快，attention慢，其实应该在不同颗粒度使用。能不能在pixel level大量使用conv，在更高颗粒度使用attention呢？</p>
 <p>作者做了一些实验，发现这样出来的cv模型效果确实好不少。</p>
 <blockquote>
 <p>scalability的问题不知道解决没有</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-11-18-11-22/conv.png"></p>
+<img src="../../files/images/arxiv-insights/2024-11-18-11-22/conv.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -346,13 +337,13 @@ level大量使用conv，在更高颗粒度使用attention呢？</p>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/28d9b7ae.html" rel="bookmark">2025-09-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/57121aeb.html" rel="bookmark">2025-09-22-insights</a></div>
@@ -435,10 +426,7 @@ level大量使用conv，在更高颗粒度使用attention呢？</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#extending-video-masked-autoencoders-to-128-frames"><span class="nav-number">1.</span> <span class="nav-text">Extending Video Masked
-Autoencoders to 128 frames</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#multimodal-autoregressive-pre-training-of-large-vision-encoders"><span class="nav-number">2.</span> <span class="nav-text">Multimodal Autoregressive
-Pre-training of Large Vision Encoders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#revisiting-the-integration-of-convolution-and-attention-for-vision-backbone"><span class="nav-number">3.</span> <span class="nav-text">Revisiting the Integration of
-Convolution and Attention for Vision Backbone</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Extending-Video-Masked-Autoencoders-to-128-frames"><span class="nav-number">1.</span> <span class="nav-text">Extending Video Masked Autoencoders to 128 frames</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Multimodal-Autoregressive-Pre-training-of-Large-Vision-Encoders"><span class="nav-number">2.</span> <span class="nav-text">Multimodal Autoregressive Pre-training of Large Vision Encoders</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revisiting-the-Integration-of-Convolution-and-Attention-for-Vision-Backbone"><span class="nav-number">3.</span> <span class="nav-text">Revisiting the Integration of Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,7 +441,7 @@ Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">134</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,6 +484,10 @@ Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/b8d071d5" title="2025-09-23-insights" target="_blank">2025-09-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/57121aeb" title="2025-09-22-insights" target="_blank">2025-09-22-insights</a>
         </li>
       
@@ -505,14 +497,6 @@ Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-17-insights" target="_blank">2025-09-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/c71bdc90" title="2025-09-16-insights" target="_blank">2025-09-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -533,6 +517,10 @@ Convolution and Attention for Vision Backbone</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/7cd10148" title="Self-Consistency之我见，兼More Agents is All You Need" target="_blank">Self-Consistency之我见，兼More Agents is All You Need</a>
         </li>
       
     </ul>
