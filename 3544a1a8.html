@@ -328,39 +328,52 @@
 <p>Black-Box Tuning for Language-Model-as-a-Service</p>
 </blockquote>
 <blockquote>
-<p>BBTv2: Pure Black-Box Optimization Can Be Comparable to Gradient Descent for Few-Shot Learning</p>
+<p>BBTv2: Pure Black-Box Optimization Can Be Comparable to Gradient
+Descent for Few-Shot Learning</p>
 </blockquote>
 <span id="more"></span>
-<img src="../files/images/black_box_tuning/author.png">
-<img src="../files/images/black_box_tuning/author2.png">
+<p><img src="../files/images/black_box_tuning/author.png"></p>
+<p><img src="../files/images/black_box_tuning/author2.png"></p>
 <p>这两篇的作者是一波人，来自复旦大学。这两篇都是今年的文章。</p>
-<h2 id="Language-Model-as-a-Service-LMaaS">Language-Model-as-a-Service(LMaaS)</h2>
+<h2 id="language-model-as-a-servicelmaas">Language-Model-as-a-Service(LMaaS)</h2>
 <p>所谓的黑箱训练，就是说如何在不能获取到模型的导数，只能有一个loss或者accuracy的情况下优化模型。</p>
-<img src="../files/images/black_box_tuning/introduction.png">
-<p>之所以提出这个概念，是因为目前随着模型的规模越来越大，很多模型现在都是不开源参数的，只能开原一些infer API，因此也不能获取到梯度。在这种情况下，下游任务的研究者首先进行fine-tune不现实(没有梯度,然后存不下)。已有的一些delta tuning的手段也不现实，因为没有梯度。作者把这个场景叫做Language-Model-as-a-Service(LMaaS)</p>
+<p><img src="../files/images/black_box_tuning/introduction.png"></p>
+<p>之所以提出这个概念，是因为目前随着模型的规模越来越大，很多模型现在都是不开源参数的，只能开原一些infer
+API，因此也不能获取到梯度。在这种情况下，下游任务的研究者首先进行fine-tune不现实(没有梯度,然后存不下)。已有的一些delta
+tuning的手段也不现实，因为没有梯度。作者把这个场景叫做Language-Model-as-a-Service(LMaaS)</p>
 <p>作者希望提出一种方法，可以在这种情况下微调模型。</p>
-<h2 id="derivative-free-optimization-DFO">derivative-free optimization (DFO)</h2>
+<h2 id="derivative-free-optimization-dfo">derivative-free optimization
+(DFO)</h2>
 <p>这是另一个方向，专门在只有loss的情况下优化参数，有点像RL的场景。有一些已有的工作，我后面可能也会分享到。但大体面临几个问题：</p>
 <ul>
 <li>训练很慢</li>
 <li>当需要调整的参数多的时候，基本不可能实现</li>
 </ul>
-<h2 id="Black-Box-Tuning">Black-Box-Tuning</h2>
-<img src="../files/images/black_box_tuning/bbt.png">
-<p>接下来作者就要讲本文的方法了。作者首先借鉴了Delta tuning领域，想要减少模型需要调整的参数。</p>
-<p>作者用了soft prompt的方法。不过参数还是太多(length * dimension)。因此作者又掏出来了LoRA那个假设</p>
+<h2 id="black-box-tuning">Black-Box-Tuning</h2>
+<p><img src="../files/images/black_box_tuning/bbt.png"></p>
+<p>接下来作者就要讲本文的方法了。作者首先借鉴了Delta
+tuning领域，想要减少模型需要调整的参数。</p>
+<p>作者用了soft prompt的方法。不过参数还是太多(length *
+dimension)。因此作者又掏出来了LoRA那个假设</p>
 <blockquote>
 <p>fine-tune has a low intrinsic dimension</p>
 </blockquote>
-<p>然后把prompt表示成了矩阵增多那个方法(Intrinsic原始论文那个搜索):<br>
-$$<br>
-z* = \mathop{\text{argmin}}_{z \in \mathcal{Z}} \mathcal{L}(f(Az + p_0; X),Y)<br>
-$$<br>
-这个公式的意思是，f函数是一个黑箱函数(模型输出)，通过一个prompt p和输入x返回一个y，这里y指的是类别概率(做的分类任务)</p>
-<p>然后作者把$D = len \times dim$维的prompt表示成了d维的$z,A \in \mathbb{R}^{D\times d} $,然后p0是一个预先设计的prompt</p>
-<p>其中A是一个uniform分布的矩阵，选定就不变了。$z \in [-5,5]^d$才是DFO算法实际优化的东西。</p>
-<p>实际执行中，作者用的优化函数L是cross-entropy loss。然后DFO优化算法是经典的CMA-ES (Covariance Matrix Adaptation Evo- lution Strategy)算法</p>
-<h2 id="Black-Box-Tuning-V2">Black-Box-Tuning V2</h2>
+<p>然后把prompt表示成了矩阵增多那个方法(Intrinsic原始论文那个搜索):
+<span class="math display">\[
+z* = \mathop{\text{argmin}}_{z \in \mathcal{Z}} \mathcal{L}(f(Az + p_0;
+X),Y)
+\]</span>
+这个公式的意思是，f函数是一个黑箱函数(模型输出)，通过一个prompt
+p和输入x返回一个y，这里y指的是类别概率(做的分类任务)</p>
+<p>然后作者把<span class="math inline">\(D = len \times
+dim\)</span>维的prompt表示成了d维的$z,A ^{Dd}
+$,然后p0是一个预先设计的prompt</p>
+<p>其中A是一个uniform分布的矩阵，选定就不变了。<span class="math inline">\(z \in
+[-5,5]^d\)</span>才是DFO算法实际优化的东西。</p>
+<p>实际执行中，作者用的优化函数L是cross-entropy
+loss。然后DFO优化算法是经典的CMA-ES (Covariance Matrix Adaptation Evo-
+lution Strategy)算法</p>
+<h2 id="black-box-tuning-v2">Black-Box-Tuning V2</h2>
 <p>既然是两篇，那肯定是有改进的。第二篇说了BBT算法的缺点:</p>
 <ul>
 <li>需要预先设计P0。可能是任务相关的，不算是完全的黑箱</li>
@@ -368,38 +381,41 @@ $$<br>
 <li>对于entailment类的任务表现不加</li>
 <li>和fine-tune比效果还是不够好</li>
 </ul>
-<img src="../files/images/black_box_tuning/compare_self.png">
+<p><img src="../files/images/black_box_tuning/compare_self.png"></p>
 <p>因此作者做出了写改进，具体如下：</p>
-<img src="../files/images/black_box_tuning/algo2.png">
+<p><img src="../files/images/black_box_tuning/algo2.png"></p>
 <h3 id="分治">分治</h3>
-<p>首先作者参考prompt tuning的改进方法在每一层都添加了prompt，然后由于多了层数L倍的参数，DFO肯定会下降。但作者观察到:</p>
+<p>首先作者参考prompt
+tuning的改进方法在每一层都添加了prompt，然后由于多了层数L倍的参数，DFO肯定会下降。但作者观察到:</p>
 <blockquote>
 <p>由于残差链接的原因，模型的前向可以认为是分治的。最终的输出可以解递归变成每一层输出的和</p>
 </blockquote>
 <p>作者就用分治的手段，自底向上一层一层优化。然后A矩阵也是有L个</p>
-<h3 id="A的生成">A的生成</h3>
-<p>接下来，作者探索A矩阵的生成，原论文说是uniform分布更好，但作者觉得需要让A乘完了以后和真实的token或者模型的真实中间hidden state更接近，作者推导了一下矩阵乘的方差、均值，总结出来了下面的分布：<br>
-$$<br>
-\begin{aligned}<br>
-\mu &amp; = \frac{\hat \mu}{d - \hat\sigma^2} \<br>
-\sigma &amp; = \frac{\hat \sigma}{\sqrt{d - \hat\sigma^2}} \<br>
-\end{aligned}<br>
-$$<br>
-这个高斯分布采样出的A可以最大程度使得Az和真实分布接近</p>
+<h3 id="a的生成">A的生成</h3>
+<p>接下来，作者探索A矩阵的生成，原论文说是uniform分布更好，但作者觉得需要让A乘完了以后和真实的token或者模型的真实中间hidden
+state更接近，作者推导了一下矩阵乘的方差、均值，总结出来了下面的分布：
+<span class="math display">\[
+\begin{aligned}
+\mu &amp; = \frac{\hat \mu}{d - \hat\sigma^2} \\
+\sigma &amp; = \frac{\hat \sigma}{\sqrt{d - \hat\sigma^2}} \\
+\end{aligned}
+\]</span> 这个高斯分布采样出的A可以最大程度使得Az和真实分布接近</p>
 <h2 id="实验">实验</h2>
-<p><strong>注意，作者做的所有实验都是few-shot场景下的，也就是训练集每一类给了16条数据，然后测试集用了全数据($\gg$ 训练集)</strong></p>
-<p>经过下面的改进之后，作者在BERT, RoBERTa，CPM-2都进行了实验，效果还是很好的</p>
-<img src="../files/images/black_box_tuning/compare_delta.png">
-<img src="../files/images/black_box_tuning/result.png">
-<img src="../files/images/black_box_tuning/cpm2_result.png">
+<p><strong>注意，作者做的所有实验都是few-shot场景下的，也就是训练集每一类给了16条数据，然后测试集用了全数据(<span class="math inline">\(\gg\)</span> 训练集)</strong></p>
+<p>经过下面的改进之后，作者在BERT,
+RoBERTa，CPM-2都进行了实验，效果还是很好的</p>
+<p><img src="../files/images/black_box_tuning/compare_delta.png"></p>
+<p><img src="../files/images/black_box_tuning/result.png"></p>
+<p><img src="../files/images/black_box_tuning/cpm2_result.png"></p>
 <p>对baseline的一些解释:</p>
 <ul>
 <li>BitFit, Adapter, LoRa, Prompt Tuning之前都讲过了</li>
 <li>P-Tuning v2大概就是在每一层都有prompt</li>
-<li>Feature-MLP, Feature-BiLSTM：有梯度的方法，是在CLS token上面叠加了新的模型，前面大模型freeze</li>
+<li>Feature-MLP, Feature-BiLSTM：有梯度的方法，是在CLS
+token上面叠加了新的模型，前面大模型freeze</li>
 </ul>
 <p>后面作者还做了有意思的附实验:</p>
-<img src="../files/images/black_box_tuning/ablation.png">
+<p><img src="../files/images/black_box_tuning/ablation.png"></p>
 <p>大概说了几件事情：</p>
 <ul>
 <li>搜索空间d越大，虽然变慢，但效果会变好</li>
@@ -409,7 +425,8 @@ $$<br>
 </ul>
 <h2 id="我的思考">我的思考</h2>
 <ul>
-<li>总体而言，这个文章提出的LMaaS场景感觉很大的实际应用空间，我觉得闭源大模型是个趋势; 尤其是，大概率以后前向本机的小破卡也跑不起来……</li>
+<li>总体而言，这个文章提出的LMaaS场景感觉很大的实际应用空间，我觉得闭源大模型是个趋势;
+尤其是，大概率以后前向本机的小破卡也跑不起来……</li>
 <li>作者没说多数据的场景表现怎么样，但我感觉应该是有梯度的方法远胜BBT。这个可能是妨碍应用范围扩大的一大问题……</li>
 <li>我觉得有一个重要指标，就是query次数作者不是很重视，这个在实际应用中很重要吧——闭源大模型你花的钱好像是要正比于query次数……</li>
 </ul>
@@ -423,7 +440,7 @@ $$<br>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3e784f99.html" rel="bookmark">论文阅读[粗读]-Exploring Universal Intrinsic Task Subspace via Prompt Tuning</a></div>
@@ -524,7 +541,8 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Language-Model-as-a-Service-LMaaS"><span class="nav-number">1.</span> <span class="nav-text">Language-Model-as-a-Service(LMaaS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#derivative-free-optimization-DFO"><span class="nav-number">2.</span> <span class="nav-text">derivative-free optimization (DFO)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Black-Box-Tuning"><span class="nav-number">3.</span> <span class="nav-text">Black-Box-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Black-Box-Tuning-V2"><span class="nav-number">4.</span> <span class="nav-text">Black-Box-Tuning V2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%B2%BB"><span class="nav-number">4.1.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#A%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-number">4.2.</span> <span class="nav-text">A的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#language-model-as-a-servicelmaas"><span class="nav-number">1.</span> <span class="nav-text">Language-Model-as-a-Service(LMaaS)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#derivative-free-optimization-dfo"><span class="nav-number">2.</span> <span class="nav-text">derivative-free optimization
+(DFO)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#black-box-tuning"><span class="nav-number">3.</span> <span class="nav-text">Black-Box-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#black-box-tuning-v2"><span class="nav-number">4.</span> <span class="nav-text">Black-Box-Tuning V2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%B2%BB"><span class="nav-number">4.1.</span> <span class="nav-text">分治</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a%E7%9A%84%E7%94%9F%E6%88%90"><span class="nav-number">4.2.</span> <span class="nav-text">A的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">5.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%80%9D%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">我的思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -539,7 +557,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -582,6 +600,10 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/5ef9ba91" title="2025-09-26-insights" target="_blank">2025-09-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5ce0192" title="2025-09-25-insights" target="_blank">2025-09-25-insights</a>
         </li>
       
@@ -598,14 +620,6 @@ $$<br>
         </li>
       
         <li class="recent_posts_li">
-          <a href="/3610871d" title="2025-09-19-insights" target="_blank">2025-09-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
           <a href="/7dbea4cd" title="重读STaR，与o1随想" target="_blank">重读STaR，与o1随想</a>
         </li>
       
@@ -619,6 +633,10 @@ $$<br>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -674,7 +692,7 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">301k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

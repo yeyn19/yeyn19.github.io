@@ -314,23 +314,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="EvaLearn-Quantifying-the-Learning-Capability-and-Efficiency-of-LLMs-via-Sequential-Problem-Solving"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02672">EvaLearn: Quantifying the Learning Capability and Efficiency of LLMs via Sequential Problem Solving</a></h2>
-<p>seed的工作，作者定义了一个场景叫“sequential problem solving”，就是把几道类似的题放到一个batch里，用多轮的形式一次全做了。看这个setting上模型能不能在完成任务的过程中learn and adapt。</p>
+        <h2 id="evalearn-quantifying-the-learning-capability-and-efficiency-of-llms-via-sequential-problem-solving"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02672">EvaLearn: Quantifying the
+Learning Capability and Efficiency of LLMs via Sequential Problem
+Solving</a></h2>
+<p>seed的工作，作者定义了一个场景叫“sequential problem
+solving”，就是把几道类似的题放到一个batch里，用多轮的形式一次全做了。看这个setting上模型能不能在完成任务的过程中learn
+and adapt。</p>
 <blockquote>
-<p>话说最近这种in-context learning的工作越来越多了，在gui领域大家叫tutorial。在text-only上可能就是这种类似sequential problem solving的setting</p>
+<p>话说最近这种in-context
+learning的工作越来越多了，在gui领域大家叫tutorial。在text-only上可能就是这种类似sequential
+problem solving的setting</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-06-02-06-06/evolearn.png">
-<h2 id="GUI-Actor-Coordinate-Free-Visual-Grounding-for-GUI-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.03143">GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents</a></h2>
-<p>和下面那个类似，也是一个gui grounding的工作。这篇的思路有点像apple之前的ferret系列，作者不是用数字的形式预测坐标文本，而是用一个特殊token代表坐标（给出类似于热力图的预测），然后解码到坐标空间。通过这种方案，作者进一步做了verifier来选择不同的变体</p>
+<p><img src="../../files/images/arxiv-insights/2025-06-02-06-06/evolearn.png"></p>
+<h2 id="gui-actor-coordinate-free-visual-grounding-for-gui-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.03143">GUI-Actor: Coordinate-Free
+Visual Grounding for GUI Agents</a></h2>
+<p>和下面那个类似，也是一个gui
+grounding的工作。这篇的思路有点像apple之前的ferret系列，作者不是用数字的形式预测坐标文本，而是用一个特殊token代表坐标（给出类似于热力图的预测），然后解码到坐标空间。通过这种方案，作者进一步做了verifier来选择不同的变体</p>
 <blockquote>
 <p>我其实纠结过很长时间box的表示形式应该用文本还是特殊token，现在感觉可能各有利弊</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-06-02-06-06/gui-actor.png">
-<h2 id="Surfer-H-Meets-Holo1-Cost-Efficient-Web-Agent-Powered-by-Open-Weights"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02865">Surfer-H Meets Holo1: Cost-Efficient Web Agent Powered by Open Weights</a></h2>
-<p>一篇开源的mid-training级别的GUI Agent工作。作者准备了30B不同场景的token做了大训练，然后在下游做了优化</p>
-<img src="../../files/images/arxiv-insights/2025-06-02-06-06/surfer-h.png">
-<h2 id="The-Limits-of-Predicting-Agents-from-Behaviour"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02923">The Limits of Predicting Agents from Behaviour</a></h2>
-<p>之前google出了一篇<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.10361">agent理论</a>的工作，今天他们又出了一篇。这篇文章研究的问题是：强的Agent系统，我们能否从他的行为中推测他做决策的意图，进而预测他在out domain场景下的表现？在这个问题上，作者的结论比较悲观</p>
+<p><img src="../../files/images/arxiv-insights/2025-06-02-06-06/gui-actor.png"></p>
+<h2 id="surfer-h-meets-holo1-cost-efficient-web-agent-powered-by-open-weights"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02865">Surfer-H Meets Holo1:
+Cost-Efficient Web Agent Powered by Open Weights</a></h2>
+<p>一篇开源的mid-training级别的GUI
+Agent工作。作者准备了30B不同场景的token做了大训练，然后在下游做了优化</p>
+<p><img src="../../files/images/arxiv-insights/2025-06-02-06-06/surfer-h.png"></p>
+<h2 id="the-limits-of-predicting-agents-from-behaviour"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.02923">The Limits of Predicting Agents
+from Behaviour</a></h2>
+<p>之前google出了一篇<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.10361">agent理论</a>的工作，今天他们又出了一篇。这篇文章研究的问题是：强的Agent系统，我们能否从他的行为中推测他做决策的意图，进而预测他在out
+domain场景下的表现？在这个问题上，作者的结论比较悲观</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +359,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5ef9ba91.html" rel="bookmark">2025-09-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5ce0192.html" rel="bookmark">2025-09-25-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5a0c6aac.html" rel="bookmark">2025-09-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
   </ul>
 
@@ -430,7 +442,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#EvaLearn-Quantifying-the-Learning-Capability-and-Efficiency-of-LLMs-via-Sequential-Problem-Solving"><span class="nav-number">1.</span> <span class="nav-text">EvaLearn: Quantifying the Learning Capability and Efficiency of LLMs via Sequential Problem Solving</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-Actor-Coordinate-Free-Visual-Grounding-for-GUI-Agents"><span class="nav-number">2.</span> <span class="nav-text">GUI-Actor: Coordinate-Free Visual Grounding for GUI Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surfer-H-Meets-Holo1-Cost-Efficient-Web-Agent-Powered-by-Open-Weights"><span class="nav-number">3.</span> <span class="nav-text">Surfer-H Meets Holo1: Cost-Efficient Web Agent Powered by Open Weights</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Limits-of-Predicting-Agents-from-Behaviour"><span class="nav-number">4.</span> <span class="nav-text">The Limits of Predicting Agents from Behaviour</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#evalearn-quantifying-the-learning-capability-and-efficiency-of-llms-via-sequential-problem-solving"><span class="nav-number">1.</span> <span class="nav-text">EvaLearn: Quantifying the
+Learning Capability and Efficiency of LLMs via Sequential Problem
+Solving</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gui-actor-coordinate-free-visual-grounding-for-gui-agents"><span class="nav-number">2.</span> <span class="nav-text">GUI-Actor: Coordinate-Free
+Visual Grounding for GUI Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#surfer-h-meets-holo1-cost-efficient-web-agent-powered-by-open-weights"><span class="nav-number">3.</span> <span class="nav-text">Surfer-H Meets Holo1:
+Cost-Efficient Web Agent Powered by Open Weights</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-limits-of-predicting-agents-from-behaviour"><span class="nav-number">4.</span> <span class="nav-text">The Limits of Predicting Agents
+from Behaviour</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +462,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +505,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/5ef9ba91" title="2025-09-26-insights" target="_blank">2025-09-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5ce0192" title="2025-09-25-insights" target="_blank">2025-09-25-insights</a>
         </li>
       
@@ -504,14 +525,6 @@
         </li>
       
         <li class="recent_posts_li">
-          <a href="/3610871d" title="2025-09-19-insights" target="_blank">2025-09-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
           <a href="/7dbea4cd" title="重读STaR，与o1随想" target="_blank">重读STaR，与o1随想</a>
         </li>
       
@@ -525,6 +538,10 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -580,7 +597,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">301k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

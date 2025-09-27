@@ -310,18 +310,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Data-Diversity-Matters-for-Robust-Instruction-Tuning">Data Diversity Matters for Robust Instruction Tuning</h2>
-<p>微软的研究。作者谈到在instruction tuning场景，训练数据的选择对下游任务很重要。同时数据选择时需要在数据的质量和数据的多样性上做出权衡，以前没有人系统的探索过这两点。</p>
-<p>作者提出了一套Quality-Diversity Instruction Tuning (QDIT)框架，可以自动选择数据中quality/diversity的比重，发现由此训出来的SFT模型下限更高，同时平均表现也有提升。</p>
-<h2 id="MoDS-Model-oriented-Data-Selection-for-Instruction-Tuning">MoDS: Model-oriented Data Selection for Instruction Tuning</h2>
-<p>同样是对instruction tuning选取数据的论文。作者提了一个三阶段的方法：</p>
-<ol>
+        <h2 id="data-diversity-matters-for-robust-instruction-tuning">Data
+Diversity Matters for Robust Instruction Tuning</h2>
+<p>微软的研究。作者谈到在instruction
+tuning场景，训练数据的选择对下游任务很重要。同时数据选择时需要在数据的质量和数据的多样性上做出权衡，以前没有人系统的探索过这两点。</p>
+<p>作者提出了一套Quality-Diversity Instruction Tuning
+(QDIT)框架，可以自动选择数据中quality/diversity的比重，发现由此训出来的SFT模型下限更高，同时平均表现也有提升。</p>
+<h2 id="mods-model-oriented-data-selection-for-instruction-tuning">MoDS:
+Model-oriented Data Selection for Instruction Tuning</h2>
+<p>同样是对instruction
+tuning选取数据的论文。作者提了一个三阶段的方法：</p>
+<ol type="1">
 <li>用一个quality evaluation model去选择高质量数据</li>
 <li>接下来设计一个算法从上一步的子集中进一步选取一个diversity不掉的subset</li>
 <li>训一个SFT模型，看看哪些样本是这个SFT模型不好学的，再进一步做出一个subset</li>
 </ol>
 <p>最终作者说出来的4k的subset比原来的214k的instruction data效果要好</p>
-<p>关于这种“用模型自己的Training Dynamics”作为一种筛数据指标的方法，我近期打算写一篇yejin choi的老论文的笔记，大家可以一起品味一下</p>
+<p>关于这种“用模型自己的Training
+Dynamics”作为一种筛数据指标的方法，我近期打算写一篇yejin
+choi的老论文的笔记，大家可以一起品味一下</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -338,13 +345,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5ef9ba91.html" rel="bookmark">2025-09-26-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5ce0192.html" rel="bookmark">2025-09-25-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5a0c6aac.html" rel="bookmark">2025-09-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b8d071d5.html" rel="bookmark">2025-09-23-insights</a></div>
     </li>
   </ul>
 
@@ -421,7 +428,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Diversity-Matters-for-Robust-Instruction-Tuning"><span class="nav-number">1.</span> <span class="nav-text">Data Diversity Matters for Robust Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MoDS-Model-oriented-Data-Selection-for-Instruction-Tuning"><span class="nav-number">2.</span> <span class="nav-text">MoDS: Model-oriented Data Selection for Instruction Tuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-diversity-matters-for-robust-instruction-tuning"><span class="nav-number">1.</span> <span class="nav-text">Data
+Diversity Matters for Robust Instruction Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mods-model-oriented-data-selection-for-instruction-tuning"><span class="nav-number">2.</span> <span class="nav-text">MoDS:
+Model-oriented Data Selection for Instruction Tuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -436,7 +445,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -479,6 +488,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/5ef9ba91" title="2025-09-26-insights" target="_blank">2025-09-26-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5ce0192" title="2025-09-25-insights" target="_blank">2025-09-25-insights</a>
         </li>
       
@@ -495,14 +508,6 @@
         </li>
       
         <li class="recent_posts_li">
-          <a href="/3610871d" title="2025-09-19-insights" target="_blank">2025-09-19-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/28d9b7ae" title="2025-09-18-insights" target="_blank">2025-09-18-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
           <a href="/7dbea4cd" title="重读STaR，与o1随想" target="_blank">重读STaR，与o1随想</a>
         </li>
       
@@ -516,6 +521,10 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -571,7 +580,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">300k</span>
+    <span title="站点总字数">301k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
