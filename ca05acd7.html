@@ -315,43 +315,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="mini-o3-scaling-up-reasoning-patterns-and-interaction-turns-for-visual-search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07969">Mini-o3: Scaling Up Reasoning
-Patterns and Interaction Turns for Visual Search</a></h2>
-<p>seed出的一篇visual
-cot领域的工作。这个场景是让模型去通过放大缩小图片，来研究图片里是否包含一些信息。作者做了一个算法上的改进，在多轮rl过程中，如果遇到模型hit
-max
-iteration时没有提交任务，这条数据就不训练，而不是按照0分赋值。这是因为这些样本实际上“不一定”是坏样本，可能只是budget给的不够。作者把这个设计叫做over-turn
-mask</p>
+        <h2 id="Mini-o3-Scaling-Up-Reasoning-Patterns-and-Interaction-Turns-for-Visual-Search"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07969">Mini-o3: Scaling Up Reasoning Patterns and Interaction Turns for Visual Search</a></h2>
+<p>seed出的一篇visual cot领域的工作。这个场景是让模型去通过放大缩小图片，来研究图片里是否包含一些信息。作者做了一个算法上的改进，在多轮rl过程中，如果遇到模型hit max iteration时没有提交任务，这条数据就不训练，而不是按照0分赋值。这是因为这些样本实际上“不一定”是坏样本，可能只是budget给的不够。作者把这个设计叫做over-turn mask</p>
 <blockquote>
-<p>对于overlong样本如何处理，现在学术界似乎分化出了几派观点。有人会mask，有人会罚分，有人会给一个soft
-punish做一下线性的reward衰减，还有人直接在system
-prompt里说明budget让模型学习去自己研究budget...不知道有没有谁可以把这个问题比较本质的解决？有点像是之前大家最开始给量子论打补丁的样子...</p>
+<p>对于overlong样本如何处理，现在学术界似乎分化出了几派观点。有人会mask，有人会罚分，有人会给一个soft punish做一下线性的reward衰减，还有人直接在system prompt里说明budget让模型学习去自己研究budget…不知道有没有谁可以把这个问题比较本质的解决？有点像是之前大家最开始给量子论打补丁的样子…</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-09-08-09-12/mini-o3.png"></p>
-<h2 id="l-normalization-rethink-loss-aggregation-in-rlvr"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07558">∆L Normalization: RETHINK LOSS
-AGGREGATION IN RLVR</a></h2>
-<p>刚说完multi-agent中length的问题，这篇工作就是在讲length问题带来的loss
-aggregation。作者想解决的核心问题是：一个batch里的各个traj，大家的length差距很大，该如何给每个token做loss权重，才能让每个人都公平呢？作者在这篇工作了给了很多数学，最后推导出了一个看上去很公平的算法</p>
-<p><img src="../../files/images/arxiv-insights/2025-09-08-09-12/delta_l.png"></p>
-<h2 id="instruction-agent-enhancing-agent-with-expert-demonstration"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07098">Instruction Agent: Enhancing
-Agent with Expert Demonstration</a></h2>
-<p>这篇工作虽然图画得比较简陋，但是事情挺有意思的。作者在GUI Benchmark
-OSWorld上尝试了让模型follow每个题目，人写的过程指导。发现在给出正确指导的情况下，模型在70%以上的情况下都可以把本来不会做的题目做对</p>
+<img src="../../files/images/arxiv-insights/2025-09-08-09-12/mini-o3.png">
+<h2 id="∆L-Normalization-RETHINK-LOSS-AGGREGATION-IN-RLVR"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07558">∆L Normalization: RETHINK LOSS AGGREGATION IN RLVR</a></h2>
+<p>刚说完multi-agent中length的问题，这篇工作就是在讲length问题带来的loss aggregation。作者想解决的核心问题是：一个batch里的各个traj，大家的length差距很大，该如何给每个token做loss权重，才能让每个人都公平呢？作者在这篇工作了给了很多数学，最后推导出了一个看上去很公平的算法</p>
+<img src="../../files/images/arxiv-insights/2025-09-08-09-12/delta_l.png">
+<h2 id="Instruction-Agent-Enhancing-Agent-with-Expert-Demonstration"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07098">Instruction Agent: Enhancing Agent with Expert Demonstration</a></h2>
+<p>这篇工作虽然图画得比较简陋，但是事情挺有意思的。作者在GUI Benchmark OSWorld上尝试了让模型follow每个题目，人写的过程指导。发现在给出正确指导的情况下，模型在70%以上的情况下都可以把本来不会做的题目做对</p>
 <blockquote>
-<p>这个方向在几个月前有几篇和tutorial
-learning相关的工作，但是再后面似乎就没有做这个方向了。我一直很喜欢，之前想出一篇阅读笔记梳理来着</p>
+<p>这个方向在几个月前有几篇和tutorial learning相关的工作，但是再后面似乎就没有做这个方向了。我一直很喜欢，之前想出一篇阅读笔记梳理来着</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-09-08-09-12/instruction_agent.png"></p>
-<h2 id="caviar-critic-augmented-video-agentic-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07680">CAViAR: Critic-Augmented Video
-Agentic Reasoning</a></h2>
-<p>这是一篇deepmind参与的、有点奇怪的工作，有点像是回到了o1刚出来时大家做reason
-module时的讨论。作者希望模型可以把thought表达成一种类似代码的形态⬇️，准确来说是如果遇到了真的代码，是可以真的跑代码的。用这个方法来做video
-reason任务</p>
+<img src="../../files/images/arxiv-insights/2025-09-08-09-12/instruction_agent.png">
+<h2 id="CAViAR-Critic-Augmented-Video-Agentic-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.07680">CAViAR: Critic-Augmented Video Agentic Reasoning</a></h2>
+<p>这是一篇deepmind参与的、有点奇怪的工作，有点像是回到了o1刚出来时大家做reason module时的讨论。作者希望模型可以把thought表达成一种类似代码的形态⬇️，准确来说是如果遇到了真的代码，是可以真的跑代码的。用这个方法来做video reason任务</p>
 <blockquote>
-<p>话说如果alphaelove/昨天的software那些 tree search/进化
-的工作可以work，那这种形态的东西可能反而更适合了？</p>
+<p>话说如果alphaelove/昨天的software那些 tree search/进化 的工作可以work，那这种形态的东西可能反而更适合了？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-09-08-09-12/caviar.png"></p>
+<img src="../../files/images/arxiv-insights/2025-09-08-09-12/caviar.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -368,13 +352,13 @@ reason任务</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/92691516.html" rel="bookmark">2025-09-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/aff2e11c.html" rel="bookmark">2025-09-29-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/5ef9ba91.html" rel="bookmark">2025-09-26-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b5ce0192.html" rel="bookmark">2025-09-25-insights</a></div>
     </li>
   </ul>
 
@@ -451,11 +435,7 @@ reason任务</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mini-o3-scaling-up-reasoning-patterns-and-interaction-turns-for-visual-search"><span class="nav-number">1.</span> <span class="nav-text">Mini-o3: Scaling Up Reasoning
-Patterns and Interaction Turns for Visual Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#l-normalization-rethink-loss-aggregation-in-rlvr"><span class="nav-number">2.</span> <span class="nav-text">∆L Normalization: RETHINK LOSS
-AGGREGATION IN RLVR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instruction-agent-enhancing-agent-with-expert-demonstration"><span class="nav-number">3.</span> <span class="nav-text">Instruction Agent: Enhancing
-Agent with Expert Demonstration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#caviar-critic-augmented-video-agentic-reasoning"><span class="nav-number">4.</span> <span class="nav-text">CAViAR: Critic-Augmented Video
-Agentic Reasoning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mini-o3-Scaling-Up-Reasoning-Patterns-and-Interaction-Turns-for-Visual-Search"><span class="nav-number">1.</span> <span class="nav-text">Mini-o3: Scaling Up Reasoning Patterns and Interaction Turns for Visual Search</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%88%86L-Normalization-RETHINK-LOSS-AGGREGATION-IN-RLVR"><span class="nav-number">2.</span> <span class="nav-text">∆L Normalization: RETHINK LOSS AGGREGATION IN RLVR</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instruction-Agent-Enhancing-Agent-with-Expert-Demonstration"><span class="nav-number">3.</span> <span class="nav-text">Instruction Agent: Enhancing Agent with Expert Demonstration</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAViAR-Critic-Augmented-Video-Agentic-Reasoning"><span class="nav-number">4.</span> <span class="nav-text">CAViAR: Critic-Augmented Video Agentic Reasoning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -470,7 +450,7 @@ Agentic Reasoning</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -513,6 +493,10 @@ Agentic Reasoning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/92691516" title="2025-09-30-insights" target="_blank">2025-09-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/aff2e11c" title="2025-09-29-insights" target="_blank">2025-09-29-insights</a>
         </li>
       
@@ -546,10 +530,6 @@ Agentic Reasoning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -605,12 +585,12 @@ Agentic Reasoning</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">307k</span>
+    <span title="站点总字数">308k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:39</span>
+    <span title="站点阅读时长">4:40</span>
 </div>
 
 <i class="fa fa-user-md"></i>
