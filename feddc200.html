@@ -320,12 +320,13 @@
 
       
         <p>论文介绍了一个非常简单的RLHF中PPO的替代品，昨天听了作者的报告，今天来仔细读读。我认为它的思路和calibration有一定的关系。</p>
-<img src="../files/images/RRHF/intro.png">
+<p><img src="../files/images/RRHF/intro.png"></p>
 <span id="more"></span>
 <p>作者来自清华和达摩院</p>
-<img src="../files/images/RRHF/authors.png">
+<p><img src="../files/images/RRHF/authors.png"></p>
 <h2 id="introdution">introdution</h2>
-<p>作者在introduction阶段主要介绍了一下传统的RLHF框架的过程，之前的博客也有讲过 <a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">论文阅读-粗读-强化学习和RLHF中的PPO算法</a>。PPO算法虽然好，但有个巨大的问题，需要很多个模型放在一起：</p>
+<p>作者在introduction阶段主要介绍了一下传统的RLHF框架的过程，之前的博客也有讲过
+<a href="/5d2d4022.html" title="论文阅读[粗读]-强化学习和RLHF中的PPO算法">论文阅读-粗读-强化学习和RLHF中的PPO算法</a>。PPO算法虽然好，但有个巨大的问题，需要很多个模型放在一起：</p>
 <ul>
 <li>首先预训练模型的参数作为ref_model要存一份，计算全局的KL散度</li>
 <li>每次更新参数时old_model要存一份，计算PPO内KL散度</li>
@@ -333,45 +334,50 @@
 <li>计算Value的model也得有一份，这个可以和训练的模型共享参数</li>
 <li>更新参数时的EMA model又得有一份</li>
 </ul>
-<p>这意味着什么呢？加入我们训练一个7B的LLaMA，按16位half精度存储，加载时大约需要14G显存。上面的模型只有训练model需要算梯度，那么显存就要翻倍，我们就当valuemodel共享参数不需要占显存。最后总体就要5倍，也就是70GB显存。这还不算前向时batch 带来的开销。</p>
+<p>这意味着什么呢？加入我们训练一个7B的LLaMA，按16位half精度存储，加载时大约需要14G显存。上面的模型只有训练model需要算梯度，那么显存就要翻倍，我们就当valuemodel共享参数不需要占显存。最后总体就要5倍，也就是70GB显存。这还不算前向时batch
+带来的开销。</p>
 <p>假如只使用40GB显存的A100，甚至不能放到一张卡上。</p>
-<p>另一方面，PPO需要调很多的超参，$\alpha, \beta,\gamma,\lambda$等等，而且这些超参都很敏感，总体而言，PPO的训练还是很难的。</p>
+<p>另一方面，PPO需要调很多的超参，<span class="math inline">\(\alpha,
+\beta,\gamma,\lambda\)</span>等等，而且这些超参都很敏感，总体而言，PPO的训练还是很难的。</p>
 <p>再有，PPO要求采集到的数据只能来自模型自己，甚至还必须要是top1解码出来的，如果用sample，可能训练就会崩溃。</p>
 <p>因此作者提出了一种更省空间、需要训练的模型和需要调的超参都很少，并且在很多模型上做了实验</p>
 <h2 id="method">method</h2>
-<p>那么这个方法是什么呢？作者称为RRHF(rank responses to align human feedback)。具体的改进是这样</p>
-<p>RLHF的前两步SFT、rewardmodel train不改变，因此我们已经有一个一个rewardmodel</p>
-<p>对于第三步，正常按照actor-critic的算法，我们需要一个value model，但这种manner其实破坏了语言模型的对称性，因为value基本都是从小到大的，就像是围棋某一局棋的胜率预测分布。但语言其实一个一个token就基本齐次的关系。再有就是value model和费空间</p>
-<p>因此作者要去掉这一部分，但是又要和reward model形成一个训练对抗的关系，因此作者希望模型可以输出一个伪的reward。这里作者直接让model在输出输出next token logits的同时，用所有有效位置的log prob的平均值代表reward，保证在[0,1]范围内<br>
-$$<br>
-p_i = \frac{\sum_t \log P_{\pi}(y_{i,t}| x, y_{i,&lt;t}) }{||y_{i}||}<br>
-$$<br>
-如果每次来的不是一个数据，而是一个数据对的话，reward model可以先给所有candidate一个得分$r_i$，然后模型对于所有candidate也会输出$p_i$</p>
-<p>对于每个真实的偏序关系，作者定义一个loss<br>
-$$<br>
-\mathcal{L}<em>{\text{rank}} = \sum</em>{r_i &lt; r_j} max(0,p_i - p_j)<br>
-$$<br>
-也就是说希望模型输出的&quot;reward&quot;也可以满足这个偏序关系，但这里为什么要用0 clamp，似乎没有解释。作者只是说借鉴了</p>
+<p>那么这个方法是什么呢？作者称为RRHF(rank responses to align human
+feedback)。具体的改进是这样</p>
+<p>RLHF的前两步SFT、rewardmodel
+train不改变，因此我们已经有一个一个rewardmodel</p>
+<p>对于第三步，正常按照actor-critic的算法，我们需要一个value
+model，但这种manner其实破坏了语言模型的对称性，因为value基本都是从小到大的，就像是围棋某一局棋的胜率预测分布。但语言其实一个一个token就基本齐次的关系。再有就是value
+model和费空间</p>
+<p>因此作者要去掉这一部分，但是又要和reward
+model形成一个训练对抗的关系，因此作者希望模型可以输出一个伪的reward。这里作者直接让model在输出输出next
+token logits的同时，用所有有效位置的log
+prob的平均值代表reward，保证在[0,1]范围内 <span class="math display">\[
+p_i = \frac{\sum_t \log P_{\pi}(y_{i,t}| x, y_{i,&lt;t}) }{||y_{i}||}
+\]</span> 如果每次来的不是一个数据，而是一个数据对的话，reward
+model可以先给所有candidate一个得分<span class="math inline">\(r_i\)</span>，然后模型对于所有candidate也会输出<span class="math inline">\(p_i\)</span></p>
+<p>对于每个真实的偏序关系，作者定义一个loss <span class="math display">\[
+\mathcal{L}_{\text{rank}} = \sum_{r_i &lt; r_j} max(0,p_i - p_j)
+\]</span>
+也就是说希望模型输出的"reward"也可以满足这个偏序关系，但这里为什么要用0
+clamp，似乎没有解释。作者只是说借鉴了</p>
 <blockquote>
 <p>BRIO: Bringing Order to Abstractive Summarization</p>
 </blockquote>
-<p>另外，为了保证模型不炼崩，作者还引入了一个SFT loss，就是找到每组candidate里评分最高的<br>
-$$<br>
-i’ = \underset{i}{ \arg \max}(r_i)<br>
-$$<br>
-然后直接搞个crossentropy loss<br>
-$$<br>
-\mathcal{L}<em>{ft} = - \sum_t \log P</em>\pi (y_{i’,t} | x,y_{i’, &lt;t} )<br>
-$$<br>
-最后的总体loss是加和，甚至没有加权重<br>
-$$<br>
-\mathcal{L} = \mathcal{L}<em>{\text{rank}} + \mathcal{L}</em>{ft}<br>
-$$<br>
-作者提到有试过给rank loss加权重，但加了都比不加效果更差</p>
+<p>另外，为了保证模型不炼崩，作者还引入了一个SFT
+loss，就是找到每组candidate里评分最高的 <span class="math display">\[
+i&#39; = \underset{i}{ \arg \max}(r_i)
+\]</span> 然后直接搞个crossentropy loss <span class="math display">\[
+\mathcal{L}_{ft} = - \sum_t \log P_\pi (y_{i&#39;,t} | x,y_{i&#39;,
+&lt;t} )
+\]</span> 最后的总体loss是加和，甚至没有加权重 <span class="math display">\[
+\mathcal{L} = \mathcal{L}_{\text{rank}} + \mathcal{L}_{ft}
+\]</span> 作者提到有试过给rank loss加权重，但加了都比不加效果更差</p>
 <p>作者后面讨论了这种方法和传统RLHF的步骤的联系</p>
 <ul>
 <li>对比SFT：可以认为RRHF可以推导出SFT，只要把candidate固定，同时每组只有一个数据</li>
-<li>对比rewardmodel train: 本方法让模型的logprob代表reward，而不是EOS token过linear</li>
+<li>对比rewardmodel train: 本方法让模型的logprob代表reward，而不是EOS
+token过linear</li>
 <li>对比PPO：RRHF可以使用任何模型生成candidate</li>
 </ul>
 <h2 id="experiment">experiment</h2>
@@ -382,39 +388,48 @@ $$<br>
 <li>AlpacaSFT: ALpaca+sft</li>
 </ul>
 <p>然后生成candidate时有不同的变种</p>
-<img src="../files/images/RRHF/candi.png">
-<p>这个是指作者在训练RRHF时，每组都有6个candidate，$\rho_1,…,\rho_6$他们的来源不同</p>
+<p><img src="../files/images/RRHF/candi.png"></p>
+<p>这个是指作者在训练RRHF时，每组都有6个candidate，<span class="math inline">\(\rho_1,..,\rho_6\)</span>他们的来源不同</p>
 <ul>
 <li>左边的四个candiate是模型自己生成的，右边的两个来源于数据集自带的好坏pair</li>
-<li>由于不限制采样方法，作者使用了beam-search和一个更强的叫diverse beam-search的算法</li>
+<li>由于不限制采样方法，作者使用了beam-search和一个更强的叫diverse
+beam-search的算法</li>
 </ul>
-<p>作者报告了reward model的得分。reward model是一个开源社区训练好的6B GPTJ</p>
-<img src="../files/images/RRHF/results.png">
-<p>上面的图最上面的$\emptyset$代表不训练，中间PPO是用PPO训练，下面的setting和对应图里面的解码方法。其实还是有很多好玩的点的：</p>
+<p>作者报告了reward model的得分。reward model是一个开源社区训练好的6B
+GPTJ</p>
+<p><img src="../files/images/RRHF/results.png"></p>
+<p>上面的图最上面的<span class="math inline">\(\emptyset\)</span>代表不训练，中间PPO是用PPO训练，下面的setting和对应图里面的解码方法。其实还是有很多好玩的点的：</p>
 <ul>
 <li>Alpaca不训练就比数据集中good response的平均值还要好</li>
 <li>LLama直接跑PPO或者RRHF都会导致PPL爆炸</li>
 <li>RRHF和PPO效果不相上下</li>
 </ul>
 <p>作者还对比了不同的解码方法</p>
-<img src="../files/images/RRHF/decode.png">
+<p><img src="../files/images/RRHF/decode.png"></p>
 <p>可以发现BP和DP的效果差距不大。另外，这个方法也是可以迭代做的</p>
 <blockquote>
-<p>原始RRHF是可以先用原模型生成一堆candidate，然后算完reward，把rewardmodel delete掉，再直接跑训练，这个称为一轮</p>
+<p>原始RRHF是可以先用原模型生成一堆candidate，然后算完reward，把rewardmodel
+delete掉，再直接跑训练，这个称为一轮</p>
 <p>第一轮训完，可以递归地做这件事。注意从第二轮开始可能就也得加kl了</p>
 </blockquote>
-<p>作者把多轮训练的版本叫做 IP-1，IP-2…可以发现，持续的训练会导致reward进一步的衰减</p>
+<p>作者把多轮训练的版本叫做
+IP-1，IP-2...可以发现，持续的训练会导致reward进一步的衰减</p>
 <p>另外，只有D的setting，也就是纯用model自己生成的数据效果也不错。</p>
-<p>另外一个有趣的点是，有一个领域叫做learn from Best-of-N,大概就是采样N个数据，直接拿最好的来finetune，那么这个和RRHF有啥关系呢？其实去掉rankloss就是learn from Best-of-N。其实从上面的图可以大概看出来，因为训练完以后的reward大概相当于训练前所有candidate的平均reward</p>
+<p>另外一个有趣的点是，有一个领域叫做learn from
+Best-of-N,大概就是采样N个数据，直接拿最好的来finetune，那么这个和RRHF有啥关系呢？其实去掉rankloss就是learn
+from
+Best-of-N。其实从上面的图可以大概看出来，因为训练完以后的reward大概相当于训练前所有candidate的平均reward</p>
 <p>因此作者做了这个对比实验</p>
-<img src="../files/images/RRHF/rank_loss.png">
+<p><img src="../files/images/RRHF/rank_loss.png"></p>
 <p>发现这个rank loss其实是很重要的</p>
 <h2 id="我的思考">我的思考</h2>
 <ul>
 <li>这个方法感觉有点像蒸馏，因为候选candidate里还有别的模型出的infer。不知道换chatGPT的会不会违反用户协议</li>
-<li>感觉这个思路和pretrain loss更接近，毕竟也是按token一视同仁的优化，就相当于变了个学习率？</li>
+<li>感觉这个思路和pretrain
+loss更接近，毕竟也是按token一视同仁的优化，就相当于变了个学习率？</li>
 <li>还有从calibration的角度理解的话，这个相当于显式地把calibration的偏序关系和实际reward的偏序关系定义进了训练任务中</li>
-<li>如果引入一些对比学习领域的思路，也许直接avg log prob是不是不在一个隐空间中？也许可以试试加一个linear？</li>
+<li>如果引入一些对比学习领域的思路，也许直接avg log
+prob是不是不在一个隐空间中？也许可以试试加一个linear？</li>
 </ul>
 
     </div>
@@ -426,7 +441,7 @@ $$<br>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/8b6b4f96.html" rel="bookmark">Synthetic, Paraphrase, Explain or Predict? 会比Pretrain+RL更优雅吗</a></div>
@@ -677,7 +692,7 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

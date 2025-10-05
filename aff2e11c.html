@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了…周二岂不是得1000篇 Color Names in Vision-Language Models 这篇工作评测了VLM看图片说颜色能力  我主要想share下这个首图…我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色   Elastic MoE: Unlocking the Inference-T">
+  <meta name="description" content="国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了...周二岂不是得1000篇 Color Names in Vision-Language Models 这篇工作评测了VLM看图片说颜色能力  我主要想share下这个首图...我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色   Elastic MoE: Unlocking the Inferen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-09-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/aff2e11c">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了…周二岂不是得1000篇 Color Names in Vision-Language Models 这篇工作评测了VLM看图片说颜色能力  我主要想share下这个首图…我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色   Elastic MoE: Unlocking the Inference-T">
+<meta property="og:description" content="国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了...周二岂不是得1000篇 Color Names in Vision-Language Models 这篇工作评测了VLM看图片说颜色能力  我主要想share下这个首图...我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色   Elastic MoE: Unlocking the Inferen">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-29-10-03/color.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-29-10-03/mmoe.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>503</span>
+              <span>507</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,19 +313,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了…周二岂不是得1000篇</p>
-<h2 id="Color-Names-in-Vision-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.22524"><strong>Color Names in Vision-Language Models</strong></a></h2>
+        <p>国庆要来了，大家猛挂一波论文出去玩，周一都卷到500篇了...周二岂不是得1000篇</p>
+<h2 id="color-names-in-vision-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.22524"><strong>Color Names in
+Vision-Language Models</strong></a></h2>
 <p>这篇工作评测了VLM看图片说颜色能力</p>
 <blockquote>
-<p>我主要想share下这个首图…我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色</p>
+<p>我主要想share下这个首图...我感觉我就是qwen2.5。下次再来个视频生成版，找veo3生成一下Dusk看看是什么颜色</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-09-29-10-03/color.png">
-<h2 id="Elastic-MoE-Unlocking-the-Inference-Time-Scalability-of-Mixture-of-Experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.21892"><strong>Elastic MoE: Unlocking the Inference-Time Scalability of Mixture-of-Experts</strong></a></h2>
-<p>众所周知，moe模型现在一般就是16个专家平均激活一个的比例，那么有人就会问：如果我激活更多，甚至dynamic地激活更多，会不会表现更好呢？其实之前早有人研究过这个问题，叫做dynamic computation require，但是大模型时代倒是没有见到了，我之前推荐过一篇 <a href="/b505e063.html" title="2024-03-13-insights">2024-03-13-insight</a> 用topp而不是topk激活MoE的论文，而今天这篇工作尝试了一个训练的方案：每次去topK，从中随机取k个，让模型训练时就适应激活多种不同数量专家的模式。</p>
+<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/color.png"></p>
+<h2 id="elastic-moe-unlocking-the-inference-time-scalability-of-mixture-of-experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.21892"><strong>Elastic MoE: Unlocking
+the Inference-Time Scalability of Mixture-of-Experts</strong></a></h2>
+<p>众所周知，moe模型现在一般就是16个专家平均激活一个的比例，那么有人就会问：如果我激活更多，甚至dynamic地激活更多，会不会表现更好呢？其实之前早有人研究过这个问题，叫做dynamic
+computation require，但是大模型时代倒是没有见到了，我之前推荐过一篇
+<a href="/b505e063.html" title="2024-03-13-insights">2024-03-13-insight</a>
+用topp而不是topk激活MoE的论文，而今天这篇工作尝试了一个训练的方案：每次去topK，从中随机取k个，让模型训练时就适应激活多种不同数量专家的模式。</p>
 <blockquote>
 <p>不过现在大家没有这么做，我感觉主要是推理时的资源考虑？激活1-k个专家，资源需求量等于稳定激活k个专家</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-09-29-10-03/mmoe.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/mmoe.png" style="zoom:33%;"></p>
 
     </div>
 
@@ -435,7 +440,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Color-Names-in-Vision-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">Color Names in Vision-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Elastic-MoE-Unlocking-the-Inference-Time-Scalability-of-Mixture-of-Experts"><span class="nav-number">2.</span> <span class="nav-text">Elastic MoE: Unlocking the Inference-Time Scalability of Mixture-of-Experts</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#color-names-in-vision-language-models"><span class="nav-number">1.</span> <span class="nav-text">Color Names in
+Vision-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#elastic-moe-unlocking-the-inference-time-scalability-of-mixture-of-experts"><span class="nav-number">2.</span> <span class="nav-text">Elastic MoE: Unlocking
+the Inference-Time Scalability of Mixture-of-Experts</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -585,7 +592,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
