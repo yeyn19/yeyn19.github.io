@@ -313,32 +313,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="soft-thinking-unlocking-the-reasoning-potential-of-llms-in-continuous-concept-space"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.15778">Soft Thinking: Unlocking the
-Reasoning Potential of LLMs in Continuous Concept Space</a></h2>
-<p>一篇soft
-thinking领域的文章。就是说，在o1-model里，如果输出的不是一个token，而是直接拼一个embedding到下一层的输入（而不是logits最大的token的word
-embedding），效果会更好吗？直觉上肯定更好，因为没人证明在词表空间里想问题是好事，人大概率思考过程也不是文本，但这个领域就是不work。</p>
-<p>这篇工作里，作者想了个怪招：先不一步子迈到直接拼embedding，先试试把概率最大的一些token，根据概率加权后的word
-embedding拼回去（有点像是在word embedding空间对hidden
-state做了个奇异值逼进，假设正交的话）。</p>
+        <h2 id="Soft-Thinking-Unlocking-the-Reasoning-Potential-of-LLMs-in-Continuous-Concept-Space"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.15778">Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space</a></h2>
+<p>一篇soft thinking领域的文章。就是说，在o1-model里，如果输出的不是一个token，而是直接拼一个embedding到下一层的输入（而不是logits最大的token的word embedding），效果会更好吗？直觉上肯定更好，因为没人证明在词表空间里想问题是好事，人大概率思考过程也不是文本，但这个领域就是不work。</p>
+<p>这篇工作里，作者想了个怪招：先不一步子迈到直接拼embedding，先试试把概率最大的一些token，根据概率加权后的word embedding拼回去（有点像是在word embedding空间对hidden state做了个奇异值逼进，假设正交的话）。</p>
 <blockquote>
-<p>这是我见过的类似文章里名字起得最好听的，所以我决定以后都叫这个方向soft
-thinking了。我怀疑这个是AI领域下一个重大突破，下一个怀疑是openAI / SSI
-先搞出来……</p>
+<p>这是我见过的类似文章里名字起得最好听的，所以我决定以后都叫这个方向soft thinking了。我怀疑这个是AI领域下一个重大突破，下一个怀疑是openAI / SSI 先搞出来……</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-05-19-05-23/softthink.png"></p>
-<h2 id="reinforcement-learning-from-user-feedback"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.14946">Reinforcement Learning from User
-Feedback</a></h2>
-<p>meta的工作，作者还是研究了那个老问题：能不能从真实世界的多轮对话的user-response里，提取到对模型回复水平的reward？但区别是，作者不在toy
-setting，而是直接在realworld
-setting上做。训了一个二元分类器，对用户回复进行分类（作者把好回复叫做love
-response）。在做了rl以后，在A/B
-test上，提升了28%的love-response比例。同时，作者发现了一部分的reward
-hacking现象</p>
+<img src="../../files/images/arxiv-insights/2025-05-19-05-23/softthink.png">
+<h2 id="Reinforcement-Learning-from-User-Feedback"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.14946">Reinforcement Learning from User Feedback</a></h2>
+<p>meta的工作，作者还是研究了那个老问题：能不能从真实世界的多轮对话的user-response里，提取到对模型回复水平的reward？但区别是，作者不在toy setting，而是直接在realworld setting上做。训了一个二元分类器，对用户回复进行分类（作者把好回复叫做love response）。在做了rl以后，在A/B test上，提升了28%的love-response比例。同时，作者发现了一部分的reward hacking现象</p>
 <blockquote>
 <p>字节看了最熟悉的一集……所以，用户是真的可以被hack的吗（如果高兴你就拍拍手？）</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-05-19-05-23/love.png"></p>
+<img src="../../files/images/arxiv-insights/2025-05-19-05-23/love.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -355,13 +342,13 @@ hacking现象</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa26238a.html" rel="bookmark">2025-10-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/15e448b4.html" rel="bookmark">2025-10-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fed3f3b7.html" rel="bookmark">2025-10-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/92691516.html" rel="bookmark">2025-09-30-insights</a></div>
     </li>
   </ul>
 
@@ -438,9 +425,7 @@ hacking现象</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#soft-thinking-unlocking-the-reasoning-potential-of-llms-in-continuous-concept-space"><span class="nav-number">1.</span> <span class="nav-text">Soft Thinking: Unlocking the
-Reasoning Potential of LLMs in Continuous Concept Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinforcement-learning-from-user-feedback"><span class="nav-number">2.</span> <span class="nav-text">Reinforcement Learning from User
-Feedback</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Soft-Thinking-Unlocking-the-Reasoning-Potential-of-LLMs-in-Continuous-Concept-Space"><span class="nav-number">1.</span> <span class="nav-text">Soft Thinking: Unlocking the Reasoning Potential of LLMs in Continuous Concept Space</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reinforcement-Learning-from-User-Feedback"><span class="nav-number">2.</span> <span class="nav-text">Reinforcement Learning from User Feedback</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -455,7 +440,7 @@ Feedback</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -498,6 +483,10 @@ Feedback</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/15e448b4" title="2025-10-02-insights" target="_blank">2025-10-02-insights</a>
         </li>
       
@@ -531,10 +520,6 @@ Feedback</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>

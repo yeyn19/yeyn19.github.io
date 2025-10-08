@@ -312,22 +312,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="gpt-oss-120b-gpt-oss-20b-model-card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.10925">gpt-oss-120b &amp; gpt-oss-20b
-Model Card</a></h2>
+        <h2 id="gpt-oss-120b-gpt-oss-20b-Model-Card"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.10925">gpt-oss-120b &amp; gpt-oss-20b Model Card</a></h2>
 <p>Gpt-oss model card来了。</p>
 <blockquote>
 <p>不是……模型都开源了，不讲讲怎么训的嘛，只给一大堆评测结果</p>
 </blockquote>
-<h2 id="on-policy-rl-meets-off-policy-experts-harmonizing-supervised-fine-tuning-and-reinforcement-learning-via-dynamic-weighting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.11408"><strong>On-Policy RL Meets
-Off-Policy Experts: Harmonizing Supervised Fine-Tuning and Reinforcement
-Learning via Dynamic Weighting</strong></a></h2>
-<p>这篇工作很妙。作者发现rl和sft在训练上的区别是，一个entropy有权重，一个没有权重。能不能把sft也视为一种rl，然后给他做dynamic
-weighting呢？作者尝试了一下在每个rollout中，对于query同时使用rollout和load
-sft数据，然后加权一起训练，发现效果很好</p>
+<h2 id="On-Policy-RL-Meets-Off-Policy-Experts-Harmonizing-Supervised-Fine-Tuning-and-Reinforcement-Learning-via-Dynamic-Weighting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.11408"><strong>On-Policy RL Meets Off-Policy Experts: Harmonizing Supervised Fine-Tuning and Reinforcement Learning via Dynamic Weighting</strong></a></h2>
+<p>这篇工作很妙。作者发现rl和sft在训练上的区别是，一个entropy有权重，一个没有权重。能不能把sft也视为一种rl，然后给他做dynamic weighting呢？作者尝试了一下在每个rollout中，对于query同时使用rollout和load sft数据，然后加权一起训练，发现效果很好</p>
 <blockquote>
 <p>作者这里对sft的采样权就是单纯的p*(1-p)，有点神奇。基本上就是训练entropy既不太大也不太小的token。但是这个sft数据加weight的思路挺有趣的</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-08-18-08-22/chord.png"></p>
+<img src="../../files/images/arxiv-insights/2025-08-18-08-22/chord.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -344,13 +339,13 @@ sft数据，然后加权一起训练，发现效果很好</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa26238a.html" rel="bookmark">2025-10-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/15e448b4.html" rel="bookmark">2025-10-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fed3f3b7.html" rel="bookmark">2025-10-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/92691516.html" rel="bookmark">2025-09-30-insights</a></div>
     </li>
   </ul>
 
@@ -427,10 +422,7 @@ sft数据，然后加权一起训练，发现效果很好</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-oss-120b-gpt-oss-20b-model-card"><span class="nav-number">1.</span> <span class="nav-text">gpt-oss-120b &amp; gpt-oss-20b
-Model Card</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#on-policy-rl-meets-off-policy-experts-harmonizing-supervised-fine-tuning-and-reinforcement-learning-via-dynamic-weighting"><span class="nav-number">2.</span> <span class="nav-text">On-Policy RL Meets
-Off-Policy Experts: Harmonizing Supervised Fine-Tuning and Reinforcement
-Learning via Dynamic Weighting</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gpt-oss-120b-gpt-oss-20b-Model-Card"><span class="nav-number">1.</span> <span class="nav-text">gpt-oss-120b &amp; gpt-oss-20b Model Card</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#On-Policy-RL-Meets-Off-Policy-Experts-Harmonizing-Supervised-Fine-Tuning-and-Reinforcement-Learning-via-Dynamic-Weighting"><span class="nav-number">2.</span> <span class="nav-text">On-Policy RL Meets Off-Policy Experts: Harmonizing Supervised Fine-Tuning and Reinforcement Learning via Dynamic Weighting</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +437,7 @@ Learning via Dynamic Weighting</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +480,10 @@ Learning via Dynamic Weighting</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/15e448b4" title="2025-10-02-insights" target="_blank">2025-10-02-insights</a>
         </li>
       
@@ -521,10 +517,6 @@ Learning via Dynamic Weighting</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>

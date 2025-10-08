@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>647</span>
+              <span>667</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,25 +315,18 @@
 
       
         <p>一通爆改，总算把上一周的arxiv弄完了……</p>
-<h2 id="hint-before-solving-prompting-guiding-llms-to-effectively-utilize-encoded-knowledge"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14310.pdf">Hint-before-Solving
-Prompting: Guiding LLMs to Effectively Utilize Encoded
-Knowledge</a></h2>
+<h2 id="Hint-before-Solving-Prompting-Guiding-LLMs-to-Effectively-Utilize-Encoded-Knowledge"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14310.pdf">Hint-before-Solving Prompting: Guiding LLMs to Effectively Utilize Encoded Knowledge</a></h2>
 <p>作者发现目前模型做不出来某些题目，不是因为知识量不到，而是因为模型没办法激发出来自己对于这个题目的知识，如果加上一点点提示hint，马上就能把题目做出来。由此进行了一系列分析实验，对这个现象进行了分析</p>
-<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/hint.png"></p>
-<h2 id="my-answer-is-c-first-token-probabilities-do-not-match-text-answers-in-instruction-tuned-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14499.pdf">“My Answer is C”:
-First-Token Probabilities Do Not Match Text Answers in Instruction-Tuned
-Language Models</a></h2>
-<p>作者发现，场景的评测模型的方式是MCQ，根据多个选项的first-token概率选择正确答案。然而，如果让模型真正去生成，模型生成的样本格式基本都不是一个字母，而是先说一大堆CoT之类的。在这种情况下，实际上first
-token概率和模型想选的选项没什么关系</p>
+<img src="../../files/images/arxiv-insights/2024-02-19-02-23/hint.png">
+<h2 id="“My-Answer-is-C”-First-Token-Probabilities-Do-Not-Match-Text-Answers-in-Instruction-Tuned-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14499.pdf">“My Answer is C”: First-Token Probabilities Do Not Match Text Answers in Instruction-Tuned Language Models</a></h2>
+<p>作者发现，场景的评测模型的方式是MCQ，根据多个选项的first-token概率选择正确答案。然而，如果让模型真正去生成，模型生成的样本格式基本都不是一个字母，而是先说一大堆CoT之类的。在这种情况下，实际上first token概率和模型想选的选项没什么关系</p>
 <blockquote>
-<p>比如下面这个例子：模型想要说"sure",所以此时"A B C
-D"四个token的概率大小实际上没什么意义</p>
+<p>比如下面这个例子：模型想要说&quot;sure&quot;,所以此时&quot;A B C D&quot;四个token的概率大小实际上没什么意义</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/sure.png" style="zoom:33%;"></p>
-<h2 id="balanced-data-sampling-for-language-model-training-with-clustering"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14526.pdf">Balanced Data Sampling for
-Language Model Training with Clustering</a></h2>
+<img src="../../files/images/arxiv-insights/2024-02-19-02-23/sure.png" style="zoom:33%;">
+<h2 id="Balanced-Data-Sampling-for-Language-Model-Training-with-Clustering"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.14526.pdf">Balanced Data Sampling for Language Model Training with Clustering</a></h2>
 <p>pretrain的sample顺序和不同数据的采样权重对Performance非常重要。作者发现，预训练corpus虽然很大，但实际上可以根据语义进行一下聚类，进而设计设计一些sample算法去平衡罕见和常见的样本，来提升训练的效率和效果</p>
-<p><img src="../../files/images/arxiv-insights/2024-02-19-02-23/cluster.png"></p>
+<img src="../../files/images/arxiv-insights/2024-02-19-02-23/cluster.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -350,13 +343,13 @@ Language Model Training with Clustering</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa26238a.html" rel="bookmark">2025-10-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/15e448b4.html" rel="bookmark">2025-10-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fed3f3b7.html" rel="bookmark">2025-10-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/92691516.html" rel="bookmark">2025-09-30-insights</a></div>
     </li>
   </ul>
 
@@ -433,12 +426,7 @@ Language Model Training with Clustering</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#hint-before-solving-prompting-guiding-llms-to-effectively-utilize-encoded-knowledge"><span class="nav-number">1.</span> <span class="nav-text">Hint-before-Solving
-Prompting: Guiding LLMs to Effectively Utilize Encoded
-Knowledge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#my-answer-is-c-first-token-probabilities-do-not-match-text-answers-in-instruction-tuned-language-models"><span class="nav-number">2.</span> <span class="nav-text">“My Answer is C”:
-First-Token Probabilities Do Not Match Text Answers in Instruction-Tuned
-Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#balanced-data-sampling-for-language-model-training-with-clustering"><span class="nav-number">3.</span> <span class="nav-text">Balanced Data Sampling for
-Language Model Training with Clustering</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hint-before-Solving-Prompting-Guiding-LLMs-to-Effectively-Utilize-Encoded-Knowledge"><span class="nav-number">1.</span> <span class="nav-text">Hint-before-Solving Prompting: Guiding LLMs to Effectively Utilize Encoded Knowledge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%80%9CMy-Answer-is-C%E2%80%9D-First-Token-Probabilities-Do-Not-Match-Text-Answers-in-Instruction-Tuned-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">“My Answer is C”: First-Token Probabilities Do Not Match Text Answers in Instruction-Tuned Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Balanced-Data-Sampling-for-Language-Model-Training-with-Clustering"><span class="nav-number">3.</span> <span class="nav-text">Balanced Data Sampling for Language Model Training with Clustering</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -453,7 +441,7 @@ Language Model Training with Clustering</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -496,6 +484,10 @@ Language Model Training with Clustering</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/15e448b4" title="2025-10-02-insights" target="_blank">2025-10-02-insights</a>
         </li>
       
@@ -529,10 +521,6 @@ Language Model Training with Clustering</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>

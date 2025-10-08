@@ -312,19 +312,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="handling-delay-in-real-time-reinforcement-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.23478"><strong>Handling Delay in
-Real-Time Reinforcement Learning</strong></a></h2>
-<p>我很喜欢这篇工作，是一篇很“modern”的研究。作者发现，传统rl基本上都是一个可以暂停的环境，然后模型也很小，推理基本上是瞬间结束的，所以可以认为action产出是光速的，可以保证环境的causality。但当我们迁移到今天的rl
-agent时，你就会发现：模型的infer需要10秒，并且在这个时间里环境也不能暂停，比如你打cs，你见到人开始推理，等你infer完想瞄准，你已经死了。这个时候该怎么办呢？作者想到一个streaming的方案，能不能把模型在时间维度上做layer-wise的并行化，通过牺牲一定可解释性和效果，把适应延迟当成模型的一种能力训进去</p>
+        <h2 id="Handling-Delay-in-Real-Time-Reinforcement-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.23478"><strong>Handling Delay in Real-Time Reinforcement Learning</strong></a></h2>
+<p>我很喜欢这篇工作，是一篇很“modern”的研究。作者发现，传统rl基本上都是一个可以暂停的环境，然后模型也很小，推理基本上是瞬间结束的，所以可以认为action产出是光速的，可以保证环境的causality。但当我们迁移到今天的rl agent时，你就会发现：模型的infer需要10秒，并且在这个时间里环境也不能暂停，比如你打cs，你见到人开始推理，等你infer完想瞄准，你已经死了。这个时候该怎么办呢？作者想到一个streaming的方案，能不能把模型在时间维度上做layer-wise的并行化，通过牺牲一定可解释性和效果，把适应延迟当成模型的一种能力训进去</p>
 <blockquote>
 <p>他是真做过agent rl的……不过他这个方案似乎有两个问题：</p>
-<ol type="1">
+<ol>
 <li>这里讲了infer带来的延迟，还有另一个延迟，就是真实环境里，action的执行，到反映到屏幕上的时间，也会有延迟（网络延迟、渲染延迟）。</li>
-<li>这个训练方案，等于锁定了延迟是一个固定的数值，我感觉是不是应该做一些domain
-randomization……毕竟你的延迟和推理速度是会波动的呀</li>
+<li>这个训练方案，等于锁定了延迟是一个固定的数值，我感觉是不是应该做一些domain randomization……毕竟你的延迟和推理速度是会波动的呀</li>
 </ol>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-03-31-04-04/rl-delay.png"></p>
+<img src="../../files/images/arxiv-insights/2025-03-31-04-04/rl-delay.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -341,13 +338,13 @@ randomization……毕竟你的延迟和推理速度是会波动的呀</li>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/fa26238a.html" rel="bookmark">2025-10-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/15e448b4.html" rel="bookmark">2025-10-02-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fed3f3b7.html" rel="bookmark">2025-10-01-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/92691516.html" rel="bookmark">2025-09-30-insights</a></div>
     </li>
   </ul>
 
@@ -424,8 +421,7 @@ randomization……毕竟你的延迟和推理速度是会波动的呀</li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#handling-delay-in-real-time-reinforcement-learning"><span class="nav-number">1.</span> <span class="nav-text">Handling Delay in
-Real-Time Reinforcement Learning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Handling-Delay-in-Real-Time-Reinforcement-Learning"><span class="nav-number">1.</span> <span class="nav-text">Handling Delay in Real-Time Reinforcement Learning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -440,7 +436,7 @@ Real-Time Reinforcement Learning</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -483,6 +479,10 @@ Real-Time Reinforcement Learning</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/15e448b4" title="2025-10-02-insights" target="_blank">2025-10-02-insights</a>
         </li>
       
@@ -516,10 +516,6 @@ Real-Time Reinforcement Learning</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
