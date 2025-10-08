@@ -104,8 +104,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -315,27 +315,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="TongUI-Building-Generalized-GUI-Agents-by-Learning-from-Multimodal-Web-Tutorials"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.12679">TongUI: Building Generalized GUI Agents by Learning from Multimodal Web Tutorials</a></h2>
+        <h2 id="tongui-building-generalized-gui-agents-by-learning-from-multimodal-web-tutorials"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.12679">TongUI: Building Generalized GUI
+Agents by Learning from Multimodal Web Tutorials</a></h2>
 <p>这篇工作中，作者强调了gui教程数据的重要性，作者把wikihow等几个数据源的数据转换成了多步执行的形式，然后训进模型，发现涨分了。</p>
 <blockquote>
 <p>开源数据，推荐！</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-04-14-04-18/tongui.png">
-<h2 id="PerceptionLM-Open-Access-Data-and-Models-for-Detailed-Visual-Understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13180">PerceptionLM: Open-Access Data and Models for Detailed Visual Understanding</a></h2>
+<p><img src="../../files/images/arxiv-insights/2025-04-14-04-18/tongui.png"></p>
+<h2 id="perceptionlm-open-access-data-and-models-for-detailed-visual-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13180">PerceptionLM: Open-Access Data
+and Models for Detailed Visual Understanding</a></h2>
 <p>meta就是有钱，找人标了2.8M个video qa和caption，还开源了</p>
 <blockquote>
 <p>开源，我直接推荐！</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-04-14-04-18/perceptionlm.png">
-<h2 id="Exploring-Expert-Failures-Improves-LLM-Agent-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13145">Exploring Expert Failures Improves LLM Agent Tuning</a></h2>
+<p><img src="../../files/images/arxiv-insights/2025-04-14-04-18/perceptionlm.png"></p>
+<h2 id="exploring-expert-failures-improves-llm-agent-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13145">Exploring Expert Failures
+Improves LLM Agent Tuning</a></h2>
 <p>这篇工作的思路很精彩。作者发现目前的sft数据里，往往训练成功的trace，但是这些任务更可能是简单的。作者认为，失败的trace里反而更可能蕴含一些信息价值极高的step。能不能找到一种方案把这些step挑出来，然后也训进去呢？作者发现还真可以</p>
-<img src="../../files/images/arxiv-insights/2025-04-14-04-18/expert-fail.png" style="zoom:33%;">
-<h2 id="Sleep-time-Compute-Beyond-Inference-Scaling-at-Test-time"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13171"><strong>Sleep-time Compute: Beyond Inference Scaling at Test-time</strong></a></h2>
-<p>这篇工作做得场景比较简单，但是思想很深刻：作者发现目前的o1 model，都是给出一个query以后，生成一大堆思考问题；但是，reason需要的信息却不一定要和query相关。如果模型可以基于一些无query的语料做预先思考，等真的遇到问题是否就可以用更短的思考时间了呢？作者发现还真可以，并且在构造的domain上可以省5倍</p>
+<p><img src="../../files/images/arxiv-insights/2025-04-14-04-18/expert-fail.png" style="zoom:33%;"></p>
+<h2 id="sleep-time-compute-beyond-inference-scaling-at-test-time"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.13171"><strong>Sleep-time Compute:
+Beyond Inference Scaling at Test-time</strong></a></h2>
+<p>这篇工作做得场景比较简单，但是思想很深刻：作者发现目前的o1
+model，都是给出一个query以后，生成一大堆思考问题；但是，reason需要的信息却不一定要和query相关。如果模型可以基于一些无query的语料做预先思考，等真的遇到问题是否就可以用更短的思考时间了呢？作者发现还真可以，并且在构造的domain上可以省5倍</p>
 <blockquote>
 <p>我有个直觉，这个方法可能可以把o1做到预训练里去</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-04-14-04-18/sleep-time.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-04-14-04-18/sleep-time.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -435,7 +440,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#TongUI-Building-Generalized-GUI-Agents-by-Learning-from-Multimodal-Web-Tutorials"><span class="nav-number">1.</span> <span class="nav-text">TongUI: Building Generalized GUI Agents by Learning from Multimodal Web Tutorials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PerceptionLM-Open-Access-Data-and-Models-for-Detailed-Visual-Understanding"><span class="nav-number">2.</span> <span class="nav-text">PerceptionLM: Open-Access Data and Models for Detailed Visual Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploring-Expert-Failures-Improves-LLM-Agent-Tuning"><span class="nav-number">3.</span> <span class="nav-text">Exploring Expert Failures Improves LLM Agent Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sleep-time-Compute-Beyond-Inference-Scaling-at-Test-time"><span class="nav-number">4.</span> <span class="nav-text">Sleep-time Compute: Beyond Inference Scaling at Test-time</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tongui-building-generalized-gui-agents-by-learning-from-multimodal-web-tutorials"><span class="nav-number">1.</span> <span class="nav-text">TongUI: Building Generalized GUI
+Agents by Learning from Multimodal Web Tutorials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#perceptionlm-open-access-data-and-models-for-detailed-visual-understanding"><span class="nav-number">2.</span> <span class="nav-text">PerceptionLM: Open-Access Data
+and Models for Detailed Visual Understanding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#exploring-expert-failures-improves-llm-agent-tuning"><span class="nav-number">3.</span> <span class="nav-text">Exploring Expert Failures
+Improves LLM Agent Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sleep-time-compute-beyond-inference-scaling-at-test-time"><span class="nav-number">4.</span> <span class="nav-text">Sleep-time Compute:
+Beyond Inference Scaling at Test-time</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -585,12 +594,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>

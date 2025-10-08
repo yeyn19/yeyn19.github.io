@@ -103,8 +103,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -314,21 +314,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="MAmmoTH-VL-Eliciting-Multimodal-Reasoning-with-Instruction-Tuning-at-Scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05237">MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale</a></h2>
-<p>一篇行文比较顺畅的工作，作者找到了学界已有的153个数据集，一个个核查了一下质量，然后再找VLM标注了一遍cot，再找另一个VLM核查了一下thought正确性，最后生成了一波sft数据，足足12M qa-pair，训了可以涨分。</p>
+        <h2 id="mammoth-vl-eliciting-multimodal-reasoning-with-instruction-tuning-at-scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05237">MAmmoTH-VL: Eliciting Multimodal
+Reasoning with Instruction Tuning at Scale</a></h2>
+<p>一篇行文比较顺畅的工作，作者找到了学界已有的153个数据集，一个个核查了一下质量，然后再找VLM标注了一遍cot，再找另一个VLM核查了一下thought正确性，最后生成了一波sft数据，足足12M
+qa-pair，训了可以涨分。</p>
 <blockquote>
 <p>STaR还在输出……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/mammoth-vl.png">
-<h2 id="Expanding-Performance-Boundaries-of-Open-Source-Multimodal-Models-with-Model-Data-and-Test-Time-Scaling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05271">Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling</a></h2>
-<p>internvl-2.5的技术报告，作者直接一口气把MMMU刷过70分了，朝着o1狠狠迈进。话说我一直没怎么关注intern vl，都在关注qwen vl系列，intern系列一直做得也挺不错的</p>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/internvl-2.5.png">
-<h2 id="CompCap-Improving-Multimodal-Large-Language-Models-with-Composite-Captions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05243"><strong>CompCap: Improving Multimodal Large Language Models with Composite Captions</strong></a></h2>
-<p>meta的数据集工作，别的不说，开源数据我就点赞。这篇瞄准的叫composite image，就是之前大家说的dense-text场景，各种渲染出来的、带有文字的图片。作者构造了高质量的composite image caption pair，发现用118k caption训出来的模型，在下游任务能涨分。</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/mammoth-vl.png"></p>
+<h2 id="expanding-performance-boundaries-of-open-source-multimodal-models-with-model-data-and-test-time-scaling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05271">Expanding Performance Boundaries
+of Open-Source Multimodal Models with Model, Data, and Test-Time
+Scaling</a></h2>
+<p>internvl-2.5的技术报告，作者直接一口气把MMMU刷过70分了，朝着o1狠狠迈进。话说我一直没怎么关注intern
+vl，都在关注qwen vl系列，intern系列一直做得也挺不错的</p>
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/internvl-2.5.png"></p>
+<h2 id="compcap-improving-multimodal-large-language-models-with-composite-captions"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.05243"><strong>CompCap: Improving
+Multimodal Large Language Models with Composite
+Captions</strong></a></h2>
+<p>meta的数据集工作，别的不说，开源数据我就点赞。这篇瞄准的叫composite
+image，就是之前大家说的dense-text场景，各种渲染出来的、带有文字的图片。作者构造了高质量的composite
+image caption pair，发现用118k
+caption训出来的模型，在下游任务能涨分。</p>
 <blockquote>
 <p>虽然但是，涨点好像不太明显来着……估计没报告qwen-vl就是因为qwen已经做了这件事吧……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-12-09-12-13/Compcap.png">
+<p><img src="../../files/images/arxiv-insights/2024-12-09-12-13/Compcap.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -428,7 +438,12 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAmmoTH-VL-Eliciting-Multimodal-Reasoning-with-Instruction-Tuning-at-Scale"><span class="nav-number">1.</span> <span class="nav-text">MAmmoTH-VL: Eliciting Multimodal Reasoning with Instruction Tuning at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Expanding-Performance-Boundaries-of-Open-Source-Multimodal-Models-with-Model-Data-and-Test-Time-Scaling"><span class="nav-number">2.</span> <span class="nav-text">Expanding Performance Boundaries of Open-Source Multimodal Models with Model, Data, and Test-Time Scaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CompCap-Improving-Multimodal-Large-Language-Models-with-Composite-Captions"><span class="nav-number">3.</span> <span class="nav-text">CompCap: Improving Multimodal Large Language Models with Composite Captions</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mammoth-vl-eliciting-multimodal-reasoning-with-instruction-tuning-at-scale"><span class="nav-number">1.</span> <span class="nav-text">MAmmoTH-VL: Eliciting Multimodal
+Reasoning with Instruction Tuning at Scale</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expanding-performance-boundaries-of-open-source-multimodal-models-with-model-data-and-test-time-scaling"><span class="nav-number">2.</span> <span class="nav-text">Expanding Performance Boundaries
+of Open-Source Multimodal Models with Model, Data, and Test-Time
+Scaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#compcap-improving-multimodal-large-language-models-with-composite-captions"><span class="nav-number">3.</span> <span class="nav-text">CompCap: Improving
+Multimodal Large Language Models with Composite
+Captions</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -578,12 +593,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>

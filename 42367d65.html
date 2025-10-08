@@ -101,8 +101,8 @@
   </style>
 </noscript>
 
-<link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"><link rel="alternate" href="/atom.xml" title="随缘随笔 </br> Insights Flow" type="application/atom+xml">
+</head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
   <div class="container use-motion">
@@ -312,13 +312,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Semi-off-Policy-Reinforcement-Learning-for-Vision-Language-Slow-thinking-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.16814">Semi-off-Policy Reinforcement Learning for Vision-Language Slow-thinking Reasoning</a></h2>
-<p>这篇工作想要解决VLM中的感知问题，而且希望vlm学会对reasoning有帮助的perception。所以，作者让一个可训练的vlm先生成caption，然后让一个freeze的text-reasoning model看着caption回答问题，用后者的平均正确率来给出perception部分reward。</p>
-<p>作者这里没有直接使用end2end vlm rl的原因是，起点模型本身的reasoning能力过于差，而无法进行高效rollout</p>
+        <h2 id="semi-off-policy-reinforcement-learning-for-vision-language-slow-thinking-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.16814">Semi-off-Policy Reinforcement
+Learning for Vision-Language Slow-thinking Reasoning</a></h2>
+<p>这篇工作想要解决VLM中的感知问题，而且希望vlm学会对reasoning有帮助的perception。所以，作者让一个可训练的vlm先生成caption，然后让一个freeze的text-reasoning
+model看着caption回答问题，用后者的平均正确率来给出perception部分reward。</p>
+<p>作者这里没有直接使用end2end vlm
+rl的原因是，起点模型本身的reasoning能力过于差，而无法进行高效rollout</p>
 <blockquote>
 <p>这个设计哲学还挺有意思的：把系统的其余部分锁定，然后对剩余的原子能力进行单点提升</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-07-21-07-25/sophia.png">
+<p><img src="../../files/images/arxiv-insights/2025-07-21-07-25/sophia.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -418,7 +421,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Semi-off-Policy-Reinforcement-Learning-for-Vision-Language-Slow-thinking-Reasoning"><span class="nav-number">1.</span> <span class="nav-text">Semi-off-Policy Reinforcement Learning for Vision-Language Slow-thinking Reasoning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#semi-off-policy-reinforcement-learning-for-vision-language-slow-thinking-reasoning"><span class="nav-number">1.</span> <span class="nav-text">Semi-off-Policy Reinforcement
+Learning for Vision-Language Slow-thinking Reasoning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -568,12 +572,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>
