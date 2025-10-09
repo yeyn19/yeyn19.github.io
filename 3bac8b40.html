@@ -314,18 +314,22 @@
 
       
         <p>最近读论文的速度怎么比几个月前显著下降了，不行，接下来一个月必读50篇！</p>
-<h2 id="Modeling-Caption-Diversity-in-Contrastive-Vision-Language-Pretraining"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00740"><strong>Modeling Caption Diversity in Contrastive Vision-Language Pretraining</strong></a></h2>
-<p>meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现，对于不匹配的图像文本对，也许某些局部或者说concept是匹配的，clip loss会带来误判。于是作者找到了另外一个方案，把一个image变成多个vector，然后每个token分开算loss。希望在caption内部的每个token和图片embedding的每个位置对应是正样本。由此可以建模出不同的concept。作者发现这种方案比传统clip效果好很多</p>
+<h2 id="modeling-caption-diversity-in-contrastive-vision-language-pretraining"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.00740"><strong>Modeling Caption
+Diversity in Contrastive Vision-Language Pretraining</strong></a></h2>
+<p>meta的工作，很好玩的思路：大家都知道clip是把图片文本对通过instance-level的对比学习来建模，vision-encoder和text-encoder是完全独立的。作者发现，对于不匹配的图像文本对，也许某些局部或者说concept是匹配的，clip
+loss会带来误判。于是作者找到了另外一个方案，把一个image变成多个vector，然后每个token分开算loss。希望在caption内部的每个token和图片embedding的每个位置对应是正样本。由此可以建模出不同的concept。作者发现这种方案比传统clip效果好很多</p>
 <blockquote>
 <p>有点神奇，这个更像是把image embedding做了个bag-of-word假设？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-29-05-03/llip.png">
-<h2 id="WildChat-1M-ChatGPT-Interaction-Logs-in-the-Wild"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.01470"><strong>WildChat: 1M ChatGPT Interaction Logs in the Wild</strong></a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/llip.png"></p>
+<h2 id="wildchat-1m-chatgpt-interaction-logs-in-the-wild"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2405.01470"><strong>WildChat: 1M ChatGPT
+Interaction Logs in the Wild</strong></a></h2>
 <p>有点顶级：作者通过给用户免费用ChatGPT的方式，收集到了1M的用户和ChatGPT的对话记录，这个数据集没做任何处理，所以包含了一些toxic的内容。</p>
 <blockquote>
-<p>这算不算花钱买论文？话说我挺好奇这样收集的用户case会不会比self-instruct生出来的1M query diverse很多</p>
+<p>这算不算花钱买论文？话说我挺好奇这样收集的用户case会不会比self-instruct生出来的1M
+query diverse很多</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-29-05-03/wild-chat.png">
+<p><img src="../../files/images/arxiv-insights/2024-04-29-05-03/wild-chat.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -425,7 +429,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Modeling-Caption-Diversity-in-Contrastive-Vision-Language-Pretraining"><span class="nav-number">1.</span> <span class="nav-text">Modeling Caption Diversity in Contrastive Vision-Language Pretraining</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WildChat-1M-ChatGPT-Interaction-Logs-in-the-Wild"><span class="nav-number">2.</span> <span class="nav-text">WildChat: 1M ChatGPT Interaction Logs in the Wild</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#modeling-caption-diversity-in-contrastive-vision-language-pretraining"><span class="nav-number">1.</span> <span class="nav-text">Modeling Caption
+Diversity in Contrastive Vision-Language Pretraining</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wildchat-1m-chatgpt-interaction-logs-in-the-wild"><span class="nav-number">2.</span> <span class="nav-text">WildChat: 1M ChatGPT
+Interaction Logs in the Wild</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -575,7 +581,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

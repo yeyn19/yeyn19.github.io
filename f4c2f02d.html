@@ -316,31 +316,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近发现有些好玩的工作甚至也没挂AI track，现在我每天把AI track和CV track同时看一遍……正好今天GUI Agent工作大爆发了，全列一遍</p>
-<h2 id="NeuroClips-Towards-High-fidelity-and-Smooth-fMRI-to-Video-Reconstruction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19452">NeuroClips: Towards High-fidelity and Smooth fMRI-to-Video Reconstruction</a></h2>
+        <p>最近发现有些好玩的工作甚至也没挂AI track，现在我每天把AI track和CV
+track同时看一遍……正好今天GUI Agent工作大爆发了，全列一遍</p>
+<h2 id="neuroclips-towards-high-fidelity-and-smooth-fmri-to-video-reconstruction"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19452">NeuroClips: Towards
+High-fidelity and Smooth fMRI-to-Video Reconstruction</a></h2>
 <p>一篇做fmri重建的工作，想把人脑子里想的东西通过视频生成的方式搞出来。我记得之前看到过一篇生成图片的工作。</p>
 <blockquote>
 <p>感觉研究这个方向挺好玩的，估计我研究的话每天有动力早起写代码</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/fmri.png">
-<h2 id="VideoWebArena-Evaluating-Long-Context-Multimodal-Agents-with-Video-Understanding-Web-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19100"><strong>VideoWebArena: Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks</strong></a></h2>
-<p>如果大家还记得visualWebArena，今天出了个videoWebArena。也是benchmark类的工作，作者认为目前的GUI Agent都是VLM或者LLM，没有人考虑过视频理解。所以作者设计了2000个必须要有视频理解能力才能解决的GUI Task</p>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/videowebarena.png">
-<h2 id="OpenWebVoyager-Building-Multimodal-Web-Agents-via-Iterative-Real-World-Exploration-Feedback-and-Optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19609">OpenWebVoyager: Building Multimodal Web Agents via Iterative Real-World Exploration, Feedback and Optimization</a></h2>
-<p>了解 GUI领域的人，一定知道1月份的时候有个叫webvoyager的工作，主要是通过Prompt + GPT-4v增强做的GUI Agent。今天同团队出了训模型的工作，还挺solid的。先用4o的数据做SFT，后面接了个offline RL pipeline多轮迭代增强自己。</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/fmri.png"></p>
+<h2 id="videowebarena-evaluating-long-context-multimodal-agents-with-video-understanding-web-tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19100"><strong>VideoWebArena:
+Evaluating Long Context Multimodal Agents with Video Understanding Web
+Tasks</strong></a></h2>
+<p>如果大家还记得visualWebArena，今天出了个videoWebArena。也是benchmark类的工作，作者认为目前的GUI
+Agent都是VLM或者LLM，没有人考虑过视频理解。所以作者设计了2000个必须要有视频理解能力才能解决的GUI
+Task</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/videowebarena.png"></p>
+<h2 id="openwebvoyager-building-multimodal-web-agents-via-iterative-real-world-exploration-feedback-and-optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19609">OpenWebVoyager: Building
+Multimodal Web Agents via Iterative Real-World Exploration, Feedback and
+Optimization</a></h2>
+<p>了解
+GUI领域的人，一定知道1月份的时候有个叫webvoyager的工作，主要是通过Prompt
++ GPT-4v增强做的GUI
+Agent。今天同团队出了训模型的工作，还挺solid的。先用4o的数据做SFT，后面接了个offline
+RL pipeline多轮迭代增强自己。</p>
 <blockquote>
 <p>其实和这个最像的工作是Kumar之前做的一个叫DigiRL的工作，他俩不知道比没比过</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/open-webvoyager.png">
-<h2 id="INFOGENT-An-Agent-Based-Framework-for-Web-Information-Aggregation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19054">INFOGENT: An Agent-Based Framework for Web Information Aggregation</a></h2>
-<p>Heng Ji老师的工作，聚焦到了information seeking场景。作者发现，已有数据集基本上把information seeking认为成只有一个对应的数据源，作者开发了一套整合多个数据源、联立API和GUI两种动作空间的Agent。</p>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/open-webvoyager.png"></p>
+<h2 id="infogent-an-agent-based-framework-for-web-information-aggregation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19054">INFOGENT: An Agent-Based
+Framework for Web Information Aggregation</a></h2>
+<p>Heng Ji老师的工作，聚焦到了information
+seeking场景。作者发现，已有数据集基本上把information
+seeking认为成只有一个对应的数据源，作者开发了一套整合多个数据源、联立API和GUI两种动作空间的Agent。</p>
 <blockquote>
-<p>联合动作空间的思路挺有意思的，后面是不是大家又发现GUI Agent和API-based Tool Learning是可以结合的……</p>
+<p>联合动作空间的思路挺有意思的，后面是不是大家又发现GUI
+Agent和API-based Tool Learning是可以结合的……</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/infoagent.png" style="zoom:33%;">
-<h2 id="EDGE-Enhanced-Grounded-GUI-Understanding-with-Enriched-Multi-Granularity-Synthetic-Data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19461">EDGE: Enhanced Grounded GUI Understanding with Enriched Multi-Granularity Synthetic Data</a></h2>
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/infoagent.png" style="zoom:33%;"></p>
+<h2 id="edge-enhanced-grounded-gui-understanding-with-enriched-multi-granularity-synthetic-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.19461">EDGE: Enhanced Grounded GUI
+Understanding with Enriched Multi-Granularity Synthetic Data</a></h2>
 <p>一个新的webpage数据集的工作，大体上还是使用页面解析的方案，这个领域最近有nuebig做的MultiUI质量最高，这篇可能是被neubig卷到了吧</p>
-<img src="../../files/images/arxiv-insights/2024-10-28-11-01/edge.png">
+<p><img src="../../files/images/arxiv-insights/2024-10-28-11-01/edge.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -440,7 +457,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#NeuroClips-Towards-High-fidelity-and-Smooth-fMRI-to-Video-Reconstruction"><span class="nav-number">1.</span> <span class="nav-text">NeuroClips: Towards High-fidelity and Smooth fMRI-to-Video Reconstruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VideoWebArena-Evaluating-Long-Context-Multimodal-Agents-with-Video-Understanding-Web-Tasks"><span class="nav-number">2.</span> <span class="nav-text">VideoWebArena: Evaluating Long Context Multimodal Agents with Video Understanding Web Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWebVoyager-Building-Multimodal-Web-Agents-via-Iterative-Real-World-Exploration-Feedback-and-Optimization"><span class="nav-number">3.</span> <span class="nav-text">OpenWebVoyager: Building Multimodal Web Agents via Iterative Real-World Exploration, Feedback and Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INFOGENT-An-Agent-Based-Framework-for-Web-Information-Aggregation"><span class="nav-number">4.</span> <span class="nav-text">INFOGENT: An Agent-Based Framework for Web Information Aggregation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDGE-Enhanced-Grounded-GUI-Understanding-with-Enriched-Multi-Granularity-Synthetic-Data"><span class="nav-number">5.</span> <span class="nav-text">EDGE: Enhanced Grounded GUI Understanding with Enriched Multi-Granularity Synthetic Data</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#neuroclips-towards-high-fidelity-and-smooth-fmri-to-video-reconstruction"><span class="nav-number">1.</span> <span class="nav-text">NeuroClips: Towards
+High-fidelity and Smooth fMRI-to-Video Reconstruction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#videowebarena-evaluating-long-context-multimodal-agents-with-video-understanding-web-tasks"><span class="nav-number">2.</span> <span class="nav-text">VideoWebArena:
+Evaluating Long Context Multimodal Agents with Video Understanding Web
+Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#openwebvoyager-building-multimodal-web-agents-via-iterative-real-world-exploration-feedback-and-optimization"><span class="nav-number">3.</span> <span class="nav-text">OpenWebVoyager: Building
+Multimodal Web Agents via Iterative Real-World Exploration, Feedback and
+Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#infogent-an-agent-based-framework-for-web-information-aggregation"><span class="nav-number">4.</span> <span class="nav-text">INFOGENT: An Agent-Based
+Framework for Web Information Aggregation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#edge-enhanced-grounded-gui-understanding-with-enriched-multi-granularity-synthetic-data"><span class="nav-number">5.</span> <span class="nav-text">EDGE: Enhanced Grounded GUI
+Understanding with Enriched Multi-Granularity Synthetic Data</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -590,7 +614,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

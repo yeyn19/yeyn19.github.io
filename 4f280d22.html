@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Group Sequence Policy Optimization 一篇很好的工作，是qwen team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的$\frac{\pi}{\pi_{old}}$算出来，然后所有token做平均，完了再e指数作为s">
+  <meta name="description" content="Group Sequence Policy Optimization 一篇很好的工作，是qwen team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的\(\frac{\pi}{\pi_{old}}\)算出来，然后所有token做平均，完了再e指数作">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-07-25-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4f280d22">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Group Sequence Policy Optimization 一篇很好的工作，是qwen team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的$\frac{\pi}{\pi_{old}}$算出来，然后所有token做平均，完了再e指数作为s">
+<meta property="og:description" content="Group Sequence Policy Optimization 一篇很好的工作，是qwen team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的\(\frac{\pi}{\pi_{old}}\)算出来，然后所有token做平均，完了再e指数作">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-21-07-25/gspo.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-21-07-25/ibro.png">
@@ -293,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>541</span>
+              <span>543</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -313,16 +313,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Group-Sequence-Policy-Optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.18071">Group Sequence Policy Optimization</a></h2>
-<p>一篇很好的工作，是qwen team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的$\frac{\pi}{\pi_{old}}$算出来，然后所有token做平均，完了再e指数作为sequence-level clip。这样可以保证一个seq内的loss更稳定。通过这种方案，虽然大大提升了被clip token的占比，但反而极大提升了训练的稳定性</p>
+        <h2 id="group-sequence-policy-optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.18071">Group Sequence Policy
+Optimization</a></h2>
+<p>一篇很好的工作，是qwen
+team讲解了自己训练用的rl算法。作者发现grpo在sequence-level计算advantage，但在token-level做clip，作者认为这个不合理。应该改成先把一个seq的所有token的<span class="math inline">\(\frac{\pi}{\pi_{old}}\)</span>算出来，然后所有token做平均，完了再e指数作为sequence-level
+clip。这样可以保证一个seq内的loss更稳定。通过这种方案，虽然大大提升了被clip
+token的占比，但反而极大提升了训练的稳定性</p>
 <blockquote>
 <p>合理</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-07-21-07-25/gspo.png">
-<h2 id="Revisiting-LLM-Reasoning-via-Information-Bottleneck"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.18391">Revisiting LLM Reasoning via Information Bottleneck</a></h2>
-<p>大家都知道rl ppo的时候，一般除了pg loss以外，还会给个entropy_loss，让模型鼓励把每个token的entropy放大，主要是为了防止entropy崩掉。注意这里不是cross-entropy loss。</p>
-<p>作者的改进是，把entropy loss部分做一个加权，让每个token的entropy loss乘以adv倍，这样只在有收益的token上鼓励entropy高，别的位置不管，或者鼓励entropy低，按照确定性的方式走</p>
-<img src="../../files/images/arxiv-insights/2025-07-21-07-25/ibro.png">
+<p><img src="../../files/images/arxiv-insights/2025-07-21-07-25/gspo.png"></p>
+<h2 id="revisiting-llm-reasoning-via-information-bottleneck"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.18391">Revisiting LLM Reasoning via
+Information Bottleneck</a></h2>
+<p>大家都知道rl ppo的时候，一般除了pg
+loss以外，还会给个entropy_loss，让模型鼓励把每个token的entropy放大，主要是为了防止entropy崩掉。注意这里不是cross-entropy
+loss。</p>
+<p>作者的改进是，把entropy loss部分做一个加权，让每个token的entropy
+loss乘以adv倍，这样只在有收益的token上鼓励entropy高，别的位置不管，或者鼓励entropy低，按照确定性的方式走</p>
+<p><img src="../../files/images/arxiv-insights/2025-07-21-07-25/ibro.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -422,7 +430,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Group-Sequence-Policy-Optimization"><span class="nav-number">1.</span> <span class="nav-text">Group Sequence Policy Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Revisiting-LLM-Reasoning-via-Information-Bottleneck"><span class="nav-number">2.</span> <span class="nav-text">Revisiting LLM Reasoning via Information Bottleneck</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#group-sequence-policy-optimization"><span class="nav-number">1.</span> <span class="nav-text">Group Sequence Policy
+Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#revisiting-llm-reasoning-via-information-bottleneck"><span class="nav-number">2.</span> <span class="nav-text">Revisiting LLM Reasoning via
+Information Bottleneck</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -572,7 +582,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

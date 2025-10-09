@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="159篇，重量级 Evaluating Text-to-Visual Generation with Image-to-Text Generation Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的&quot;yes&quot; logits做评测呢？答案是">
+  <meta name="description" content="159篇，重量级 Evaluating Text-to-Visual Generation with Image-to-Text Generation Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的&quot;yes&quot; logits做评测呢？答案是可以，并且效果巨好。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-04-02-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/e63a52c5">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="159篇，重量级 Evaluating Text-to-Visual Generation with Image-to-Text Generation Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的&quot;yes&quot; logits做评测呢？答案是">
+<meta property="og:description" content="159篇，重量级 Evaluating Text-to-Visual Generation with Image-to-Text Generation Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的&quot;yes&quot; logits做评测呢？答案是可以，并且效果巨好。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-01-04-05/VQAScore.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-04-01-04-05/sft.png">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>546</span>
+              <span>526</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,18 +315,26 @@
 
       
         <p>159篇，重量级</p>
-<h2 id="Evaluating-Text-to-Visual-Generation-with-Image-to-Text-Generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.01291.pdf">Evaluating Text-to-Visual Generation with Image-to-Text Generation</a></h2>
-<p>Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的&quot;yes&quot; logits做评测呢？答案是可以，并且效果巨好。</p>
+<h2 id="evaluating-text-to-visual-generation-with-image-to-text-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.01291.pdf">Evaluating Text-to-Visual
+Generation with Image-to-Text Generation</a></h2>
+<p>Neubig的论文。作者发现目前text2image大家还是再用CLIPscore做评测。CLIPscore效果很差，毕竟是双塔。作者想，现在大家VQA模型都这么好了，能不能用VQA模型的"yes"
+logits做评测呢？答案是可以，并且效果巨好。</p>
 <blockquote>
 <p>感觉就Neubig适合做这个论文……别人提个这种新东西估计没人follow</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-04-01-04-05/VQAScore.png">
-<h2 id="INJECTING-NEW-KNOWLEDGE-INTO-LARGE-LANGUAGE-MODELS-VIA-SUPERVISED-FINE-TUNING"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.00213.pdf">INJECTING NEW KNOWLEDGE INTO LARGE LANGUAGE MODELS VIA SUPERVISED FINE-TUNING</a></h2>
-<p>微软的工作，酸了，人家做实验可以finetune GPT4：作者探索了在out-domain场景下，用scaling SFT数据的方式提升模型能力是否可行。作者发现scaling数据量的提升有限，但是scaling fact的提升更高效</p>
-<img src="../../files/images/arxiv-insights/2024-04-01-04-05/sft.png">
-<h2 id="Stable-Code-Technical-Report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.01226.pdf">Stable Code Technical Report</a></h2>
-<p>Satbility AI的新code模型。比较&quot;Open&quot;的工作，作者详细讲了训练数据的构造、预处理，然后各种超参数的对比。最后训出来了效果不错的模型，开源了checkpoint。</p>
-<img src="../../files/images/arxiv-insights/2024-04-01-04-05/stable_code.png">
+<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/VQAScore.png"></p>
+<h2 id="injecting-new-knowledge-into-large-language-models-via-supervised-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.00213.pdf">INJECTING NEW KNOWLEDGE INTO
+LARGE LANGUAGE MODELS VIA SUPERVISED FINE-TUNING</a></h2>
+<p>微软的工作，酸了，人家做实验可以finetune
+GPT4：作者探索了在out-domain场景下，用scaling
+SFT数据的方式提升模型能力是否可行。作者发现scaling数据量的提升有限，但是scaling
+fact的提升更高效</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/sft.png"></p>
+<h2 id="stable-code-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.01226.pdf">Stable Code Technical
+Report</a></h2>
+<p>Satbility
+AI的新code模型。比较"Open"的工作，作者详细讲了训练数据的构造、预处理，然后各种超参数的对比。最后训出来了效果不错的模型，开源了checkpoint。</p>
+<p><img src="../../files/images/arxiv-insights/2024-04-01-04-05/stable_code.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -426,7 +434,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Evaluating-Text-to-Visual-Generation-with-Image-to-Text-Generation"><span class="nav-number">1.</span> <span class="nav-text">Evaluating Text-to-Visual Generation with Image-to-Text Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#INJECTING-NEW-KNOWLEDGE-INTO-LARGE-LANGUAGE-MODELS-VIA-SUPERVISED-FINE-TUNING"><span class="nav-number">2.</span> <span class="nav-text">INJECTING NEW KNOWLEDGE INTO LARGE LANGUAGE MODELS VIA SUPERVISED FINE-TUNING</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stable-Code-Technical-Report"><span class="nav-number">3.</span> <span class="nav-text">Stable Code Technical Report</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#evaluating-text-to-visual-generation-with-image-to-text-generation"><span class="nav-number">1.</span> <span class="nav-text">Evaluating Text-to-Visual
+Generation with Image-to-Text Generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#injecting-new-knowledge-into-large-language-models-via-supervised-fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">INJECTING NEW KNOWLEDGE INTO
+LARGE LANGUAGE MODELS VIA SUPERVISED FINE-TUNING</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stable-code-technical-report"><span class="nav-number">3.</span> <span class="nav-text">Stable Code Technical
+Report</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -576,7 +587,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>

@@ -314,20 +314,29 @@
 
       
         <p>这周二，情况好起来了，只更新了600多篇</p>
-<h2 id="Playing-with-Transformer-at-30-FPS-via-Next-Frame-Diffusion"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01380">Playing with Transformer at 30+ FPS via Next-Frame Diffusion</a></h2>
-<p>30帧的视频生成模型，但是310M参数。作者用了block-wise causal attention的方式做生成，这样可以在block之间并行生成来加速。甚至，作者还加了投机的trick。</p>
+<h2 id="playing-with-transformer-at-30-fps-via-next-frame-diffusion"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01380">Playing with Transformer at 30+
+FPS via Next-Frame Diffusion</a></h2>
+<p>30帧的视频生成模型，但是310M参数。作者用了block-wise causal
+attention的方式做生成，这样可以在block之间并行生成来加速。甚至，作者还加了投机的trick。</p>
 <blockquote>
 <p>看起来这个市场，是不是只有30fps以上才有意义</p>
 </blockquote>
-<h2 id="Beyond-the-80-20-Rule-High-Entropy-Minority-Tokens-Drive-Effective-Reinforcement-Learning-for-LLM-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01939">Beyond the 80/20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning</a></h2>
-<p>如果大家还记得前几天的entropy mechanism，这篇qwen team的动作进一步发现：cot trace里80%的token的entropy很低，模型本来就是极大概率只说top1的词。但反而是entropy很低的那些token对结果的影响最大。从这里出发，作者尝试只在entropy很高的token里加loss，发现训出来效果更好。</p>
-<img src="../../files/images/arxiv-insights/2025-06-02-06-06/entropy.png">
-<h2 id="AgentCPM-GUI-Building-Mobile-Use-Agents-with-Reinforcement-Fine-Tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01391">AgentCPM-GUI: Building Mobile-Use Agents with Reinforcement Fine-Tuning</a></h2>
-<p>推荐一下组里的工作：一篇端测风格的GUI Agent的工作。作者在8B模型上探索了Mobile GUI Agent，训练了grounding能力，着重增强了中文APP的操作能力。</p>
+<h2 id="beyond-the-8020-rule-high-entropy-minority-tokens-drive-effective-reinforcement-learning-for-llm-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01939">Beyond the 80/20 Rule:
+High-Entropy Minority Tokens Drive Effective Reinforcement Learning for
+LLM Reasoning</a></h2>
+<p>如果大家还记得前几天的entropy mechanism，这篇qwen
+team的动作进一步发现：cot
+trace里80%的token的entropy很低，模型本来就是极大概率只说top1的词。但反而是entropy很低的那些token对结果的影响最大。从这里出发，作者尝试只在entropy很高的token里加loss，发现训出来效果更好。</p>
+<p><img src="../../files/images/arxiv-insights/2025-06-02-06-06/entropy.png"></p>
+<h2 id="agentcpm-gui-building-mobile-use-agents-with-reinforcement-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2506.01391">AgentCPM-GUI: Building
+Mobile-Use Agents with Reinforcement Fine-Tuning</a></h2>
+<p>推荐一下组里的工作：一篇端测风格的GUI
+Agent的工作。作者在8B模型上探索了Mobile GUI
+Agent，训练了grounding能力，着重增强了中文APP的操作能力。</p>
 <blockquote>
 <p>最近其实比较少看到全流程覆盖的GUI工作，准备训练数据确实是一个产研结合的问题。</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-06-02-06-06/agent-cpm.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-06-02-06-06/agent-cpm.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -427,7 +436,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Playing-with-Transformer-at-30-FPS-via-Next-Frame-Diffusion"><span class="nav-number">1.</span> <span class="nav-text">Playing with Transformer at 30+ FPS via Next-Frame Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Beyond-the-80-20-Rule-High-Entropy-Minority-Tokens-Drive-Effective-Reinforcement-Learning-for-LLM-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Beyond the 80&#x2F;20 Rule: High-Entropy Minority Tokens Drive Effective Reinforcement Learning for LLM Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AgentCPM-GUI-Building-Mobile-Use-Agents-with-Reinforcement-Fine-Tuning"><span class="nav-number">3.</span> <span class="nav-text">AgentCPM-GUI: Building Mobile-Use Agents with Reinforcement Fine-Tuning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#playing-with-transformer-at-30-fps-via-next-frame-diffusion"><span class="nav-number">1.</span> <span class="nav-text">Playing with Transformer at 30+
+FPS via Next-Frame Diffusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beyond-the-8020-rule-high-entropy-minority-tokens-drive-effective-reinforcement-learning-for-llm-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Beyond the 80&#x2F;20 Rule:
+High-Entropy Minority Tokens Drive Effective Reinforcement Learning for
+LLM Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agentcpm-gui-building-mobile-use-agents-with-reinforcement-fine-tuning"><span class="nav-number">3.</span> <span class="nav-text">AgentCPM-GUI: Building
+Mobile-Use Agents with Reinforcement Fine-Tuning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -577,7 +590,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
