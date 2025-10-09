@@ -313,70 +313,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​	今天看了个又臭又长的survey，回到老本行看个好玩的论文洗洗脑。这篇论文是人大做的，一作是个硕一的学生，看看人家w。这篇文章说的贡献是：拓展了有监督预训练到NLG生成任务中，并且击败了基线BART，同时在多个数据集达到了SOTA。</p>
-<p>​	正好前两天刚看了GPT3，这个感觉有点“碰瓷”的意思，来读一读。</p>
-<h2 id="Introduction">Introduction</h2>
+        <p>​
+今天看了个又臭又长的survey，回到老本行看个好玩的论文洗洗脑。这篇论文是人大做的，一作是个硕一的学生，看看人家w。这篇文章说的贡献是：拓展了有监督预训练到NLG生成任务中，并且击败了基线BART，同时在多个数据集达到了SOTA。</p>
+<p>​ 正好前两天刚看了GPT3，这个感觉有点“碰瓷”的意思，来读一读。</p>
+<h2 id="introduction">Introduction</h2>
 <p>主要就是表示，本文探索两个问题：</p>
 <ul>
 <li>有监督预训练如何解决NLG问题</li>
 <li>有监督预训练能不能繁华到更多任务上</li>
 </ul>
-<h2 id="有监督预训练？">有监督预训练？</h2>
-<p>大家都知道无监督预训练就是收集一些人类语料$Y = x_1,x_2,…x_N$，做一些自回归任务，比如GPT：<br>
-$$<br>
-\log P(x_1,x_2…x_N) = \log p(x0) \sum_{i=1}^N \log(x_i | x_{i-1})<br>
-$$<br>
-​	做这种马尔科夫链的自回归，然后期望随着PPL的降低，模型可以“学会怎么说话”，生成流畅的、符合人类说话习惯的语料。对于理解模型，就是可以“理解语句的含义”。</p>
-<p>​	所谓有监督预训练，就是说提前收集一些已有任务的数据集。数据集的特点是有标注，比如摘要任务是$(Y,summary)$。如果收集了大量的、来自不同预训练任务的有标注语料的话，就可以定义一种输入方式，可以把不同的语料和标注一起喂到模型里，继续进行auto-regressive的训练。</p>
-<p>​	具体到本模型MVP，就是比如 summerization：$(Y,X)$，输入是<br>
-$$<br>
-summary: \quad Y \quad[sep] \quad X<br>
-$$<br>
-其他任务也是有一些前缀。</p>
+<h2 id="有监督预训练">有监督预训练？</h2>
+<p>大家都知道无监督预训练就是收集一些人类语料<span class="math inline">\(Y =
+x_1,x_2,...x_N\)</span>，做一些自回归任务，比如GPT： <span class="math display">\[
+\log P(x_1,x_2...x_N) = \log p(x0) \sum_{i=1}^N \log(x_i | x_{i-1})
+\]</span> ​
+做这种马尔科夫链的自回归，然后期望随着PPL的降低，模型可以“学会怎么说话”，生成流畅的、符合人类说话习惯的语料。对于理解模型，就是可以“理解语句的含义”。</p>
+<p>​
+所谓有监督预训练，就是说提前收集一些已有任务的数据集。数据集的特点是有标注，比如摘要任务是<span class="math inline">\((Y,summary)\)</span>。如果收集了大量的、来自不同预训练任务的有标注语料的话，就可以定义一种输入方式，可以把不同的语料和标注一起喂到模型里，继续进行auto-regressive的训练。</p>
+<p>​ 具体到本模型MVP，就是比如 summerization：<span class="math inline">\((Y,X)\)</span>，输入是 <span class="math display">\[
+summary: \quad Y \quad[sep] \quad X
+\]</span> 其他任务也是有一些前缀。</p>
 <p>具体来说，作者归纳了4大类NLG任务，收集了一共60GB的有监督语料，对比：</p>
 <ul>
 <li>GPT用570GB无监督语料</li>
 <li>BART用了160GB无监督语料</li>
 </ul>
 <h2 id="模型结构">模型结构</h2>
-<p>​	模型结构是什么呢？作者说和BART是一样的。不仅如此，作者甚至是从BART-large初始化了权重。然后用60GB有监督语料接着训练。</p>
-<p>​	说实话，我觉得”用BART初始化“是这个有监督预训练成功的关键因素……</p>
+<p>​
+模型结构是什么呢？作者说和BART是一样的。不仅如此，作者甚至是从BART-large初始化了权重。然后用60GB有监督语料接着训练。</p>
+<p>​ 说实话，我觉得”用BART初始化“是这个有监督预训练成功的关键因素……</p>
 <h2 id="评测">评测</h2>
 <p>作者提到了两种方式：</p>
 <ul>
 <li>full tuning：就是MVP拿过来，做fine-tune</li>
-<li>Parameter-Efficient Tuning Performance：把backbone模型冻结，然后加上soft-prompt进行训练</li>
+<li>Parameter-Efficient Tuning
+Performance：把backbone模型冻结，然后加上soft-prompt进行训练</li>
 </ul>
 <p>作者进行了很多任务的评测，结论是：比BART好。然后和SOTA比，也有提升。</p>
 <p>重点是作者还做了一个泛化测试：</p>
 <ul>
-<li>用训练时没见过的paraphrase、style transfer任务做测试，效果也比SOTA好。</li>
+<li>用训练时没见过的paraphrase、style
+transfer任务做测试，效果也比SOTA好。</li>
 </ul>
 <h2 id="我的评价">我的评价</h2>
 <ul>
-<li>
-<p>我在想一个问题：他找的60GB有监督语料里面有没有后面测试用的数据集呢？</p>
+<li>我在想一个问题：他找的60GB有监督语料里面有没有后面测试用的数据集呢？
 <ul>
 <li>作者说跳过了一些训练任务，专门来评测。但据我所知，很多生成任务的数据集构建都是取材于别的生成任务，也就是说：即使没有标签重合，但很可能有数据重合</li>
 <li>好吧无监督预训练也被喷这个事……不追究这个了</li>
-</ul>
-</li>
-<li>
-<p>比BART是不是显而易见的？</p>
+</ul></li>
+<li>比BART是不是显而易见的？
 <ul>
 <li>用BART参数初始化，当然得被BART好了…不然不是负优化</li>
 <li>最后战胜SOTA是很好，但这个是”有监督预训练“的功效吗？我感觉这个方法更像是”大号的fine-tune“</li>
-</ul>
-</li>
-<li>
-<p>不过本篇工作有一个很重要的点：<strong>大规模的搞数据集上的auto-regressive也是有用的</strong>。之前的fine-tune都是对输出算loss，现在这个相当于把loss传播到输入也算。</p>
-</li>
-<li>
-<p>泛化性能为什么也有提升？感觉这个是后面探索空间最大的一个点。我个人观点：</p>
+</ul></li>
+<li>不过本篇工作有一个很重要的点：<strong>大规模的搞数据集上的auto-regressive也是有用的</strong>。之前的fine-tune都是对输出算loss，现在这个相当于把loss传播到输入也算。</li>
+<li>泛化性能为什么也有提升？感觉这个是后面探索空间最大的一个点。我个人观点：
 <ul>
 <li>用”超越SOTA“作为”泛化性能强“是否有点不公平。对别的模型来说所有任务都是”泛化“。我觉得更合理的s实验是”新任务中MVP战胜SOTA的幅度和老任务一样“</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 
     </div>
@@ -388,7 +383,7 @@ $$<br>
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/f992cb6b.html" rel="bookmark">论文阅读[精读]-Manyshot-ICL: 在context中重现传统AI的可能性</a></div>
@@ -489,7 +484,7 @@ $$<br>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E9%A2%84%E8%AE%AD%E7%BB%83%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">有监督预训练？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">4.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E8%AF%84%E4%BB%B7"><span class="nav-number">5.</span> <span class="nav-text">我的评价</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%89%E7%9B%91%E7%9D%A3%E9%A2%84%E8%AE%AD%E7%BB%83"><span class="nav-number">2.</span> <span class="nav-text">有监督预训练？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="nav-number">3.</span> <span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">4.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E8%AF%84%E4%BB%B7"><span class="nav-number">5.</span> <span class="nav-text">我的评价</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -504,7 +499,7 @@ $$<br>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -547,6 +542,10 @@ $$<br>
       
       
         <li class="recent_posts_li">
+          <a href="/f3cd83f0" title="2025-10-07-insights" target="_blank">2025-10-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1c0fe8ce" title="2025-10-06-insights" target="_blank">2025-10-06-insights</a>
         </li>
       
@@ -580,10 +579,6 @@ $$<br>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
         </li>
       
     </ul>
@@ -639,12 +634,12 @@ $$<br>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>

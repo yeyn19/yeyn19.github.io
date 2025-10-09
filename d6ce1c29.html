@@ -313,12 +313,20 @@
 
       
         <p>最近把读过的所有论文重新整理分类了一遍，在o1出来以后，之前prompt、reasoning、prm、sefl-training这些工作看起来得按照新的逻辑去分类了</p>
-<h2 id="Optimizing-Latent-Goal-by-Learning-from-Trajectory-Preference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.02125"><strong>Optimizing Latent Goal by Learning from Trajectory Preference</strong></a></h2>
-<p>一篇Minecraft agent的工作，作者提了有趣的观点：很多时候任务做不好，不是因为policy不够好，而是因为没有理解instruction的内容。换句话说，用prompt tuning的方法就能提分。作者想到，能不能解耦开policy和instruction embedding呢？有一个专门的instruction following层可以把自然语言instruction翻译成instruction embedding，再去执行embedding。微调时只tune前面那个层。发现在下游任务上，和全参数微调效果差不多</p>
+<h2 id="optimizing-latent-goal-by-learning-from-trajectory-preference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2412.02125"><strong>Optimizing Latent Goal
+by Learning from Trajectory Preference</strong></a></h2>
+<p>一篇Minecraft
+agent的工作，作者提了有趣的观点：很多时候任务做不好，不是因为policy不够好，而是因为没有理解instruction的内容。换句话说，用prompt
+tuning的方法就能提分。作者想到，能不能解耦开policy和instruction
+embedding呢？有一个专门的instruction
+following层可以把自然语言instruction翻译成instruction
+embedding，再去执行embedding。微调时只tune前面那个层。发现在下游任务上，和全参数微调效果差不多</p>
 <blockquote>
-<p>作者这个建模方式是把他理解成单轮，其实我感觉是不是可以把这个建模成多轮，在agent执行任务前可以用一个小对话组织整个instruction，这样模型有权利自己问一些问题给用户。这个领域，之前有一篇叫star-gate（STaR-GATE: Teaching Language Models to Ask Clarifying Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
+<p>作者这个建模方式是把他理解成单轮，其实我感觉是不是可以把这个建模成多轮，在agent执行任务前可以用一个小对话组织整个instruction，这样模型有权利自己问一些问题给用户。这个领域，之前有一篇叫star-gate（STaR-GATE:
+Teaching Language Models to Ask Clarifying
+Questions）的工作，我一直挺喜欢的……好像没啥人follow</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2024-12-02-12-06/latent-goal.png">
+<p><img src="../../files/images/arxiv-insights/2024-12-02-12-06/latent-goal.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -335,13 +343,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f3cd83f0.html" rel="bookmark">2025-10-07-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/1c0fe8ce.html" rel="bookmark">2025-10-06-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/fa26238a.html" rel="bookmark">2025-10-03-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/15e448b4.html" rel="bookmark">2025-10-02-insights</a></div>
     </li>
   </ul>
 
@@ -418,7 +426,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Optimizing-Latent-Goal-by-Learning-from-Trajectory-Preference"><span class="nav-number">1.</span> <span class="nav-text">Optimizing Latent Goal by Learning from Trajectory Preference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#optimizing-latent-goal-by-learning-from-trajectory-preference"><span class="nav-number">1.</span> <span class="nav-text">Optimizing Latent Goal
+by Learning from Trajectory Preference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -476,6 +485,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/f3cd83f0" title="2025-10-07-insights" target="_blank">2025-10-07-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/1c0fe8ce" title="2025-10-06-insights" target="_blank">2025-10-06-insights</a>
         </li>
       
@@ -509,10 +522,6 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
         </li>
       
     </ul>
@@ -568,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">311k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>
