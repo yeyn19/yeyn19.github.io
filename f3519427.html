@@ -318,8 +318,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>​
-这是我读的第一篇深度学习编译方向的论文，是一篇survey工作。由于是第一篇，那基本上就得逐字逐句慢慢看了，又因为是survey，那二三十页是跑不了了。因此我为了加深印象，干脆就同步更新一下笔记，就当做”把论文翻成中文“了。</p>
+        <p>​	这是我读的第一篇深度学习编译方向的论文，是一篇survey工作。由于是第一篇，那基本上就得逐字逐句慢慢看了，又因为是survey，那二三十页是跑不了了。因此我为了加深印象，干脆就同步更新一下笔记，就当做”把论文翻成中文“了。</p>
 <h2 id="摘要">摘要</h2>
 <ul>
 <li>学术界提出了XLA, TVM等深度学习编译技术</li>
@@ -328,7 +327,7 @@
 <li>提出了对这些技术的作者的点评，未来的改进方向</li>
 <li>这是第一篇深度学习编译优化的综述文章</li>
 </ul>
-<h2 id="introduction">Introduction</h2>
+<h2 id="Introduction">Introduction</h2>
 <p>DL硬件分类：</p>
 <ul>
 <li>软硬件联合设计的 general-prupose 硬件
@@ -336,134 +335,141 @@
 <li>线性代数库BLAS支持DL运算</li>
 <li>还有MKL-DNN，cuDNN等专门的加速库</li>
 <li>还有TensorRT等加速库</li>
-</ul></li>
+</ul>
+</li>
 <li>专为DL设计的硬件
 <ul>
 <li>类似的加速库</li>
-</ul></li>
+</ul>
+</li>
 <li>从生物脑科学获得灵感的神经元硬件</li>
 </ul>
 <p>库的更新经常赶不上硬件更新的速度，因此很难利用好DL硬件的算力</p>
 <p>DL编译器</p>
 <ul>
-<li><p>优化 模型定义-&gt; 实现代码 这一过程</p></li>
-<li><p>算子合并、层合并等方法</p></li>
-<li><p>是层次性的。</p></li>
+<li>
+<p>优化 模型定义-&gt; 实现代码 这一过程</p>
+</li>
+<li>
+<p>算子合并、层合并等方法</p>
+</li>
+<li>
+<p>是层次性的。</p>
+</li>
 </ul>
 <p>本篇工作的贡献：</p>
 <ul>
 <li>归纳了前端、多层IR、后端级别的优化方法</li>
 <li>分裂归纳了已有的DL编译器</li>
 <li>定量对比了不同编译器在CNN的效率提升（end-to-end和单层粒度下）</li>
-<li>提出了DL编译器的未来方向： dynamic shape and pre-/post-processing,
-advanced auto-tuning, polyhedral model, subgraph partitioning,
-quantization, unified optimizations, differentiable programming and
-privacy protection</li>
+<li>提出了DL编译器的未来方向： dynamic shape and pre-/post-processing, advanced auto-tuning, polyhedral model, subgraph partitioning, quantization, unified optimizations, differentiable programming and privacy protection</li>
 </ul>
-<h2 id="background">Background</h2>
-<p><img src="../files/images/DL_compiler_survey/framework.png"></p>
-<h3 id="dl框架对比">DL框架对比</h3>
+<h2 id="Background">Background</h2>
+<img src="../files/images/DL_compiler_survey/framework.png">
+<h3 id="DL框架对比">DL框架对比</h3>
 <ul>
-<li>tensorflow：其他语言支持最广泛：C ++, Python, Java, Go, R, and
-Haskell。TensorFlow
-Lite为Android设计。Keria作为tensorflow的前端。eager-mode类似pytorch的动态计算图</li>
+<li>tensorflow：其他语言支持最广泛：C ++, Python, Java, Go, R, and Haskell。TensorFlow Lite为Android设计。Keria作为tensorflow的前端。eager-mode类似pytorch的动态计算图</li>
 <li>keria：高层神经网络库，快速构建model。兼容scikit-learn等库。由于过度封装，增加算子、获取底层信息很难。</li>
-<li>Pytorch：动态框架，按行执行。合并了Caffe2。FastAI
-是pytorch的高层封装，借鉴了keria。</li>
+<li>Pytorch：动态框架，按行执行。合并了Caffe2。FastAI 是pytorch的高层封装，借鉴了keria。</li>
 <li>Caffe/Caffe2,MXNet,CNTK,PaddlePaddle略过</li>
 <li>ONNX：别的框架模型可以转换成ONNX模型，以便于交互（使用pytorchAPI）。</li>
 </ul>
 <h3 id="深度学习硬件">深度学习硬件</h3>
 <ul>
-<li>General-purpose
-Hardware：类似NVIDIA-GPU。同时上层有cuDNN等支持，软硬件联合开发。</li>
-<li>Dedicated Hardware：A100，cloud service provider（google TPU）等等
+<li>
+<p>General-purpose Hardware：类似NVIDIA-GPU。同时上层有cuDNN等支持，软硬件联合开发。</p>
+</li>
+<li>
+<p>Dedicated Hardware：A100，cloud service provider（google TPU）等等</p>
 <ul>
 <li>TPU包含：
 <ul>
 <li>Matrix Multiplier Unit (MXU),</li>
 <li>Unified Buffer (UB),</li>
 <li>and Activation Unit (AU)</li>
-</ul></li>
+</ul>
+</li>
 <li>TPU由host硬件 进行CISC指令集的驱动</li>
 <li>TPU可以直接把矩阵视为单元，而不是vector或者标量集</li>
-</ul></li>
-<li>Neuromorphic Hardware：IBM’s TrueNorth and Intel’s Loihi.
+</ul>
+</li>
+<li>
+<p>Neuromorphic Hardware：IBM’s TrueNorth and Intel’s Loihi.</p>
 <ul>
 <li>神经元可以同时存储和处理数据，存储区和运算区在一起，没有专门存储区。</li>
 <li>距离大规模应用很遥远</li>
 <li>探索rapid, life-long learning。</li>
-</ul></li>
 </ul>
-<h3 id="fpga">FPGA</h3>
+</li>
+</ul>
+<h3 id="FPGA">FPGA</h3>
 <p>cpu/gpu泛用性强，但是费电；AISC省电，但是转为某任务设计。编程FPGA是一个折中，把模型部署在FPGA上。</p>
-<p>High-Level Synthesis (HLS) programming
-model帮助用户编辑FPGA，不用写很多verilog。</p>
+<p>High-Level Synthesis (HLS) programming model帮助用户编辑FPGA，不用写很多verilog。</p>
 <p>FGPA应用的问题：</p>
 <ul>
 <li>AI模型用框架描述，而不是c/c++</li>
 <li>DL特有的优化方式很难推广到FPGA</li>
 </ul>
-<p>hardware-specific code
-generator：输入DL模型，输出HLS/verilog/VHDL代码，再编译成bitstream烧录:</p>
+<p>hardware-specific code generator：输入DL模型，输出HLS/verilog/VHDL代码，再编译成bitstream烧录:</p>
 <ul>
 <li>The processor architecture:目标FPGA和正常处理器类似。</li>
-<li>The streaming
-architecture：目标FPGA是个流水线。快，瓶颈是FPGA内的memory不够</li>
+<li>The streaming architecture：目标FPGA是个流水线。快，瓶颈是FPGA内的memory不够</li>
 </ul>
-<h3 id="dl编译器结构">DL编译器结构</h3>
-<p><img src="../files/images/DL_compiler_survey/compiler_architecture.png"></p>
-<p>正常编译器分为前端和后端。中间由IR联系起来，IR分为多个层次(multi-level
-IR)。</p>
+<h3 id="DL编译器结构">DL编译器结构</h3>
+<img src="../files/images/DL_compiler_survey/compiler_architecture.png">
+<p>正常编译器分为前端和后端。中间由IR联系起来，IR分为多个层次(multi-level IR)。</p>
 <p>前端基于高层IR做硬件无关的优化；后端基于低层IR，做硬件专有的优化、代码生成、编译。</p>
 <ul>
-<li><p>High-level IR:
-定义计算和控制流，硬件无关。目标是得到程序的控制流和数据依赖性，提供图级别的优化。</p></li>
-<li><p>Low-level IR:足够细粒度。需要支持后端的第三方工具链。</p></li>
-<li><p>前端： 从node-level，block-level, dataflow-level优化模型，生成
-graph-IR.</p></li>
-<li><p>后端：输入high-level IR,输出 low-level IR。 可以直接把high-level
-IR转成LLVM
-IR等第三方工具链支持输入做优化，也可以通过已有的硬件结构、模型结构做自己的特殊优化</p></li>
+<li>
+<p>High-level IR: 定义计算和控制流，硬件无关。目标是得到程序的控制流和数据依赖性，提供图级别的优化。</p>
+</li>
+<li>
+<p>Low-level IR:足够细粒度。需要支持后端的第三方工具链。</p>
+</li>
+<li>
+<p>前端： 从node-level，block-level, dataflow-level优化模型，生成 graph-IR.</p>
+</li>
+<li>
+<p>后端：输入high-level IR,输出 low-level IR。 可以直接把high-level IR转成LLVM IR等第三方工具链支持输入做优化，也可以通过已有的硬件结构、模型结构做自己的特殊优化</p>
+</li>
 </ul>
-<h2 id="dl编译器的关键因素">DL编译器的关键因素</h2>
-<h3 id="high-level-ir">High-level IR</h3>
-<h4 id="high-level-ir计算图的表示">High-level IR计算图的表示</h4>
+<h2 id="DL编译器的关键因素">DL编译器的关键因素</h2>
+<h3 id="High-level-IR">High-level IR</h3>
+<h4 id="High-level-IR计算图的表示">High-level IR计算图的表示</h4>
 <p>图的表示法不同，优化方向也不同：</p>
 <ul>
 <li>DAG图：有向无环图，点表示算子，边表示tensor。可以快速分析数据依赖。优点是方便优化，缺点是图上的节点、边语义不明确</li>
-<li>Let-binding-based
-IR：对每一个变量”let“建立节点，语义明确。它对每一个let都算结果，建立一个map。每个表示通过查表找到结果</li>
+<li>Let-binding-based IR：对每一个变量”let“建立节点，语义明确。它对每一个let都算结果，建立一个map。每个表示通过查表找到结果</li>
 </ul>
 <p>TVM等方法借鉴两种表示，博才两家之长。</p>
 <p>tensor计算的表示法：</p>
 <ul>
-<li>Function-based：Glow, nGraph and
-XLA采用，提供一些封装的算子。tensor计算视为一种函数</li>
-<li>lambda expression:
-用lambda函数表达，不需要声明新函数。TVM采用此方法，需要先计算输出的形状。</li>
-<li>Einstein
-notation：比lambda表达式更简单。算子需要相关联，可交换，方便并行化。</li>
+<li>Function-based：Glow, nGraph and XLA采用，提供一些封装的算子。tensor计算视为一种函数</li>
+<li>lambda expression: 用lambda函数表达，不需要声明新函数。TVM采用此方法，需要先计算输出的形状。</li>
+<li>Einstein notation：比lambda表达式更简单。算子需要相关联，可交换，方便并行化。</li>
 </ul>
-<h4 id="graph-ir-的实现">Graph-IR 的实现</h4>
+<h4 id="Graph-IR-的实现">Graph-IR 的实现</h4>
 <p>数据(tensor)的表示:</p>
 <ul>
-<li><p>Placeholder:标记tensor的shape，有这个就有shape。</p></li>
-<li><p>Unknown (Dynamic) shape
-representation：允许某一维的大小未知</p></li>
-<li><p>Data layout：逻辑地址到内存分片的映射。</p>
+<li>
+<p>Placeholder:标记tensor的shape，有这个就有shape。</p>
+</li>
+<li>
+<p>Unknown (Dynamic) shape representation：允许某一维的大小未知</p>
+</li>
+<li>
+<p>Data layout：逻辑地址到内存分片的映射。</p>
 <ul>
-<li>TVM and Glow把获取data
-layer作为一个专门的算子，这样不需要专门实现这个方法，更方便优化。</li>
+<li>TVM and Glow把获取data layer作为一个专门的算子，这样不需要专门实现这个方法，更方便优化。</li>
 <li>XLA把这个视为后端硬件的一个约束</li>
 <li>Relay and MLIR要求tensor在type中描述layout</li>
-</ul></li>
-<li><p>Bound
-inference：推断迭代器的上下界。TVM中iterator建立一个dag图，点代表迭代器，边代表运算。根节点的shapes
-of placeholders被确定，就能递归处理。</p></li>
 </ul>
-<p>graph-IR需要支持很多算子：代数算子、tensor算子、control
-flow算子。举例子：</p>
+</li>
+<li>
+<p>Bound inference：推断迭代器的上下界。TVM中iterator建立一个dag图，点代表迭代器，边代表运算。根节点的shapes of placeholders被确定，就能递归处理。</p>
+</li>
+</ul>
+<p>graph-IR需要支持很多算子：代数算子、tensor算子、control flow算子。举例子：</p>
 <ul>
 <li>broadcast：放宽一般算子对形状的依赖性。</li>
 <li>control flow:if或者while</li>
@@ -472,141 +478,149 @@ flow算子。举例子：</p>
 <ul>
 <li>Glow中定义算符需要实现多层的封装</li>
 <li>TVM、TC只需实现一个implementation</li>
-</ul></li>
 </ul>
-<p>不同编译器有不同的 graph-IR
-实现，但有一定的相似之处。需要注意，graph-IR一定要是硬件无关的。</p>
-<h3 id="low-level-ir">Low-level IR</h3>
+</li>
+</ul>
+<p>不同编译器有不同的 graph-IR 实现，但有一定的相似之处。需要注意，graph-IR一定要是硬件无关的。</p>
+<h3 id="Low-level-IR">Low-level IR</h3>
 <h4 id="实现">实现</h4>
 <p>不同的实现</p>
 <ul>
-<li>Halide-based
-IR：设计哲学是计算和规划分离。可以试多种规划，选一个最好的。原始方法需要形状确定，TVM改进了它：
+<li>Halide-based IR：设计哲学是计算和规划分离。可以试多种规划，选一个最好的。原始方法需要形状确定，TVM改进了它：
 <ul>
 <li>取消LLVM的依赖</li>
 <li>重构project module</li>
 <li>提高复用性，方便自定义算子</li>
 <li>保证每个变量只有一个定义位置</li>
-</ul></li>
-<li>Polyhedral-based
-IR：视为多面体。loop的大小更加灵活，方便采用polyhedral
-transformations优化方法。有多种优化器：isl,Omega,PIP,Polylib,PPL</li>
+</ul>
+</li>
+<li>Polyhedral-based IR：视为多面体。loop的大小更加灵活，方便采用polyhedral transformations优化方法。有多种优化器：isl,Omega,PIP,Polylib,PPL</li>
 <li>Other unique IR: 他们用一些自定义的优化方法，然后编译成LLVM IR
 <ul>
-<li>GLOW：包含declare和program两种操作。用@in,<span class="citation" data-cites="out">@out</span>,<span class="citation" data-cites="inout帮助分析内存优化的时机">@inout帮助分析内存优化的时机</span></li>
-<li>MLIR：受到LLVM影响。用dialect提供对别的IR的抽象，包含：TensorFlow
-IR, XLA HLO IR, experimental polyhedral IR, LLVM IR, TensorFlow Lite。
-自定义dialect很简单，方便开发者适配新硬件。</li>
-<li>HLO IR of XLA：同时是high/low-level
-IR。足够细粒度，提供硬件级的优化，生成 LLVM IR</li>
-</ul></li>
+<li>GLOW：包含declare和program两种操作。用@in,@out,@inout帮助分析内存优化的时机</li>
+<li>MLIR：受到LLVM影响。用dialect提供对别的IR的抽象，包含：TensorFlow IR, XLA HLO IR, experimental polyhedral IR, LLVM IR, TensorFlow Lite。 自定义dialect很简单，方便开发者适配新硬件。</li>
+<li>HLO IR of XLA：同时是high/low-level IR。足够细粒度，提供硬件级的优化，生成 LLVM IR</li>
+</ul>
+</li>
 </ul>
 <h4 id="代码生成">代码生成</h4>
-<p>绝大多数都是生成LLVM
-IR，接下来通过LLVM进行多种优化。需要提供几种优化：</p>
+<p>绝大多数都是生成LLVM IR，接下来通过LLVM进行多种优化。需要提供几种优化：</p>
 <ul>
 <li>循环转换</li>
 <li>提供目标硬件的额外信息</li>
 </ul>
 <h3 id="前端的优化">前端的优化</h3>
 <p>前端进行计算图的优化，和硬件实现无关。前端的优化称为pass，通过多次遍历图，每轮进行不同的操作。一旦模型被import、转换成graph，前端可以获取各个地方的shape。</p>
-<h4 id="node-level-optimizations">Node-level optimizations</h4>
+<h4 id="Node-level-optimizations">Node-level optimizations</h4>
 <ul>
 <li>消除不必要的节点：比如sum（1,0），Nop Elimination</li>
-<li>Zero-dim-tensor
-elimination：消除0维向量，或者消除某个维度为0的向量</li>
+<li>Zero-dim-tensor elimination：消除0维向量，或者消除某个维度为0的向量</li>
 </ul>
-<h4 id="block-level-optimizations">Block-level optimizations</h4>
+<h4 id="Block-level-optimizations">Block-level optimizations</h4>
 <ul>
-<li>消除单位运算+0,<span class="math inline">\(*1\)</span></li>
+<li>消除单位运算+0,$*1$</li>
 <li>用简单运算符替代复杂运算符</li>
 <li>预计算常数</li>
 </ul>
 <p>DL运算符也可以优化，比如：</p>
 <ul>
-<li><p>optimization of computation order：<span class="math inline">\(A^T B^T = (BA)^T\)</span></p></li>
-<li><p>optimization of node
-combination:比如把多个transpose消成一个</p></li>
-<li><p>optimization of ReduceMean nodes:用AVGPool代替ReduceMean</p></li>
-<li><p>Operator
-fusion：算子合并。难点是如何合并包含多个reshape,boardcast,reduce等节点的算子。</p></li>
-<li><p>Operator sink：消除可以消除的节点</p></li>
+<li>
+<p>optimization of computation order：$A^T B^T = (BA)^T$</p>
+</li>
+<li>
+<p>optimization of node combination:比如把多个transpose消成一个</p>
+</li>
+<li>
+<p>optimization of ReduceMean nodes:用AVGPool代替ReduceMean</p>
+</li>
+<li>
+<p>Operator fusion：算子合并。难点是如何合并包含多个reshape,boardcast,reduce等节点的算子。</p>
+</li>
+<li>
+<p>Operator sink：消除可以消除的节点</p>
+</li>
 </ul>
-<h4 id="dataflow-level-optimizations">Dataflow-level optimizations</h4>
+<h4 id="Dataflow-level-optimizations">Dataflow-level optimizations</h4>
 <ul>
-<li>Common sub-expression elimination
-(CSE)：预计算可以计算的控制流。</li>
-<li>Dead code elimination
-(DCE)：如果结果不用，就是dead，不需要存中间结果。经常在上面的优化以后出现</li>
+<li>Common sub-expression elimination (CSE)：预计算可以计算的控制流。</li>
+<li>Dead code elimination (DCE)：如果结果不用，就是dead，不需要存中间结果。经常在上面的优化以后出现</li>
 <li>Static memory planning，对于内存受限的机器很重要：
 <ul>
 <li>in-place memory sharing：复用输入和输出的memory</li>
-<li>Standard memory
-sharing：在不覆盖的情况下，复用前面用到的存储空间</li>
-</ul></li>
+<li>Standard memory sharing：在不覆盖的情况下，复用前面用到的存储空间</li>
+</ul>
+</li>
 <li>Layout transformation：
 <ul>
-<li>计算出tensor最好的存储形式，然后在计算图增加layout
-transformation节点。</li>
+<li>计算出tensor最好的存储形式，然后在计算图增加layout transformation节点。</li>
 <li>最优方式随tensor计算公式不同，硬件不同而不同</li>
 <li>速度提升明显</li>
-</ul></li>
+</ul>
+</li>
 </ul>
 <h3 id="后端的优化">后端的优化</h3>
-<h4 id="hardware-specific-optimization">Hardware-specific
-Optimization</h4>
-<p><img src="../files/images/DL_compiler_survey/hardware_optimization.png"></p>
-<p>一种方式是编译到 LLVM
-IR，另一种方式是定义自己的优化方式，用模型的信息。举5个例子：</p>
+<h4 id="Hardware-specific-Optimization">Hardware-specific Optimization</h4>
+<img src="../files/images/DL_compiler_survey/hardware_optimization.png">
+<p>一种方式是编译到 LLVM IR，另一种方式是定义自己的优化方式，用模型的信息。举5个例子：</p>
 <ul>
-<li><p>Hardware intrinsic
-mapping：编译成硬件已经优化过的一些kernel。</p></li>
-<li><p>Memory allocation and
-fetching：针对硬件上不同存储的延迟不同做优化</p></li>
-<li><p>Memory latency
-hiding：等内存延迟的时候干别的，好多硬件自己实现了，但TPU没有。TVM通过虚拟线程解决这事</p></li>
-<li><p>Loop oriented optimizations：Halide和LLVM实现过了。</p>
+<li>
+<p>Hardware intrinsic mapping：编译成硬件已经优化过的一些kernel。</p>
+</li>
+<li>
+<p>Memory allocation and fetching：针对硬件上不同存储的延迟不同做优化</p>
+</li>
+<li>
+<p>Memory latency hiding：等内存延迟的时候干别的，好多硬件自己实现了，但TPU没有。TVM通过虚拟线程解决这事</p>
+</li>
+<li>
+<p>Loop oriented optimizations：Halide和LLVM实现过了。</p>
 <ul>
 <li>Loop fusion: 把多个边界一样、没有依赖的循环放到一起</li>
 <li>Sliding windows：直到需要数据时再计算</li>
 <li>Tiling：把一个循环拆成多重循环，更好的局部性</li>
 <li>Loop reordering：重新排列循环顺序。让空间局部的循环们放在一起</li>
 <li>Loop unrolling：循环展开，更好地做指令级并行。</li>
-</ul></li>
-<li><p>Parallelization：更好的支持线程级并行等，提高硬件利用率。需要额外的、模型的知识，更难开发。</p></li>
 </ul>
-<h4 id="auto-tuning">Auto-tuning</h4>
-<p>由于各种优化很多，搜索空间很大，需要自动搜索优化方式。TVM,
-TC,XLA都支持这个。包含四个要素：</p>
+</li>
+<li>
+<p>Parallelization：更好的支持线程级并行等，提高硬件利用率。需要额外的、模型的知识，更难开发。</p>
+</li>
+</ul>
+<h4 id="Auto-tuning">Auto-tuning</h4>
+<p>由于各种优化很多，搜索空间很大，需要自动搜索优化方式。TVM, TC,XLA都支持这个。包含四个要素：</p>
 <ul>
 <li>Parameterization：搜索参数时需要知道的一些已有参数
 <ul>
 <li>Data and target：tensor的形状，GPU上各个memory的延迟、大小</li>
-<li>Optimization
-options：优化方法有什么，对应什么超参。TC，XLA支持把超参参数化，比如batch_size。</li>
-</ul></li>
+<li>Optimization options：优化方法有什么，对应什么超参。TC，XLA支持把超参参数化，比如batch_size。</li>
+</ul>
+</li>
 <li>Cost model：评价优化方法的模型
 <ul>
 <li>Black-box model：只关心运行时间，对内部情况不关心。TC采用</li>
-<li>ML-based cost model: 用ML模型衡量现在情况有多好。TVM，XLA采用</li>
-<li>Pre-defined cost model:预先定义好。搜索更快，但是定义很难，和DL
-model有关。</li>
-</ul></li>
+<li>ML-based cost model:  用ML模型衡量现在情况有多好。TVM，XLA采用</li>
+<li>Pre-defined cost model:预先定义好。搜索更快，但是定义很难，和DL model有关。</li>
+</ul>
+</li>
 <li>Searching technique：如何搜索
 <ul>
-<li>Initialization and searching space
-determination：随机/特定初始化。TVM允许用户决定搜索空间</li>
+<li>Initialization and searching space determination：随机/特定初始化。TVM允许用户决定搜索空间</li>
 <li>Genetic algorithm (GA) ：类似蚁群算法，TC采用</li>
 <li>Simulated annealing algorithm (SA)：模拟退火。TVM采用</li>
 <li>Reinforcement learning (RL): Chameleon采用（基于TVM开发）</li>
-</ul></li>
+</ul>
+</li>
 <li>Acceleration：如何加速搜索过程
 <ul>
-<li><p>Parallelization：</p></li>
-<li><p>Configuration
-reuse：复用上次的结果，如果某些局部的参数和上次一样。</p>
-<h4 id="optimized-kernel-libraries">Optimized Kernel Libraries</h4></li>
-</ul></li>
+<li>
+<p>Parallelization：</p>
+</li>
+<li>
+<p>Configuration reuse：复用上次的结果，如果某些局部的参数和上次一样。</p>
+<h4 id="Optimized-Kernel-Libraries">Optimized Kernel Libraries</h4>
+</li>
+</ul>
+</li>
 </ul>
 <p>硬件预定义好了一些快速的计算库(比如cuDNN)。后端可以调用这些库</p>
 <ul>
@@ -616,41 +630,55 @@ reuse：复用上次的结果，如果某些局部的参数和上次一样。</p
 </ul>
 <h2 id="已有编译器的分类">已有编译器的分类</h2>
 <p>通过上面已经讲过的不同方面的优化方法，可以梳理、归纳、分类一下现在比较火的DL编译器。总体结果如下图：</p>
-<p><img src="../files/images/DL_compiler_survey/分类.png"></p>
+<img src="../files/images/DL_compiler_survey/分类.png">
 <h2 id="评测">评测</h2>
 <p>这一部分评测了一下已有的一些编译器的性能，具体实验就略过了，对学习DL编译优化知识没什么帮助。</p>
 <h2 id="结论和未来方向">结论和未来方向</h2>
 <p>这一部分归纳梳理了一下DL编译未来的发展空间：</p>
 <ul>
-<li><p>Dynamic shape and pre/post processing：</p>
+<li>
+<p>Dynamic shape and pre/post processing：</p>
 <ul>
 <li>一方面类似NLP，只有运行时才能知道输入的形状。另一方面，模型结构本身可能也会变化。</li>
 <li>随着模型增大，模型的加载时间可能成为瓶颈。已有还没有触及</li>
-</ul></li>
-<li><p>Advanced
-auto-tuning：受限于时间，现有优化都是在找一些局部最优。但局部最优的组合大概率不是全局最优</p>
+</ul>
+</li>
+<li>
+<p>Advanced auto-tuning：受限于时间，现有优化都是在找一些局部最优。但局部最优的组合大概率不是全局最优</p>
 <ul>
-<li>目前ML方法还有潜力，可以考虑在auto-tuning中进一步应用，而不只是cost
-model。</li>
-</ul></li>
-<li><p>Polyhedral model：在auto-tuning中引入多面体模型</p>
+<li>目前ML方法还有潜力，可以考虑在auto-tuning中进一步应用，而不只是cost model。</li>
+</ul>
+</li>
+<li>
+<p>Polyhedral model：在auto-tuning中引入多面体模型</p>
 <ul>
 <li>可以复用之前结果</li>
 <li>可以减少搜索空间</li>
 <li>挑战是如何在稀疏情况下应用之。</li>
-</ul></li>
-<li><p>Subgraph
-partitioning：把计算图拆分成不同子图。可以把不同子图分布并行到异质的设备上。</p></li>
-<li><p>Quantization：增强量子化可以在编译时进一步提升优化的空间，挑战是：</p>
+</ul>
+</li>
+<li>
+<p>Subgraph partitioning：把计算图拆分成不同子图。可以把不同子图分布并行到异质的设备上。</p>
+</li>
+<li>
+<p>Quantization：增强量子化可以在编译时进一步提升优化的空间，挑战是：</p>
 <ul>
 <li>如何简单的增量开发</li>
 <li>量子化操作如何和其他的优化步骤交互。</li>
-</ul></li>
-<li><p>Unified
-optimizations：如何同时采用不同编译器的优化，已由编译器大多聚焦于一些方面的优化。MLIR通过dialect某种程度上可以复用不同编译器的优化。</p></li>
-<li><p>Differentiable programming：让编译器支持可微程序</p></li>
-<li><p>Privacy protection：能不能在中间输出层加噪音，保护隐私。</p></li>
-<li><p>Training support：已有编译方法专注于部署。</p></li>
+</ul>
+</li>
+<li>
+<p>Unified optimizations：如何同时采用不同编译器的优化，已由编译器大多聚焦于一些方面的优化。MLIR通过dialect某种程度上可以复用不同编译器的优化。</p>
+</li>
+<li>
+<p>Differentiable programming：让编译器支持可微程序</p>
+</li>
+<li>
+<p>Privacy protection：能不能在中间输出层加噪音，保护隐私。</p>
+</li>
+<li>
+<p>Training support：已有编译方法专注于部署。</p>
+</li>
 </ul>
 
     </div>
@@ -662,7 +690,7 @@ optimizations：如何同时采用不同编译器的优化，已由编译器大�
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/39e1c917.html" rel="bookmark">论文阅读[精读]-BOLT: BRIDGING THE GAP BETWEEN AUTO-TUNERS AND HARDWARE-NATIVE PERFORMANCE</a></div>
@@ -763,8 +791,7 @@ optimizations：如何同时采用不同编译器的优化，已由编译器大�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dl%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fpga"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#dl%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.</span> <span class="nav-text">DL编译器结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dl%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DL编译器的关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#high-level-ir"><span class="nav-number">4.1.</span> <span class="nav-text">High-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#high-level-ir%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">4.1.1.</span> <span class="nav-text">High-level IR计算图的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#graph-ir-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">Graph-IR 的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#low-level-ir"><span class="nav-number">4.2.</span> <span class="nav-text">Low-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-number">4.2.2.</span> <span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.3.</span> <span class="nav-text">前端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-level-optimizations"><span class="nav-number">4.3.1.</span> <span class="nav-text">Node-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#block-level-optimizations"><span class="nav-number">4.3.2.</span> <span class="nav-text">Block-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dataflow-level-optimizations"><span class="nav-number">4.3.3.</span> <span class="nav-text">Dataflow-level optimizations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.4.</span> <span class="nav-text">后端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hardware-specific-optimization"><span class="nav-number">4.4.1.</span> <span class="nav-text">Hardware-specific
-Optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#auto-tuning"><span class="nav-number">4.4.2.</span> <span class="nav-text">Auto-tuning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#optimized-kernel-libraries"><span class="nav-number">4.4.3.</span> <span class="nav-text">Optimized Kernel Libraries</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">已有编译器的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">6.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%92%8C%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="nav-number">7.</span> <span class="nav-text">结论和未来方向</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction"><span class="nav-number">2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">3.</span> <span class="nav-text">Background</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E6%A1%86%E6%9E%B6%E5%AF%B9%E6%AF%94"><span class="nav-number">3.1.</span> <span class="nav-text">DL框架对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E7%A1%AC%E4%BB%B6"><span class="nav-number">3.2.</span> <span class="nav-text">深度学习硬件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FPGA"><span class="nav-number">3.3.</span> <span class="nav-text">FPGA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.</span> <span class="nav-text">DL编译器结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DL%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%85%B3%E9%94%AE%E5%9B%A0%E7%B4%A0"><span class="nav-number">4.</span> <span class="nav-text">DL编译器的关键因素</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#High-level-IR"><span class="nav-number">4.1.</span> <span class="nav-text">High-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#High-level-IR%E8%AE%A1%E7%AE%97%E5%9B%BE%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="nav-number">4.1.1.</span> <span class="nav-text">High-level IR计算图的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Graph-IR-%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">Graph-IR 的实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Low-level-IR"><span class="nav-number">4.2.</span> <span class="nav-text">Low-level IR</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.2.1.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%94%9F%E6%88%90"><span class="nav-number">4.2.2.</span> <span class="nav-text">代码生成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.3.</span> <span class="nav-text">前端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Node-level-optimizations"><span class="nav-number">4.3.1.</span> <span class="nav-text">Node-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Block-level-optimizations"><span class="nav-number">4.3.2.</span> <span class="nav-text">Block-level optimizations</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dataflow-level-optimizations"><span class="nav-number">4.3.3.</span> <span class="nav-text">Dataflow-level optimizations</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">4.4.</span> <span class="nav-text">后端的优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Hardware-specific-Optimization"><span class="nav-number">4.4.1.</span> <span class="nav-text">Hardware-specific Optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-tuning"><span class="nav-number">4.4.2.</span> <span class="nav-text">Auto-tuning</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Optimized-Kernel-Libraries"><span class="nav-number">4.4.3.</span> <span class="nav-text">Optimized Kernel Libraries</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E6%9C%89%E7%BC%96%E8%AF%91%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-number">5.</span> <span class="nav-text">已有编译器的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E6%B5%8B"><span class="nav-number">6.</span> <span class="nav-text">评测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%E5%92%8C%E6%9C%AA%E6%9D%A5%E6%96%B9%E5%90%91"><span class="nav-number">7.</span> <span class="nav-text">结论和未来方向</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -914,7 +941,7 @@ Optimization</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">311k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
