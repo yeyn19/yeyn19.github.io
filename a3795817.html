@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>776</span>
+              <span>786</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,33 +314,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of
-Large Language Models via Knowledge Consistent Alignment</a></h2>
-<p>这是之前self-knowledge research
-line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
+        <h2 id="Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10768.pdf">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</a></h2>
+<p>这是之前self-knowledge research line，作者发现很多SFT时的hallicinate是因为SFT数据的知识和预训练的知识(或者说模型已学会的知识)冲突。</p>
 <p>作者想到了一个专门为模型定制数据的pipeline：</p>
 <ul>
 <li>先让turbo针对query生成知识点</li>
 <li>对于每个知识点，让turbo生成自己的理解passage</li>
 <li>让turbo根据上面的passage提问题</li>
-<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成"sorry
-message"之类的不同形式</li>
+<li>根据llama能不能达出来的情况，判断这条SFT数据的知识和固有知识是不是冲突的。进而将SFT数据处理成&quot;sorry message&quot;之类的不同形式</li>
 </ul>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/kca.png"></p>
-<h2 id="escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost:
-Early-stopping Self-Consistency for Multi-step Reasoning</a></h2>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/kca.png">
+<h2 id="Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10480.pdf">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</a></h2>
 <p>作者认为经典的self-consistency方法(CoT多次，选一个一致性最高的答案)的成本太高，有一个直觉：如果生成了一部分样本，发现已经一致性很高了，是不是就可以early-stopping呢？</p>
 <p>作者开发了一套in-batch的self-consistency，如果一个batch内sample的数据已经一致了，就早停。在下游任务上表现不错</p>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/esc.png"></p>
-<h2 id="medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference
-Acceleration Framework with Multiple Decoding Heads</a></h2>
-<p>解码加速research line，作者认为传统的投机推理需要额外的draft
-model。作者的想法是能不能让一个模型有多个decoding
-head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/esc.png">
+<h2 id="MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.10774.pdf">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</a></h2>
+<p>解码加速research line，作者认为传统的投机推理需要额外的draft model。作者的想法是能不能让一个模型有多个decoding head做并行，然后用某种方法验证一个最长接受子串，得到比投机推理更快、参数更少的办法</p>
 <blockquote>
 <p>我没完全看懂，不过看起来是很有创新的工作</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-01-22-01-26/medusa.png"></p>
+<img src="../../files/images/arxiv-insights/2024-01-22-01-26/medusa.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -357,13 +350,13 @@ head做并行，然后用某种方法验证一个最长接受子串，得到比�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d09f4749.html" rel="bookmark">2025-10-10-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ed04b343.html" rel="bookmark">2025-10-09-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2c6d87d.html" rel="bookmark">2025-10-08-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f3cd83f0.html" rel="bookmark">2025-10-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1c0fe8ce.html" rel="bookmark">2025-10-06-insights</a></div>
     </li>
   </ul>
 
@@ -440,10 +433,7 @@ head做并行，然后用某种方法验证一个最长接受子串，得到比�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mitigating-hallucinations-of-large-language-models-via-knowledge-consistent-alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of
-Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#escape-sky-high-cost-early-stopping-self-consistency-for-multi-step-reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost:
-Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#medusa-simple-llm-inference-acceleration-framework-with-multiple-decoding-heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference
-Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mitigating-Hallucinations-of-Large-Language-Models-via-Knowledge-Consistent-Alignment"><span class="nav-number">1.</span> <span class="nav-text">Mitigating Hallucinations of Large Language Models via Knowledge Consistent Alignment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Escape-Sky-high-Cost-Early-stopping-Self-Consistency-for-Multi-step-Reasoning"><span class="nav-number">2.</span> <span class="nav-text">Escape Sky-high Cost: Early-stopping Self-Consistency for Multi-step Reasoning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MEDUSA-Simple-LLM-Inference-Acceleration-Framework-with-Multiple-Decoding-Heads"><span class="nav-number">3.</span> <span class="nav-text">MEDUSA: Simple LLM Inference Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -501,19 +491,19 @@ Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/ed04b343" title="2025-10-09-insights" target="_blank">2025-10-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2c6d87d" title="2025-10-08-insights" target="_blank">2025-10-08-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/f3cd83f0" title="2025-10-07-insights" target="_blank">2025-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1c0fe8ce" title="2025-10-06-insights" target="_blank">2025-10-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -593,12 +583,12 @@ Acceleration Framework with Multiple Decoding Heads</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">307k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:39</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -316,35 +316,24 @@
 
       
         <p>今天grok3发布了，今天的别的paper会有热度吗</p>
-<h2 id="m3-a-modular-world-model-over-streams-of-tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.11537">M3: A Modular World Model over
-Streams of Tokens</a></h2>
-<p>一篇做游戏agent的工作，作者把不同的小游戏merge在一起，用一套统一的tokenize方法进行编码，最后在下游任务上发现：可以通过同一个模型，在多个任务上都达到human
-level performance</p>
-<p><img src="../../files/images/arxiv-insights/2025-02-17-02-21/m3.png" style="zoom:33%;"></p>
-<h2 id="llms-on-the-line-data-determines-loss-to-loss-scaling-laws"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.12120">LLMs on the Line: Data
-Determines Loss-to-Loss Scaling Laws</a></h2>
+<h2 id="M3-A-Modular-World-Model-over-Streams-of-Tokens"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.11537">M3: A Modular World Model over Streams of Tokens</a></h2>
+<p>一篇做游戏agent的工作，作者把不同的小游戏merge在一起，用一套统一的tokenize方法进行编码，最后在下游任务上发现：可以通过同一个模型，在多个任务上都达到human level performance</p>
+<img src="../../files/images/arxiv-insights/2025-02-17-02-21/m3.png" style="zoom:33%;">
+<h2 id="LLMs-on-the-Line-Data-Determines-Loss-to-Loss-Scaling-Laws"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.12120">LLMs on the Line: Data Determines Loss-to-Loss Scaling Laws</a></h2>
 <p>这篇文章的标题差不多把文章内容讲完了。作者测试了不同的模型结构，发现几乎不影响从一个测试集到另一个测试集的loss曲线换算。真正影响曲线换算的，只有数据。或者说，训练数据类型，决定了换算关系里99%的成分</p>
-<p><img src="../../files/images/arxiv-insights/2025-02-17-02-21/loss-to-loss.png" style="zoom:40%;"></p>
-<h2 id="explorer-scaling-exploration-driven-web-trajectory-synthesis-for-multimodal-web-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.11357">Explorer: Scaling
-Exploration-driven Web Trajectory Synthesis for Multimodal Web
-Agents</a></h2>
-<p>yu su老师的新作，是一个gui
-agent合成数据的工作，作者搞了大约10万个trace，并且记录了中间过程的各种grounding
-target，训练出来的模型效果也很不错。</p>
+<img src="../../files/images/arxiv-insights/2025-02-17-02-21/loss-to-loss.png" style="zoom:40%;">
+<h2 id="Explorer-Scaling-Exploration-driven-Web-Trajectory-Synthesis-for-Multimodal-Web-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.11357">Explorer: Scaling Exploration-driven Web Trajectory Synthesis for Multimodal Web Agents</a></h2>
+<p>yu su老师的新作，是一个gui agent合成数据的工作，作者搞了大约10万个trace，并且记录了中间过程的各种grounding target，训练出来的模型效果也很不错。</p>
 <blockquote>
-<p>最近很多靠VLM自己合成gui
-trace的工作，从agenttrek到os-genesis到前两天的Internet Scaling Training
-for Agent，会是下一个agent大增长点吗？</p>
+<p>最近很多靠VLM自己合成gui trace的工作，从agenttrek到os-genesis到前两天的Internet Scaling Training for Agent，会是下一个agent大增长点吗？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-17-02-21/Explorer.png"></p>
-<h2 id="small-models-struggle-to-learn-from-strong-reasoners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.12143">Small Models Struggle to Learn
-from Strong Reasoners</a></h2>
-<p>对于小的模型，如果使用大o1
-model的long-cot蒸馏会怎么样呢？作者发现，如果蒸馏一个3B的模型，不仅效果不会好，甚至会更差。这是因为小模型看起来没有潜质去理解更难的思考方式，反而是用短cot蒸馏，效果会更好。由此，作者试了一下短cot和长cot混合蒸馏，发现可以缓解这个问题</p>
+<img src="../../files/images/arxiv-insights/2025-02-17-02-21/Explorer.png">
+<h2 id="Small-Models-Struggle-to-Learn-from-Strong-Reasoners"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.12143">Small Models Struggle to Learn from Strong Reasoners</a></h2>
+<p>对于小的模型，如果使用大o1 model的long-cot蒸馏会怎么样呢？作者发现，如果蒸馏一个3B的模型，不仅效果不会好，甚至会更差。这是因为小模型看起来没有潜质去理解更难的思考方式，反而是用短cot蒸馏，效果会更好。由此，作者试了一下短cot和长cot混合蒸馏，发现可以缓解这个问题</p>
 <blockquote>
 <p>难道真有threshold intelligence.?</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-02-17-02-21/small_models.png"></p>
+<img src="../../files/images/arxiv-insights/2025-02-17-02-21/small_models.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -361,13 +350,13 @@ model的long-cot蒸馏会怎么样呢？作者发现，如果蒸馏一个3B的�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d09f4749.html" rel="bookmark">2025-10-10-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ed04b343.html" rel="bookmark">2025-10-09-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2c6d87d.html" rel="bookmark">2025-10-08-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f3cd83f0.html" rel="bookmark">2025-10-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1c0fe8ce.html" rel="bookmark">2025-10-06-insights</a></div>
     </li>
   </ul>
 
@@ -444,12 +433,7 @@ model的long-cot蒸馏会怎么样呢？作者发现，如果蒸馏一个3B的�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#m3-a-modular-world-model-over-streams-of-tokens"><span class="nav-number">1.</span> <span class="nav-text">M3: A Modular World Model over
-Streams of Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llms-on-the-line-data-determines-loss-to-loss-scaling-laws"><span class="nav-number">2.</span> <span class="nav-text">LLMs on the Line: Data
-Determines Loss-to-Loss Scaling Laws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#explorer-scaling-exploration-driven-web-trajectory-synthesis-for-multimodal-web-agents"><span class="nav-number">3.</span> <span class="nav-text">Explorer: Scaling
-Exploration-driven Web Trajectory Synthesis for Multimodal Web
-Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#small-models-struggle-to-learn-from-strong-reasoners"><span class="nav-number">4.</span> <span class="nav-text">Small Models Struggle to Learn
-from Strong Reasoners</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#M3-A-Modular-World-Model-over-Streams-of-Tokens"><span class="nav-number">1.</span> <span class="nav-text">M3: A Modular World Model over Streams of Tokens</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLMs-on-the-Line-Data-Determines-Loss-to-Loss-Scaling-Laws"><span class="nav-number">2.</span> <span class="nav-text">LLMs on the Line: Data Determines Loss-to-Loss Scaling Laws</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Explorer-Scaling-Exploration-driven-Web-Trajectory-Synthesis-for-Multimodal-Web-Agents"><span class="nav-number">3.</span> <span class="nav-text">Explorer: Scaling Exploration-driven Web Trajectory Synthesis for Multimodal Web Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Small-Models-Struggle-to-Learn-from-Strong-Reasoners"><span class="nav-number">4.</span> <span class="nav-text">Small Models Struggle to Learn from Strong Reasoners</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -507,19 +491,19 @@ from Strong Reasoners</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/ed04b343" title="2025-10-09-insights" target="_blank">2025-10-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2c6d87d" title="2025-10-08-insights" target="_blank">2025-10-08-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/f3cd83f0" title="2025-10-07-insights" target="_blank">2025-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1c0fe8ce" title="2025-10-06-insights" target="_blank">2025-10-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -599,12 +583,12 @@ from Strong Reasoners</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">307k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:39</span>
 </div>
 
 <i class="fa fa-user-md"></i>

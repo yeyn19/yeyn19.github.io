@@ -313,37 +313,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="flash-searcher-fast-and-effective-web-agents-via-dag-based-parallel-execution"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.25301">Flash-Searcher: Fast and
-Effective Web Agents via DAG-Based Parallel Execution</a></h2>
-<p>oppo的工作，之前他们做了一大堆agent评测工作，今天出了个method。作者提了一个叫做dag-parallel的概念，通过让search
-agent在运行时变成multi
-agent，区分不同role，每个人来做自己的子任务这种形式，来把browsecomp刷到了70分</p>
+        <h2 id="Flash-Searcher-Fast-and-Effective-Web-Agents-via-DAG-Based-Parallel-Execution"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.25301">Flash-Searcher: Fast and Effective Web Agents via DAG-Based Parallel Execution</a></h2>
+<p>oppo的工作，之前他们做了一大堆agent评测工作，今天出了个method。作者提了一个叫做dag-parallel的概念，通过让search agent在运行时变成multi agent，区分不同role，每个人来做自己的子任务这种形式，来把browsecomp刷到了70分</p>
 <blockquote>
 <p>agent framework加一分，native agent也得发力了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/flash-searcher.png"></p>
-<h2 id="where-llm-agents-fail-and-how-they-can-learn-from-failures"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.25370"><strong>Where LLM Agents Fail
-and How They can Learn From Failures</strong></a></h2>
-<p>这篇文章研究的问题很基础，但是我很喜欢他们的发力点。作者发现，目前世界上有很多agent
-benchmark，能测分数，但是不太好看出来模型为什么会失败，每次都要肉眼看数据。而且其实很多agent的错误，都是早期的某个小的“root
-cause”累积出来的</p>
-<p>作者通过看了很多traj给failure
-mode做了一个分类，然后做了一个新benchmark，里面包含了人工标注的各种模型的failure
-traj以及原因。最后作者发现，如果对policy
-agent给出犯错原因，而不只是对错的feedback，agent可以立即把很大程度的错误修改掉</p>
+<img src="../../files/images/arxiv-insights/2025-09-29-10-03/flash-searcher.png">
+<h2 id="Where-LLM-Agents-Fail-and-How-They-can-Learn-From-Failures"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.25370"><strong>Where LLM Agents Fail and How They can Learn From Failures</strong></a></h2>
+<p>这篇文章研究的问题很基础，但是我很喜欢他们的发力点。作者发现，目前世界上有很多agent benchmark，能测分数，但是不太好看出来模型为什么会失败，每次都要肉眼看数据。而且其实很多agent的错误，都是早期的某个小的“root cause”累积出来的</p>
+<p>作者通过看了很多traj给failure mode做了一个分类，然后做了一个新benchmark，里面包含了人工标注的各种模型的failure traj以及原因。最后作者发现，如果对policy agent给出犯错原因，而不只是对错的feedback，agent可以立即把很大程度的错误修改掉</p>
 <blockquote>
 <p>其实如果用这种data-centric的眼光审视任何一个benchmark，都能很快刷上去。</p>
 </blockquote>
-<h2 id="scuba-salesforce-computer-use-benchmark"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.26506">SCUBA: Salesforce Computer Use
-Benchmark</a></h2>
-<p>在OSWorld之后，其实也出了不少osworld-like
-benchmark：考验cua的某个方面，给了func-verifier，几百题这个规模。但今天saleforce的这篇确实算是质量高的，作者瞄准的是enterprise-task，可以func-verifier。还有个叫做demonstration-augmented
-setting，让模型先看人类的演示再做题（在这个情况下，一般模型水平会提升50%左右）。</p>
+<h2 id="SCUBA-Salesforce-Computer-Use-Benchmark"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.26506">SCUBA: Salesforce Computer Use Benchmark</a></h2>
+<p>在OSWorld之后，其实也出了不少osworld-like benchmark：考验cua的某个方面，给了func-verifier，几百题这个规模。但今天saleforce的这篇确实算是质量高的，作者瞄准的是enterprise-task，可以func-verifier。还有个叫做demonstration-augmented setting，让模型先看人类的演示再做题（在这个情况下，一般模型水平会提升50%左右）。</p>
 <blockquote>
 <p>这个角度有点像前几天openai的GDPval了，在benchmark上先做到最专业，再看模型能力。想要让（cu）agent做到真实世界服务，可能确实得这么干</p>
-<p>另外现在gaia出2了，swebench出pro了...现在osworld刷到60分了，大家都期待osworld2什么时候出，结果出了个osworld-verified</p>
+<p>另外现在gaia出2了，swebench出pro了…现在osworld刷到60分了，大家都期待osworld2什么时候出，结果出了个osworld-verified</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/scuba.png"></p>
+<img src="../../files/images/arxiv-insights/2025-09-29-10-03/scuba.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -360,13 +348,13 @@ setting，让模型先看人类的演示再做题（在这个情况下，一般�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/d09f4749.html" rel="bookmark">2025-10-10-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/ed04b343.html" rel="bookmark">2025-10-09-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2c6d87d.html" rel="bookmark">2025-10-08-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/f3cd83f0.html" rel="bookmark">2025-10-07-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/1c0fe8ce.html" rel="bookmark">2025-10-06-insights</a></div>
     </li>
   </ul>
 
@@ -443,10 +431,7 @@ setting，让模型先看人类的演示再做题（在这个情况下，一般�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#flash-searcher-fast-and-effective-web-agents-via-dag-based-parallel-execution"><span class="nav-number">1.</span> <span class="nav-text">Flash-Searcher: Fast and
-Effective Web Agents via DAG-Based Parallel Execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#where-llm-agents-fail-and-how-they-can-learn-from-failures"><span class="nav-number">2.</span> <span class="nav-text">Where LLM Agents Fail
-and How They can Learn From Failures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scuba-salesforce-computer-use-benchmark"><span class="nav-number">3.</span> <span class="nav-text">SCUBA: Salesforce Computer Use
-Benchmark</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Flash-Searcher-Fast-and-Effective-Web-Agents-via-DAG-Based-Parallel-Execution"><span class="nav-number">1.</span> <span class="nav-text">Flash-Searcher: Fast and Effective Web Agents via DAG-Based Parallel Execution</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Where-LLM-Agents-Fail-and-How-They-can-Learn-From-Failures"><span class="nav-number">2.</span> <span class="nav-text">Where LLM Agents Fail and How They can Learn From Failures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SCUBA-Salesforce-Computer-Use-Benchmark"><span class="nav-number">3.</span> <span class="nav-text">SCUBA: Salesforce Computer Use Benchmark</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -504,19 +489,19 @@ Benchmark</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/ed04b343" title="2025-10-09-insights" target="_blank">2025-10-09-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/2c6d87d" title="2025-10-08-insights" target="_blank">2025-10-08-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/f3cd83f0" title="2025-10-07-insights" target="_blank">2025-10-07-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/1c0fe8ce" title="2025-10-06-insights" target="_blank">2025-10-06-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/fa26238a" title="2025-10-03-insights" target="_blank">2025-10-03-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -596,12 +581,12 @@ Benchmark</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">307k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:39</span>
 </div>
 
 <i class="fa fa-user-md"></i>
