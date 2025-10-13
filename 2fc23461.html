@@ -313,17 +313,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02406.pdf">Efficient Online Data Mixing For Language Model Pre-Training</a></h2>
-<p>预训练数据的选择对模型的最终表现至关重要。有些Active Learning的方法去选择下一个训练数据，但这样的方法效率太低了。另一类方案是自动选择dataset各个subset的比例，这里的优势在于只用选择有限个cluster的比例，因此效率很高。</p>
+        <h2 id="efficient-online-data-mixing-for-language-model-pre-training"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02406.pdf">Efficient Online Data Mixing
+For Language Model Pre-Training</a></h2>
+<p>预训练数据的选择对模型的最终表现至关重要。有些Active
+Learning的方法去选择下一个训练数据，但这样的方法效率太低了。另一类方案是自动选择dataset各个subset的比例，这里的优势在于只用选择有限个cluster的比例，因此效率很高。</p>
 <p>作者提到，目前的sbuset选择方案需要预先选择好再开始训练，不能处理模型的动态能力提升。作者想到了一种online的方式，可以根据训练情况动态选择各个subset的比例，比之前的SOTA算法DeReMi效率和效果好。</p>
-<img src="../../files/images/arxiv-insights/2023-12-04-12-08/ODM.png">
-<h2 id="Prompt-Optimization-via-Adversarial-In-Context-Learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02614.pdf">Prompt Optimization via Adversarial In-Context Learning</a></h2>
-<p>作者提出了一套对抗的Automatic Prompt enginnering框架。用一个generator和一个discriminator相互对抗：每轮generator生成一批数据，discriminator说对不对。然后另外有一个prompt modifier根据discriminator的分辨情况分别去修改两者增强的prompt。</p>
+<p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/ODM.png"></p>
+<h2 id="prompt-optimization-via-adversarial-in-context-learning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02614.pdf">Prompt Optimization via
+Adversarial In-Context Learning</a></h2>
+<p>作者提出了一套对抗的Automatic Prompt
+enginnering框架。用一个generator和一个discriminator相互对抗：每轮generator生成一批数据，discriminator说对不对。然后另外有一个prompt
+modifier根据discriminator的分辨情况分别去修改两者增强的prompt。</p>
 <p>经过这种对抗攻击，作者提到在很多下游任务上可以自动搜索出表现很好的prompt。</p>
-<img src="../../files/images/arxiv-insights/2023-12-04-12-08/advICL.png">
-<h2 id="Training-Chain-of-Thought-via-Latent-Variable-Inference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02179.pdf">Training Chain-of-Thought via Latent-Variable Inference</a></h2>
-<p>google的论文，经典一张图都没有。作者谈到，CoT通过生成中间的rational来最终完成答案。作者想要自动构建CoT数据做finetune来让模型获得CoT能力。其中的问题是，没法保证(自动检验)中间Rational的正确性。作者提出了一套markov-chain Monte-Carlo的方法，可以平衡多个链路的后验概率。</p>
-<p>作者在GSM8K and the tasks in BIG-Bench Hard做测试，发现效果提升超过STaR、CoT-prompt tuning</p>
+<p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/advICL.png"></p>
+<h2 id="training-chain-of-thought-via-latent-variable-inference"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.02179.pdf">Training Chain-of-Thought
+via Latent-Variable Inference</a></h2>
+<p>google的论文，经典一张图都没有。作者谈到，CoT通过生成中间的rational来最终完成答案。作者想要自动构建CoT数据做finetune来让模型获得CoT能力。其中的问题是，没法保证(自动检验)中间Rational的正确性。作者提出了一套markov-chain
+Monte-Carlo的方法，可以平衡多个链路的后验概率。</p>
+<p>作者在GSM8K and the tasks in BIG-Bench
+Hard做测试，发现效果提升超过STaR、CoT-prompt tuning</p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -340,13 +348,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/3ba8fc4a.html" rel="bookmark">2025-10-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/d09f4749.html" rel="bookmark">2025-10-10-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/ed04b343.html" rel="bookmark">2025-10-09-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2c6d87d.html" rel="bookmark">2025-10-08-insights</a></div>
     </li>
   </ul>
 
@@ -423,7 +431,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Efficient-Online-Data-Mixing-For-Language-Model-Pre-Training"><span class="nav-number">1.</span> <span class="nav-text">Efficient Online Data Mixing For Language Model Pre-Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Prompt-Optimization-via-Adversarial-In-Context-Learning"><span class="nav-number">2.</span> <span class="nav-text">Prompt Optimization via Adversarial In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Training-Chain-of-Thought-via-Latent-Variable-Inference"><span class="nav-number">3.</span> <span class="nav-text">Training Chain-of-Thought via Latent-Variable Inference</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#efficient-online-data-mixing-for-language-model-pre-training"><span class="nav-number">1.</span> <span class="nav-text">Efficient Online Data Mixing
+For Language Model Pre-Training</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prompt-optimization-via-adversarial-in-context-learning"><span class="nav-number">2.</span> <span class="nav-text">Prompt Optimization via
+Adversarial In-Context Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#training-chain-of-thought-via-latent-variable-inference"><span class="nav-number">3.</span> <span class="nav-text">Training Chain-of-Thought
+via Latent-Variable Inference</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -438,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -481,6 +492,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/3ba8fc4a" title="2025-10-13-insights" target="_blank">2025-10-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
         </li>
       
@@ -514,10 +529,6 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -573,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">307k</span>
+    <span title="站点总字数">308k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:39</span>
+    <span title="站点阅读时长">4:40</span>
 </div>
 
 <i class="fa fa-user-md"></i>
