@@ -315,32 +315,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="watch-and-learn-learning-to-use-computers-from-online-videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04673">Watch and Learn: Learning to Use
-Computers from Online Videos</a></h2>
-<p>Tutorial-based GUI
-Agent领域的一篇新工作。但这篇工作里，作者训了一个IDM模型（就是VPT里那个idm），让模型自动从视频里抽取action，由此把视频转化成学习信号更充足的image-text-interleave数据。然后在测试时，训练模型去看着教程来做相似的题目</p>
-<p><img src="../../files/images/arxiv-insights/2025-10-06-10-10/idm.png"></p>
-<h2 id="what-scales-in-cross-entropy-scaling-law"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04067"><strong>What Scales in
-Cross-Entropy Scaling Law?</strong></a></h2>
-<p>之前有一些predictable scaling领域的工作，认为模型的pretrain
-crossentropy会随着参数量/训练量的指数上升而线性下降。然而，实际上当模型变得很大时，这个理论就不再成立了，因为crossentropy衰减得更慢。作者发现了其中原因：把crossentropy拆分成三个部分，实际上只有一个部分是可以保持scaling
-law的，而另外两部分基本和模型大小无关，是常数。</p>
+        <h2 id="Watch-and-Learn-Learning-to-Use-Computers-from-Online-Videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04673">Watch and Learn: Learning to Use Computers from Online Videos</a></h2>
+<p>Tutorial-based GUI Agent领域的一篇新工作。但这篇工作里，作者训了一个IDM模型（就是VPT里那个idm），让模型自动从视频里抽取action，由此把视频转化成学习信号更充足的image-text-interleave数据。然后在测试时，训练模型去看着教程来做相似的题目</p>
+<img src="../../files/images/arxiv-insights/2025-10-06-10-10/idm.png">
+<h2 id="What-Scales-in-Cross-Entropy-Scaling-Law"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04067"><strong>What Scales in Cross-Entropy Scaling Law?</strong></a></h2>
+<p>之前有一些predictable scaling领域的工作，认为模型的pretrain crossentropy会随着参数量/训练量的指数上升而线性下降。然而，实际上当模型变得很大时，这个理论就不再成立了，因为crossentropy衰减得更慢。作者发现了其中原因：把crossentropy拆分成三个部分，实际上只有一个部分是可以保持scaling law的，而另外两部分基本和模型大小无关，是常数。</p>
 <blockquote>
 <p>这个方向现在好像研究的人不多了，大家都去卷rl了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-10-06-10-10/entropy.png"></p>
-<h2 id="gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04374"><strong>GDPval: Evaluating AI
-Model Performance on Real-World Economically Valuable
-Tasks</strong></a></h2>
+<img src="../../files/images/arxiv-insights/2025-10-06-10-10/entropy.png">
+<h2 id="GDPval-Evaluating-AI-Model-Performance-on-Real-World-Economically-Valuable-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04374"><strong>GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks</strong></a></h2>
 <p>GDPval的论文挂出来了。这个benchmark瞄准了AI解决真实世界问题、产生经济价值的水平。openai找了真正的各行业专家来出题和给题目做verify，由此产出了大概1000题，开源了200题。</p>
-<p><img src="../../files/images/arxiv-insights/2025-10-06-10-10/gdpval.png" style="zoom:33%;"></p>
-<h2 id="agentrl-scaling-agentic-reinforcement-learning-with-a-multi-turn-multi-task-framework"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04206">AGENTRL: Scaling Agentic
-Reinforcement Learning with a Multi-Turn, Multi-Task Framework</a></h2>
+<img src="../../files/images/arxiv-insights/2025-10-06-10-10/gdpval.png" style="zoom:33%;">
+<h2 id="AGENTRL-Scaling-Agentic-Reinforcement-Learning-with-a-Multi-Turn-Multi-Task-Framework"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.04206">AGENTRL: Scaling Agentic Reinforcement Learning with a Multi-Turn, Multi-Task Framework</a></h2>
 <p>zhipu最近发了computerRL，MobileRL，今天又发了一篇agentrl，这篇工作里，作者混训了几个纯文本的agent场景，然后用的是神奇的全异步rollout</p>
 <blockquote>
 <p>这篇有点像是agentbench的后继</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-10-06-10-10/agentrl.png"></p>
+<img src="../../files/images/arxiv-insights/2025-10-06-10-10/agentrl.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -357,13 +349,13 @@ Reinforcement Learning with a Multi-Turn, Multi-Task Framework</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/32435c30.html" rel="bookmark">2025-10-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dd81370e.html" rel="bookmark">2025-10-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/36b68c0d.html" rel="bookmark">2025-10-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d974e733.html" rel="bookmark">2025-10-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3ba8fc4a.html" rel="bookmark">2025-10-13-insights</a></div>
     </li>
   </ul>
 
@@ -440,12 +432,7 @@ Reinforcement Learning with a Multi-Turn, Multi-Task Framework</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#watch-and-learn-learning-to-use-computers-from-online-videos"><span class="nav-number">1.</span> <span class="nav-text">Watch and Learn: Learning to Use
-Computers from Online Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#what-scales-in-cross-entropy-scaling-law"><span class="nav-number">2.</span> <span class="nav-text">What Scales in
-Cross-Entropy Scaling Law?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gdpval-evaluating-ai-model-performance-on-real-world-economically-valuable-tasks"><span class="nav-number">3.</span> <span class="nav-text">GDPval: Evaluating AI
-Model Performance on Real-World Economically Valuable
-Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agentrl-scaling-agentic-reinforcement-learning-with-a-multi-turn-multi-task-framework"><span class="nav-number">4.</span> <span class="nav-text">AGENTRL: Scaling Agentic
-Reinforcement Learning with a Multi-Turn, Multi-Task Framework</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Watch-and-Learn-Learning-to-Use-Computers-from-Online-Videos"><span class="nav-number">1.</span> <span class="nav-text">Watch and Learn: Learning to Use Computers from Online Videos</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#What-Scales-in-Cross-Entropy-Scaling-Law"><span class="nav-number">2.</span> <span class="nav-text">What Scales in Cross-Entropy Scaling Law?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDPval-Evaluating-AI-Model-Performance-on-Real-World-Economically-Valuable-Tasks"><span class="nav-number">3.</span> <span class="nav-text">GDPval: Evaluating AI Model Performance on Real-World Economically Valuable Tasks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AGENTRL-Scaling-Agentic-Reinforcement-Learning-with-a-Multi-Turn-Multi-Task-Framework"><span class="nav-number">4.</span> <span class="nav-text">AGENTRL: Scaling Agentic Reinforcement Learning with a Multi-Turn, Multi-Task Framework</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -503,19 +490,19 @@ Reinforcement Learning with a Multi-Turn, Multi-Task Framework</span></a></li></
       
       
         <li class="recent_posts_li">
+          <a href="/32435c30" title="2025-10-17-insights" target="_blank">2025-10-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/36b68c0d" title="2025-10-15-insights" target="_blank">2025-10-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d974e733" title="2025-10-14-insights" target="_blank">2025-10-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3ba8fc4a" title="2025-10-13-insights" target="_blank">2025-10-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -600,7 +587,7 @@ Reinforcement Learning with a Multi-Turn, Multi-Task Framework</span></a></li></
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:39</span>
 </div>
 
 <i class="fa fa-user-md"></i>

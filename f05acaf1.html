@@ -313,23 +313,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="multi-task-reinforcement-learning-enables-parameter-scaling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05126">Multi-Task Reinforcement
-Learning Enables Parameter Scaling</a></h2>
-<p>这篇工作挺有意思的，之前有个multitask
-rl领域，是指用一个模型同时在一堆setting上训，可以把更大参数的模型训起来。与之对应的是，单独一个setting时，scaling模型参数是不会让效果上涨的。作者探索了一个问题：训起来更大的模型，是因为算法更好了，还是原来的老算法单纯加参数就有用了呢？作者发现，其实算法更新没用，老算法单纯加参数，几乎能获得100%的增量收益</p>
+        <h2 id="Multi-Task-Reinforcement-Learning-Enables-Parameter-Scaling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05126">Multi-Task Reinforcement Learning Enables Parameter Scaling</a></h2>
+<p>这篇工作挺有意思的，之前有个multitask rl领域，是指用一个模型同时在一堆setting上训，可以把更大参数的模型训起来。与之对应的是，单独一个setting时，scaling模型参数是不会让效果上涨的。作者探索了一个问题：训起来更大的模型，是因为算法更好了，还是原来的老算法单纯加参数就有用了呢？作者发现，其实算法更新没用，老算法单纯加参数，几乎能获得100%的增量收益</p>
 <blockquote>
 <p>所以在非o1场景，大家好像确实没找到一个比较好的scaling参数的方案……是不是setting本身太简单了呢？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/multi-task-rl.png"></p>
-<h2 id="every-flop-counts-scaling-a-300b-mixture-of-experts-ling-llm-without-premium-gpus"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05139"><strong>Every FLOP Counts:
-Scaling a 300B Mixture-of-Experts LING LLM without Premium
-GPUs</strong></a></h2>
-<p>Ant
-group训的MoE模型，有一个300激活28B的大号版本。话说ant组论文挺少见的</p>
-<h2 id="vlms-play-starcraft-ii-a-benchmark-and-multimodal-decision-method"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05383">VLMs Play StarCraft II: A
-Benchmark and Multimodal Decision Method</a></h2>
+<img src="../../files/images/arxiv-insights/2025-03-10-03-14/multi-task-rl.png">
+<h2 id="Every-FLOP-Counts-Scaling-a-300B-Mixture-of-Experts-LING-LLM-without-Premium-GPUs"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05139"><strong>Every FLOP Counts: Scaling a 300B Mixture-of-Experts LING LLM without Premium GPUs</strong></a></h2>
+<p>Ant group训的MoE模型，有一个300激活28B的大号版本。话说ant组论文挺少见的</p>
+<h2 id="VLMs-Play-StarCraft-II-A-Benchmark-and-Multimodal-Decision-Method"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.05383">VLMs Play StarCraft II: A Benchmark and Multimodal Decision Method</a></h2>
 <p>从3.7玩pokemon到manus玩2048，感觉VLM+Game会成为今年的下一个热点。作者这次对starcraft做了封装，产生了对VLM比较友好的som形式的数据集，另外外接了知识库，做出了一个比较好封装的测试、训练框架</p>
-<p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/star.png" style="zoom:33%;"></p>
+<img src="../../files/images/arxiv-insights/2025-03-10-03-14/star.png" style="zoom:33%;">
 <!-- flag of hidden posts -->
     </div>
 
@@ -346,13 +340,13 @@ Benchmark and Multimodal Decision Method</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/32435c30.html" rel="bookmark">2025-10-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/dd81370e.html" rel="bookmark">2025-10-16-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/36b68c0d.html" rel="bookmark">2025-10-15-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d974e733.html" rel="bookmark">2025-10-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/3ba8fc4a.html" rel="bookmark">2025-10-13-insights</a></div>
     </li>
   </ul>
 
@@ -429,11 +423,7 @@ Benchmark and Multimodal Decision Method</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#multi-task-reinforcement-learning-enables-parameter-scaling"><span class="nav-number">1.</span> <span class="nav-text">Multi-Task Reinforcement
-Learning Enables Parameter Scaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#every-flop-counts-scaling-a-300b-mixture-of-experts-ling-llm-without-premium-gpus"><span class="nav-number">2.</span> <span class="nav-text">Every FLOP Counts:
-Scaling a 300B Mixture-of-Experts LING LLM without Premium
-GPUs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vlms-play-starcraft-ii-a-benchmark-and-multimodal-decision-method"><span class="nav-number">3.</span> <span class="nav-text">VLMs Play StarCraft II: A
-Benchmark and Multimodal Decision Method</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Multi-Task-Reinforcement-Learning-Enables-Parameter-Scaling"><span class="nav-number">1.</span> <span class="nav-text">Multi-Task Reinforcement Learning Enables Parameter Scaling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Every-FLOP-Counts-Scaling-a-300B-Mixture-of-Experts-LING-LLM-without-Premium-GPUs"><span class="nav-number">2.</span> <span class="nav-text">Every FLOP Counts: Scaling a 300B Mixture-of-Experts LING LLM without Premium GPUs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VLMs-Play-StarCraft-II-A-Benchmark-and-Multimodal-Decision-Method"><span class="nav-number">3.</span> <span class="nav-text">VLMs Play StarCraft II: A Benchmark and Multimodal Decision Method</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -491,19 +481,19 @@ Benchmark and Multimodal Decision Method</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/32435c30" title="2025-10-17-insights" target="_blank">2025-10-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/36b68c0d" title="2025-10-15-insights" target="_blank">2025-10-15-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/d974e733" title="2025-10-14-insights" target="_blank">2025-10-14-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/3ba8fc4a" title="2025-10-13-insights" target="_blank">2025-10-13-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d09f4749" title="2025-10-10-insights" target="_blank">2025-10-10-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -588,7 +578,7 @@ Benchmark and Multimodal Decision Method</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:39</span>
 </div>
 
 <i class="fa fa-user-md"></i>
