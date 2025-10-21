@@ -314,25 +314,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>最近我在筹划一篇笔记，大致内容是 CogAgent、AutoWebGLM、Ferret-UI，估计这周的某一天写完吧。还有两个备选：</p>
-<ol>
+        <p>最近我在筹划一篇笔记，大致内容是
+CogAgent、AutoWebGLM、Ferret-UI，估计这周的某一天写完吧。还有两个备选：</p>
+<ol type="1">
 <li>Retro、Realm、KNN-LM，讲讲RAG</li>
 <li>Switch-Transformer、deepseek-MoE、MoE-mamba、topp-MoE，讲讲MoE</li>
 </ol>
 <p>不知道大家觉得哪个好</p>
-<h2 id="Ferret-UI-Grounded-Mobile-UI-Understanding-with-Multimodal-LLMs"><a href="#Ferret-UI-Grounded-Mobile-UI-Understanding-with-Multimodal-LLMs" class="headerlink" title="Ferret-UI: Grounded Mobile UI Understanding with Multimodal LLMs"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.05719.pdf">Ferret-UI: Grounded Mobile UI Understanding with Multimodal LLMs</a></h2><p>既MM1之后，apple继续发力。这次是GUI-Agent。作者训练了一个VLM模型，可以操作手机。把一大堆ui-related任务整合成了sft的形式，然后训到了一个模型里，效果超过了GPT-4v</p>
+<h2 id="ferret-ui-grounded-mobile-ui-understanding-with-multimodal-llms"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.05719.pdf">Ferret-UI: Grounded Mobile
+UI Understanding with Multimodal LLMs</a></h2>
+<p>既MM1之后，apple继续发力。这次是GUI-Agent。作者训练了一个VLM模型，可以操作手机。把一大堆ui-related任务整合成了sft的形式，然后训到了一个模型里，效果超过了GPT-4v</p>
 <blockquote>
 <p>期待WWDC</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/ferrut-ui.png"></p>
-<h2 id="Dense-Training-Sparse-Inference-Rethinking-Training-of-Mixture-of-Experts-Language-Models"><a href="#Dense-Training-Sparse-Inference-Rethinking-Training-of-Mixture-of-Experts-Language-Models" class="headerlink" title="Dense Training, Sparse Inference: Rethinking Training of Mixture-of-Experts Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.05567.pdf"><strong>Dense Training, Sparse Inference: Rethinking Training of Mixture-of-Experts Language Models</strong></a></h2><p>作者发现，MoE训练的时候也是激活router然后选择前topk，这样训练其实并不高效，因为所有的expert参数仍然是需要加载的。能不能训练的时候取topk里的k是无穷，然后预测的时候再使用topk=2。作者发现这样训练是非常参数高效的，关键是，效果还很好</p>
+<h2 id="dense-training-sparse-inference-rethinking-training-of-mixture-of-experts-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.05567.pdf"><strong>Dense Training,
+Sparse Inference: Rethinking Training of Mixture-of-Experts Language
+Models</strong></a></h2>
+<p>作者发现，MoE训练的时候也是激活router然后选择前topk，这样训练其实并不高效，因为所有的expert参数仍然是需要加载的。能不能训练的时候取topk里的k是无穷，然后预测的时候再使用topk=2。作者发现这样训练是非常参数高效的，关键是，效果还很好</p>
 <blockquote>
 <p>只能说，确实</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/moe.png"></p>
-<h2 id="Context-versus-Prior-Knowledge-in-Language-Models"><a href="#Context-versus-Prior-Knowledge-in-Language-Models" class="headerlink" title="Context versus Prior Knowledge in Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.04633.pdf">Context versus Prior Knowledge in Language Models</a></h2><p>在模型的预测中，既会参考参数内的知识，也会参考context中给定的info。作者探索了，能不能更确切的测量出模型到底在参考parameteric knowledge还是context knowledge? 作者设计了基于matual information的计算指标 susceptibility和persuasion，可以更好地探测模型生成过程中的依赖性。</p>
+<h2 id="context-versus-prior-knowledge-in-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2404.04633.pdf">Context versus Prior
+Knowledge in Language Models</a></h2>
+<p>在模型的预测中，既会参考参数内的知识，也会参考context中给定的info。作者探索了，能不能更确切的测量出模型到底在参考parameteric
+knowledge还是context knowledge? 作者设计了基于matual
+information的计算指标
+susceptibility和persuasion，可以更好地探测模型生成过程中的依赖性。</p>
 <blockquote>
-<p>这篇和昨天那篇”quote”研究的东西有点像，我觉得以后的模型最好可以对于生成的每一句话都有理可依，说出来是参考了训练数据中的xxx，还是context中的yyy。</p>
+<p>这篇和昨天那篇"quote"研究的东西有点像，我觉得以后的模型最好可以对于生成的每一句话都有理可依，说出来是参考了训练数据中的xxx，还是context中的yyy。</p>
 <p>这样别人用模型的时候也放心……最起码可以看看是不是hallicination</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-04-08-04-12/prior.png"></p>
@@ -352,13 +363,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a6bf4a76.html" rel="bookmark">2025-10-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/497d2148.html" rel="bookmark">2025-10-20-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/32435c30.html" rel="bookmark">2025-10-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dd81370e.html" rel="bookmark">2025-10-16-insights</a></div>
     </li>
   </ul>
 
@@ -435,7 +446,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ferret-UI-Grounded-Mobile-UI-Understanding-with-Multimodal-LLMs"><span class="nav-number">1.</span> <span class="nav-text">Ferret-UI: Grounded Mobile UI Understanding with Multimodal LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dense-Training-Sparse-Inference-Rethinking-Training-of-Mixture-of-Experts-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Dense Training, Sparse Inference: Rethinking Training of Mixture-of-Experts Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Context-versus-Prior-Knowledge-in-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Context versus Prior Knowledge in Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ferret-ui-grounded-mobile-ui-understanding-with-multimodal-llms"><span class="nav-number">1.</span> <span class="nav-text">Ferret-UI: Grounded Mobile
+UI Understanding with Multimodal LLMs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dense-training-sparse-inference-rethinking-training-of-mixture-of-experts-language-models"><span class="nav-number">2.</span> <span class="nav-text">Dense Training,
+Sparse Inference: Rethinking Training of Mixture-of-Experts Language
+Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#context-versus-prior-knowledge-in-language-models"><span class="nav-number">3.</span> <span class="nav-text">Context versus Prior
+Knowledge in Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -450,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -493,6 +508,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
@@ -502,14 +521,6 @@
       
         <li class="recent_posts_li">
           <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/36b68c0d" title="2025-10-15-insights" target="_blank">2025-10-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d974e733" title="2025-10-14-insights" target="_blank">2025-10-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -530,6 +541,10 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -585,12 +600,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天是个值得纪念的日子，我的引用次数终于超过了我的高考分数🤔 Q-SFT: Q-Learning for Language Models via Supervised Fine-TuningBerkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。 W">
+  <meta name="description" content="今天是个值得纪念的日子，我的引用次数终于超过了我的高考分数🤔 Q-SFT: Q-Learning for Language Models via Supervised Fine-Tuning Berkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-11-11-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4ca36463">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天是个值得纪念的日子，我的引用次数终于超过了我的高考分数🤔 Q-SFT: Q-Learning for Language Models via Supervised Fine-TuningBerkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。 W">
+<meta property="og:description" content="今天是个值得纪念的日子，我的引用次数终于超过了我的高考分数🤔 Q-SFT: Q-Learning for Language Models via Supervised Fine-Tuning Berkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-11-11-11-15/workflowllama.png">
 <meta property="article:published_time" content="2024-11-11T05:25:57.000Z">
@@ -313,10 +313,17 @@
 
       
         <p>今天是个值得纪念的日子，我的引用次数终于超过了我的高考分数🤔</p>
-<h2 id="Q-SFT-Q-Learning-for-Language-Models-via-Supervised-Fine-Tuning"><a href="#Q-SFT-Q-Learning-for-Language-Models-via-Supervised-Fine-Tuning" class="headerlink" title="Q-SFT: Q-Learning for Language Models via Supervised Fine-Tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05193"><strong>Q-SFT: Q-Learning for Language Models via Supervised Fine-Tuning</strong></a></h2><p>Berkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。</p>
-<h2 id="WorkflowLLM-Enhancing-Workflow-Orchestration-Capability-of-Large-Language-Models"><a href="#WorkflowLLM-Enhancing-Workflow-Orchestration-Capability-of-Large-Language-Models" class="headerlink" title="WorkflowLLM: Enhancing Workflow Orchestration Capability of Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05451"><strong>WorkflowLLM: Enhancing Workflow Orchestration Capability of Large Language Models</strong></a></h2><p>推荐小组的工作：之前我们做了一篇ProAgent的工作，让GPT去生成工作流来完成任务，但是没训模型。这次focus在，能否让LLM获得生成工作流的能力，进而去直接对有模式性的任务生成工作流来一劳永逸呢？测试了让模型直接去生成apple shortcut的场景，发现还真可以。</p>
+<h2 id="q-sft-q-learning-for-language-models-via-supervised-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05193"><strong>Q-SFT: Q-Learning for
+Language Models via Supervised Fine-Tuning</strong></a></h2>
+<p>Berkeley的工作。感觉还挺强的，作者发现q-learning在多轮决策里效果很好，但是没办法在LLM里用起来。作者改了改算法，然后把Q-learning和SFT的优势结合起来，发现在LLM里能跑了。</p>
+<h2 id="workflowllm-enhancing-workflow-orchestration-capability-of-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2411.05451"><strong>WorkflowLLM: Enhancing
+Workflow Orchestration Capability of Large Language
+Models</strong></a></h2>
+<p>推荐小组的工作：之前我们做了一篇ProAgent的工作，让GPT去生成工作流来完成任务，但是没训模型。这次focus在，能否让LLM获得生成工作流的能力，进而去直接对有模式性的任务生成工作流来一劳永逸呢？测试了让模型直接去生成apple
+shortcut的场景，发现还真可以。</p>
 <blockquote>
-<p>worlkflow是一个很有意义的方向，目前学界的研究并不多。之前和来也科技也交流过，实际上世界上有非常多的、真实的Workflow正在并行地跑着。用Workflow解决问题，是比类claude computer use这样用ReAct解决问题更稳定、更安全的方式。</p>
+<p>worlkflow是一个很有意义的方向，目前学界的研究并不多。之前和来也科技也交流过，实际上世界上有非常多的、真实的Workflow正在并行地跑着。用Workflow解决问题，是比类claude
+computer use这样用ReAct解决问题更稳定、更安全的方式。</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-11-11-11-15/workflowllama.png"></p>
 <!-- flag of hidden posts -->
@@ -335,13 +342,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a6bf4a76.html" rel="bookmark">2025-10-21-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/497d2148.html" rel="bookmark">2025-10-20-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/32435c30.html" rel="bookmark">2025-10-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dd81370e.html" rel="bookmark">2025-10-16-insights</a></div>
     </li>
   </ul>
 
@@ -418,7 +425,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-SFT-Q-Learning-for-Language-Models-via-Supervised-Fine-Tuning"><span class="nav-number">1.</span> <span class="nav-text">Q-SFT: Q-Learning for Language Models via Supervised Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WorkflowLLM-Enhancing-Workflow-Orchestration-Capability-of-Large-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">WorkflowLLM: Enhancing Workflow Orchestration Capability of Large Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#q-sft-q-learning-for-language-models-via-supervised-fine-tuning"><span class="nav-number">1.</span> <span class="nav-text">Q-SFT: Q-Learning for
+Language Models via Supervised Fine-Tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#workflowllm-enhancing-workflow-orchestration-capability-of-large-language-models"><span class="nav-number">2.</span> <span class="nav-text">WorkflowLLM: Enhancing
+Workflow Orchestration Capability of Large Language
+Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -433,7 +443,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -476,6 +486,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
@@ -485,14 +499,6 @@
       
         <li class="recent_posts_li">
           <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/36b68c0d" title="2025-10-15-insights" target="_blank">2025-10-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d974e733" title="2025-10-14-insights" target="_blank">2025-10-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -513,6 +519,10 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -568,12 +578,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

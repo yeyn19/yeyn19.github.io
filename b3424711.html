@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -323,7 +323,8 @@
 <span id="more"></span>
 <p><img src="../files/images/babelnet_predict/author.png"></p>
 <p>论文作者基本都是我们义原计算小组的成员。</p>
-<h2 id="字，意思和义原"><a href="#字，意思和义原" class="headerlink" title="字，意思和义原"></a>字，意思和义原</h2><p>首先为大家分享一下义原(sememe)的概念：</p>
+<h2 id="字意思和义原">字，意思和义原</h2>
+<p>首先为大家分享一下义原(sememe)的概念：</p>
 <blockquote>
 <p>在中文或者英文中，都是把字或者词作为最小的单位，但语义的最小单位可以被进一步拆分成。比如说，一个词语可以有多个意思，而每一个“意思”，都可以被视为是一个由“义原”组成的树状结构。</p>
 </blockquote>
@@ -335,35 +336,60 @@
 <li>首先义原和语言无关，因此不同的语言中的对应词的义原可能是非常接近的</li>
 <li>义原作为一种专家知识，非常适用于小数据的情景。(比如一句话里的词义消歧)</li>
 </ul>
-<h2 id="论文本体"><a href="#论文本体" class="headerlink" title="论文本体"></a>论文本体</h2><p>这篇论文是想要把义原知识库和知识图谱联系起来。具体来说呢，想要处理多语言义原标注的问题。这是由于已有的多语言义原的预测只能一次一个语言，速度很慢。</p>
-<p>首先，我们找到了BabelNet数据库: 是一个多语言的、同义词数据库。里面的基本单位是同义词synset，包含各个语言的版本，以及一个英文定义，可能还有链接到的WiKipedia的内容。数据来源基本上是WordNet和Wikipedia的内容的组合，语言涵盖了常见的224种语言。</p>
+<h2 id="论文本体">论文本体</h2>
+<p>这篇论文是想要把义原知识库和知识图谱联系起来。具体来说呢，想要处理多语言义原标注的问题。这是由于已有的多语言义原的预测只能一次一个语言，速度很慢。</p>
+<p>首先，我们找到了BabelNet数据库:
+是一个多语言的、同义词数据库。里面的基本单位是同义词synset，包含各个语言的版本，以及一个英文定义，可能还有链接到的WiKipedia的内容。数据来源基本上是WordNet和Wikipedia的内容的组合，语言涵盖了常见的224种语言。</p>
 <p><img src="../files/images/babelnet_predict/synset.png"></p>
-<p>对于义原标注来说，如果标注了一个synset，可能就能把不同语言中synset内的词语都标注完成，因此可以一次进行多语言的义原标注。提出了给synset进行义原标注的任务SPBS: predicting appropriate sememes for unannotated BabelNet synsets。</p>
-<h2 id="BabelSememe-Dataset"><a href="#BabelSememe-Dataset" class="headerlink" title="BabelSememe Dataset"></a>BabelSememe Dataset</h2><p>我们提前标注了大约1.5万个synset的义原，只进行了无结构的标注。</p>
+<p>对于义原标注来说，如果标注了一个synset，可能就能把不同语言中synset内的词语都标注完成，因此可以一次进行多语言的义原标注。提出了给synset进行义原标注的任务SPBS:
+predicting appropriate sememes for unannotated BabelNet synsets。</p>
+<h2 id="babelsememe-dataset">BabelSememe Dataset</h2>
+<p>我们提前标注了大约1.5万个synset的义原，只进行了无结构的标注。</p>
 <p><img src="../files/images/babelnet_predict/babelsememe.png"></p>
-<p>选取了BabelNet同时含有中英文的一个20000的子集。然后候选集合是所有中文的义原的并集。让100为参与者通过定义、Wikipedia页面等辅助信息进行进一步的挑选，筛掉了所有Krippendorff’s alpha系数低的结果，保证每个synset最少三个人标注。最终平均alpha系数是0.702</p>
-<h2 id="SPBS"><a href="#SPBS" class="headerlink" title="SPBS"></a>SPBS</h2><p>这个任务的基本范式是：对于每个synset $b \in B$，找到每个义原$s \in S$的属于该synset的得分$P(s|b)$，然后通过超参$\delta$控制结果：</p>
-<script type="math/tex; mode=display">
-\hat{S}_b = \{ s \in S | P(s|b) > \delta \}</script><p>这里我们用到了两种思路:</p>
-<h3 id="基于-Semantic-Representations：-SPBS-SR"><a href="#基于-Semantic-Representations：-SPBS-SR" class="headerlink" title="基于 Semantic Representations： SPBS-SR"></a>基于 Semantic Representations： SPBS-SR</h3><p>这个基本上之前word级无结构义原预测的方法。它的原理是:语义接近的synset对应的义原应该也相近</p>
-<script type="math/tex; mode=display">
-P(s| b) = \sum_{b' \in B'} \cos(\textbf{b},\textbf{b'}) · I_{S_{b'}}(s) · c^{r_{b'}}</script><p>上面的加粗符号是b对应的vector。然后 $I$代表是否含有特定义原(有是1，没有就是0)。c是一个超参。$r_{b’}$的意思是“b’的cos相似度在所有b里面排第几”，相当于更关注vector表示接近的synset。</p>
+<p>选取了BabelNet同时含有中英文的一个20000的子集。然后候选集合是所有中文的义原的并集。让100为参与者通过定义、Wikipedia页面等辅助信息进行进一步的挑选，筛掉了所有Krippendorff’s
+alpha系数低的结果，保证每个synset最少三个人标注。最终平均alpha系数是0.702</p>
+<h2 id="spbs">SPBS</h2>
+<p>这个任务的基本范式是：对于每个synset <span class="math inline">\(b
+\in B\)</span>，找到每个义原<span class="math inline">\(s \in
+S\)</span>的属于该synset的得分<span class="math inline">\(P(s|b)\)</span>，然后通过超参<span class="math inline">\(\delta\)</span>控制结果： <span class="math display">\[
+\hat{S}_b = \{ s \in S | P(s|b) &gt; \delta \}
+\]</span> 这里我们用到了两种思路:</p>
+<h3 id="基于-semantic-representations-spbs-sr">基于 Semantic
+Representations： SPBS-SR</h3>
+<p>这个基本上之前word级无结构义原预测的方法。它的原理是:语义接近的synset对应的义原应该也相近
+<span class="math display">\[
+P(s| b) = \sum_{b&#39; \in B&#39;} \cos(\textbf{b},\textbf{b&#39;}) ·
+I_{S_{b&#39;}}(s) · c^{r_{b&#39;}}
+\]</span> 上面的加粗符号是b对应的vector。然后 <span class="math inline">\(I\)</span>代表是否含有特定义原(有是1，没有就是0)。c是一个超参。<span class="math inline">\(r_{b&#39;}\)</span>的意思是“b'的cos相似度在所有b里面排第几”，相当于更关注vector表示接近的synset。</p>
 <p>这个方法需要有对应的vector表示。BabelNet如果synset是从Wikipedia来的，那么有对应的Wikipedia页面，可以用NASARI算法获取vector表示，可以用这个方法。</p>
-<h3 id="基于Relational-Representations-SPBS-RR"><a href="#基于Relational-Representations-SPBS-RR" class="headerlink" title="基于Relational Representations: SPBS-RR"></a>基于Relational Representations: SPBS-RR</h3><p>这个方法适用于所有synset。它的思路是两个有相同”关系”的synset，对应的义原也应该有相同”关系”：</p>
+<h3 id="基于relational-representations-spbs-rr">基于Relational
+Representations: SPBS-RR</h3>
+<p>这个方法适用于所有synset。它的思路是两个有相同"关系"的synset，对应的义原也应该有相同"关系"：</p>
 <p><img src="../files/images/babelnet_predict/relation.png"></p>
-<p>BabelNet中的元素可以视为三元组(h,r,t)。如果把“拥有某义原”视为特殊的关系的话，可以通过下面的公式进行义原表示s、synset表示b、关系表示r的联合训练：</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_1 = \sum_{(h,r,t)\in G} \max[{0,\left( \tau +  d(h+r,t) - d(h+r,t')\right)}]</script><script type="math/tex; mode=display">
-d(x,y) = ||x - y||^2</script><p>这个公式中t’代表另外的一个节点(不包含原来h,t的关系r)。再就是，由于synset的意思视为所有sememe意思的组合，因此有:</p>
-<script type="math/tex; mode=display">
-\mathcal{L}_2 = \sum_{b \in B} || b + r_s - \sum_{s \in S_b} s ||^2</script><p>通过$L = \lambda_1 \mathcal{L}_1 + \lambda_2\mathcal{L}_2$最终可以获取到所有表示，然后义原预测得分:</p>
-<script type="math/tex; mode=display">
-P(s | b) = || b + r_s - s||^2</script><h3 id="ensemble-model"><a href="#ensemble-model" class="headerlink" title="ensemble model"></a>ensemble model</h3><p>上面两种方法的得分可以组合：</p>
-<script type="math/tex; mode=display">
-P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p>rank是所有义原s的得分分别按降序排序的序号</p>
+<p>BabelNet中的元素可以视为三元组(h,r,t)。如果把“拥有某义原”视为特殊的关系的话，可以通过下面的公式进行义原表示s、synset表示b、关系表示r的联合训练：
+<span class="math display">\[
+\mathcal{L}_1 = \sum_{(h,r,t)\in G} \max[{0,\left( \tau +  d(h+r,t) -
+d(h+r,t&#39;)\right)}]
+\]</span></p>
+<p><span class="math display">\[
+d(x,y) = ||x - y||^2
+\]</span></p>
+<p>这个公式中t'代表另外的一个节点(不包含原来h,t的关系r)。再就是，由于synset的意思视为所有sememe意思的组合，因此有:
+<span class="math display">\[
+\mathcal{L}_2 = \sum_{b \in B} || b + r_s - \sum_{s \in S_b} s ||^2
+\]</span> 通过<span class="math inline">\(L = \lambda_1 \mathcal{L}_1 +
+\lambda_2\mathcal{L}_2\)</span>最终可以获取到所有表示，然后义原预测得分:
+<span class="math display">\[
+P(s | b) = || b + r_s - s||^2
+\]</span></p>
+<h3 id="ensemble-model">ensemble model</h3>
+<p>上面两种方法的得分可以组合： <span class="math display">\[
+P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}
+\]</span> rank是所有义原s的得分分别按降序排序的序号</p>
 <p>最终在实验中，可以看到效果还不错：</p>
 <p><img src="../files/images/babelnet_predict/score.png"></p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<h2 id="思考">思考</h2>
+<ul>
 <li>文章的主要贡献是第一次联系起来了Hownet和BabelNet，可以进行synset的义原预测</li>
 <li>贡献一个精细标注的数据集其实对领域的前进和曝光有很大的作用</li>
 <li>能不能进行细细粒度的标注，比如结构？以及在义原预测的时候，能不能进一步利用definition等信息？</li>
@@ -378,7 +404,7 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2673b2a2.html" rel="bookmark">论文阅读[粗读]-WantWords: An Open-source Online Reverse Dictionary System</a></div>
@@ -479,7 +505,9 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%EF%BC%8C%E6%84%8F%E6%80%9D%E5%92%8C%E4%B9%89%E5%8E%9F"><span class="nav-number">1.</span> <span class="nav-text">字，意思和义原</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E6%9C%AC%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">论文本体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BabelSememe-Dataset"><span class="nav-number">3.</span> <span class="nav-text">BabelSememe Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SPBS"><span class="nav-number">4.</span> <span class="nav-text">SPBS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-Semantic-Representations%EF%BC%9A-SPBS-SR"><span class="nav-number">4.1.</span> <span class="nav-text">基于 Semantic Representations： SPBS-SR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8ERelational-Representations-SPBS-RR"><span class="nav-number">4.2.</span> <span class="nav-text">基于Relational Representations: SPBS-RR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ensemble-model"><span class="nav-number">4.3.</span> <span class="nav-text">ensemble model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E6%84%8F%E6%80%9D%E5%92%8C%E4%B9%89%E5%8E%9F"><span class="nav-number">1.</span> <span class="nav-text">字，意思和义原</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BA%E6%96%87%E6%9C%AC%E4%BD%93"><span class="nav-number">2.</span> <span class="nav-text">论文本体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babelsememe-dataset"><span class="nav-number">3.</span> <span class="nav-text">BabelSememe Dataset</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spbs"><span class="nav-number">4.</span> <span class="nav-text">SPBS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-semantic-representations-spbs-sr"><span class="nav-number">4.1.</span> <span class="nav-text">基于 Semantic
+Representations： SPBS-SR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Erelational-representations-spbs-rr"><span class="nav-number">4.2.</span> <span class="nav-text">基于Relational
+Representations: SPBS-RR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ensemble-model"><span class="nav-number">4.3.</span> <span class="nav-text">ensemble model</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">思考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -494,7 +522,7 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">136</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -537,6 +565,10 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
       
       
         <li class="recent_posts_li">
+          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
@@ -546,14 +578,6 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
       
         <li class="recent_posts_li">
           <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/36b68c0d" title="2025-10-15-insights" target="_blank">2025-10-15-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d974e733" title="2025-10-14-insights" target="_blank">2025-10-14-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -574,6 +598,10 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -629,12 +657,12 @@ P(s | b) = \lambda_c \frac{1}{rank_s^c}+ \lambda_r \frac{1}{rank_s^r}</script><p
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">293k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>
