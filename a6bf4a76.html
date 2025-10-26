@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Glyph: Scaling Context Windows via Visual-Text Compression 如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行...作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm encode完一般也就几千toke">
+  <meta name="description" content="Glyph: Scaling Context Windows via Visual-Text Compression 如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行…作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm encode完一般也就几千token，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-10-21-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/a6bf4a76">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Glyph: Scaling Context Windows via Visual-Text Compression 如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行...作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm encode完一般也就几千toke">
+<meta property="og:description" content="Glyph: Scaling Context Windows via Visual-Text Compression 如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行…作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm encode完一般也就几千token，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-10-20-10-24/glyph.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-10-20-10-24/apple-cua.png">
@@ -288,7 +288,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>782</span>
+              <span>778</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -308,33 +308,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="glyph-scaling-context-windows-via-visual-text-compression"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.17800">Glyph: Scaling Context Windows
-via Visual-Text Compression</a></h2>
-<p>如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行...作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm
-encode完一般也就几千token，这里就直接压缩了好几倍</p>
+        <h2 id="Glyph-Scaling-Context-Windows-via-Visual-Text-Compression"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.17800">Glyph: Scaling Context Windows via Visual-Text Compression</a></h2>
+<p>如果大家不知道这篇工作在研究什么，直接去看deepseek-ocr就行…作者发现可以把长文里面的一堆字直接放在一张图片里，然后用vlm读图的方式来压缩context。这主要是因为，一个1920x1080的图片一般能放下成千上万的字，但是vlm encode完一般也就几千token，这里就直接压缩了好几倍</p>
 <blockquote>
-<p>这么小众的赛道还有抢发的。不过好像ai
-lab去年就做过一次这个事情了？</p>
+<p>这么小众的赛道还有抢发的。不过好像ai lab去年就做过一次这个事情了？</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-10-20-10-24/glyph.png" style="zoom:50%;"></p>
-<h2 id="ultracua-a-foundation-model-for-computer-use-agents-with-hybrid-action"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.17790">UltraCUA: A Foundation Model for
-Computer Use Agents with Hybrid Action</a></h2>
-<p>Apple出的一篇gui
-agent工作，作者在osworld上接入了一些code接口，让模型同时用gui和api完成任务，用这个方法把osworld/windowsagentarena进一步增强</p>
+<img src="../../files/images/arxiv-insights/2025-10-20-10-24/glyph.png" style="zoom:50%;">
+<h2 id="UltraCUA-A-Foundation-Model-for-Computer-Use-Agents-with-Hybrid-Action"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.17790">UltraCUA: A Foundation Model for Computer Use Agents with Hybrid Action</a></h2>
+<p>Apple出的一篇gui agent工作，作者在osworld上接入了一些code接口，让模型同时用gui和api完成任务，用这个方法把osworld/windowsagentarena进一步增强</p>
 <blockquote>
-<p>从glm开始，最近看到挺多篇gui +
-code的工作...以及Apple为什么不测macosfrena</p>
+<p>从glm开始，最近看到挺多篇gui + code的工作…以及Apple为什么不测macosfrena</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-10-20-10-24/apple-cua.png"></p>
-<h2 id="vagen-reinforcing-world-model-reasoning-for-multi-turn-vlm-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.16907">VAGEN: Reinforcing World Model
-Reasoning for Multi-Turn VLM Agents</a></h2>
-<p>这篇工作的作者列表挺重量级的Li Fei-Fei, Yejin Choi, Manling
-Li，故事讲的挺大的，但是其实做的东西就是把vlm
-agent做预测拆分。作者认为如果把传统agent的输出改成 obs + think +
-prediction的模式，其实是学习让模型称为world
-model。但聪明的小伙伴会说，我直接用一个think字段，也可以说这些，表示能力还更强？所以作者的区别在于，找了几个场景，上面恰好可以给obs和prediction字段单独做reward，发现把world
-model loss和正常的gae reward放在一起，比直接训rl效果更好。</p>
-<p><img src="../../files/images/arxiv-insights/2025-10-20-10-24/pomdp.png"></p>
+<img src="../../files/images/arxiv-insights/2025-10-20-10-24/apple-cua.png">
+<h2 id="VAGEN-Reinforcing-World-Model-Reasoning-for-Multi-Turn-VLM-Agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.16907">VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents</a></h2>
+<p>这篇工作的作者列表挺重量级的Li Fei-Fei, Yejin Choi, Manling Li，故事讲的挺大的，但是其实做的东西就是把vlm agent做预测拆分。作者认为如果把传统agent的输出改成 obs + think + prediction的模式，其实是学习让模型称为world model。但聪明的小伙伴会说，我直接用一个think字段，也可以说这些，表示能力还更强？所以作者的区别在于，找了几个场景，上面恰好可以给obs和prediction字段单独做reward，发现把world model loss和正常的gae reward放在一起，比直接训rl效果更好。</p>
+<img src="../../files/images/arxiv-insights/2025-10-20-10-24/pomdp.png">
 
     </div>
 
@@ -351,13 +339,13 @@ model loss和正常的gae reward放在一起，比直接训rl效果更好。</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4d88f175.html" rel="bookmark">2025-10-22-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/497d2148.html" rel="bookmark">2025-10-20-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/32435c30.html" rel="bookmark">2025-10-17-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/dd81370e.html" rel="bookmark">2025-10-16-insights</a></div>
     </li>
   </ul>
 
@@ -377,7 +365,10 @@ model loss和正常的gae reward放在一起，比直接训rl效果更好。</p>
     <a href="/497d2148" rel="prev" title="2025-10-20-insights">
       <i class="fa fa-chevron-left"></i> 2025-10-20-insights
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/4d88f175" rel="next" title="2025-10-22-insights">
+      2025-10-22-insights <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -441,10 +432,7 @@ model loss和正常的gae reward放在一起，比直接训rl效果更好。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#glyph-scaling-context-windows-via-visual-text-compression"><span class="nav-number">1.</span> <span class="nav-text">Glyph: Scaling Context Windows
-via Visual-Text Compression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ultracua-a-foundation-model-for-computer-use-agents-with-hybrid-action"><span class="nav-number">2.</span> <span class="nav-text">UltraCUA: A Foundation Model for
-Computer Use Agents with Hybrid Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vagen-reinforcing-world-model-reasoning-for-multi-turn-vlm-agents"><span class="nav-number">3.</span> <span class="nav-text">VAGEN: Reinforcing World Model
-Reasoning for Multi-Turn VLM Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Glyph-Scaling-Context-Windows-via-Visual-Text-Compression"><span class="nav-number">1.</span> <span class="nav-text">Glyph: Scaling Context Windows via Visual-Text Compression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UltraCUA-A-Foundation-Model-for-Computer-Use-Agents-with-Hybrid-Action"><span class="nav-number">2.</span> <span class="nav-text">UltraCUA: A Foundation Model for Computer Use Agents with Hybrid Action</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VAGEN-Reinforcing-World-Model-Reasoning-for-Multi-Turn-VLM-Agents"><span class="nav-number">3.</span> <span class="nav-text">VAGEN: Reinforcing World Model Reasoning for Multi-Turn VLM Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -502,19 +490,19 @@ Reasoning for Multi-Turn VLM Agents</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/32435c30" title="2025-10-17-insights" target="_blank">2025-10-17-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/dd81370e" title="2025-10-16-insights" target="_blank">2025-10-16-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -594,12 +582,12 @@ Reasoning for Multi-Turn VLM Agents</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">308k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:40</span>
 </div>
 
 <i class="fa fa-user-md"></i>
