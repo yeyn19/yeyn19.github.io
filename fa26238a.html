@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="The Unreasonable Effectiveness of Scaling Agents for Computer Use 一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分  这个方法有一个问题是，一个测试需要固定初始化方案，多次初始化。这可能是一个新的刷分赛道？   RLP:">
+  <meta name="description" content="The Unreasonable Effectiveness of Scaling Agents for Computer Use一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分  这个方法有一个问题是，一个测试需要固定初始化方案，多次初始化。这可能是一个新的刷分赛道？   RLP: R">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-10-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/fa26238a">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="The Unreasonable Effectiveness of Scaling Agents for Computer Use 一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分  这个方法有一个问题是，一个测试需要固定初始化方案，多次初始化。这可能是一个新的刷分赛道？   RLP:">
+<meta property="og:description" content="The Unreasonable Effectiveness of Scaling Agents for Computer Use一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分  这个方法有一个问题是，一个测试需要固定初始化方案，多次初始化。这可能是一个新的刷分赛道？   RLP: R">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-29-10-03/bbon.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-29-10-03/rlp.png">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>805</span>
+              <span>795</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,24 +314,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="The-Unreasonable-Effectiveness-of-Scaling-Agents-for-Computer-Use"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.02250"><strong>The Unreasonable Effectiveness of Scaling Agents for Computer Use</strong></a></h2>
-<p>一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分</p>
+        <h2 id="The-Unreasonable-Effectiveness-of-Scaling-Agents-for-Computer-Use"><a href="#The-Unreasonable-Effectiveness-of-Scaling-Agents-for-Computer-Use" class="headerlink" title="The Unreasonable Effectiveness of Scaling Agents for Computer Use"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.02250"><strong>The Unreasonable Effectiveness of Scaling Agents for Computer Use</strong></a></h2><p>一篇比较有意思的cua工作：作者让模型在测试时，直接做多个traj，然后用一个投票机制选出来一个看起来最靠谱的提交。用这种方法，把osworld分数刷到了70分</p>
 <blockquote>
 <p>这个方法有一个问题是，一个测试需要固定初始化方案，多次初始化。这可能是一个新的刷分赛道？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-09-29-10-03/bbon.png" style="zoom:33%;">
-<h2 id="RLP-Reinforcement-as-a-Pretraining-Objective"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.01265">RLP: Reinforcement as a Pretraining Objective</a></h2>
-<p>yejin choi参与的工作。前几天我正好做了一篇&quot;rl pretrain&quot;方向的阅读笔记，这篇也可以算做这个方向的一个尝试。作者认为，正常的pretrain过程中，如果考虑long-cot，那么可以认为cot是一种“信息增益”的过程，如果能降低后文的ppl，就是有益的。作者反过来，直接把ppl作为cot的奖励，让模型在预训练数据上无监督地一直过数据。</p>
+<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/bbon.png" style="zoom:33%;"></p>
+<h2 id="RLP-Reinforcement-as-a-Pretraining-Objective"><a href="#RLP-Reinforcement-as-a-Pretraining-Objective" class="headerlink" title="RLP: Reinforcement as a Pretraining Objective"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.01265">RLP: Reinforcement as a Pretraining Objective</a></h2><p>yejin choi参与的工作。前几天我正好做了一篇”rl pretrain”方向的阅读笔记，这篇也可以算做这个方向的一个尝试。作者认为，正常的pretrain过程中，如果考虑long-cot，那么可以认为cot是一种“信息增益”的过程，如果能降低后文的ppl，就是有益的。作者反过来，直接把ppl作为cot的奖励，让模型在预训练数据上无监督地一直过数据。</p>
 <blockquote>
 <p>这篇工作和我的本科毕设基本一模一样…但是我的ppl baseline不是ema版本</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-09-29-10-03/rlp.png">
-<h2 id="Asymmetric-Proximal-Policy-Optimization-mini-critics-boost-LLM-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.01656">Asymmetric Proximal Policy Optimization: mini-critics boost LLM reasoning</a></h2>
-<p>actor-critic模式，从最开始就认为是actor和critic应该是同等算力的。但在long-cot场景中，作者发现，由于reward很稀疏，value model效果不好，现在的grpo等算法甚至直接丢弃了critic，转而用group_adv来作为rl_baseline。那么，critic真的没有用了吗？作者实验了用一个参数小很多的critic组来作为rl value model，发现这样是效果还不错的</p>
+<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/rlp.png"></p>
+<h2 id="Asymmetric-Proximal-Policy-Optimization-mini-critics-boost-LLM-reasoning"><a href="#Asymmetric-Proximal-Policy-Optimization-mini-critics-boost-LLM-reasoning" class="headerlink" title="Asymmetric Proximal Policy Optimization: mini-critics boost LLM reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.01656">Asymmetric Proximal Policy Optimization: mini-critics boost LLM reasoning</a></h2><p>actor-critic模式，从最开始就认为是actor和critic应该是同等算力的。但在long-cot场景中，作者发现，由于reward很稀疏，value model效果不好，现在的grpo等算法甚至直接丢弃了critic，转而用group_adv来作为rl_baseline。那么，critic真的没有用了吗？作者实验了用一个参数小很多的critic组来作为rl value model，发现这样是效果还不错的</p>
 <blockquote>
 <p>我之前好像确实没看过有人用不同型号模型做actor-critic的…那反过来想，如果critic比policy大10倍，能更好的预测到value解决reward稀疏问题吗?</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-09-29-10-03/AsyPPO.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-09-29-10-03/AsyPPO.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -348,13 +345,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/40968132.html" rel="bookmark">2025-10-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4d88f175.html" rel="bookmark">2025-10-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a6bf4a76.html" rel="bookmark">2025-10-21-insights</a></div>
     </li>
   </ul>
 
@@ -489,19 +486,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -581,12 +578,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

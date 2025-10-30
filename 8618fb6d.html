@@ -313,41 +313,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="TL-DR">TL;DR</h2>
-<p>密码学里需要保密的不是加密算法，而是密钥。</p>
-<h2 id="课程情况">课程情况</h2>
-<p>《现代密码学》这个课程虽然我是大三选的，但其实这是一个大二大三都想选的课程。同时面向计算机系和叉院都开设。</p>
-<p>​	课程容量大概是100人，但当时选课的人却不少，我记得我好像还是从150个人中靠着二志愿“杀出重围的”。一般选课时不好选的课，退课时总也舍不得退。这学期我在退课时本来在纠结退密码学，但最后也没有退。可能就有这方面的原因吧。</p>
-<p>​	我就去线下上了两节课，后面就再也没去过，期末周的时候看了一遍录屏……老师语速不快，并且是那种说话对时间分布比较平均的类型。也就是说，看回放加速1.5倍也会比较友好，我当时打到了1.7倍，应该是没问题。</p>
-<h2 id="课程内容">课程内容</h2>
-<p>​	课程本身覆盖面是比较广的。</p>
+        <h2 id="TL-DR"><a href="#TL-DR" class="headerlink" title="TL;DR"></a>TL;DR</h2><p>密码学里需要保密的不是加密算法，而是密钥。</p>
+<h2 id="课程情况"><a href="#课程情况" class="headerlink" title="课程情况"></a>课程情况</h2><p>《现代密码学》这个课程虽然我是大三选的，但其实这是一个大二大三都想选的课程。同时面向计算机系和叉院都开设。</p>
+<p>​    课程容量大概是100人，但当时选课的人却不少，我记得我好像还是从150个人中靠着二志愿“杀出重围的”。一般选课时不好选的课，退课时总也舍不得退。这学期我在退课时本来在纠结退密码学，但最后也没有退。可能就有这方面的原因吧。</p>
+<p>​    我就去线下上了两节课，后面就再也没去过，期末周的时候看了一遍录屏……老师语速不快，并且是那种说话对时间分布比较平均的类型。也就是说，看回放加速1.5倍也会比较友好，我当时打到了1.7倍，应该是没问题。</p>
+<h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><p>​    课程本身覆盖面是比较广的。</p>
 <ul>
 <li>从古典密码开始讲起，一直讲到德军Enigma密码机与波兰数学家与图灵对密码机的破解。</li>
 <li>对称密码体制，feistel结构与SPN结构等等，以及经典的des、aes和对应的差分分析、线性分析等等。</li>
 <li>加密算法体质，讲md5结构、sponge结构，以及对应的生日攻击、后缀攻击等等</li>
 <li>公钥密码体质，这一部分挺有意思的。我之前确实不知道公钥密码的原理，属实是打开眼界了一番。讲了怎么构造有后门的数学难题，在此基础上在应用层讲了rsa、diffle-hellmen、elgmal等等算法</li>
 </ul>
-<p>​	我认为，这个课涉及的面很广，每个面都还有很多值得深入挖掘的地方。这个课用到的内容很基础，但保护的是计算机很底层的安全问题。总体，还是比较建议选这个课的。(相比其他的牛鬼蛇神竞争对手……)</p>
-<h2 id="考核">考核</h2>
-<p>2021春季学期，这个课是40分的作业，10分的签到，50分的考试。</p>
-<h3 id="作业">作业</h3>
-<p>本学期实行了作业改革。</p>
+<p>​    我认为，这个课涉及的面很广，每个面都还有很多值得深入挖掘的地方。这个课用到的内容很基础，但保护的是计算机很底层的安全问题。总体，还是比较建议选这个课的。(相比其他的牛鬼蛇神竞争对手……)</p>
+<h2 id="考核"><a href="#考核" class="headerlink" title="考核"></a>考核</h2><p>2021春季学期，这个课是40分的作业，10分的签到，50分的考试。</p>
+<h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><p>本学期实行了作业改革。</p>
 <ul>
 <li>第一次作业是破解几种古典密码，照着课本拟合就行。</li>
-<li>第二次大作业是设计一种对称密码或者hash函数，5人一组，老师会根据大家的设计结果进行评估，再综合安全性和新颖性给出设计分
-<ul>
+<li>第二次大作业是设计一种对称密码或者hash函数，5人一组，老师会根据大家的设计结果进行评估，再综合安全性和新颖性给出设计分<ul>
 <li>我们当时设计了基于以太坊的加密算法<code>Scrypt</code>的一个hash函数，结果老师说功耗太大不利于在FPGA运行，被扣了两分，有点阴间…（如果后面有时间，我也许会讲讲我们组的算法设计）</li>
 </ul>
 </li>
-<li>第三次大作业分组不变，是来破解某一组的第二次大作业。虽然听起来很卷，但其实不是，老师会在第三次提交之前给第二次打分，不会因为算法被别的组破解导致第二次大作业稀烂。不过，如果第三次作业没有破解出来，可能你们组第三次作业分会被扣一些
-<ul>
+<li>第三次大作业分组不变，是来破解某一组的第二次大作业。虽然听起来很卷，但其实不是，老师会在第三次提交之前给第二次打分，不会因为算法被别的组破解导致第二次大作业稀烂。不过，如果第三次作业没有破解出来，可能你们组第三次作业分会被扣一些<ul>
 <li>我们组运气好，当时的被攻击者的sponge结构f函数不可逆，而且混淆扩散速度比较慢，被我们用数学方法构造出了碰撞…老师给了我们好多分。</li>
 </ul>
 </li>
 </ul>
 <p>听说之前的后两次大作业是实现sha。新版的大作业我更喜欢一些，比起实现，还是创新做着更有动力。</p>
-<h3 id="考试">考试</h3>
-<p>考试题挺基础的，大家考的也都不错，以上。</p>
+<h3 id="考试"><a href="#考试" class="headerlink" title="考试"></a>考试</h3><p>考试题挺基础的，大家考的也都不错，以上。</p>
 
     </div>
 
@@ -364,7 +356,7 @@
       <div class="popular-posts-title"><a href="/1a09bd40.html" rel="bookmark">OS课程总结</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(2)</a></div>
+      <div class="popular-posts-title"><a href="/a50a8741.html" rel="bookmark">论文阅读[精读]-LANGUAGE MODELING VIA STOCHASTIC PROCESSES(1)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/3784f7a3.html" rel="bookmark">大三下学期总结</a></div>
@@ -517,19 +509,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -609,12 +601,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

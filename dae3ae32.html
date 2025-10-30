@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="WorldModelBench: Judging Video Generation Models As World Models 一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物">
+  <meta name="description" content="WorldModelBench: Judging Video Generation Models As World Models一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-03-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/dae3ae32">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="WorldModelBench: Judging Video Generation Models As World Models 一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物">
+<meta property="og:description" content="WorldModelBench: Judging Video Generation Models As World Models一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物理">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-03-03-07/physics.png">
 <meta property="article:published_time" content="2025-03-03T04:48:45.000Z">
@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>354</span>
+              <span>334</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,12 +312,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="WorldModelBench-Judging-Video-Generation-Models-As-World-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.20694">WorldModelBench: Judging Video Generation Models As World Models</a></h2>
-<p>一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物理规律的梯度</p>
+        <h2 id="WorldModelBench-Judging-Video-Generation-Models-As-World-Models"><a href="#WorldModelBench-Judging-Video-Generation-Models-As-World-Models" class="headerlink" title="WorldModelBench: Judging Video Generation Models As World Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.20694">WorldModelBench: Judging Video Generation Models As World Models</a></h2><p>一篇挺好玩的工作，作者想要去研究如何评测world model里面是否符合物理规律。然后发现，将物理规律是否稳定这个概念引入以后，不仅评测更好了，由此对抗出来的world model也会更好。作者的方案是classifier guidance，有一个分类模型给出更符合物理规律的梯度</p>
 <blockquote>
-<p>其实classifier guidance的设计还挺有趣的，在video generation领域，如果我们有&quot;prm&quot;的话，是可以直接给出梯度的，不需要像语言模型那么麻烦……这是不是说明，Autoregressive方案，在梯度的保留上，做得并不好，可能还会有更&quot;梯度友好&quot;的方案</p>
+<p>其实classifier guidance的设计还挺有趣的，在video generation领域，如果我们有”prm”的话，是可以直接给出梯度的，不需要像语言模型那么麻烦……这是不是说明，Autoregressive方案，在梯度的保留上，做得并不好，可能还会有更”梯度友好”的方案</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-03-03-03-07/physics.png" style="zoom:33%;">
+<p><img src="../../files/images/arxiv-insights/2025-03-03-03-07/physics.png" style="zoom:33%;"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -334,13 +333,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/40968132.html" rel="bookmark">2025-10-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4d88f175.html" rel="bookmark">2025-10-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a6bf4a76.html" rel="bookmark">2025-10-21-insights</a></div>
     </li>
   </ul>
 
@@ -475,19 +474,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -567,12 +566,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>

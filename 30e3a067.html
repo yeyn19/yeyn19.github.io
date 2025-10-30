@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="First Return, Entropy-Eliciting Explore Seed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model” 。作者基于这个思想，找到了ent">
+  <meta name="description" content="First Return, Entropy-Eliciting ExploreSeed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model” 。作者基于这个思想，找到了entr">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-07-10-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/30e3a067">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="First Return, Entropy-Eliciting Explore Seed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model” 。作者基于这个思想，找到了ent">
+<meta property="og:description" content="First Return, Entropy-Eliciting ExploreSeed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model” 。作者基于这个思想，找到了entr">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-07-07-11/fr3e.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-07-07-11/gemini-2.5.png">
@@ -313,12 +313,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="First-Return-Entropy-Eliciting-Explore"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.07017">First Return, Entropy-Eliciting Explore</a></h2>
-<p>Seed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model”</p>
+        <h2 id="First-Return-Entropy-Eliciting-Explore"><a href="#First-Return-Entropy-Eliciting-Explore" class="headerlink" title="First Return, Entropy-Eliciting Explore"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.07017">First Return, Entropy-Eliciting Explore</a></h2><p>Seed和MAP的论文，最近两天twitter爆款。这篇工作的思想和phi4很像：如果我在rlvr setting上有某个办法找到一些“关键位置”，那么可以用这些关键位置作为锚点，去定向做一些mcts。然后就能拿到一个胜率随锚点的变化，这个其实是现场拟合了一个“value model”</p>
 <p>。作者基于这个思想，找到了entropy最低的一些位置作为关键位置，发现由此衍生出的rl效果很好<img src="../../files/images/arxiv-insights/2025-07-07-07-11/fr3e.png"></p>
-<h2 id="Gemini-2-5-Pushing-the-Frontier-with-Advanced-Reasoning-Multimodality-Long-Context-and-Next-Generation-Agentic-Capabilities"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.06261">Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities.</a></h2>
-<p>上来就是高手，这次主打的是快和便宜。不过报告里对于训练的技术和细节不多，当成宣传ppt看。</p>
-<img src="../../files/images/arxiv-insights/2025-07-07-07-11/gemini-2.5.png">
+<h2 id="Gemini-2-5-Pushing-the-Frontier-with-Advanced-Reasoning-Multimodality-Long-Context-and-Next-Generation-Agentic-Capabilities"><a href="#Gemini-2-5-Pushing-the-Frontier-with-Advanced-Reasoning-Multimodality-Long-Context-and-Next-Generation-Agentic-Capabilities" class="headerlink" title="Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities."></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.06261">Gemini 2.5: Pushing the Frontier with Advanced Reasoning, Multimodality, Long Context, and Next Generation Agentic Capabilities.</a></h2><p>上来就是高手，这次主打的是快和便宜。不过报告里对于训练的技术和细节不多，当成宣传ppt看。</p>
+<p><img src="../../files/images/arxiv-insights/2025-07-07-07-11/gemini-2.5.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -335,13 +333,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/40968132.html" rel="bookmark">2025-10-24-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/4d88f175.html" rel="bookmark">2025-10-22-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a6bf4a76.html" rel="bookmark">2025-10-21-insights</a></div>
     </li>
   </ul>
 
@@ -476,19 +474,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a6bf4a76" title="2025-10-21-insights" target="_blank">2025-10-21-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/497d2148" title="2025-10-20-insights" target="_blank">2025-10-20-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -568,12 +566,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">308k</span>
+    <span title="站点总字数">292k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:40</span>
+    <span title="站点阅读时长">4:26</span>
 </div>
 
 <i class="fa fa-user-md"></i>
