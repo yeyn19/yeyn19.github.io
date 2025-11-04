@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天的工作竟然全是和entropy关闭相关的 Skywork Open Reasoner 1 Technical Reportskywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性  The Entropy Mechanism of Reinforcement Learning for Reasoning Language Modelsganqu师兄">
+  <meta name="description" content="今天的工作竟然全是和entropy关闭相关的 Skywork Open Reasoner 1 Technical Report skywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性  The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models ganqu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-05-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/354858e7">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天的工作竟然全是和entropy关闭相关的 Skywork Open Reasoner 1 Technical Reportskywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性  The Entropy Mechanism of Reinforcement Learning for Reasoning Language Modelsganqu师兄">
+<meta property="og:description" content="今天的工作竟然全是和entropy关闭相关的 Skywork Open Reasoner 1 Technical Report skywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性  The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models ganqu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-05-26-05-30/skywork.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-05-26-05-30/entropy.png">
@@ -315,14 +315,22 @@
 
       
         <p>今天的工作竟然全是和entropy关闭相关的</p>
-<h2 id="Skywork-Open-Reasoner-1-Technical-Report"><a href="#Skywork-Open-Reasoner-1-Technical-Report" class="headerlink" title="Skywork Open Reasoner 1 Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22312">Skywork Open Reasoner 1 Technical Report</a></h2><p>skywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性</p>
+<h2 id="skywork-open-reasoner-1-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22312">Skywork Open Reasoner 1
+Technical Report</a></h2>
+<p>skywork的o1工作，时隔多年，终于做出来了。作者也讲到了在训练中，维持entropy稳定的重要性</p>
 <p><img src="../../files/images/arxiv-insights/2025-05-26-05-30/skywork.png"></p>
-<h2 id="The-Entropy-Mechanism-of-Reinforcement-Learning-for-Reasoning-Language-Models"><a href="#The-Entropy-Mechanism-of-Reinforcement-Learning-for-Reasoning-Language-Models" class="headerlink" title="The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22617">The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models</a></h2><p>ganqu师兄的工作。作者探讨了在rl过程中entropy关闭的问题，也就是说。rl后的模型，基本上开不开sample都差不多，因为top1 token占据了绝对优势。作者发现，这主要来源于训练时高概率的动作有更大的概率效果不错，进而让模型非常确信自己高概率的动作。通过一些算法上的改进，可以缓解这个问题。</p>
+<h2 id="the-entropy-mechanism-of-reinforcement-learning-for-reasoning-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22617">The Entropy Mechanism of
+Reinforcement Learning for Reasoning Language Models</a></h2>
+<p>ganqu师兄的工作。作者探讨了在rl过程中entropy关闭的问题，也就是说。rl后的模型，基本上开不开sample都差不多，因为top1
+token占据了绝对优势。作者发现，这主要来源于训练时高概率的动作有更大的概率效果不错，进而让模型非常确信自己高概率的动作。通过一些算法上的改进，可以缓解这个问题。</p>
 <blockquote>
 <p>这个和底下那个工作讲的是一个事情呀</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-05-26-05-30/entropy.png"></p>
-<h2 id="Maximizing-Confidence-Alone-Improves-Reasoning"><a href="#Maximizing-Confidence-Alone-Improves-Reasoning" class="headerlink" title="Maximizing Confidence Alone Improves Reasoning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22660">Maximizing Confidence Alone Improves Reasoning</a></h2><p>这篇工作中，作者尝试把rl场景的reward换成answer ppl。是的，就是不管答案对不对，只要ppl低就给分高。神奇的是，这个训练甚至有收益。作者把方法名叫做rent，感觉还蛮有深意的</p>
+<h2 id="maximizing-confidence-alone-improves-reasoning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2505.22660">Maximizing Confidence Alone
+Improves Reasoning</a></h2>
+<p>这篇工作中，作者尝试把rl场景的reward换成answer
+ppl。是的，就是不管答案对不对，只要ppl低就给分高。神奇的是，这个训练甚至有收益。作者把方法名叫做rent，感觉还蛮有深意的</p>
 <blockquote>
 <p>最近还有一篇工作发现给假reward也有收益</p>
 </blockquote>
@@ -343,13 +351,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/40968132.html" rel="bookmark">2025-10-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +434,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Skywork-Open-Reasoner-1-Technical-Report"><span class="nav-number">1.</span> <span class="nav-text">Skywork Open Reasoner 1 Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Entropy-Mechanism-of-Reinforcement-Learning-for-Reasoning-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">The Entropy Mechanism of Reinforcement Learning for Reasoning Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maximizing-Confidence-Alone-Improves-Reasoning"><span class="nav-number">3.</span> <span class="nav-text">Maximizing Confidence Alone Improves Reasoning</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#skywork-open-reasoner-1-technical-report"><span class="nav-number">1.</span> <span class="nav-text">Skywork Open Reasoner 1
+Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#the-entropy-mechanism-of-reinforcement-learning-for-reasoning-language-models"><span class="nav-number">2.</span> <span class="nav-text">The Entropy Mechanism of
+Reinforcement Learning for Reasoning Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maximizing-confidence-alone-improves-reasoning"><span class="nav-number">3.</span> <span class="nav-text">Maximizing Confidence Alone
+Improves Reasoning</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,19 +495,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -576,12 +587,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">292k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

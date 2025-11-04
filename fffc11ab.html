@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Dynamic Early Exit in Reasoning Models如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接&#x2F;thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。  话说我一">
+  <meta name="description" content="Dynamic Early Exit in Reasoning Models 如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接&#x2F;thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。  话说我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-04-23-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/fffc11ab">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Dynamic Early Exit in Reasoning Models如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接&#x2F;thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。  话说我一">
+<meta property="og:description" content="Dynamic Early Exit in Reasoning Models 如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接&#x2F;thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。  话说我">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-04-21-04-25/exit.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-04-21-04-25/dm.png">
@@ -313,12 +313,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Dynamic-Early-Exit-in-Reasoning-Models"><a href="#Dynamic-Early-Exit-in-Reasoning-Models" class="headerlink" title="Dynamic Early Exit in Reasoning Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.15895"><strong>Dynamic Early Exit in Reasoning Models</strong></a></h2><p>如果大家看了前几天那个meta reinforcement finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接/thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early stopping。</p>
+        <h2 id="dynamic-early-exit-in-reasoning-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.15895"><strong>Dynamic Early Exit in
+Reasoning Models</strong></a></h2>
+<p>如果大家看了前几天那个meta reinforcement
+finetuning，就会记得里面的omit技巧（让o1说一半thought，就强行拼接/thought然后去说答案），比起优化omit状态下的回答准确率，这篇工作探索了能不能用confidence直接去对thought最early
+stopping。</p>
 <blockquote>
 <p>话说我一直挺喜欢omit这个东西的，我的想法是这样：如果我们把o1理解成某种模型自己学到的搜索算法。作为搜索算法，anytime的性质一直是最优的性质，模型能不能学着去优化anytime的算法呢？毕竟这样才可以世纪地去部署</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-04-21-04-25/exit.png"></p>
-<h2 id="LLMs-are-Greedy-Agents-Effects-of-RL-Fine-tuning-on-Decision-Making-Abilities"><a href="#LLMs-are-Greedy-Agents-Effects-of-RL-Fine-tuning-on-Decision-Making-Abilities" class="headerlink" title="LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.16078">LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities</a></h2><p>这篇工作很有趣：作者研究了llm做decision making的能力，发现总是效果不好。经过近一步分析，发现了三个瓶颈：greediness(大多数action从来不探索), frequency bias(只选择次数最多的，可能是因为context里最多), knowing-doing gap(用qa的形式发现它知道最佳策略，但就是不能根据策略去做)。由此作者设计了一套rl算法，看起来可以解决这些问题</p>
+<h2 id="llms-are-greedy-agents-effects-of-rl-fine-tuning-on-decision-making-abilities"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2504.16078">LLMs are Greedy Agents: Effects
+of RL Fine-tuning on Decision-Making Abilities</a></h2>
+<p>这篇工作很有趣：作者研究了llm做decision
+making的能力，发现总是效果不好。经过近一步分析，发现了三个瓶颈：greediness(大多数action从来不探索),
+frequency bias(只选择次数最多的，可能是因为context里最多), knowing-doing
+gap(用qa的形式发现它知道最佳策略，但就是不能根据策略去做)。由此作者设计了一套rl算法，看起来可以解决这些问题</p>
 <blockquote>
 <p>knowing-doing gap这个见解很深刻，不愧deepmind</p>
 </blockquote>
@@ -339,13 +348,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/40968132.html" rel="bookmark">2025-10-24-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/a24a9a4b.html" rel="bookmark">2025-10-23-insights</a></div>
     </li>
   </ul>
 
@@ -422,7 +431,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dynamic-Early-Exit-in-Reasoning-Models"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Early Exit in Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LLMs-are-Greedy-Agents-Effects-of-RL-Fine-tuning-on-Decision-Making-Abilities"><span class="nav-number">2.</span> <span class="nav-text">LLMs are Greedy Agents: Effects of RL Fine-tuning on Decision-Making Abilities</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#dynamic-early-exit-in-reasoning-models"><span class="nav-number">1.</span> <span class="nav-text">Dynamic Early Exit in
+Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#llms-are-greedy-agents-effects-of-rl-fine-tuning-on-decision-making-abilities"><span class="nav-number">2.</span> <span class="nav-text">LLMs are Greedy Agents: Effects
+of RL Fine-tuning on Decision-Making Abilities</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -480,19 +491,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/a24a9a4b" title="2025-10-23-insights" target="_blank">2025-10-23-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/4d88f175" title="2025-10-22-insights" target="_blank">2025-10-22-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -572,12 +583,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">292k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:26</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>
