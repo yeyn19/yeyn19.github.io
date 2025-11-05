@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Zero-shot Concept Bottleneck Models Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了">
+  <meta name="description" content="Zero-shot Concept Bottleneck ModelsConcept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-02-14-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/2427b30e">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Zero-shot Concept Bottleneck Models Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了">
+<meta property="og:description" content="Zero-shot Concept Bottleneck ModelsConcept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/concept.png">
 <meta property="article:published_time" content="2025-02-14T05:04:25.000Z">
@@ -312,11 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="zero-shot-concept-bottleneck-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.09018">Zero-shot Concept Bottleneck
-Models</a></h2>
-<p>Concept
-model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一套不对vlm
-encoder做训练的方案。</p>
+        <h2 id="Zero-shot-Concept-Bottleneck-Models"><a href="#Zero-shot-Concept-Bottleneck-Models" class="headerlink" title="Zero-shot Concept Bottleneck Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.09018">Zero-shot Concept Bottleneck Models</a></h2><p>Concept model是一个挺奇怪的领域，类似于vq的退化形式，让vlm先对图片编码，再对编码根据attention，从一个大规模的向量池子里找到topk的concept做激活，最后让另一个分类头根据这些激活的concept映射到分类结果。这样子，每个concept只有激活或者不激活两种形式，所以可解释性比较好。作者提出了一套不对vlm encoder做训练的方案。</p>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/concept.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -334,13 +330,13 @@ encoder做训练的方案。</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -417,8 +413,7 @@ encoder做训练的方案。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#zero-shot-concept-bottleneck-models"><span class="nav-number">1.</span> <span class="nav-text">Zero-shot Concept Bottleneck
-Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Zero-shot-Concept-Bottleneck-Models"><span class="nav-number">1.</span> <span class="nav-text">Zero-shot Concept Bottleneck Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -476,19 +471,19 @@ Models</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -568,12 +563,12 @@ Models</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

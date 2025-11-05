@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data? Yeijin Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一">
+  <meta name="description" content="Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data?Yeijin Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一个">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-07-24-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/e82f78d">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data? Yeijin Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一">
+<meta property="og:description" content="Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data?Yeijin Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-07-22-07-26/dmi.png">
 <meta property="article:published_time" content="2024-07-25T06:01:56.000Z">
@@ -312,10 +312,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="data-mixture-inference-what-do-bpe-tokenizers-reveal-about-their-training-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.16607"><em>Data Mixture Inference:</em>
-What do BPE Tokenizers Reveal about their Training Data?</a></h2>
-<p>Yeijin
-Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一个tokenizer，能不能猜到是用哪些mixture、什么比例训出来的呢？</p>
+        <h2 id="Data-Mixture-Inference-What-do-BPE-Tokenizers-Reveal-about-their-Training-Data"><a href="#Data-Mixture-Inference-What-do-BPE-Tokenizers-Reveal-about-their-Training-Data" class="headerlink" title="Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2407.16607"><em>Data Mixture Inference:</em> What do BPE Tokenizers Reveal about their Training Data?</a></h2><p>Yeijin Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数据不可见，但是tokenizer是可见的。而tokenizer的训练过程就是BPE：每次选择最高频的n-gram扔进去，再选下一个最高频n-gram。如果我们有一个tokenizer，能不能猜到是用哪些mixture、什么比例训出来的呢？</p>
 <p>作者发现还真可以，而且发现从(带顺序的)tokenizer可以推断出来一些闭源模型的训练细节，比如说claude和GPT的训练数据中包含非常大比例的代码数据</p>
 <blockquote>
 <p>什么大破解时代</p>
@@ -337,13 +334,13 @@ Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -420,8 +417,7 @@ Choi又来了，这个工作非常有趣：作者发现，虽然LLM的训练数�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#data-mixture-inference-what-do-bpe-tokenizers-reveal-about-their-training-data"><span class="nav-number">1.</span> <span class="nav-text">Data Mixture Inference:
-What do BPE Tokenizers Reveal about their Training Data?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-Mixture-Inference-What-do-BPE-Tokenizers-Reveal-about-their-Training-Data"><span class="nav-number">1.</span> <span class="nav-text">Data Mixture Inference: What do BPE Tokenizers Reveal about their Training Data?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -479,19 +475,19 @@ What do BPE Tokenizers Reveal about their Training Data?</span></a></li></ol></d
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -571,12 +567,12 @@ What do BPE Tokenizers Reveal about their Training Data?</span></a></li></ol></d
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Qwen3-Omni Technical Report 作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio token  开源，就是源神   APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation 这是一篇rl过程中的">
+  <meta name="description" content="Qwen3-Omni Technical Report作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio token  开源，就是源神   APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation这是一篇rl过程中的ro">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-09-23-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/b8d071d5">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Qwen3-Omni Technical Report 作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio token  开源，就是源神   APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation 这是一篇rl过程中的">
+<meta property="og:description" content="Qwen3-Omni Technical Report作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio token  开源，就是源神   APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation这是一篇rl过程中的ro">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-22-09-26/qwen3-omni.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-09-22-09-26/april.png">
@@ -295,7 +295,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>841</span>
+              <span>839</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -315,35 +315,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="qwen3-omni-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.17765">Qwen3-Omni Technical
-Report</a></h2>
-<p>作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio
-token</p>
+        <h2 id="Qwen3-Omni-Technical-Report"><a href="#Qwen3-Omni-Technical-Report" class="headerlink" title="Qwen3-Omni Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.17765">Qwen3-Omni Technical Report</a></h2><p>作者用一个模型，同时支持了text、图片理解、视频理解、音频理解四种能力。核心是在vlm的基础上，又添加了audio token</p>
 <blockquote>
 <p>开源，就是源神</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-09-22-09-26/qwen3-omni.png" style="zoom:33%;"></p>
-<h2 id="april-active-partial-rollouts-in-reinforcement-learning-to-tame-long-tail-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.18521"><strong>APRIL: Active Partial
-Rollouts in Reinforcement Learning to tame long-tail
-generation</strong></a></h2>
-<p>这是一篇rl过程中的rollout加速的工作。作者主要的发现是：在rollout过程中，每个step的rollout显卡利用率都是会越来越低，因为80%的traj会在20%时间结束。如果这个时候，让dataloader立即load下一条数据呢？作者发现这样单位时间，可以多roll
-44%的数据</p>
+<h2 id="APRIL-Active-Partial-Rollouts-in-Reinforcement-Learning-to-tame-long-tail-generation"><a href="#APRIL-Active-Partial-Rollouts-in-Reinforcement-Learning-to-tame-long-tail-generation" class="headerlink" title="APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.18521"><strong>APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation</strong></a></h2><p>这是一篇rl过程中的rollout加速的工作。作者主要的发现是：在rollout过程中，每个step的rollout显卡利用率都是会越来越低，因为80%的traj会在20%时间结束。如果这个时候，让dataloader立即load下一条数据呢？作者发现这样单位时间，可以多roll 44%的数据</p>
 <blockquote>
 <p>代价是一部分数据，会由之前的参数得到，而不是最新的参数。这样会牺牲一部分rl性能</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-09-22-09-26/april.png"></p>
-<h2 id="reinforcement-learning-on-pre-training-data"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.19249">Reinforcement Learning on
-Pre-Training Data</a></h2>
-<p>这篇论文名字挺有趣的，有点像是pengfei老师前几天那个在sft上做重要性采样的工作，但其实讲的不是这个故事，而是直接改变了训练范式。正常的pretrain是给出一个语料，然后让模型做一次forward一次backward，训练模型去说一模一样的东西。如果用rl的视角看待，那就是：能不能给出前半段，让模型接着生成，如果和后半段接近，就给reward奖励。变成了multi-forward的形式</p>
+<h2 id="Reinforcement-Learning-on-Pre-Training-Data"><a href="#Reinforcement-Learning-on-Pre-Training-Data" class="headerlink" title="Reinforcement Learning on Pre-Training Data"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.19249">Reinforcement Learning on Pre-Training Data</a></h2><p>这篇论文名字挺有趣的，有点像是pengfei老师前几天那个在sft上做重要性采样的工作，但其实讲的不是这个故事，而是直接改变了训练范式。正常的pretrain是给出一个语料，然后让模型做一次forward一次backward，训练模型去说一模一样的东西。如果用rl的视角看待，那就是：能不能给出前半段，让模型接着生成，如果和后半段接近，就给reward奖励。变成了multi-forward的形式</p>
 <blockquote>
 <p>聪明的小伙伴马上发现，如何定义“接近”会成为这个系统的瓶颈。但作者认为，只要够scale，不准确也无所谓</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-09-22-09-26/rl-pretrain.png"></p>
-<h2 id="are-scaling-up-agent-environments-and-evaluations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.17158">ARE: scaling up agent
-environments and evaluations</a></h2>
-<p>gaia很火，是现在大家基本都会刷的benchmark，今天作者更新到了gaia2。作者这次还开源了agent测试环境给大家，里面有一些mock的app/mcp，可以让模型随意调用。然后题目也从原来的search-based，多了一些execution-based的题目</p>
+<h2 id="ARE-scaling-up-agent-environments-and-evaluations"><a href="#ARE-scaling-up-agent-environments-and-evaluations" class="headerlink" title="ARE: scaling up agent environments and evaluations"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2509.17158">ARE: scaling up agent environments and evaluations</a></h2><p>gaia很火，是现在大家基本都会刷的benchmark，今天作者更新到了gaia2。作者这次还开源了agent测试环境给大家，里面有一些mock的app/mcp，可以让模型随意调用。然后题目也从原来的search-based，多了一些execution-based的题目</p>
 <blockquote>
-<p>gaia1被大家刷到快80了...</p>
+<p>gaia1被大家刷到快80了…</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-09-22-09-26/gaia2.png"></p>
 <!-- flag of hidden posts -->
@@ -362,13 +351,13 @@ environments and evaluations</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -445,12 +434,7 @@ environments and evaluations</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#qwen3-omni-technical-report"><span class="nav-number">1.</span> <span class="nav-text">Qwen3-Omni Technical
-Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#april-active-partial-rollouts-in-reinforcement-learning-to-tame-long-tail-generation"><span class="nav-number">2.</span> <span class="nav-text">APRIL: Active Partial
-Rollouts in Reinforcement Learning to tame long-tail
-generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#reinforcement-learning-on-pre-training-data"><span class="nav-number">3.</span> <span class="nav-text">Reinforcement Learning on
-Pre-Training Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#are-scaling-up-agent-environments-and-evaluations"><span class="nav-number">4.</span> <span class="nav-text">ARE: scaling up agent
-environments and evaluations</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Qwen3-Omni-Technical-Report"><span class="nav-number">1.</span> <span class="nav-text">Qwen3-Omni Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APRIL-Active-Partial-Rollouts-in-Reinforcement-Learning-to-tame-long-tail-generation"><span class="nav-number">2.</span> <span class="nav-text">APRIL: Active Partial Rollouts in Reinforcement Learning to tame long-tail generation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reinforcement-Learning-on-Pre-Training-Data"><span class="nav-number">3.</span> <span class="nav-text">Reinforcement Learning on Pre-Training Data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARE-scaling-up-agent-environments-and-evaluations"><span class="nav-number">4.</span> <span class="nav-text">ARE: scaling up agent environments and evaluations</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -508,19 +492,19 @@ environments and evaluations</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -600,12 +584,12 @@ environments and evaluations</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

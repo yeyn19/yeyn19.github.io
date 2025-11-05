@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天论文多了不少，并且很多都是有意思的，我看了很久 Chain of Code: Reasoning with a Language Model-Augmented Code Emulator deepmind的论文，作者竟然还有李飞飞，好少见。 作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译">
+  <meta name="description" content="今天论文多了不少，并且很多都是有意思的，我看了很久 Chain of Code: Reasoning with a Language Model-Augmented Code Emulatordeepmind的论文，作者竟然还有李飞飞，好少见。 作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译器">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-12-08-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/310b04d2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天论文多了不少，并且很多都是有意思的，我看了很久 Chain of Code: Reasoning with a Language Model-Augmented Code Emulator deepmind的论文，作者竟然还有李飞飞，好少见。 作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译">
+<meta property="og:description" content="今天论文多了不少，并且很多都是有意思的，我看了很久 Chain of Code: Reasoning with a Language Model-Augmented Code Emulatordeepmind的论文，作者竟然还有李飞飞，好少见。 作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译器">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-04-12-08/cog.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-04-12-08/cladder.png">
@@ -314,21 +314,13 @@
 
       
         <p>今天论文多了不少，并且很多都是有意思的，我看了很久</p>
-<h2 id="chain-of-code-reasoning-with-a-language-model-augmented-code-emulator"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.04474.pdf">Chain of Code: Reasoning
-with a Language Model-Augmented Code Emulator</a></h2>
-<p>deepmind的论文，作者竟然还有李飞飞，好少见。</p>
-<p>作者还是用之前program of
-thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form
-qa)来说，写一个编译器可执行的代码是不可能的。那么，由于本身代码也不复杂，能不能让模型自己emulate执行的结果？作者发现是可行的，并且效果还挺好，在BBH上从72%刷到了84%</p>
+<h2 id="Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator"><a href="#Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator" class="headerlink" title="Chain of Code: Reasoning with a Language Model-Augmented Code Emulator"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.04474.pdf">Chain of Code: Reasoning with a Language Model-Augmented Code Emulator</a></h2><p>deepmind的论文，作者竟然还有李飞飞，好少见。</p>
+<p>作者还是用之前program of thought的路线，他提到一个问题：让模型写代码，然而对于很多推理任务(free-form qa)来说，写一个编译器可执行的代码是不可能的。那么，由于本身代码也不复杂，能不能让模型自己emulate执行的结果？作者发现是可行的，并且效果还挺好，在BBH上从72%刷到了84%</p>
 <blockquote>
-<p>甚至，一个简单的zer-shot CoT prompt "thinking in code"就能涨</p>
+<p>甚至，一个简单的zer-shot CoT prompt “thinking in code”就能涨</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/cog.png"></p>
-<h2 id="cladder-a-benchmark-to-assess-causal-reasoning-capabilities-of-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.04350.pdf">CLADDER: A Benchmark to
-Assess Causal Reasoning Capabilities of Language Models</a></h2>
-<p>挑了一篇benchmark论文。作者提到目前LLM关于causal
-reasoning(因果推断)更多停留在common
-sense上，没有人系统测试过这个能力是否存在于普遍的各种规则中。</p>
+<h2 id="CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models"><a href="#CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models" class="headerlink" title="CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.04350.pdf">CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models</a></h2><p>挑了一篇benchmark论文。作者提到目前LLM关于causal reasoning(因果推断)更多停留在common sense上，没有人系统测试过这个能力是否存在于普遍的各种规则中。</p>
 <p>作者搞了个10k的数据集，先生成一些规则，再根据规则推导出推理路径，最后把题目翻译回自然语言形成问题。</p>
 <p><img src="../../files/images/arxiv-insights/2023-12-04-12-08/cladder.png"></p>
 <!-- flag of hidden posts -->
@@ -347,13 +339,13 @@ sense上，没有人系统测试过这个能力是否存在于普遍的各种规
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -430,9 +422,7 @@ sense上，没有人系统测试过这个能力是否存在于普遍的各种规
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#chain-of-code-reasoning-with-a-language-model-augmented-code-emulator"><span class="nav-number">1.</span> <span class="nav-text">Chain of Code: Reasoning
-with a Language Model-Augmented Code Emulator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cladder-a-benchmark-to-assess-causal-reasoning-capabilities-of-language-models"><span class="nav-number">2.</span> <span class="nav-text">CLADDER: A Benchmark to
-Assess Causal Reasoning Capabilities of Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chain-of-Code-Reasoning-with-a-Language-Model-Augmented-Code-Emulator"><span class="nav-number">1.</span> <span class="nav-text">Chain of Code: Reasoning with a Language Model-Augmented Code Emulator</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CLADDER-A-Benchmark-to-Assess-Causal-Reasoning-Capabilities-of-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">CLADDER: A Benchmark to Assess Causal Reasoning Capabilities of Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -490,19 +480,19 @@ Assess Causal Reasoning Capabilities of Language Models</span></a></li></ol></di
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -582,12 +572,12 @@ Assess Causal Reasoning Capabilities of Language Models</span></a></li></ol></di
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

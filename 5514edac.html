@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Agentic Reinforced Policy Optimization 这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(First Return, Entropy-Eliciting Explore)。这篇工作，作者推广到了agent场景，发现在工具调用结束">
+  <meta name="description" content="Agentic Reinforced Policy Optimization这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(First Return, Entropy-Eliciting Explore)。这篇工作，作者推广到了agent场景，发现在工具调用结束，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-07-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/5514edac">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Agentic Reinforced Policy Optimization 这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(First Return, Entropy-Eliciting Explore)。这篇工作，作者推广到了agent场景，发现在工具调用结束">
+<meta property="og:description" content="Agentic Reinforced Policy Optimization这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(First Return, Entropy-Eliciting Explore)。这篇工作，作者推广到了agent场景，发现在工具调用结束，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-28-08-01/arpo.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-07-28-08-01/k2.png">
@@ -314,20 +314,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="agentic-reinforced-policy-optimization"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.19849"><strong>Agentic Reinforced
-Policy Optimization</strong></a></h2>
-<p>这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.07017">First Return, Entropy-Eliciting
-Explore</a>)。这篇工作，作者推广到了agent场景，发现在工具调用结束，刚看到tool-output的地方，特别容易entropy很高。所以作者复刻了这个fork方法，在fc-agent场景取得了比较高的采样效率</p>
+        <h2 id="Agentic-Reinforced-Policy-Optimization"><a href="#Agentic-Reinforced-Policy-Optimization" class="headerlink" title="Agentic Reinforced Policy Optimization"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.19849"><strong>Agentic Reinforced Policy Optimization</strong></a></h2><p>这篇工作比较有趣。大家还记得前段时间seed发布了一个，根据entropy的高低，在最高的几个地方fork出来新的rollout，来提升在high-entropy地方的采样效率的工作(<a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.07017">First Return, Entropy-Eliciting Explore</a>)。这篇工作，作者推广到了agent场景，发现在工具调用结束，刚看到tool-output的地方，特别容易entropy很高。所以作者复刻了这个fork方法，在fc-agent场景取得了比较高的采样效率</p>
 <p><img src="../../files/images/arxiv-insights/2025-07-28-08-01/arpo.png"></p>
-<h2 id="kimi-k2-open-agentic-intelligence"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.20534"><strong>Kimi K2: Open Agentic
-Intelligence</strong></a></h2>
-<p>K2
-report，在twitter上火了好久，今天终于上arxiv了。作者训了个很稀疏的1TB总参数模型，在下游训了多轮的text-only
-agent rl。</p>
+<h2 id="Kimi-K2-Open-Agentic-Intelligence"><a href="#Kimi-K2-Open-Agentic-Intelligence" class="headerlink" title="Kimi K2: Open Agentic Intelligence"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.20534"><strong>Kimi K2: Open Agentic Intelligence</strong></a></h2><p>K2 report，在twitter上火了好久，今天终于上arxiv了。作者训了个很稀疏的1TB总参数模型，在下游训了多轮的text-only agent rl。</p>
 <p><img src="../../files/images/arxiv-insights/2025-07-28-08-01/k2.png"></p>
-<h2 id="stepfun-prover-preview-lets-think-and-verify-step-by-step"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.20199">StepFun-Prover Preview: Let’s
-Think and Verify Step by Step</a></h2>
-<p>一篇lean4模型的rl工作，但作者建模成了多轮，每轮都可以生成证明、或者refine，变成了一个类似swe-agent的形式。通过这种agent框架，把lean4的sota又往上抬了一格</p>
+<h2 id="StepFun-Prover-Preview-Let’s-Think-and-Verify-Step-by-Step"><a href="#StepFun-Prover-Preview-Let’s-Think-and-Verify-Step-by-Step" class="headerlink" title="StepFun-Prover Preview: Let’s Think and Verify Step by Step"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2507.20199">StepFun-Prover Preview: Let’s Think and Verify Step by Step</a></h2><p>一篇lean4模型的rl工作，但作者建模成了多轮，每轮都可以生成证明、或者refine，变成了一个类似swe-agent的形式。通过这种agent框架，把lean4的sota又往上抬了一格</p>
 <p><img src="../../files/images/arxiv-insights/2025-07-28-08-01/prove.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -345,13 +336,13 @@ Think and Verify Step by Step</a></h2>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -428,10 +419,7 @@ Think and Verify Step by Step</a></h2>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#agentic-reinforced-policy-optimization"><span class="nav-number">1.</span> <span class="nav-text">Agentic Reinforced
-Policy Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kimi-k2-open-agentic-intelligence"><span class="nav-number">2.</span> <span class="nav-text">Kimi K2: Open Agentic
-Intelligence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stepfun-prover-preview-lets-think-and-verify-step-by-step"><span class="nav-number">3.</span> <span class="nav-text">StepFun-Prover Preview: Let’s
-Think and Verify Step by Step</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Agentic-Reinforced-Policy-Optimization"><span class="nav-number">1.</span> <span class="nav-text">Agentic Reinforced Policy Optimization</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kimi-K2-Open-Agentic-Intelligence"><span class="nav-number">2.</span> <span class="nav-text">Kimi K2: Open Agentic Intelligence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#StepFun-Prover-Preview-Let%E2%80%99s-Think-and-Verify-Step-by-Step"><span class="nav-number">3.</span> <span class="nav-text">StepFun-Prover Preview: Let’s Think and Verify Step by Step</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -489,19 +477,19 @@ Think and Verify Step by Step</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -581,12 +569,12 @@ Think and Verify Step by Step</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

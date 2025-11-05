@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments 一篇world model的工作，作者发现已有的world model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。">
+  <meta name="description" content="Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments一篇world model的工作，作者发现已有的world model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-03-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/f4af1acc">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments 一篇world model的工作，作者发现已有的world model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。">
+<meta property="og:description" content="Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments一篇world model的工作，作者发现已有的world model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-10-03-14/inverse.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-10-03-14/seedream.png">
@@ -314,27 +314,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="toward-stable-world-models-measuring-and-addressing-world-instability-in-generative-environments"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.08122">Toward Stable World Models:
-Measuring and Addressing World Instability in Generative
-Environments</a></h2>
-<p>一篇world model的工作，作者发现已有的world
-model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。</p>
+        <h2 id="Toward-Stable-World-Models-Measuring-and-Addressing-World-Instability-in-Generative-Environments"><a href="#Toward-Stable-World-Models-Measuring-and-Addressing-World-Instability-in-Generative-Environments" class="headerlink" title="Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.08122">Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments</a></h2><p>一篇world model的工作，作者发现已有的world model一致性较差，然后给了一个简单的方法去评估：在环境里面先做一组action，再做一组相反的动作，然后观察回到的位置是否和最开始的相同。</p>
 <blockquote>
 <p>这其实是个悖论：因为相反的动作，不一定倒推出相反的视频。比如向前走撞墙了，再往前其实也没往前，但后退就会真的后退。如果inverse的方案可行的话，其实把训练数据inverse一下，就能做数据增强了。</p>
-<p>不过这个思考的角度挺有意思的：假如我有一个agent-policy，它的任务是检查一个world是否具有一致性。其角色类似于“楚门”，那么agent可以给出对于world
-model的准确评估吗？</p>
+<p>不过这个思考的角度挺有意思的：假如我有一个agent-policy，它的任务是检查一个world是否具有一致性。其角色类似于“楚门”，那么agent可以给出对于world model的准确评估吗？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/inverse.png"></p>
-<h2 id="seedream-2.0-a-native-chinese-english-bilingual-image-generation-foundation-model"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.07703">Seedream 2.0: A Native
-Chinese-English Bilingual Image Generation Foundation Model</a></h2>
-<p>字节的工作，行文算是比较开放的，作者讲了构造数据、以及在生成中使用各种补丁来提升end2end效果的努力。感觉想要把一个东西做好，确实得是这样一个个trick叠加在一起。</p>
+<h2 id="Seedream-2-0-A-Native-Chinese-English-Bilingual-Image-Generation-Foundation-Model"><a href="#Seedream-2-0-A-Native-Chinese-English-Bilingual-Image-Generation-Foundation-Model" class="headerlink" title="Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.07703">Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model</a></h2><p>字节的工作，行文算是比较开放的，作者讲了构造数据、以及在生成中使用各种补丁来提升end2end效果的努力。感觉想要把一个东西做好，确实得是这样一个个trick叠加在一起。</p>
 <p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/seedream.png" style="zoom:33%;"></p>
-<h2 id="gemini-embedding-generalizable-embeddings-from-gemini"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.07891">Gemini Embedding: Generalizable
-Embeddings from Gemini</a></h2>
-<p>gemini出的embedding工作，基本没有什么技术细节，主要就是跑分。主打多语言、多场景的统一建模理解。</p>
+<h2 id="Gemini-Embedding-Generalizable-Embeddings-from-Gemini"><a href="#Gemini-Embedding-Generalizable-Embeddings-from-Gemini" class="headerlink" title="Gemini Embedding: Generalizable Embeddings from Gemini"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.07891">Gemini Embedding: Generalizable Embeddings from Gemini</a></h2><p>gemini出的embedding工作，基本没有什么技术细节，主要就是跑分。主打多语言、多场景的统一建模理解。</p>
 <blockquote>
-<p>感觉现在大家卷了一圈又卷回去了？前几天mixtral出了个ocr
-model，今天gemini出了个embedding</p>
+<p>感觉现在大家卷了一圈又卷回去了？前几天mixtral出了个ocr model，今天gemini出了个embedding</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-10-03-14/gemini-embedding.png"></p>
 <!-- flag of hidden posts -->
@@ -353,13 +343,13 @@ model，今天gemini出了个embedding</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/aba13a31.html" rel="bookmark">2025-10-27-insights</a></div>
     </li>
   </ul>
 
@@ -436,11 +426,7 @@ model，今天gemini出了个embedding</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#toward-stable-world-models-measuring-and-addressing-world-instability-in-generative-environments"><span class="nav-number">1.</span> <span class="nav-text">Toward Stable World Models:
-Measuring and Addressing World Instability in Generative
-Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#seedream-2.0-a-native-chinese-english-bilingual-image-generation-foundation-model"><span class="nav-number">2.</span> <span class="nav-text">Seedream 2.0: A Native
-Chinese-English Bilingual Image Generation Foundation Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gemini-embedding-generalizable-embeddings-from-gemini"><span class="nav-number">3.</span> <span class="nav-text">Gemini Embedding: Generalizable
-Embeddings from Gemini</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Toward-Stable-World-Models-Measuring-and-Addressing-World-Instability-in-Generative-Environments"><span class="nav-number">1.</span> <span class="nav-text">Toward Stable World Models: Measuring and Addressing World Instability in Generative Environments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Seedream-2-0-A-Native-Chinese-English-Bilingual-Image-Generation-Foundation-Model"><span class="nav-number">2.</span> <span class="nav-text">Seedream 2.0: A Native Chinese-English Bilingual Image Generation Foundation Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gemini-Embedding-Generalizable-Embeddings-from-Gemini"><span class="nav-number">3.</span> <span class="nav-text">Gemini Embedding: Generalizable Embeddings from Gemini</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -498,19 +484,19 @@ Embeddings from Gemini</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/aba13a31" title="2025-10-27-insights" target="_blank">2025-10-27-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/40968132" title="2025-10-24-insights" target="_blank">2025-10-24-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -590,12 +576,12 @@ Embeddings from Gemini</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">294k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
