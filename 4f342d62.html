@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="221篇论文，只能说顶级……年前大放送了吗 UniMem: Towards a Unified View of Long-Context Large Language Models首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并且">
+  <meta name="description" content="221篇论文，只能说顶级……年前大放送了吗 UniMem: Towards a Unified View of Long-Context Large Language Models 首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-02-06-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/4f342d62">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="221篇论文，只能说顶级……年前大放送了吗 UniMem: Towards a Unified View of Long-Context Large Language Models首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并且">
+<meta property="og:description" content="221篇论文，只能说顶级……年前大放送了吗 UniMem: Towards a Unified View of Long-Context Large Language Models 首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/unimem.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-02-05-02-09/pangu.png">
@@ -314,18 +314,25 @@
 
       
         <p>221篇论文，只能说顶级……年前大放送了吗</p>
-<h2 id="UniMem-Towards-a-Unified-View-of-Long-Context-Large-Language-Models"><a href="#UniMem-Towards-a-Unified-View-of-Long-Context-Large-Language-Models" class="headerlink" title="UniMem: Towards a Unified View of Long-Context Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03009.pdf">UniMem: Towards a Unified View of Long-Context Large Language Models</a></h2><p>首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并且公平对比了他们的效果。</p>
+<h2 id="unimem-towards-a-unified-view-of-long-context-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.03009.pdf">UniMem: Towards a Unified
+View of Long-Context Large Language Models</a></h2>
+<p>首先推荐一下我们组的工作：我们发现目前已有的一些长文本领域的工作主要聚焦于memory的存、取、用方法的不同，实际上可以用一种统一的视角去看待他们。我们设计了一种更通用的方法，可以导出已有的这些不同的长文本模型方法，并且公平对比了他们的效果。</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/unimem.png"></p>
-<h2 id="Are-Large-Language-Models-Good-Prompt-Optimizers"><a href="#Are-Large-Language-Models-Good-Prompt-Optimizers" class="headerlink" title="Are Large Language Models Good Prompt Optimizers?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.02101.pdf">Are Large Language Models Good Prompt Optimizers?</a></h2><p>目前有一个automatic prompt engineering类型的工作，以google的PRO为代表：想让模型通过看正确、错误样例去调整prompt。</p>
+<h2 id="are-large-language-models-good-prompt-optimizers"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.02101.pdf">Are Large Language Models
+Good Prompt Optimizers?</a></h2>
+<p>目前有一个automatic prompt
+engineering类型的工作，以google的PRO为代表：想让模型通过看正确、错误样例去调整prompt。</p>
 <p>作者重新思考是实验了这类方法，发现：</p>
-<ol>
+<ol type="1">
 <li>模型实际上给出的reflection之和自己的先验知识有关，没怎么看in-context错误样本</li>
 <li>即使reflection对了，也不能把prompt改对</li>
 </ol>
 <blockquote>
 <p>给ape泼了盆冷水呀……</p>
 </blockquote>
-<h2 id="Rethinking-Optimization-and-Architecture-for-Tiny-Language-Models"><a href="#Rethinking-Optimization-and-Architecture-for-Tiny-Language-Models" class="headerlink" title="Rethinking Optimization and Architecture for Tiny Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.02791.pdf">Rethinking Optimization and Architecture for Tiny Language Models</a></h2><p>huawei的工作，作者探索1B规模的小模型的一系列设计因素，最终得出了最好地训练方式，训练出了效果较为不错的1.5B模型</p>
+<h2 id="rethinking-optimization-and-architecture-for-tiny-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2402.02791.pdf">Rethinking Optimization and
+Architecture for Tiny Language Models</a></h2>
+<p>huawei的工作，作者探索1B规模的小模型的一系列设计因素，最终得出了最好地训练方式，训练出了效果较为不错的1.5B模型</p>
 <p><img src="../../files/images/arxiv-insights/2024-02-05-02-09/pangu.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -343,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c56ce176.html" rel="bookmark">2025-11-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/27b0fa0f.html" rel="bookmark">2025-11-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
     </li>
   </ul>
 
@@ -426,7 +433,10 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#UniMem-Towards-a-Unified-View-of-Long-Context-Large-Language-Models"><span class="nav-number">1.</span> <span class="nav-text">UniMem: Towards a Unified View of Long-Context Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Are-Large-Language-Models-Good-Prompt-Optimizers"><span class="nav-number">2.</span> <span class="nav-text">Are Large Language Models Good Prompt Optimizers?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rethinking-Optimization-and-Architecture-for-Tiny-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Rethinking Optimization and Architecture for Tiny Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#unimem-towards-a-unified-view-of-long-context-large-language-models"><span class="nav-number">1.</span> <span class="nav-text">UniMem: Towards a Unified
+View of Long-Context Large Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#are-large-language-models-good-prompt-optimizers"><span class="nav-number">2.</span> <span class="nav-text">Are Large Language Models
+Good Prompt Optimizers?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rethinking-optimization-and-architecture-for-tiny-language-models"><span class="nav-number">3.</span> <span class="nav-text">Rethinking Optimization and
+Architecture for Tiny Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,19 +494,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c56ce176" title="2025-11-04-insights" target="_blank">2025-11-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/27b0fa0f" title="2025-11-03-insights" target="_blank">2025-11-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -576,12 +586,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

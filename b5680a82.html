@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操作">
+  <meta name="description" content="Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents 推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-10-29-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/b5680a82">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操作">
+<meta property="og:description" content="Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents 推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-10-27-10-31/game_tars.png">
 <meta property="article:published_time" content="2025-11-03T12:40:45.000Z">
-<meta property="article:modified_time" content="2025-11-04T10:58:10.423Z">
+<meta property="article:modified_time" content="2025-11-08T09:48:58.133Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>2025-10-29-insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2025-10-29-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -253,7 +253,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-04 18:58:10" itemprop="dateModified" datetime="2025-11-04T18:58:10+08:00">2025-11-04</time>
+                <time title="修改时间：2025-11-08 17:48:58" itemprop="dateModified" datetime="2025-11-08T17:48:58+08:00">2025-11-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -292,7 +292,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>869</span>
+              <span>871</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -312,15 +312,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Game-TARS-Pretrained-Foundation-Models-for-Scalable-Generalist-Multimodal-Game-Agents"><a href="#Game-TARS-Pretrained-Foundation-Models-for-Scalable-Generalist-Multimodal-Game-Agents" class="headerlink" title="Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.23691">Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents</a></h2><p>推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操作逻辑(鼠标移动是dx dy，键盘操作是press/release)？</p>
-<p>我们在game agent场景做了实验，直接训练在接近1000个游戏上训练，并发现：raw action model在前期的表现非常差，几乎什么也做不了；但随着训练量的增加，模型逐渐“领悟”了原始动作空间的含义，学会了微调鼠标来瞄准、加速跑、甚至落地水等非常高级的技巧，这事实上也是预定义的动作空间永远无法表征的</p>
+        <h2 id="game-tars-pretrained-foundation-models-for-scalable-generalist-multimodal-game-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.23691">Game-TARS: Pretrained Foundation
+Models for Scalable Generalist Multimodal Game Agents</a></h2>
+<p>推荐我们组的工作：我们发现已有的cua几乎都是基于预定义的动作空间，比如鼠标点击、键盘打字。这契合vlm的性质（每个step一张图）。但如果我们有video
+model，能不能像人一样，每秒看30次屏幕，然后直接给出最原始的操作逻辑(鼠标移动是dx
+dy，键盘操作是press/release)？</p>
+<p>我们在game
+agent场景做了实验，直接训练在接近1000个游戏上训练，并发现：raw action
+model在前期的表现非常差，几乎什么也做不了；但随着训练量的增加，模型逐渐“领悟”了原始动作空间的含义，学会了微调鼠标来瞄准、加速跑、甚至落地水等非常高级的技巧，这事实上也是预定义的动作空间永远无法表征的</p>
 <p><img src="../../files/images/arxiv-insights/2025-10-27-10-31/game_tars.png"></p>
-<h2 id="Tongyi-DeepResearch-Technical-Report"><a href="#Tongyi-DeepResearch-Technical-Report" class="headerlink" title="Tongyi DeepResearch Technical Report"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24701">Tongyi DeepResearch Technical Report</a></h2><h2 id="AgentFold-Long-Horizon-Web-Agents-with-Proactive-Context-Management"><a href="#AgentFold-Long-Horizon-Web-Agents-with-Proactive-Context-Management" class="headerlink" title="AgentFold: Long-Horizon Web Agents with Proactive Context Management"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24699">AgentFold: Long-Horizon Web Agents with Proactive Context Management</a></h2><h2 id="PARALLELMUSE-Agentic-Parallel-Thinking-for-Deep-Information-Seeking"><a href="#PARALLELMUSE-Agentic-Parallel-Thinking-for-Deep-Information-Seeking" class="headerlink" title="PARALLELMUSE: Agentic Parallel Thinking for Deep Information Seeking"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24698">PARALLELMUSE: Agentic Parallel Thinking for Deep Information Seeking</a></h2><h2 id="Repurposing-Synthetic-Data-for-Fine-grained-Search-Agent-Supervision"><a href="#Repurposing-Synthetic-Data-for-Fine-grained-Search-Agent-Supervision" class="headerlink" title="Repurposing Synthetic Data for Fine-grained Search Agent Supervision"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24694">Repurposing Synthetic Data for Fine-grained Search Agent Supervision</a></h2><p>今天qwen大爆发，又连着爆出来好多篇search agent论文。这几篇工作的侧重点各有不同</p>
+<h2 id="tongyi-deepresearch-technical-report"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24701">Tongyi DeepResearch Technical
+Report</a></h2>
+<h2 id="agentfold-long-horizon-web-agents-with-proactive-context-management"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24699">AgentFold: Long-Horizon Web
+Agents with Proactive Context Management</a></h2>
+<h2 id="parallelmuse-agentic-parallel-thinking-for-deep-information-seeking"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24698">PARALLELMUSE: Agentic Parallel
+Thinking for Deep Information Seeking</a></h2>
+<h2 id="repurposing-synthetic-data-for-fine-grained-search-agent-supervision"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24694">Repurposing Synthetic Data for
+Fine-grained Search Agent Supervision</a></h2>
+<p>今天qwen大爆发，又连着爆出来好多篇search
+agent论文。这几篇工作的侧重点各有不同</p>
 <blockquote>
-<p>前几天才大爆发一次，这波怎么又爆发出来这么多论文…</p>
+<p>前几天才大爆发一次，这波怎么又爆发出来这么多论文...</p>
 </blockquote>
-<h2 id="OSWorld-MCP-Benchmarking-MCP-Tool-Invocation-In-Computer-Use-Agents"><a href="#OSWorld-MCP-Benchmarking-MCP-Tool-Invocation-In-Computer-Use-Agents" class="headerlink" title="OSWorld-MCP: Benchmarking MCP Tool Invocation In Computer-Use Agents"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24563"><strong>OSWorld-MCP: Benchmarking MCP Tool Invocation In Computer-Use Agents</strong></a></h2><p>最近出了一些cua里加mcp的工作，其中这篇是感觉比较好的。这不是一个方法工作，而是一个benchmark，作者基于osworld开发了157个mcp工具，并测试模型在有这些工具的情况是否会做得更好。作者初步测试发现，大多数情况下，已有的这些gui agent实际上给了mcp工具以后会更差。</p>
-
+<h2 id="osworld-mcp-benchmarking-mcp-tool-invocation-in-computer-use-agents"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.24563"><strong>OSWorld-MCP:
+Benchmarking MCP Tool Invocation In Computer-Use
+Agents</strong></a></h2>
+<p>最近出了一些cua里加mcp的工作，其中这篇是感觉比较好的。这不是一个方法工作，而是一个benchmark，作者基于osworld开发了157个mcp工具，并测试模型在有这些工具的情况是否会做得更好。作者初步测试发现，大多数情况下，已有的这些gui
+agent实际上给了mcp工具以后会更差。</p>
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -336,13 +355,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c56ce176.html" rel="bookmark">2025-11-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/27b0fa0f.html" rel="bookmark">2025-11-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/5aaa61bc.html" rel="bookmark">2025-10-28-insights</a></div>
     </li>
   </ul>
 
@@ -357,16 +376,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/5aaa61bc" rel="prev" title="2025-10-28-insights">
-      <i class="fa fa-chevron-left"></i> 2025-10-28-insights
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/88f3fe88" rel="next" title="2025-10-30-insights">
-      2025-10-30-insights <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -429,7 +438,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Game-TARS-Pretrained-Foundation-Models-for-Scalable-Generalist-Multimodal-Game-Agents"><span class="nav-number">1.</span> <span class="nav-text">Game-TARS: Pretrained Foundation Models for Scalable Generalist Multimodal Game Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tongyi-DeepResearch-Technical-Report"><span class="nav-number">2.</span> <span class="nav-text">Tongyi DeepResearch Technical Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AgentFold-Long-Horizon-Web-Agents-with-Proactive-Context-Management"><span class="nav-number">3.</span> <span class="nav-text">AgentFold: Long-Horizon Web Agents with Proactive Context Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PARALLELMUSE-Agentic-Parallel-Thinking-for-Deep-Information-Seeking"><span class="nav-number">4.</span> <span class="nav-text">PARALLELMUSE: Agentic Parallel Thinking for Deep Information Seeking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Repurposing-Synthetic-Data-for-Fine-grained-Search-Agent-Supervision"><span class="nav-number">5.</span> <span class="nav-text">Repurposing Synthetic Data for Fine-grained Search Agent Supervision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OSWorld-MCP-Benchmarking-MCP-Tool-Invocation-In-Computer-Use-Agents"><span class="nav-number">6.</span> <span class="nav-text">OSWorld-MCP: Benchmarking MCP Tool Invocation In Computer-Use Agents</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#game-tars-pretrained-foundation-models-for-scalable-generalist-multimodal-game-agents"><span class="nav-number">1.</span> <span class="nav-text">Game-TARS: Pretrained Foundation
+Models for Scalable Generalist Multimodal Game Agents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tongyi-deepresearch-technical-report"><span class="nav-number">2.</span> <span class="nav-text">Tongyi DeepResearch Technical
+Report</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#agentfold-long-horizon-web-agents-with-proactive-context-management"><span class="nav-number">3.</span> <span class="nav-text">AgentFold: Long-Horizon Web
+Agents with Proactive Context Management</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#parallelmuse-agentic-parallel-thinking-for-deep-information-seeking"><span class="nav-number">4.</span> <span class="nav-text">PARALLELMUSE: Agentic Parallel
+Thinking for Deep Information Seeking</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#repurposing-synthetic-data-for-fine-grained-search-agent-supervision"><span class="nav-number">5.</span> <span class="nav-text">Repurposing Synthetic Data for
+Fine-grained Search Agent Supervision</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#osworld-mcp-benchmarking-mcp-tool-invocation-in-computer-use-agents"><span class="nav-number">6.</span> <span class="nav-text">OSWorld-MCP:
+Benchmarking MCP Tool Invocation In Computer-Use
+Agents</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -487,19 +503,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c56ce176" title="2025-11-04-insights" target="_blank">2025-11-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/27b0fa0f" title="2025-11-03-insights" target="_blank">2025-11-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -579,12 +595,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

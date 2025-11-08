@@ -314,30 +314,44 @@
 <span id="more"></span>
 <p>昨天回高中宣讲，感觉现在ChatGPT的火热程度甚至超过了当时的AlphaGO,很多高中小朋友不知道大学的专业划分，就来问问ChatGPT属于哪个专业，叉院是时候成立一个“chaì班”了，笑死。</p>
 <p>新学期开始，感觉很多NLP的工作一下就显得不那么重要了，听说美国高校甚至很多NLP相关的项目直接被撤资了。我仔细回想了一下：这一切是怎么发生的，为什么NLP领域发展这么久，ChatGPT就能一下获得这么高的关注度？</p>
-<h2 id="Align"><a href="#Align" class="headerlink" title="Align"></a>Align</h2><p>传统的NLP模型、任务，一般是定义好了很多的metric，然后大家通过score的高低去评判好坏。不过在文本生成领域，经典的score比如BLEU，ROUGE-L等等其实都有很多的问题，所以比较好的论文一般都会引入人工评测：让人去评baseline和新方法的生成质量高低。</p>
-<p>ChatGPT其实就是更进一步：既然我们引入人工评测，那干脆把人工评测当成一个信号，指导模型生成。这就是RLHF里的HF(human feedback)。</p>
+<h2 id="align">Align</h2>
+<p>传统的NLP模型、任务，一般是定义好了很多的metric，然后大家通过score的高低去评判好坏。不过在文本生成领域，经典的score比如BLEU，ROUGE-L等等其实都有很多的问题，所以比较好的论文一般都会引入人工评测：让人去评baseline和新方法的生成质量高低。</p>
+<p>ChatGPT其实就是更进一步：既然我们引入人工评测，那干脆把人工评测当成一个信号，指导模型生成。这就是RLHF里的HF(human
+feedback)。</p>
 <p>说回到刚才的文本生成。任何的机器学习模型都是在进行拟合，或者说在align到某个指标。之前的指标是align到score，而ChatGPT是align到“人”。这就不难理解为什么”人“会更喜欢ChatGPT了。</p>
-<p>就应用性和宣传性来说，human align比起score align是具有显著优势的，毕竟冰冷冷的score-SOTA看起来也没什么大不了。”想要让工作有好的宣传，一定要有一个更符合human align的展示形式“，这是值得我们思考的第一个点。</p>
-<h2 id="Why-ChatGPT"><a href="#Why-ChatGPT" class="headerlink" title="Why ChatGPT?"></a>Why ChatGPT?</h2><p>ChatGPT的RLHF思路的推导其实是比较正常的，但反过来想想，之前大家竟然没想到这么做？</p>
-<p>其实也不是没想到，只是之前的pretrain model效果没有那么好。举个例子：</p>
+<p>就应用性和宣传性来说，human align比起score
+align是具有显著优势的，毕竟冰冷冷的score-SOTA看起来也没什么大不了。”想要让工作有好的宣传，一定要有一个更符合human
+align的展示形式“，这是值得我们思考的第一个点。</p>
+<h2 id="why-chatgpt">Why ChatGPT?</h2>
+<p>ChatGPT的RLHF思路的推导其实是比较正常的，但反过来想想，之前大家竟然没想到这么做？</p>
+<p>其实也不是没想到，只是之前的pretrain
+model效果没有那么好。举个例子：</p>
 <blockquote>
-<p>最近meta AI新挂出来一个LLAMA-65B模型宣称达到了新SOTA，但在某数据集上有69%的AUC，但GPT-3.5-002模型的score是77.4%，何况现在GPT-3.5已经迭代到了003。</p>
+<p>最近meta
+AI新挂出来一个LLAMA-65B模型宣称达到了新SOTA，但在某数据集上有69%的AUC，但GPT-3.5-002模型的score是77.4%，何况现在GPT-3.5已经迭代到了003。</p>
 </blockquote>
-<p>类似的例子还有很多，无不说明GPT-3.5预训练模型冠绝世界，甚至技术代差似的zero-shot语义理解和生成能力。还记得两年前GPT3刚发布的时候，也很火，不过由于还是score align，所以引入的关注度可能相对没有这么高。但这几年，openAI一直在默默的迭代基础模型的能力：</p>
+<p>类似的例子还有很多，无不说明GPT-3.5预训练模型冠绝世界，甚至技术代差似的zero-shot语义理解和生成能力。还记得两年前GPT3刚发布的时候，也很火，不过由于还是score
+align，所以引入的关注度可能相对没有这么高。但这几年，openAI一直在默默的迭代基础模型的能力：</p>
 <ul>
 <li>引入代码训练</li>
 <li>提高数据质量</li>
 <li>增强训练效率</li>
 <li>修改backbone表示能力</li>
-<li>…</li>
+<li>...</li>
 </ul>
-<p>其实，GPT2开始，openAI一直在宣传”in-context learning”，到GPT3宣传“zero-shot”概念，都是逐渐感受到了预训练模型能力膨胀带来的新趋势。很可惜，学术界到一直到2022年，关注度一直不是很高。主要原因是开源的预训练模型可能并没有达到这种效果，甚至fine-tune、delta-tune的效果还比不上人家的in-context one-shot效果。</p>
+<p>其实，GPT2开始，openAI一直在宣传”in-context
+learning”，到GPT3宣传“zero-shot”概念，都是逐渐感受到了预训练模型能力膨胀带来的新趋势。很可惜，学术界到一直到2022年，关注度一直不是很高。主要原因是开源的预训练模型可能并没有达到这种效果，甚至fine-tune、delta-tune的效果还比不上人家的in-context
+one-shot效果。</p>
 <p>有一些工作曾经提出：随着预训练模型的能力叠加到了一定限度，模型才能逐渐理解人的需求，理解人给出的feedback指标高低“到底意味着什么”。关于这一点，其实我之前使用了我们实验室的CPM3进行过类似HF的实验，发现模型训练非常不稳定，会把得分高的语句的相关词语学成“高平分的关键因素”。所以GPT-3.5+RLHF,可以说是如虎添翼，一拍即合了。</p>
-<p>之前的发展先不谈，现在ChatGPT一出现，所有研究者都真正意识到back-bone model的技术代差了。洛阳纸贵，年后国内的算力供应商租卡价格都涨了大概50%。估计未来一年到几年，中国几家大公司应该要开始卷大模型训练的算力、宣传了。</p>
+<p>之前的发展先不谈，现在ChatGPT一出现，所有研究者都真正意识到back-bone
+model的技术代差了。洛阳纸贵，年后国内的算力供应商租卡价格都涨了大概50%。估计未来一年到几年，中国几家大公司应该要开始卷大模型训练的算力、宣传了。</p>
 <p>很多人说技术代差追不上，我到没有那么悲观，我倒觉得这个领域，钱比技术更重要。我们反而应该感谢ChatGPT，让大家更愿意在这个领域投钱了，毕竟之前一个run就要1000万的价格，没有多少人愿意出。</p>
-<p>预训练模型是一个很烧钱的事情，并且创新性不是很多，学术名声上也不是特别好，前几年一般都用“军备竞赛”之类的词形容，现在这个词也没人提了。openAI一直在持续的做这件事，理由其实很简单：它是卖大模型inference API挣钱的。学术界一方面不挣钱，一方面大家不愿意投钱，产生差距很正常。</p>
+<p>预训练模型是一个很烧钱的事情，并且创新性不是很多，学术名声上也不是特别好，前几年一般都用“军备竞赛”之类的词形容，现在这个词也没人提了。openAI一直在持续的做这件事，理由其实很简单：它是卖大模型inference
+API挣钱的。学术界一方面不挣钱，一方面大家不愿意投钱，产生差距很正常。</p>
 <p>“为什么openAI可以从一个纯学术组织发展到现在自给自足盈利也很多，经济技术双丰收；其他高校和学术组织就像是啃老族，总是等着别人救济”，是值得我们思考的第二个问题。</p>
-<h2 id="RLHF-and-“super”-pretrain-model-is-all-you-need"><a href="#RLHF-and-“super”-pretrain-model-is-all-you-need" class="headerlink" title="RLHF and “super” pretrain model is all you need?"></a>RLHF and “super” pretrain model is all you need?</h2><p>回到RLHF技术本身。那么以后大家就都做RLHF了吗？其实instructGPT自己也发现了：align到任务和align到人某种意义上是冲突的。随着RLHF，模型对于基础NLP任务的能力反而会下降。对这种现象，我的理解是：</p>
+<h2 id="rlhf-and-super-pretrain-model-is-all-you-need">RLHF and "super"
+pretrain model is all you need?</h2>
+<p>回到RLHF技术本身。那么以后大家就都做RLHF了吗？其实instructGPT自己也发现了：align到任务和align到人某种意义上是冲突的。随着RLHF，模型对于基础NLP任务的能力反而会下降。对这种现象，我的理解是：</p>
 <blockquote>
 <p>随着预训练模型能力的增强，模型不是变得更强，而是变得更“flat”，会更容易泛化到下游任务上。由fine-tune变成prompt、instruction-tuning。</p>
 </blockquote>
@@ -347,13 +361,12 @@
 <li>制作数据集、定义metric</li>
 <li>跑实验，做分析</li>
 </ul>
-<p>我觉得其中的第二步、第三步未来可能会越来越不重要，因为对于instruction tuning来说，你很可能只需要用自然语言描述你的需求，模型就可以理解你的需求了。ChatGPT令人着迷的点，正在于此：即使再抽象的需求，模型也可以理解，并且在只有几个或者没有example的情况下，做出相对不错的结果。</p>
+<p>我觉得其中的第二步、第三步未来可能会越来越不重要，因为对于instruction
+tuning来说，你很可能只需要用自然语言描述你的需求，模型就可以理解你的需求了。ChatGPT令人着迷的点，正在于此：即使再抽象的需求，模型也可以理解，并且在只有几个或者没有example的情况下，做出相对不错的结果。</p>
 <p>在这种情况下，在所有的研究的最开始，我们都要先提出两个问题：</p>
 <ul>
-<li><p>你的需求，为什么要用你的方法，而不是ChatGPT？</p>
-</li>
-<li><p>你的需求，ChatGPT能做到多好，现在还不够好吗？</p>
-</li>
+<li><p>你的需求，为什么要用你的方法，而不是ChatGPT？</p></li>
+<li><p>你的需求，ChatGPT能做到多好，现在还不够好吗？</p></li>
 </ul>
 <p>如果回答不出来，那么这个研究大约就是要被淘汰的。作为研究者，我们大约会衍生出两种研究选题：</p>
 <ul>
@@ -476,7 +489,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Align"><span class="nav-number">1.</span> <span class="nav-text">Align</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-ChatGPT"><span class="nav-number">2.</span> <span class="nav-text">Why ChatGPT?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RLHF-and-%E2%80%9Csuper%E2%80%9D-pretrain-model-is-all-you-need"><span class="nav-number">3.</span> <span class="nav-text">RLHF and “super” pretrain model is all you need?</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#align"><span class="nav-number">1.</span> <span class="nav-text">Align</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#why-chatgpt"><span class="nav-number">2.</span> <span class="nav-text">Why ChatGPT?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rlhf-and-super-pretrain-model-is-all-you-need"><span class="nav-number">3.</span> <span class="nav-text">RLHF and &quot;super&quot;
+pretrain model is all you need?</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -534,19 +548,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c56ce176" title="2025-11-04-insights" target="_blank">2025-11-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/27b0fa0f" title="2025-11-03-insights" target="_blank">2025-11-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -626,12 +640,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

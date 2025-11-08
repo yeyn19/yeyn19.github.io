@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle这篇论文谈到了grpo中的dynamic sample问题，只有一个题目同时有做对&#x2F;不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致解">
+  <meta name="description" content="Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle 这篇论文谈到了grpo中的dynamic sample问题，只有一个题目同时有做对&#x2F;不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-08-08-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/c5caea66">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle这篇论文谈到了grpo中的dynamic sample问题，只有一个题目同时有做对&#x2F;不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致解">
+<meta property="og:description" content="Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle 这篇论文谈到了grpo中的dynamic sample问题，只有一个题目同时有做对&#x2F;不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-08-04-08-08/dynamic-shuffle.png">
 <meta property="article:published_time" content="2025-08-14T01:57:31.000Z">
@@ -312,7 +312,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Shuffle-R1-Efficient-RL-framework-for-Multimodal-Large-Language-Models-via-Data-centric-Dynamic-Shuffle"><a href="#Shuffle-R1-Efficient-RL-framework-for-Multimodal-Large-Language-Models-via-Data-centric-Dynamic-Shuffle" class="headerlink" title="Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.05612">Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle</a></h2><p>这篇论文谈到了grpo中的dynamic sample问题，只有一个题目同时有做对/不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致解决思路是：加入一个经验池，里面评估了之前做过的各种题目的一些信息，然后通过这些信息决定下一次roll哪些数据，而不是从dataloader直接采。</p>
+        <h2 id="shuffle-r1-efficient-rl-framework-for-multimodal-large-language-models-via-data-centric-dynamic-shuffle"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2508.05612">Shuffle-R1: Efficient RL
+framework for Multimodal Large Language Models via Data-centric Dynamic
+Shuffle</a></h2>
+<p>这篇论文谈到了grpo中的dynamic
+sample问题，只有一个题目同时有做对/不做对的才会训进去，随着训练这个比例会越来越低，导致训练效率越来越低，大部分样本都被drop了。作者的大致解决思路是：加入一个经验池，里面评估了之前做过的各种题目的一些信息，然后通过这些信息决定下一次roll哪些数据，而不是从dataloader直接采。</p>
 <p><img src="../../files/images/arxiv-insights/2025-08-04-08-08/dynamic-shuffle.png"></p>
 <!-- flag of hidden posts -->
     </div>
@@ -330,13 +334,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c56ce176.html" rel="bookmark">2025-11-04-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/27b0fa0f.html" rel="bookmark">2025-11-03-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/673195b6.html" rel="bookmark">2025-10-31-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/88f3fe88.html" rel="bookmark">2025-10-30-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/b5680a82.html" rel="bookmark">2025-10-29-insights</a></div>
     </li>
   </ul>
 
@@ -413,7 +417,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shuffle-R1-Efficient-RL-framework-for-Multimodal-Large-Language-Models-via-Data-centric-Dynamic-Shuffle"><span class="nav-number">1.</span> <span class="nav-text">Shuffle-R1: Efficient RL framework for Multimodal Large Language Models via Data-centric Dynamic Shuffle</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#shuffle-r1-efficient-rl-framework-for-multimodal-large-language-models-via-data-centric-dynamic-shuffle"><span class="nav-number">1.</span> <span class="nav-text">Shuffle-R1: Efficient RL
+framework for Multimodal Large Language Models via Data-centric Dynamic
+Shuffle</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -471,19 +477,19 @@
       
       
         <li class="recent_posts_li">
+          <a href="/c56ce176" title="2025-11-04-insights" target="_blank">2025-11-04-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/27b0fa0f" title="2025-11-03-insights" target="_blank">2025-11-03-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/673195b6" title="2025-10-31-insights" target="_blank">2025-10-31-insights</a>
         </li>
       
         <li class="recent_posts_li">
           <a href="/88f3fe88" title="2025-10-30-insights" target="_blank">2025-10-30-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/b5680a82" title="2025-10-29-insights" target="_blank">2025-10-29-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/5aaa61bc" title="2025-10-28-insights" target="_blank">2025-10-28-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -563,12 +569,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">294k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>
