@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="圣诞节，没想到arxiv还在更新，本来以为没论文读了…… Reasons to Reject? Aligning Language Models with Judgments 作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？ 作者试了试，发现如果方法正确，用">
+  <meta name="description" content="圣诞节，没想到arxiv还在更新，本来以为没论文读了…… Reasons to Reject? Aligning Language Models with Judgments作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？ 作者试了试，发现如果方法正确，用很">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2023-12-25-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/9c9936a3">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="圣诞节，没想到arxiv还在更新，本来以为没论文读了…… Reasons to Reject? Aligning Language Models with Judgments 作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？ 作者试了试，发现如果方法正确，用">
+<meta property="og:description" content="圣诞节，没想到arxiv还在更新，本来以为没论文读了…… Reasons to Reject? Aligning Language Models with Judgments作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？ 作者试了试，发现如果方法正确，用很">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-25-12-29/judge.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2023-12-25-12-29/WaveCoder.png">
@@ -314,16 +314,10 @@
 
       
         <p>圣诞节，没想到arxiv还在更新，本来以为没论文读了……</p>
-<h2 id="reasons-to-reject-aligning-language-models-with-judgments"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.14591.pdf">Reasons to Reject? Aligning
-Language Models with Judgments</a></h2>
-<p>作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？</p>
+<h2 id="Reasons-to-Reject-Aligning-Language-Models-with-Judgments"><a href="#Reasons-to-Reject-Aligning-Language-Models-with-Judgments" class="headerlink" title="Reasons to Reject? Aligning Language Models with Judgments"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.14591.pdf">Reasons to Reject? Aligning Language Models with Judgments</a></h2><p>作者提到，人类都是从自然语言反馈中学习，但目前的align模型一直都是从reward中学习、从SFT中学习，如果对于每个Response，我能拿到人类的自然语言的直接反馈，会不会学的更好呢？</p>
 <p>作者试了试，发现如果方法正确，用很少的数据就能学的很好，而且这个流程可以变成多轮的在线增强</p>
 <p><img src="../../files/images/arxiv-insights/2023-12-25-12-29/judge.png"></p>
-<h2 id="wavecoder-widespread-and-versatile-enhanced-instruction-tuning-with-refined-data-generation"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.14187.pdf">WaveCoder: Widespread And
-Versatile Enhanced Instruction Tuning with Refined Data
-Generation</a></h2>
-<p>微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高，
-finetune以后效果提升很明显</p>
+<h2 id="WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation"><a href="#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation" class="headerlink" title="WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2312.14187.pdf">WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation</a></h2><p>微软出的造SFT数据的研究，作者在code场景下提出了一套generator-descriminator相互对抗的造数据框架，造了一个20000条数据的SFT数据集，数据质量很高， finetune以后效果提升很明显</p>
 <blockquote>
 <p>另外图里的这些模型中，deepseek提升似乎不明显，也许说明他们在训练时已经做过了类似的数据工程</p>
 </blockquote>
@@ -344,13 +338,13 @@ finetune以后效果提升很明显</p>
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2cbf5f2.html" rel="bookmark">2025-11-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d099ecc.html" rel="bookmark">2025-11-10-insights</a></div>
     </li>
   </ul>
 
@@ -427,10 +421,7 @@ finetune以后效果提升很明显</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#reasons-to-reject-aligning-language-models-with-judgments"><span class="nav-number">1.</span> <span class="nav-text">Reasons to Reject? Aligning
-Language Models with Judgments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wavecoder-widespread-and-versatile-enhanced-instruction-tuning-with-refined-data-generation"><span class="nav-number">2.</span> <span class="nav-text">WaveCoder: Widespread And
-Versatile Enhanced Instruction Tuning with Refined Data
-Generation</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reasons-to-Reject-Aligning-Language-Models-with-Judgments"><span class="nav-number">1.</span> <span class="nav-text">Reasons to Reject? Aligning Language Models with Judgments</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#WaveCoder-Widespread-And-Versatile-Enhanced-Instruction-Tuning-with-Refined-Data-Generation"><span class="nav-number">2.</span> <span class="nav-text">WaveCoder: Widespread And Versatile Enhanced Instruction Tuning with Refined Data Generation</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -445,7 +436,7 @@ Generation</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +479,14 @@ Generation</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e63e25cf" title="2025-11-13-insights" target="_blank">2025-11-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
         </li>
       
@@ -517,14 +516,6 @@ Generation</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -580,12 +571,12 @@ Generation</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

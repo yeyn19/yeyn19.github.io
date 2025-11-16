@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts 上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开">
+  <meta name="description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-01-09-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/3f51a21">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts 上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开">
+<meta property="og:description" content="今天有80篇论文，马上就到ACL的静默期了，估计这几天有一堆赶ACL静默期的论文出来。今天的论文全是好玩的，只能说严选三篇……]  哎，要不是考试周到了，真想痛快读上10个小时论文呀  Mixtral of Experts上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/Mixtral%20of%20Experts.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-01-08-01-12/MoE-mamba.png">
@@ -319,34 +319,21 @@
 <blockquote>
 <p>哎，要不是考试周到了，真想痛快读上10个小时论文呀</p>
 </blockquote>
-<h2 id="mixtral-of-experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04088.pdf">Mixtral of Experts</a></h2>
-<p>上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons
-of MoE的论文就要来了，毕竟终于有开源了。</p>
-<p>每个token都会在8个FFN层中选择最大的两个去用，用这个方法做出来了一个8x7B模型，效果胜过ChatGPT3.5和Llama2
-70B。其instruct版本，在评测中超过了GPT-3.5 Turbo, Claude-2.1, Gemini
-Pro， Llama 2 70B</p>
+<h2 id="Mixtral-of-Experts"><a href="#Mixtral-of-Experts" class="headerlink" title="Mixtral of Experts"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04088.pdf">Mixtral of Experts</a></h2><p>上周的最佳magnet运营，Mixtral的MoE版本今天论文上来了。据我所知，这个应该是开源界MoE的鼻祖了，估计未来几个月tons of MoE的论文就要来了，毕竟终于有开源了。</p>
+<p>每个token都会在8个FFN层中选择最大的两个去用，用这个方法做出来了一个8x7B模型，效果胜过ChatGPT3.5和Llama2 70B。其instruct版本，在评测中超过了GPT-3.5 Turbo, Claude-2.1, Gemini Pro， Llama 2 70B</p>
 <blockquote>
 <p>等我这周考完试，写一个这篇论文的阅读笔记吧</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/Mixtral of Experts.png"></p>
-<h2 id="moe-mamba-efficient-selective-state-space-models-with-mixture-of-experts"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04081.pdf">MoE-Mamba: Efficient
-Selective State Space Models with Mixture of Experts</a></h2>
-<p>如果大家还记得之前分享的mamba架构……之前mamba的一个问题就是scaling做不起来。作者发现，如果把Mamba和MoE技术结合起来，就能真正释放mamba的潜力。比Transformer、Transformer-MoE都更容易scaling</p>
+<h2 id="MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts"><a href="#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts" class="headerlink" title="MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.04081.pdf">MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts</a></h2><p>如果大家还记得之前分享的mamba架构……之前mamba的一个问题就是scaling做不起来。作者发现，如果把Mamba和MoE技术结合起来，就能真正释放mamba的潜力。比Transformer、Transformer-MoE都更容易scaling</p>
 <blockquote>
 <p>期待成品，感觉大家现在还是更认成品，必须得真有个超过llama的模型丢出来，大家才会真正去follow</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/MoE-mamba.png"></p>
-<h2 id="soaring-from-4k-to-400k-extending-llms-context-with-activation-beacon"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03462.pdf">Soaring from 4K to 400K:
-Extending LLM's Context with Activation Beacon</a></h2>
-<p>长文本领域的新探索，这篇工作想的是：能不能把activation换成一个更稠密的形式，使得相对进的sliding
-window就能表示更多的信息。作者设计了训练任务，使得模型可以把activation变得跟稠密，进而通过sliding
-windows做就能文本建模</p>
+<h2 id="Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon"><a href="#Soaring-from-4K-to-400K-Extending-LLM’s-Context-with-Activation-Beacon" class="headerlink" title="Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03462.pdf">Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon</a></h2><p>长文本领域的新探索，这篇工作想的是：能不能把activation换成一个更稠密的形式，使得相对进的sliding window就能表示更多的信息。作者设计了训练任务，使得模型可以把activation变得跟稠密，进而通过sliding windows做就能文本建模</p>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/activation-beacon.png"></p>
-<h2 id="ast-t5-structure-aware-pretraining-for-code-generation-and-understanding"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03003.pdf">AST-T5: Structure-Aware
-Pretraining for Code Generation and Understanding</a></h2>
-<p>我觉得这篇也很有价值，实在不好取舍，就干脆都放上来了。</p>
-<p>Meta
-AI的论文，作者提到，目前的代码模型都会把code视为sequence，但实际上很多代码不同的写法是等价的，还有等等问题。对于代码理解来说，真正的不变量是AST结构，作者想要直接把AST结构做预训练生成的对象。</p>
+<h2 id="AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding"><a href="#AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding" class="headerlink" title="AST-T5: Structure-Aware Pretraining for Code Generation and Understanding"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.03003.pdf">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</a></h2><p>我觉得这篇也很有价值，实在不好取舍，就干脆都放上来了。</p>
+<p>Meta AI的论文，作者提到，目前的代码模型都会把code视为sequence，但实际上很多代码不同的写法是等价的，还有等等问题。对于代码理解来说，真正的不变量是AST结构，作者想要直接把AST结构做预训练生成的对象。</p>
 <p>在T5这个规模下，作者尝试基于AST结构划分span，发现新式的训练方法在所有规模下，最终效果都比传统方法好很多</p>
 <p><img src="../../files/images/arxiv-insights/2024-01-08-01-12/ast-t5.png"></p>
 <!-- flag of hidden posts -->
@@ -365,13 +352,13 @@ AI的论文，作者提到，目前的代码模型都会把code视为sequence，
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2cbf5f2.html" rel="bookmark">2025-11-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d099ecc.html" rel="bookmark">2025-11-10-insights</a></div>
     </li>
   </ul>
 
@@ -448,10 +435,7 @@ AI的论文，作者提到，目前的代码模型都会把code视为sequence，
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#mixtral-of-experts"><span class="nav-number">1.</span> <span class="nav-text">Mixtral of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#moe-mamba-efficient-selective-state-space-models-with-mixture-of-experts"><span class="nav-number">2.</span> <span class="nav-text">MoE-Mamba: Efficient
-Selective State Space Models with Mixture of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#soaring-from-4k-to-400k-extending-llms-context-with-activation-beacon"><span class="nav-number">3.</span> <span class="nav-text">Soaring from 4K to 400K:
-Extending LLM&#39;s Context with Activation Beacon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ast-t5-structure-aware-pretraining-for-code-generation-and-understanding"><span class="nav-number">4.</span> <span class="nav-text">AST-T5: Structure-Aware
-Pretraining for Code Generation and Understanding</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mixtral-of-Experts"><span class="nav-number">1.</span> <span class="nav-text">Mixtral of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MoE-Mamba-Efficient-Selective-State-Space-Models-with-Mixture-of-Experts"><span class="nav-number">2.</span> <span class="nav-text">MoE-Mamba: Efficient Selective State Space Models with Mixture of Experts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Soaring-from-4K-to-400K-Extending-LLM%E2%80%99s-Context-with-Activation-Beacon"><span class="nav-number">3.</span> <span class="nav-text">Soaring from 4K to 400K: Extending LLM’s Context with Activation Beacon</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AST-T5-Structure-Aware-Pretraining-for-Code-Generation-and-Understanding"><span class="nav-number">4.</span> <span class="nav-text">AST-T5: Structure-Aware Pretraining for Code Generation and Understanding</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,7 +450,7 @@ Pretraining for Code Generation and Understanding</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -509,6 +493,14 @@ Pretraining for Code Generation and Understanding</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e63e25cf" title="2025-11-13-insights" target="_blank">2025-11-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
         </li>
       
@@ -538,14 +530,6 @@ Pretraining for Code Generation and Understanding</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -601,12 +585,12 @@ Pretraining for Code Generation and Understanding</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

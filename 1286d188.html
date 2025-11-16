@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Open-World Skill Discovery from Unsegmented Demonstrations 推一手哥们的工作，作者研究的问题是如何把agent trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。  之前其实有不少工作在研究这个方向，">
+  <meta name="description" content="Open-World Skill Discovery from Unsegmented Demonstrations推一手哥们的工作，作者研究的问题是如何把agent trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。  之前其实有不少工作在研究这个方向，比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-03-17-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/1286d188">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Open-World Skill Discovery from Unsegmented Demonstrations 推一手哥们的工作，作者研究的问题是如何把agent trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。  之前其实有不少工作在研究这个方向，">
+<meta property="og:description" content="Open-World Skill Discovery from Unsegmented Demonstrations推一手哥们的工作，作者研究的问题是如何把agent trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。  之前其实有不少工作在研究这个方向，比">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-03-17-03-21/segment.png">
 <meta property="article:published_time" content="2025-03-17T03:02:45.000Z">
@@ -312,14 +312,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="open-world-skill-discovery-from-unsegmented-demonstrations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10684">Open-World Skill Discovery from
-Unsegmented Demonstrations</a></h2>
-<p>推一手哥们的工作，作者研究的问题是如何把agent
-trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。</p>
+        <h2 id="Open-World-Skill-Discovery-from-Unsegmented-Demonstrations"><a href="#Open-World-Skill-Discovery-from-Unsegmented-Demonstrations" class="headerlink" title="Open-World Skill Discovery from Unsegmented Demonstrations"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2503.10684">Open-World Skill Discovery from Unsegmented Demonstrations</a></h2><p>推一手哥们的工作，作者研究的问题是如何把agent trace进行切分，进而推算出一些high-level的query。作者的招数是，model-oriented：直接训一个policy，找到loss最大的地方，认为这里就是关键位置，并做切分。</p>
 <blockquote>
 <p>之前其实有不少工作在研究这个方向，比如GUIWorld他们都是用4o直接prompt切分，感觉效果都不太好。</p>
-<p>不过这种model-oriented的方案，可能有另一个问题？模型预测不出来的action，可能不是困难的地方，而是随机性更强的地方。我之前看过Yejin
-Choi一个工作，他会用一强一弱两个模型分别预测，然后认为随机性强的地方，loss应该不会随着规模的变化而变化；只有困难数据，应该是强模型loss更小</p>
+<p>不过这种model-oriented的方案，可能有另一个问题？模型预测不出来的action，可能不是困难的地方，而是随机性更强的地方。我之前看过Yejin Choi一个工作，他会用一强一弱两个模型分别预测，然后认为随机性强的地方，loss应该不会随着规模的变化而变化；只有困难数据，应该是强模型loss更小</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-03-17-03-21/segment.png" style="zoom:50%;"></p>
 <!-- flag of hidden posts -->
@@ -338,13 +334,13 @@ Choi一个工作，他会用一强一弱两个模型分别预测，然后认为�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2cbf5f2.html" rel="bookmark">2025-11-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d099ecc.html" rel="bookmark">2025-11-10-insights</a></div>
     </li>
   </ul>
 
@@ -421,8 +417,7 @@ Choi一个工作，他会用一强一弱两个模型分别预测，然后认为�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#open-world-skill-discovery-from-unsegmented-demonstrations"><span class="nav-number">1.</span> <span class="nav-text">Open-World Skill Discovery from
-Unsegmented Demonstrations</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Open-World-Skill-Discovery-from-Unsegmented-Demonstrations"><span class="nav-number">1.</span> <span class="nav-text">Open-World Skill Discovery from Unsegmented Demonstrations</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -437,7 +432,7 @@ Unsegmented Demonstrations</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,6 +475,14 @@ Unsegmented Demonstrations</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e63e25cf" title="2025-11-13-insights" target="_blank">2025-11-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
         </li>
       
@@ -509,14 +512,6 @@ Unsegmented Demonstrations</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -572,12 +567,12 @@ Unsegmented Demonstrations</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

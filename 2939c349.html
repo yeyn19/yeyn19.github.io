@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="回来上班了，接下来5天每天推两天的工作，把arxiv里救回来一周的工作。 Competitive Programming with Large Reasoning Models OpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。 Scaling Pre-training to One Hundred Billion Data for V">
+  <meta name="description" content="回来上班了，接下来5天每天推两天的工作，把arxiv里救回来一周的工作。 Competitive Programming with Large Reasoning ModelsOpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。 Scaling Pre-training to One Hundred Billion Data for Vi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-02-12-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/2939c349">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="回来上班了，接下来5天每天推两天的工作，把arxiv里救回来一周的工作。 Competitive Programming with Large Reasoning Models OpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。 Scaling Pre-training to One Hundred Billion Data for V">
+<meta property="og:description" content="回来上班了，接下来5天每天推两天的工作，把arxiv里救回来一周的工作。 Competitive Programming with Large Reasoning ModelsOpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。 Scaling Pre-training to One Hundred Billion Data for Vi">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/100B.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-02-10-02-14/next-block.png">
@@ -314,29 +314,17 @@
 
       
         <p>回来上班了，接下来5天每天推两天的工作，把arxiv里救回来一周的工作。</p>
-<h2 id="competitive-programming-with-large-reasoning-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06807">Competitive Programming with
-Large Reasoning Models</a></h2>
-<p>OpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。</p>
-<h2 id="scaling-pre-training-to-one-hundred-billion-data-for-vision-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07617"><strong>Scaling Pre-training to
-One Hundred Billion Data for Vision Language Models</strong></a></h2>
-<p>Google的工作，作者尝试了把VLM训练数据scaling到100B条。大致结论是：</p>
-<ol type="1">
+<h2 id="Competitive-Programming-with-Large-Reasoning-Models"><a href="#Competitive-Programming-with-Large-Reasoning-Models" class="headerlink" title="Competitive Programming with Large Reasoning Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.06807">Competitive Programming with Large Reasoning Models</a></h2><p>OpenAI的工作，白名单机构，看见直接推。是o1和o3-preview在ioi和codeforce的测试报告。</p>
+<h2 id="Scaling-Pre-training-to-One-Hundred-Billion-Data-for-Vision-Language-Models"><a href="#Scaling-Pre-training-to-One-Hundred-Billion-Data-for-Vision-Language-Models" class="headerlink" title="Scaling Pre-training to One Hundred Billion Data for Vision Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07617"><strong>Scaling Pre-training to One Hundred Billion Data for Vision Language Models</strong></a></h2><p>Google的工作，作者尝试了把VLM训练数据scaling到100B条。大致结论是：</p>
+<ol>
 <li>常见benchmark，比如coco，基本10B数据就收敛了</li>
 <li>罕见benchmark，可以一直训一直涨</li>
-<li>使用data
-filter，比如clip，即使做的很细，还是会掉分？……所以，大家真的需要filter吗</li>
+<li>使用data filter，比如clip，即使做的很细，还是会掉分？……所以，大家真的需要filter吗</li>
 </ol>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/100B.png"></p>
-<h2 id="next-block-prediction-video-generation-via-semi-autoregressive-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07737">Next Block Prediction: Video
-Generation via Semi-Autoregressive Modeling</a></h2>
-<p>Furu组的论文，他们取名字总是有一手的。作者认为，目前的Autoregressive
-video generation大多数都是按照时间从前到后，单张图image
-patch按扫描顺序上到下、左到右，能不能换成一个block一个block生成，而不是一个patch呢？作者尝试了next
-block
-generation，一个block甚至可以是跨时间的，比如说一个区域一段时间内的子内容，发现效果很好。</p>
+<h2 id="Next-Block-Prediction-Video-Generation-via-Semi-Autoregressive-Modeling"><a href="#Next-Block-Prediction-Video-Generation-via-Semi-Autoregressive-Modeling" class="headerlink" title="Next Block Prediction: Video Generation via Semi-Autoregressive Modeling"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2502.07737">Next Block Prediction: Video Generation via Semi-Autoregressive Modeling</a></h2><p>Furu组的论文，他们取名字总是有一手的。作者认为，目前的Autoregressive video generation大多数都是按照时间从前到后，单张图image patch按扫描顺序上到下、左到右，能不能换成一个block一个block生成，而不是一个patch呢？作者尝试了next block generation，一个block甚至可以是跨时间的，比如说一个区域一段时间内的子内容，发现效果很好。</p>
 <blockquote>
-<p>我觉得这背后有一个观点在于：时间从前到后，单张图image
-patch按扫描顺序上到下、左到右，这样的逻辑是否真的是casual的？因为Autoregressive需要被建模的对象具有好的casual性质，这点在video模态里其实并不显然。可能，我们甚至需要想到一些办法对casual做建模，比如vqvae那样子？</p>
+<p>我觉得这背后有一个观点在于：时间从前到后，单张图image patch按扫描顺序上到下、左到右，这样的逻辑是否真的是casual的？因为Autoregressive需要被建模的对象具有好的casual性质，这点在video模态里其实并不显然。可能，我们甚至需要想到一些办法对casual做建模，比如vqvae那样子？</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2025-02-10-02-14/next-block.png"></p>
 <!-- flag of hidden posts -->
@@ -355,13 +343,13 @@ patch按扫描顺序上到下、左到右，这样的逻辑是否真的是casual
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2cbf5f2.html" rel="bookmark">2025-11-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d099ecc.html" rel="bookmark">2025-11-10-insights</a></div>
     </li>
   </ul>
 
@@ -438,10 +426,7 @@ patch按扫描顺序上到下、左到右，这样的逻辑是否真的是casual
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#competitive-programming-with-large-reasoning-models"><span class="nav-number">1.</span> <span class="nav-text">Competitive Programming with
-Large Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-pre-training-to-one-hundred-billion-data-for-vision-language-models"><span class="nav-number">2.</span> <span class="nav-text">Scaling Pre-training to
-One Hundred Billion Data for Vision Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#next-block-prediction-video-generation-via-semi-autoregressive-modeling"><span class="nav-number">3.</span> <span class="nav-text">Next Block Prediction: Video
-Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Competitive-Programming-with-Large-Reasoning-Models"><span class="nav-number">1.</span> <span class="nav-text">Competitive Programming with Large Reasoning Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Pre-training-to-One-Hundred-Billion-Data-for-Vision-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Scaling Pre-training to One Hundred Billion Data for Vision Language Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next-Block-Prediction-Video-Generation-via-Semi-Autoregressive-Modeling"><span class="nav-number">3.</span> <span class="nav-text">Next Block Prediction: Video Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -456,7 +441,7 @@ Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -499,6 +484,14 @@ Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e63e25cf" title="2025-11-13-insights" target="_blank">2025-11-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
         </li>
       
@@ -528,14 +521,6 @@ Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -591,12 +576,12 @@ Generation via Semi-Autoregressive Modeling</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>

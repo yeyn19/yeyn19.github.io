@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="国庆节出来172篇工作 Scaling Optimal LR Across Token Horizons Microsoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：  在不同的训练token数量下，最优lr都不一样。预计训练的token量越大，最优lr越小 在确">
+  <meta name="description" content="国庆节出来172篇工作 Scaling Optimal LR Across Token HorizonsMicrosoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：  在不同的训练token数量下，最优lr都不一样。预计训练的token量越大，最优lr越小 在确定">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-01-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/50bb6226">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="国庆节出来172篇工作 Scaling Optimal LR Across Token Horizons Microsoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：  在不同的训练token数量下，最优lr都不一样。预计训练的token量越大，最优lr越小 在确">
+<meta property="og:description" content="国庆节出来172篇工作 Scaling Optimal LR Across Token HorizonsMicrosoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：  在不同的训练token数量下，最优lr都不一样。预计训练的token量越大，最优lr越小 在确定">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/lr.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/mm1.5.png">
@@ -315,28 +315,18 @@
 
       
         <p>国庆节出来172篇工作</p>
-<h2 id="scaling-optimal-lr-across-token-horizons"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.19913"><strong>Scaling Optimal LR
-Across Token Horizons</strong></a></h2>
-<p>Microsoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning
-rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：</p>
-<ol type="1">
+<h2 id="Scaling-Optimal-LR-Across-Token-Horizons"><a href="#Scaling-Optimal-LR-Across-Token-Horizons" class="headerlink" title="Scaling Optimal LR Across Token Horizons"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.19913"><strong>Scaling Optimal LR Across Token Horizons</strong></a></h2><p>Microsoft的工作，但是行文很有openAI的风范。作者想要探索训练大模型时的learning rate选择，能否从小模型试验中predict到大模型最优值呢？下面这张图基本说明了核心结论：</p>
+<ol>
 <li>在不同的训练token数量下，最优lr都不一样。预计训练的token量越大，最优lr越小</li>
 <li>在确定目标模型大小的情况下，最优lr随着token量的变化可以通过小模型的曲线，和大模型在少token的最优lr寻找上做拟合</li>
 </ol>
 <p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/lr.png"></p>
-<h2 id="mm1.5-methods-analysis-insights-from-multimodal-llm-fine-tuning"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.20566">MM1.5: Methods, Analysis &amp;
-Insights from Multimodal LLM Fine-tuning</a></h2>
-<p>之前我出过一篇mm1的论文阅读笔记，今天更新了mm1.5,这次在常规升级的基础上，添加了mm1.5-video视频理解和mm1.5-UI，继承了ferret-ui的手机界面理解能力</p>
+<h2 id="MM1-5-Methods-Analysis-amp-Insights-from-Multimodal-LLM-Fine-tuning"><a href="#MM1-5-Methods-Analysis-amp-Insights-from-Multimodal-LLM-Fine-tuning" class="headerlink" title="MM1.5: Methods, Analysis &amp; Insights from Multimodal LLM Fine-tuning"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.20566">MM1.5: Methods, Analysis &amp; Insights from Multimodal LLM Fine-tuning</a></h2><p>之前我出过一篇mm1的论文阅读笔记，今天更新了mm1.5,这次在常规升级的基础上，添加了mm1.5-video视频理解和mm1.5-UI，继承了ferret-ui的手机界面理解能力</p>
 <p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/mm1.5.png"></p>
-<h2 id="do-influence-functions-work-on-large-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.19998"><strong>Do Influence Functions
-Work on Large Language Models?</strong></a></h2>
-<p>这篇工作瞄准的是前几年的明星方向<code>influence function</code>。这个方向是想要找到对参数改变影响最小的一些训练数据，然后剔除掉给模型涨分。作者在大模型里重新实验了这个方向，发现定义里存在一个谬误：对于LLM来说，参数改变的多少和性能的提升相关性不大。所以,这个领域在大模型时代可能需要做出改变</p>
-<h2 id="instance-adaptive-zero-shot-chain-of-thought-prompting"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.20441">Instance-adaptive Zero-shot
-Chain-of-Thought Prompting</a></h2>
-<p>作者发现，不同的reasoning
-prompt有他适合的场景，然后作者想要找到一个很好的映射方法给不同的question找到适合的prompt。</p>
+<h2 id="Do-Influence-Functions-Work-on-Large-Language-Models"><a href="#Do-Influence-Functions-Work-on-Large-Language-Models" class="headerlink" title="Do Influence Functions Work on Large Language Models?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.19998"><strong>Do Influence Functions Work on Large Language Models?</strong></a></h2><p>这篇工作瞄准的是前几年的明星方向<code>influence function</code>。这个方向是想要找到对参数改变影响最小的一些训练数据，然后剔除掉给模型涨分。作者在大模型里重新实验了这个方向，发现定义里存在一个谬误：对于LLM来说，参数改变的多少和性能的提升相关性不大。所以,这个领域在大模型时代可能需要做出改变</p>
+<h2 id="Instance-adaptive-Zero-shot-Chain-of-Thought-Prompting"><a href="#Instance-adaptive-Zero-shot-Chain-of-Thought-Prompting" class="headerlink" title="Instance-adaptive Zero-shot Chain-of-Thought Prompting"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2409.20441">Instance-adaptive Zero-shot Chain-of-Thought Prompting</a></h2><p>作者发现，不同的reasoning prompt有他适合的场景，然后作者想要找到一个很好的映射方法给不同的question找到适合的prompt。</p>
 <blockquote>
-<p>这篇的思路很像我很喜欢的那篇"self-discover"论文</p>
+<p>这篇的思路很像我很喜欢的那篇”self-discover”论文</p>
 </blockquote>
 <p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/feel.png"></p>
 <!-- flag of hidden posts -->
@@ -355,13 +345,13 @@ prompt有他适合的场景，然后作者想要找到一个很好的映射方�
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e2cbf5f2.html" rel="bookmark">2025-11-11-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/d099ecc.html" rel="bookmark">2025-11-10-insights</a></div>
     </li>
   </ul>
 
@@ -438,11 +428,7 @@ prompt有他适合的场景，然后作者想要找到一个很好的映射方�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#scaling-optimal-lr-across-token-horizons"><span class="nav-number">1.</span> <span class="nav-text">Scaling Optimal LR
-Across Token Horizons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mm1.5-methods-analysis-insights-from-multimodal-llm-fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">MM1.5: Methods, Analysis &amp;
-Insights from Multimodal LLM Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#do-influence-functions-work-on-large-language-models"><span class="nav-number">3.</span> <span class="nav-text">Do Influence Functions
-Work on Large Language Models?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instance-adaptive-zero-shot-chain-of-thought-prompting"><span class="nav-number">4.</span> <span class="nav-text">Instance-adaptive Zero-shot
-Chain-of-Thought Prompting</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scaling-Optimal-LR-Across-Token-Horizons"><span class="nav-number">1.</span> <span class="nav-text">Scaling Optimal LR Across Token Horizons</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MM1-5-Methods-Analysis-amp-Insights-from-Multimodal-LLM-Fine-tuning"><span class="nav-number">2.</span> <span class="nav-text">MM1.5: Methods, Analysis &amp; Insights from Multimodal LLM Fine-tuning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Do-Influence-Functions-Work-on-Large-Language-Models"><span class="nav-number">3.</span> <span class="nav-text">Do Influence Functions Work on Large Language Models?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Instance-adaptive-Zero-shot-Chain-of-Thought-Prompting"><span class="nav-number">4.</span> <span class="nav-text">Instance-adaptive Zero-shot Chain-of-Thought Prompting</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -457,7 +443,7 @@ Chain-of-Thought Prompting</span></a></li></ol></div>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">137</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -500,6 +486,14 @@ Chain-of-Thought Prompting</span></a></li></ol></div>
       
       
         <li class="recent_posts_li">
+          <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e63e25cf" title="2025-11-13-insights" target="_blank">2025-11-13-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
         </li>
       
@@ -529,14 +523,6 @@ Chain-of-Thought Prompting</span></a></li></ol></div>
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -592,12 +578,12 @@ Chain-of-Thought Prompting</span></a></li></ol></div>
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">310k</span>
+    <span title="站点总字数">295k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:42</span>
+    <span title="站点阅读时长">4:28</span>
 </div>
 
 <i class="fa fa-user-md"></i>
