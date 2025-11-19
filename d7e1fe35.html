@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。  只能说，不如叫metamath-v   The FineWe">
+  <meta name="description" content="Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models 作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。  只能说，不如叫metamath-v   The FineW">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-06-26-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/d7e1fe35">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。  只能说，不如叫metamath-v   The FineWe">
+<meta property="og:description" content="Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models 作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。  只能说，不如叫metamath-v   The FineW">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-24-06-28/math-llava.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-06-24-06-28/fineweb.png">
@@ -313,16 +313,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Math-LLaVA-Bootstrapping-Mathematical-Reasoning-for-Multimodal-Large-Language-Models"><a href="#Math-LLaVA-Bootstrapping-Mathematical-Reasoning-for-Multimodal-Large-Language-Models" class="headerlink" title="Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.17294">Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models</a></h2><p>作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。</p>
+        <h2 id="Math-LLaVA-Bootstrapping-Mathematical-Reasoning-for-Multimodal-Large-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.17294">Math-LLaVA: Bootstrapping Mathematical Reasoning for Multimodal Large Language Models</a></h2>
+<p>作者找了一堆dense text场景的源数据，找GPT-4v标了360k的q-a pair，在上面训了一个llava，然后发现在VLM math和MMMU上涨分巨多。</p>
 <blockquote>
 <p>只能说，不如叫metamath-v</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/math-llava.png"></p>
-<h2 id="The-FineWeb-Datasets-Decanting-the-Web-for-the-Finest-Text-Data-at-Scale"><a href="#The-FineWeb-Datasets-Decanting-the-Web-for-the-Finest-Text-Data-at-Scale" class="headerlink" title="The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.17557">The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale</a></h2><p>前两天挂的博客，今天终于挂论文了，huggingface在commoncrawl上清洗了15T token的数据，对于各种筛子做了消融实验，发现了相对较好的数据清洗方法。另外，还附赠了1.2T token的质量更高的fineweb-edu数据。</p>
+<img src="../../files/images/arxiv-insights/2024-06-24-06-28/math-llava.png">
+<h2 id="The-FineWeb-Datasets-Decanting-the-Web-for-the-Finest-Text-Data-at-Scale"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2406.17557">The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale</a></h2>
+<p>前两天挂的博客，今天终于挂论文了，huggingface在commoncrawl上清洗了15T token的数据，对于各种筛子做了消融实验，发现了相对较好的数据清洗方法。另外，还附赠了1.2T token的质量更高的fineweb-edu数据。</p>
 <blockquote>
 <p>再讲讲数据重写，就把llama3破解完了</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-06-24-06-28/fineweb.png"></p>
+<img src="../../files/images/arxiv-insights/2024-06-24-06-28/fineweb.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -339,13 +341,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
     </li>
   </ul>
 
@@ -437,7 +439,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,6 +482,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -489,18 +495,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -517,6 +511,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -572,12 +574,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

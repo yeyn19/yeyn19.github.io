@@ -299,7 +299,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>4k</span>
+              <span>4.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -320,23 +320,26 @@
 
       
         <p>今天聊聊OpenAI 5月份发的一篇老论文：过程监督。这个说法是针对RLHF等技术的结果评价来讲的。他们使用过程监督的GPT4，在数学数据集上极大程度地战胜了结果监督的GPT4</p>
-<p><img src="../../files/images/verify/result.png" style="zoom:33%;"></p>
+<img src="../../files/images/verify/result.png" style="zoom:33%;">
 <span id="more"></span>
 <p>作者团队来自openAI。其实openAI今年也没发几篇论文，我基本上都看了。今天正好分享一下这篇吧，以后有机会把别的也讲讲。</p>
-<p><img src="../../files/images/verify/authors.png"></p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>这篇论文里讲到了相对的两个概念：过程监督和结果监督。</p>
+<img src="../../files/images/verify/authors.png">
+<h2 id="Introduction">Introduction</h2>
+<p>这篇论文里讲到了相对的两个概念：过程监督和结果监督。</p>
 <p>对于一个经典的对齐场景(和人对齐)来说。正常的RLHF其实是需要人类先标注样本组谁比谁更好，由此训练一个reward model，这个打分的对象是针对样本而言，换句话说就是只有生成完全结束以后，才能打出一个分数。作者认为这种打分就是结果打分。</p>
 <p>相对的，是不是还可以进行过程监督呢？比如给每句话都打一个分数，是不是就比结果判断要更准确呢？</p>
-<p>听起来挺合理，但是对齐场景这个不太好实现，毕竟我们也不知道到哪里可以算是一个”step”</p>
+<p>听起来挺合理，但是对齐场景这个不太好实现，毕竟我们也不知道到哪里可以算是一个&quot;step&quot;</p>
 <p>作者另辟蹊径，找了一个好判断的场景：数学题。作者把解决一个问题需要多步推导的每一个步骤视为一个step，由此进行了一波人工标注。</p>
-<p><img src="../../files/images/verify/step.png"></p>
+<img src="../../files/images/verify/step.png">
 <p>总体而言，</p>
 <ul>
 <li>由过程监督的数据训练出来的打分模型和由结果监督的数据训练出来的打分模型，在learning-from-best-of-N实验中差异巨大，过程监督效果更好</li>
 <li>持续的打分、对抗、打分过程可以加速收敛</li>
 <li>作者开源了带有过程标注打分的数据集</li>
 </ul>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h3 id="说明与预处理"><a href="#说明与预处理" class="headerlink" title="说明与预处理"></a>说明与预处理</h3><p>作者把两种模型分别称为ORM(outcome)、PRM(process)。</p>
+<h2 id="方法">方法</h2>
+<h3 id="说明与预处理">说明与预处理</h3>
+<p>作者把两种模型分别称为ORM(outcome)、PRM(process)。</p>
 <p>所有的训练使用不同大小的原始GPT4模型进行(而不是RLHF版本的GPT4)。</p>
 <blockquote>
 <p>large model就是完全体GPT4。而小号模型是一个用了1/200训练资源的小号GPT4</p>
@@ -346,12 +349,13 @@
 <p>其实有了这个模型，是可以由此进行一个多步的RL训练的。参考之前的trlx库的实现</p>
 </blockquote>
 <p>在所有的实验开始之前，作者先对所有模型在一个叫做mathMix的充满数学题和解答的数据集(1.5B)进行了一波finetune</p>
-<p><img src="../../files/images/verify/mathMix.png"></p>
+<img src="../../files/images/verify/mathMix.png">
 <p>👆🏻数据组成是这样的。不幸的是这个数据集没开源，只能参考一下。</p>
 <p>接下来，作者从Math数据集选了个测试集，和上面的finetune数据集去重了一下，保证没有交集。</p>
 <p>对于generator，作者为了保证模型生成的答案是一行一行的。作者找了Math数据集的训练集，让里面的解答都是一行一行的形式，在上面微调了一下。这样generator的输出就永远是一行一行的了。</p>
 <p>最终正式开始实验</p>
-<h3 id="PRM800K数据集"><a href="#PRM800K数据集" class="headerlink" title="PRM800K数据集"></a>PRM800K数据集</h3><p>这一个环节，作者要制作训练数据集。假设已经有了一个generator。</p>
+<h3 id="PRM800K数据集">PRM800K数据集</h3>
+<p>这一个环节，作者要制作训练数据集。假设已经有了一个generator。</p>
 <p>首先让generator对问题生成一些多步的解答，然后作者要人工标注员来标注中间打分。对于每一个中间过程分为三类：</p>
 <ul>
 <li>positive：对的过程，对解答有帮助</li>
@@ -367,7 +371,8 @@
 <blockquote>
 <p>折磨标注员……</p>
 </blockquote>
-<h3 id="PRM-and-ORM"><a href="#PRM-and-ORM" class="headerlink" title="PRM and ORM"></a>PRM and ORM</h3><p>接下来作者讲解PRM和ORM都是怎么训练的</p>
+<h3 id="PRM-and-ORM">PRM and ORM</h3>
+<p>接下来作者讲解PRM和ORM都是怎么训练的</p>
 <ul>
 <li>ORM和RLHF的reward model训法很像：</li>
 </ul>
@@ -379,13 +384,15 @@
 <li>PRM训练方式有所不同：作者只关注第一次出现错误的step位置，后面的step只能都丢掉，因为第一次错误以后后面的步骤就没法判断了。因此数据全是一些step，前面全是positive、netrual，最后一个negative</li>
 </ul>
 <p>同样的模型结构，但是每行文本作者只计算最后一个token的分类概率算loss。</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h3 id="大模型实验"><a href="#大模型实验" class="headerlink" title="大模型实验"></a>大模型实验</h3><p>作者先做了一个大模型的实验，即两个完全体GPT4分别作为generator和监督模型，所有的方法都是对抗攻击的形式。有以下几个变体</p>
+<h2 id="实验">实验</h2>
+<h3 id="大模型实验">大模型实验</h3>
+<p>作者先做了一个大模型的实验，即两个完全体GPT4分别作为generator和监督模型，所有的方法都是对抗攻击的形式。有以下几个变体</p>
 <ul>
 <li>ORM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li>
 <li>PRM：一道题生成多个解答，调出所有解答里得分最高的作为答案</li>
 </ul>
 <blockquote>
-<p>PRM怎么给一道题的得分呢？作者说到对于每个step，都能做三分类。如果negative概率&gt;20%就算这个step错，否则就算对。第一次输出”错”时结束。因此评价两个解答可以用 “对”标签的总数量</p>
+<p>PRM怎么给一道题的得分呢？作者说到对于每个step，都能做三分类。如果negative概率&gt;20%就算这个step错，否则就算对。第一次输出&quot;错&quot;时结束。因此评价两个解答可以用 &quot;对&quot;标签的总数量</p>
 </blockquote>
 <ul>
 <li>majority voting：生成多个解答，选择数量最多的相同答案作为答案</li>
@@ -399,25 +406,27 @@
 <p>一道题用GPT4采样1860次，只能说：this is openAI</p>
 </blockquote>
 <p>以上实验都是展现OpenAI雄厚财力和资本，后面是openAI研究员敏锐思路的展现。</p>
-<h3 id="小规模对比实验"><a href="#小规模对比实验" class="headerlink" title="小规模对比实验"></a>小规模对比实验</h3><p>作者谈到，上面的实验对ORM并不公平，因为：</p>
+<h3 id="小规模对比实验">小规模对比实验</h3>
+<p>作者谈到，上面的实验对ORM并不公平，因为：</p>
 <ul>
 <li>构造训练数据时是针对PRM做了对抗的制作，因此数据集肯定对训练PRM有利，并且没做出正确答案的题目的数量更多，对ORM来说标签不平衡</li>
 <li>训练ORM时判断标签用的是自动化检查，检测答案对不对，因此有假阳。对ORM训练不利</li>
 </ul>
 <p>怎么做出公平的实验呢？作者说：用大模型监督小模型。作者把上一节训出来的完全体GPT4-PRM称为PRM-large,由此做消融实验</p>
-<h4 id="PRM-vs-ORM"><a href="#PRM-vs-ORM" class="headerlink" title="PRM vs ORM"></a>PRM vs ORM</h4><p>作者现在用小模型做generator，生成一堆答案，用PRM-large给出三种标签：</p>
+<h4 id="PRM-vs-ORM">PRM vs ORM</h4>
+<p>作者现在用小模型做generator，生成一堆答案，用PRM-large给出三种标签：</p>
 <ul>
 <li>PRM-large给出的过程标签：和大模型实验方法相同</li>
 <li>PRM-large给出的结果标签</li>
 </ul>
 <blockquote>
-<p>PRM-large怎么给结果标签？作者说方法是：当且仅当所有step都打出”对”标签</p>
+<p>PRM-large怎么给结果标签？作者说方法是：当且仅当所有step都打出&quot;对&quot;标签</p>
 </blockquote>
 <ul>
 <li>自动化answer检查给出的结果标签</li>
 </ul>
 <p>拿到这些标签，就当是人标的，训练一个小号的PRM-small、ORM-small，然后用小号的generator-small做best-of-n实验对抗rm-small</p>
-<p><img src="../../files/images/verify/ablation.png"></p>
+<img src="../../files/images/verify/ablation.png">
 <p>由此，作者跑出来两个图：</p>
 <ul>
 <li>左边的图横轴是训练PRM-large用的一道题用generator采样的样本数，纵坐标是正确率。</li>
@@ -432,23 +441,28 @@
 <blockquote>
 <p>不过这里也可以看到，用小generator以后，这效果直接腰斩了。比如N=10时，大号是68%，小号是22%，可以说是天壤之别。插一句：难道这也是emergent ability?</p>
 </blockquote>
-<h4 id="Active-Learning"><a href="#Active-Learning" class="headerlink" title="Active Learning"></a>Active Learning</h4><p>这一部分作者去消融上面提到的选数据的问题。首先训一个小PRM，每道题一条数据。然后给generator生成的每道题1000条数据打分，选出来一些数据：</p>
+<h4 id="Active-Learning">Active Learning</h4>
+<p>这一部分作者去消融上面提到的选数据的问题。首先训一个小PRM，每道题一条数据。然后给generator生成的每道题1000条数据打分，选出来一些数据：</p>
 <ul>
 <li>80%是convincing wrong-answer</li>
 <li>20%是剩下的最convincing的答案</li>
 </ul>
 <p>挑出来这些数据的子集，再训练新的RM-small，由此做出来的上面的图左(横轴是挑选的训练数据规模)</p>
 <ul>
-<li><p>这个场景叫做active learning: 因为所有数据都是小reward model认为 convincing的，并且80%都是错的。和真正标注PRM800K时的比例一致。</p>
+<li>
+<p>这个场景叫做active learning: 因为所有数据都是小reward model认为 convincing的，并且80%都是错的。和真正标注PRM800K时的比例一致。</p>
 </li>
-<li><p>没有用这个挑选trick，而是随机挑选同样大小的数据集，就是阴性对照。</p>
+<li>
+<p>没有用这个挑选trick，而是随机挑选同样大小的数据集，就是阴性对照。</p>
 </li>
 </ul>
 <p>对比图做的两条线，作者说：active learning方法有2.6倍的数据效率，即仅用1/2.6的训练数据就能得到传统收集方法的效果</p>
-<h2 id="OOD"><a href="#OOD" class="headerlink" title="OOD"></a>OOD</h2><p>数据外分布测试：作者尝试了Math以外的数据集(和PRM、ORM的训练数据不一致)</p>
-<p><img src="../../files/images/verify/OOD.png"></p>
+<h2 id="OOD">OOD</h2>
+<p>数据外分布测试：作者尝试了Math以外的数据集(和PRM、ORM的训练数据不一致)</p>
+<img src="../../files/images/verify/OOD.png">
 <p>可以发现数据规律和前面的实验一致</p>
-<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>这一部分作者谈了一些思考</p>
+<h2 id="Discussion">Discussion</h2>
+<p>这一部分作者谈了一些思考</p>
 <blockquote>
 <p>Credit Assignment：这个概念是强化学习、多智能体博弈里的。是说如果一个智能体发现别的智能体都干得很好，自己做了就是多做多错，那最后干脆就学着不干活了。</p>
 </blockquote>
@@ -456,8 +470,9 @@
 <p>相比之下，ORM只能看到对或者错，如果数据里错的&gt;对的，那最后就学着不干活了。换句话说，这种情况下，ORM的错误标签基本没有有效、的可以学习的信息</p>
 <p>另一方面，RPM能指导对齐领域的发展。嗯，我感觉still a long way to go……</p>
 <p>最后，作者还谈到测试集、预训练集重合的问题。作者说没法完全保证不重合，只能说做了去重。嗯，好像也没啥别的办法了</p>
-<h2 id="我的思考"><a href="#我的思考" class="headerlink" title="我的思考"></a>我的思考</h2><ul>
-<li>很好的工作，方法好、思路好、结果好，我们都相信过程监督&gt;结果监督，但他们第一个标完数据做了一篇工作出来。而且，discussion部分谈到的”惰性”、”有效信息”的观点我很喜欢，感觉科研思路又被拓展了一个方向</li>
+<h2 id="我的思考">我的思考</h2>
+<ul>
+<li>很好的工作，方法好、思路好、结果好，我们都相信过程监督&gt;结果监督，但他们第一个标完数据做了一篇工作出来。而且，discussion部分谈到的&quot;惰性&quot;、&quot;有效信息&quot;的观点我很喜欢，感觉科研思路又被拓展了一个方向</li>
 <li>类比人学习的方法论：我们有接受到过程监督吗？其实玩LOL，老输老赢就是结果监督。如果你下去自己复盘、或者找同学复盘，就是过程监督，看起来我们早就在这样做了</li>
 </ul>
 <blockquote>
@@ -592,7 +607,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -635,6 +650,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -644,18 +663,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -672,6 +679,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -727,12 +742,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

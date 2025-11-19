@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Universal Actions for Enhanced Embodied Foundation Models作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。  VideoWorld: Exploring Knowledge Learning from Unlabel">
+  <meta name="description" content="Universal Actions for Enhanced Embodied Foundation Models 作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。  VideoWorld: Exploring Knowledge Learning from Unlabe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-01-20-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/9e419bb">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="Universal Actions for Enhanced Embodied Foundation Models作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。  VideoWorld: Exploring Knowledge Learning from Unlabel">
+<meta property="og:description" content="Universal Actions for Enhanced Embodied Foundation Models 作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。  VideoWorld: Exploring Knowledge Learning from Unlabe">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-01-20-01-24/uni-space.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-01-20-01-24/videoworld.png">
@@ -314,15 +314,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Universal-Actions-for-Enhanced-Embodied-Foundation-Models"><a href="#Universal-Actions-for-Enhanced-Embodied-Foundation-Models" class="headerlink" title="Universal Actions for Enhanced Embodied Foundation Models"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.10105">Universal Actions for Enhanced Embodied Foundation Models</a></h2><p>作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。</p>
-<p><img src="../../files/images/arxiv-insights/2025-01-20-01-24/uni-space.png" style="zoom:33%;"></p>
-<h2 id="VideoWorld-Exploring-Knowledge-Learning-from-Unlabeled-Videos"><a href="#VideoWorld-Exploring-Knowledge-Learning-from-Unlabeled-Videos" class="headerlink" title="VideoWorld: Exploring Knowledge Learning from Unlabeled Videos"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.09781">VideoWorld: Exploring Knowledge Learning from Unlabeled Videos</a></h2><p>seed的工作。作者思考了一个简单的问题：用视频生成的方式，可以让模型学会推理吗？举个例子，比如下棋，所有的棋谱都能用视频的方式组织成一步步下棋的格式。那么，如果把各种推理数据都这么直接训进视频模型，他会下棋吗？作者这么搞了一波，对比的baseline是正常的action-based rl，发现效果竟然挺好。</p>
+        <h2 id="Universal-Actions-for-Enhanced-Embodied-Foundation-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.10105">Universal Actions for Enhanced Embodied Foundation Models</a></h2>
+<p>作者发现，在embodied领域，不同的机器人的动作空间千差万别。如果把所有机器人的动作空间尽可能对齐的话，他们的推理能力会不会在一个模型里泛化呢？作者做了实验，发现确实可以。</p>
+<img src="../../files/images/arxiv-insights/2025-01-20-01-24/uni-space.png" style="zoom:33%;">
+<h2 id="VideoWorld-Exploring-Knowledge-Learning-from-Unlabeled-Videos"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.09781">VideoWorld: Exploring Knowledge Learning from Unlabeled Videos</a></h2>
+<p>seed的工作。作者思考了一个简单的问题：用视频生成的方式，可以让模型学会推理吗？举个例子，比如下棋，所有的棋谱都能用视频的方式组织成一步步下棋的格式。那么，如果把各种推理数据都这么直接训进视频模型，他会下棋吗？作者这么搞了一波，对比的baseline是正常的action-based rl，发现效果竟然挺好。</p>
 <blockquote>
 <p>这个感觉潜力很大呀</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-01-20-01-24/videoworld.png" style="zoom:33%;"></p>
-<h2 id="Evolving-Deeper-LLM-Thinking"><a href="#Evolving-Deeper-LLM-Thinking" class="headerlink" title="Evolving Deeper LLM Thinking"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.09891"><strong>Evolving Deeper LLM Thinking</strong></a></h2><p>deepmind的工作。作者提出了一套LLM自动合成long cot的方案，可以把一堆candidate进行refine、combine，最终让目前的最优解变得越来越长。作者发现用Gemini-1.5，最终效果非常好。</p>
-<p><img src="../../files/images/arxiv-insights/2025-01-20-01-24/evolve.png"></p>
+<img src="../../files/images/arxiv-insights/2025-01-20-01-24/videoworld.png" style="zoom:33%;">
+<h2 id="Evolving-Deeper-LLM-Thinking"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2501.09891"><strong>Evolving Deeper LLM Thinking</strong></a></h2>
+<p>deepmind的工作。作者提出了一套LLM自动合成long cot的方案，可以把一堆candidate进行refine、combine，最终让目前的最优解变得越来越长。作者发现用Gemini-1.5，最终效果非常好。</p>
+<img src="../../files/images/arxiv-insights/2025-01-20-01-24/evolve.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -339,13 +342,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
     </li>
   </ul>
 
@@ -437,7 +440,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -480,6 +483,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -489,18 +496,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -517,6 +512,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -572,12 +575,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

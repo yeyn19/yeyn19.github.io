@@ -24,12 +24,12 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果  Visual Perception in Text Strings阴间大队的又一力作，作者">
+  <meta name="description" content="LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks 一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果  Visual Perception in Text Strings 阴间大队的又一力作，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2024-10-03-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/544eb21b">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果  Visual Perception in Text Strings阴间大队的又一力作，作者">
+<meta property="og:description" content="LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks 一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果  Visual Perception in Text Strings 阴间大队的又一力作，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/text-rich.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2024-09-30-10-04/ascii.png">
@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>758</span>
+              <span>768</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,9 +314,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="LEOPARD-A-Vision-Language-Model-for-Text-Rich-Multi-Image-Tasks"><a href="#LEOPARD-A-Vision-Language-Model-for-Text-Rich-Multi-Image-Tasks" class="headerlink" title="LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01744">LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks</a></h2><p>一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果</p>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/text-rich.png"></p>
-<h2 id="Visual-Perception-in-Text-Strings"><a href="#Visual-Perception-in-Text-Strings" class="headerlink" title="Visual Perception in Text Strings"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01733"><strong>Visual Perception in Text Strings</strong></a></h2><p>阴间大队的又一力作，作者发现，ascii字符渲染出来的图片天然有文字、图片两种表示，而且其转换是无损的。所以，VLM在这种ascii art场景表现如何呢？作者发现：</p>
+        <h2 id="LEOPARD-A-Vision-Language-Model-for-Text-Rich-Multi-Image-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01744">LEOPARD : A Vision Language Model for Text-Rich Multi-Image Tasks</a></h2>
+<p>一个专门瞄准text-rich场景的VLM，作者构建了1M的高质量SFT数据，然后设计了一套自动根据图片质量申请visual token数量的pipeline，取得了不错的效果</p>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/text-rich.png">
+<h2 id="Visual-Perception-in-Text-Strings"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01733"><strong>Visual Perception in Text Strings</strong></a></h2>
+<p>阴间大队的又一力作，作者发现，ascii字符渲染出来的图片天然有文字、图片两种表示，而且其转换是无损的。所以，VLM在这种ascii art场景表现如何呢？作者发现：</p>
 <ul>
 <li>4o表现傲视群雄</li>
 <li>在同时给出两种模态输入以后，没有模型能有提升，大家还是只会使用图片模态。经过SFT，提升也不明显</li>
@@ -324,13 +326,14 @@
 <blockquote>
 <p>我感觉作者这个故事这么讲有点小，可以讲一个“探索MLLM对于模态fusion的能力，由此需要去找一个各模态无损压缩的场景……”</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/ascii.png"></p>
-<h2 id="When-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-An-analysis-of-OpenAI-o1"><a href="#When-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-An-analysis-of-OpenAI-o1" class="headerlink" title="When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01792">When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1</a></h2><p>shunyu yao参与的工作，这篇工作其实有个前文叫”Embers of Autoregression”，大致探索了LLM在各种任务上是不是在罕见词场景下做的更差，然后发现所有模型都在罕见词场景下都非常的差。作者这次试了试o1，看看会不会缓解这个问题：</p>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/ascii.png">
+<h2 id="When-a-language-model-is-optimized-for-reasoning-does-it-still-show-embers-of-autoregression-An-analysis-of-OpenAI-o1"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2410.01792">When a language model is optimized for reasoning, does it still show embers of autoregression? An analysis of OpenAI o1</a></h2>
+<p>shunyu yao参与的工作，这篇工作其实有个前文叫&quot;Embers of Autoregression&quot;，大致探索了LLM在各种任务上是不是在罕见词场景下做的更差，然后发现所有模型都在罕见词场景下都非常的差。作者这次试了试o1，看看会不会缓解这个问题：</p>
 <ol>
 <li>发现o1已经好了很多，不过仍然受到了这个影响。换句话说，通过inference scaling，可能仍然难以解决预训练分布带来的bias</li>
 <li>o1表现出来一些有趣的性质，在常见词上thinking token很少，罕见词问题thinking token会更多。也许thinking token的数量变化，能发现模型大致衡量到了问题的难度</li>
 </ol>
-<p><img src="../../files/images/arxiv-insights/2024-09-30-10-04/eoa.png"></p>
+<img src="../../files/images/arxiv-insights/2024-09-30-10-04/eoa.png">
 <!-- flag of hidden posts -->
     </div>
 
@@ -347,13 +350,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
     </li>
   </ul>
 
@@ -445,7 +448,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -488,6 +491,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -497,18 +504,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -525,6 +520,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -580,12 +583,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

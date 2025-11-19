@@ -24,18 +24,18 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="11.11有618篇新论文 SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads?一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0&#x2F;1的结果正确性，而是可以判断模型写的优化到底">
+  <meta name="description" content="11.11有618篇新论文 SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads? 一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0&#x2F;1的结果正确性，而是可以判断模型写的优化到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2025-11-11-insights">
 <meta property="og:url" content="https://www.yynnyy.cn/e2cbf5f2">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="11.11有618篇新论文 SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads?一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0&#x2F;1的结果正确性，而是可以判断模型写的优化到底">
+<meta property="og:description" content="11.11有618篇新论文 SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads? 一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0&#x2F;1的结果正确性，而是可以判断模型写的优化到">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-10-11-14/speedup.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-10-11-14/seq_route.png">
 <meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-10-11-14/ground_cua.png">
 <meta property="article:published_time" content="2025-11-12T07:13:28.000Z">
-<meta property="article:modified_time" content="2025-11-15T05:55:44.100Z">
+<meta property="article:modified_time" content="2025-11-19T09:53:59.459Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -54,7 +54,7 @@
   };
 </script>
 
-  <title>2025-11-11-insights | 随缘随笔 <br> Insights Flow</title>
+  <title>2025-11-11-insights | 随缘随笔 <br> Insights Flow</title><meta name="robots" content="noindex">
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -255,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-11-15 13:55:44" itemprop="dateModified" datetime="2025-11-15T13:55:44+08:00">2025-11-15</time>
+                <time title="修改时间：2025-11-19 17:53:59" itemprop="dateModified" datetime="2025-11-19T17:53:59+08:00">2025-11-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -315,16 +315,19 @@
 
       
         <p>11.11有618篇新论文</p>
-<h2 id="SWE-fficiency-Can-Language-Models-Optimize-Real-World-Repositories-on-Real-Workloads"><a href="#SWE-fficiency-Can-Language-Models-Optimize-Real-World-Repositories-on-Real-Workloads" class="headerlink" title="SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads?"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.06090"><strong>SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads?</strong></a></h2><p>一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0/1的结果正确性，而是可以判断模型写的优化到底带了多少的加速比</p>
-<p><img src="../../files/images/arxiv-insights/2025-11-10-11-14/speedup.png" style="zoom:33%;"></p>
-<h2 id="Route-Experts-by-Sequence-not-by-Token"><a href="#Route-Experts-by-Sequence-not-by-Token" class="headerlink" title="Route Experts by Sequence, not by Token"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.06494"><strong>Route Experts by Sequence, not by Token</strong></a></h2><p>传统MoE，每个token激活固定数量的专家，也就是说要求每个token的激活数量相等。作者把这个等价扩展到了seq-level：如果不要求每个token稳定激活k个，而是要求每个seq激活len*k个专家呢？在这个逻辑，如果一个token的专家权重都差不多，那这个token激活的专家数量就给多一些。</p>
+<h2 id="SWE-fficiency-Can-Language-Models-Optimize-Real-World-Repositories-on-Real-Workloads"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.06090"><strong>SWE-fficiency: Can Language Models Optimize Real-World Repositories on Real Workloads?</strong></a></h2>
+<p>一篇工程代码的benchmark工作，但是作者瞄准的是优化场景，而不是debug。作者收集了500个真实仓库里和速度优化相关的issue，这些问题不再是0/1的结果正确性，而是可以判断模型写的优化到底带了多少的加速比</p>
+<img src="../../files/images/arxiv-insights/2025-11-10-11-14/speedup.png" style="zoom:33%;">
+<h2 id="Route-Experts-by-Sequence-not-by-Token"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.06494"><strong>Route Experts by Sequence, not by Token</strong></a></h2>
+<p>传统MoE，每个token激活固定数量的专家，也就是说要求每个token的激活数量相等。作者把这个等价扩展到了seq-level：如果不要求每个token稳定激活k个，而是要求每个seq激活len*k个专家呢？在这个逻辑，如果一个token的专家权重都差不多，那这个token激活的专家数量就给多一些。</p>
 <blockquote>
 <p>我感觉这个方向有点像是之前的clip，其实通过更多的global batch token做估计，来区分“难/简单”，可能会演变成batch-level equal等，最后需要训练的btz进一步扩大</p>
 </blockquote>
-<p><img src="../../files/images/arxiv-insights/2025-11-10-11-14/seq_route.png" style="zoom:33%;"></p>
-<h2 id="Grounding-Computer-Use-Agents-on-Human-Demonstrations"><a href="#Grounding-Computer-Use-Agents-on-Human-Demonstrations" class="headerlink" title="Grounding Computer Use Agents on Human Demonstrations"></a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.07332"><strong>Grounding Computer Use Agents on Human Demonstrations</strong></a></h2><p>许久未见的grounding工作，作者标注了3.5M的grounding数据，尤其聚焦了desktop场景</p>
-<p><img src="../../files/images/arxiv-insights/2025-11-10-11-14/ground_cua.png"></p>
-
+<img src="../../files/images/arxiv-insights/2025-11-10-11-14/seq_route.png" style="zoom:33%;">
+<h2 id="Grounding-Computer-Use-Agents-on-Human-Demonstrations"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.07332"><strong>Grounding Computer Use Agents on Human Demonstrations</strong></a></h2>
+<p>许久未见的grounding工作，作者标注了3.5M的grounding数据，尤其聚焦了desktop场景</p>
+<img src="../../files/images/arxiv-insights/2025-11-10-11-14/ground_cua.png">
+<!-- flag of hidden posts -->
     </div>
 
     
@@ -340,13 +343,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
     </li>
   </ul>
 
@@ -361,16 +364,6 @@
 
 
         
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/d099ecc" rel="prev" title="2025-11-10-insights">
-      <i class="fa fa-chevron-left"></i> 2025-11-10-insights
-    </a></div>
-      <div class="post-nav-item">
-    <a href="/9fc4ef1" rel="next" title="2025-11-12-insights">
-      2025-11-12-insights <i class="fa fa-chevron-right"></i>
-    </a></div>
-    </div>
       </footer>
     
   </article>
@@ -448,7 +441,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,6 +484,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -500,18 +497,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -528,6 +513,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -583,12 +576,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>

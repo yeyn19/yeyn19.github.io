@@ -24,30 +24,36 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="高效率工作，低效率生活 work swiftly, live softly">
-<meta property="og:type" content="website">
-<meta property="og:title" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:url" content="https://www.yynnyy.cn/page/136/index.html">
+  <meta name="description" content="Virtual Width Networks 一篇模型结构的工作，作者讨论了一种叫做over-width的技巧。就是把word embedding的宽度搞得很大，然后在每个transformer block的入口投影成小维度，然后过一个比较窄的attention block，出来再投影到比较大，然后做残差链接。用这个方法，其实计算量增加不会很大的情况下，可以把模型参数量扩展到很大。 作者认为，模型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2025-11-17-insights">
+<meta property="og:url" content="https://www.yynnyy.cn/efd585b5">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="高效率工作，低效率生活 work swiftly, live softly">
+<meta property="og:description" content="Virtual Width Networks 一篇模型结构的工作，作者讨论了一种叫做over-width的技巧。就是把word embedding的宽度搞得很大，然后在每个transformer block的入口投影成小维度，然后过一个比较窄的attention block，出来再投影到比较大，然后做残差链接。用这个方法，其实计算量增加不会很大的情况下，可以把模型参数量扩展到很大。 作者认为，模型">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-17-11-21/vwn.png">
+<meta property="og:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-17-11-21/entropy-calibration.png">
+<meta property="article:published_time" content="2025-11-18T02:23:01.000Z">
+<meta property="article:modified_time" content="2025-11-19T09:54:10.115Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
+<meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.yynnyy.cn/files/images/arxiv-insights/2025-11-17-11-21/vwn.png">
 
-<link rel="canonical" href="https://www.yynnyy.cn/page/136/">
+<link rel="canonical" href="https://www.yynnyy.cn/efd585b5.html">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>随缘随笔 <br> Insights Flow</title>
+  <title>2025-11-17-insights | 随缘随笔 <br> Insights Flow</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9BVC2B53T"></script>
     <script data-pjax>
@@ -211,15 +217,14 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
 
-      
-            
+    
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN,en,default">
-    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/ede8f462">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.yynnyy.cn/efd585b5">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ava.JPG">
@@ -231,10 +236,9 @@
       <meta itemprop="name" content="随缘随笔 </br> Insights Flow">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/ede8f462" class="post-title-link" itemprop="url">四子棋大作业</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          2025-11-17-insights
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -243,14 +247,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2022-06-17 21:59:40" itemprop="dateCreated datePublished" datetime="2022-06-17T21:59:40+08:00">2022-06-17</time>
+              <time title="创建时间：2025-11-18 10:23:01" itemprop="dateCreated datePublished" datetime="2025-11-18T10:23:01+08:00">2025-11-18</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-09 17:26:46" itemprop="dateModified" datetime="2024-08-09T17:26:46+08:00">2024-08-09</time>
+                <time title="修改时间：2025-11-19 17:54:10" itemprop="dateModified" datetime="2025-11-19T17:54:10+08:00">2025-11-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,12 +262,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AF%BE%E7%A8%8B%E4%B8%8E%E4%BD%9C%E4%B8%9A/" itemprop="url" rel="index"><span itemprop="name">课程与作业</span></a>
+                  <a href="/categories/Arxiv-Insights/" itemprop="url" rel="index"><span itemprop="name">Arxiv-Insights</span></a>
                 </span>
             </span>
 
           
-            <span id="/ede8f462" class="post-meta-item leancloud_visitors" data-flag-title="四子棋大作业" title="阅读次数">
+            <span id="/efd585b5" class="post-meta-item leancloud_visitors" data-flag-title="2025-11-17-insights" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -278,8 +282,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/ede8f462#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/ede8f462" itemprop="commentCount"></span>
+    <a title="valine" href="/efd585b5#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/efd585b5" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -289,7 +293,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>41</span>
+              <span>590</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -309,43 +313,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>2021年《人工智能导论》课程屏风四子棋大作业，saiblo天梯第二</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/ede8f462">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h2 id="Virtual-Width-Networks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.11238">Virtual Width Networks</a></h2>
+<p>一篇模型结构的工作，作者讨论了一种叫做over-width的技巧。就是把word embedding的宽度搞得很大，然后在每个transformer block的入口投影成小维度，然后过一个比较窄的attention block，出来再投影到比较大，然后做残差链接。用这个方法，其实计算量增加不会很大的情况下，可以把模型参数量扩展到很大。</p>
+<p>作者认为，模型有能力使用这些多出来的宽度去存储一些更深度、高维的信息，由此在与训练中获得更好的效果</p>
+<img src="../../files/images/arxiv-insights/2025-11-17-11-21/vwn.png">
+<h2 id="On-the-Entropy-Calibration-of-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2511.11966">On the Entropy Calibration of Language Models</a></h2>
+<p>一篇比较理论的工作，作者分析了模型的gen entropy为什么总是会随着生成而上升，也就是说越生成越会混乱。正是因为有这个事实存在，所以应用中大家经常需要topk/topp采样，等于是强制破坏模型分布来解决entropy的问题。作者得出了两个结论：</p>
+<ol>
+<li>越生成越混乱，似乎是一种固有属性。随着模型参数量增大，改善及其不明显</li>
+<li>这种累积误差的积累程度，和场景关系很大。在code场景似乎不严重，但对于开放生成影响就非常明显</li>
+</ol>
+<p>最后，作者实验性地提出了一种（工程上无法实现因为太慢了）的算法，可以比topk/topp这种“破坏式”算法更好保留多样性，但又能解决累积误差的办法。未来，也许可以有所突破</p>
+<blockquote>
+<p>典型地percy liang式论文，逻辑严谨，自成一体</p>
+</blockquote>
+<img src="../../files/images/arxiv-insights/2025-11-17-11-21/entropy-calibration.png">
+
     </div>
 
     
     
     
       
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e1e3e0e0.html" rel="bookmark">本月更新(Recent Update)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/9fc4ef1.html" rel="bookmark">2025-11-12-insights</a></div>
+    </li>
+  </ul>
+
 
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/English/" rel="tag"><i class="fa fa-tag"></i> English</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/4e23eb6" rel="prev" title="2025-11-14-insights">
+      <i class="fa fa-chevron-left"></i> 2025-11-14-insights
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
 
-      
-
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/135/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/135/">135</a><span class="page-number current">136</span><a class="page-number" href="/page/137/">137</a><a class="extend next" rel="next" href="/page/137/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 
 
@@ -396,6 +434,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Virtual-Width-Networks"><span class="nav-number">1.</span> <span class="nav-text">Virtual Width Networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#On-the-Entropy-Calibration-of-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">On the Entropy Calibration of Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,7 +449,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">137</span>
+          <span class="site-state-item-count">135</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -453,6 +492,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/4e23eb6" title="2025-11-14-insights" target="_blank">2025-11-14-insights</a>
         </li>
       
@@ -462,18 +505,6 @@
       
         <li class="recent_posts_li">
           <a href="/9fc4ef1" title="2025-11-12-insights" target="_blank">2025-11-12-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e2cbf5f2" title="2025-11-11-insights" target="_blank">2025-11-11-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/d099ecc" title="2025-11-10-insights" target="_blank">2025-11-10-insights</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/2e5b5a75" title="2025-11-07-insights" target="_blank">2025-11-07-insights</a>
         </li>
       
         <li class="recent_posts_li">
@@ -490,6 +521,14 @@
       
         <li class="recent_posts_li">
           <a href="/fbc665c3" title="论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training" target="_blank">论文阅读[精读]-MM1: Methods, Analysis & Insights from Multimodal LLM Pre-training</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
+        </li>
+      
+        <li class="recent_posts_li">
+          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -519,11 +558,11 @@
     </label>
     <select class="lang-select" data-canonical>
       
-        <option value="zh-CN" data-href="/page/136/index.html" selected>
+        <option value="zh-CN" data-href="/efd585b5" selected>
           简体中文
         </option>
       
-        <option value="en" data-href="/en/page/136/index.html" selected>
+        <option value="en" data-href="/en/efd585b5" selected>
           English
         </option>
       
@@ -545,12 +584,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">295k</span>
+    <span title="站点总字数">309k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:28</span>
+    <span title="站点阅读时长">4:41</span>
 </div>
 
 <i class="fa fa-user-md"></i>
