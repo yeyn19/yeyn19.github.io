@@ -313,15 +313,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Rephrasing-the-Web-A-Recipe-for-Compute-and-Data-Efficient-Language-Modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.16380.pdf">Rephrasing the Web: A Recipe for Compute and Data-Efficient Language Modeling</a></h2>
+        <h2 id="rephrasing-the-web-a-recipe-for-compute-and-data-efficient-language-modeling"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.16380.pdf">Rephrasing the Web: A Recipe
+for Compute and Data-Efficient Language Modeling</a></h2>
 <p>CMU和google的研究，作者思考了一个简单的问题：现在的pretrain-corpus比如C4，虽然数据多但是数据质量太多，我如果用一个别的什么模型比如Llama把C4按照合理、流畅的格式整个重写一遍，会发生什么？</p>
-<p>作者把300Btoken重写了一遍，在350M和1.3B规模下尝试了pretrain。发现在原C4和synthetic data联合下训练和把pretrain提速大概3倍，然后在同等训练量下，在C4上的perplexity绝对值可以提升大概10%。换句话说，同样训练token数，350M模型能力比1.3B模型还要好。</p>
-<img src="../../files/images/arxiv-insights/2024-01-29-02-02/web.png">
-<h2 id="Unlearning-Reveals-the-Influential-Training-Data-of-Language-Models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.15241.pdf">Unlearning Reveals the Influential Training Data of Language Models</a></h2>
-<p>为了训练safety model，很有必要去检测哪些训练数据对模型的表现最关键。最简单的方法是：去掉某些数据，观察效果</p>
+<p>作者把300Btoken重写了一遍，在350M和1.3B规模下尝试了pretrain。发现在原C4和synthetic
+data联合下训练和把pretrain提速大概3倍，然后在同等训练量下，在C4上的perplexity绝对值可以提升大概10%。换句话说，同样训练token数，350M模型能力比1.3B模型还要好。</p>
+<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/web.png"></p>
+<h2 id="unlearning-reveals-the-influential-training-data-of-language-models"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2401.15241.pdf">Unlearning Reveals the
+Influential Training Data of Language Models</a></h2>
+<p>为了训练safety
+model，很有必要去检测哪些训练数据对模型的表现最关键。最简单的方法是：去掉某些数据，观察效果</p>
 <p>然而，这种方法需要训练很多次模型，太贵了。作者想到了一个reverse的方式，如果用一个训好的模型出发，选择一部分数据做梯度上升，再检测，是不是就可以了呢？</p>
 <p>作者发现这样反向检测的效果实际上很好，而且对算力的消耗非常小</p>
-<img src="../../files/images/arxiv-insights/2024-01-29-02-02/unlearn.png">
+<p><img src="../../files/images/arxiv-insights/2024-01-29-02-02/unlearn.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -338,13 +342,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1edede38.html" rel="bookmark">2025-11-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
     </li>
   </ul>
 
@@ -421,7 +425,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Rephrasing-the-Web-A-Recipe-for-Compute-and-Data-Efficient-Language-Modeling"><span class="nav-number">1.</span> <span class="nav-text">Rephrasing the Web: A Recipe for Compute and Data-Efficient Language Modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unlearning-Reveals-the-Influential-Training-Data-of-Language-Models"><span class="nav-number">2.</span> <span class="nav-text">Unlearning Reveals the Influential Training Data of Language Models</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rephrasing-the-web-a-recipe-for-compute-and-data-efficient-language-modeling"><span class="nav-number">1.</span> <span class="nav-text">Rephrasing the Web: A Recipe
+for Compute and Data-Efficient Language Modeling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unlearning-reveals-the-influential-training-data-of-language-models"><span class="nav-number">2.</span> <span class="nav-text">Unlearning Reveals the
+Influential Training Data of Language Models</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -436,7 +442,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -479,6 +485,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/1edede38" title="2025-11-18-insights" target="_blank">2025-11-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
         </li>
       
@@ -512,10 +522,6 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -571,12 +577,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>

@@ -294,7 +294,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>881</span>
+              <span>883</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -314,26 +314,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="Deep-sequence-models-tend-to-memorize-geometrically-it-is-unclear-why"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26745">Deep sequence models tend to memorize geometrically; it is unclear why.</a></h2>
-<p>这是一个偏理论的工作，但实验设计很有意思。作者想要区分：模型的记忆，是类似于查表的结构(k-&gt;v)，还是类似于embedding相似度匹配？作者设计了一个场景：给定一个复杂的树结构，要求模型给出两个点之间的唯一路径。输入里是类似于(a-b, f-g)这种连接关系。</p>
+        <h2 id="deep-sequence-models-tend-to-memorize-geometrically-it-is-unclear-why."><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26745">Deep sequence models tend to
+memorize geometrically; it is unclear why.</a></h2>
+<p>这是一个偏理论的工作，但实验设计很有意思。作者想要区分：模型的记忆，是类似于查表的结构(k-&gt;v)，还是类似于embedding相似度匹配？作者设计了一个场景：给定一个复杂的树结构，要求模型给出两个点之间的唯一路径。输入里是类似于(a-b,
+f-g)这种连接关系。</p>
 <ul>
-<li>如果是传统的in-context learning 模式，那没有办法做出来，靠memory的话，这就是一个$O(e^n)$的事情</li>
-<li>但作者把这个任务改成了training based。固定一个50000节点的图，让模型训练去预测一些节点的路径。此时，模型用几何模式和kv模式，对降低训练集loss其实是差不多的</li>
+<li>如果是传统的in-context learning
+模式，那没有办法做出来，靠memory的话，这就是一个<span class="math inline">\(O(e^n)\)</span>的事情</li>
+<li>但作者把这个任务改成了training
+based。固定一个50000节点的图，让模型训练去预测一些节点的路径。此时，模型用几何模式和kv模式，对降低训练集loss其实是差不多的</li>
 </ul>
 <p>此时，如果模型的记忆方式是“kv”，那在测试集上将没有任何泛化性。但是，作者发现模型竟然在测试集上仍然有几乎100%的成功率。说明图的几何结构以某种形式进入了参数里，模型可以以类似于人“瞄一眼”的模式推理。</p>
 <blockquote>
 <p>在没有外力的情况下，模型为什么会倾向于用几何模式呢？</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-10-27-10-31/memory.png" style="zoom:33%;">
-<h2 id="Defeating-the-Training-Inference-Mismatch-via-FP16"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26788">Defeating the Training-Inference Mismatch via FP16</a></h2>
-<p>这篇工作发现了一个惊天trick：大家一直在说的train/gen mismatch，可能很大程度上是bf16带来的。单纯把算法中的bf16变成fp16，就可以提升很多训练效果</p>
-<img src="../../files/images/arxiv-insights/2025-10-27-10-31/fp16.png" style="zoom:33%;">
-<h2 id="GUI-Knowledge-Bench-Revealing-the-Knowledge-Gap-Behind-VLM-Failures-in-GUI-Tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26098"><strong>GUI Knowledge Bench: Revealing the Knowledge Gap Behind VLM Failures in GUI Tasks</strong></a></h2>
-<p>一篇cua的qa benchmark工作。这几年cua一般都是出执行类的题目，但作者分析了online benchmark的failure mode以后，发现其中很大一部分是缺乏app操作知识。所以作者把这个问题单独地建模了出来，然后又掺杂了一些visualwebbench那种perception类的题目，以评测模型综合的gui知识水平</p>
+<p><img src="../../files/images/arxiv-insights/2025-10-27-10-31/memory.png" style="zoom:33%;"></p>
+<h2 id="defeating-the-training-inference-mismatch-via-fp16"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26788">Defeating the Training-Inference
+Mismatch via FP16</a></h2>
+<p>这篇工作发现了一个惊天trick：大家一直在说的train/gen
+mismatch，可能很大程度上是bf16带来的。单纯把算法中的bf16变成fp16，就可以提升很多训练效果</p>
+<p><img src="../../files/images/arxiv-insights/2025-10-27-10-31/fp16.png" style="zoom:33%;"></p>
+<h2 id="gui-knowledge-bench-revealing-the-knowledge-gap-behind-vlm-failures-in-gui-tasks"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://arxiv.org/pdf/2510.26098"><strong>GUI Knowledge Bench:
+Revealing the Knowledge Gap Behind VLM Failures in GUI
+Tasks</strong></a></h2>
+<p>一篇cua的qa
+benchmark工作。这几年cua一般都是出执行类的题目，但作者分析了online
+benchmark的failure
+mode以后，发现其中很大一部分是缺乏app操作知识。所以作者把这个问题单独地建模了出来，然后又掺杂了一些visualwebbench那种perception类的题目，以评测模型综合的gui知识水平</p>
 <blockquote>
 <p>上一次看到还不错的gui qa benchmark，是GUIWorld，已经快2年了</p>
 </blockquote>
-<img src="../../files/images/arxiv-insights/2025-10-27-10-31/gui-knowledge-bench.png">
+<p><img src="../../files/images/arxiv-insights/2025-10-27-10-31/gui-knowledge-bench.png"></p>
 <!-- flag of hidden posts -->
     </div>
 
@@ -350,13 +361,13 @@
       <div class="popular-posts-title"><a href="/f4243ee6.html" rel="bookmark">arxiv-insights</a></div>
     </li>
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/1edede38.html" rel="bookmark">2025-11-18-insights</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/efd585b5.html" rel="bookmark">2025-11-17-insights</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/4e23eb6.html" rel="bookmark">2025-11-14-insights</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/e63e25cf.html" rel="bookmark">2025-11-13-insights</a></div>
     </li>
   </ul>
 
@@ -433,7 +444,11 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-sequence-models-tend-to-memorize-geometrically-it-is-unclear-why"><span class="nav-number">1.</span> <span class="nav-text">Deep sequence models tend to memorize geometrically; it is unclear why.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defeating-the-Training-Inference-Mismatch-via-FP16"><span class="nav-number">2.</span> <span class="nav-text">Defeating the Training-Inference Mismatch via FP16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GUI-Knowledge-Bench-Revealing-the-Knowledge-Gap-Behind-VLM-Failures-in-GUI-Tasks"><span class="nav-number">3.</span> <span class="nav-text">GUI Knowledge Bench: Revealing the Knowledge Gap Behind VLM Failures in GUI Tasks</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#deep-sequence-models-tend-to-memorize-geometrically-it-is-unclear-why."><span class="nav-number">1.</span> <span class="nav-text">Deep sequence models tend to
+memorize geometrically; it is unclear why.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#defeating-the-training-inference-mismatch-via-fp16"><span class="nav-number">2.</span> <span class="nav-text">Defeating the Training-Inference
+Mismatch via FP16</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gui-knowledge-bench-revealing-the-knowledge-gap-behind-vlm-failures-in-gui-tasks"><span class="nav-number">3.</span> <span class="nav-text">GUI Knowledge Bench:
+Revealing the Knowledge Gap Behind VLM Failures in GUI
+Tasks</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -448,7 +463,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">135</span>
+          <span class="site-state-item-count">136</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -491,6 +506,10 @@
       
       
         <li class="recent_posts_li">
+          <a href="/1edede38" title="2025-11-18-insights" target="_blank">2025-11-18-insights</a>
+        </li>
+      
+        <li class="recent_posts_li">
           <a href="/efd585b5" title="2025-11-17-insights" target="_blank">2025-11-17-insights</a>
         </li>
       
@@ -524,10 +543,6 @@
       
         <li class="recent_posts_li">
           <a href="/61495969" title="从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和" synthetic data"是一个意思吗？" target="_blank">从DALL.E 3沿用到Sora的Recaption: GPT4也在用？和"Synthetic Data"是一个意思吗？</a>
-        </li>
-      
-        <li class="recent_posts_li">
-          <a href="/e9916de0" title="2024-02-29总结：研一下开始了" target="_blank">2024-02-29总结：研一下开始了</a>
         </li>
       
     </ul>
@@ -583,12 +598,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">309k</span>
+    <span title="站点总字数">310k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:42</span>
 </div>
 
 <i class="fa fa-user-md"></i>
