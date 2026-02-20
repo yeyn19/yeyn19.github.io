@@ -24,15 +24,15 @@
     var CONFIG = {"hostname":"www.yynnyy.cn","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="&#x2F;&#x2F; 基于准备好的dom，初始化echarts实例         var myChart &#x3D; echarts.init(document.getElementById(&#39;echarts4989&#39;));          &#x2F;&#x2F; 指定图表的配置项和数据         var option &#x3D;    option &#x3D; { title: {     text: &quot;&quot;">
+  <meta name="description" content="&#x2F;&#x2F; 基于准备好的dom，初始化echarts实例         var myChart &#x3D; echarts.init(document.getElementById(&#39;echarts5175&#39;));          &#x2F;&#x2F; 指定图表的配置项和数据         var option &#x3D;    option &#x3D; { title: {     text: &quot;&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="本月更新(Recent Update)">
 <meta property="og:url" content="https://www.yynnyy.cn/e1e3e0e0">
 <meta property="og:site_name" content="随缘随笔 &lt;&#x2F;br&gt; Insights Flow">
-<meta property="og:description" content="&#x2F;&#x2F; 基于准备好的dom，初始化echarts实例         var myChart &#x3D; echarts.init(document.getElementById(&#39;echarts4989&#39;));          &#x2F;&#x2F; 指定图表的配置项和数据         var option &#x3D;    option &#x3D; { title: {     text: &quot;&quot;">
+<meta property="og:description" content="&#x2F;&#x2F; 基于准备好的dom，初始化echarts实例         var myChart &#x3D; echarts.init(document.getElementById(&#39;echarts5175&#39;));          &#x2F;&#x2F; 指定图表的配置项和数据         var option &#x3D;    option &#x3D; { title: {     text: &quot;&quot;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-28T02:50:12.000Z">
-<meta property="article:modified_time" content="2026-02-20T08:35:11.853Z">
+<meta property="article:modified_time" content="2026-02-20T08:39:20.533Z">
 <meta property="article:author" content="叶奕宁 &lt;&#x2F;br&gt; Yining_Ye">
 <meta property="article:tag" content="English">
 <meta name="twitter:card" content="summary">
@@ -251,7 +251,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-20 16:35:11" itemprop="dateModified" datetime="2026-02-20T16:35:11+08:00">2026-02-20</time>
+                <time title="修改时间：2026-02-20 16:39:20" itemprop="dateModified" datetime="2026-02-20T16:39:20+08:00">2026-02-20</time>
               </span>
 
           
@@ -302,10 +302,10 @@
 
       
         <script src="https://github.com/TransformersWsz/TransformersWsz.github.io/releases/download/echarts/echarts.min.js"></script>
-<div id="echarts4989" style="width: 100%;height: 500px;margin: 0 auto"></div>
+<div id="echarts5175" style="width: 100%;height: 500px;margin: 0 auto"></div>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4989'));
+        var myChart = echarts.init(document.getElementById('echarts5175'));
 
         // 指定图表的配置项和数据
         var option =  
@@ -558,6 +558,32 @@ series: [
                 {
                     name: '1000 cite', // 这里是竖线的名字
                     xAxis: '2025-02-23' // 假设你想在 2023-12-15 这个日期上添加竖线
+                }
+            ]
+        }
+    },
+    
+    {
+        name: 'obj_8',
+        type: 'line',
+        lineStyle: {
+            color: 'black', // 竖线颜色设置为黑色
+        },
+        markLine: {
+            symbol: ['none', 'none'], // 不显示标记线两端的标记
+            label: {
+                show: true, // 显示标签
+                position: 'end', // 在线的末端显示标签
+                formatter: 'OpenClaw', // 自定义显示的文本
+                rotate: 30, // 旋转角度
+            },
+            lineStyle: {
+                color: 'black',
+            },
+            data: [
+                {
+                    name: 'OpenClaw', // 这里是竖线的名字
+                    xAxis: '2025-11-01' // 假设你想在 2023-12-15 这个日期上添加竖线
                 }
             ]
         }

@@ -250,7 +250,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2026-02-20 16:35:11" itemprop="dateModified" datetime="2026-02-20T16:35:11+08:00">2026-02-20</time>
+                <time title="修改时间：2026-02-20 16:39:20" itemprop="dateModified" datetime="2026-02-20T16:39:20+08:00">2026-02-20</time>
               </span>
 
           
@@ -301,10 +301,10 @@
 
       
           <script src="https://github.com/TransformersWsz/TransformersWsz.github.io/releases/download/echarts/echarts.min.js"></script>
-<div id="echarts4989" style="width: 100%;height: 500px;margin: 0 auto"></div>
+<div id="echarts5175" style="width: 100%;height: 500px;margin: 0 auto"></div>
 <script type="text/javascript">
         // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('echarts4989'));
+        var myChart = echarts.init(document.getElementById('echarts5175'));
 
         // 指定图表的配置项和数据
         var option =  
@@ -557,6 +557,32 @@ series: [
                 {
                     name: '1000 cite', // 这里是竖线的名字
                     xAxis: '2025-02-23' // 假设你想在 2023-12-15 这个日期上添加竖线
+                }
+            ]
+        }
+    },
+    
+    {
+        name: 'obj_8',
+        type: 'line',
+        lineStyle: {
+            color: 'black', // 竖线颜色设置为黑色
+        },
+        markLine: {
+            symbol: ['none', 'none'], // 不显示标记线两端的标记
+            label: {
+                show: true, // 显示标签
+                position: 'end', // 在线的末端显示标签
+                formatter: 'OpenClaw', // 自定义显示的文本
+                rotate: 30, // 旋转角度
+            },
+            lineStyle: {
+                color: 'black',
+            },
+            data: [
+                {
+                    name: 'OpenClaw', // 这里是竖线的名字
+                    xAxis: '2025-11-01' // 假设你想在 2023-12-15 这个日期上添加竖线
                 }
             ]
         }
